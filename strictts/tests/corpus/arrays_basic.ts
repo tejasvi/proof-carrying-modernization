@@ -1,0 +1,24 @@
+// Array basics: push/pop/shift/unshift/concat/reverse/includes/join/slice/splice/indexOf.
+const xs: string[] = ["a", "b"];
+xs.push("c");
+xs.unshift("z");
+console.log(xs.join(","));
+const last = xs.pop();
+const first = xs.shift();
+console.log(`${last ?? "?"} ${first ?? "?"} -> ${xs.join("")}`);
+const ys = xs.concat(["q", "r"]);
+console.log(`${ys.join("|")} includes q: ${ys.includes("q")} includes w: ${ys.includes("w")}`);
+ys.reverse();
+console.log(ys.join(""));
+console.log(ys.slice(1).join("") + " " + ys.slice(1, 3).join("") + " " + ys.slice(-2).join(""));
+const removed = ys.splice(1, 2, "X", "Y", "Z");
+console.log(`${removed.join("")} ${ys.join("")}`);
+console.log(`${ys.indexOf("Y") === 2} ${ys.indexOf("nope") === -1} ${ys.lastIndexOf("X") === 1}`);
+const empty: bigint[] = [];
+console.log(`pop of empty: ${empty.pop() === undefined}`);
+const filled = new Array<string>(3).fill("-");
+console.log(filled.join(""));
+const copy = [...xs, "!"];
+copy.push("?");
+console.log(`${xs.join("")} ${copy.join("")}`);
+console.log([[1n, 2n], [3n]].flat().map(String).join(" "));

@@ -1,0 +1,6 @@
+{"namespace": "Examples.GenL.Linked", "source": "Examples/cpp/link_a.cir Examples/cpp/link_b.cir", "types": "Examples.GenL.Linked.Types", "functions": [
+  {"sym": "run", "name": "", "lean": "Examples.GenL.Linked.fn_run", "module": "Examples.GenL.Linked.F.fn_run", "hash": "465213540735637132", "callees": ["link_a$_ZL6helperi", "twice"], "body": true, "model": false, "first_line": 6},
+  {"sym": "twice", "name": "", "lean": "Examples.GenL.Linked.fn_twice", "module": "Examples.GenL.Linked.F.fn_twice", "hash": "9752109041948817426", "callees": ["link_b$_ZL6helperi"], "body": true, "model": false, "first_line": 5},
+  {"sym": "link_a$_ZL6helperi", "name": "helper(int)", "lean": "Examples.GenL.Linked.fn_helper", "module": "Examples.GenL.Linked.F.fn_helper", "hash": "1367716829325321611", "callees": [], "body": true, "model": false, "first_line": 0},
+  {"sym": "link_b$_ZL6helperi", "name": "helper(int)", "lean": "Examples.GenL.Linked.fn_helper_2", "module": "Examples.GenL.Linked.F.fn_helper_2", "hash": "8221746085898574403", "callees": [], "body": true, "model": false, "first_line": 0}
+]}

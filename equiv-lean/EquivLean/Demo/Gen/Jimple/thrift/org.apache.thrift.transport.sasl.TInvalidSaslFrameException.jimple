@@ -1,0 +1,20 @@
+public class org.apache.thrift.transport.sasl.TInvalidSaslFrameException extends org.apache.thrift.transport.sasl.TSaslNegotiationException
+{
+
+    public 'void' <init>(java.lang.String)
+    {
+        org.apache.thrift.transport.sasl.TInvalidSaslFrameException this;
+        java.lang.String message;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.TInvalidSaslFrameException;
+
+        message := @parameter0: java.lang.String;
+
+        $r0 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType PROTOCOL_ERROR>;
+
+        specialinvoke this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: 'void' <init>(org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType,java.lang.String)>($r0, message);
+
+        return;
+    }
+}

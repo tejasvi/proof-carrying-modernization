@@ -1,0 +1,202 @@
+[
+ {
+  "suite": "another-project/functions/core strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-functions-core",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/functions/core",
+  "relPrefix": "another-project/functions/core"
+ },
+ {
+  "suite": "another-project/functions/core",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-functions-core",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/functions/core",
+  "relPrefix": "another-project/functions/core"
+ },
+ {
+  "suite": "another-project/functions/chat strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-functions-chat",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/functions/chat",
+  "relPrefix": "another-project/functions/chat"
+ },
+ {
+  "suite": "another-project/functions/chat",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-functions-chat",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/functions/chat",
+  "relPrefix": "another-project/functions/chat"
+ },
+ {
+  "suite": "another-project/functions/import strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-functions-import",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/functions/import",
+  "relPrefix": "another-project/functions/import"
+ },
+ {
+  "suite": "another-project/functions/import",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-functions-import",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/functions/import",
+  "relPrefix": "another-project/functions/import"
+ },
+ {
+  "suite": "another-project/functions/reach strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-functions-reach",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/functions/reach",
+  "relPrefix": "another-project/functions/reach"
+ },
+ {
+  "suite": "another-project/functions/reach",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-functions-reach",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/functions/reach",
+  "relPrefix": "another-project/functions/reach"
+ },
+ {
+  "suite": "another-project/functions/voice strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-functions-voice",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/functions/voice",
+  "relPrefix": "another-project/functions/voice"
+ },
+ {
+  "suite": "another-project/functions/voice",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-functions-voice",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/functions/voice",
+  "relPrefix": "another-project/functions/voice"
+ },
+ {
+  "suite": "another-project/functions/learn strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-functions-learn",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/functions/learn",
+  "relPrefix": "another-project/functions/learn"
+ },
+ {
+  "suite": "another-project/functions/learn",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-functions-learn",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/functions/learn",
+  "relPrefix": "another-project/functions/learn"
+ },
+ {
+  "suite": "another-project/web strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-web",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/web",
+  "relPrefix": "another-project/web"
+ },
+ {
+  "suite": "another-project/web",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-web",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/web",
+  "relPrefix": "another-project/web"
+ },
+ {
+  "suite": "another-project/telegram strict",
+  "project": "another project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "another-project-telegram",
+  "lean": "${LEAN}/strict",
+  "root": "${CM_ROOT}/telegram",
+  "relPrefix": "another-project/telegram"
+ },
+ {
+  "suite": "another-project/telegram",
+  "project": "another project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "another-project-telegram",
+  "lean": "${LEAN}",
+  "root": "${CM_ROOT}/telegram",
+  "relPrefix": "another-project/telegram"
+ },
+ {
+  "suite": "second-project/src strict",
+  "project": "a second project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "second-project-src",
+  "lean": "${LEAN}/strict",
+  "root": "${NP_ROOT}",
+  "relPrefix": "second-project/src"
+ },
+ {
+  "suite": "second-project/src",
+  "project": "a second project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "second-project-src",
+  "lean": "${LEAN}",
+  "root": "${NP_ROOT}",
+  "relPrefix": "second-project/src"
+ },
+ {
+  "suite": "second-project/functions strict",
+  "project": "a second project",
+  "kind": "strict",
+  "mode": "strict",
+  "module": "second-project-functions",
+  "lean": "${LEAN}/strict",
+  "root": "${NP_ROOT}/functions",
+  "relPrefix": "second-project/functions"
+ },
+ {
+  "suite": "second-project/functions",
+  "project": "a second project",
+  "kind": "dyn",
+  "mode": "dyn",
+  "module": "second-project-functions",
+  "lean": "${LEAN}",
+  "root": "${NP_ROOT}/functions",
+  "relPrefix": "second-project/functions"
+ }
+]

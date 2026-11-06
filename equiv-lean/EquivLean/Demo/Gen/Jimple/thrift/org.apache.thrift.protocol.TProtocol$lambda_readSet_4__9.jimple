@@ -1,0 +1,40 @@
+public final class org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9 extends java.lang.Object implements java.util.function.IntFunction
+{
+
+    public static java.util.function.IntFunction bootstrap$()
+    {
+        org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9 $r0;
+
+        $r0 = new org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9: 'void' <init>()>();
+
+        return $r0;
+    }
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9 $r0;
+
+        $r0 := @this: org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9;
+
+        specialinvoke $r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public java.lang.Object apply('int')
+    {
+        'int' $i0;
+        java.util.Set $r1;
+        org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9 $r0;
+
+        $r0 := @this: org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9;
+
+        $i0 := @parameter0: 'int';
+
+        $r1 = staticinvoke <org.apache.thrift.protocol.TProtocol: java.util.Set lambda$readSet$4('int')>($i0);
+
+        return $r1;
+    }
+}

@@ -1,0 +1,32 @@
+# mem* over std::vector / std::string storage (vecmem.cpp). Each case is labelled with its expected outcome on the
+# line above it: MATCH, or UB (before the change the t_* cases through memmove/memcmp were UB "byte-level access
+# not modelled").
+# expect MATCH: std::copy from a vector into a vector (memmove of the ints)
+vecmem t_copy 9
+vecmem t_copy -3
+# expect MATCH: std::copy within one vector, forward (memmove of overlapping ranges)
+vecmem t_copy_within 8
+# expect MATCH: std::copy_backward within one vector
+vecmem t_copy_backward 8
+# expect MATCH: std::copy of a vector of doubles
+vecmem t_copy_double 2
+# expect MATCH: == of vectors, equal and not equal (memcmp of the ints)
+vecmem t_eq 5
+# expect MATCH: std::equal over two vectors
+vecmem t_equal 4
+# expect MATCH: memcmp on data() (the bytes: 256 orders below 1) and of a range with itself
+vecmem t_memcmp 3
+# expect MATCH: memcpy into a vector's storage, memset of part of one
+vecmem t_memcpy_memset 6
+# expect MATCH: std::copy between strings (memmove of the chars)
+vecmem t_string_copy 2
+# expect MATCH: == and < of strings (memcmp of the chars)
+vecmem t_string_eq 1
+# expect UB: memcpy between overlapping parts of one vector
+vecmem u_memcpy_overlap 3
+# expect UB: memcpy reading past the live elements of a vector
+vecmem u_past_size 3
+# expect UB: memcpy of 2 bytes into an int element (byte level over container storage: not modelled)
+vecmem u_part_element 7
+# expect UB: an indeterminate element copied into a vector, then read
+vecmem u_indeterminate 4

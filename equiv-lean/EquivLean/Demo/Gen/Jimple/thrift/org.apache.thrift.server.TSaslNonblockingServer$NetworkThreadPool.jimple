@@ -1,0 +1,200 @@
+class org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool extends java.lang.Object
+{
+    private final java.util.List networkThreads;
+    private 'int' accepted;
+    final org.apache.thrift.server.TSaslNonblockingServer this$0;
+
+    'void' <init>(org.apache.thrift.server.TSaslNonblockingServer, 'int') throws java.io.IOException
+    {
+        java.lang.Object[] $r8;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool this;
+        java.lang.Integer $r9;
+        java.util.ArrayList $r1;
+        java.util.List $r6;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread $r7;
+        'int' size, i;
+        org.apache.thrift.server.TSaslNonblockingServer r0;
+        java.lang.StringBuilder $r2;
+        java.lang.String threadNamePattern, $r10;
+        'double' $d0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool;
+
+        r0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer;
+
+        size := @parameter1: 'int';
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: org.apache.thrift.server.TSaslNonblockingServer this$0> = r0;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: 'int' accepted> = 0;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>('int')>(size);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List networkThreads> = $r1;
+
+        $d0 = ('double') size;
+
+        $d0 = staticinvoke <java.lang.Math: 'double' log10('double')>($d0);
+
+        i = ('int') $d0;
+
+        i = i + 1;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("network-thread-%0");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(i);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("d");
+
+        threadNamePattern = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        i = 0;
+
+     label1:
+        if i >= size goto label2;
+
+        $r6 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List networkThreads>;
+
+        $r7 = new org.apache.thrift.server.TSaslNonblockingServer$NetworkThread;
+
+        $r8 = newarray (java.lang.Object)[1];
+
+        $r9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(i);
+
+        $r8[0] = $r9;
+
+        $r10 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(threadNamePattern, $r8);
+
+        specialinvoke $r7.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: 'void' <init>(org.apache.thrift.server.TSaslNonblockingServer,java.lang.String)>(r0, $r10);
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>($r7);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    'boolean' acceptNewConnection(org.apache.thrift.transport.TNonblockingTransport)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool this;
+        java.util.List $r0, $r1;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread $r3;
+        org.apache.thrift.transport.TNonblockingTransport connection;
+        'int' $i0, $i1;
+        java.lang.Object $r2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool;
+
+        connection := @parameter0: org.apache.thrift.transport.TNonblockingTransport;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List networkThreads>;
+
+        $i0 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: 'int' accepted>;
+
+        $i1 = $i0 + 1;
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: 'int' accepted> = $i1;
+
+        $r1 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List networkThreads>;
+
+        $i1 = interfaceinvoke $r1.<java.util.List: 'int' size()>();
+
+        $i0 = $i0 % $i1;
+
+        $r2 = interfaceinvoke $r0.<java.util.List: java.lang.Object get('int')>($i0);
+
+        $r3 = (org.apache.thrift.server.TSaslNonblockingServer$NetworkThread) $r2;
+
+        $z0 = virtualinvoke $r3.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: 'boolean' accept(org.apache.thrift.transport.TNonblockingTransport)>(connection);
+
+        return $z0;
+    }
+
+    public 'void' start()
+    {
+        java.util.List $r0;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread thread;
+        java.util.Iterator r1;
+        java.lang.Object $r2;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List networkThreads>;
+
+        r1 = interfaceinvoke $r0.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r2 = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        thread = (org.apache.thrift.server.TSaslNonblockingServer$NetworkThread) $r2;
+
+        virtualinvoke thread.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: 'void' start()>();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    'void' wakeupAll()
+    {
+        java.util.List $r0;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread networkThread;
+        java.util.Iterator r1;
+        java.lang.Object $r2;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List networkThreads>;
+
+        r1 = interfaceinvoke $r0.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r2 = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        networkThread = (org.apache.thrift.server.TSaslNonblockingServer$NetworkThread) $r2;
+
+        staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: 'void' access$1500(org.apache.thrift.server.TSaslNonblockingServer$NetworkThread)>(networkThread);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    static java.util.List access$600(org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool)
+    {
+        java.util.List $r0;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List networkThreads>;
+
+        return $r0;
+    }
+}

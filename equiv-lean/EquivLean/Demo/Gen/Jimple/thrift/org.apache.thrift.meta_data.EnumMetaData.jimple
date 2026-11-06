@@ -1,0 +1,23 @@
+public class org.apache.thrift.meta_data.EnumMetaData extends org.apache.thrift.meta_data.FieldValueMetaData
+{
+    public final java.lang.Class enumClass;
+
+    public 'void' <init>('byte', java.lang.Class)
+    {
+        java.lang.Class sClass;
+        org.apache.thrift.meta_data.EnumMetaData this;
+        'byte' type;
+
+        this := @this: org.apache.thrift.meta_data.EnumMetaData;
+
+        type := @parameter0: 'byte';
+
+        sClass := @parameter1: java.lang.Class;
+
+        specialinvoke this.<org.apache.thrift.meta_data.FieldValueMetaData: 'void' <init>('byte')>(type);
+
+        this.<org.apache.thrift.meta_data.EnumMetaData: java.lang.Class enumClass> = sClass;
+
+        return;
+    }
+}

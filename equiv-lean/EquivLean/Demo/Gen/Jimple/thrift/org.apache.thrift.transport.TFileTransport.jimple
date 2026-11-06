@@ -1,0 +1,1363 @@
+public class org.apache.thrift.transport.TFileTransport extends org.apache.thrift.transport.TTransport
+{
+    private static final org.slf4j.Logger LOGGER;
+    org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_;
+    protected org.apache.thrift.transport.TSeekableFile inputFile_;
+    protected java.io.OutputStream outputStream_;
+    org.apache.thrift.transport.TFileTransport$Event currentEvent_;
+    java.io.InputStream inputStream_;
+    org.apache.thrift.transport.TFileTransport$ChunkState cs;
+    private 'boolean' readOnly_;
+
+    public org.apache.thrift.transport.TFileTransport$TailPolicy getTailPolicy()
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TFileTransport$TailPolicy $r0;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_>;
+
+        return $r0;
+    }
+
+    public org.apache.thrift.transport.TFileTransport$TailPolicy setTailPolicy(org.apache.thrift.transport.TFileTransport$TailPolicy)
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TFileTransport$TailPolicy policy, old;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        policy := @parameter0: org.apache.thrift.transport.TFileTransport$TailPolicy;
+
+        old = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_>;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_> = policy;
+
+        return old;
+    }
+
+    private java.io.InputStream createInputStream() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TTransportException $r6;
+        org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream $r2;
+        java.io.IOException iox;
+        java.lang.String $r7;
+        org.apache.thrift.transport.TSeekableFile $r4;
+        java.io.InputStream is;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        is = this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_>;
+
+        if is == null goto label2;
+
+        is = this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_>;
+
+        $r2 = (org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream) is;
+
+     label1:
+        virtualinvoke $r2.<org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream: 'void' trunc()>();
+
+        is = this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_>;
+
+        goto label5;
+
+     label2:
+        $r2 = new org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream;
+
+        $r4 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_>;
+
+        is = interfaceinvoke $r4.<org.apache.thrift.transport.TSeekableFile: java.io.InputStream getInputStream()>();
+
+        specialinvoke $r2.<org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream: 'void' <init>(java.io.InputStream)>(is);
+
+     label3:
+        is = $r2;
+
+        goto label5;
+
+     label4:
+        iox := @caughtexception;
+
+        $r6 = new org.apache.thrift.transport.TTransportException;
+
+        $r7 = virtualinvoke iox.<java.io.IOException: java.lang.String getMessage()>();
+
+        specialinvoke $r6.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String,java.lang.Throwable)>($r7, iox);
+
+        throw $r6;
+
+     label5:
+        return is;
+
+        catch java.io.IOException from label1 to label3 with label4;
+    }
+
+    private 'int' tailRead(java.io.InputStream, 'byte'[], 'int', 'int', org.apache.thrift.transport.TFileTransport$TailPolicy) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransportException $r2;
+        'long' $l5;
+        'int' orig_len, cnt, off, len, retries#3, $i8;
+        java.lang.String $r6;
+        org.apache.thrift.transport.TFileTransport$TailPolicy tp;
+        java.io.IOException retries;
+        java.lang.InterruptedException $r1;
+        org.apache.thrift.transport.TFileTransport$ChunkState $r0;
+        java.lang.StringBuilder $r3;
+        java.io.InputStream is;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        is := @parameter0: java.io.InputStream;
+
+        buf := @parameter1: 'byte'[];
+
+        off := @parameter2: 'int';
+
+        len := @parameter3: 'int';
+
+        tp := @parameter4: org.apache.thrift.transport.TFileTransport$TailPolicy;
+
+        orig_len = len;
+
+        retries#3 = 0;
+
+     label01:
+        if len <= 0 goto label11;
+
+     label02:
+        cnt = virtualinvoke is.<java.io.InputStream: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        if cnt <= 0 goto label04;
+
+        off = off + cnt;
+
+        len = len - cnt;
+
+        retries#3 = 0;
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TFileTransport$ChunkState: 'void' skip('int')>(cnt);
+
+     label03:
+        goto label01;
+
+     label04:
+        $i8 = ('int') -1;
+
+        if cnt != $i8 goto label09;
+
+        retries#3 = retries#3 + 1;
+
+        cnt = tp.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'int' retries_>;
+
+        $i8 = ('int') -1;
+
+        if cnt == $i8 goto label05;
+
+        cnt = tp.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'int' retries_>;
+
+        if cnt >= retries#3 goto label05;
+
+        off = orig_len - len;
+
+        return off;
+
+     label05:
+        cnt = tp.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'int' timeout_>;
+
+        if cnt <= 0 goto label01;
+
+        cnt = tp.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'int' timeout_>;
+
+        $l5 = ('long') cnt;
+
+     label06:
+        staticinvoke <java.lang.Thread: 'void' sleep('long')>($l5);
+
+     label07:
+        goto label01;
+
+     label08:
+        $r1 := @caughtexception;
+
+        goto label01;
+
+     label09:
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unexpected return from InputStream.read = ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(cnt);
+
+        $r6 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>($r6);
+
+        throw $r2;
+
+     label10:
+        retries := @caughtexception;
+
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        $r6 = virtualinvoke retries.<java.io.IOException: java.lang.String getMessage()>();
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String,java.lang.Throwable)>($r6, retries);
+
+        throw $r2;
+
+     label11:
+        off = orig_len - len;
+
+        return off;
+
+        catch java.lang.InterruptedException from label06 to label07 with label08;
+        catch java.io.IOException from label02 to label03 with label10;
+        catch java.io.IOException from label06 to label10 with label10;
+    }
+
+    private 'boolean' performRecovery() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TFileTransport$ChunkState $r0;
+        'int' numChunks, curChunk;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        numChunks = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'int' getNumChunks()>();
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        curChunk = virtualinvoke $r0.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getChunkNum()>();
+
+        numChunks = numChunks - 1;
+
+        if curChunk < numChunks goto label1;
+
+        return 0;
+
+     label1:
+        curChunk = curChunk + 1;
+
+        virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'void' seekToChunk('int')>(curChunk);
+
+        return 1;
+    }
+
+    private 'boolean' readEvent() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'byte'[] ebytes, i_2;
+        org.apache.thrift.transport.TFileTransport$Event $r7;
+        org.apache.thrift.transport.TTransportException $r6;
+        'short' val;
+        'byte' $b0;
+        'int' nrequested, nread_1, $i1, i_1, esize#3, $i6;
+        org.apache.thrift.transport.TFileTransport$TailPolicy $r2;
+        org.apache.thrift.transport.TFileTransport$ChunkState $r0;
+        java.io.InputStream $r1;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        ebytes = newarray ('byte')[4];
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        nrequested = virtualinvoke $r0.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getRemaining()>();
+
+        if nrequested >= 4 goto label2;
+
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_>;
+
+        $r2 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_>;
+
+        i_1 = specialinvoke this.<org.apache.thrift.transport.TFileTransport: 'int' tailRead(java.io.InputStream,'byte'[],'int','int',org.apache.thrift.transport.TFileTransport$TailPolicy)>($r1, ebytes, 0, nrequested, $r2);
+
+        if i_1 == nrequested goto label2;
+
+        return 0;
+
+     label2:
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_>;
+
+        $r2 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_>;
+
+        nread_1 = specialinvoke this.<org.apache.thrift.transport.TFileTransport: 'int' tailRead(java.io.InputStream,'byte'[],'int','int',org.apache.thrift.transport.TFileTransport$TailPolicy)>($r1, ebytes, 0, 4, $r2);
+
+        if nread_1 == 4 goto label3;
+
+        return 0;
+
+     label3:
+        esize#3 = 0;
+
+        i_1 = 3;
+
+     label4:
+        if i_1 < 0 goto label5;
+
+        $b0 = ebytes[i_1];
+
+        val = ('short') $b0;
+
+        val = 255 & val;
+
+        $i1 = i_1 * 8;
+
+        $i6 = ('int') val;
+
+        $i1 = $i6 << $i1;
+
+        esize#3 = esize#3 | $i1;
+
+        $i1 = ('int') -1;
+
+        i_1 = i_1 + $i1;
+
+        goto label4;
+
+     label5:
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        i_1 = virtualinvoke $r0.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getRemaining()>();
+
+        if esize#3 <= i_1 goto label6;
+
+        $r6 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r6.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("FileTransport error: bad event size");
+
+        throw $r6;
+
+     label6:
+        if esize#3 == false goto label1;
+
+        $r7 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_>;
+
+        i_1 = virtualinvoke $r7.<org.apache.thrift.transport.TFileTransport$Event: 'int' getSize()>();
+
+        if i_1 >= esize#3 goto label7;
+
+        $r7 = new org.apache.thrift.transport.TFileTransport$Event;
+
+        ebytes = newarray ('byte')[esize#3];
+
+        specialinvoke $r7.<org.apache.thrift.transport.TFileTransport$Event: 'void' <init>('byte'[])>(ebytes);
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_> = $r7;
+
+     label7:
+        $r7 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_>;
+
+        i_2 = virtualinvoke $r7.<org.apache.thrift.transport.TFileTransport$Event: 'byte'[] getBuf()>();
+
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_>;
+
+        $r2 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_>;
+
+        i_1 = specialinvoke this.<org.apache.thrift.transport.TFileTransport: 'int' tailRead(java.io.InputStream,'byte'[],'int','int',org.apache.thrift.transport.TFileTransport$TailPolicy)>($r1, i_2, 0, esize#3, $r2);
+
+        if i_1 == esize#3 goto label8;
+
+        return 0;
+
+     label8:
+        $r7 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_>;
+
+        virtualinvoke $r7.<org.apache.thrift.transport.TFileTransport$Event: 'void' setAvailable('int')>(esize#3);
+
+        return 1;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        java.io.OutputStream $r1;
+        java.io.InputStream $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_>;
+
+        if $r0 == null goto label2;
+
+        $z0 = this.<org.apache.thrift.transport.TFileTransport: 'boolean' readOnly_>;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: java.io.OutputStream outputStream_>;
+
+        if $r1 == null goto label2;
+
+     label1:
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        return $z0;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        java.io.OutputStream $r7;
+        'byte'[] $r4;
+        org.apache.thrift.transport.TFileTransport$Event $r3;
+        org.apache.thrift.transport.TTransportException $r0;
+        java.io.IOException iox;
+        org.apache.thrift.transport.TSeekableFile $r6;
+        java.io.BufferedOutputStream $r5;
+        org.apache.thrift.transport.TFileTransport$ChunkState $r2;
+        'boolean' $z0;
+        java.io.InputStream $r1;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' isOpen()>();
+
+        if $z0 == false goto label1;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int')>(2);
+
+        throw $r0;
+
+     label1:
+        $r1 = specialinvoke this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream createInputStream()>();
+
+        this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_> = $r1;
+
+        $r2 = new org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        specialinvoke $r2.<org.apache.thrift.transport.TFileTransport$ChunkState: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs> = $r2;
+
+        $r3 = new org.apache.thrift.transport.TFileTransport$Event;
+
+        $r4 = newarray ('byte')[256];
+
+        specialinvoke $r3.<org.apache.thrift.transport.TFileTransport$Event: 'void' <init>('byte'[])>($r4);
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_> = $r3;
+
+        $z0 = this.<org.apache.thrift.transport.TFileTransport: 'boolean' readOnly_>;
+
+        if $z0 != 0 goto label4;
+
+        $r5 = new java.io.BufferedOutputStream;
+
+        $r6 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_>;
+
+        $r7 = interfaceinvoke $r6.<org.apache.thrift.transport.TSeekableFile: java.io.OutputStream getOutputStream()>();
+
+        specialinvoke $r5.<java.io.BufferedOutputStream: 'void' <init>(java.io.OutputStream)>($r7);
+
+     label2:
+        this.<org.apache.thrift.transport.TFileTransport: java.io.OutputStream outputStream_> = $r5;
+
+        goto label4;
+
+     label3:
+        iox := @caughtexception;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(1, iox);
+
+        throw $r0;
+
+     label4:
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        java.io.OutputStream $r8;
+        org.slf4j.Logger $r2;
+        java.io.IOException iox_1, iox_2;
+        org.apache.thrift.transport.TSeekableFile $r0;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r5;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_>;
+
+        if $r0 == null goto label05;
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_>;
+
+     label01:
+        interfaceinvoke $r0.<org.apache.thrift.transport.TSeekableFile: 'void' close()>();
+
+     label02:
+        goto label04;
+
+     label03:
+        iox_1 := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("WARNING: Error closing input file: ");
+
+        $r5 = virtualinvoke iox_1.<java.io.IOException: java.lang.String getMessage()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String)>($r5);
+
+     label04:
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_> = null;
+
+     label05:
+        $r8 = this.<org.apache.thrift.transport.TFileTransport: java.io.OutputStream outputStream_>;
+
+        if $r8 == null goto label10;
+
+        $r8 = this.<org.apache.thrift.transport.TFileTransport: java.io.OutputStream outputStream_>;
+
+     label06:
+        virtualinvoke $r8.<java.io.OutputStream: 'void' close()>();
+
+     label07:
+        goto label09;
+
+     label08:
+        iox_2 := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("WARNING: Error closing output stream: ");
+
+        $r5 = virtualinvoke iox_2.<java.io.IOException: java.lang.String getMessage()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r5);
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String)>($r5);
+
+     label09:
+        this.<org.apache.thrift.transport.TFileTransport: java.io.OutputStream outputStream_> = null;
+
+     label10:
+        return;
+
+        catch java.io.IOException from label01 to label02 with label03;
+        catch java.io.IOException from label06 to label07 with label08;
+    }
+
+    public 'void' <init>(java.lang.String, 'boolean') throws java.io.IOException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TStandardFile $r1;
+        java.lang.String path;
+        org.apache.thrift.transport.TFileTransport$TailPolicy $r0;
+        'boolean' readOnly;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        path := @parameter0: java.lang.String;
+
+        readOnly := @parameter1: 'boolean';
+
+        specialinvoke this.<org.apache.thrift.transport.TTransport: 'void' <init>()>();
+
+        $r0 = <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy NOWAIT>;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_> = $r0;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: 'boolean' readOnly_> = 0;
+
+        $r1 = new org.apache.thrift.transport.TStandardFile;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TStandardFile: 'void' <init>(java.lang.String)>(path);
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_> = $r1;
+
+        this.<org.apache.thrift.transport.TFileTransport: 'boolean' readOnly_> = readOnly;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TSeekableFile, 'boolean')
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TSeekableFile inputFile;
+        org.apache.thrift.transport.TFileTransport$TailPolicy $r0;
+        'boolean' readOnly;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        inputFile := @parameter0: org.apache.thrift.transport.TSeekableFile;
+
+        readOnly := @parameter1: 'boolean';
+
+        specialinvoke this.<org.apache.thrift.transport.TTransport: 'void' <init>()>();
+
+        $r0 = <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy NOWAIT>;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy currentPolicy_> = $r0;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs> = null;
+
+        this.<org.apache.thrift.transport.TFileTransport: 'boolean' readOnly_> = 0;
+
+        this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_> = inputFile;
+
+        this.<org.apache.thrift.transport.TFileTransport: 'boolean' readOnly_> = readOnly;
+
+        return;
+    }
+
+    public 'int' readAll('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' off, len, 'ret', $i1, got;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        got = 0;
+
+     label1:
+        if got >= len goto label4;
+
+        'ret' = off + got;
+
+        $i1 = len - got;
+
+        'ret' = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'int' read('byte'[],'int','int')>(buf, 'ret', $i1);
+
+        if 'ret' >= 0 goto label2;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("Error in reading from file");
+
+        throw $r0;
+
+     label2:
+        if 'ret' != 0 goto label3;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(4, "End of File reached");
+
+        throw $r0;
+
+     label3:
+        got = got + 'ret';
+
+        goto label1;
+
+     label4:
+        return got;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'byte'[] buf;
+        org.apache.thrift.transport.TFileTransport$Event $r1;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' off, len, $i0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Must open before reading");
+
+        throw $r0;
+
+     label1:
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_>;
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.transport.TFileTransport$Event: 'int' getRemaining()>();
+
+        if $i0 != 0 goto label2;
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' readEvent()>();
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_>;
+
+        off = virtualinvoke $r1.<org.apache.thrift.transport.TFileTransport$Event: 'int' emit('byte'[],'int','int')>(buf, off, len);
+
+        return off;
+    }
+
+    public 'int' getNumChunks() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+        'long' $l2, len#1;
+        java.io.IOException len;
+        org.apache.thrift.transport.TSeekableFile $r1;
+        'byte' $b0;
+        org.apache.thrift.transport.TFileTransport$ChunkState $r2;
+        'int' $i1;
+        java.lang.String $r4;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Must open before getNumChunks");
+
+        throw $r0;
+
+     label1:
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_>;
+
+     label2:
+        len#1 = interfaceinvoke $r1.<org.apache.thrift.transport.TSeekableFile: 'long' length()>();
+
+     label3:
+        $b0 = len#1 cmp 0L;
+
+        if $b0 != 0 goto label4;
+
+        return 0;
+
+     label4:
+        $r2 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+     label5:
+        $i1 = virtualinvoke $r2.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getChunkSize()>();
+
+     label6:
+        $l2 = ('long') $i1;
+
+        $l2 = len#1 / $l2;
+
+        $i1 = ('int') $l2;
+
+        $i1 = $i1 + 1;
+
+        return $i1;
+
+     label7:
+        len := @caughtexception;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r4 = virtualinvoke len.<java.io.IOException: java.lang.String getMessage()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String,java.lang.Throwable)>($r4, len);
+
+        throw $r0;
+
+        catch java.io.IOException from label2 to label3 with label7;
+        catch java.io.IOException from label5 to label6 with label7;
+    }
+
+    public 'int' getCurChunk() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+        org.apache.thrift.transport.TFileTransport$ChunkState $r1;
+        'int' $i0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Must open before getCurChunk");
+
+        throw $r0;
+
+     label1:
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getChunkNum()>();
+
+        return $i0;
+    }
+
+    public 'void' seekToChunk('int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TFileTransport$Event $r18;
+        org.apache.thrift.transport.TTransportException $r0;
+        'long' $l2, $l3, eofOffset;
+        'byte' $b4;
+        'int' numChunks, chunk;
+        java.lang.String $r3;
+        org.apache.thrift.transport.TFileTransport$TailPolicy iox;
+        'boolean' $z0, $z3;
+        java.io.IOException iox_1, iox_2;
+        org.apache.thrift.transport.TSeekableFile $r1;
+        org.apache.thrift.transport.TFileTransport$ChunkState $r4, $r17;
+        java.lang.StringBuilder $r9;
+        java.io.InputStream $r19;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        chunk := @parameter0: 'int';
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label01;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Must open before seeking");
+
+        throw $r0;
+
+     label01:
+        numChunks = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'int' getNumChunks()>();
+
+        if numChunks != 0 goto label02;
+
+        return;
+
+     label02:
+        if chunk >= 0 goto label03;
+
+        chunk = chunk + numChunks;
+
+        if chunk >= 0 goto label03;
+
+        chunk = 0;
+
+     label03:
+        eofOffset = 0L;
+
+        if chunk < numChunks goto label04;
+
+        $z3 = 1;
+
+        $z0 = 1;
+
+        goto label05;
+
+     label04:
+        $z3 = 0;
+
+        $z0 = 0;
+
+     label05:
+        if $z0 == false goto label09;
+
+        chunk = chunk - 1;
+
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_>;
+
+     label06:
+        eofOffset = interfaceinvoke $r1.<org.apache.thrift.transport.TSeekableFile: 'long' length()>();
+
+     label07:
+        goto label09;
+
+     label08:
+        iox_1 := @caughtexception;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r3 = virtualinvoke iox_1.<java.io.IOException: java.lang.String getMessage()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String,java.lang.Throwable)>($r3, iox_1);
+
+        throw $r0;
+
+     label09:
+        $r4 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        numChunks = virtualinvoke $r4.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getChunkSize()>();
+
+        numChunks = chunk * numChunks;
+
+        $l2 = ('long') numChunks;
+
+        $r4 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        $l3 = virtualinvoke $r4.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' getOffset()>();
+
+        $b4 = $l2 cmp $l3;
+
+        if $b4 == false goto label14;
+
+        $r1 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TSeekableFile inputFile_>;
+
+        $l2 = ('long') chunk;
+
+        $r4 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+     label10:
+        numChunks = virtualinvoke $r4.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getChunkSize()>();
+
+        $l3 = ('long') numChunks;
+
+        $l2 = $l2 * $l3;
+
+        interfaceinvoke $r1.<org.apache.thrift.transport.TSeekableFile: 'void' seek('long')>($l2);
+
+     label11:
+        goto label13;
+
+     label12:
+        iox_2 := @caughtexception;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Seek to chunk ");
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(chunk);
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r3 = virtualinvoke iox_2.<java.io.IOException: java.lang.String getMessage()>();
+
+        $r9 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String,java.lang.Throwable)>($r3, iox_2);
+
+        throw $r0;
+
+     label13:
+        $r4 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        $l2 = ('long') chunk;
+
+        $r17 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        chunk = virtualinvoke $r17.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' getChunkSize()>();
+
+        $l3 = ('long') chunk;
+
+        $l2 = $l2 * $l3;
+
+        virtualinvoke $r4.<org.apache.thrift.transport.TFileTransport$ChunkState: 'void' seek('long')>($l2);
+
+        $r18 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_>;
+
+        virtualinvoke $r18.<org.apache.thrift.transport.TFileTransport$Event: 'void' setAvailable('int')>(0);
+
+        $r19 = specialinvoke this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream createInputStream()>();
+
+        this.<org.apache.thrift.transport.TFileTransport: java.io.InputStream inputStream_> = $r19;
+
+     label14:
+        if $z3 == false goto label17;
+
+        iox = <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy WAIT_FOREVER>;
+
+        iox = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy setTailPolicy(org.apache.thrift.transport.TFileTransport$TailPolicy)>(iox);
+
+     label15:
+        $r4 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$ChunkState cs>;
+
+        $l2 = virtualinvoke $r4.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' getOffset()>();
+
+        $b4 = $l2 cmp eofOffset;
+
+        chunk = ('int') $b4;
+
+        if chunk >= 0 goto label16;
+
+        specialinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' readEvent()>();
+
+        goto label15;
+
+     label16:
+        $r18 = this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$Event currentEvent_>;
+
+        virtualinvoke $r18.<org.apache.thrift.transport.TFileTransport$Event: 'void' setAvailable('int')>(0);
+
+        virtualinvoke this.<org.apache.thrift.transport.TFileTransport: org.apache.thrift.transport.TFileTransport$TailPolicy setTailPolicy(org.apache.thrift.transport.TFileTransport$TailPolicy)>(iox);
+
+     label17:
+        return;
+
+        catch java.io.IOException from label06 to label07 with label08;
+        catch java.io.IOException from label10 to label11 with label12;
+    }
+
+    public 'void' seekToEnd() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' $i0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Must open before seeking");
+
+        throw $r0;
+
+     label1:
+        $i0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'int' getNumChunks()>();
+
+        virtualinvoke this.<org.apache.thrift.transport.TFileTransport: 'void' seekToChunk('int')>($i0);
+
+        return;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' off, len;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("Not Supported");
+
+        throw $r0;
+    }
+
+    public 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("Not Supported");
+
+        throw $r0;
+    }
+
+    public org.apache.thrift.TConfiguration getConfiguration()
+    {
+        org.apache.thrift.transport.TFileTransport this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        return null;
+    }
+
+    public 'void' updateKnownMessageSize('long') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'long' size;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        size := @parameter0: 'long';
+
+        return;
+    }
+
+    public 'void' checkReadBytesAvailable('long') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'long' numBytes;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        numBytes := @parameter0: 'long';
+
+        return;
+    }
+
+    public 'void' resetMessageSizeAndConsumedBytes('long') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TFileTransport this;
+        'long' newSize;
+
+        this := @this: org.apache.thrift.transport.TFileTransport;
+
+        newSize := @parameter0: 'long';
+
+        return;
+    }
+
+    public static 'void' main(java.lang.String[]) throws java.lang.Exception
+    {
+        org.apache.thrift.transport.TFileTransport $r16;
+        'byte'[] buf;
+        org.slf4j.Logger $r5;
+        java.lang.String[] args;
+        java.util.Random $r23;
+        java.lang.Exception $r4;
+        'int' j, i, num_chunks;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r0;
+        'boolean' $z0;
+
+        args := @parameter0: java.lang.String[];
+
+        num_chunks = 10;
+
+        j = lengthof args;
+
+        if j < 1 goto label01;
+
+        $r0 = args[0];
+
+        $z0 = virtualinvoke $r0.<java.lang.String: 'boolean' equals(java.lang.Object)>("--help");
+
+        if $z0 != 0 goto label01;
+
+        $r0 = args[0];
+
+        $z0 = virtualinvoke $r0.<java.lang.String: 'boolean' equals(java.lang.Object)>("-h");
+
+        if $z0 != 0 goto label01;
+
+        $r0 = args[0];
+
+        $z0 = virtualinvoke $r0.<java.lang.String: 'boolean' equals(java.lang.Object)>("-?");
+
+        if $z0 == false goto label02;
+
+     label01:
+        staticinvoke <org.apache.thrift.transport.TFileTransport: 'void' printUsage()>();
+
+     label02:
+        j = lengthof args;
+
+        if j <= 1 goto label06;
+
+     label03:
+        $r0 = args[1];
+
+        num_chunks = staticinvoke <java.lang.Integer: 'int' parseInt(java.lang.String)>($r0);
+
+     label04:
+        goto label06;
+
+     label05:
+        $r4 := @caughtexception;
+
+        $r5 = <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cannot parse ");
+
+        $r0 = args[1];
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r0 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String)>($r0);
+
+        staticinvoke <org.apache.thrift.transport.TFileTransport: 'void' printUsage()>();
+
+     label06:
+        $r16 = new org.apache.thrift.transport.TFileTransport;
+
+        $r0 = args[0];
+
+        specialinvoke $r16.<org.apache.thrift.transport.TFileTransport: 'void' <init>(java.lang.String,'boolean')>($r0, 1);
+
+        virtualinvoke $r16.<org.apache.thrift.transport.TFileTransport: 'void' open()>();
+
+        $r5 = <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("NumChunks=");
+
+        j = virtualinvoke $r16.<org.apache.thrift.transport.TFileTransport: 'int' getNumChunks()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(j);
+
+        $r0 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' info(java.lang.String)>($r0);
+
+        $r23 = new java.util.Random;
+
+        specialinvoke $r23.<java.util.Random: 'void' <init>()>();
+
+        j = 0;
+
+     label07:
+        if j >= num_chunks goto label10;
+
+        buf = newarray ('byte')[4096];
+
+        i = virtualinvoke $r16.<org.apache.thrift.transport.TFileTransport: 'int' getNumChunks()>();
+
+        i = i - 1;
+
+        i = virtualinvoke $r23.<java.util.Random: 'int' nextInt('int')>(i);
+
+        $r5 = <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Reading chunk ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(i);
+
+        $r0 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' info(java.lang.String)>($r0);
+
+        virtualinvoke $r16.<org.apache.thrift.transport.TFileTransport: 'void' seekToChunk('int')>(i);
+
+        i = 0;
+
+     label08:
+        if i >= 4096 goto label09;
+
+        virtualinvoke $r16.<org.apache.thrift.transport.TFileTransport: 'int' read('byte'[],'int','int')>(buf, 0, 4096);
+
+        i = i + 1;
+
+        goto label08;
+
+     label09:
+        j = j + 1;
+
+        goto label07;
+
+     label10:
+        return;
+
+        catch java.lang.Exception from label03 to label04 with label05;
+    }
+
+    private static 'void' printUsage()
+    {
+        org.slf4j.Logger $r0;
+
+        $r0 = <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' error(java.lang.String)>("Usage: TFileTransport <filename> [num_chunks]");
+
+        $r0 = <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' error(java.lang.String)>("       (Opens and reads num_chunks chunks from file randomly)");
+
+        staticinvoke <java.lang.System: 'void' exit('int')>(1);
+
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        org.slf4j.Logger $r2;
+
+        $r0 = class "Lorg/apache/thrift/transport/TFileTransport;";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        <org.apache.thrift.transport.TFileTransport: org.slf4j.Logger LOGGER> = $r2;
+
+        return;
+    }
+}

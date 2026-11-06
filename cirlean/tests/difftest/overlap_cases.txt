@@ -1,0 +1,28 @@
+# Copies between overlapping objects (overlap.cpp). Each case is labelled with its expected outcome on the line above
+# it: UB from cirrun ("memcpy/strcpy/sprintf/snprintf: overlapping objects"), or MATCH.
+# expect UB: memcpy(a + 1, a, 4 * sizeof(int)) on int a[8]
+overlap t_ub_memcpy_shift 3
+# expect UB: memcpy(&s, &s, sizeof s)
+overlap t_ub_memcpy_self 5
+# expect UB: memcpy between two members of one union
+overlap t_ub_memcpy_union 7
+# expect UB: strcpy(buf + 2, buf)
+overlap t_ub_strcpy 1
+# expect UB: sprintf(buf, "%s!", buf)
+overlap t_ub_sprintf 2
+# expect UB: snprintf(buf + 1, 8, "%s", buf)
+overlap t_ub_snprintf 4
+# expect MATCH: memmove(a + 1, a, 4 * sizeof(int)), overlapping, forward
+overlap t_ok_memmove_fwd 3
+# expect MATCH: memmove(a, a + 1, 4 * sizeof(int)), overlapping, backward
+overlap t_ok_memmove_bwd 3
+# expect MATCH: memcpy(a + 4, a, 4 * sizeof(int)), adjacent slices of one array
+overlap t_ok_memcpy_adjacent 3
+# expect MATCH: memcpy(p, p, 0)
+overlap t_ok_memcpy_zero 3
+# expect MATCH: memcpy between two array members of one struct
+overlap t_ok_memcpy_members 6
+# expect MATCH: strcpy(buf + 8, buf), disjoint parts of one array
+overlap t_ok_strcpy 2
+# expect MATCH: sprintf(buf + 8, "%s-%d", buf, k), disjoint parts of one array
+overlap t_ok_sprintf 9

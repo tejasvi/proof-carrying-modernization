@@ -1,0 +1,14 @@
+public class org.apache.thrift.transport.TNonblockingServerSocket$NonblockingAbstractServerSocketArgs extends org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TNonblockingServerSocket$NonblockingAbstractServerSocketArgs this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingServerSocket$NonblockingAbstractServerSocketArgs;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'void' <init>()>();
+
+        return;
+    }
+}

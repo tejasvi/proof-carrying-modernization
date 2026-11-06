@@ -1,0 +1,237 @@
+public final enum class org.apache.thrift.transport.sasl.NegotiationStatus extends java.lang.Enum
+{
+    public static final enum org.apache.thrift.transport.sasl.NegotiationStatus START;
+    public static final enum org.apache.thrift.transport.sasl.NegotiationStatus OK;
+    public static final enum org.apache.thrift.transport.sasl.NegotiationStatus BAD;
+    public static final enum org.apache.thrift.transport.sasl.NegotiationStatus ERROR;
+    public static final enum org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE;
+    private static final java.util.Map reverseMap;
+    private final 'byte' value;
+    private static final org.apache.thrift.transport.sasl.NegotiationStatus[] $VALUES;
+
+    public static org.apache.thrift.transport.sasl.NegotiationStatus[] values()
+    {
+        java.lang.Object $r1;
+        org.apache.thrift.transport.sasl.NegotiationStatus[] $r0;
+
+        $r0 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus[] $VALUES>;
+
+        $r1 = virtualinvoke $r0.<java.lang.Object: java.lang.Object clone()>();
+
+        $r0 = (org.apache.thrift.transport.sasl.NegotiationStatus[]) $r1;
+
+        return $r0;
+    }
+
+    public static org.apache.thrift.transport.sasl.NegotiationStatus valueOf(java.lang.String)
+    {
+        java.lang.String name;
+        java.lang.Enum $r0;
+        org.apache.thrift.transport.sasl.NegotiationStatus $r1;
+
+        name := @parameter0: java.lang.String;
+
+        $r0 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "Lorg/apache/thrift/transport/sasl/NegotiationStatus;", name);
+
+        $r1 = (org.apache.thrift.transport.sasl.NegotiationStatus) $r0;
+
+        return $r1;
+    }
+
+    private 'void' <init>(java.lang.String, 'int', 'byte')
+    {
+        org.apache.thrift.transport.sasl.NegotiationStatus this;
+        'byte' val;
+        'int' i0;
+        java.lang.String r0;
+
+        this := @this: org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        r0 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: 'int';
+
+        val := @parameter2: 'byte';
+
+        specialinvoke this.<java.lang.Enum: 'void' <init>(java.lang.String,'int')>(r0, i0);
+
+        this.<org.apache.thrift.transport.sasl.NegotiationStatus: 'byte' value> = val;
+
+        return;
+    }
+
+    public 'byte' getValue()
+    {
+        org.apache.thrift.transport.sasl.NegotiationStatus this;
+        'byte' $b0;
+
+        this := @this: org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        $b0 = this.<org.apache.thrift.transport.sasl.NegotiationStatus: 'byte' value>;
+
+        return $b0;
+    }
+
+    public static org.apache.thrift.transport.sasl.NegotiationStatus byValue('byte') throws org.apache.thrift.transport.sasl.TSaslNegotiationException
+    {
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r3;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException $r2;
+        'byte' val;
+        org.apache.thrift.transport.sasl.NegotiationStatus $r11;
+        java.util.Map $r0;
+        'int' $i0;
+        java.lang.StringBuilder $r4;
+        java.lang.Object $r10;
+        java.lang.String $r7;
+        java.lang.Byte $r1;
+        'boolean' $z0;
+
+        val := @parameter0: 'byte';
+
+        $r0 = <org.apache.thrift.transport.sasl.NegotiationStatus: java.util.Map reverseMap>;
+
+        $r1 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf('byte')>(val);
+
+        $z0 = interfaceinvoke $r0.<java.util.Map: 'boolean' containsKey(java.lang.Object)>($r1);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        $r3 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType PROTOCOL_ERROR>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid status ");
+
+        $i0 = ('int') val;
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r7 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<org.apache.thrift.transport.sasl.TSaslNegotiationException: 'void' <init>(org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType,java.lang.String)>($r3, $r7);
+
+        throw $r2;
+
+     label1:
+        $r0 = <org.apache.thrift.transport.sasl.NegotiationStatus: java.util.Map reverseMap>;
+
+        $r1 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf('byte')>(val);
+
+        $r10 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r11 = (org.apache.thrift.transport.sasl.NegotiationStatus) $r10;
+
+        return $r11;
+    }
+
+    private static org.apache.thrift.transport.sasl.NegotiationStatus[] $values()
+    {
+        org.apache.thrift.transport.sasl.NegotiationStatus[] $r0;
+        org.apache.thrift.transport.sasl.NegotiationStatus $r1;
+
+        $r0 = newarray (org.apache.thrift.transport.sasl.NegotiationStatus)[5];
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus START>;
+
+        $r0[0] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus OK>;
+
+        $r0[1] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus BAD>;
+
+        $r0[2] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus ERROR>;
+
+        $r0[3] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE>;
+
+        $r0[4] = $r1;
+
+        return $r0;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.transport.sasl.NegotiationStatus[] $r5;
+        java.util.HashMap $r6;
+        org.apache.thrift.transport.sasl.NegotiationStatus s;
+        'byte' $b1;
+        java.util.Map $r8;
+        'int' i0, i2;
+        java.lang.Byte $r9;
+
+        s = new org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        specialinvoke s.<org.apache.thrift.transport.sasl.NegotiationStatus: 'void' <init>(java.lang.String,'int','byte')>("START", 0, 1);
+
+        <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus START> = s;
+
+        s = new org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        specialinvoke s.<org.apache.thrift.transport.sasl.NegotiationStatus: 'void' <init>(java.lang.String,'int','byte')>("OK", 1, 2);
+
+        <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus OK> = s;
+
+        s = new org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        specialinvoke s.<org.apache.thrift.transport.sasl.NegotiationStatus: 'void' <init>(java.lang.String,'int','byte')>("BAD", 2, 3);
+
+        <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus BAD> = s;
+
+        s = new org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        specialinvoke s.<org.apache.thrift.transport.sasl.NegotiationStatus: 'void' <init>(java.lang.String,'int','byte')>("ERROR", 3, 4);
+
+        <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus ERROR> = s;
+
+        s = new org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        specialinvoke s.<org.apache.thrift.transport.sasl.NegotiationStatus: 'void' <init>(java.lang.String,'int','byte')>("COMPLETE", 4, 5);
+
+        <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE> = s;
+
+        $r5 = staticinvoke <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus[] $values()>();
+
+        <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus[] $VALUES> = $r5;
+
+        $r6 = new java.util.HashMap;
+
+        specialinvoke $r6.<java.util.HashMap: 'void' <init>()>();
+
+        <org.apache.thrift.transport.sasl.NegotiationStatus: java.util.Map reverseMap> = $r6;
+
+        $r5 = staticinvoke <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus[] values()>();
+
+        i0 = lengthof $r5;
+
+        i2 = 0;
+
+     label1:
+        if i2 >= i0 goto label2;
+
+        s = $r5[i2];
+
+        $r8 = <org.apache.thrift.transport.sasl.NegotiationStatus: java.util.Map reverseMap>;
+
+        $b1 = virtualinvoke s.<org.apache.thrift.transport.sasl.NegotiationStatus: 'byte' getValue()>();
+
+        $r9 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf('byte')>($b1);
+
+        interfaceinvoke $r8.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r9, s);
+
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+}

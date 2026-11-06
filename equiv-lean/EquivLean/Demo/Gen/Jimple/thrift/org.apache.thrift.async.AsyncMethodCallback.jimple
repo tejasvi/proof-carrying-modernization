@@ -1,0 +1,7 @@
+public interface  org.apache.thrift.async.AsyncMethodCallback extends java.lang.Object
+{
+
+    public abstract 'void' onComplete(java.lang.Object);
+
+    public abstract 'void' onError(java.lang.Exception);
+}

@@ -1,0 +1,100 @@
+class org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation extends java.lang.Object implements java.lang.Runnable
+{
+    private final org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine;
+    final org.apache.thrift.server.TSaslNonblockingServer$NetworkThread this$1;
+
+    private 'void' <init>(org.apache.thrift.server.TSaslNonblockingServer$NetworkThread, org.apache.thrift.transport.sasl.NonblockingSaslHandler)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread r0;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation this;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation;
+
+        r0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread;
+
+        statemachine := @parameter1: org.apache.thrift.transport.sasl.NonblockingSaslHandler;
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread this$1> = r0;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine> = statemachine;
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        java.lang.Throwable e;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread $r2;
+        org.slf4j.Logger $r6;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler $r0;
+        java.util.concurrent.BlockingQueue $r3;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation;
+
+     label1:
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.sasl.NonblockingSaslHandler: 'boolean' isCurrentPhaseDone()>();
+
+        if $z0 != 0 goto label2;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.sasl.NonblockingSaslHandler: 'void' runCurrentPhase()>();
+
+        goto label1;
+
+     label2:
+        $r2 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread this$1>;
+
+        $r3 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: java.util.concurrent.BlockingQueue access$1400(org.apache.thrift.server.TSaslNonblockingServer$NetworkThread)>($r2);
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine>;
+
+        interfaceinvoke $r3.<java.util.concurrent.BlockingQueue: 'boolean' add(java.lang.Object)>($r0);
+
+        $r2 = this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread this$1>;
+
+        staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: 'void' access$1500(org.apache.thrift.server.TSaslNonblockingServer$NetworkThread)>($r2);
+
+     label3:
+        goto label5;
+
+     label4:
+        e := @caughtexception;
+
+        $r6 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer: org.slf4j.Logger access$700()>();
+
+        interfaceinvoke $r6.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Damn it!", e);
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+    }
+
+    'void' <init>(org.apache.thrift.server.TSaslNonblockingServer$NetworkThread, org.apache.thrift.transport.sasl.NonblockingSaslHandler, org.apache.thrift.server.TSaslNonblockingServer$1)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$1 x2;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread x0;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler x1;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation this;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread;
+
+        x1 := @parameter1: org.apache.thrift.transport.sasl.NonblockingSaslHandler;
+
+        x2 := @parameter2: org.apache.thrift.server.TSaslNonblockingServer$1;
+
+        specialinvoke this.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$Computation: 'void' <init>(org.apache.thrift.server.TSaslNonblockingServer$NetworkThread,org.apache.thrift.transport.sasl.NonblockingSaslHandler)>(x0, x1);
+
+        return;
+    }
+}

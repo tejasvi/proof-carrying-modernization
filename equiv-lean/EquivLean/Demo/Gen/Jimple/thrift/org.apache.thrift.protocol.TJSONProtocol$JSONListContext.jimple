@@ -1,0 +1,82 @@
+public class org.apache.thrift.protocol.TJSONProtocol$JSONListContext extends org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext
+{
+    private 'boolean' first_;
+    final org.apache.thrift.protocol.TJSONProtocol this$0;
+
+    protected 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)
+    {
+        org.apache.thrift.protocol.TJSONProtocol this$0;
+        org.apache.thrift.protocol.TJSONProtocol$JSONListContext this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONListContext;
+
+        this$0 := @parameter0: org.apache.thrift.protocol.TJSONProtocol;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: org.apache.thrift.protocol.TJSONProtocol this$0> = this$0;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: 'boolean' first_> = 1;
+
+        return;
+    }
+
+    protected 'void' write() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.protocol.TJSONProtocol $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TJSONProtocol$JSONListContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONListContext;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: 'boolean' first_>;
+
+        if $z0 == false goto label1;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: 'boolean' first_> = 0;
+
+        goto label2;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: org.apache.thrift.protocol.TJSONProtocol this$0>;
+
+        $r1 = $r0.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] access$000()>();
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+     label2:
+        return;
+    }
+
+    protected 'void' read() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol $r0;
+        org.apache.thrift.protocol.TJSONProtocol$JSONListContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONListContext;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: 'boolean' first_>;
+
+        if $z0 == false goto label1;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: 'boolean' first_> = 0;
+
+        goto label2;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: org.apache.thrift.protocol.TJSONProtocol this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] access$000()>();
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r1);
+
+     label2:
+        return;
+    }
+}

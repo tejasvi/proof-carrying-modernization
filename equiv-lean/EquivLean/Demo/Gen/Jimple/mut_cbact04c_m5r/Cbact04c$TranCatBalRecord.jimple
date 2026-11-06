@@ -1,0 +1,41 @@
+public final class Cbact04c$TranCatBalRecord extends java.lang.Object
+{
+    public 'long' trancatAcctId;
+    public java.lang.String trancatTypeCd;
+    public 'long' trancatCd;
+    public 'long' tranCatBal;
+    public java.lang.String filler1;
+
+    public 'void' <init>('long', java.lang.String, 'long', 'long', java.lang.String)
+    {
+        Cbact04c$TranCatBalRecord r0;
+        'long' l0, l1, l2;
+        java.lang.String r1, r2;
+
+        r0 := @this: Cbact04c$TranCatBalRecord;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: java.lang.String;
+
+        l1 := @parameter2: 'long';
+
+        l2 := @parameter3: 'long';
+
+        r2 := @parameter4: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbact04c$TranCatBalRecord: 'long' trancatAcctId> = l0;
+
+        r0.<Cbact04c$TranCatBalRecord: java.lang.String trancatTypeCd> = r1;
+
+        r0.<Cbact04c$TranCatBalRecord: 'long' trancatCd> = l1;
+
+        r0.<Cbact04c$TranCatBalRecord: 'long' tranCatBal> = l2;
+
+        r0.<Cbact04c$TranCatBalRecord: java.lang.String filler1> = r2;
+
+        return;
+    }
+}

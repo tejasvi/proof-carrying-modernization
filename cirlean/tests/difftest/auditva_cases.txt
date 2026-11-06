@@ -1,0 +1,38 @@
+# va_list life cycle and printf argument types after rog's audit (auditva.c): run with CASES=auditva_cases.txt.
+# Each case is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun where the
+# program breaks the rule named (natively it does something); the gap is cirlean's. rog's finding in brackets.
+# expect MATCH: a pointer to a va_list, the callee's va_arg, then the caller's (7.16p3, footnote 253) [F3]
+auditva v_ptr_to_va_list 0
+# expect UB: the va_list passed to a second callee after the first one's va_arg (7.16p3) [M6]
+auditva v_two_callees 0
+# expect UB: va_end in a callee, not in the function of the va_start (7.16.1p1) [M7]
+auditva v_end_in_callee 0
+# expect MATCH: va_copy, both lists read independently
+auditva v_copy_independent 0
+# expect UB: a va_list's block ends without va_end (7.16.1p1, 7.16.1.3p2) [M8]
+auditva v_block_ends_without_va_end 0
+# expect MATCH: a mutable format array changed to "%s|" before the call [F4]
+auditva v_fmt_mutable_defined 0
+# expect MATCH (gap): a mutable format array changed to "%ld" with an int argument (UB in 7.21.6.1p9): a format
+# that is not a literal is not checked [F4]
+auditva v_fmt_mutable_ub 0
+# expect MATCH (gap): sprintf through a function pointer is not checked against its format [M9]
+auditva v_fnptr_sprintf 0
+# expect MATCH: a callee goes on with the va_list it was given (two va_args), the caller ends it
+auditva t_callee_goes_on 0
+# expect MATCH: a callee copies the va_list it advanced and reads the copy
+auditva t_callee_copies 0
+# expect UB: va_end through a pointer in a helper (7.16.1p1)
+auditva t_end_through_pointer 0
+# expect UB: a break leaves the block of a started va_list
+auditva t_break_without_va_end 0
+# expect UB: a continue leaves the block of a started va_list
+auditva t_continue_without_va_end 0
+# expect UB: a goto leaves the block of a started va_list
+auditva t_goto_without_va_end 0
+# expect MATCH: ended in its block, a goto inside the block, a break after va_end
+auditva t_ended_inside 0
+# expect UB: vfprintf with a null stream (7.1.4p1) [M16]
+auditva q_vfprintf_null 0
+# expect MATCH: vfprintf to stderr (a format that prints nothing)
+auditva t_vfprintf_stderr 4

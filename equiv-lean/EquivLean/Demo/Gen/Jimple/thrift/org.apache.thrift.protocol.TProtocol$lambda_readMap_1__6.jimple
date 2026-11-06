@@ -1,0 +1,76 @@
+public final class org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6 extends java.lang.Object implements org.apache.thrift.protocol.TProtocol$ReadCallback
+{
+    java.util.function.IntFunction cap0;
+    org.apache.thrift.protocol.TProtocol$ReadCollectionCallback cap1;
+    org.apache.thrift.protocol.TProtocol$ReadCollectionCallback cap2;
+
+    public static org.apache.thrift.protocol.TProtocol$ReadCallback bootstrap$(java.util.function.IntFunction, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback)
+    {
+        org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6 $r3;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback $r1, $r2;
+        java.util.function.IntFunction $r0;
+
+        $r0 := @parameter0: java.util.function.IntFunction;
+
+        $r1 := @parameter1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        $r2 := @parameter2: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        $r3 = new org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: 'void' <init>(java.util.function.IntFunction,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback)>($r0, $r1, $r2);
+
+        return $r3;
+    }
+
+    public 'void' <init>(java.util.function.IntFunction, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback)
+    {
+        org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6 $r0;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback $r2, $r3;
+        java.util.function.IntFunction $r1;
+
+        $r0 := @this: org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6;
+
+        $r1 := @parameter0: java.util.function.IntFunction;
+
+        $r2 := @parameter1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        $r3 := @parameter2: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        specialinvoke $r0.<java.lang.Object: 'void' <init>()>();
+
+        $r0.<org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: java.util.function.IntFunction cap0> = $r1;
+
+        $r0.<org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback cap1> = $r2;
+
+        $r0.<org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback cap2> = $r3;
+
+        return;
+    }
+
+    public java.lang.Object accept(java.lang.Object)
+    {
+        org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6 $r0;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback $r4, $r5;
+        java.util.Map $r6;
+        java.lang.Object $r1;
+        org.apache.thrift.protocol.TMap $r2;
+        java.util.function.IntFunction $r3;
+
+        $r0 := @this: org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (org.apache.thrift.protocol.TMap) $r1;
+
+        $r3 = $r0.<org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: java.util.function.IntFunction cap0>;
+
+        $r4 = $r0.<org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback cap1>;
+
+        $r5 = $r0.<org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback cap2>;
+
+        $r6 = staticinvoke <org.apache.thrift.protocol.TProtocol: java.util.Map lambda$readMap$1(java.util.function.IntFunction,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,org.apache.thrift.protocol.TMap)>($r3, $r4, $r5, $r2);
+
+        return $r6;
+    }
+}

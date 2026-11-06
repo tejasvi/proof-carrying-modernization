@@ -1,0 +1,9 @@
+      * EXPECT-FAULT: JUSTIFIED on N, which is not alphanumeric
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U21.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  N PIC 9(4) JUSTIFIED RIGHT.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

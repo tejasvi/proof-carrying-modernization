@@ -1,0 +1,1606 @@
+{
+ "name": "CBSTM03B",
+ "config": {
+  "charset": "ebcdic",
+  "zonedSign": "ebcdic",
+  "trunc": "std",
+  "numprocPfd": false,
+  "binaryLE": false,
+  "comp5LE": false,
+  "binary1Byte": false,
+  "sizeErrorTruncates": true
+ },
+ "dialect": {
+  "divExtraForRounded": true
+ },
+ "data": [
+  {
+   "id": 1,
+   "level": 1,
+   "name": "FD-TRNXFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 2,
+     "level": 5,
+     "name": "FD-TRNXS-ID",
+     "pic": null,
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": [
+      {
+       "id": 3,
+       "level": 10,
+       "name": "FD-TRNX-CARD",
+       "pic": {
+        "alnum": {
+         "len": 16
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 4,
+       "level": 10,
+       "name": "FD-TRNX-ID",
+       "pic": {
+        "alnum": {
+         "len": 16
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": 5,
+     "level": 5,
+     "name": "FD-ACCT-DATA",
+     "pic": {
+      "alnum": {
+       "len": 318
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "level": 1,
+   "name": "FD-XREFFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 7,
+     "level": 5,
+     "name": "FD-XREF-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 8,
+     "level": 5,
+     "name": "FD-XREF-DATA",
+     "pic": {
+      "alnum": {
+       "len": 34
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "level": 1,
+   "name": "FD-CUSTFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 10,
+     "level": 5,
+     "name": "FD-CUST-ID",
+     "pic": {
+      "alnum": {
+       "len": 9
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 11,
+     "level": 5,
+     "name": "FD-CUST-DATA",
+     "pic": {
+      "alnum": {
+       "len": 491
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "level": 1,
+   "name": "FD-ACCTFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 13,
+     "level": 5,
+     "name": "FD-ACCT-ID",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 14,
+     "level": 5,
+     "name": "FD-ACCT-DATA",
+     "pic": {
+      "alnum": {
+       "len": 289
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "level": 1,
+   "name": "TRNXFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 16,
+     "level": 5,
+     "name": "TRNXFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 17,
+     "level": 5,
+     "name": "TRNXFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "level": 1,
+   "name": "XREFFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 19,
+     "level": 5,
+     "name": "XREFFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 20,
+     "level": 5,
+     "name": "XREFFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "level": 1,
+   "name": "CUSTFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 22,
+     "level": 5,
+     "name": "CUSTFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 23,
+     "level": 5,
+     "name": "CUSTFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "level": 1,
+   "name": "ACCTFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 25,
+     "level": 5,
+     "name": "ACCTFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 26,
+     "level": 5,
+     "name": "ACCTFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "level": 1,
+   "name": "LK-M03B-AREA",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 28,
+     "level": 5,
+     "name": "LK-M03B-DD",
+     "pic": {
+      "alnum": {
+       "len": 8
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 29,
+     "level": 5,
+     "name": "LK-M03B-OPER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [
+      [
+       30,
+       [
+        "M03B-OPEN",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             214
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ],
+      [
+       31,
+       [
+        "M03B-CLOSE",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             195
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ],
+      [
+       32,
+       [
+        "M03B-READ",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             217
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ],
+      [
+       33,
+       [
+        "M03B-READ-K",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             210
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ],
+      [
+       34,
+       [
+        "M03B-WRITE",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             230
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ],
+      [
+       35,
+       [
+        "M03B-REWRITE",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             233
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ]
+     ],
+     "children": []
+    },
+    {
+     "id": 36,
+     "level": 5,
+     "name": "LK-M03B-RC",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 37,
+     "level": 5,
+     "name": "LK-M03B-KEY",
+     "pic": {
+      "alnum": {
+       "len": 25
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 38,
+     "level": 5,
+     "name": "LK-M03B-KEY-LN",
+     "pic": {
+      "num": {
+       "digits": 4,
+       "scale": 0,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 39,
+     "level": 5,
+     "name": "LK-M03B-FLDT",
+     "pic": {
+      "alnum": {
+       "len": 1000
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  }
+ ],
+ "paras": [
+  {
+   "name": "0000-START",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "evaluate": {
+       "arms": [
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 28,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "TRNXFILE"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "perform": {
+            "first": "1000-TRNXFILE-PROC",
+            "last": "1999-EXIT",
+            "loop": "once"
+           }
+          }
+         ]
+        ],
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 28,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "XREFFILE"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "perform": {
+            "first": "2000-XREFFILE-PROC",
+            "last": "2999-EXIT",
+            "loop": "once"
+           }
+          }
+         ]
+        ],
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 28,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "CUSTFILE"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "perform": {
+            "first": "3000-CUSTFILE-PROC",
+            "last": "3999-EXIT",
+            "loop": "once"
+           }
+          }
+         ]
+        ],
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 28,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ACCTFILE"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "perform": {
+            "first": "4000-ACCTFILE-PROC",
+            "last": "4999-EXIT",
+            "loop": "once"
+           }
+          }
+         ]
+        ]
+       ],
+       "other": [
+        {
+         "goTo": {
+          "target": "9999-GOBACK"
+         }
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "9999-GOBACK",
+   "sect": null,
+   "sentences": [
+    [
+     "goback"
+    ]
+   ]
+  },
+  {
+   "name": "1000-TRNXFILE-PROC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 30,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fopen": {
+          "file": 1,
+          "mode": "INPUT"
+         }
+        },
+        {
+         "goTo": {
+          "target": "1900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 32,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fread": {
+          "file": 1,
+          "key": null,
+          "into": {
+           "item": 39,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          },
+          "trap": false,
+          "exc": [],
+          "noExc": []
+         }
+        },
+        {
+         "goTo": {
+          "target": "1900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 31,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fclose": {
+          "file": 1
+         }
+        },
+        {
+         "goTo": {
+          "target": "1900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "1900-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 15,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 36,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "1999-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "2000-XREFFILE-PROC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 30,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fopen": {
+          "file": 2,
+          "mode": "INPUT"
+         }
+        },
+        {
+         "goTo": {
+          "target": "2900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 32,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fread": {
+          "file": 2,
+          "key": null,
+          "into": {
+           "item": 39,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          },
+          "trap": false,
+          "exc": [],
+          "noExc": []
+         }
+        },
+        {
+         "goTo": {
+          "target": "2900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 31,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fclose": {
+          "file": 2
+         }
+        },
+        {
+         "goTo": {
+          "target": "2900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "2900-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 18,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 36,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "2999-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "3000-CUSTFILE-PROC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 30,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fopen": {
+          "file": 3,
+          "mode": "INPUT"
+         }
+        },
+        {
+         "goTo": {
+          "target": "3900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 33,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 37,
+             "subs": [],
+             "refStart": {
+              "lit": {
+               "n": 1
+              }
+             },
+             "refLen": {
+              "item": {
+               "id": 38,
+               "k": 0
+              }
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 10,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "fread": {
+          "file": 3,
+          "key": 10,
+          "into": {
+           "item": 39,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          },
+          "trap": false,
+          "exc": [],
+          "noExc": []
+         }
+        },
+        {
+         "goTo": {
+          "target": "3900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 31,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fclose": {
+          "file": 3
+         }
+        },
+        {
+         "goTo": {
+          "target": "3900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "3900-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 21,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 36,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "3999-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "4000-ACCTFILE-PROC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 30,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fopen": {
+          "file": 4,
+          "mode": "INPUT"
+         }
+        },
+        {
+         "goTo": {
+          "target": "4900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 33,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 37,
+             "subs": [],
+             "refStart": {
+              "lit": {
+               "n": 1
+              }
+             },
+             "refLen": {
+              "item": {
+               "id": 38,
+               "k": 0
+              }
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 13,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "fread": {
+          "file": 4,
+          "key": 13,
+          "into": {
+           "item": 39,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          },
+          "trap": false,
+          "exc": [],
+          "noExc": []
+         }
+        },
+        {
+         "goTo": {
+          "target": "4900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 31,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "fclose": {
+          "file": 4
+         }
+        },
+        {
+         "goTo": {
+          "target": "4900-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "4900-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 24,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 36,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "4999-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     "cont"
+    ]
+   ]
+  }
+ ],
+ "isMain": false,
+ "using": [
+  27
+ ],
+ "files": [
+  {
+   "id": 1,
+   "org": "indexed",
+   "access": "sequential",
+   "record": 1,
+   "key": 2,
+   "alt": [],
+   "status": 15,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 2,
+   "org": "indexed",
+   "access": "sequential",
+   "record": 6,
+   "key": 7,
+   "alt": [],
+   "status": 18,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 3,
+   "org": "indexed",
+   "access": "random",
+   "record": 9,
+   "key": 10,
+   "alt": [],
+   "status": 21,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 4,
+   "org": "indexed",
+   "access": "random",
+   "record": 12,
+   "key": 13,
+   "alt": [],
+   "status": 24,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  }
+ ]
+}

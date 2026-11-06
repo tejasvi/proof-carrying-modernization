@@ -1,0 +1,61 @@
+public class org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext extends org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext
+{
+    protected 'boolean' isKey;
+    final org.apache.thrift.protocol.TSimpleJSONProtocol this$0;
+
+    protected 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext this;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this$0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext;
+
+        this$0 := @parameter0: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext: org.apache.thrift.protocol.TSimpleJSONProtocol this$0> = this$0;
+
+        specialinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)>(this$0);
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext: 'boolean' isKey> = 1;
+
+        return;
+    }
+
+    protected 'void' write() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext;
+
+        specialinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'void' write()>();
+
+        $z0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext: 'boolean' isKey>;
+
+        if $z0 != 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext: 'boolean' isKey> = $z0;
+
+        return;
+    }
+
+    protected 'boolean' isMapKey()
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext;
+
+        $z0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext: 'boolean' isKey>;
+
+        return $z0;
+    }
+}

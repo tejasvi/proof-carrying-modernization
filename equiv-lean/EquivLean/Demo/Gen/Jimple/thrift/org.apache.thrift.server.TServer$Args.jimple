@@ -1,0 +1,17 @@
+public class org.apache.thrift.server.TServer$Args extends org.apache.thrift.server.TServer$AbstractServerArgs
+{
+
+    public 'void' <init>(org.apache.thrift.transport.TServerTransport)
+    {
+        org.apache.thrift.server.TServer$Args this;
+        org.apache.thrift.transport.TServerTransport transport;
+
+        this := @this: org.apache.thrift.server.TServer$Args;
+
+        transport := @parameter0: org.apache.thrift.transport.TServerTransport;
+
+        specialinvoke this.<org.apache.thrift.server.TServer$AbstractServerArgs: 'void' <init>(org.apache.thrift.transport.TServerTransport)>(transport);
+
+        return;
+    }
+}

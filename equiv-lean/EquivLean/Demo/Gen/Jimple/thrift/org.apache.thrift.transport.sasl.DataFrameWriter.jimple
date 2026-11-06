@@ -1,0 +1,155 @@
+public class org.apache.thrift.transport.sasl.DataFrameWriter extends org.apache.thrift.transport.sasl.FrameWriter
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.sasl.DataFrameWriter this;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameWriter;
+
+        specialinvoke this.<org.apache.thrift.transport.sasl.FrameWriter: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'void' withOnlyPayload('byte'[], 'int', 'int')
+    {
+        'byte'[] payload;
+        java.lang.IllegalStateException $r0;
+        org.apache.thrift.transport.sasl.DataFrameWriter this;
+        java.nio.ByteBuffer $r3;
+        'int' offset, length;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r6;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameWriter;
+
+        payload := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        length := @parameter2: 'int';
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.sasl.DataFrameWriter: 'boolean' isComplete()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new java.lang.IllegalStateException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Previous write is not yet complete, with ");
+
+        $r3 = this.<org.apache.thrift.transport.sasl.DataFrameWriter: java.nio.ByteBuffer frameBytes>;
+
+        offset = virtualinvoke $r3.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(offset);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes left.");
+
+        $r6 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>($r6);
+
+        throw $r0;
+
+     label1:
+        $r3 = specialinvoke this.<org.apache.thrift.transport.sasl.DataFrameWriter: java.nio.ByteBuffer buildFrameWithPayload('byte'[],'int','int')>(payload, offset, length);
+
+        this.<org.apache.thrift.transport.sasl.DataFrameWriter: java.nio.ByteBuffer frameBytes> = $r3;
+
+        return;
+    }
+
+    protected java.nio.ByteBuffer buildFrame('byte'[], 'int', 'int', 'byte'[], 'int', 'int')
+    {
+        'byte'[] header, payload;
+        org.apache.thrift.transport.sasl.DataFrameWriter this;
+        java.lang.IllegalArgumentException $r0;
+        java.nio.ByteBuffer $r10;
+        'int' headerOffset, headerLength, payloadOffset, payloadLength;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r3;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameWriter;
+
+        header := @parameter0: 'byte'[];
+
+        headerOffset := @parameter1: 'int';
+
+        headerLength := @parameter2: 'int';
+
+        payload := @parameter3: 'byte'[];
+
+        payloadOffset := @parameter4: 'int';
+
+        payloadLength := @parameter5: 'int';
+
+        if header == null goto label1;
+
+        if headerLength <= 0 goto label1;
+
+        $r0 = new java.lang.IllegalArgumentException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Extra header [");
+
+        $r3 = staticinvoke <org.apache.thrift.utils.StringUtils: java.lang.String bytesToHexString('byte'[])>(header);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] offset ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(payloadOffset);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" length ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(payloadLength);
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>($r3);
+
+        throw $r0;
+
+     label1:
+        $r10 = specialinvoke this.<org.apache.thrift.transport.sasl.DataFrameWriter: java.nio.ByteBuffer buildFrameWithPayload('byte'[],'int','int')>(payload, payloadOffset, payloadLength);
+
+        return $r10;
+    }
+
+    private java.nio.ByteBuffer buildFrameWithPayload('byte'[], 'int', 'int')
+    {
+        'byte'[] payload, bytes;
+        'int' offset, length, $i0;
+        org.apache.thrift.transport.sasl.DataFrameWriter this;
+        java.nio.ByteBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameWriter;
+
+        payload := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        length := @parameter2: 'int';
+
+        $i0 = 4 + length;
+
+        bytes = newarray ('byte')[$i0];
+
+        staticinvoke <org.apache.thrift.EncodingUtils: 'void' encodeBigEndian('int','byte'[],'int')>(length, bytes, 0);
+
+        staticinvoke <java.lang.System: 'void' arraycopy(java.lang.Object,'int',java.lang.Object,'int','int')>(payload, offset, bytes, 4, length);
+
+        $r0 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>(bytes);
+
+        return $r0;
+    }
+}

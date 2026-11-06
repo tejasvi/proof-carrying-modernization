@@ -1,0 +1,17 @@
+public class org.apache.thrift.transport.TEOFException extends org.apache.thrift.transport.TTransportException
+{
+
+    public 'void' <init>(java.lang.String)
+    {
+        java.lang.String message;
+        org.apache.thrift.transport.TEOFException this;
+
+        this := @this: org.apache.thrift.transport.TEOFException;
+
+        message := @parameter0: java.lang.String;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(4, message);
+
+        return;
+    }
+}

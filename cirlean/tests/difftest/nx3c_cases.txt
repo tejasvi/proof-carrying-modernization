@@ -1,0 +1,8 @@
+# rog's L1 (nx3c.c, a C source): a structure with an array member returned by a call, temporary lifetime (C11 6.2.4p8).
+# Each case is labelled with its expected outcome on the line above it.
+# expect MATCH: gap, the temporary's array read through a pointer after its full declarator (UB in C; ClangIR marks no end) (6)
+nx3c l_struct_temp_array_after 0
+# expect MATCH: control, the array element read within the full expression (6)
+nx3c l_struct_temp_array_within 0
+# expect MATCH: gap, the temporary modified (UB in C, 6.2.4p8) (9)
+nx3c l_struct_temp_array_modify 0

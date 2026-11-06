@@ -1,0 +1,25 @@
+public final class Cbstm03b$FdCustfileRec extends java.lang.Object
+{
+    public java.lang.String fdCustId;
+    public java.lang.String fdCustData;
+
+    public 'void' <init>(java.lang.String, java.lang.String)
+    {
+        java.lang.String r1, r2;
+        Cbstm03b$FdCustfileRec r0;
+
+        r0 := @this: Cbstm03b$FdCustfileRec;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbstm03b$FdCustfileRec: java.lang.String fdCustId> = r1;
+
+        r0.<Cbstm03b$FdCustfileRec: java.lang.String fdCustData> = r2;
+
+        return;
+    }
+}

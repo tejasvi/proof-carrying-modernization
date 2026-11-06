@@ -1,0 +1,100 @@
+# Conversions between integers and pointers (intptr.c, a C source; intptrx.cpp, C++): flat addresses, as GCC
+# and Clang convert (C11 6.3.2.3p5, p6, 7.20.1.4p1), and member function pointers, whose Itanium layout holds a
+# function's address as an integer. Each case is labelled with its expected outcome on the line above it: MATCH;
+# UB from cirrun (the native runs print GCC's result); MATCH (gap) where cirrun misses the UB; MISMATCH where the
+# model differs from a native run by design. The UB cases are UB in C and C++ too: an access through a pointer
+# that designates no object (the address of an object that has died, however it died; one past the end; outside
+# the object), a relational comparison of pointers that designate no object (6.5.8p5), the conversion to an integer
+# of a pointer to an object that has died (6.2.4p2), and a call through a null member function pointer.
+# expect MATCH: a local's address through uintptr_t and back, then a read
+intptr i_roundtrip 1
+# expect MATCH: a member access through a structure pointer converted from long
+intptr i_roundtrip_member 1
+# expect MATCH: integer arithmetic within an array, then a read
+intptr i_arith_in_object 1
+# expect MATCH: a pointer from integer arithmetic compared with the element pointer (pr58209's pattern)
+intptr i_eq_object 2
+# expect MATCH: (uintptr_t) of elements of an aligned(16) array modulo 16
+intptr i_alignment 1
+# expect MATCH: a function's address through uintptr_t, called and compared
+intptr i_function 1
+# expect UB: a relational comparison of two pointers converted from integer constants (C11 6.5.8p5)
+intptr i_relational_addr 1
+# expect MATCH: a tag in the low bit of an address, cleared before the access
+intptr i_tag_bit 1
+# expect MATCH: the difference of two element addresses as integers is in bytes
+intptr i_difference 3
+# expect MATCH: distinct objects have distinct addresses, an object the same one twice
+intptr i_distinct 1
+# expect MATCH: a heap block's address through uintptr_t, then an element read
+intptr i_heap 1
+# expect MATCH: the address of an object that has died converts back to a non-null pointer
+intptr i_dead_compare 1
+# expect UB: an access through the address of an object that has died
+intptr i_dead_access 1
+# expect MATCH: the address one past an array converts back to the one-past pointer
+intptr i_one_past 1
+# expect UB: an access through the one-past pointer converted back
+intptr i_one_past_access 1
+# expect UB: integer arithmetic that leaves the object, then an access
+intptr i_outside 1
+# expect MATCH: an address as intptr_t is positive
+intptr i_signed 1
+# expect MATCH: container_of through integers (the member's address minus its offset)
+intptr i_container_of 1
+# expect MATCH: (uintptr_t) p % alignment is 0 for stack, static and heap objects of alignments 1 to 64 and for members; a member's offset
+intptr i_alignments 1
+# expect MATCH: a compound literal's element through uintptr_t (pr22098's pattern)
+intptr i_compound_literal 1
+# expect MATCH: a pointer tagged one char past the object, untagged (pr36339's pattern)
+intptr i_tagged 1
+# expect MATCH: integer constants (void *) 1, (void *) 2 against an object pointer (pr86231's pattern)
+intptr i_constants 1
+# expect MATCH: pointers built by integer arithmetic over a recursion, compared with element pointers (pr58209)
+intptr i_recursive 1
+# expect MATCH: a function's address as an integer in a vector (pr71626's pattern)
+intptr i_function_vector 1
+# expect MATCH: GNU C arithmetic on void * counts bytes (from a structure object; a difference)
+intptr i_void_arith 1
+# expect MATCH: calls through member function pointers to non-virtual functions
+intptrx x_pmf_nonvirtual 1
+# expect MATCH: calls through member function pointers to virtual functions (vtable offsets 0 and 8)
+intptrx x_pmf_virtual 1
+# expect MATCH: multiple inheritance: this adjusted to the second base, virtual calls through its vptr
+intptrx x_pmf_multiple 1
+# expect MATCH: comparisons of member function pointers, with null too
+intptrx x_pmf_compare 1
+# expect UB: a call through a null member function pointer
+intptrx x_pmf_null_call 1
+# expect MATCH: a function's address through uintptr_t (reinterpret_cast) and back, called and compared
+intptrx x_function_roundtrip 1
+# expect UB: the address of a freed heap block through uintptr_t, then a read (the block ended with free)
+intptr i_freed_access 1
+# expect UB: the address of a block that realloc replaced, then a read (realloc ends the old object, 7.22.3.5p2)
+intptr i_realloc_stale 1
+# expect UB: the address of a local after its block ended, then a read
+intptr i_scope_access 1
+# expect UB: the address of the previous iteration's local, then a read (each iteration's object ends, 6.2.4p6)
+intptr i_loop_access 1
+# expect UB: the address of a local of a frame that longjmp left, then a read
+intptr i_longjmp_access 1
+# expect MATCH (gap): a const local's address after its block ended, then a read (a const local outlives its region, as c_scope)
+intptr i_const_scope 1
+# expect MISMATCH: two calls' locals compared by address: natively the second gets the first's address (1); here no address is used twice (0)
+intptr i_dead_reuse 1
+# expect UB: the address of a local of a frame that a throw left, then a read
+intptrx x_throw_access 1
+# expect UB: a freed heap block's pointer converted to an integer (its value is indeterminate, 6.2.4p2)
+intptr i_convert_freed 1
+# expect MATCH: a heap block's address taken as an integer before free stays an integer
+intptr i_convert_before_free 1
+# expect UB: a pointer to a local of a call that has returned, converted to an integer (6.2.4p2)
+intptr i_convert_dead_local 1
+# expect MATCH: a local's address taken as an integer while the local lives stays an integer after the call
+intptr i_convert_live_local 1
+# expect MATCH: a null pointer converts to 0
+intptr i_convert_null 1
+# expect MATCH (gap): a pointer to a local of a call that has returned, in a condition (if (p), a ptr_to_bool cast) is not caught, unlike p != 0
+intptr i_bool_dead_local 1
+# expect UB: the same pointer compared with null (comparison of an invalid pointer, 6.2.4p2)
+intptr i_cmp_dead_local 1

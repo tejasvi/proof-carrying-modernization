@@ -1,0 +1,193 @@
+public class org.apache.thrift.transport.TSaslServerTransport$Factory extends org.apache.thrift.transport.TTransportFactory
+{
+    private static java.util.Map transportMap;
+    private java.util.Map serverDefinitionMap;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TSaslServerTransport$Factory this;
+        java.util.HashMap $r0;
+
+        this := @this: org.apache.thrift.transport.TSaslServerTransport$Factory;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TSaslServerTransport$Factory: java.util.Map serverDefinitionMap> = $r0;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, java.lang.String, java.lang.String, java.util.Map, javax.security.auth.callback.CallbackHandler)
+    {
+        org.apache.thrift.transport.TSaslServerTransport$Factory this;
+        javax.security.auth.callback.CallbackHandler cbh;
+        java.util.Map props;
+        java.util.HashMap $r0;
+        java.lang.String mechanism, protocol, serverName;
+
+        this := @this: org.apache.thrift.transport.TSaslServerTransport$Factory;
+
+        mechanism := @parameter0: java.lang.String;
+
+        protocol := @parameter1: java.lang.String;
+
+        serverName := @parameter2: java.lang.String;
+
+        props := @parameter3: java.util.Map;
+
+        cbh := @parameter4: javax.security.auth.callback.CallbackHandler;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TSaslServerTransport$Factory: java.util.Map serverDefinitionMap> = $r0;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSaslServerTransport$Factory: 'void' addServerDefinition(java.lang.String,java.lang.String,java.lang.String,java.util.Map,javax.security.auth.callback.CallbackHandler)>(mechanism, protocol, serverName, props, cbh);
+
+        return;
+    }
+
+    public 'void' addServerDefinition(java.lang.String, java.lang.String, java.lang.String, java.util.Map, javax.security.auth.callback.CallbackHandler)
+    {
+        org.apache.thrift.transport.TSaslServerTransport$Factory this;
+        javax.security.auth.callback.CallbackHandler cbh;
+        java.util.Map props, $r0;
+        org.apache.thrift.transport.sasl.TSaslServerDefinition $r1;
+        java.lang.String mechanism, protocol, serverName;
+
+        this := @this: org.apache.thrift.transport.TSaslServerTransport$Factory;
+
+        mechanism := @parameter0: java.lang.String;
+
+        protocol := @parameter1: java.lang.String;
+
+        serverName := @parameter2: java.lang.String;
+
+        props := @parameter3: java.util.Map;
+
+        cbh := @parameter4: javax.security.auth.callback.CallbackHandler;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslServerTransport$Factory: java.util.Map serverDefinitionMap>;
+
+        $r1 = new org.apache.thrift.transport.sasl.TSaslServerDefinition;
+
+        specialinvoke $r1.<org.apache.thrift.transport.sasl.TSaslServerDefinition: 'void' <init>(java.lang.String,java.lang.String,java.lang.String,java.util.Map,javax.security.auth.callback.CallbackHandler)>(mechanism, protocol, serverName, props, cbh);
+
+        interfaceinvoke $r0.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(mechanism, $r1);
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.slf4j.Logger $r3;
+        org.apache.thrift.transport.TTransportException e;
+        java.lang.RuntimeException $r9;
+        org.apache.thrift.transport.TSaslServerTransport$Factory this;
+        org.apache.thrift.transport.TTransport base;
+        org.apache.thrift.transport.TSaslServerTransport $r4;
+        java.util.Map $r0;
+        java.lang.Object $r1;
+        java.lang.ref.WeakReference 'ret', ret#1;
+
+        this := @this: org.apache.thrift.transport.TSaslServerTransport$Factory;
+
+        base := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = <org.apache.thrift.transport.TSaslServerTransport$Factory: java.util.Map transportMap>;
+
+        $r1 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>(base);
+
+        ret#1 = (java.lang.ref.WeakReference) $r1;
+
+        if ret#1 == null goto label1;
+
+        $r1 = virtualinvoke ret#1.<java.lang.ref.WeakReference: java.lang.Object get()>();
+
+        if $r1 != null goto label6;
+
+     label1:
+        $r3 = staticinvoke <org.apache.thrift.transport.TSaslServerTransport: org.slf4j.Logger access$000()>();
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("transport map does not contain key", base);
+
+        'ret' = new java.lang.ref.WeakReference;
+
+        $r4 = new org.apache.thrift.transport.TSaslServerTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslServerTransport$Factory: java.util.Map serverDefinitionMap>;
+
+        specialinvoke $r4.<org.apache.thrift.transport.TSaslServerTransport: 'void' <init>(java.util.Map,org.apache.thrift.transport.TTransport,org.apache.thrift.transport.TSaslServerTransport$1)>($r0, base, null);
+
+        specialinvoke 'ret'.<java.lang.ref.WeakReference: 'void' <init>(java.lang.Object)>($r4);
+
+        ret#1 = 'ret';
+
+     label2:
+        $r1 = virtualinvoke 'ret'.<java.lang.ref.WeakReference: java.lang.Object get()>();
+
+        $r4 = (org.apache.thrift.transport.TSaslServerTransport) $r1;
+
+        virtualinvoke $r4.<org.apache.thrift.transport.TSaslServerTransport: 'void' open()>();
+
+     label3:
+        goto label5;
+
+     label4:
+        e := @caughtexception;
+
+        $r3 = staticinvoke <org.apache.thrift.transport.TSaslServerTransport: org.slf4j.Logger access$000()>();
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Throwable)>("failed to open server transport", e);
+
+        $r9 = new java.lang.RuntimeException;
+
+        specialinvoke $r9.<java.lang.RuntimeException: 'void' <init>(java.lang.Throwable)>(e);
+
+        throw $r9;
+
+     label5:
+        $r0 = <org.apache.thrift.transport.TSaslServerTransport$Factory: java.util.Map transportMap>;
+
+        interfaceinvoke $r0.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(base, 'ret');
+
+        goto label7;
+
+     label6:
+        $r3 = staticinvoke <org.apache.thrift.transport.TSaslServerTransport: org.slf4j.Logger access$000()>();
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("transport map does contain key {}", base);
+
+     label7:
+        $r1 = virtualinvoke ret#1.<java.lang.ref.WeakReference: java.lang.Object get()>();
+
+        base = (org.apache.thrift.transport.TTransport) $r1;
+
+        return base;
+
+        catch org.apache.thrift.transport.TTransportException from label2 to label3 with label4;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.util.WeakHashMap $r0;
+        java.util.Map $r1;
+
+        $r0 = new java.util.WeakHashMap;
+
+        specialinvoke $r0.<java.util.WeakHashMap: 'void' <init>()>();
+
+        $r1 = staticinvoke <java.util.Collections: java.util.Map synchronizedMap(java.util.Map)>($r0);
+
+        <org.apache.thrift.transport.TSaslServerTransport$Factory: java.util.Map transportMap> = $r1;
+
+        return;
+    }
+}

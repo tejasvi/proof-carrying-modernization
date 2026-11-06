@@ -1,0 +1,12 @@
+      * EXPECT-FAULT: VALUE clause in or on the OCCURS DEPENDING ON table T
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U43.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  N PIC 9 VALUE 3.
+       01  R.
+           05  T OCCURS 1 TO 5 DEPENDING ON N PIC X VALUE 'A'.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           DISPLAY R.
+           STOP RUN.

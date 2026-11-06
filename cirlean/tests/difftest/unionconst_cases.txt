@@ -1,0 +1,27 @@
+# Union constants (unionconst.cpp): #cir.const_record<{v : T}> : !rec_U makes the member of type T active with v.
+# Each case is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun (a read of a member
+# of another size than the initialized one, indeterminate in the union model).
+# expect MATCH: global union, first member
+unionconst c_global_first 1
+# expect MATCH: global union, designated member that is not the first
+unionconst c_global_designated 1
+# expect MATCH: global union, the larger member initialized
+unionconst c_global_larger 1
+# expect MATCH: union in a global struct (designated float member)
+unionconst c_struct_with_union 1
+# expect MATCH: struct in a global union
+unionconst c_union_with_struct 1
+# expect MATCH: global array of unions (first and designated members)
+unionconst c_union_array 1
+# expect MATCH: zero-initialized global union
+unionconst c_global_zero 1
+# expect MATCH: union with tail padding, each member initialized
+unionconst c_padded 1
+# expect MATCH: read of another member of the same size (int constant read as unsigned)
+unionconst c_reinterpret 1
+# expect MATCH: local unions copied from constants (first and designated members)
+unionconst c_local 4
+# expect MATCH: local union in a struct, struct in a union, array of unions, zero initializer
+unionconst c_local_nested 3
+# expect UB: read of a larger member than the one initialized (char constant read as long long)
+unionconst u_read_larger 1

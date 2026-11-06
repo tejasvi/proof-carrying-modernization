@@ -1,0 +1,51 @@
+public final class Cbact02c$CardRecord extends java.lang.Object
+{
+    public java.lang.String cardNum;
+    public 'long' cardAcctId;
+    public 'long' cardCvvCd;
+    public java.lang.String cardEmbossedName;
+    public java.lang.String cardExpiraionDate;
+    public java.lang.String cardActiveStatus;
+    public java.lang.String filler1;
+
+    public 'void' <init>(java.lang.String, 'long', 'long', java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        Cbact02c$CardRecord r0;
+        'long' l0, l1;
+        java.lang.String r1, r2, r3, r4, r5;
+
+        r0 := @this: Cbact02c$CardRecord;
+
+        r1 := @parameter0: java.lang.String;
+
+        l0 := @parameter1: 'long';
+
+        l1 := @parameter2: 'long';
+
+        r2 := @parameter3: java.lang.String;
+
+        r3 := @parameter4: java.lang.String;
+
+        r4 := @parameter5: java.lang.String;
+
+        r5 := @parameter6: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbact02c$CardRecord: java.lang.String cardNum> = r1;
+
+        r0.<Cbact02c$CardRecord: 'long' cardAcctId> = l0;
+
+        r0.<Cbact02c$CardRecord: 'long' cardCvvCd> = l1;
+
+        r0.<Cbact02c$CardRecord: java.lang.String cardEmbossedName> = r2;
+
+        r0.<Cbact02c$CardRecord: java.lang.String cardExpiraionDate> = r3;
+
+        r0.<Cbact02c$CardRecord: java.lang.String cardActiveStatus> = r4;
+
+        r0.<Cbact02c$CardRecord: java.lang.String filler1> = r5;
+
+        return;
+    }
+}

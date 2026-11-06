@@ -1,0 +1,169 @@
+# TheAlgorithms/C-Plus-Plus @ fdcc29b (copied from the cirlean coverage corpus); one TU per file.
+name = "thealgorithms_math"
+lang = "cir"
+root = "/home/user/veriforch/targets/thealgorithms_cpp"
+sources = []
+entry = ["main"]
+
+[extra]
+cxxflags = ["-nostdinc++", "-isystem", "/home/user/cirlean_work/dl_cir2c_eb2a332/cir2c-eb2a332/libcxx/include/c++/v1", "-w"]
+
+[[variants]]
+name = "bit_manipulation_check_even_odd"
+sources = ["bit_manipulation/check_even_odd.cpp"]
+
+[[variants]]
+name = "bit_manipulation_count_bits_flip"
+sources = ["bit_manipulation/count_bits_flip.cpp"]
+
+[[variants]]
+name = "bit_manipulation_count_of_set_bits"
+sources = ["bit_manipulation/count_of_set_bits.cpp"]
+
+[[variants]]
+name = "bit_manipulation_count_of_trailing_ciphers_in_factorial_n"
+sources = ["bit_manipulation/count_of_trailing_ciphers_in_factorial_n.cpp"]
+
+[[variants]]
+name = "bit_manipulation_find_non_repeating_number"
+sources = ["bit_manipulation/find_non_repeating_number.cpp"]
+
+[[variants]]
+name = "bit_manipulation_hamming_distance"
+sources = ["bit_manipulation/hamming_distance.cpp"]
+
+[[variants]]
+name = "bit_manipulation_next_higher_number_with_same_number_of_set_bits"
+sources = ["bit_manipulation/next_higher_number_with_same_number_of_set_bits.cpp"]
+
+[[variants]]
+name = "bit_manipulation_power_of_2"
+sources = ["bit_manipulation/power_of_2.cpp"]
+
+[[variants]]
+name = "bit_manipulation_set_kth_bit"
+sources = ["bit_manipulation/set_kth_bit.cpp"]
+
+[[variants]]
+name = "math_aliquot_sum"
+sources = ["math/aliquot_sum.cpp"]
+
+[[variants]]
+name = "math_approximate_pi"
+sources = ["math/approximate_pi.cpp"]
+
+[[variants]]
+name = "math_area"
+sources = ["math/area.cpp"]
+
+[[variants]]
+name = "math_armstrong_number"
+sources = ["math/armstrong_number.cpp"]
+
+[[variants]]
+name = "math_binary_exponent"
+sources = ["math/binary_exponent.cpp"]
+
+[[variants]]
+name = "math_binomial_calculate"
+sources = ["math/binomial_calculate.cpp"]
+
+[[variants]]
+name = "math_check_amicable_pair"
+sources = ["math/check_amicable_pair.cpp"]
+
+[[variants]]
+name = "math_check_factorial"
+sources = ["math/check_factorial.cpp"]
+
+[[variants]]
+name = "math_check_prime"
+sources = ["math/check_prime.cpp"]
+
+[[variants]]
+name = "math_complex_numbers"
+sources = ["math/complex_numbers.cpp"]
+
+[[variants]]
+name = "math_double_factorial"
+sources = ["math/double_factorial.cpp"]
+
+[[variants]]
+name = "math_eratosthenes"
+sources = ["math/eratosthenes.cpp"]
+
+[[variants]]
+name = "math_eulers_totient_function"
+sources = ["math/eulers_totient_function.cpp"]
+
+[[variants]]
+name = "math_extended_euclid_algorithm"
+sources = ["math/extended_euclid_algorithm.cpp"]
+
+[[variants]]
+name = "math_factorial_memoization"
+sources = ["math/factorial_memoization.cpp"]
+
+[[variants]]
+name = "math_fast_power"
+sources = ["math/fast_power.cpp"]
+
+[[variants]]
+name = "math_fibonacci"
+sources = ["math/fibonacci.cpp"]
+
+[[variants]]
+name = "math_fibonacci_large"
+sources = ["math/fibonacci_large.cpp"]
+
+[[variants]]
+name = "math_finding_number_of_digits_in_a_number"
+sources = ["math/finding_number_of_digits_in_a_number.cpp"]
+
+[[variants]]
+name = "math_gcd_of_n_numbers"
+sources = ["math/gcd_of_n_numbers.cpp"]
+
+[[variants]]
+name = "math_inv_sqrt"
+sources = ["math/inv_sqrt.cpp"]
+
+[[variants]]
+name = "math_large_factorial"
+sources = ["math/large_factorial.cpp"]
+
+[[variants]]
+name = "math_largest_power"
+sources = ["math/largest_power.cpp"]
+
+[[variants]]
+name = "math_lcm_sum"
+sources = ["math/lcm_sum.cpp"]
+
+[[variants]]
+name = "math_least_common_multiple"
+sources = ["math/least_common_multiple.cpp"]
+
+[[variants]]
+name = "math_linear_recurrence_matrix"
+sources = ["math/linear_recurrence_matrix.cpp"]
+
+[[variants]]
+name = "math_magic_number"
+sources = ["math/magic_number.cpp"]
+
+[[variants]]
+name = "math_miller_rabin"
+sources = ["math/miller_rabin.cpp"]
+
+[[variants]]
+name = "math_modular_division"
+sources = ["math/modular_division.cpp"]
+
+[[variants]]
+name = "math_modular_exponentiation"
+sources = ["math/modular_exponentiation.cpp"]
+
+[[variants]]
+name = "math_modular_inverse_fermat_little_theorem"
+sources = ["math/modular_inverse_fermat_little_theorem.cpp"]

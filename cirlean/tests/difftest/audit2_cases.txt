@@ -1,0 +1,61 @@
+# rog's audit items in C (audit2.c, a C source): M13 (a missing structure value used or discarded, C11 6.9.1p12), F12
+# (memchr over the bytes of any object), and the C11-only rule of a compare-exchange's failure order. Each case is
+# labelled with its expected outcome on the line above it: MATCH, or UB from cirrun.
+# expect UB: the missing structure value initializes an object (rog's M13 r_struct_stored)
+audit2 r_stored 0
+# expect MATCH: the value present, initializing an object
+audit2 r_stored 1
+# expect MATCH: the missing structure value discarded
+audit2 r_discarded 0
+# expect MATCH: the missing structure value discarded by a cast to void
+audit2 r_void_cast 0
+# expect MATCH: the missing structure value discarded by a comma expression
+audit2 r_comma 0
+# expect UB: a member of the missing structure value read
+audit2 r_member 0
+# expect MATCH: a member of the present value read
+audit2 r_member 2
+# expect UB: the missing structure value assigned to an object
+audit2 r_assigned 0
+# expect MATCH: the present value assigned
+audit2 r_assigned 3
+# expect UB: the missing structure value passed as an argument
+audit2 r_passed 0
+# expect MATCH: the present value passed
+audit2 r_passed 4
+# expect UB: the missing structure value returned again (the caller of that function discards it)
+audit2 r_returned_again 0
+# expect UB: the missing union value initializes an object
+audit2 r_union_stored 0
+# expect MATCH: the present union value
+audit2 r_union_stored 5
+# expect UB: the missing value of a structure with an array member initializes an object
+audit2 r_array_member_stored 0
+# expect MATCH: the missing value of a function that returns from a loop, discarded
+audit2 r_loop_discarded 0
+# expect UB: the missing value of a function that returns from a loop, initializing an object
+audit2 r_loop_stored 0
+# expect MATCH: the value of a function returning from a loop, present
+audit2 r_loop_stored 3
+# expect MATCH: a present structure value with an indeterminate member, copied
+audit2 r_partial_stored 6
+# expect MATCH: memchr over an int array's bytes, found (rog's F12 ch_memchr_int_array)
+audit2 m_int_array 0
+# expect MATCH: memchr over an int array's bytes, not found within n
+audit2 m_int_array_not_found 0
+# expect UB: memchr over an int array's bytes reads past the array without a match
+audit2 m_int_array_past 0
+# expect MATCH: memchr from the middle of a long array, c converted to unsigned char
+audit2 m_long_array_mid 0
+# expect MATCH: memchr over a structure's bytes (rog's F12 ch_memchr_struct)
+audit2 m_struct 0
+# expect MATCH: memchr over a double's bytes
+audit2 m_double 0
+# expect UB: memchr reaches a padding byte (indeterminate, as an indeterminate character of an array)
+audit2 m_struct_padding 0
+# expect UB: memchr over a union's bytes (a union member's bytes are not modelled)
+audit2 m_union 0
+# expect UB: C11's compare-exchange with a failure order stronger than the success order (7.17.7.4p2, C only)
+audit2 x_cmpxchg_failure_stronger 0
+# expect MATCH: control, the failure order no stronger
+audit2 x_cmpxchg_failure_weaker 0

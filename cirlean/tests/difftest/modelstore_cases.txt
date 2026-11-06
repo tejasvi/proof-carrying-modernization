@@ -1,0 +1,22 @@
+# modelstore.cpp: library models that store into the caller's memory (end pointers of strtol and
+# friends, sscanf's targets, a static local's guard), each a typed store; ub_* lines are undefined
+# (C11 6.5p7; 7.21.6.2p10-12), not expected to match; t_* lines are expected to match
+modelstore ub_strtol_end_into_int 0
+modelstore ub_strtod_end_into_int 0
+modelstore ub_strtoul_end_into_double 0
+modelstore ub_strtof_end_into_int_elem 0
+modelstore ub_strtoll_end_into_chars 0
+modelstore t_strtol_end_local 0
+modelstore t_strtoull_end_member 0
+modelstore t_strtod_parse_number 0
+modelstore t_strtof_end_elem 0
+modelstore t_strtoll_end_local 0
+modelstore t_strtol_no_end 0
+modelstore ub_sscanf_d_into_unsigned 0
+modelstore ub_sscanf_x_into_int 0
+modelstore ub_sscanf_hhu_into_signed_char 0
+modelstore ub_sscanf_lf_into_float 0
+modelstore t_sscanf_own_types 0
+modelstore t_sscanf_member_elem 0
+modelstore t_sscanf_print_number 0
+modelstore t_guard 0

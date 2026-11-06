@@ -1,0 +1,8 @@
+# main with parameters, run without arguments (main_int.c, main_argv.c): run with MODE=status
+# CASES=mainargs_cases.txt (exit statuses). main(int) receives argc = 1, main(int, char **) argc = 1 and
+# argv = {"prog", NULL} (README, trust base). Each case is labelled with its expected outcome on the line
+# above it: MATCH.
+# expect MATCH: main(int) receives argc = 1 (41)
+main_int main
+# expect MATCH: main(int, char **): argc = 1, argv[1] null, argv[0] modifiable (16)
+main_argv main

@@ -1,0 +1,57 @@
+public interface  org.apache.thrift.partial.ThriftFieldValueProcessor extends java.lang.Object
+{
+
+    public abstract java.lang.Object createNewStruct(org.apache.thrift.partial.ThriftMetadata$ThriftStruct);
+
+    public abstract java.lang.Object prepareStruct(java.lang.Object);
+
+    public abstract 'void' setBool(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'boolean');
+
+    public abstract 'void' setByte(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'byte');
+
+    public abstract 'void' setInt16(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'short');
+
+    public abstract 'void' setInt32(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'int');
+
+    public abstract 'void' setInt64(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'long');
+
+    public abstract 'void' setDouble(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'double');
+
+    public abstract 'void' setBinary(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.nio.ByteBuffer);
+
+    public abstract 'void' setString(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.nio.ByteBuffer);
+
+    public abstract 'void' setEnumField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object);
+
+    public abstract 'void' setListField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object);
+
+    public abstract 'void' setMapField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object);
+
+    public abstract 'void' setSetField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object);
+
+    public abstract 'void' setStructField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object);
+
+    public abstract java.lang.Object prepareEnum(java.lang.Class, 'int');
+
+    public abstract java.lang.Object prepareString(java.nio.ByteBuffer);
+
+    public abstract java.lang.Object prepareBinary(java.nio.ByteBuffer);
+
+    public abstract java.lang.Object createNewList('int');
+
+    public abstract 'void' setListElement(java.lang.Object, 'int', java.lang.Object);
+
+    public abstract java.lang.Object prepareList(java.lang.Object);
+
+    public abstract java.lang.Object createNewMap('int');
+
+    public abstract 'void' setMapElement(java.lang.Object, 'int', java.lang.Object, java.lang.Object);
+
+    public abstract java.lang.Object prepareMap(java.lang.Object);
+
+    public abstract java.lang.Object createNewSet('int');
+
+    public abstract 'void' setSetElement(java.lang.Object, 'int', java.lang.Object);
+
+    public abstract java.lang.Object prepareSet(java.lang.Object);
+}

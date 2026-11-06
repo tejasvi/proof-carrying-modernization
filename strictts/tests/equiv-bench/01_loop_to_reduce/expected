@@ -1,0 +1,1 @@
+equivalent for-of sum loop vs reduce (IEEE left fold, NaN and -0 included)

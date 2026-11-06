@@ -1,0 +1,14 @@
+public abstract class org.apache.thrift.scheme.StandardScheme extends java.lang.Object implements org.apache.thrift.scheme.IScheme
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.scheme.StandardScheme this;
+
+        this := @this: org.apache.thrift.scheme.StandardScheme;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+}

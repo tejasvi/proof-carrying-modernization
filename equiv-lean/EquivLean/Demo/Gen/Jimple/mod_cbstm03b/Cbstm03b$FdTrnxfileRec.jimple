@@ -1,0 +1,30 @@
+public final class Cbstm03b$FdTrnxfileRec extends java.lang.Object
+{
+    public java.lang.String fdTrnxCard;
+    public java.lang.String fdTrnxId;
+    public java.lang.String fdAcctData;
+
+    public 'void' <init>(java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String r1, r2, r3;
+        Cbstm03b$FdTrnxfileRec r0;
+
+        r0 := @this: Cbstm03b$FdTrnxfileRec;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 := @parameter2: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbstm03b$FdTrnxfileRec: java.lang.String fdTrnxCard> = r1;
+
+        r0.<Cbstm03b$FdTrnxfileRec: java.lang.String fdTrnxId> = r2;
+
+        r0.<Cbstm03b$FdTrnxfileRec: java.lang.String fdAcctData> = r3;
+
+        return;
+    }
+}

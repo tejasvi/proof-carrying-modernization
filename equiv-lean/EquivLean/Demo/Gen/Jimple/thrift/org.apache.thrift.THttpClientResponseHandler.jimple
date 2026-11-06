@@ -1,0 +1,191 @@
+public class org.apache.thrift.THttpClientResponseHandler extends java.lang.Object implements org.apache.hc.core5.http.io.HttpClientResponseHandler
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.THttpClientResponseHandler this;
+
+        this := @this: org.apache.thrift.THttpClientResponseHandler;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public java.io.InputStream handleResponse(org.apache.hc.core5.http.ClassicHttpResponse) throws org.apache.hc.core5.http.HttpException, java.io.IOException
+    {
+        java.lang.Throwable responseCode, readByteArray;
+        'byte'[] readByteArray#3;
+        java.io.IOException $r1, is;
+        org.apache.thrift.THttpClientResponseHandler this;
+        java.io.ByteArrayInputStream $r8;
+        org.apache.hc.core5.http.ClassicHttpResponse response;
+        'int' responseCode#2;
+        java.lang.StringBuilder $r2;
+        org.apache.hc.core5.http.HttpEntity $r0;
+        java.lang.String $r5;
+        java.io.InputStream is#1;
+
+        this := @this: org.apache.thrift.THttpClientResponseHandler;
+
+        response := @parameter0: org.apache.hc.core5.http.ClassicHttpResponse;
+
+     label01:
+        $r0 = interfaceinvoke response.<org.apache.hc.core5.http.ClassicHttpResponse: org.apache.hc.core5.http.HttpEntity getEntity()>();
+
+        is#1 = interfaceinvoke $r0.<org.apache.hc.core5.http.HttpEntity: java.io.InputStream getContent()>();
+
+     label02:
+        responseCode#2 = interfaceinvoke response.<org.apache.hc.core5.http.ClassicHttpResponse: 'int' getCode()>();
+
+        if responseCode#2 == 200 goto label03;
+
+        $r1 = new java.io.IOException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("HTTP Response code: ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(responseCode#2);
+
+        $r5 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.io.IOException: 'void' <init>(java.lang.String)>($r5);
+
+        throw $r1;
+
+     label03:
+        readByteArray#3 = staticinvoke <org.apache.thrift.THttpClientResponseHandler: 'byte'[] readIntoByteArray(java.io.InputStream)>(is#1);
+
+     label04:
+        $r0 = interfaceinvoke response.<org.apache.hc.core5.http.ClassicHttpResponse: org.apache.hc.core5.http.HttpEntity getEntity()>();
+
+        staticinvoke <org.apache.thrift.THttpClientResponseHandler: 'void' consume(org.apache.hc.core5.http.HttpEntity)>($r0);
+
+     label05:
+        goto label07;
+
+     label06:
+        $r1 := @caughtexception;
+
+     label07:
+        $r8 = new java.io.ByteArrayInputStream;
+
+        specialinvoke $r8.<java.io.ByteArrayInputStream: 'void' <init>('byte'[])>(readByteArray#3);
+
+     label08:
+        if is#1 == null goto label09;
+
+        virtualinvoke is#1.<java.io.InputStream: 'void' close()>();
+
+     label09:
+        return $r8;
+
+     label10:
+        responseCode := @caughtexception;
+
+        if is#1 == null goto label15;
+
+     label11:
+        virtualinvoke is#1.<java.io.InputStream: 'void' close()>();
+
+     label12:
+        goto label15;
+
+     label13:
+        readByteArray := @caughtexception;
+
+     label14:
+        virtualinvoke responseCode.<java.lang.Throwable: 'void' addSuppressed(java.lang.Throwable)>(readByteArray);
+
+     label15:
+        throw responseCode;
+
+     label16:
+        is := @caughtexception;
+
+        throw is;
+
+        catch java.io.IOException from label04 to label05 with label06;
+        catch java.lang.Throwable from label02 to label08 with label10;
+        catch java.lang.Throwable from label11 to label12 with label13;
+        catch java.io.IOException from label01 to label09 with label16;
+        catch java.io.IOException from label14 to label16 with label16;
+    }
+
+    private static 'byte'[] readIntoByteArray(java.io.InputStream) throws java.io.IOException
+    {
+        'byte'[] buf;
+        java.io.ByteArrayOutputStream baos;
+        'int' len, $i1;
+        java.io.InputStream is;
+
+        is := @parameter0: java.io.InputStream;
+
+        baos = new java.io.ByteArrayOutputStream;
+
+        specialinvoke baos.<java.io.ByteArrayOutputStream: 'void' <init>()>();
+
+        buf = newarray ('byte')[1024];
+
+     label1:
+        len = virtualinvoke is.<java.io.InputStream: 'int' read('byte'[])>(buf);
+
+        if len <= 0 goto label2;
+
+        virtualinvoke baos.<java.io.ByteArrayOutputStream: 'void' write('byte'[],'int','int')>(buf, 0, len);
+
+     label2:
+        $i1 = ('int') -1;
+
+        if $i1 != len goto label1;
+
+        buf = virtualinvoke baos.<java.io.ByteArrayOutputStream: 'byte'[] toByteArray()>();
+
+        return buf;
+    }
+
+    private static 'void' consume(org.apache.hc.core5.http.HttpEntity) throws java.io.IOException
+    {
+        org.apache.hc.core5.http.HttpEntity entity;
+        'boolean' $z0;
+        java.io.InputStream instream;
+
+        entity := @parameter0: org.apache.hc.core5.http.HttpEntity;
+
+        if entity != null goto label1;
+
+        return;
+
+     label1:
+        $z0 = interfaceinvoke entity.<org.apache.hc.core5.http.HttpEntity: 'boolean' isStreaming()>();
+
+        if $z0 == false goto label2;
+
+        instream = interfaceinvoke entity.<org.apache.hc.core5.http.HttpEntity: java.io.InputStream getContent()>();
+
+        if instream == null goto label2;
+
+        virtualinvoke instream.<java.io.InputStream: 'void' close()>();
+
+     label2:
+        return;
+    }
+
+    public volatile java.lang.Object handleResponse(org.apache.hc.core5.http.ClassicHttpResponse) throws org.apache.hc.core5.http.HttpException, java.io.IOException
+    {
+        org.apache.thrift.THttpClientResponseHandler this;
+        org.apache.hc.core5.http.ClassicHttpResponse r0;
+        java.io.InputStream $r1;
+
+        this := @this: org.apache.thrift.THttpClientResponseHandler;
+
+        r0 := @parameter0: org.apache.hc.core5.http.ClassicHttpResponse;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.THttpClientResponseHandler: java.io.InputStream handleResponse(org.apache.hc.core5.http.ClassicHttpResponse)>(r0);
+
+        return $r1;
+    }
+}

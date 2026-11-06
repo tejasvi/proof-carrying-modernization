@@ -1,0 +1,188 @@
+array_concat	PASS	7 lines
+arrays_basic	PASS	12 lines
+arrays_callbacks	PASS	10 lines
+arrays_live_iteration	PASS	7 lines
+arrays_new_length	PASS	9 lines
+arrays_new_length_holes	PASS	1 lines, then the designed panic where node prints "3"
+arrays_sort	PASS	5 lines
+as_narrowing	PASS	4 lines
+async_all_race	PASS	10 lines
+async_all_settled	PASS	23 lines
+async_all_tuple	PASS	25 lines
+async_all_tuple_reject	PASS	21 lines
+async_basic	PASS	8 lines
+async_edge_order	PASS	11 lines
+async_errors	PASS	6 lines
+async_iife	PASS	2 lines
+async_interleave	PASS	12 lines
+async_loops	PASS	9 lines
+async_new_promise	PASS	8 lines
+async_race_counter	PASS	3 lines
+async_return_promise	PASS	9 lines
+async_then_chains	PASS	11 lines
+async_unhandled_rejection	PASS	2 lines
+basic_fact	PASS	5 lines
+big_inventory	PASS	39 lines
+bigint_conversions	PASS	6 lines
+bigint_ops	PASS	11 lines
+booleans	PASS	5 lines
+classes_basic	PASS	5 lines
+classes_generic	PASS	4 lines
+classes_linked	PASS	3 lines
+classes_private	PASS	4 lines
+classes_static	PASS	3 lines
+closures_async	PASS	3 lines
+closures_counter	PASS	5 lines
+closures_let_uninit	PASS	4 lines
+closures_loop	PASS	8 lines
+closures_nested	PASS	4 lines
+compound_assign	PASS	9 lines
+computed_keys	PASS	5 lines
+console_streams	PASS	3 lines
+const_arrow_functions	PASS	2 lines
+control_loops	PASS	11 lines
+date_now	PASS	3 lines
+default_params	PASS	12 lines
+destructured_param_default	PASS	6 lines
+destructuring	PASS	9 lines
+dict_basic	PASS	11 lines
+dict_named_props	PASS	5 lines, then the designed panic where node prints "three1"
+dict_objects	PASS	5 lines
+dict_spread_record	PASS	4 lines
+dict_truthiness	PASS	6 lines
+dyn_any	PASS	5 lines
+dyn_array_props	PASS	4 lines, then the designed panic where node prints "function"
+dyn_compare	PASS	26 lines
+dyn_compare_bigint	PASS	1 lines, then the designed panic where node prints "true"
+dyn_eq_props	PASS	8 lines
+dyn_iter	PASS	6 lines
+dyn_json	PASS	6 lines
+dyn_json_records	PASS	4 lines
+dyn_optional_chain	PASS	3 lines
+dyn_throw	PASS	4 lines
+dyn_typeof	PASS	27 lines
+edge_async	PASS	6 lines
+edge_closures	PASS	5 lines
+edge_control	PASS	10 lines
+edge_errors	PASS	8 lines
+edge_maps_keys	PASS	7 lines
+edge_optional_chain	PASS	6 lines
+edge_promises	PASS	6 lines
+edge_strings_unicode	PASS	8 lines
+enums	PASS	5 lines
+eval_order	PASS	6 lines
+exceptions_builtin	PASS	6 lines
+extern_json	PASS	8 lines
+extern_normalize	PASS	2 lines
+extern_regex	PASS	11 lines
+fn_identity_keys	PASS	6 lines
+fn_identity_listeners	PASS	5 lines
+fn_identity_nested	PASS	9 lines
+generic_opt_unknown	PASS	6 lines
+generics_fn	PASS	9 lines
+globals_order	PASS	5 lines
+higher_order	PASS	8 lines
+idioms_async_sleep	PASS	17 lines
+idioms_events	PASS	5 lines
+idioms_heap	PASS	2 lines
+idioms_misc	PASS	5 lines
+idioms_state_machine	PASS	10 lines
+idioms_tokenizer	PASS	6 lines
+instanceof_lib	PASS	3 lines
+iterator_records	PASS	4 lines
+json_stringify_undefined	PASS	4 lines, then the designed panic where node prints "undefined"
+labels	PASS	13 lines
+levers_callbacks	PASS	8 lines
+loose_null	PASS	10 lines
+map_foreach	PASS	8 lines
+maps_basic	PASS	13 lines
+maps_iter_mutation	PASS	10 lines
+math_precision	PASS	5 lines
+microtasks	PASS	10 lines
+modules	PASS	7 lines
+modules_ns	PASS	5 lines
+mutable_struct	PASS	4 lines
+nested_functions	PASS	4 lines
+nested_generics	PASS	5 lines
+nullable	PASS	5 lines
+numbers_basic	PASS	13 lines
+numbers_loops	PASS	8 lines
+numbers_math	PASS	7 lines
+object_literal_order	PASS	6 lines
+object_methods	PASS	4 lines
+object_spread_cond	PASS	8 lines
+object_types	PASS	5 lines
+optional	PASS	10 lines
+past_end_loops	PASS	2 lines
+record_identity	PASS	14 lines
+record_identity_json	PASS	4 lines
+records	PASS	6 lines
+recursive_arrow	PASS	4 lines
+recursive_types	PASS	3 lines
+recursive_union_reduce	PASS	5 lines
+regex_value_flags	PASS	1 lines, then the designed panic where node prints "1"
+regex_values	PASS	11 lines
+sets_basic	PASS	6 lines
+shadowing	PASS	8 lines
+small_levers	PASS	5 lines
+spread_many_cond	PASS	2 lines
+string_index_keys	PASS	5 lines
+string_raw	PASS	3 lines
+strings_basic	PASS	10 lines
+strings_build	PASS	7 lines
+strings_methods	PASS	11 lines
+switch_basic	PASS	10 lines
+timers	PASS	10 lines
+timers_dynamic	PASS	11 lines
+truthiness	PASS	14 lines
+try_finally	PASS	12 lines
+tuples	PASS	7 lines
+typed_array_length_message	PASS	10 lines
+typed_arrays	PASS	6 lines
+uncaught	PASS	3 lines
+unions_discriminated	PASS	4 lines
+unions_primitive	PASS	4 lines
+reject/all_settled_strict	PASS	tests/corpus/reject/all_settled_strict.ts:6:9 [any-type] a value of type any (any/unknown are not allowed)
+reject/any	PASS	tests/corpus/reject/any.ts:3:37 [any-op] method call .trim on a value of type any/unknown
+reject/any_op	PASS	tests/corpus/reject/any_op.ts:3:39 [any-op] operator + on a value of type any/unknown (cast it first)
+reject/arguments	PASS	tests/corpus/reject/arguments.ts:2:38 [no-arguments] `arguments` is not allowed; use rest parameters
+reject/as_downcast	PASS	tests/corpus/reject/as_downcast.ts:5:40 [as-downcast] `as` downcast from Shape to { kind: "a"; x: bigint; }
+reject/delete	PASS	tests/corpus/reject/delete.ts:3:1 [no-delete] `delete` is only allowed on dictionary entries
+reject/dict_named_to_record	PASS	tests/corpus/reject/dict_named_to_record.ts:7:18 [unsupported-conversion] Record<string, unknown> with named properties used as the record type { state: unknown | undefined }: a copy would not show later writes through the dictionary
+reject/enum_decl	PASS	tests/corpus/reject/enum_decl.ts:2:1 [no-enum-decl] TypeScript `enum` declarations are not supported; use a string-literal union
+reject/eval	PASS	tests/corpus/reject/eval.ts:2:18 [no-eval] `eval` is not allowed
+reject/extends	PASS	tests/corpus/reject/extends.ts:3:1 [no-extends] classes cannot extend other classes
+reject/fallthrough	PASS	tests/corpus/reject/fallthrough.ts:5:5 [switch-fallthrough] a non-empty switch case must end with break/return/throw/continue
+reject/for_in	PASS	tests/corpus/reject/for_in.ts:3:1 [no-for-in] `for … in` is not allowed
+reject/generator	PASS	tests/corpus/reject/generator.ts:2:1 [no-generators] generators are not allowed
+reject/in_operator	PASS	tests/corpus/reject/in_operator.ts:3:16 [no-in] the `in` operator is only supported on dictionaries and unknown values
+reject/iterator_return_any	PASS	tests/corpus/reject/iterator_return_any.ts:8:31 [any-type] a value of type any (any/unknown are not allowed)
+reject/iterator_this	PASS	tests/corpus/reject/iterator_this.ts:4:57 [no-this] `this` is only allowed in class methods and constructors
+reject/label_block	PASS	tests/corpus/reject/label_block.ts:2:1 [no-label-non-loop] labels are only allowed on loops
+reject/loose_eq	PASS	tests/corpus/reject/loose_eq.ts:3:5 [no-loose-eq] `==` and `!=` are only allowed against null or undefined; use `===` / `!==`
+reject/mixed_plus	PASS	tests/corpus/reject/mixed_plus.ts:3:13 [mixed-plus] `+` between string and number; use a template literal or an explicit conversion
+reject/new_array_closure	PASS	tests/corpus/reject/new_array_closure.ts:4:13 [unsupported-builtin] `new Array(n)` creates holes; use `new Array(n).fill(x)` or Array.from
+reject/prototype	PASS	tests/corpus/reject/prototype.ts:3:20 [unsupported] static member prototype used as a value
+reject/record_identity_unknown	PASS	tests/corpus/reject/record_identity_unknown.ts:6:11 [record-identity] an unknown value used as Box<{ x: number }>, whose functions or objects are compared by identity
+reject/record_identity_width	PASS	tests/corpus/reject/record_identity_width.ts:7:18 [record-identity] a value of type { x: bigint; y: bigint } used where objects of type { x: bigint } are compared by identity (it would be a second object to StrictTS)
+reject/record_mutation	PASS	tests/corpus/reject/record_mutation.ts:6:18 [record-mutation] { age: bigint; name: string } flows into Named, an object type whose fields are assigned somewhere; mutation through width subtyping is not allowed (values of record types are immutable)
+reject/regex_value_eq	PASS	tests/corpus/reject/regex_value_eq.ts:5:20 [no-regexp] === on regular expressions (they are compared by identity; regex values have none)
+reject/regex_value_last_index	PASS	tests/corpus/reject/regex_value_last_index.ts:3:42 [no-regexp] lastIndex of a regular expression (its matching state) is not modelled
+reject/regexp	PASS	tests/corpus/reject/regexp.ts:3:56 [no-regexp] replace with a replacer function and a regex value: the groups it is called with are not known
+reject/regexp_last_index	PASS	tests/corpus/reject/regexp_last_index.ts:4:20 [no-regexp] test on a global or sticky regex bound to a name reads and writes its lastIndex (not modelled); write the literal at the call
+reject/strict_any	PASS	tests/corpus/reject/strict_any.ts:4:12 [any-type] a value of type any (any/unknown are not allowed)
+reject/strict_unknown	PASS	tests/corpus/reject/strict_unknown.ts:4:12 [any-type] a value of type unknown (any/unknown are not allowed)
+reject/template_hole	PASS	tests/corpus/reject/template_hole.ts:3:16 [template-hole] cannot convert string[] to a string implicitly; only string, number, bigint and boolean are allowed
+reject/throw_string	PASS	tests/corpus/reject/throw_string.ts:2:22 [throw-non-error] only Error values (new Error(…), TypeError, …) can be thrown
+reject/timer_compare	PASS	tests/corpus/reject/timer_compare.ts:7:20 [timer-handle] === on a Node timer handle other than with null or undefined
+reject/timer_method	PASS	tests/corpus/reject/timer_method.ts:5:1 [timer-handle] unref() of a Node timer handle (ref, unref, hasRef, refresh) is not modelled
+reject/timer_number	PASS	tests/corpus/reject/timer_number.ts:5:20 [timer-handle] a Node timer handle as a number (Node converts it to its id)
+reject/timer_string	PASS	tests/corpus/reject/timer_string.ts:6:22 [timer-handle] a Node timer handle as a string (Node gives its id)
+reject/timer_unknown	PASS	tests/corpus/reject/timer_unknown.ts:6:27 [timer-handle] NodeJS.Timeout as unknown: a Node timer handle (an object in Node, a number here)
+reject/to_string_unknown	PASS	tests/corpus/reject/to_string_unknown.ts:5:20 [unsupported-conversion] Money as unknown: an object with its own toString/valueOf
+reject/top_level_await	PASS	tests/corpus/reject/top_level_await.ts:2:11 [top-level-await] top-level `await` is not supported; use an async function
+reject/tuple_eq	PASS	tests/corpus/reject/tuple_eq.ts:4:16 [no-record-eq] === on [number, number] (records and tuples have no identity)
+reject/var_decl	PASS	tests/corpus/reject/var_decl.ts:2:1 [no-var] `var` declarations are not allowed; use `let` or `const`
+coverage/smoke	PASS	5/6 covered units, 6 functions, 156 lines elaborated
+coverage/generics	PASS	4 instances, each the use-site definition; elaborated; none with --no-emit-generics
+PASS 187 / FAIL 0 / SKIP 0

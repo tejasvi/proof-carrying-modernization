@@ -1,0 +1,181 @@
+public class org.apache.thrift.transport.TZlibTransport extends org.apache.thrift.transport.TIOStreamTransport
+{
+    private org.apache.thrift.transport.TTransport transport_;
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TZlibTransport this;
+        org.apache.thrift.transport.TTransport transport;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TZlibTransport: 'void' <init>(org.apache.thrift.transport.TTransport,'int')>(transport, 9);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TConfiguration $r0, $r10;
+        org.apache.thrift.transport.TTransportInputStream $r2;
+        java.util.zip.Inflater $r4;
+        org.apache.thrift.transport.TTransportOutputStream $r6;
+        java.util.zip.InflaterInputStream $r1;
+        org.apache.thrift.transport.TZlibTransport this;
+        java.util.zip.Deflater $r8;
+        java.util.zip.DeflaterOutputStream $r5;
+        org.apache.thrift.transport.TTransport transport;
+        'int' compressionLevel;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        compressionLevel := @parameter1: 'int';
+
+        $r0 = virtualinvoke transport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>($r0);
+
+        if $z0 == false goto label1;
+
+        $r10 = new org.apache.thrift.TConfiguration;
+
+        $r0 = $r10;
+
+        specialinvoke $r10.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        goto label2;
+
+     label1:
+        $r0 = virtualinvoke transport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+     label2:
+        specialinvoke this.<org.apache.thrift.transport.TIOStreamTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_> = null;
+
+        this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_> = transport;
+
+        $r1 = new java.util.zip.InflaterInputStream;
+
+        $r2 = new org.apache.thrift.transport.TTransportInputStream;
+
+        transport = this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_>;
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportInputStream: 'void' <init>(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r4 = new java.util.zip.Inflater;
+
+        specialinvoke $r4.<java.util.zip.Inflater: 'void' <init>()>();
+
+        specialinvoke $r1.<java.util.zip.InflaterInputStream: 'void' <init>(java.io.InputStream,java.util.zip.Inflater)>($r2, $r4);
+
+        this.<org.apache.thrift.transport.TZlibTransport: java.io.InputStream inputStream_> = $r1;
+
+        $r5 = new java.util.zip.DeflaterOutputStream;
+
+        $r6 = new org.apache.thrift.transport.TTransportOutputStream;
+
+        transport = this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_>;
+
+        specialinvoke $r6.<org.apache.thrift.transport.TTransportOutputStream: 'void' <init>(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r8 = new java.util.zip.Deflater;
+
+        specialinvoke $r8.<java.util.zip.Deflater: 'void' <init>('int','boolean')>(compressionLevel, 0);
+
+        specialinvoke $r5.<java.util.zip.DeflaterOutputStream: 'void' <init>(java.io.OutputStream,java.util.zip.Deflater,'boolean')>($r6, $r8, 1);
+
+        this.<org.apache.thrift.transport.TZlibTransport: java.io.OutputStream outputStream_> = $r5;
+
+        return;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        'int' off, len, bytesRead;
+        org.apache.thrift.transport.TZlibTransport this;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $l0 = ('long') len;
+
+        virtualinvoke this.<org.apache.thrift.transport.TZlibTransport: 'void' checkReadBytesAvailable('long')>($l0);
+
+        bytesRead = specialinvoke this.<org.apache.thrift.transport.TIOStreamTransport: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        if bytesRead <= 0 goto label1;
+
+        $l0 = ('long') bytesRead;
+
+        virtualinvoke this.<org.apache.thrift.transport.TZlibTransport: 'void' countConsumedMessageBytes('long')>($l0);
+
+     label1:
+        return bytesRead;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.TZlibTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        return $z0;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TZlibTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' open()>();
+
+        return;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.TZlibTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TIOStreamTransport: 'void' close()>();
+
+        $r0 = this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        if $z0 == false goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TZlibTransport: org.apache.thrift.transport.TTransport transport_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label1:
+        return;
+    }
+}

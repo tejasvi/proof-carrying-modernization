@@ -1,0 +1,7 @@
+public interface  org.apache.thrift.scheme.IScheme extends java.lang.Object
+{
+
+    public abstract 'void' read(org.apache.thrift.protocol.TProtocol, org.apache.thrift.TBase) throws org.apache.thrift.TException;
+
+    public abstract 'void' write(org.apache.thrift.protocol.TProtocol, org.apache.thrift.TBase) throws org.apache.thrift.TException;
+}

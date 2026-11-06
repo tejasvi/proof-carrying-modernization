@@ -1,0 +1,83 @@
+public final class Cbstm03b$State extends java.lang.Object
+{
+    public Cbstm03b$TrnxFile trnxFile;
+    public Cbstm03b$XrefFile xrefFile;
+    public Cbstm03b$CustFile custFile;
+    public Cbstm03b$AcctFile acctFile;
+    public Cbstm03b$FdTrnxfileRec fdTrnxfileRec;
+    public Cbstm03b$FdXreffileRec fdXreffileRec;
+    public Cbstm03b$FdCustfileRec fdCustfileRec;
+    public Cbstm03b$FdAcctfileRec fdAcctfileRec;
+    public java.lang.String trnxfileStatus;
+    public java.lang.String xreffileStatus;
+    public java.lang.String custfileStatus;
+    public java.lang.String acctfileStatus;
+
+    public 'void' <init>(Cbstm03b$TrnxFile, Cbstm03b$XrefFile, Cbstm03b$CustFile, Cbstm03b$AcctFile, Cbstm03b$FdTrnxfileRec, Cbstm03b$FdXreffileRec, Cbstm03b$FdCustfileRec, Cbstm03b$FdAcctfileRec, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        Cbstm03b$TrnxFile r1;
+        Cbstm03b$CustFile r3;
+        Cbstm03b$AcctFile r4;
+        Cbstm03b$State r0;
+        Cbstm03b$XrefFile r2;
+        Cbstm03b$FdCustfileRec r7;
+        Cbstm03b$FdAcctfileRec r8;
+        java.lang.String r9, r10, r11, r12;
+        Cbstm03b$FdTrnxfileRec r5;
+        Cbstm03b$FdXreffileRec r6;
+
+        r0 := @this: Cbstm03b$State;
+
+        r1 := @parameter0: Cbstm03b$TrnxFile;
+
+        r2 := @parameter1: Cbstm03b$XrefFile;
+
+        r3 := @parameter2: Cbstm03b$CustFile;
+
+        r4 := @parameter3: Cbstm03b$AcctFile;
+
+        r5 := @parameter4: Cbstm03b$FdTrnxfileRec;
+
+        r6 := @parameter5: Cbstm03b$FdXreffileRec;
+
+        r7 := @parameter6: Cbstm03b$FdCustfileRec;
+
+        r8 := @parameter7: Cbstm03b$FdAcctfileRec;
+
+        r9 := @parameter8: java.lang.String;
+
+        r10 := @parameter9: java.lang.String;
+
+        r11 := @parameter10: java.lang.String;
+
+        r12 := @parameter11: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbstm03b$State: Cbstm03b$TrnxFile trnxFile> = r1;
+
+        r0.<Cbstm03b$State: Cbstm03b$XrefFile xrefFile> = r2;
+
+        r0.<Cbstm03b$State: Cbstm03b$CustFile custFile> = r3;
+
+        r0.<Cbstm03b$State: Cbstm03b$AcctFile acctFile> = r4;
+
+        r0.<Cbstm03b$State: Cbstm03b$FdTrnxfileRec fdTrnxfileRec> = r5;
+
+        r0.<Cbstm03b$State: Cbstm03b$FdXreffileRec fdXreffileRec> = r6;
+
+        r0.<Cbstm03b$State: Cbstm03b$FdCustfileRec fdCustfileRec> = r7;
+
+        r0.<Cbstm03b$State: Cbstm03b$FdAcctfileRec fdAcctfileRec> = r8;
+
+        r0.<Cbstm03b$State: java.lang.String trnxfileStatus> = r9;
+
+        r0.<Cbstm03b$State: java.lang.String xreffileStatus> = r10;
+
+        r0.<Cbstm03b$State: java.lang.String custfileStatus> = r11;
+
+        r0.<Cbstm03b$State: java.lang.String acctfileStatus> = r12;
+
+        return;
+    }
+}

@@ -1,0 +1,79 @@
+public final class org.apache.thrift.async.AsyncMethodFutureAdapter extends java.lang.Object implements org.apache.thrift.async.AsyncMethodCallback
+{
+    private final java.util.concurrent.CompletableFuture future;
+
+    private 'void' <init>()
+    {
+        java.util.concurrent.CompletableFuture $r0;
+        org.apache.thrift.async.AsyncMethodFutureAdapter this;
+
+        this := @this: org.apache.thrift.async.AsyncMethodFutureAdapter;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = new java.util.concurrent.CompletableFuture;
+
+        specialinvoke $r0.<java.util.concurrent.CompletableFuture: 'void' <init>()>();
+
+        this.<org.apache.thrift.async.AsyncMethodFutureAdapter: java.util.concurrent.CompletableFuture future> = $r0;
+
+        return;
+    }
+
+    public static org.apache.thrift.async.AsyncMethodFutureAdapter create()
+    {
+        org.apache.thrift.async.AsyncMethodFutureAdapter $r0;
+
+        $r0 = new org.apache.thrift.async.AsyncMethodFutureAdapter;
+
+        specialinvoke $r0.<org.apache.thrift.async.AsyncMethodFutureAdapter: 'void' <init>()>();
+
+        return $r0;
+    }
+
+    public java.util.concurrent.CompletableFuture getFuture()
+    {
+        java.util.concurrent.CompletableFuture $r0;
+        org.apache.thrift.async.AsyncMethodFutureAdapter this;
+
+        this := @this: org.apache.thrift.async.AsyncMethodFutureAdapter;
+
+        $r0 = this.<org.apache.thrift.async.AsyncMethodFutureAdapter: java.util.concurrent.CompletableFuture future>;
+
+        return $r0;
+    }
+
+    public 'void' onComplete(java.lang.Object)
+    {
+        java.lang.Object response;
+        java.util.concurrent.CompletableFuture $r0;
+        org.apache.thrift.async.AsyncMethodFutureAdapter this;
+
+        this := @this: org.apache.thrift.async.AsyncMethodFutureAdapter;
+
+        response := @parameter0: java.lang.Object;
+
+        $r0 = this.<org.apache.thrift.async.AsyncMethodFutureAdapter: java.util.concurrent.CompletableFuture future>;
+
+        virtualinvoke $r0.<java.util.concurrent.CompletableFuture: 'boolean' complete(java.lang.Object)>(response);
+
+        return;
+    }
+
+    public 'void' onError(java.lang.Exception)
+    {
+        java.util.concurrent.CompletableFuture $r0;
+        org.apache.thrift.async.AsyncMethodFutureAdapter this;
+        java.lang.Exception exception;
+
+        this := @this: org.apache.thrift.async.AsyncMethodFutureAdapter;
+
+        exception := @parameter0: java.lang.Exception;
+
+        $r0 = this.<org.apache.thrift.async.AsyncMethodFutureAdapter: java.util.concurrent.CompletableFuture future>;
+
+        virtualinvoke $r0.<java.util.concurrent.CompletableFuture: 'boolean' completeExceptionally(java.lang.Throwable)>(exception);
+
+        return;
+    }
+}

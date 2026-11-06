@@ -1,0 +1,81 @@
+public final class Cbact01c$AccountRecord extends java.lang.Object
+{
+    public 'long' acctId;
+    public java.lang.String acctActiveStatus;
+    public 'long' acctCurrBal;
+    public 'long' acctCreditLimit;
+    public 'long' acctCashCreditLimit;
+    public java.lang.String acctOpenDate;
+    public java.lang.String acctExpiraionDate;
+    public java.lang.String acctReissueDate;
+    public 'long' acctCurrCycCredit;
+    public 'long' acctCurrCycDebit;
+    public java.lang.String acctAddrZip;
+    public java.lang.String acctGroupId;
+    public java.lang.String filler1;
+
+    public 'void' <init>('long', java.lang.String, 'long', 'long', 'long', java.lang.String, java.lang.String, java.lang.String, 'long', 'long', java.lang.String, java.lang.String, java.lang.String)
+    {
+        'long' l0, l1, l2, l3, l4, l5;
+        java.lang.String r1, r2, r3, r4, r5, r6, r7;
+        Cbact01c$AccountRecord r0;
+
+        r0 := @this: Cbact01c$AccountRecord;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: java.lang.String;
+
+        l1 := @parameter2: 'long';
+
+        l2 := @parameter3: 'long';
+
+        l3 := @parameter4: 'long';
+
+        r2 := @parameter5: java.lang.String;
+
+        r3 := @parameter6: java.lang.String;
+
+        r4 := @parameter7: java.lang.String;
+
+        l4 := @parameter8: 'long';
+
+        l5 := @parameter9: 'long';
+
+        r5 := @parameter10: java.lang.String;
+
+        r6 := @parameter11: java.lang.String;
+
+        r7 := @parameter12: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbact01c$AccountRecord: 'long' acctId> = l0;
+
+        r0.<Cbact01c$AccountRecord: java.lang.String acctActiveStatus> = r1;
+
+        r0.<Cbact01c$AccountRecord: 'long' acctCurrBal> = l1;
+
+        r0.<Cbact01c$AccountRecord: 'long' acctCreditLimit> = l2;
+
+        r0.<Cbact01c$AccountRecord: 'long' acctCashCreditLimit> = l3;
+
+        r0.<Cbact01c$AccountRecord: java.lang.String acctOpenDate> = r2;
+
+        r0.<Cbact01c$AccountRecord: java.lang.String acctExpiraionDate> = r3;
+
+        r0.<Cbact01c$AccountRecord: java.lang.String acctReissueDate> = r4;
+
+        r0.<Cbact01c$AccountRecord: 'long' acctCurrCycCredit> = l4;
+
+        r0.<Cbact01c$AccountRecord: 'long' acctCurrCycDebit> = l5;
+
+        r0.<Cbact01c$AccountRecord: java.lang.String acctAddrZip> = r5;
+
+        r0.<Cbact01c$AccountRecord: java.lang.String acctGroupId> = r6;
+
+        r0.<Cbact01c$AccountRecord: java.lang.String filler1> = r7;
+
+        return;
+    }
+}

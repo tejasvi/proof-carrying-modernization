@@ -1,0 +1,42 @@
+# libev.c: libevent 2.1 library models. Run with libevent 2.1's headers and static library:
+#   DT_CFLAGS="-I<libevent>/include" DT_LIBS="<libevent>/lib/libevent.a" CASES=libev_cases.txt bash run.sh
+# Each case is labelled on the line above it (before the change: UB "call to an external function
+# without a model").
+# expect MATCH: a new buffer is not null (allocation succeeds)
+libev t_buf_new 0
+# expect MATCH: 5 bytes, then 3 more, length 8; then 0 more
+libev t_buf_add 3
+libev t_buf_add 0
+# expect MATCH: length 0 with a valid pointer
+libev t_buf_add_zero 0
+# expect UB: a null data pointer with length 0 (memcpy(dst, NULL, 0) in libevent, C11 7.1.4p1)
+libev ub_buf_add_null0 0
+# expect UB: a buffer freed twice
+libev ub_buf_double_free 0
+# expect MATCH: two headers at the end of the list, with copies of their strings; the list links
+libev t_hdr_add 0
+# expect MATCH: -1 for a key holding CR, nothing added
+libev t_hdr_cr_key 0
+# expect MATCH: -1 for a value with a line break not followed by a space or tab
+libev t_hdr_lf_value 0
+# expect MATCH: folded values are refused too (-1, nothing added)
+libev t_hdr_fold 0
+# expect MATCH: -1 for a value ending in a line break
+libev t_hdr_trailing_nl 0
+# expect MATCH: the values accepted, as a bit mask: those without CR and LF (control characters
+# and DEL are accepted)
+libev t_hdr_values 0
+# expect MATCH: the keys accepted, as a bit mask: those without CR and LF (spaces, ':', the empty
+# key and control characters are accepted)
+libev t_hdr_keys 0
+# expect MATCH: a request without a connection is freed at once and databuf keeps its 3 bytes
+# (libevent 2.1.12's evhttp_send: the header comment says databuf is emptied)
+libev t_reply_nocon 0
+# expect MATCH: no body, the standard reason phrase, headers in both lists
+libev t_reply_nocon_nullbuf 0
+# expect UB: the request is used after evhttp_send_reply freed it
+libev ub_reply_use_after 0
+# expect UB: a request whose header lists are null
+libev ub_reply_null_headers 0
+# expect MATCH: -1 for a null event base
+libev t_loopbreak_null 0

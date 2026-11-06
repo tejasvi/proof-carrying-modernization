@@ -1,0 +1,2 @@
+/home/user/cirlean_work/corpus/cir/test_iostream_log.cpp.cir: 68 funcs (54 with body, 0 modelled), 31 records, 3 globals, 1025 ops
+  unknown ops: cir.vtable.get_vptr×9, cir.vtable.get_virtual_fn_addr×2, cir.get_bitfield×1

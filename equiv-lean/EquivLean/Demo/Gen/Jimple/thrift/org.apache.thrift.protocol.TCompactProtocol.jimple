@@ -1,0 +1,2667 @@
+public class org.apache.thrift.protocol.TCompactProtocol extends org.apache.thrift.protocol.TProtocol
+{
+    private static final 'byte'[] EMPTY_BYTES;
+    private static final java.nio.ByteBuffer EMPTY_BUFFER;
+    private static final 'long' NO_LENGTH_LIMIT;
+    private static final org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT;
+    private static final org.apache.thrift.protocol.TField TSTOP;
+    private static final 'byte'[] ttypeToCompactType;
+    private static final 'byte' PROTOCOL_ID;
+    private static final 'byte' VERSION;
+    private static final 'byte' VERSION_MASK;
+    private static final 'byte' TYPE_MASK;
+    private static final 'byte' TYPE_BITS;
+    private static final 'int' TYPE_SHIFT_AMOUNT;
+    private static final 'int' MAX_VARINT32_BYTES;
+    private static final 'int' MAX_VARINT64_BYTES;
+    private final org.apache.thrift.protocol.ShortStack lastField_;
+    private 'short' lastFieldId_;
+    private org.apache.thrift.protocol.TField booleanField_;
+    private java.lang.Boolean boolValue_;
+    private final 'long' stringLengthLimit_;
+    private final 'long' containerLengthLimit_;
+    private final 'byte'[] temp;
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'long', 'long')
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport transport;
+        'long' stringLengthLimit, containerLengthLimit;
+        org.apache.thrift.protocol.ShortStack $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        stringLengthLimit := @parameter1: 'long';
+
+        containerLengthLimit := @parameter2: 'long';
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' <init>(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r0 = new org.apache.thrift.protocol.ShortStack;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.ShortStack: 'void' <init>('int')>(15);
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.ShortStack lastField_> = $r0;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = 0;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TField booleanField_> = null;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: java.lang.Boolean boolValue_> = null;
+
+        $r1 = newarray ('byte')[16];
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp> = $r1;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'long' stringLengthLimit_> = stringLengthLimit;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'long' containerLengthLimit_> = containerLengthLimit;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'long')
+    {
+        'long' stringLengthLimit;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.transport.TTransport transport;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        stringLengthLimit := @parameter1: 'long';
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' <init>(org.apache.thrift.transport.TTransport,'long','long')>(transport, stringLengthLimit, -1L);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.transport.TTransport transport;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' <init>(org.apache.thrift.transport.TTransport,'long','long')>(transport, -1L, -1L);
+
+        return;
+    }
+
+    public 'void' reset()
+    {
+        org.apache.thrift.protocol.ShortStack $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.ShortStack lastField_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.ShortStack: 'void' clear()>();
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = 0;
+
+        return;
+    }
+
+    public 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TMessage message;
+        'byte' $b0;
+        'int' $i1, $i7;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        message := @parameter0: org.apache.thrift.protocol.TMessage;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('byte')>(-126);
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $i1 = ('int') $b0;
+
+        $i1 = $i1 << 5;
+
+        $i7 = ('int') -32;
+
+        $i1 = $i1 & $i7;
+
+        $i1 = 1 | $i1;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('int')>($i1);
+
+        $i1 = message.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint32('int')>($i1);
+
+        $r0 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeString(java.lang.String)>($r0);
+
+        return;
+    }
+
+    public 'void' writeStructBegin(org.apache.thrift.protocol.TStruct) throws org.apache.thrift.TException
+    {
+        'short' $s0;
+        org.apache.thrift.protocol.ShortStack $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TStruct struct;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        struct := @parameter0: org.apache.thrift.protocol.TStruct;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.ShortStack lastField_>;
+
+        $s0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.ShortStack: 'void' push('short')>($s0);
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = 0;
+
+        return;
+    }
+
+    public 'void' writeStructEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.ShortStack $r0;
+        'short' $s0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.ShortStack lastField_>;
+
+        $s0 = virtualinvoke $r0.<org.apache.thrift.protocol.ShortStack: 'short' pop()>();
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = $s0;
+
+        return;
+    }
+
+    public 'void' writeFieldBegin(org.apache.thrift.protocol.TField) throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        'int' $i1;
+        org.apache.thrift.protocol.TField field;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        field := @parameter0: org.apache.thrift.protocol.TField;
+
+        $b0 = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $i1 = ('int') $b0;
+
+        if $i1 != 2 goto label1;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TField booleanField_> = field;
+
+        goto label2;
+
+     label1:
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeFieldBeginInternal(org.apache.thrift.protocol.TField,'byte')>(field, -1);
+
+     label2:
+        return;
+    }
+
+    private 'void' writeFieldBeginInternal(org.apache.thrift.protocol.TField, 'byte') throws org.apache.thrift.TException
+    {
+        'short' $s1, $s2;
+        'byte' typeOverride;
+        'int' $i5, $i16;
+        org.apache.thrift.protocol.TField field;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        field := @parameter0: org.apache.thrift.protocol.TField;
+
+        typeOverride := @parameter1: 'byte';
+
+        $i5 = ('int') typeOverride;
+
+        $i16 = ('int') -1;
+
+        if $i5 != $i16 goto label1;
+
+        typeOverride = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        typeOverride = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getCompactType('byte')>(typeOverride);
+
+     label1:
+        $s1 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $s2 = this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_>;
+
+        $i5 = ('int') $s1;
+
+        $i16 = ('int') $s2;
+
+        if $i5 <= $i16 goto label2;
+
+        $s1 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $s2 = this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_>;
+
+        $i5 = ('int') $s1;
+
+        $i16 = ('int') $s2;
+
+        $i5 = $i5 - $i16;
+
+        if $i5 > 15 goto label2;
+
+        $s1 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $s2 = this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_>;
+
+        $i5 = ('int') $s1;
+
+        $i16 = ('int') $s2;
+
+        $i5 = $i5 - $i16;
+
+        $i5 = $i5 << 4;
+
+        $i16 = ('int') typeOverride;
+
+        $i5 = $i5 | $i16;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('int')>($i5);
+
+        goto label3;
+
+     label2:
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('byte')>(typeOverride);
+
+        $s1 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeI16('short')>($s1);
+
+     label3:
+        $s1 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = $s1;
+
+        return;
+    }
+
+    public 'void' writeFieldStop() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('byte')>(0);
+
+        return;
+    }
+
+    public 'void' writeMapBegin(org.apache.thrift.protocol.TMap) throws org.apache.thrift.TException
+    {
+        'byte' $b2;
+        'int' $i0, $i9;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        map := @parameter0: org.apache.thrift.protocol.TMap;
+
+        $i0 = map.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        if $i0 != 0 goto label1;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('int')>(0);
+
+        goto label2;
+
+     label1:
+        $i0 = map.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint32('int')>($i0);
+
+        $b2 = map.<org.apache.thrift.protocol.TMap: 'byte' keyType>;
+
+        $b2 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getCompactType('byte')>($b2);
+
+        $i0 = ('int') $b2;
+
+        $i0 = $i0 << 4;
+
+        $b2 = map.<org.apache.thrift.protocol.TMap: 'byte' valueType>;
+
+        $b2 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getCompactType('byte')>($b2);
+
+        $i9 = ('int') $b2;
+
+        $i0 = $i0 | $i9;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('int')>($i0);
+
+     label2:
+        return;
+    }
+
+    public 'void' writeListBegin(org.apache.thrift.protocol.TList) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte' $b0;
+        'int' $i1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        list := @parameter0: org.apache.thrift.protocol.TList;
+
+        $b0 = list.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        $i1 = list.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeCollectionBegin('byte','int')>($b0, $i1);
+
+        return;
+    }
+
+    public 'void' writeSetBegin(org.apache.thrift.protocol.TSet) throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TSet set;
+        'int' $i1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        set := @parameter0: org.apache.thrift.protocol.TSet;
+
+        $b0 = set.<org.apache.thrift.protocol.TSet: 'byte' elemType>;
+
+        $i1 = set.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeCollectionBegin('byte','int')>($b0, $i1);
+
+        return;
+    }
+
+    public 'void' writeBool('boolean') throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TField $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'boolean' b;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        b := @parameter0: 'boolean';
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TField booleanField_>;
+
+        if $r0 == null goto label3;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TField booleanField_>;
+
+        if b == false goto label1;
+
+        $b0 = 1;
+
+        goto label2;
+
+     label1:
+        $b0 = 2;
+
+     label2:
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeFieldBeginInternal(org.apache.thrift.protocol.TField,'byte')>($r0, $b0);
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TField booleanField_> = null;
+
+        goto label6;
+
+     label3:
+        if b == false goto label4;
+
+        $b0 = 1;
+
+        goto label5;
+
+     label4:
+        $b0 = 2;
+
+     label5:
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('byte')>($b0);
+
+     label6:
+        return;
+    }
+
+    public 'void' writeByte('byte') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'byte' b;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        b := @parameter0: 'byte';
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('byte')>(b);
+
+        return;
+    }
+
+    public 'void' writeI16('short') throws org.apache.thrift.TException
+    {
+        'int' $i0;
+        'short' i16;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        i16 := @parameter0: 'short';
+
+        $i0 = ('int') i16;
+
+        $i0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' intToZigZag('int')>($i0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint32('int')>($i0);
+
+        return;
+    }
+
+    public 'void' writeI32('int') throws org.apache.thrift.TException
+    {
+        'int' i32;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        i32 := @parameter0: 'int';
+
+        i32 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' intToZigZag('int')>(i32);
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint32('int')>(i32);
+
+        return;
+    }
+
+    public 'void' writeI64('long') throws org.apache.thrift.TException
+    {
+        'long' i64;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        i64 := @parameter0: 'long';
+
+        i64 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'long' longToZigzag('long')>(i64);
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint64('long')>(i64);
+
+        return;
+    }
+
+    public 'void' writeDouble('double') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        'long' $l0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'double' dub;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        dub := @parameter0: 'double';
+
+        $l0 = staticinvoke <java.lang.Double: 'long' doubleToLongBits('double')>(dub);
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' fixedLongToBytes('long','byte'[],'int')>($l0, $r0, 0);
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 8);
+
+        return;
+    }
+
+    public 'void' writeUuid(java.util.UUID) throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        'long' $l0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        java.util.UUID uuid;
+        java.nio.ByteBuffer bb;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        uuid := @parameter0: java.util.UUID;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>($r0);
+
+        $l0 = virtualinvoke uuid.<java.util.UUID: 'long' getMostSignificantBits()>();
+
+        virtualinvoke bb.<java.nio.ByteBuffer: java.nio.ByteBuffer putLong('long')>($l0);
+
+        $l0 = virtualinvoke uuid.<java.util.UUID: 'long' getLeastSignificantBits()>();
+
+        virtualinvoke bb.<java.nio.ByteBuffer: java.nio.ByteBuffer putLong('long')>($l0);
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 16);
+
+        return;
+    }
+
+    public 'void' writeString(java.lang.String) throws org.apache.thrift.TException
+    {
+        'byte'[] bytes;
+        java.nio.charset.Charset $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        'int' $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        java.lang.String str;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        str := @parameter0: java.lang.String;
+
+        $r0 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        bytes = virtualinvoke str.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r0);
+
+        $i0 = lengthof bytes;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint32('int')>($i0);
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = lengthof bytes;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(bytes, 0, $i0);
+
+        return;
+    }
+
+    public 'void' writeBinary(java.nio.ByteBuffer) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.transport.TTransport $r0;
+        'int' $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        java.nio.ByteBuffer bin, bb;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        bin := @parameter0: java.nio.ByteBuffer;
+
+        bb = virtualinvoke bin.<java.nio.ByteBuffer: java.nio.ByteBuffer asReadOnlyBuffer()>();
+
+        $i0 = virtualinvoke bb.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint32('int')>($i0);
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' write(java.nio.ByteBuffer)>(bb);
+
+        return;
+    }
+
+    public 'void' writeMessageEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' writeMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' writeListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' writeSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' writeFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    protected 'void' writeCollectionBegin('byte', 'int') throws org.apache.thrift.TException
+    {
+        'short' $s4;
+        'byte' elemType;
+        'int' size, $i5;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        elemType := @parameter0: 'byte';
+
+        size := @parameter1: 'int';
+
+        if size > 14 goto label1;
+
+        size = size << 4;
+
+        elemType = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getCompactType('byte')>(elemType);
+
+        $i5 = ('int') elemType;
+
+        size = size | $i5;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('int')>(size);
+
+        goto label2;
+
+     label1:
+        elemType = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getCompactType('byte')>(elemType);
+
+        $s4 = ('short') elemType;
+
+        $s4 = 240 | $s4;
+
+        $i5 = ('int') $s4;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('int')>($i5);
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeVarint32('int')>(size);
+
+     label2:
+        return;
+    }
+
+    private 'void' writeVarint32('int') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'byte' $b1;
+        org.apache.thrift.transport.TTransport $r2;
+        'int' idx#3, $i3, n, idx;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        n := @parameter0: 'int';
+
+        idx = 0;
+
+     label1:
+        idx#3 = ('int') -128;
+
+        idx#3 = n & idx#3;
+
+        if idx#3 != 0 goto label2;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        idx#3 = idx + 1;
+
+        $b1 = ('byte') n;
+
+        $r0[idx] = $b1;
+
+        goto label3;
+
+     label2:
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        idx#3 = idx;
+
+        idx = idx + 1;
+
+        $i3 = n & 127;
+
+        $i3 = $i3 | 128;
+
+        $b1 = ('byte') $i3;
+
+        $r0[idx#3] = $b1;
+
+        n = n >>> 7;
+
+        goto label1;
+
+     label3:
+        $r2 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, idx#3);
+
+        return;
+    }
+
+    private 'void' writeVarint64('long') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'long' $l0, n;
+        'byte' $b1;
+        org.apache.thrift.transport.TTransport $r2;
+        'int' $i2, idx#3, idx;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        n := @parameter0: 'long';
+
+        idx = 0;
+
+     label1:
+        $l0 = n & -128L;
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 != 0 goto label2;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        idx#3 = idx + 1;
+
+        $i2 = ('int') n;
+
+        $b1 = ('byte') $i2;
+
+        $r0[idx] = $b1;
+
+        goto label3;
+
+     label2:
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        $i2 = idx;
+
+        idx = idx + 1;
+
+        $l0 = n & 127L;
+
+        $l0 = $l0 | 128L;
+
+        idx#3 = ('int') $l0;
+
+        $b1 = ('byte') idx#3;
+
+        $r0[$i2] = $b1;
+
+        n = n >>> 7;
+
+        goto label1;
+
+     label3:
+        $r2 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, idx#3);
+
+        return;
+    }
+
+    private 'long' longToZigzag('long')
+    {
+        'long' l, $l0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        l := @parameter0: 'long';
+
+        $l0 = l << 1;
+
+        l = l >> 63;
+
+        l = $l0 ^ l;
+
+        return l;
+    }
+
+    private 'int' intToZigZag('int')
+    {
+        'int' n, $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        n := @parameter0: 'int';
+
+        $i0 = n << 1;
+
+        n = n >> 31;
+
+        n = $i0 ^ n;
+
+        return n;
+    }
+
+    private 'void' fixedLongToBytes('long', 'byte'[], 'int')
+    {
+        'byte'[] buf;
+        'long' n, $l1;
+        'byte' $b3;
+        'int' off, $i0, $i2;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        n := @parameter0: 'long';
+
+        buf := @parameter1: 'byte'[];
+
+        off := @parameter2: 'int';
+
+        $i0 = off + 0;
+
+        $l1 = n & 255L;
+
+        $i2 = ('int') $l1;
+
+        $b3 = ('byte') $i2;
+
+        buf[$i0] = $b3;
+
+        $i0 = off + 1;
+
+        $l1 = n >> 8;
+
+        $l1 = $l1 & 255L;
+
+        $i2 = ('int') $l1;
+
+        $b3 = ('byte') $i2;
+
+        buf[$i0] = $b3;
+
+        $i0 = off + 2;
+
+        $l1 = n >> 16;
+
+        $l1 = $l1 & 255L;
+
+        $i2 = ('int') $l1;
+
+        $b3 = ('byte') $i2;
+
+        buf[$i0] = $b3;
+
+        $i0 = off + 3;
+
+        $l1 = n >> 24;
+
+        $l1 = $l1 & 255L;
+
+        $i2 = ('int') $l1;
+
+        $b3 = ('byte') $i2;
+
+        buf[$i0] = $b3;
+
+        $i0 = off + 4;
+
+        $l1 = n >> 32;
+
+        $l1 = $l1 & 255L;
+
+        $i2 = ('int') $l1;
+
+        $b3 = ('byte') $i2;
+
+        buf[$i0] = $b3;
+
+        $i0 = off + 5;
+
+        $l1 = n >> 40;
+
+        $l1 = $l1 & 255L;
+
+        $i2 = ('int') $l1;
+
+        $b3 = ('byte') $i2;
+
+        buf[$i0] = $b3;
+
+        $i0 = off + 6;
+
+        $l1 = n >> 48;
+
+        $l1 = $l1 & 255L;
+
+        $i2 = ('int') $l1;
+
+        $b3 = ('byte') $i2;
+
+        buf[$i0] = $b3;
+
+        off = off + 7;
+
+        n = n >> 56;
+
+        n = n & 255L;
+
+        $i0 = ('int') n;
+
+        $b3 = ('byte') $i0;
+
+        buf[off] = $b3;
+
+        return;
+    }
+
+    private 'void' writeByteDirect('byte') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'byte' b;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        b := @parameter0: 'byte';
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        $r0[0] = b;
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 1);
+
+        return;
+    }
+
+    private 'void' writeByteDirect('int') throws org.apache.thrift.TException
+    {
+        'int' n;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'byte' $b0;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        n := @parameter0: 'int';
+
+        $b0 = ('byte') n;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' writeByteDirect('byte')>($b0);
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TMessage readMessageBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TMessage $r14;
+        'byte' protocolId, versionAndType, version, type;
+        'int' seqid, $i5;
+        java.lang.StringBuilder $r1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String messageName;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        protocolId = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        seqid = ('int') protocolId;
+
+        $i5 = ('int') -126;
+
+        if seqid == $i5 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Expected protocol id ");
+
+        seqid = ('int') -126;
+
+        messageName = staticinvoke <java.lang.Integer: java.lang.String toHexString('int')>(seqid);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(messageName);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" but got ");
+
+        seqid = ('int') protocolId;
+
+        messageName = staticinvoke <java.lang.Integer: java.lang.String toHexString('int')>(seqid);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(messageName);
+
+        messageName = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>(java.lang.String)>(messageName);
+
+        throw $r0;
+
+     label1:
+        versionAndType = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        version = versionAndType & 31;
+
+        if version == 1 goto label2;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Expected version 1 but got ");
+
+        seqid = ('int') version;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(seqid);
+
+        messageName = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>(java.lang.String)>(messageName);
+
+        throw $r0;
+
+     label2:
+        seqid = ('int') versionAndType;
+
+        seqid = seqid >> 5;
+
+        seqid = seqid & 7;
+
+        type = ('byte') seqid;
+
+        seqid = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readVarint32()>();
+
+        messageName = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: java.lang.String readString()>();
+
+        $r14 = new org.apache.thrift.protocol.TMessage;
+
+        specialinvoke $r14.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>(messageName, type, seqid);
+
+        return $r14;
+    }
+
+    public org.apache.thrift.protocol.TStruct readStructBegin() throws org.apache.thrift.TException
+    {
+        'short' $s0;
+        org.apache.thrift.protocol.ShortStack $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TStruct $r1;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.ShortStack lastField_>;
+
+        $s0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.ShortStack: 'void' push('short')>($s0);
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = 0;
+
+        $r1 = <org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT>;
+
+        return $r1;
+    }
+
+    public 'void' readStructEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.ShortStack $r0;
+        'short' $s0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.ShortStack lastField_>;
+
+        $s0 = virtualinvoke $r0.<org.apache.thrift.protocol.ShortStack: 'short' pop()>();
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = $s0;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TField readFieldBegin() throws org.apache.thrift.TException
+    {
+        'short' $s3;
+        'byte' type, $b1;
+        org.apache.thrift.protocol.TField $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        type = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        if type != 0 goto label1;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TField TSTOP>;
+
+        return $r0;
+
+     label1:
+        $r0 = new org.apache.thrift.protocol.TField;
+
+        $b1 = type & 15;
+
+        $b1 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getTType('byte')>($b1);
+
+        $s3 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'short' readFieldId('byte')>(type);
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TField: 'void' <init>(java.lang.String,'byte','short')>("", $b1, $s3);
+
+        return $r0;
+    }
+
+    public org.apache.thrift.protocol.TMap readMapBegin() throws org.apache.thrift.TException
+    {
+        'byte' $b1, $b3;
+        'int' size, $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        size = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readVarint32()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' checkContainerReadLength('int')>(size);
+
+        if size != 0 goto label1;
+
+        $b3 = 0;
+
+        goto label2;
+
+     label1:
+        $b3 = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+     label2:
+        map = new org.apache.thrift.protocol.TMap;
+
+        $i0 = $b3 >> 4;
+
+        $b1 = ('byte') $i0;
+
+        $b1 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getTType('byte')>($b1);
+
+        $b3 = $b3 & 15;
+
+        $b3 = ('byte') $b3;
+
+        $b3 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getTType('byte')>($b3);
+
+        specialinvoke map.<org.apache.thrift.protocol.TMap: 'void' <init>('byte','byte','int')>($b1, $b3, size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TMap)>(map);
+
+        return map;
+    }
+
+    public org.apache.thrift.protocol.TList readListBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte' size_and_type;
+        'int' size;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        size_and_type = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        size = ('int') size_and_type;
+
+        size = size >> 4;
+
+        size = size & 15;
+
+        if size != 15 goto label1;
+
+        size = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readVarint32()>();
+
+     label1:
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' checkContainerReadLength('int')>(size);
+
+        list = new org.apache.thrift.protocol.TList;
+
+        size_and_type = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getTType('byte')>(size_and_type);
+
+        specialinvoke list.<org.apache.thrift.protocol.TList: 'void' <init>('byte','int')>(size_and_type, size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TList)>(list);
+
+        return list;
+    }
+
+    public org.apache.thrift.protocol.TSet readSetBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList $r1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TSet $r0;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = new org.apache.thrift.protocol.TSet;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TList readListBegin()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TSet: 'void' <init>(org.apache.thrift.protocol.TList)>($r1);
+
+        return $r0;
+    }
+
+    public 'boolean' readBool() throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        java.lang.Boolean $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'boolean' result;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: java.lang.Boolean boolValue_>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: java.lang.Boolean boolValue_>;
+
+        result = virtualinvoke $r0.<java.lang.Boolean: 'boolean' booleanValue()>();
+
+        this.<org.apache.thrift.protocol.TCompactProtocol: java.lang.Boolean boolValue_> = null;
+
+        return result;
+
+     label1:
+        $b0 = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        if $b0 != 1 goto label2;
+
+        result = 1;
+
+        goto label3;
+
+     label2:
+        result = 0;
+
+     label3:
+        return result;
+    }
+
+    public 'byte' readByte() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' b;
+        'int' $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 <= 0 goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        b = $r2[$i0];
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(1);
+
+        goto label2;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>($r2, 0, 1);
+
+        $r2 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        b = $r2[0];
+
+     label2:
+        return b;
+    }
+
+    public 'short' readI16() throws org.apache.thrift.TException
+    {
+        'int' $i0;
+        'short' $s2;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $i0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readVarint32()>();
+
+        $i0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' zigzagToInt('int')>($i0);
+
+        $s2 = ('short') $i0;
+
+        return $s2;
+    }
+
+    public 'int' readI32() throws org.apache.thrift.TException
+    {
+        'int' $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $i0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readVarint32()>();
+
+        $i0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' zigzagToInt('int')>($i0);
+
+        return $i0;
+    }
+
+    public 'long' readI64() throws org.apache.thrift.TException
+    {
+        'long' $l0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'long' readVarint64()>();
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'long' zigzagToLong('long')>($l0);
+
+        return $l0;
+    }
+
+    public 'double' readDouble() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        'long' $l0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'double' $d0;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>($r1, 0, 8);
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'long' bytesToLong('byte'[])>($r1);
+
+        $d0 = staticinvoke <java.lang.Double: 'double' longBitsToDouble('long')>($l0);
+
+        return $d0;
+    }
+
+    public java.util.UUID readUuid() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        'long' $l0, $l1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        java.util.UUID $r3;
+        java.nio.ByteBuffer bb;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>($r1, 0, 16);
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] temp>;
+
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>($r1, 0, 16);
+
+        $r3 = new java.util.UUID;
+
+        $l0 = virtualinvoke bb.<java.nio.ByteBuffer: 'long' getLong()>();
+
+        $l1 = virtualinvoke bb.<java.nio.ByteBuffer: 'long' getLong()>();
+
+        specialinvoke $r3.<java.util.UUID: 'void' <init>('long','long')>($l0, $l1);
+
+        return $r3;
+    }
+
+    public java.lang.String readString() throws org.apache.thrift.TException
+    {
+        'byte'[] $r3;
+        org.apache.thrift.transport.TTransport $r0;
+        java.nio.charset.Charset $r5;
+        'int' length, $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        java.lang.String str;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        length = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readVarint32()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' checkStringReadLength('int')>(length);
+
+        if length != 0 goto label1;
+
+        return "";
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < length goto label2;
+
+        str = new java.lang.String;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r3 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        $r5 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke str.<java.lang.String: 'void' <init>('byte'[],'int','int',java.nio.charset.Charset)>($r3, $i0, length, $r5);
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(length);
+
+        goto label3;
+
+     label2:
+        str = new java.lang.String;
+
+        $r3 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte'[] readBinary('int')>(length);
+
+        $r5 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke str.<java.lang.String: 'void' <init>('byte'[],java.nio.charset.Charset)>($r3, $r5);
+
+     label3:
+        return str;
+    }
+
+    public java.nio.ByteBuffer readBinary() throws org.apache.thrift.TException
+    {
+        'byte'[] bb#2;
+        org.apache.thrift.transport.TTransport $r1;
+        'int' length, $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        java.nio.ByteBuffer bb;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        length = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readVarint32()>();
+
+        if length != 0 goto label1;
+
+        bb = <org.apache.thrift.protocol.TCompactProtocol: java.nio.ByteBuffer EMPTY_BUFFER>;
+
+        return bb;
+
+     label1:
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' checkStringReadLength('int')>(length);
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < length goto label2;
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        bb#2 = virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>(bb#2, $i0, length);
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(length);
+
+        return bb;
+
+     label2:
+        bb#2 = newarray ('byte')[length];
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(bb#2, 0, length);
+
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>(bb#2);
+
+        return bb;
+    }
+
+    private 'byte'[] readBinary('int') throws org.apache.thrift.TException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransport $r1;
+        'int' length;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        length := @parameter0: 'int';
+
+        if length != 0 goto label1;
+
+        buf = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] EMPTY_BYTES>;
+
+        return buf;
+
+     label1:
+        buf = newarray ('byte')[length];
+
+        $r1 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(buf, 0, length);
+
+        return buf;
+    }
+
+    private 'void' checkStringReadLength('int') throws org.apache.thrift.TException
+    {
+        'long' $l0, $l4;
+        org.apache.thrift.transport.TTransport $r5;
+        'byte' $b2;
+        'int' length, $i6;
+        java.lang.StringBuilder $r1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        length := @parameter0: 'int';
+
+        if length >= 0 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Negative length: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(2, $r4);
+
+        throw $r0;
+
+     label1:
+        $r5 = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        $l0 = ('long') length;
+
+        virtualinvoke $r5.<org.apache.thrift.transport.TTransport: 'void' checkReadBytesAvailable('long')>($l0);
+
+        $l0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'long' stringLengthLimit_>;
+
+        $b2 = $l0 cmp -1L;
+
+        if $b2 == false goto label2;
+
+        $l0 = ('long') length;
+
+        $l4 = this.<org.apache.thrift.protocol.TCompactProtocol: 'long' stringLengthLimit_>;
+
+        $b2 = $l0 cmp $l4;
+
+        $i6 = ('int') $b2;
+
+        if $i6 <= 0 goto label2;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Length exceeded max allowed: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(3, $r4);
+
+        throw $r0;
+
+     label2:
+        return;
+    }
+
+    private 'void' checkContainerReadLength('int') throws org.apache.thrift.protocol.TProtocolException
+    {
+        'long' $l0, $l3;
+        'byte' $b1;
+        'int' length, $i5;
+        java.lang.StringBuilder $r1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        length := @parameter0: 'int';
+
+        if length >= 0 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Negative length: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(2, $r4);
+
+        throw $r0;
+
+     label1:
+        $l0 = this.<org.apache.thrift.protocol.TCompactProtocol: 'long' containerLengthLimit_>;
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 == false goto label2;
+
+        $l0 = ('long') length;
+
+        $l3 = this.<org.apache.thrift.protocol.TCompactProtocol: 'long' containerLengthLimit_>;
+
+        $b1 = $l0 cmp $l3;
+
+        $i5 = ('int') $b1;
+
+        if $i5 <= 0 goto label2;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Length exceeded max allowed: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(3, $r4);
+
+        throw $r0;
+
+     label2:
+        return;
+    }
+
+    public 'void' readMessageEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' readFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' readMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' readListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    public 'void' readSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        return;
+    }
+
+    private 'int' readVarint32() throws org.apache.thrift.TException
+    {
+        'byte'[] buf;
+        'short' $s4;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' b, pos#7;
+        'int' result, shift, result#1_3, pos, off, shift#2_1, result#1_4, $i11;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TProtocolException $r3;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        result#1_4 = 0;
+
+        result#1_3 = 0;
+
+        shift = 0;
+
+        shift#2_1 = 0;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        result = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if result < 5 goto label3;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        pos = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        off = 0;
+
+     label1:
+        result = pos + off;
+
+        b = buf[result];
+
+        pos#7 = b & 127;
+
+        result = ('int') pos#7;
+
+        result = result << shift;
+
+        result = result#1_3 | result;
+
+        result#1_3 = result;
+
+        $s4 = ('short') b;
+
+        $s4 = $s4 & 128;
+
+        $i11 = ('int') $s4;
+
+        if $i11 != 128 goto label2;
+
+        shift = shift + 7;
+
+        off = off + 1;
+
+        if off < 5 goto label1;
+
+        $r3 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Variable-length int over 5 bytes.");
+
+        throw $r3;
+
+     label2:
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        shift = off + 1;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(shift);
+
+        goto label7;
+
+     label3:
+        shift = 0;
+
+     label4:
+        if shift >= 5 goto label6;
+
+        pos#7 = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        b = pos#7 & 127;
+
+        result#1_3 = ('int') b;
+
+        result#1_3 = result#1_3 << shift#2_1;
+
+        result#1_4 = result#1_4 | result#1_3;
+
+        $s4 = ('short') pos#7;
+
+        $s4 = $s4 & 128;
+
+        result#1_3 = ('int') $s4;
+
+        if result#1_3 == 128 goto label5;
+
+        return result#1_4;
+
+     label5:
+        shift#2_1 = shift#2_1 + 7;
+
+        shift = shift + 1;
+
+        goto label4;
+
+     label6:
+        $r3 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Variable-length int over 5 bytes.");
+
+        throw $r3;
+
+     label7:
+        return result;
+    }
+
+    private 'long' readVarint64() throws org.apache.thrift.TException
+    {
+        'byte'[] buf;
+        'long' result, result#2_1;
+        'short' $s5;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' b, pos#7;
+        'int' off, $i1, shift, pos, shift#1_3;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TProtocolException $r3;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        shift = 0;
+
+        shift#1_3 = 0;
+
+        result = 0L;
+
+        result#2_1 = 0L;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if off < 10 goto label3;
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        pos = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        off = 0;
+
+     label1:
+        $i1 = pos + off;
+
+        b = buf[$i1];
+
+        pos#7 = b & 127;
+
+        result = ('long') pos#7;
+
+        result = result << shift;
+
+        result = result#2_1 | result;
+
+        result#2_1 = result;
+
+        $s5 = ('short') b;
+
+        $s5 = $s5 & 128;
+
+        $i1 = ('int') $s5;
+
+        if $i1 != 128 goto label2;
+
+        shift = shift + 7;
+
+        off = off + 1;
+
+        if off < 10 goto label1;
+
+        $r3 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Variable-length int over 10 bytes.");
+
+        throw $r3;
+
+     label2:
+        $r0 = this.<org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        shift = off + 1;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(shift);
+
+        goto label7;
+
+     label3:
+        shift = 0;
+
+     label4:
+        if shift >= 10 goto label6;
+
+        pos#7 = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        b = pos#7 & 127;
+
+        result#2_1 = ('long') b;
+
+        result#2_1 = result#2_1 << shift#1_3;
+
+        result = result | result#2_1;
+
+        $s5 = ('short') pos#7;
+
+        $s5 = $s5 & 128;
+
+        off = ('int') $s5;
+
+        if off == 128 goto label5;
+
+        return result;
+
+     label5:
+        shift#1_3 = shift#1_3 + 7;
+
+        shift = shift + 1;
+
+        goto label4;
+
+     label6:
+        $r3 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Variable-length int over 10 bytes.");
+
+        throw $r3;
+
+     label7:
+        return result;
+    }
+
+    private 'int' zigzagToInt('int')
+    {
+        'int' n, $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        n := @parameter0: 'int';
+
+        $i0 = n >>> 1;
+
+        n = n & 1;
+
+        n = neg n;
+
+        n = $i0 ^ n;
+
+        return n;
+    }
+
+    private 'long' zigzagToLong('long')
+    {
+        'long' n, $l0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        n := @parameter0: 'long';
+
+        $l0 = n >>> 1;
+
+        n = n & 1L;
+
+        n = neg n;
+
+        n = $l0 ^ n;
+
+        return n;
+    }
+
+    private 'long' bytesToLong('byte'[])
+    {
+        'byte'[] bytes;
+        'long' $l0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        bytes := @parameter0: 'byte'[];
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'long' bytesToLong('byte'[],'int')>(bytes, 0);
+
+        return $l0;
+    }
+
+    private 'long' bytesToLong('byte'[], 'int')
+    {
+        'byte'[] bytes;
+        'byte' $b1;
+        'int' offset, $i0;
+        'long' $l2, $l7;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        bytes := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        $i0 = offset + 7;
+
+        $b1 = bytes[$i0];
+
+        $l2 = ('long') $b1;
+
+        $l2 = $l2 & 255L;
+
+        $l2 = $l2 << 56;
+
+        $i0 = offset + 6;
+
+        $b1 = bytes[$i0];
+
+        $l7 = ('long') $b1;
+
+        $l7 = $l7 & 255L;
+
+        $l7 = $l7 << 48;
+
+        $l2 = $l2 | $l7;
+
+        $i0 = offset + 5;
+
+        $b1 = bytes[$i0];
+
+        $l7 = ('long') $b1;
+
+        $l7 = $l7 & 255L;
+
+        $l7 = $l7 << 40;
+
+        $l2 = $l2 | $l7;
+
+        $i0 = offset + 4;
+
+        $b1 = bytes[$i0];
+
+        $l7 = ('long') $b1;
+
+        $l7 = $l7 & 255L;
+
+        $l7 = $l7 << 32;
+
+        $l2 = $l2 | $l7;
+
+        $i0 = offset + 3;
+
+        $b1 = bytes[$i0];
+
+        $l7 = ('long') $b1;
+
+        $l7 = $l7 & 255L;
+
+        $l7 = $l7 << 24;
+
+        $l2 = $l2 | $l7;
+
+        $i0 = offset + 2;
+
+        $b1 = bytes[$i0];
+
+        $l7 = ('long') $b1;
+
+        $l7 = $l7 & 255L;
+
+        $l7 = $l7 << 16;
+
+        $l2 = $l2 | $l7;
+
+        $i0 = offset + 1;
+
+        $b1 = bytes[$i0];
+
+        $l7 = ('long') $b1;
+
+        $l7 = $l7 & 255L;
+
+        $l7 = $l7 << 8;
+
+        $l2 = $l2 | $l7;
+
+        offset = offset + 0;
+
+        $b1 = bytes[offset];
+
+        $l7 = ('long') $b1;
+
+        $l7 = $l7 & 255L;
+
+        $l2 = $l2 | $l7;
+
+        return $l2;
+    }
+
+    private 'boolean' isBoolType('byte')
+    {
+        'byte' b, lowerNibble;
+        'int' $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        b := @parameter0: 'byte';
+
+        lowerNibble = b & 15;
+
+        if lowerNibble == 1 goto label1;
+
+        $i0 = ('int') lowerNibble;
+
+        if $i0 != 2 goto label2;
+
+     label1:
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        return $z0;
+    }
+
+    private 'byte' getTType('byte') throws org.apache.thrift.protocol.TProtocolException
+    {
+        'byte' type, $b1;
+        'int' $i4;
+        java.lang.StringBuilder $r1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        type := @parameter0: 'byte';
+
+        $b1 = type & 15;
+
+        $i4 = ('int') $b1;
+
+        tableswitch($i4)
+        {
+            case 0: goto label01;
+            case 1: goto label02;
+            case 2: goto label02;
+            case 3: goto label03;
+            case 4: goto label04;
+            case 5: goto label05;
+            case 6: goto label06;
+            case 7: goto label08;
+            case 8: goto label09;
+            case 9: goto label10;
+            case 10: goto label11;
+            case 11: goto label12;
+            case 12: goto label13;
+            case 13: goto label07;
+            default: goto label14;
+        };
+
+     label01:
+        return 0;
+
+     label02:
+        return 2;
+
+     label03:
+        return 3;
+
+     label04:
+        return 6;
+
+     label05:
+        return 8;
+
+     label06:
+        return 10;
+
+     label07:
+        return 16;
+
+     label08:
+        return 4;
+
+     label09:
+        return 11;
+
+     label10:
+        return 15;
+
+     label11:
+        return 14;
+
+     label12:
+        return 13;
+
+     label13:
+        return 12;
+
+     label14:
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("don\'t know what type: ");
+
+        type = type & 15;
+
+        $i4 = ('int') type;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i4);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>(java.lang.String)>($r4);
+
+        throw $r0;
+    }
+
+    private 'byte' getCompactType('byte')
+    {
+        'byte'[] $r0;
+        'byte' ttype;
+        'int' $i1;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        ttype := @parameter0: 'byte';
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $i1 = ('int') ttype;
+
+        ttype = $r0[$i1];
+
+        return ttype;
+    }
+
+    public 'int' getMinSerializedSize('byte') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte' type;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        type := @parameter0: 'byte';
+
+        $i0 = ('int') type;
+
+        tableswitch($i0)
+        {
+            case 0: goto label01;
+            case 1: goto label02;
+            case 2: goto label03;
+            case 3: goto label04;
+            case 4: goto label05;
+            case 5: goto label14;
+            case 6: goto label06;
+            case 7: goto label14;
+            case 8: goto label07;
+            case 9: goto label14;
+            case 10: goto label08;
+            case 11: goto label09;
+            case 12: goto label10;
+            case 13: goto label11;
+            case 14: goto label12;
+            case 15: goto label13;
+            default: goto label14;
+        };
+
+     label01:
+        return 1;
+
+     label02:
+        return 1;
+
+     label03:
+        return 1;
+
+     label04:
+        return 1;
+
+     label05:
+        return 8;
+
+     label06:
+        return 1;
+
+     label07:
+        return 1;
+
+     label08:
+        return 1;
+
+     label09:
+        return 1;
+
+     label10:
+        return 1;
+
+     label11:
+        return 1;
+
+     label12:
+        return 1;
+
+     label13:
+        return 1;
+
+     label14:
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(0, "unrecognized type code");
+
+        throw $r0;
+    }
+
+    public 'int' readFieldBeginData() throws org.apache.thrift.TException
+    {
+        'short' $s4;
+        'byte' type, $b2;
+        'int' $i0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        type = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' readByte()>();
+
+        if type != 0 goto label1;
+
+        $i0 = staticinvoke <org.apache.thrift.partial.TFieldData: 'int' encode('byte')>(type);
+
+        return $i0;
+
+     label1:
+        $b2 = type & 15;
+
+        $b2 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'byte' getTType('byte')>($b2);
+
+        $s4 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'short' readFieldId('byte')>(type);
+
+        $i0 = staticinvoke <org.apache.thrift.partial.TFieldData: 'int' encode('byte','short')>($b2, $s4);
+
+        return $i0;
+    }
+
+    private 'short' readFieldId('byte') throws org.apache.thrift.TException
+    {
+        'short' fieldId, $s2;
+        'byte' type;
+        'int' $i1, $i9;
+        java.lang.Boolean $r0;
+        org.apache.thrift.protocol.TCompactProtocol this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        type := @parameter0: 'byte';
+
+        fieldId = ('short') type;
+
+        fieldId = fieldId & 240;
+
+        $i1 = ('int') fieldId;
+
+        $i1 = $i1 >> 4;
+
+        fieldId = ('short') $i1;
+
+        if fieldId != 0 goto label1;
+
+        fieldId = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'short' readI16()>();
+
+        goto label2;
+
+     label1:
+        $s2 = this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_>;
+
+        $i1 = ('int') $s2;
+
+        $i9 = ('int') fieldId;
+
+        $i1 = $i1 + $i9;
+
+        fieldId = ('short') $i1;
+
+     label2:
+        $z0 = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'boolean' isBoolType('byte')>(type);
+
+        if $z0 == false goto label5;
+
+        type = type & 15;
+
+        if type != 1 goto label3;
+
+        $r0 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        goto label4;
+
+     label3:
+        $r0 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+     label4:
+        this.<org.apache.thrift.protocol.TCompactProtocol: java.lang.Boolean boolValue_> = $r0;
+
+     label5:
+        this.<org.apache.thrift.protocol.TCompactProtocol: 'short' lastFieldId_> = fieldId;
+
+        return fieldId;
+    }
+
+    protected 'void' skipBinary() throws org.apache.thrift.TException
+    {
+        'int' size;
+        org.apache.thrift.protocol.TCompactProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol;
+
+        size = virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readI32()>();
+
+        size = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' intToZigZag('int')>(size);
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' checkStringReadLength('int')>(size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' skipBytes('int')>(size);
+
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TField $r4;
+        java.nio.ByteBuffer $r2;
+        org.apache.thrift.protocol.TStruct $r3;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'int' MAX_VARINT64_BYTES> = 10;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'int' MAX_VARINT32_BYTES> = 5;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'int' TYPE_SHIFT_AMOUNT> = 5;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'byte' TYPE_BITS> = 7;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'byte' TYPE_MASK> = -32;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'byte' VERSION_MASK> = 31;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'byte' VERSION> = 1;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'byte' PROTOCOL_ID> = -126;
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'long' NO_LENGTH_LIMIT> = -1L;
+
+        $r0 = newarray ('byte')[0];
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] EMPTY_BYTES> = $r0;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] EMPTY_BYTES>;
+
+        $r2 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>($r0);
+
+        <org.apache.thrift.protocol.TCompactProtocol: java.nio.ByteBuffer EMPTY_BUFFER> = $r2;
+
+        $r3 = new org.apache.thrift.protocol.TStruct;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TStruct: 'void' <init>(java.lang.String)>("");
+
+        <org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT> = $r3;
+
+        $r4 = new org.apache.thrift.protocol.TField;
+
+        specialinvoke $r4.<org.apache.thrift.protocol.TField: 'void' <init>(java.lang.String,'byte','short')>("", 0, 0);
+
+        <org.apache.thrift.protocol.TCompactProtocol: org.apache.thrift.protocol.TField TSTOP> = $r4;
+
+        $r0 = newarray ('byte')[18];
+
+        <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType> = $r0;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[0] = 0;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[2] = 1;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[3] = 3;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[6] = 4;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[8] = 5;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[10] = 6;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[4] = 7;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[11] = 8;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[15] = 9;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[14] = 10;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[13] = 11;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[12] = 12;
+
+        $r0 = <org.apache.thrift.protocol.TCompactProtocol: 'byte'[] ttypeToCompactType>;
+
+        $r0[16] = 13;
+
+        return;
+    }
+}

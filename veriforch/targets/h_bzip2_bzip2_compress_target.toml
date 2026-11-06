@@ -1,0 +1,7 @@
+# Pre-registration H, part one: bzip2/bzip2_compress_target as Theorem built it (upstream f5dfc96063fe; harness oss-fuzz:projects/bzip2/bzip2_compress_target.c), harness and library unmodified. Written by scripts/h_targets.py.
+name = "h_bzip2_bzip2_compress_target"
+lang = "cir"
+root = "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe"
+compile_commands = "/home/user/veriforch/targets/h_bzip2_bzip2_compress_target.compile_commands.json"
+link_mode = "cir2lean"
+link_groups = [["_ossfuzz/bzip2_compress_target.c", "blocksort.c", "bzlib.c", "compress.c", "crctable.c", "decompress.c", "huffman.c", "randtable.c"]]

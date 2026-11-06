@@ -1,0 +1,17 @@
+# strtol11.cpp: strtol, strtoul, strtoll, strtoull under their C11 names
+# (no 0b prefix), declared without <cstdlib> (glibc 2.38+ renames them to
+# __isoc23_* there under _GNU_SOURCE)
+strtol11 t_strtol11 0
+strtol11 t_strtol11 1
+strtol11 t_strtol11 2
+strtol11 t_strtol11 3
+strtol11 t_strtol11 4
+strtol11 t_strtol11 5
+strtol11 t_strtol11 6
+strtol11 t_strtol11 7
+strtol11 t_strtoul11 0
+strtol11 t_strtoul11 1
+strtol11 t_strtoul11 2
+strtol11 t_strtoll11 0
+strtol11 t_strtoll11 1
+strtol11 t_strtoll11 2

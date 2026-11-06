@@ -1,0 +1,331 @@
+public abstract class org.apache.thrift.transport.sasl.FrameReader extends java.lang.Object
+{
+    private final org.apache.thrift.transport.sasl.FrameHeaderReader header;
+    private java.nio.ByteBuffer payload;
+
+    protected 'void' <init>(org.apache.thrift.transport.sasl.FrameHeaderReader)
+    {
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.sasl.FrameHeaderReader header;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        header := @parameter0: org.apache.thrift.transport.sasl.FrameHeaderReader;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header> = header;
+
+        return;
+    }
+
+    public 'boolean' read(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.sasl.TSaslNegotiationException, org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.sasl.FrameHeaderReader $r0;
+        org.apache.thrift.TConfiguration $r2;
+        java.nio.ByteBuffer $r11;
+        org.apache.thrift.transport.TTransport transport;
+        'int' payloadSize, maxFrameSize;
+        org.apache.thrift.transport.sasl.TInvalidSaslFrameException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r10;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        $z0 = interfaceinvoke $r0.<org.apache.thrift.transport.sasl.FrameHeaderReader: 'boolean' isComplete()>();
+
+        if $z0 != 0 goto label3;
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.sasl.FrameReader: 'boolean' readHeader(org.apache.thrift.transport.TTransport)>(transport);
+
+        if $z0 == false goto label2;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        payloadSize = interfaceinvoke $r0.<org.apache.thrift.transport.sasl.FrameHeaderReader: 'int' payloadSize()>();
+
+        $r2 = virtualinvoke transport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        maxFrameSize = virtualinvoke $r2.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+        if payloadSize <= maxFrameSize goto label1;
+
+        $r3 = new org.apache.thrift.transport.sasl.TInvalidSaslFrameException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Frame size (");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(payloadSize);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") larger than max length (");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(maxFrameSize);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r10 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.sasl.TInvalidSaslFrameException: 'void' <init>(java.lang.String)>($r10);
+
+        throw $r3;
+
+     label1:
+        $r11 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(payloadSize);
+
+        this.<org.apache.thrift.transport.sasl.FrameReader: java.nio.ByteBuffer payload> = $r11;
+
+        goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        payloadSize = interfaceinvoke $r0.<org.apache.thrift.transport.sasl.FrameHeaderReader: 'int' payloadSize()>();
+
+        if payloadSize != 0 goto label4;
+
+        return 1;
+
+     label4:
+        $z0 = specialinvoke this.<org.apache.thrift.transport.sasl.FrameReader: 'boolean' readPayload(org.apache.thrift.transport.TTransport)>(transport);
+
+        return $z0;
+    }
+
+    private 'boolean' readHeader(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.sasl.TSaslNegotiationException, org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.sasl.FrameHeaderReader $r0;
+        org.apache.thrift.transport.TTransport transport;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        $z0 = interfaceinvoke $r0.<org.apache.thrift.transport.sasl.FrameHeaderReader: 'boolean' read(org.apache.thrift.transport.TTransport)>(transport);
+
+        return $z0;
+    }
+
+    private 'boolean' readPayload(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.TTransport transport;
+        java.nio.ByteBuffer $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: java.nio.ByteBuffer payload>;
+
+        staticinvoke <org.apache.thrift.transport.sasl.FrameReader: 'int' readAvailable(org.apache.thrift.transport.TTransport,java.nio.ByteBuffer)>(transport, $r0);
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: java.nio.ByteBuffer payload>;
+
+        $z0 = virtualinvoke $r0.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        return $z0;
+    }
+
+    public org.apache.thrift.transport.sasl.FrameHeaderReader getHeader()
+    {
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.sasl.FrameHeaderReader $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        return $r0;
+    }
+
+    public 'int' getHeaderSize()
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.sasl.FrameHeaderReader $r0;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        $r1 = interfaceinvoke $r0.<org.apache.thrift.transport.sasl.FrameHeaderReader: 'byte'[] toBytes()>();
+
+        $i0 = lengthof $r1;
+
+        return $i0;
+    }
+
+    public 'byte'[] getPayload()
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.sasl.FrameReader this;
+        java.nio.ByteBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: java.nio.ByteBuffer payload>;
+
+        $r1 = virtualinvoke $r0.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        return $r1;
+    }
+
+    public 'int' getPayloadSize()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.sasl.FrameHeaderReader $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        $i0 = interfaceinvoke $r0.<org.apache.thrift.transport.sasl.FrameHeaderReader: 'int' payloadSize()>();
+
+        return $i0;
+    }
+
+    public 'boolean' isComplete()
+    {
+        org.apache.thrift.transport.sasl.FrameReader this;
+        java.nio.ByteBuffer $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: java.nio.ByteBuffer payload>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: java.nio.ByteBuffer payload>;
+
+        $z0 = virtualinvoke $r0.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'void' clear()
+    {
+        org.apache.thrift.transport.sasl.FrameReader this;
+        org.apache.thrift.transport.sasl.FrameHeaderReader $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameReader: org.apache.thrift.transport.sasl.FrameHeaderReader header>;
+
+        interfaceinvoke $r0.<org.apache.thrift.transport.sasl.FrameHeaderReader: 'void' clear()>();
+
+        this.<org.apache.thrift.transport.sasl.FrameReader: java.nio.ByteBuffer payload> = null;
+
+        return;
+    }
+
+    static 'int' readAvailable(org.apache.thrift.transport.TTransport, java.nio.ByteBuffer) throws org.apache.thrift.transport.TTransportException
+    {
+        java.lang.IllegalStateException $r0;
+        'byte'[] bytes;
+        org.apache.thrift.transport.TEOFException $r6;
+        java.nio.ByteBuffer recipient;
+        org.apache.thrift.transport.TTransport transport;
+        'int' currentPosition, expectedLength, offset, got;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r5;
+        'boolean' $z0;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        recipient := @parameter1: java.nio.ByteBuffer;
+
+        $z0 = virtualinvoke recipient.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new java.lang.IllegalStateException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Trying to fill a full recipient with ");
+
+        currentPosition = virtualinvoke recipient.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(currentPosition);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes");
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>($r5);
+
+        throw $r0;
+
+     label1:
+        currentPosition = virtualinvoke recipient.<java.nio.ByteBuffer: 'int' position()>();
+
+        bytes = virtualinvoke recipient.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        expectedLength = virtualinvoke recipient.<java.nio.ByteBuffer: 'int' arrayOffset()>();
+
+        offset = expectedLength + currentPosition;
+
+        expectedLength = virtualinvoke recipient.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        got = virtualinvoke transport.<org.apache.thrift.transport.TTransport: 'int' read('byte'[],'int','int')>(bytes, offset, expectedLength);
+
+        if got >= 0 goto label2;
+
+        $r6 = new org.apache.thrift.transport.TEOFException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Transport is closed, while trying to read ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(expectedLength);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes");
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<org.apache.thrift.transport.TEOFException: 'void' <init>(java.lang.String)>($r5);
+
+        throw $r6;
+
+     label2:
+        currentPosition = currentPosition + got;
+
+        virtualinvoke recipient.<java.nio.ByteBuffer: java.nio.Buffer position('int')>(currentPosition);
+
+        return got;
+    }
+}

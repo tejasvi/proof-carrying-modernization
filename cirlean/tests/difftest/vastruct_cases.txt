@@ -1,0 +1,32 @@
+# va_arg of structures and other types (vastruct.cpp): run with CASES=vastruct_cases.txt. Each case
+# is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun where va_arg
+# names a type the argument was not passed with (C11 7.16.1.1p2; natively some value is read).
+# expect MATCH: three 8-byte structures
+vastruct t_s8 3 4
+# expect MATCH: structures of 1, 4, 12, 16 and 24 bytes
+vastruct t_sizes 2
+vastruct t_sizes -3
+# expect MATCH: structures between int, double and long arguments; a double+int and a float+float structure
+vastruct t_mixed 5
+# expect MATCH: a nested structure, a structure with an array member
+vastruct t_nested 4
+# expect MATCH: va_copy taken where the next argument is a structure; both lists read it
+vastruct t_va_copy_struct 9
+# expect MATCH: long double arguments
+vastruct t_long_double 3
+# expect MATCH: an int read as unsigned (it fits), a char * read as void *
+vastruct t_unsigned_void 6
+# expect UB: a 16-byte structure read as a 12-byte one
+vastruct t_ub_wrong_struct 5
+# expect UB: a structure read as another type of the same layout
+vastruct t_ub_same_layout 5
+# expect UB: an int read as long
+vastruct t_ub_int_as_long 5
+# expect UB: a negative int read as unsigned
+vastruct t_ub_negative_unsigned 5
+# expect UB: an int * read as void *
+vastruct t_ub_int_ptr_as_void 5
+# expect MATCH: ints through a call by function pointer (values only)
+vastruct t_indirect_int 4
+# expect UB (gap): a structure through a call by function pointer, whose arguments keep no types
+vastruct t_indirect_struct 4

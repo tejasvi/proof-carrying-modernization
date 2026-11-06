@@ -1,0 +1,77 @@
+-- Termination package by JimpleLean's session: TermPk/Cbtrn03c/TermW4b.lean (sha256 3bfac5a6f190207e...); only the module root renamed.
+import EquivLean.Modernize.Cbtrn03c.JavaW.W4b
+import EquivLean.Modernize.Cbtrn03c.JavaTermWDefs
+
+/-!
+# Termination: thin twins of `W4b`
+
+The statements and preambles of the originals; the cut assertions the variants, calls by
+`callWPThin` (`callWPT` without the callee preconditions, which `MethodVC` checks).
+-/
+
+open Jimple EquivLean.Cobol.Rec
+
+namespace EquivLean.Modernize.Cbtrn03c.Java
+
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 0 in
+theorem wh_seg2_t (w ld lr : Addr) (v : WsV) (xs xe : Addr) (rs re : JStr) (args : List Value)
+    (σ0 : State) (fr : Frame) (σ : State)
+    (hI : whI2 w ld lr v rs re σ0 fr σ) :
+    whThinWP w ld lr v xs xe rs re args σ0 17 fr σ := by
+
+  jvc [whThinWP, writeHeadersInv, whI2, whI2a, NewRecT, hdr1V, hdr2V, linesCallees, padSig, spacesSig, repeatSig, digitsSig, editSig, writeLineSig, incLineSig, WsAt, Frame3, Grows, wsC, fdC, incL, setWidth_45, setWidth_32, argText, strOf, wsF, wsFs, refOf, longOf, listVals, listMods, lrOf, fixJ_length, repJ_length, spJ_length, Native.valueOfArg, Native.valueOfObj, valueOfObjN_ref, valueOfArg_char, JType.isRef, exists_eq_left', exists_and_left, and_assoc, wLineVs]
+  all_goals first
+    | exact ⟨Or.inl rfl, rfl⟩
+    | skip
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 0 in
+theorem wh_seg2a_t (w ld lr : Addr) (v : WsV) (xs xe : Addr) (rs re : JStr) (args : List Value)
+    (σ0 : State) (fr : Frame) (σ : State)
+    (hI : whI2a w ld lr v rs re σ0 fr σ) :
+    whThinWP w ld lr v xs xe rs re args σ0 25 fr σ := by
+
+  jvc [whThinWP, writeHeadersInv, whI2a, whI2b, NewRecT, hdr2V, linesCallees, padSig, spacesSig, repeatSig, digitsSig, editSig, writeLineSig, incLineSig, WsAt, Frame3, Grows, wsC, fdC, incL, setWidth_45, setWidth_32, argText, strOf, wsF, wsFs, refOf, longOf, listVals, listMods, lrOf, fixJ_length, repJ_length, spJ_length, Native.valueOfArg, Native.valueOfObj, valueOfObjN_ref, valueOfArg_char, JType.isRef, exists_eq_left', exists_and_left, and_assoc, wLineVs]
+  all_goals first
+    | exact ⟨Or.inl rfl, rfl⟩
+    | skip
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 0 in
+theorem wh_seg2b_t (w ld lr : Addr) (v : WsV) (xs xe : Addr) (rs re : JStr) (args : List Value)
+    (σ0 : State) (fr : Frame) (σ : State)
+    (hI : whI2b w ld lr v rs re σ0 fr σ) :
+    whThinWP w ld lr v xs xe rs re args σ0 29 fr σ := by
+
+  jvc [whThinWP, writeHeadersInv, whI2b, whI3, NewRecT, hdr2V, linesCallees, padSig, spacesSig, repeatSig, digitsSig, editSig, writeLineSig, incLineSig, WsAt, Frame3, Grows, wsC, fdC, incL, setWidth_45, setWidth_32, argText, strOf, wsF, wsFs, refOf, longOf, listVals, listMods, lrOf, fixJ_length, repJ_length, spJ_length, Native.valueOfArg, Native.valueOfObj, valueOfObjN_ref, valueOfArg_char, JType.isRef, exists_eq_left', exists_and_left, and_assoc, wLineVs]
+  all_goals first
+    | exact ⟨Or.inl rfl, rfl⟩
+    | skip
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 0 in
+theorem wh_seg3_t (w ld lr : Addr) (v : WsV) (xs xe : Addr) (rs re : JStr) (args : List Value)
+    (σ0 : State) (fr : Frame) (σ : State)
+    (hI : whI3 w ld lr v rs re σ0 fr σ) :
+    whThinWP w ld lr v xs xe rs re args σ0 35 fr σ := by
+
+  jvc [whThinWP, writeHeadersInv, whI3, whI4, NewRecT, hdr2V, hdr3V, header1J_length, dashJ, linesCallees, padSig, spacesSig, repeatSig, digitsSig, editSig, writeLineSig, incLineSig, WsAt, Frame3, Grows, wsC, fdC, incL, setWidth_45, setWidth_32, argText, strOf, wsF, wsFs, refOf, longOf, listVals, listMods, lrOf, fixJ_length, repJ_length, spJ_length, Native.valueOfArg, Native.valueOfObj, valueOfObjN_ref, valueOfArg_char, JType.isRef, exists_eq_left', exists_and_left, and_assoc, wLineVs]
+  all_goals first
+    | exact ⟨Or.inl rfl, rfl⟩
+    | skip
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 0 in
+theorem wh_seg4_t (w ld lr : Addr) (v : WsV) (xs xe : Addr) (rs re : JStr) (args : List Value)
+    (σ0 : State) (fr : Frame) (σ : State)
+    (hI : whI4 w ld lr v rs re σ0 fr σ) :
+    whThinWP w ld lr v xs xe rs re args σ0 38 fr σ := by
+
+  jvc [whThinWP, writeHeadersInv, writeHeadersSpecG, whI4, NewRecT, RecT, hdr3V, hdr4V, dashJ_length, linesCallees, padSig, spacesSig, repeatSig, digitsSig, editSig, writeLineSig, incLineSig, WsAt, Frame3, Grows, wsC, fdC, incL, setWidth_45, setWidth_32, argText, strOf, wsF, wsFs, refOf, longOf, listVals, listMods, lrOf, fixJ_length, repJ_length, spJ_length, Native.valueOfArg, Native.valueOfObj, valueOfObjN_ref, valueOfArg_char, JType.isRef, exists_eq_left', exists_and_left, and_assoc, wLineVs]
+  all_goals first
+    | exact ⟨Or.inl rfl, rfl⟩
+    | skip
+
+end EquivLean.Modernize.Cbtrn03c.Java

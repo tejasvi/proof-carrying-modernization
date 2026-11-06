@@ -1,0 +1,17 @@
+# Typeinfo objects (typeinfo.cpp): #cir.typeinfo globals as record constants. Each case is labelled with its
+# expected outcome on the line above it (before the typeinfo change the typeid comparisons were UB, an
+# indeterminate typeinfo object read).
+# expect MATCH: a virtual call (the vtable refers to the typeinfo object)
+typeinfo t_vcall 3
+# expect MATCH: multiple inheritance (a __vmi_class_type_info object with base offsets and flags)
+typeinfo t_multi 1
+# expect MATCH: an exception of class type caught by its type
+typeinfo t_catch_class 6
+# expect MATCH: an exception of a polymorphic class type caught by its type
+typeinfo t_catch_poly 2
+# expect MATCH: typeid of a class compared with itself and with another class (the name pointers)
+typeinfo t_typeid_eq 3
+typeinfo t_typeid_ne 3
+# expect MATCH: typeid of a polymorphic object, the typeinfo slot before the vtable's address point (before
+# the VTT change: UB "pointer arithmetic out of bounds")
+typeinfo t_typeid_poly 3

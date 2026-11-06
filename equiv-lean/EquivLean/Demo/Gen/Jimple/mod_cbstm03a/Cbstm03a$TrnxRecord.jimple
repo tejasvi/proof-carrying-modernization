@@ -1,0 +1,86 @@
+public final class Cbstm03a$TrnxRecord extends java.lang.Object
+{
+    public java.lang.String trnxCardNum;
+    public java.lang.String trnxId;
+    public java.lang.String trnxTypeCd;
+    public 'long' trnxCatCd;
+    public java.lang.String trnxSource;
+    public java.lang.String trnxDesc;
+    public 'long' trnxAmt;
+    public 'long' trnxMerchantId;
+    public java.lang.String trnxMerchantName;
+    public java.lang.String trnxMerchantCity;
+    public java.lang.String trnxMerchantZip;
+    public java.lang.String trnxOrigTs;
+    public java.lang.String trnxProcTs;
+    public java.lang.String filler1;
+
+    public 'void' <init>(java.lang.String, java.lang.String, java.lang.String, 'long', java.lang.String, java.lang.String, 'long', 'long', java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        'long' trnxCatCd, trnxAmt, trnxMerchantId;
+        Cbstm03a$TrnxRecord this;
+        java.lang.String trnxCardNum, trnxId, trnxTypeCd, trnxSource, trnxDesc, trnxMerchantName, trnxMerchantCity, trnxMerchantZip, trnxOrigTs, trnxProcTs, filler1;
+
+        this := @this: Cbstm03a$TrnxRecord;
+
+        trnxCardNum := @parameter0: java.lang.String;
+
+        trnxId := @parameter1: java.lang.String;
+
+        trnxTypeCd := @parameter2: java.lang.String;
+
+        trnxCatCd := @parameter3: 'long';
+
+        trnxSource := @parameter4: java.lang.String;
+
+        trnxDesc := @parameter5: java.lang.String;
+
+        trnxAmt := @parameter6: 'long';
+
+        trnxMerchantId := @parameter7: 'long';
+
+        trnxMerchantName := @parameter8: java.lang.String;
+
+        trnxMerchantCity := @parameter9: java.lang.String;
+
+        trnxMerchantZip := @parameter10: java.lang.String;
+
+        trnxOrigTs := @parameter11: java.lang.String;
+
+        trnxProcTs := @parameter12: java.lang.String;
+
+        filler1 := @parameter13: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxCardNum> = trnxCardNum;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxId> = trnxId;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxTypeCd> = trnxTypeCd;
+
+        this.<Cbstm03a$TrnxRecord: 'long' trnxCatCd> = trnxCatCd;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxSource> = trnxSource;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxDesc> = trnxDesc;
+
+        this.<Cbstm03a$TrnxRecord: 'long' trnxAmt> = trnxAmt;
+
+        this.<Cbstm03a$TrnxRecord: 'long' trnxMerchantId> = trnxMerchantId;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxMerchantName> = trnxMerchantName;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxMerchantCity> = trnxMerchantCity;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxMerchantZip> = trnxMerchantZip;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxOrigTs> = trnxOrigTs;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String trnxProcTs> = trnxProcTs;
+
+        this.<Cbstm03a$TrnxRecord: java.lang.String filler1> = filler1;
+
+        return;
+    }
+}

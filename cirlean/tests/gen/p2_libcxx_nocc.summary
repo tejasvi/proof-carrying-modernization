@@ -1,0 +1,2 @@
+/home/user/cirlean_work/probe/p2_libcxx_nocc.cir: 137 funcs (127 with body, 0 modelled), 47 records, 6 globals, 2162 ops
+  unknown ops: cir.get_bitfield×2, cir.is_constant×2, cir.libc.memcpy×1, cir.vtable.address_point×1, cir.vtable.get_vptr×1

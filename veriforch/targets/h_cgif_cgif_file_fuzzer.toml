@@ -1,0 +1,7 @@
+# Pre-registration H, part one: cgif/cgif_file_fuzzer as Theorem built it (upstream b1facf77a226; harness upstream:fuzz/cgif_file_fuzzer.c), harness and library unmodified. Written by scripts/h_targets.py.
+name = "h_cgif_cgif_file_fuzzer"
+lang = "cir"
+root = "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226"
+compile_commands = "/home/user/veriforch/targets/h_cgif_cgif_file_fuzzer.compile_commands.json"
+link_mode = "cir2lean"
+link_groups = [["fuzz/cgif_file_fuzzer.c", "src/cgif.c", "src/cgif_raw.c"]]

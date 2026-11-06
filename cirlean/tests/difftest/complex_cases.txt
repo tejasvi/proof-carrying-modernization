@@ -1,0 +1,236 @@
+# Complex numbers (complex.cpp): !cir.complex<T> as T[2] (C11 6.2.5p13), cir.complex.create / real / imag /
+# real_ptr / imag_ptr / add / sub / fadd / fsub, cir.cmp eq / ne of complex values, #cir.const_complex, and the
+# runtime library's __muldc3 / __divdc3 / __mulsc3 / __divsc3 as libgcc computes them (g++ calls them for every
+# * and / of complex floating values; Clang's CIR multiplies inline and calls __muldc3 only when both parts came
+# out NaN). The vectors of t_mul, t_div, t_mulf and t_divf are the algorithms' branches: Annex G's infinite
+# factors, NaN + iNaN results, overflow; Smith's two orders, the scalings (halving, 2^52 for a tiny divisor or a
+# subnormal dividend part) and the subnormal ratio; without libgcc's fused multiply-adds t_div 1 and 16 come out
+# differently. Each case is labelled with its expected outcome on the line above it: MATCH; MISMATCH for two
+# differences that are not the model's (GCC's division of complex integers; the sign bit of a NaN, which Lean's
+# Float does not keep); UB for a read of an indeterminate part, and for long double complex division, which has
+# no model.
+# expect MATCH: the parts, read and written, and their addresses (two consecutive doubles)
+complex t_parts 0
+complex t_parts 1
+complex t_parts 2
+complex t_parts 3
+complex t_parts 4
+# expect MATCH: the parts of real values (__real__ x is x, __imag__ x is 0)
+complex t_real_parts 0
+complex t_real_parts 1
+# expect MATCH: + and -, in place, and with a real operand, over finite, signed zero, overflowing, infinite and NaN parts
+complex t_add 0 0
+complex t_add 0 1
+complex t_add 0 2
+complex t_add 0 3
+complex t_add 0 4
+complex t_add 0 5
+complex t_add 1 0
+complex t_add 1 1
+complex t_add 1 2
+complex t_add 1 3
+complex t_add 1 4
+complex t_add 1 5
+complex t_add 2 0
+complex t_add 2 1
+complex t_add 2 2
+complex t_add 2 3
+complex t_add 2 4
+complex t_add 2 5
+complex t_add 3 0
+complex t_add 3 1
+complex t_add 3 2
+complex t_add 3 3
+complex t_add 3 4
+complex t_add 3 5
+complex t_add 4 0
+complex t_add 4 1
+complex t_add 4 2
+complex t_add 4 3
+complex t_add 4 4
+complex t_add 4 5
+complex t_add 5 0
+complex t_add 5 1
+complex t_add 5 2
+complex t_add 5 3
+complex t_add 5 4
+complex t_add 5 5
+# expect MATCH: unary -, ~ (the conjugate) and +
+complex t_neg 0 0
+complex t_neg 0 1
+complex t_neg 0 2
+complex t_neg 1 0
+complex t_neg 1 1
+complex t_neg 1 2
+complex t_neg 2 0
+complex t_neg 2 1
+complex t_neg 2 2
+complex t_neg 3 0
+complex t_neg 3 1
+complex t_neg 3 2
+complex t_neg 4 0
+complex t_neg 4 1
+complex t_neg 4 2
+complex t_neg 5 0
+complex t_neg 5 1
+complex t_neg 5 2
+# expect MATCH: _Complex int + - unary - ~ == != and * (inline, wrapping parts)
+complex t_int 0
+complex t_int 1
+complex t_int 2
+complex t_int 3
+complex t_int 4
+complex t_int 5
+complex t_int 6
+complex t_int 7
+# expect MISMATCH: _Complex int division: GCC divides by Smith's method in integer arithmetic, (0, -1) for (7 - 3i) / (-2 + 5i); Clang, whose CIR this is, by the formula, (-1, -1)
+complex t_int 8
+# expect MATCH: == and != (-0 == +0; a NaN part is unequal)
+complex t_eq 0
+complex t_eq 1
+complex t_eq 2
+complex t_eq 3
+complex t_eq 4
+complex t_eq 5
+complex t_eq 6
+# expect MATCH: conversions between complex types (parts rounded), from real and integer types, to bool
+complex t_conv 0
+complex t_conv 1
+complex t_conv 2
+complex t_conv 3
+complex t_conv 4
+complex t_conv 5
+complex t_conv 6
+complex t_conv 7
+complex t_conv 8
+complex t_conv 9
+complex t_conv 10
+# expect MATCH: complex globals, an array and struct members of complex type (#cir.const_complex, #cir.zero); size, alignment, member offsets
+complex t_const 0
+complex t_const 1
+complex t_const 2
+complex t_const 3
+complex t_const 4
+complex t_const 5
+complex t_const 6
+# expect MATCH: complex values in memory: an array walked by a pointer, a member through a pointer, memcpy to a double[2] and between complex objects, a select
+complex t_mem 0
+complex t_mem 1
+complex t_mem 2
+complex t_mem 3
+complex t_mem 4
+# expect MATCH: a * b and a *= b (__muldc3 when both parts are NaN): finite, overflowing, infinite and NaN parts, signed zeros, underflow
+complex t_mul 0
+complex t_mul 1
+complex t_mul 2
+complex t_mul 3
+complex t_mul 4
+complex t_mul 5
+complex t_mul 6
+complex t_mul 7
+complex t_mul 8
+complex t_mul 9
+complex t_mul 10
+complex t_mul 11
+complex t_mul 12
+complex t_mul 13
+complex t_mul_in 0
+complex t_mul_in 1
+complex t_mul_in 2
+complex t_mul_in 3
+complex t_mul_in 4
+complex t_mul_in 5
+complex t_mul_in 6
+complex t_mul_in 7
+complex t_mul_in 8
+complex t_mul_in 9
+complex t_mul_in 10
+complex t_mul_in 11
+complex t_mul_in 12
+complex t_mul_in 13
+# expect MATCH: a / b (__divdc3): finite, nonzero / zero, infinite / finite, finite / infinite
+complex t_div 0
+complex t_div 1
+complex t_div 2
+complex t_div 3
+complex t_div 4
+complex t_div 5
+complex t_div 6
+complex t_div 7
+# expect MISMATCH: a NaN part whose sign bit is set: libgcc boxes it as copysign(0, -NaN) = -0 and the real part comes out -0; Lean's Float has one NaN, without a sign, so +0 here
+complex t_div 8
+# expect MATCH: a / b (__divdc3): the scalings (halving, 2^52), subnormal ratios in both orders, overflow, NaN, inf / inf, ordinary values
+complex t_div 9
+complex t_div 10
+complex t_div 11
+complex t_div 12
+complex t_div 13
+complex t_div 14
+complex t_div 15
+complex t_div 16
+complex t_div 17
+complex t_div 18
+complex t_div 19
+complex t_div 20
+complex t_div 21
+complex t_div 22
+complex t_div 23
+complex t_div 24
+complex t_div 25
+# expect MATCH: a /= b, the same vectors
+complex t_div_in 0
+complex t_div_in 1
+complex t_div_in 2
+complex t_div_in 3
+complex t_div_in 4
+complex t_div_in 5
+complex t_div_in 6
+complex t_div_in 7
+# expect MISMATCH: as t_div 8 (the sign bit of a NaN)
+complex t_div_in 8
+# expect MATCH: a /= b, the same vectors
+complex t_div_in 9
+complex t_div_in 10
+complex t_div_in 11
+complex t_div_in 12
+complex t_div_in 13
+complex t_div_in 14
+complex t_div_in 15
+complex t_div_in 16
+complex t_div_in 17
+complex t_div_in 18
+complex t_div_in 19
+complex t_div_in 20
+complex t_div_in 21
+complex t_div_in 22
+complex t_div_in 23
+complex t_div_in 24
+complex t_div_in 25
+# expect MATCH: float a * b (__mulsc3, in float)
+complex t_mulf 0
+complex t_mulf 1
+complex t_mulf 2
+complex t_mulf 3
+complex t_mulf 4
+complex t_mulf 5
+complex t_mulf 6
+complex t_mulf 7
+# expect MATCH: float a / b (__divsc3: in double, rounded to float; the recovery in float)
+complex t_divf 0
+complex t_divf 1
+complex t_divf 2
+complex t_divf 3
+complex t_divf 4
+complex t_divf 5
+# expect MISMATCH: as t_div 8 (the sign bit of a NaN)
+complex t_divf 6
+# expect MATCH: float a / b
+complex t_divf 7
+complex t_divf 8
+complex t_divf 9
+complex t_divf 10
+complex t_divf 11
+# expect UB: an indeterminate imaginary part, read
+complex u_indeterminate
+# expect UB: long double complex division calls __divxc3, which has no model (x87 extended precision)
+complex g_div_ld

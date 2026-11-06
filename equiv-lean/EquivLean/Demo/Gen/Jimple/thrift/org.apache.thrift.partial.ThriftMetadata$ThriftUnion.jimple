@@ -1,0 +1,71 @@
+public class org.apache.thrift.partial.ThriftMetadata$ThriftUnion extends org.apache.thrift.partial.ThriftMetadata$ThriftStructBase
+{
+
+    public 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject, org.apache.thrift.TFieldIdEnum, org.apache.thrift.meta_data.FieldMetaData, java.lang.Iterable)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject parent;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.partial.ThriftMetadata$ThriftUnion this;
+        java.lang.Iterable fieldsData;
+        org.apache.thrift.meta_data.FieldMetaData data;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftUnion;
+
+        parent := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        data := @parameter2: org.apache.thrift.meta_data.FieldMetaData;
+
+        fieldsData := @parameter3: java.lang.Iterable;
+
+        specialinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData)>(parent, fieldId, data);
+
+        return;
+    }
+
+    protected 'void' toPrettyString(java.lang.StringBuilder, 'int')
+    {
+        java.lang.Object[] $r0;
+        'int' level;
+        java.lang.StringBuilder sb;
+        java.lang.String indent, indent2, $r1;
+        org.apache.thrift.partial.ThriftMetadata$ThriftUnion this;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftUnion;
+
+        sb := @parameter0: java.lang.StringBuilder;
+
+        level := @parameter1: 'int';
+
+        indent = virtualinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftUnion: java.lang.String getIndent('int')>(level);
+
+        level = level + 1;
+
+        indent2 = virtualinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftUnion: java.lang.String getIndent('int')>(level);
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = indent;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftUnion: java.lang.String getName()>();
+
+        $r0[1] = $r1;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftUnion: 'void' append(java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(sb, "%sunion %s {\n", $r0);
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = indent2;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftUnion: 'void' append(java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(sb, "%s// unions not adequately supported at present.\n", $r0);
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = indent;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftUnion: 'void' append(java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(sb, "%s}\n", $r0);
+
+        return;
+    }
+}

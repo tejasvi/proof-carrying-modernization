@@ -1,0 +1,244 @@
+public final class org.apache.thrift.protocol.TMessage extends java.lang.Object
+{
+    public final java.lang.String name;
+    public final 'byte' type;
+    public final 'int' seqid;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TMessage this;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        specialinvoke this.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>("", 0, 0);
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, 'byte', 'int')
+    {
+        org.apache.thrift.protocol.TMessage this;
+        'byte' t;
+        'int' s;
+        java.lang.String n;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        n := @parameter0: java.lang.String;
+
+        t := @parameter1: 'byte';
+
+        s := @parameter2: 'int';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TMessage: java.lang.String name> = n;
+
+        this.<org.apache.thrift.protocol.TMessage: 'byte' type> = t;
+
+        this.<org.apache.thrift.protocol.TMessage: 'int' seqid> = s;
+
+        return;
+    }
+
+    public java.lang.String getName()
+    {
+        org.apache.thrift.protocol.TMessage this;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        $r0 = this.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        return $r0;
+    }
+
+    public 'byte' getType()
+    {
+        org.apache.thrift.protocol.TMessage this;
+        'byte' $b0;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        $b0 = this.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        return $b0;
+    }
+
+    public 'int' getSeqid()
+    {
+        'int' $i0;
+        org.apache.thrift.protocol.TMessage this;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        $i0 = this.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.thrift.protocol.TMessage this;
+        'byte' $b0;
+        'int' $i1;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r2;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<TMessage name:\'");
+
+        $r2 = this.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' type: ");
+
+        $b0 = this.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $i1 = ('int') $b0;
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i1);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" seqid:");
+
+        $i1 = this.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i1);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        $r2 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public 'int' hashCode()
+    {
+        org.apache.thrift.protocol.TMessage this;
+        'byte' $b3;
+        'int' result_1, $i1, result_2, result_3;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        $r0 = this.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        if $r0 != null goto label1;
+
+        result_1 = 0;
+
+        goto label2;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        result_1 = virtualinvoke $r0.<java.lang.String: 'int' hashCode()>();
+
+     label2:
+        result_1 = 31 + result_1;
+
+        result_1 = 31 * result_1;
+
+        $i1 = this.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        result_2 = result_1 + $i1;
+
+        result_1 = 31 * result_2;
+
+        $b3 = this.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $i1 = ('int') $b3;
+
+        result_3 = result_1 + $i1;
+
+        return result_3;
+    }
+
+    public 'boolean' equals(java.lang.Object)
+    {
+        org.apache.thrift.protocol.TMessage this, other;
+        'byte' $b2, $b3;
+        'int' $i0, $i1;
+        java.lang.Object obj;
+        java.lang.Class $r0, $r1;
+        java.lang.String $r2, $r5;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TMessage;
+
+        obj := @parameter0: java.lang.Object;
+
+        if this != obj goto label1;
+
+        return 1;
+
+     label1:
+        if obj != null goto label2;
+
+        return 0;
+
+     label2:
+        $r0 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r1 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r0 == $r1 goto label3;
+
+        return 0;
+
+     label3:
+        other = (org.apache.thrift.protocol.TMessage) obj;
+
+        $r2 = this.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        if $r2 != null goto label4;
+
+        $r2 = other.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        if $r2 == null goto label5;
+
+        return 0;
+
+     label4:
+        $r2 = this.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $r5 = other.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: 'boolean' equals(java.lang.Object)>($r5);
+
+        if $z0 != 0 goto label5;
+
+        return 0;
+
+     label5:
+        $i0 = this.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        $i1 = other.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        if $i0 == $i1 goto label6;
+
+        return 0;
+
+     label6:
+        $b2 = this.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $b3 = other.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $i0 = ('int') $b2;
+
+        $i1 = ('int') $b3;
+
+        if $i0 == $i1 goto label7;
+
+        return 0;
+
+     label7:
+        return 1;
+    }
+}

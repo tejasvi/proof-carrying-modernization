@@ -1,0 +1,22 @@
+# TheAlgorithms/Java @ 2994ec3 (MIT), modular Java mode (per-class modules, BodyVC, link): same sources as talgo_maths.toml.
+name = "talgo_maths_modular"
+lang = "jimple"
+root = "/home/user/veriforch/targets/talgo_maths"
+sources = [
+  "src/com/thealgorithms/maths/GCD.java",
+  "src/com/thealgorithms/maths/FindMax.java",
+  "src/com/thealgorithms/maths/FindMin.java",
+  "src/com/thealgorithms/maths/DigitalRoot.java",
+  "src/com/thealgorithms/maths/LeastCommonMultiple.java",
+  "src/com/thealgorithms/maths/NumberOfDigits.java",
+]
+tests = [
+  "test/com/thealgorithms/maths/GCDTest.java",
+  "test/com/thealgorithms/maths/FindMaxTest.java",
+  "test/com/thealgorithms/maths/FindMinTest.java",
+  "test/com/thealgorithms/maths/DigitalRootTest.java",
+  "test/com/thealgorithms/maths/LeastCommonMultipleTest.java",
+  "test/com/thealgorithms/maths/NumberOfDigitsTest.java",
+]
+release = 11
+modular = true          # per-class modules + BodyVC + link step (fork w-javalink); needs VO_JIMPLE_DIR/PIN >= 0159Z

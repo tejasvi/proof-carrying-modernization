@@ -1,0 +1,93 @@
+public class Calc extends java.lang.Object
+{
+    static 'int' total;
+
+    public 'void' <init>()
+    {
+        Calc r0;
+
+        r0 := @this: Calc;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    static 'int' sq('int')
+    {
+        'int' i0;
+
+        i0 := @parameter0: 'int';
+
+        i0 = i0 * i0;
+
+        return i0;
+    }
+
+    static 'int' sumSq('int', 'int')
+    {
+        'int' i0, i1;
+
+        i0 := @parameter0: 'int';
+
+        i1 := @parameter1: 'int';
+
+        i0 = staticinvoke <Calc: 'int' sq('int')>(i0);
+
+        i1 = staticinvoke <Calc: 'int' sq('int')>(i1);
+
+        i0 = i0 + i1;
+
+        return i0;
+    }
+
+    static 'int' add('int')
+    {
+        'int' i0, $i1;
+
+        i0 := @parameter0: 'int';
+
+        $i1 = <Calc: 'int' total>;
+
+        i0 = $i1 + i0;
+
+        <Calc: 'int' total> = i0;
+
+        i0 = <Calc: 'int' total>;
+
+        return i0;
+    }
+
+    public static 'void' main(java.lang.String[])
+    {
+        java.io.PrintStream $r1;
+        'int' $i0;
+        java.lang.String[] r0;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r6;
+
+        r0 := @parameter0: java.lang.String[];
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $i0 = staticinvoke <Calc: 'int' sumSq('int','int')>(3, 4);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $i0 = staticinvoke <Calc: 'int' add('int')>(5);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r6 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r1.<java.io.PrintStream: 'void' println(java.lang.String)>($r6);
+
+        return;
+    }
+}

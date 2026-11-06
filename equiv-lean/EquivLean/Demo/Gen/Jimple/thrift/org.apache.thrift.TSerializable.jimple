@@ -1,0 +1,7 @@
+public interface  org.apache.thrift.TSerializable extends java.lang.Object
+{
+
+    public abstract 'void' read(org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException;
+
+    public abstract 'void' write(org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException;
+}

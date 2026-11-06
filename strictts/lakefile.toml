@@ -1,0 +1,38 @@
+name = "strictts"
+version = "0.1.0"
+defaultTargets = ["StrictTS"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[lean_lib]]
+name = "StrictTS"
+
+[[lean_exe]]
+name = "f64diff"
+srcDir = "tests"
+root = "F64Diff"
+
+[[lean_exe]]
+name = "strdiff"
+srcDir = "tests"
+root = "StrDiff"
+
+[[lean_lib]]
+name = "Examples"
+srcDir = "examples"
+globs = ["Refactor.+", "Invariant.+", "Hash.+", "Testing.+", "Async.+", "Maps.+", "Summarize.+", "Partial.+", "Specs.+", "Concrete.+", "Extern.+", "ModuleVars.+"]
+
+# Proofs about code copied from private repositories: kept locally under examples/Real (untracked);
+# build with `lake build Real` where that directory exists.
+[[lean_lib]]
+name = "Real"
+srcDir = "examples"
+globs = ["Real.+"]
+
+# Modular translator output (`--modular examples/Modular --namespace LoopsMod`) and proofs on it
+[[lean_lib]]
+name = "Modular"
+srcDir = "examples/Modular"
+globs = ["LoopsMod.+", "LoopsModProof", "LoopsModProgram"]

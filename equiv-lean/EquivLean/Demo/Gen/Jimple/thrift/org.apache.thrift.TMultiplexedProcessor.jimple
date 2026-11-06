@@ -1,0 +1,199 @@
+public class org.apache.thrift.TMultiplexedProcessor extends java.lang.Object implements org.apache.thrift.TProcessor
+{
+    private final java.util.Map SERVICE_PROCESSOR_MAP;
+    private org.apache.thrift.TProcessor defaultProcessor;
+
+    public 'void' <init>()
+    {
+        java.util.HashMap $r0;
+        org.apache.thrift.TMultiplexedProcessor this;
+
+        this := @this: org.apache.thrift.TMultiplexedProcessor;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>()>();
+
+        this.<org.apache.thrift.TMultiplexedProcessor: java.util.Map SERVICE_PROCESSOR_MAP> = $r0;
+
+        return;
+    }
+
+    public 'void' registerProcessor(java.lang.String, org.apache.thrift.TProcessor)
+    {
+        org.apache.thrift.TMultiplexedProcessor this;
+        java.util.Map $r0;
+        java.lang.String serviceName;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.TMultiplexedProcessor;
+
+        serviceName := @parameter0: java.lang.String;
+
+        processor := @parameter1: org.apache.thrift.TProcessor;
+
+        $r0 = this.<org.apache.thrift.TMultiplexedProcessor: java.util.Map SERVICE_PROCESSOR_MAP>;
+
+        interfaceinvoke $r0.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(serviceName, processor);
+
+        return;
+    }
+
+    public 'void' registerDefault(org.apache.thrift.TProcessor)
+    {
+        org.apache.thrift.TMultiplexedProcessor this;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.TMultiplexedProcessor;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        this.<org.apache.thrift.TMultiplexedProcessor: org.apache.thrift.TProcessor defaultProcessor> = processor;
+
+        return;
+    }
+
+    public 'void' process(org.apache.thrift.protocol.TProtocol, org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TMultiplexedProcessor this;
+        'byte' $b0;
+        java.util.Map $r13;
+        'int' index, $i3;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r1, serviceName;
+        org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol $r4;
+        org.apache.thrift.protocol.TMessage message, standardMessage;
+        org.apache.thrift.protocol.TProtocol iprot, oprot;
+        java.lang.StringBuilder $r6;
+        java.lang.Object $r14;
+        org.apache.thrift.TProcessor actualProcessor;
+
+        this := @this: org.apache.thrift.TMultiplexedProcessor;
+
+        iprot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        oprot := @parameter1: org.apache.thrift.protocol.TProtocol;
+
+        message = virtualinvoke iprot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMessage readMessageBegin()>();
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        if $b0 == 1 goto label1;
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        index = ('int') $b0;
+
+        if index == 4 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(5, "This should not have happened!?");
+
+        throw $r0;
+
+     label1:
+        $r1 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        index = virtualinvoke $r1.<java.lang.String: 'int' indexOf(java.lang.String)>(":");
+
+        if index >= 0 goto label3;
+
+        actualProcessor = this.<org.apache.thrift.TMultiplexedProcessor: org.apache.thrift.TProcessor defaultProcessor>;
+
+        if actualProcessor == null goto label2;
+
+        actualProcessor = this.<org.apache.thrift.TMultiplexedProcessor: org.apache.thrift.TProcessor defaultProcessor>;
+
+        $r4 = new org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol;
+
+        specialinvoke $r4.<org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol: 'void' <init>(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TMessage)>(iprot, message);
+
+        interfaceinvoke actualProcessor.<org.apache.thrift.TProcessor: 'void' process(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>($r4, oprot);
+
+        return;
+
+     label2:
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Service name not found in message name: ");
+
+        $r1 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".  Did you forget to use a TMultiplexProtocol in your client?");
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(5, $r1);
+
+        throw $r0;
+
+     label3:
+        $r1 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        serviceName = virtualinvoke $r1.<java.lang.String: java.lang.String substring('int','int')>(0, index);
+
+        $r13 = this.<org.apache.thrift.TMultiplexedProcessor: java.util.Map SERVICE_PROCESSOR_MAP>;
+
+        $r14 = interfaceinvoke $r13.<java.util.Map: java.lang.Object get(java.lang.Object)>(serviceName);
+
+        actualProcessor = (org.apache.thrift.TProcessor) $r14;
+
+        if actualProcessor != null goto label4;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Service name not found: ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(serviceName);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".  Did you forget to call registerProcessor()?");
+
+        $r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(5, $r1);
+
+        throw $r0;
+
+     label4:
+        standardMessage = new org.apache.thrift.protocol.TMessage;
+
+        $r1 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        index = virtualinvoke serviceName.<java.lang.String: 'int' length()>();
+
+        serviceName = ":";
+
+        $i3 = virtualinvoke serviceName.<java.lang.String: 'int' length()>();
+
+        index = index + $i3;
+
+        $r1 = virtualinvoke $r1.<java.lang.String: java.lang.String substring('int')>(index);
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        index = message.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        specialinvoke standardMessage.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>($r1, $b0, index);
+
+        $r4 = new org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol;
+
+        specialinvoke $r4.<org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol: 'void' <init>(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TMessage)>(iprot, standardMessage);
+
+        interfaceinvoke actualProcessor.<org.apache.thrift.TProcessor: 'void' process(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>($r4, oprot);
+
+        return;
+    }
+}

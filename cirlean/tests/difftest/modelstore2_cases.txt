@@ -1,0 +1,20 @@
+# modelstore2.cpp: pointer arguments of memcpy/memmove/memset/memcmp valid also with length 0
+# (C11 7.24.1p2), sprintf/snprintf format and %.Ns overlap (7.21.6.6p2), fprintf's stream (7.1.4p1);
+# ub_* lines are undefined, not expected to match; t_* lines are expected to match
+modelstore2 ub_memcpy_null_src0 0
+modelstore2 ub_memcpy_null_dst0 0
+modelstore2 ub_memmove_null0 0
+modelstore2 ub_memset_null0 0
+modelstore2 ub_memcmp_null0 0
+modelstore2 ub_memcpy_dangling0 0
+modelstore2 ub_memset_literal0 0
+modelstore2 t_mem_zero_valid 0
+modelstore2 ub_sprintf_fmt_overlap 0
+modelstore2 ub_snprintf_fmt_overlap 0
+modelstore2 ub_sprintf_prec_overlap 0
+modelstore2 t_sprintf_prec_nooverlap 0
+modelstore2 t_sprintf_fmt_separate 0
+modelstore2 ub_fprintf_null_stream 0
+modelstore2 t_fprintf_stderr 0
+modelstore2 t_std_streams_distinct 0
+modelstore2 t_snprintf_null0 0

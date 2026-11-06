@@ -1,0 +1,144 @@
+# Bytes of objects and pointer arithmetic in the pointer's units (bytes.cpp): character accesses read and write
+# the bytes of an object's representation (C11 6.5p7, 6.2.6.1p4; little-endian), and a stride counts objects of
+# the pointer's type (C11 6.5.6p8). Each case is labelled with its expected outcome on the line above it: MATCH,
+# or UB from cirrun (pointer bytes, NaN bytes, a byte written into an uninitialized object, a byte past the
+# object, a non-character access to another type, a misaligned non-character access, a struct member stored into
+# a char buffer). g_heap_char_pool is a gap labelled UB: defined in C, UB in the model (bytes.cpp).
+# expect MATCH: little-endian first byte of 1
+bytes b_endian 0
+# expect MATCH: byte 0 of 0x01020304
+bytes b_int_bytes 16909060 0
+# expect MATCH: byte 1 of 0x01020304
+bytes b_int_bytes 16909060 1
+# expect MATCH: byte 3 of 0x01020304
+bytes b_int_bytes 16909060 3
+# expect MATCH: byte 0 of -2
+bytes b_int_bytes -2 0
+# expect MATCH: byte 3 of -2
+bytes b_int_bytes -2 3
+# expect MATCH: byte 1 of a short
+bytes b_short_bytes 4660 1
+# expect MATCH: byte 5 of a long long
+bytes b_ll_bytes 123456789 5
+# expect MATCH: byte 6 of a double
+bytes b_double_bytes 13 6
+# expect MATCH: byte 7 of a double
+bytes b_double_bytes -13 7
+# expect MATCH: byte 2 of a float
+bytes b_float_bytes 7 2
+# expect MATCH: byte 3 of a float
+bytes b_float_bytes 7 3
+# expect MATCH: the byte of a bool
+bytes b_bool_byte 5
+# expect MATCH: bytes of an int swapped in place
+bytes b_write_swap 16909060
+# expect MATCH: byte 3 of an int written
+bytes b_write_byte3 -1
+# expect MATCH: char-wise copy between initialized ints
+bytes b_copy_loop -123456
+# expect MATCH: FNV-1a over the bytes of an int array
+bytes b_fnv 42
+# expect MATCH: byte 5 of an int array (across elements)
+bytes b_cross_elem 5
+# expect MATCH: char pointers into an int array, difference and comparison
+bytes b_ptr_diff 3
+# expect MATCH: char pointers into an int array, the comparison false
+bytes b_ptr_diff 9
+# expect MATCH: bytes of a struct's int member
+bytes b_member_bytes 777
+# expect MATCH: char * stride into an int array cast back to int * (was 4: element units)
+bytes s_char_stride 1
+# expect MATCH: char * stride, element 3
+bytes s_char_stride 3
+# expect MATCH: short * stride into an int array cast back to int * (was 2: element units)
+bytes s_short_stride 1
+# expect MATCH: short * walk over an int array read back as int
+bytes s_short_walk 2
+# expect MATCH: struct pointers at char offsets into an array of structs
+bytes s_struct_offsets 2
+# expect MATCH: heap pool of structs, slots at char offsets
+bytes s_heap_pool 3
+# expect MATCH: struct * stride over a char buffer, the slot written and read back through char *
+bytes s_arena_stride 1
+# expect MATCH: struct * stride over a char buffer, last slot
+bytes s_arena_stride 3
+# expect MATCH: difference of short pointers into an int array
+bytes s_ptrdiff_short 0
+# expect UB: int access at a misaligned char offset of an int array
+bytes u_misaligned 0
+# expect UB: bytes of a pointer
+bytes u_ptr_bytes 5
+# expect UB: bytes of a NaN
+bytes u_nan_bytes 1
+# expect UB: a byte written into an uninitialized int
+bytes u_uninit_write 9
+# expect UB: a byte past an int
+bytes u_past_scalar 3
+# expect UB: a short read of an int
+bytes u_short_read 70000
+# expect UB: a struct member stored into a slot of a char buffer (C11 6.5p7)
+bytes u_arena_struct 1
+# expect UB: gap, structs in heap storage first cast to char * (defined in C, 6.5p6; the model types it char)
+bytes g_heap_char_pool 2
+# expect MATCH: the evidence-owner session: char stride 4k over an int array (was element 4)
+bytes d_char_stride 1
+# expect MATCH: the evidence-owner session: char stride 4k over an int array (was out of bounds)
+bytes d_char_stride 3
+# expect MATCH: the evidence-owner session: short stride 2k over an int array (was element 2)
+bytes d_short_stride 1
+# expect MATCH: the evidence-owner session: short stride 2k over an int array (was element 6)
+bytes d_short_stride 3
+# expect MATCH: the evidence-owner session: char difference of int elements (was 1)
+bytes d_char_diff 1
+# expect MATCH: the evidence-owner session: char difference of int elements (was 3)
+bytes d_char_diff 3
+# expect UB: the evidence-owner session: int pointer over records: (int *)s + 1 is one past s[0].x (C11 6.5.6p7, p8, strictly)
+bytes d_int_over_struct 1
+# expect UB: the evidence-owner session: int pointer over records: (int *)s + 3 is out of bounds (6.5.6p8, strictly)
+bytes d_int_over_struct 3
+# expect MATCH: the evidence-owner session: char pointer over records, byte 0 of s[0].y (was an invalid read)
+bytes d_char_over_struct 1
+# expect MATCH: the evidence-owner session: char pointer over records, byte 0 of s[1].y (was out of bounds)
+bytes d_char_over_struct 3
+# expect MATCH: the evidence-owner session: control, plain heap indexing
+bytes d_heap_int_index 1
+# expect MATCH: the evidence-owner session: control, plain heap indexing
+bytes d_heap_int_index 3
+# expect MATCH: the evidence-owner session: char stride over a malloc'd int array (was element 4)
+bytes d_heap_char_stride 1
+# expect MATCH: the evidence-owner session: char stride over a malloc'd int array (was out of bounds)
+bytes d_heap_char_stride 3
+# expect MATCH: the evidence-owner session: control, unsigned over int
+bytes d_same_size 1
+# expect MATCH: the evidence-owner session: control, unsigned over int
+bytes d_same_size 3
+# expect MATCH: the evidence-owner session: control, plain int stride
+bytes d_plain 1
+# expect MATCH: the evidence-owner session: control, plain int stride
+bytes d_plain 3
+# expect UB: the evidence-owner session: unsigned short access to unsigned char objects (C11 6.5p7)
+bytes d_wide_over_char 1
+# expect UB: the evidence-owner session: unsigned short access to unsigned char objects (C11 6.5p7)
+bytes d_wide_over_char 3
+# expect MATCH: byte offset of a member from the member's and the object's addresses
+bytes s_member_offset 5
+# expect MATCH: container_of, the object from its last member's address
+bytes s_container_of 2
+# expect MATCH: one past a standalone int, difference and comparison
+bytes s_one_past_scalar 7
+# expect UB: an int walk over an array of records: the dereference one past s[0].x (6.5.6p8, strictly)
+bytes u_int_walk_struct 1
+# expect MATCH: FNV-1a over the bytes of an array of records
+bytes b_struct_fnv 9
+# expect UB: dereference one past a member, at the next member's address (C11 6.5.6p8, strictly)
+bytes u_member_one_past 3
+# expect UB: an int pointer to a structure plus 1, one past its first member (6.5.6p8, strictly)
+bytes u_struct_int_one_past 3
+# expect UB: two past a member (6.5.6p8)
+bytes u_member_plus_two 3
+# expect MATCH: one past a member and back, and their difference
+bytes s_member_one_past_back 3
+# expect MATCH: char arithmetic over the complete object, across the rows of a 2D array
+bytes s_char_rows 3
+# expect UB: int arithmetic stays in its row: one past m[0][2] (6.5.6p8)
+bytes u_int_rows 3

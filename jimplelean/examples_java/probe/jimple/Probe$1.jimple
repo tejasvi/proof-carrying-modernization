@@ -1,0 +1,41 @@
+class Probe$1 extends java.lang.Object
+{
+    static final 'int'[] $SwitchMap$Color;
+
+    static 'void' <clinit>()
+    {
+        java.lang.NoSuchFieldError $r4;
+        'int'[] $r1;
+        Color[] $r0;
+        Color $r3;
+        'int' $i0;
+
+        $r0 = staticinvoke <Color: Color[] values()>();
+
+        $i0 = lengthof $r0;
+
+        $r1 = newarray ('int')[$i0];
+
+        <Probe$1: 'int'[] $SwitchMap$Color> = $r1;
+
+     label1:
+        $r1 = <Probe$1: 'int'[] $SwitchMap$Color>;
+
+        $r3 = <Color: Color RED>;
+
+        $i0 = virtualinvoke $r3.<Color: 'int' ordinal()>();
+
+     label2:
+        $r1[$i0] = 1;
+
+        goto label4;
+
+     label3:
+        $r4 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.NoSuchFieldError from label1 to label2 with label3;
+    }
+}

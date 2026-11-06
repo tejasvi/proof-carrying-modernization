@@ -1,0 +1,13 @@
+# throw; (rethrow.cpp): in a handler, the handled exception propagates again. Each case is labelled with
+# its expected outcome on the line above it: MATCH, or UB (before the change: UB "rethrow is not modelled").
+# expect MATCH: a rethrow of a caught object after changing it
+rethrow t_rethrow 4
+rethrow t_rethrow -1
+# expect MATCH: catch (...) { throw; } of an int
+rethrow t_rethrow_all 5
+# expect MATCH: a throw; inside a try within the handler: the same object
+rethrow t_rethrow_same 3
+# expect MATCH: a destructor in the handler runs on the rethrow path
+rethrow t_rethrow_cleanup 2
+# expect UB: a throw; in a function called from a handler (not modelled)
+rethrow u_rethrow_helper 6

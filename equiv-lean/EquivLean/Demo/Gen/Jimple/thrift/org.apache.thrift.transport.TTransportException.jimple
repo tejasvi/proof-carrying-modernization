@@ -1,0 +1,193 @@
+public class org.apache.thrift.transport.TTransportException extends org.apache.thrift.TException
+{
+    private static final 'long' serialVersionUID;
+    public static final 'int' UNKNOWN;
+    public static final 'int' NOT_OPEN;
+    public static final 'int' ALREADY_OPEN;
+    public static final 'int' TIMED_OUT;
+    public static final 'int' END_OF_FILE;
+    public static final 'int' CORRUPTED_DATA;
+    public static final 'int' MESSAGE_SIZE_LIMIT;
+    protected 'int' type_;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        return;
+    }
+
+    public 'void' <init>('int')
+    {
+        'int' type;
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        type := @parameter0: 'int';
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = type;
+
+        return;
+    }
+
+    public 'void' <init>('int', java.lang.String)
+    {
+        'int' type;
+        java.lang.String message;
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        type := @parameter0: 'int';
+
+        message := @parameter1: java.lang.String;
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>(message);
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = type;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String)
+    {
+        java.lang.String message;
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        message := @parameter0: java.lang.String;
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>(message);
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        return;
+    }
+
+    public 'void' <init>('int', java.lang.Throwable)
+    {
+        'int' type;
+        java.lang.Throwable cause;
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        type := @parameter0: 'int';
+
+        cause := @parameter1: java.lang.Throwable;
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>(java.lang.Throwable)>(cause);
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = type;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.Throwable)
+    {
+        java.lang.Throwable cause;
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        cause := @parameter0: java.lang.Throwable;
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>(java.lang.Throwable)>(cause);
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, java.lang.Throwable)
+    {
+        java.lang.Throwable cause;
+        java.lang.String message;
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        message := @parameter0: java.lang.String;
+
+        cause := @parameter1: java.lang.Throwable;
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>(java.lang.String,java.lang.Throwable)>(message, cause);
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        return;
+    }
+
+    public 'void' <init>('int', java.lang.String, java.lang.Throwable)
+    {
+        java.lang.Throwable cause;
+        org.apache.thrift.transport.TTransportException this;
+        'int' type;
+        java.lang.String message;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        type := @parameter0: 'int';
+
+        message := @parameter1: java.lang.String;
+
+        cause := @parameter2: java.lang.Throwable;
+
+        specialinvoke this.<org.apache.thrift.TException: 'void' <init>(java.lang.String,java.lang.Throwable)>(message, cause);
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = 0;
+
+        this.<org.apache.thrift.transport.TTransportException: 'int' type_> = type;
+
+        return;
+    }
+
+    public 'int' getType()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.TTransportException this;
+
+        this := @this: org.apache.thrift.transport.TTransportException;
+
+        $i0 = this.<org.apache.thrift.transport.TTransportException: 'int' type_>;
+
+        return $i0;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.transport.TTransportException: 'int' MESSAGE_SIZE_LIMIT> = 6;
+
+        <org.apache.thrift.transport.TTransportException: 'int' CORRUPTED_DATA> = 5;
+
+        <org.apache.thrift.transport.TTransportException: 'int' END_OF_FILE> = 4;
+
+        <org.apache.thrift.transport.TTransportException: 'int' TIMED_OUT> = 3;
+
+        <org.apache.thrift.transport.TTransportException: 'int' ALREADY_OPEN> = 2;
+
+        <org.apache.thrift.transport.TTransportException: 'int' NOT_OPEN> = 1;
+
+        <org.apache.thrift.transport.TTransportException: 'int' UNKNOWN> = 0;
+
+        <org.apache.thrift.transport.TTransportException: 'long' serialVersionUID> = 1L;
+
+        return;
+    }
+}

@@ -1,0 +1,42 @@
+public class org.apache.thrift.transport.sasl.TSaslServerDefinition extends java.lang.Object
+{
+    public final java.lang.String mechanism;
+    public final java.lang.String protocol;
+    public final java.lang.String serverName;
+    public final java.util.Map props;
+    public final javax.security.auth.callback.CallbackHandler cbh;
+
+    public 'void' <init>(java.lang.String, java.lang.String, java.lang.String, java.util.Map, javax.security.auth.callback.CallbackHandler)
+    {
+        javax.security.auth.callback.CallbackHandler cbh;
+        java.util.Map props;
+        org.apache.thrift.transport.sasl.TSaslServerDefinition this;
+        java.lang.String mechanism, protocol, serverName;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslServerDefinition;
+
+        mechanism := @parameter0: java.lang.String;
+
+        protocol := @parameter1: java.lang.String;
+
+        serverName := @parameter2: java.lang.String;
+
+        props := @parameter3: java.util.Map;
+
+        cbh := @parameter4: javax.security.auth.callback.CallbackHandler;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.lang.String mechanism> = mechanism;
+
+        this.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.lang.String protocol> = protocol;
+
+        this.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.lang.String serverName> = serverName;
+
+        this.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.util.Map props> = props;
+
+        this.<org.apache.thrift.transport.sasl.TSaslServerDefinition: javax.security.auth.callback.CallbackHandler cbh> = cbh;
+
+        return;
+    }
+}

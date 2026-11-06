@@ -1,0 +1,1 @@
+different Math.floor(x / 2) vs x >> 1 under the guard x < 0: -0 passes the guard (floor gives -0, >> gives 0); found by the fuzzer, the pair was first labelled equivalent

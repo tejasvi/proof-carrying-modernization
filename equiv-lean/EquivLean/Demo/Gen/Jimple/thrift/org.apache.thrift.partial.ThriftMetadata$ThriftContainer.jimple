@@ -1,0 +1,25 @@
+public abstract class org.apache.thrift.partial.ThriftMetadata$ThriftContainer extends org.apache.thrift.partial.ThriftMetadata$ThriftObject
+{
+
+    public 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject, org.apache.thrift.TFieldIdEnum, org.apache.thrift.meta_data.FieldMetaData)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject parent;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.partial.ThriftMetadata$ThriftContainer this;
+        org.apache.thrift.meta_data.FieldMetaData data;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftContainer;
+
+        parent := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        data := @parameter2: org.apache.thrift.meta_data.FieldMetaData;
+
+        specialinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData)>(parent, fieldId, data);
+
+        return;
+    }
+
+    public abstract 'boolean' hasUnion();
+}

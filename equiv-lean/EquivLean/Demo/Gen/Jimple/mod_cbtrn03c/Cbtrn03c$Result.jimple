@@ -1,0 +1,30 @@
+public final class Cbtrn03c$Result extends java.lang.Object
+{
+    public java.util.List displays;
+    public java.util.List reportFileWrites;
+    public 'boolean' abended;
+
+    public 'void' <init>()
+    {
+        Cbtrn03c$Result r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this: Cbtrn03c$Result;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn03c$Result: java.util.List displays> = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn03c$Result: java.util.List reportFileWrites> = $r1;
+
+        return;
+    }
+}

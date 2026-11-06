@@ -1,0 +1,24 @@
+# Algorithms on vector and string iterators (toaddr.cpp): std::__to_address of an iterator, end() included, gives
+# its pointer. Each case is labelled with its expected outcome on the line above it: MATCH, or UB (before the
+# change the algorithms through end() were UB "dereferencing an invalid iterator").
+# expect MATCH: std::sort(v.begin(), v.end())
+toaddr t_sort_iters 3
+toaddr t_sort_iters -7
+# expect MATCH: std::sort over a middle range of a vector
+toaddr t_sort_part 7
+# expect MATCH: std::sort of an empty vector
+toaddr t_sort_empty 2
+# expect MATCH: std::sort(s.begin(), s.end()) of a std::string
+toaddr t_sort_string 1
+toaddr t_sort_string 25
+# expect MATCH: std::copy from a vector into a std::back_inserter of a vector
+toaddr t_copy_back 9
+# expect MATCH: std::copy from a vector into a vector's storage (libc++ copies the trivially copyable range with
+# memmove, over std::vector storage: vecmem_cases.txt)
+toaddr t_copy_storage 9
+# expect MATCH: std::fill and std::reverse over a vector
+toaddr t_fill_reverse 4
+# expect MATCH: std::to_address(v.end()) is the pointer past the last element
+toaddr t_to_address_end 6
+# expect UB: a dereference of end()
+toaddr u_deref_end 5

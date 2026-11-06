@@ -1,0 +1,31 @@
+public final class org.apache.thrift.protocol.TMessageType extends java.lang.Object
+{
+    public static final 'byte' CALL;
+    public static final 'byte' REPLY;
+    public static final 'byte' EXCEPTION;
+    public static final 'byte' ONEWAY;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TMessageType this;
+
+        this := @this: org.apache.thrift.protocol.TMessageType;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.protocol.TMessageType: 'byte' ONEWAY> = 4;
+
+        <org.apache.thrift.protocol.TMessageType: 'byte' EXCEPTION> = 3;
+
+        <org.apache.thrift.protocol.TMessageType: 'byte' REPLY> = 2;
+
+        <org.apache.thrift.protocol.TMessageType: 'byte' CALL> = 1;
+
+        return;
+    }
+}

@@ -1,0 +1,191 @@
+public abstract class org.apache.thrift.server.AbstractNonblockingServer extends org.apache.thrift.server.TServer
+{
+    protected final org.slf4j.Logger LOGGER;
+    final 'long' MAX_READ_BUFFER_BYTES;
+    final java.util.concurrent.atomic.AtomicLong readBufferBytesAllocated;
+    private final java.util.Set framesAwaitingReadBuffer;
+
+    public 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs)
+    {
+        org.slf4j.Logger $r2;
+        org.apache.thrift.server.AbstractNonblockingServer this;
+        'long' $l0;
+        org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs args;
+        java.util.concurrent.atomic.AtomicLong $r3;
+        java.util.concurrent.ConcurrentHashMap$KeySetView $r4;
+        java.lang.Class $r0;
+        java.lang.String $r1;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer;
+
+        args := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs;
+
+        specialinvoke this.<org.apache.thrift.server.TServer: 'void' <init>(org.apache.thrift.server.TServer$AbstractServerArgs)>(args);
+
+        $r0 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer: org.slf4j.Logger LOGGER> = $r2;
+
+        $r3 = new java.util.concurrent.atomic.AtomicLong;
+
+        specialinvoke $r3.<java.util.concurrent.atomic.AtomicLong: 'void' <init>('long')>(0L);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer: java.util.concurrent.atomic.AtomicLong readBufferBytesAllocated> = $r3;
+
+        $r4 = staticinvoke <java.util.concurrent.ConcurrentHashMap: java.util.concurrent.ConcurrentHashMap$KeySetView newKeySet()>();
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer: java.util.Set framesAwaitingReadBuffer> = $r4;
+
+        $l0 = args.<org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs: 'long' maxReadBufferBytes>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer: 'long' MAX_READ_BUFFER_BYTES> = $l0;
+
+        return;
+    }
+
+    public 'void' serve()
+    {
+        org.apache.thrift.server.AbstractNonblockingServer this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'boolean' startThreads()>();
+
+        if $z0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $z0 = virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'boolean' startListening()>();
+
+        if $z0 != 0 goto label2;
+
+        return;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'void' setServing('boolean')>(1);
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'void' waitForShutdown()>();
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'void' setServing('boolean')>(0);
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'void' stopListening()>();
+
+        return;
+    }
+
+    private 'void' retryFramesAwaitingReadBuffer()
+    {
+        java.util.Iterator r1;
+        org.apache.thrift.server.AbstractNonblockingServer this;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+        java.util.Set $r0;
+        java.lang.Object $r2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer: java.util.Set framesAwaitingReadBuffer>;
+
+        r1 = interfaceinvoke $r0.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r2 = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        frameBuffer = (org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer) $r2;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer: java.util.Set framesAwaitingReadBuffer>;
+
+        $z0 = interfaceinvoke $r0.<java.util.Set: 'boolean' remove(java.lang.Object)>(frameBuffer);
+
+        if $z0 == false goto label1;
+
+        virtualinvoke frameBuffer.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' requestSelectInterestChange()>();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    protected abstract 'boolean' startThreads();
+
+    protected abstract 'void' waitForShutdown();
+
+    protected 'boolean' startListening()
+    {
+        org.apache.thrift.transport.TServerTransport $r0;
+        org.slf4j.Logger $r1;
+        org.apache.thrift.server.AbstractNonblockingServer this;
+        org.apache.thrift.transport.TTransportException ttx;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.transport.TServerTransport serverTransport_>;
+
+     label1:
+        virtualinvoke $r0.<org.apache.thrift.transport.TServerTransport: 'void' listen()>();
+
+     label2:
+        return 1;
+
+     label3:
+        ttx := @caughtexception;
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r1.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Failed to start listening on server socket!", ttx);
+
+        return 0;
+
+        catch org.apache.thrift.transport.TTransportException from label1 to label2 with label3;
+    }
+
+    protected 'void' stopListening()
+    {
+        org.apache.thrift.transport.TServerTransport $r0;
+        org.apache.thrift.server.AbstractNonblockingServer this;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.transport.TServerTransport serverTransport_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TServerTransport: 'void' close()>();
+
+        return;
+    }
+
+    protected abstract 'boolean' requestInvoke(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer);
+
+    static java.util.Set access$000(org.apache.thrift.server.AbstractNonblockingServer)
+    {
+        java.util.Set $r0;
+        org.apache.thrift.server.AbstractNonblockingServer x0;
+
+        x0 := @parameter0: org.apache.thrift.server.AbstractNonblockingServer;
+
+        $r0 = x0.<org.apache.thrift.server.AbstractNonblockingServer: java.util.Set framesAwaitingReadBuffer>;
+
+        return $r0;
+    }
+
+    static 'void' access$100(org.apache.thrift.server.AbstractNonblockingServer)
+    {
+        org.apache.thrift.server.AbstractNonblockingServer x0;
+
+        x0 := @parameter0: org.apache.thrift.server.AbstractNonblockingServer;
+
+        specialinvoke x0.<org.apache.thrift.server.AbstractNonblockingServer: 'void' retryFramesAwaitingReadBuffer()>();
+
+        return;
+    }
+}

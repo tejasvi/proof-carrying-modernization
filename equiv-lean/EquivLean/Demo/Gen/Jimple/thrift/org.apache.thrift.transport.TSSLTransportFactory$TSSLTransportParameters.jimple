@@ -1,0 +1,326 @@
+public class org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters extends java.lang.Object
+{
+    protected java.lang.String protocol;
+    protected java.lang.String keyStore;
+    protected java.io.InputStream keyStoreStream;
+    protected java.lang.String keyPass;
+    protected java.lang.String keyManagerType;
+    protected java.lang.String keyStoreType;
+    protected java.lang.String trustStore;
+    protected java.io.InputStream trustStoreStream;
+    protected java.lang.String trustPass;
+    protected java.lang.String trustManagerType;
+    protected java.lang.String trustStoreType;
+    protected java.lang.String[] cipherSuites;
+    protected 'boolean' clientAuth;
+    protected 'boolean' isKeyStoreSet;
+    protected 'boolean' isTrustStoreSet;
+
+    public 'void' <init>()
+    {
+        java.lang.String $r0;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String protocol> = "TLS";
+
+        $r0 = staticinvoke <javax.net.ssl.KeyManagerFactory: java.lang.String getDefaultAlgorithm()>();
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyManagerType> = $r0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyStoreType> = "JKS";
+
+        $r0 = staticinvoke <javax.net.ssl.TrustManagerFactory: java.lang.String getDefaultAlgorithm()>();
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustManagerType> = $r0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustStoreType> = "JKS";
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' clientAuth> = 0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' isKeyStoreSet> = 0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' isTrustStoreSet> = 0;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, java.lang.String[])
+    {
+        java.lang.String[] cipherSuites;
+        java.lang.String protocol;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        protocol := @parameter0: java.lang.String;
+
+        cipherSuites := @parameter1: java.lang.String[];
+
+        specialinvoke this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'void' <init>(java.lang.String,java.lang.String[],'boolean')>(protocol, cipherSuites, 0);
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, java.lang.String[], 'boolean')
+    {
+        java.lang.Object[] $r2;
+        'int' $i0;
+        java.lang.String[] cipherSuites;
+        java.lang.String protocol, $r0;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+        'boolean' clientAuth;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        protocol := @parameter0: java.lang.String;
+
+        cipherSuites := @parameter1: java.lang.String[];
+
+        clientAuth := @parameter2: 'boolean';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String protocol> = "TLS";
+
+        $r0 = staticinvoke <javax.net.ssl.KeyManagerFactory: java.lang.String getDefaultAlgorithm()>();
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyManagerType> = $r0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyStoreType> = "JKS";
+
+        $r0 = staticinvoke <javax.net.ssl.TrustManagerFactory: java.lang.String getDefaultAlgorithm()>();
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustManagerType> = $r0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustStoreType> = "JKS";
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' clientAuth> = 0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' isKeyStoreSet> = 0;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' isTrustStoreSet> = 0;
+
+        if protocol == null goto label1;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String protocol> = protocol;
+
+     label1:
+        if cipherSuites == null goto label2;
+
+        $i0 = lengthof cipherSuites;
+
+        $r2 = staticinvoke <java.util.Arrays: java.lang.Object[] copyOf(java.lang.Object[],'int')>(cipherSuites, $i0);
+
+        cipherSuites = (java.lang.String[]) $r2;
+
+        goto label3;
+
+     label2:
+        cipherSuites = null;
+
+     label3:
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String[] cipherSuites> = cipherSuites;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' clientAuth> = clientAuth;
+
+        return;
+    }
+
+    public 'void' setKeyStore(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String keyStore, keyPass, keyManagerType, keyStoreType;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        keyStore := @parameter0: java.lang.String;
+
+        keyPass := @parameter1: java.lang.String;
+
+        keyManagerType := @parameter2: java.lang.String;
+
+        keyStoreType := @parameter3: java.lang.String;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyStore> = keyStore;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyPass> = keyPass;
+
+        if keyManagerType == null goto label1;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyManagerType> = keyManagerType;
+
+     label1:
+        if keyStoreType == null goto label2;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String keyStoreType> = keyStoreType;
+
+     label2:
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' isKeyStoreSet> = 1;
+
+        return;
+    }
+
+    public 'void' setKeyStore(java.io.InputStream, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String keyPass, keyManagerType, keyStoreType;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+        java.io.InputStream keyStoreStream;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        keyStoreStream := @parameter0: java.io.InputStream;
+
+        keyPass := @parameter1: java.lang.String;
+
+        keyManagerType := @parameter2: java.lang.String;
+
+        keyStoreType := @parameter3: java.lang.String;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.io.InputStream keyStoreStream> = keyStoreStream;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'void' setKeyStore(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("", keyPass, keyManagerType, keyStoreType);
+
+        return;
+    }
+
+    public 'void' setKeyStore(java.lang.String, java.lang.String)
+    {
+        java.lang.String keyStore, keyPass;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        keyStore := @parameter0: java.lang.String;
+
+        keyPass := @parameter1: java.lang.String;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'void' setKeyStore(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>(keyStore, keyPass, null, null);
+
+        return;
+    }
+
+    public 'void' setKeyStore(java.io.InputStream, java.lang.String)
+    {
+        java.lang.String keyPass;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+        java.io.InputStream keyStoreStream;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        keyStoreStream := @parameter0: java.io.InputStream;
+
+        keyPass := @parameter1: java.lang.String;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'void' setKeyStore(java.io.InputStream,java.lang.String,java.lang.String,java.lang.String)>(keyStoreStream, keyPass, null, null);
+
+        return;
+    }
+
+    public 'void' setTrustStore(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String trustStore, trustPass, trustManagerType, trustStoreType;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        trustStore := @parameter0: java.lang.String;
+
+        trustPass := @parameter1: java.lang.String;
+
+        trustManagerType := @parameter2: java.lang.String;
+
+        trustStoreType := @parameter3: java.lang.String;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustStore> = trustStore;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustPass> = trustPass;
+
+        if trustManagerType == null goto label1;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustManagerType> = trustManagerType;
+
+     label1:
+        if trustStoreType == null goto label2;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.lang.String trustStoreType> = trustStoreType;
+
+     label2:
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' isTrustStoreSet> = 1;
+
+        return;
+    }
+
+    public 'void' setTrustStore(java.io.InputStream, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String trustPass, trustManagerType, trustStoreType;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+        java.io.InputStream trustStoreStream;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        trustStoreStream := @parameter0: java.io.InputStream;
+
+        trustPass := @parameter1: java.lang.String;
+
+        trustManagerType := @parameter2: java.lang.String;
+
+        trustStoreType := @parameter3: java.lang.String;
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: java.io.InputStream trustStoreStream> = trustStoreStream;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'void' setTrustStore(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("", trustPass, trustManagerType, trustStoreType);
+
+        return;
+    }
+
+    public 'void' setTrustStore(java.lang.String, java.lang.String)
+    {
+        java.lang.String trustStore, trustPass;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        trustStore := @parameter0: java.lang.String;
+
+        trustPass := @parameter1: java.lang.String;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'void' setTrustStore(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>(trustStore, trustPass, null, null);
+
+        return;
+    }
+
+    public 'void' setTrustStore(java.io.InputStream, java.lang.String)
+    {
+        java.lang.String trustPass;
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+        java.io.InputStream trustStoreStream;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        trustStoreStream := @parameter0: java.io.InputStream;
+
+        trustPass := @parameter1: java.lang.String;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'void' setTrustStore(java.io.InputStream,java.lang.String,java.lang.String,java.lang.String)>(trustStoreStream, trustPass, null, null);
+
+        return;
+    }
+
+    public 'void' requireClientAuth('boolean')
+    {
+        org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters this;
+        'boolean' clientAuth;
+
+        this := @this: org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters;
+
+        clientAuth := @parameter0: 'boolean';
+
+        this.<org.apache.thrift.transport.TSSLTransportFactory$TSSLTransportParameters: 'boolean' clientAuth> = clientAuth;
+
+        return;
+    }
+}

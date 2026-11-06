@@ -1,0 +1,61 @@
+public final class org.apache.thrift.protocol.TList extends java.lang.Object
+{
+    public final 'byte' elemType;
+    public final 'int' size;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TList this;
+
+        this := @this: org.apache.thrift.protocol.TList;
+
+        specialinvoke this.<org.apache.thrift.protocol.TList: 'void' <init>('byte','int')>(0, 0);
+
+        return;
+    }
+
+    public 'void' <init>('byte', 'int')
+    {
+        org.apache.thrift.protocol.TList this;
+        'int' s;
+        'byte' t;
+
+        this := @this: org.apache.thrift.protocol.TList;
+
+        t := @parameter0: 'byte';
+
+        s := @parameter1: 'int';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TList: 'byte' elemType> = t;
+
+        this.<org.apache.thrift.protocol.TList: 'int' size> = s;
+
+        return;
+    }
+
+    public 'byte' getElemType()
+    {
+        org.apache.thrift.protocol.TList this;
+        'byte' $b0;
+
+        this := @this: org.apache.thrift.protocol.TList;
+
+        $b0 = this.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        return $b0;
+    }
+
+    public 'int' getSize()
+    {
+        org.apache.thrift.protocol.TList this;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.protocol.TList;
+
+        $i0 = this.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        return $i0;
+    }
+}

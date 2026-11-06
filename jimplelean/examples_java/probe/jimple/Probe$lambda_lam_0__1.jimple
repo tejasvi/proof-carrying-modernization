@@ -1,0 +1,42 @@
+public final class Probe$lambda_lam_0__1 extends java.lang.Object implements java.util.function.Function
+{
+
+    public static java.util.function.Function bootstrap$()
+    {
+        Probe$lambda_lam_0__1 $r0;
+
+        $r0 = new Probe$lambda_lam_0__1;
+
+        specialinvoke $r0.<Probe$lambda_lam_0__1: 'void' <init>()>();
+
+        return $r0;
+    }
+
+    public 'void' <init>()
+    {
+        Probe$lambda_lam_0__1 $r0;
+
+        $r0 := @this: Probe$lambda_lam_0__1;
+
+        specialinvoke $r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public java.lang.Object apply(java.lang.Object)
+    {
+        java.lang.Object $r1;
+        Probe$lambda_lam_0__1 $r0;
+        java.lang.Integer $r2, $r3;
+
+        $r0 := @this: Probe$lambda_lam_0__1;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r2 = (java.lang.Integer) $r1;
+
+        $r3 = staticinvoke <Probe: java.lang.Integer lambda$lam$0(java.lang.Integer)>($r2);
+
+        return $r3;
+    }
+}

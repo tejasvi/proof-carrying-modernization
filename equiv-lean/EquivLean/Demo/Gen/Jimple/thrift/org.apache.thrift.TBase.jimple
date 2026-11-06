@@ -1,0 +1,15 @@
+public interface  org.apache.thrift.TBase extends java.lang.Object implements java.lang.Comparable, org.apache.thrift.TSerializable, java.io.Serializable
+{
+
+    public abstract org.apache.thrift.TFieldIdEnum fieldForId('int');
+
+    public abstract 'boolean' isSet(org.apache.thrift.TFieldIdEnum);
+
+    public abstract java.lang.Object getFieldValue(org.apache.thrift.TFieldIdEnum);
+
+    public abstract 'void' setFieldValue(org.apache.thrift.TFieldIdEnum, java.lang.Object);
+
+    public abstract org.apache.thrift.TBase deepCopy();
+
+    public abstract 'void' clear();
+}

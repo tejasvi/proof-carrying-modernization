@@ -1,0 +1,122 @@
+public class org.apache.thrift.transport.TStandardFile extends java.lang.Object implements org.apache.thrift.transport.TSeekableFile
+{
+    protected java.lang.String path_;
+    protected java.io.RandomAccessFile inputFile_;
+
+    public 'void' <init>(java.lang.String) throws java.io.IOException
+    {
+        java.io.RandomAccessFile $r0;
+        java.lang.String path;
+        org.apache.thrift.transport.TStandardFile this;
+
+        this := @this: org.apache.thrift.transport.TStandardFile;
+
+        path := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TStandardFile: java.lang.String path_> = null;
+
+        this.<org.apache.thrift.transport.TStandardFile: java.io.RandomAccessFile inputFile_> = null;
+
+        this.<org.apache.thrift.transport.TStandardFile: java.lang.String path_> = path;
+
+        $r0 = new java.io.RandomAccessFile;
+
+        path = this.<org.apache.thrift.transport.TStandardFile: java.lang.String path_>;
+
+        specialinvoke $r0.<java.io.RandomAccessFile: 'void' <init>(java.lang.String,java.lang.String)>(path, "r");
+
+        this.<org.apache.thrift.transport.TStandardFile: java.io.RandomAccessFile inputFile_> = $r0;
+
+        return;
+    }
+
+    public java.io.InputStream getInputStream() throws java.io.IOException
+    {
+        java.io.RandomAccessFile $r1;
+        org.apache.thrift.transport.TStandardFile this;
+        java.io.FileDescriptor $r2;
+        java.io.FileInputStream $r0;
+
+        this := @this: org.apache.thrift.transport.TStandardFile;
+
+        $r0 = new java.io.FileInputStream;
+
+        $r1 = this.<org.apache.thrift.transport.TStandardFile: java.io.RandomAccessFile inputFile_>;
+
+        $r2 = virtualinvoke $r1.<java.io.RandomAccessFile: java.io.FileDescriptor getFD()>();
+
+        specialinvoke $r0.<java.io.FileInputStream: 'void' <init>(java.io.FileDescriptor)>($r2);
+
+        return $r0;
+    }
+
+    public java.io.OutputStream getOutputStream() throws java.io.IOException
+    {
+        java.io.FileOutputStream $r0;
+        java.lang.String $r1;
+        org.apache.thrift.transport.TStandardFile this;
+
+        this := @this: org.apache.thrift.transport.TStandardFile;
+
+        $r0 = new java.io.FileOutputStream;
+
+        $r1 = this.<org.apache.thrift.transport.TStandardFile: java.lang.String path_>;
+
+        specialinvoke $r0.<java.io.FileOutputStream: 'void' <init>(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public 'void' close() throws java.io.IOException
+    {
+        java.io.RandomAccessFile $r0;
+        org.apache.thrift.transport.TStandardFile this;
+
+        this := @this: org.apache.thrift.transport.TStandardFile;
+
+        $r0 = this.<org.apache.thrift.transport.TStandardFile: java.io.RandomAccessFile inputFile_>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TStandardFile: java.io.RandomAccessFile inputFile_>;
+
+        virtualinvoke $r0.<java.io.RandomAccessFile: 'void' close()>();
+
+     label1:
+        return;
+    }
+
+    public 'long' length() throws java.io.IOException
+    {
+        java.io.RandomAccessFile $r0;
+        'long' $l0;
+        org.apache.thrift.transport.TStandardFile this;
+
+        this := @this: org.apache.thrift.transport.TStandardFile;
+
+        $r0 = this.<org.apache.thrift.transport.TStandardFile: java.io.RandomAccessFile inputFile_>;
+
+        $l0 = virtualinvoke $r0.<java.io.RandomAccessFile: 'long' length()>();
+
+        return $l0;
+    }
+
+    public 'void' seek('long') throws java.io.IOException
+    {
+        java.io.RandomAccessFile $r0;
+        'long' pos;
+        org.apache.thrift.transport.TStandardFile this;
+
+        this := @this: org.apache.thrift.transport.TStandardFile;
+
+        pos := @parameter0: 'long';
+
+        $r0 = this.<org.apache.thrift.transport.TStandardFile: java.io.RandomAccessFile inputFile_>;
+
+        virtualinvoke $r0.<java.io.RandomAccessFile: 'void' seek('long')>(pos);
+
+        return;
+    }
+}

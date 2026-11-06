@@ -1,0 +1,342 @@
+public class org.apache.thrift.server.TThreadedSelectorServer$Args extends org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs
+{
+    public 'int' selectorThreads;
+    private 'int' workerThreads;
+    private 'int' stopTimeoutVal;
+    private java.util.concurrent.TimeUnit stopTimeoutUnit;
+    private java.util.concurrent.ExecutorService executorService;
+    private 'int' acceptQueueSizePerThread;
+    private org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy acceptPolicy;
+
+    public 'void' <init>(org.apache.thrift.transport.TNonblockingServerTransport)
+    {
+        java.util.concurrent.TimeUnit $r0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+        org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy $r1;
+        org.apache.thrift.transport.TNonblockingServerTransport transport;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        transport := @parameter0: org.apache.thrift.transport.TNonblockingServerTransport;
+
+        specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs: 'void' <init>(org.apache.thrift.transport.TNonblockingServerTransport)>(transport);
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' selectorThreads> = 2;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' workerThreads> = 5;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' stopTimeoutVal> = 60;
+
+        $r0 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.TimeUnit stopTimeoutUnit> = $r0;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.ExecutorService executorService> = null;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' acceptQueueSizePerThread> = 4;
+
+        $r1 = <org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy: org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy FAST_ACCEPT>;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy acceptPolicy> = $r1;
+
+        return;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args selectorThreads('int')
+    {
+        'int' i;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        i := @parameter0: 'int';
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' selectorThreads> = i;
+
+        return this;
+    }
+
+    public 'int' getSelectorThreads()
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' selectorThreads>;
+
+        return $i0;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args workerThreads('int')
+    {
+        'int' i;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        i := @parameter0: 'int';
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' workerThreads> = i;
+
+        return this;
+    }
+
+    public 'int' getWorkerThreads()
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' workerThreads>;
+
+        return $i0;
+    }
+
+    public 'int' getStopTimeoutVal()
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' stopTimeoutVal>;
+
+        return $i0;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args stopTimeoutVal('int')
+    {
+        'int' stopTimeoutVal;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        stopTimeoutVal := @parameter0: 'int';
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' stopTimeoutVal> = stopTimeoutVal;
+
+        return this;
+    }
+
+    public java.util.concurrent.TimeUnit getStopTimeoutUnit()
+    {
+        java.util.concurrent.TimeUnit $r0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.TimeUnit stopTimeoutUnit>;
+
+        return $r0;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args stopTimeoutUnit(java.util.concurrent.TimeUnit)
+    {
+        java.util.concurrent.TimeUnit stopTimeoutUnit;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        stopTimeoutUnit := @parameter0: java.util.concurrent.TimeUnit;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.TimeUnit stopTimeoutUnit> = stopTimeoutUnit;
+
+        return this;
+    }
+
+    public java.util.concurrent.ExecutorService getExecutorService()
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.ExecutorService executorService>;
+
+        return $r0;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args executorService(java.util.concurrent.ExecutorService)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+        java.util.concurrent.ExecutorService executorService;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        executorService := @parameter0: java.util.concurrent.ExecutorService;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.ExecutorService executorService> = executorService;
+
+        return this;
+    }
+
+    public 'int' getAcceptQueueSizePerThread()
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' acceptQueueSizePerThread>;
+
+        return $i0;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args acceptQueueSizePerThread('int')
+    {
+        'int' acceptQueueSizePerThread;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        acceptQueueSizePerThread := @parameter0: 'int';
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' acceptQueueSizePerThread> = acceptQueueSizePerThread;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy getAcceptPolicy()
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+        org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy $r0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy acceptPolicy>;
+
+        return $r0;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$Args acceptPolicy(org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+        org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy acceptPolicy;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        acceptPolicy := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$Args: org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy acceptPolicy> = acceptPolicy;
+
+        return this;
+    }
+
+    public 'void' validate()
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args this;
+        java.lang.IllegalArgumentException $r0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' selectorThreads>;
+
+        if $i0 > 0 goto label1;
+
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>("selectorThreads must be positive.");
+
+        throw $r0;
+
+     label1:
+        $i0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' workerThreads>;
+
+        if $i0 >= 0 goto label2;
+
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>("workerThreads must be non-negative.");
+
+        throw $r0;
+
+     label2:
+        $i0 = this.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' acceptQueueSizePerThread>;
+
+        if $i0 > 0 goto label3;
+
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>("acceptQueueSizePerThread must be positive.");
+
+        throw $r0;
+
+     label3:
+        return;
+    }
+
+    static java.util.concurrent.ExecutorService access$000(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$Args x0;
+        java.util.concurrent.ExecutorService $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $r0 = x0.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.ExecutorService executorService>;
+
+        return $r0;
+    }
+
+    static 'int' access$100(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = x0.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' acceptQueueSizePerThread>;
+
+        return $i0;
+    }
+
+    static 'int' access$200(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = x0.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' stopTimeoutVal>;
+
+        return $i0;
+    }
+
+    static java.util.concurrent.TimeUnit access$300(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        java.util.concurrent.TimeUnit $r0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $r0 = x0.<org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.TimeUnit stopTimeoutUnit>;
+
+        return $r0;
+    }
+
+    static 'int' access$400(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = x0.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' workerThreads>;
+
+        return $i0;
+    }
+
+    static org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy access$700(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$Args x0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $r0 = x0.<org.apache.thrift.server.TThreadedSelectorServer$Args: org.apache.thrift.server.TThreadedSelectorServer$Args$AcceptPolicy acceptPolicy>;
+
+        return $r0;
+    }
+}

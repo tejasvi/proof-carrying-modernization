@@ -1,0 +1,185 @@
+# atoi, atol, atoll (atoi.cpp): strtol base 10; out of the result type: UB (C11 7.22.1.2p1). The argument indexes
+# the strings in atoi.cpp. Each case is labelled with its expected outcome on the line above it (MATCH, or UB:
+# out of range, where native runs print glibc's truncated or clamped value).
+# expect MATCH: "0"
+atoi t_atoi 0
+# expect MATCH: "42"
+atoi t_atoi 1
+# expect MATCH: "-17"
+atoi t_atoi 2
+# expect MATCH: leading spaces, a sign, trailing text
+atoi t_atoi 3
+# expect MATCH: the six white-space characters
+atoi t_atoi 4
+# expect MATCH: no digits
+atoi t_atoi 5
+# expect MATCH: empty string
+atoi t_atoi 6
+# expect MATCH: a sign only
+atoi t_atoi 7
+# expect MATCH: two signs
+atoi t_atoi 8
+# expect MATCH: INT_MAX
+atoi t_atoi 9
+# expect MATCH: INT_MIN
+atoi t_atoi 10
+# expect UB: INT_MAX + 1
+atoi t_atoi 11
+# expect UB: INT_MIN - 1
+atoi t_atoi 12
+# expect MATCH: leading zeros
+atoi t_atoi 13
+# expect MATCH: "-0"
+atoi t_atoi 14
+# expect MATCH: stops at a space
+atoi t_atoi 15
+# expect UB: LONG_MAX
+atoi t_atoi 16
+# expect UB: LONG_MIN
+atoi t_atoi 17
+# expect UB: LONG_MAX + 1
+atoi t_atoi 18
+# expect UB: LONG_MIN - 1
+atoi t_atoi 19
+# expect UB: 20 digits
+atoi t_atoi 20
+# expect MATCH: "0x1A" (base 10)
+atoi t_atoi 21
+# expect MATCH: "1e5"
+atoi t_atoi 22
+# expect MATCH: "0"
+atoi t_atol_lo 0
+# expect MATCH: "42"
+atoi t_atol_lo 1
+# expect MATCH: "-17"
+atoi t_atol_lo 2
+# expect MATCH: leading spaces, a sign, trailing text
+atoi t_atol_lo 3
+# expect MATCH: the six white-space characters
+atoi t_atol_lo 4
+# expect MATCH: no digits
+atoi t_atol_lo 5
+# expect MATCH: empty string
+atoi t_atol_lo 6
+# expect MATCH: a sign only
+atoi t_atol_lo 7
+# expect MATCH: two signs
+atoi t_atol_lo 8
+# expect MATCH: INT_MAX
+atoi t_atol_lo 9
+# expect MATCH: INT_MIN
+atoi t_atol_lo 10
+# expect MATCH: INT_MAX + 1
+atoi t_atol_lo 11
+# expect MATCH: INT_MIN - 1
+atoi t_atol_lo 12
+# expect MATCH: leading zeros
+atoi t_atol_lo 13
+# expect MATCH: "-0"
+atoi t_atol_lo 14
+# expect MATCH: stops at a space
+atoi t_atol_lo 15
+# expect MATCH: LONG_MAX
+atoi t_atol_lo 16
+# expect MATCH: LONG_MIN
+atoi t_atol_lo 17
+# expect UB: LONG_MAX + 1
+atoi t_atol_lo 18
+# expect UB: LONG_MIN - 1
+atoi t_atol_lo 19
+# expect UB: 20 digits
+atoi t_atol_lo 20
+# expect MATCH: "0x1A" (base 10)
+atoi t_atol_lo 21
+# expect MATCH: "1e5"
+atoi t_atol_lo 22
+# expect MATCH: INT_MAX
+atoi t_atol_hi 9
+# expect MATCH: INT_MIN
+atoi t_atol_hi 10
+# expect MATCH: INT_MAX + 1
+atoi t_atol_hi 11
+# expect MATCH: INT_MIN - 1
+atoi t_atol_hi 12
+# expect MATCH: LONG_MAX
+atoi t_atol_hi 16
+# expect MATCH: LONG_MIN
+atoi t_atol_hi 17
+# expect UB: LONG_MAX + 1
+atoi t_atol_hi 18
+# expect UB: LONG_MIN - 1
+atoi t_atol_hi 19
+# expect UB: 20 digits
+atoi t_atol_hi 20
+# expect MATCH: "0"
+atoi t_atoll_lo 0
+# expect MATCH: "42"
+atoi t_atoll_lo 1
+# expect MATCH: "-17"
+atoi t_atoll_lo 2
+# expect MATCH: leading spaces, a sign, trailing text
+atoi t_atoll_lo 3
+# expect MATCH: the six white-space characters
+atoi t_atoll_lo 4
+# expect MATCH: no digits
+atoi t_atoll_lo 5
+# expect MATCH: empty string
+atoi t_atoll_lo 6
+# expect MATCH: a sign only
+atoi t_atoll_lo 7
+# expect MATCH: two signs
+atoi t_atoll_lo 8
+# expect MATCH: INT_MAX
+atoi t_atoll_lo 9
+# expect MATCH: INT_MIN
+atoi t_atoll_lo 10
+# expect MATCH: INT_MAX + 1
+atoi t_atoll_lo 11
+# expect MATCH: INT_MIN - 1
+atoi t_atoll_lo 12
+# expect MATCH: leading zeros
+atoi t_atoll_lo 13
+# expect MATCH: "-0"
+atoi t_atoll_lo 14
+# expect MATCH: stops at a space
+atoi t_atoll_lo 15
+# expect MATCH: LONG_MAX
+atoi t_atoll_lo 16
+# expect MATCH: LONG_MIN
+atoi t_atoll_lo 17
+# expect UB: LONG_MAX + 1
+atoi t_atoll_lo 18
+# expect UB: LONG_MIN - 1
+atoi t_atoll_lo 19
+# expect UB: 20 digits
+atoi t_atoll_lo 20
+# expect MATCH: "0x1A" (base 10)
+atoi t_atoll_lo 21
+# expect MATCH: "1e5"
+atoi t_atoll_lo 22
+# expect MATCH: INT_MAX
+atoi t_atoll_hi 9
+# expect MATCH: INT_MIN
+atoi t_atoll_hi 10
+# expect MATCH: INT_MAX + 1
+atoi t_atoll_hi 11
+# expect MATCH: INT_MIN - 1
+atoi t_atoll_hi 12
+# expect MATCH: LONG_MAX
+atoi t_atoll_hi 16
+# expect MATCH: LONG_MIN
+atoi t_atoll_hi 17
+# expect UB: LONG_MAX + 1
+atoi t_atoll_hi 18
+# expect UB: LONG_MIN - 1
+atoi t_atoll_hi 19
+# expect UB: 20 digits
+atoi t_atoll_hi 20
+# expect MATCH: a string built at run time
+atoi t_atoi_buf 0
+# expect MATCH: a string built at run time
+atoi t_atoi_buf 7
+# expect MATCH: a string built at run time
+atoi t_atoi_buf -305
+# expect MATCH: a string built at run time
+atoi t_atoi_buf 2147483646

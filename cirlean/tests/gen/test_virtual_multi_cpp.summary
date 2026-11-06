@@ -1,0 +1,2 @@
+/home/user/cirlean_work/corpus/cir/test_virtual_multi.cpp.cir: 11 funcs (8 with body, 0 modelled), 5 records, 8 globals, 143 ops
+  unknown ops: cir.vtable.get_vptr×5, cir.vtable.get_virtual_fn_addr×3, cir.vtable.address_point×2

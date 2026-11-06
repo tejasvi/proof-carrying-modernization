@@ -1,0 +1,10 @@
+      * EXPECT-FAULT: GLOBAL clause on G
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U23.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  R.
+           05  G PIC X(4) GLOBAL.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

@@ -1,0 +1,28 @@
+public class org.apache.thrift.meta_data.MapMetaData extends org.apache.thrift.meta_data.FieldValueMetaData
+{
+    public final org.apache.thrift.meta_data.FieldValueMetaData keyMetaData;
+    public final org.apache.thrift.meta_data.FieldValueMetaData valueMetaData;
+
+    public 'void' <init>('byte', org.apache.thrift.meta_data.FieldValueMetaData, org.apache.thrift.meta_data.FieldValueMetaData)
+    {
+        org.apache.thrift.meta_data.MapMetaData this;
+        'byte' type;
+        org.apache.thrift.meta_data.FieldValueMetaData kMetaData, vMetaData;
+
+        this := @this: org.apache.thrift.meta_data.MapMetaData;
+
+        type := @parameter0: 'byte';
+
+        kMetaData := @parameter1: org.apache.thrift.meta_data.FieldValueMetaData;
+
+        vMetaData := @parameter2: org.apache.thrift.meta_data.FieldValueMetaData;
+
+        specialinvoke this.<org.apache.thrift.meta_data.FieldValueMetaData: 'void' <init>('byte')>(type);
+
+        this.<org.apache.thrift.meta_data.MapMetaData: org.apache.thrift.meta_data.FieldValueMetaData keyMetaData> = kMetaData;
+
+        this.<org.apache.thrift.meta_data.MapMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData> = vMetaData;
+
+        return;
+    }
+}

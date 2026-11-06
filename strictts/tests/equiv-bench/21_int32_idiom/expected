@@ -1,0 +1,1 @@
+equivalent x | 0 vs ~~x (both ToInt32, any number)

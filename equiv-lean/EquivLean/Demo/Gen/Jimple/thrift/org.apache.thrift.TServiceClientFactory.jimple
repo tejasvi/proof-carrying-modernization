@@ -1,0 +1,7 @@
+public interface  org.apache.thrift.TServiceClientFactory extends java.lang.Object
+{
+
+    public abstract org.apache.thrift.TServiceClient getClient(org.apache.thrift.protocol.TProtocol);
+
+    public abstract org.apache.thrift.TServiceClient getClient(org.apache.thrift.protocol.TProtocol, org.apache.thrift.protocol.TProtocol);
+}

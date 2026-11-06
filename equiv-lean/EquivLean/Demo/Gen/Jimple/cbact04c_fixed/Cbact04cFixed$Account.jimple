@@ -1,0 +1,41 @@
+public final class Cbact04cFixed$Account extends java.lang.Object
+{
+    public final 'long' id;
+    public final 'long' bal;
+    public final 'long' cycCredit;
+    public final 'long' cycDebit;
+    public final java.lang.String groupId;
+
+    public 'void' <init>('long', 'long', 'long', 'long', java.lang.String)
+    {
+        'long' l0, l1, l2, l3;
+        java.lang.String r1;
+        Cbact04cFixed$Account r0;
+
+        r0 := @this: Cbact04cFixed$Account;
+
+        l0 := @parameter0: 'long';
+
+        l1 := @parameter1: 'long';
+
+        l2 := @parameter2: 'long';
+
+        l3 := @parameter3: 'long';
+
+        r1 := @parameter4: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbact04cFixed$Account: 'long' id> = l0;
+
+        r0.<Cbact04cFixed$Account: 'long' bal> = l1;
+
+        r0.<Cbact04cFixed$Account: 'long' cycCredit> = l2;
+
+        r0.<Cbact04cFixed$Account: 'long' cycDebit> = l3;
+
+        r0.<Cbact04cFixed$Account: java.lang.String groupId> = r1;
+
+        return;
+    }
+}

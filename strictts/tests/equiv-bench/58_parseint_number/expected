@@ -1,0 +1,1 @@
+different parseInt(s, 10) vs Number(s)

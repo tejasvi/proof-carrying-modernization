@@ -1,0 +1,145 @@
+public abstract class org.apache.thrift.server.TServer extends java.lang.Object
+{
+    protected org.apache.thrift.TProcessorFactory processorFactory_;
+    protected org.apache.thrift.transport.TServerTransport serverTransport_;
+    protected org.apache.thrift.transport.TTransportFactory inputTransportFactory_;
+    protected org.apache.thrift.transport.TTransportFactory outputTransportFactory_;
+    protected org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_;
+    protected org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_;
+    private volatile 'boolean' isServing;
+    protected org.apache.thrift.server.TServerEventHandler eventHandler_;
+    protected volatile 'boolean' stopped_;
+
+    protected 'void' <init>(org.apache.thrift.server.TServer$AbstractServerArgs)
+    {
+        org.apache.thrift.transport.TServerTransport $r1;
+        org.apache.thrift.TProcessorFactory $r0;
+        org.apache.thrift.server.TServer this;
+        org.apache.thrift.server.TServer$AbstractServerArgs args;
+        org.apache.thrift.transport.TTransportFactory $r2;
+        org.apache.thrift.protocol.TProtocolFactory $r4;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        args := @parameter0: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TServer: 'boolean' stopped_> = 0;
+
+        $r0 = args.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.TProcessorFactory processorFactory>;
+
+        this.<org.apache.thrift.server.TServer: org.apache.thrift.TProcessorFactory processorFactory_> = $r0;
+
+        $r1 = args.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TServerTransport serverTransport>;
+
+        this.<org.apache.thrift.server.TServer: org.apache.thrift.transport.TServerTransport serverTransport_> = $r1;
+
+        $r2 = args.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory inputTransportFactory>;
+
+        this.<org.apache.thrift.server.TServer: org.apache.thrift.transport.TTransportFactory inputTransportFactory_> = $r2;
+
+        $r2 = args.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory outputTransportFactory>;
+
+        this.<org.apache.thrift.server.TServer: org.apache.thrift.transport.TTransportFactory outputTransportFactory_> = $r2;
+
+        $r4 = args.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory>;
+
+        this.<org.apache.thrift.server.TServer: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_> = $r4;
+
+        $r4 = args.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory>;
+
+        this.<org.apache.thrift.server.TServer: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_> = $r4;
+
+        return;
+    }
+
+    public abstract 'void' serve();
+
+    public 'void' stop()
+    {
+        org.apache.thrift.server.TServer this;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        return;
+    }
+
+    public 'boolean' isServing()
+    {
+        org.apache.thrift.server.TServer this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        $z0 = this.<org.apache.thrift.server.TServer: 'boolean' isServing>;
+
+        return $z0;
+    }
+
+    protected 'void' setServing('boolean')
+    {
+        org.apache.thrift.server.TServer this;
+        'boolean' serving;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        serving := @parameter0: 'boolean';
+
+        this.<org.apache.thrift.server.TServer: 'boolean' isServing> = serving;
+
+        return;
+    }
+
+    public 'void' setServerEventHandler(org.apache.thrift.server.TServerEventHandler)
+    {
+        org.apache.thrift.server.TServer this;
+        org.apache.thrift.server.TServerEventHandler eventHandler;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        eventHandler := @parameter0: org.apache.thrift.server.TServerEventHandler;
+
+        this.<org.apache.thrift.server.TServer: org.apache.thrift.server.TServerEventHandler eventHandler_> = eventHandler;
+
+        return;
+    }
+
+    public org.apache.thrift.server.TServerEventHandler getEventHandler()
+    {
+        org.apache.thrift.server.TServer this;
+        org.apache.thrift.server.TServerEventHandler $r0;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        $r0 = this.<org.apache.thrift.server.TServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        return $r0;
+    }
+
+    public 'boolean' getShouldStop()
+    {
+        org.apache.thrift.server.TServer this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        $z0 = this.<org.apache.thrift.server.TServer: 'boolean' stopped_>;
+
+        return $z0;
+    }
+
+    public 'void' setShouldStop('boolean')
+    {
+        org.apache.thrift.server.TServer this;
+        'boolean' shouldStop;
+
+        this := @this: org.apache.thrift.server.TServer;
+
+        shouldStop := @parameter0: 'boolean';
+
+        this.<org.apache.thrift.server.TServer: 'boolean' stopped_> = shouldStop;
+
+        return;
+    }
+}

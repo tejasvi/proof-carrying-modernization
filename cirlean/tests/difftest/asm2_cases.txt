@@ -1,0 +1,100 @@
+# Inline asm with operands (asm2.cpp): with an empty template, inputs only is a no-op (a memory input is not read), an
+# output tied to an input gets its value, also through memory ("+g"), and an untied memory output keeps its object's
+# value. Each case is labelled with its expected outcome on the line above it: MATCH, or UB "unsupported operation
+# cir.asm" from cirrun (untied register output, non-empty template, output tied to a converted input: not modelled).
+# expect MATCH: input "r"
+asm2 t_in_reg 0
+# expect MATCH: input "r"
+asm2 t_in_reg 7
+# expect MATCH: input "r"
+asm2 t_in_reg -3
+# expect MATCH: input "r"(&x) with "memory" (an escape)
+asm2 t_in_escape 0
+# expect MATCH: input "r"(&x) with "memory" (an escape)
+asm2 t_in_escape 7
+# expect MATCH: input "r"(&x) with "memory" (an escape)
+asm2 t_in_escape -3
+# expect MATCH: inputs "imr", "g", "i" and "n"
+asm2 t_in_imr 0
+# expect MATCH: inputs "imr", "g", "i" and "n"
+asm2 t_in_imr 7
+# expect MATCH: inputs "imr", "g", "i" and "n"
+asm2 t_in_imr -3
+# expect MATCH: inputs: a struct pointer and a member
+asm2 t_in_struct 0
+# expect MATCH: inputs: a struct pointer and a member
+asm2 t_in_struct 7
+# expect MATCH: input "r" with "memory" in a loop
+asm2 t_in_loop 0
+# expect MATCH: input "r" with "memory" in a loop
+asm2 t_in_loop 5
+# expect MATCH: "=r" tied to "0"
+asm2 t_tied 0
+# expect MATCH: "=r" tied to "0"
+asm2 t_tied 7
+# expect MATCH: "=r" tied to "0"
+asm2 t_tied -3
+# expect MATCH: "+r"
+asm2 t_rw 0
+# expect MATCH: "+r"
+asm2 t_rw 7
+# expect MATCH: "+r"
+asm2 t_rw -3
+# expect MATCH: "+r" with two further inputs and "memory"
+asm2 t_rw_inputs 0
+# expect MATCH: "+r" with two further inputs and "memory"
+asm2 t_rw_inputs 7
+# expect MATCH: "+r" with two further inputs and "memory"
+asm2 t_rw_inputs -3
+# expect MATCH: a pointer through "=r"/"0", then a store through it
+asm2 t_tied_ptr 0
+# expect MATCH: a pointer through "=r"/"0", then a store through it
+asm2 t_tied_ptr 7
+# expect MATCH: "+r" on unsigned short
+asm2 t_rw_u16 0
+# expect MATCH: "+r" on unsigned short
+asm2 t_rw_u16 7
+# expect MATCH: "+r" on unsigned short
+asm2 t_rw_u16 -3
+# expect MATCH: "+x" on double
+asm2 t_rw_double 0
+# expect MATCH: "+x" on double
+asm2 t_rw_double 7
+# expect MATCH: "+x" on double
+asm2 t_rw_double -3
+# expect MATCH: "+r" on bool
+asm2 t_rw_bool 0
+# expect MATCH: "+r" on bool
+asm2 t_rw_bool 7
+# expect MATCH: two outputs tied to "0" and "1"
+asm2 t_tied_two 0
+# expect MATCH: two outputs tied to "0" and "1"
+asm2 t_tied_two 7
+# expect MATCH: two outputs tied to "0" and "1"
+asm2 t_tied_two -3
+# expect MATCH: an output tied to the second input
+asm2 t_tied_second 0
+# expect MATCH: an output tied to the second input
+asm2 t_tied_second 7
+# expect UB: a char tied to an int output (CIR sign-extends it before the asm, compiled code zero-extends it)
+asm2 u_tied_char 65
+# expect UB: a char tied to an int output (CIR sign-extends it before the asm, compiled code zero-extends it)
+asm2 u_tied_char -3
+# expect MATCH: the OPT BARRIER(x) macro ("=r" with "0") in a loop
+asm2 t_opt_barrier 0
+# expect MATCH: the OPT BARRIER(x) macro ("=r" with "0") in a loop
+asm2 t_opt_barrier 6
+# expect UB: an untied output "=r"
+asm2 u_untied 5
+# expect UB: an untied output "=r" with an input "r"
+asm2 u_untied_in 5
+# expect MATCH: a memory input "m" (not read)
+asm2 t_mem_in 5
+# expect MATCH: a memory output "=m" (its object left as it is)
+asm2 t_mem_out 5
+# expect MATCH: a read-write memory operand "+m" (its object left as it is)
+asm2 t_rw_mem 5
+# expect MATCH: "+g" (through memory: the value written back)
+asm2 t_rw_g 5
+# expect UB: a non-empty template ("addl $1, %0")
+asm2 u_tmpl 5

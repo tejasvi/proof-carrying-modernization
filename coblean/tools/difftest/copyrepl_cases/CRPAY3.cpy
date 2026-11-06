@@ -1,0 +1,4 @@
+       01 :TAG:.
+           02 :TAG:-WEEK PIC 99 VALUE 7.
+           02 :TAG:-GROSS-PAY PIC 9(5)V99 VALUE 1.25.
+           02 :TAG:-HOURS PIC 999 OCCURS 3 TIMES.

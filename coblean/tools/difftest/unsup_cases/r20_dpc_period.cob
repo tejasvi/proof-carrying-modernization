@@ -1,0 +1,13 @@
+      * EXPECT-REJECT: written with a period under DECIMAL-POINT
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. R20.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  N PIC 9(4)V99.
+       PROCEDURE DIVISION.
+           MOVE 1.5 TO N.
+           STOP RUN.

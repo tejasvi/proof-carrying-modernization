@@ -1,0 +1,368 @@
+public class org.apache.thrift.protocol.TProtocolUtil extends java.lang.Object
+{
+
+    private 'void' <init>()
+    {
+        org.apache.thrift.protocol.TProtocolUtil this;
+
+        this := @this: org.apache.thrift.protocol.TProtocolUtil;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static 'void' setMaxSkipDepth('int')
+    {
+        'int' depth;
+
+        depth := @parameter0: 'int';
+
+        return;
+    }
+
+    public static 'void' skip(org.apache.thrift.protocol.TProtocol, 'byte') throws org.apache.thrift.TException
+    {
+        'byte' type;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.TConfiguration $r1;
+        org.apache.thrift.protocol.TProtocol prot;
+        'int' $i0;
+
+        prot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        type := @parameter1: 'byte';
+
+        $r0 = virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.TConfiguration: 'int' getRecursionLimit()>();
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte','int')>(prot, type, $i0);
+
+        return;
+    }
+
+    public static 'void' skip(org.apache.thrift.protocol.TProtocol, 'byte', 'int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSet i#4;
+        org.apache.thrift.protocol.TList i#6;
+        'byte' type;
+        org.apache.thrift.protocol.TProtocol prot;
+        'int' maxDepth, i, $i3;
+        org.apache.thrift.protocol.TField field;
+        java.lang.StringBuilder $r2;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r5;
+        org.apache.thrift.protocol.TMap field#2;
+
+        prot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        type := @parameter1: 'byte';
+
+        maxDepth := @parameter2: 'int';
+
+        if maxDepth > 0 goto label01;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(6, "Maximum skip depth exceeded");
+
+        throw $r0;
+
+     label01:
+        i = ('int') type;
+
+        tableswitch(i)
+        {
+            case 2: goto label02;
+            case 3: goto label03;
+            case 4: goto label08;
+            case 5: goto label22;
+            case 6: goto label04;
+            case 7: goto label22;
+            case 8: goto label05;
+            case 9: goto label22;
+            case 10: goto label06;
+            case 11: goto label09;
+            case 12: goto label10;
+            case 13: goto label13;
+            case 14: goto label16;
+            case 15: goto label19;
+            case 16: goto label07;
+            default: goto label22;
+        };
+
+     label02:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'boolean' readBool()>();
+
+        goto label23;
+
+     label03:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'byte' readByte()>();
+
+        goto label23;
+
+     label04:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'short' readI16()>();
+
+        goto label23;
+
+     label05:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'int' readI32()>();
+
+        goto label23;
+
+     label06:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'long' readI64()>();
+
+        goto label23;
+
+     label07:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: java.util.UUID readUuid()>();
+
+        goto label23;
+
+     label08:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'double' readDouble()>();
+
+        goto label23;
+
+     label09:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: java.nio.ByteBuffer readBinary()>();
+
+        goto label23;
+
+     label10:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TStruct readStructBegin()>();
+
+     label11:
+        field = virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TField readFieldBegin()>();
+
+        type = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        if type == 0 goto label12;
+
+        type = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        i = maxDepth - 1;
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte','int')>(prot, type, i);
+
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'void' readFieldEnd()>();
+
+        goto label11;
+
+     label12:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'void' readStructEnd()>();
+
+        goto label23;
+
+     label13:
+        field#2 = virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMap readMapBegin()>();
+
+        i = 0;
+
+     label14:
+        $i3 = field#2.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        if i >= $i3 goto label15;
+
+        type = field#2.<org.apache.thrift.protocol.TMap: 'byte' keyType>;
+
+        $i3 = maxDepth - 1;
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte','int')>(prot, type, $i3);
+
+        type = field#2.<org.apache.thrift.protocol.TMap: 'byte' valueType>;
+
+        $i3 = maxDepth - 1;
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte','int')>(prot, type, $i3);
+
+        i = i + 1;
+
+        goto label14;
+
+     label15:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'void' readMapEnd()>();
+
+        goto label23;
+
+     label16:
+        i#4 = virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TSet readSetBegin()>();
+
+        i = 0;
+
+     label17:
+        $i3 = i#4.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        if i >= $i3 goto label18;
+
+        type = i#4.<org.apache.thrift.protocol.TSet: 'byte' elemType>;
+
+        $i3 = maxDepth - 1;
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte','int')>(prot, type, $i3);
+
+        i = i + 1;
+
+        goto label17;
+
+     label18:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'void' readSetEnd()>();
+
+        goto label23;
+
+     label19:
+        i#6 = virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TList readListBegin()>();
+
+        i = 0;
+
+     label20:
+        $i3 = i#6.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        if i >= $i3 goto label21;
+
+        type = i#6.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        $i3 = maxDepth - 1;
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte','int')>(prot, type, $i3);
+
+        i = i + 1;
+
+        goto label20;
+
+     label21:
+        virtualinvoke prot.<org.apache.thrift.protocol.TProtocol: 'void' readListEnd()>();
+
+        goto label23;
+
+     label22:
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unrecognized type ");
+
+        maxDepth = ('int') type;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(maxDepth);
+
+        $r5 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, $r5);
+
+        throw $r0;
+
+     label23:
+        return;
+    }
+
+    public static org.apache.thrift.protocol.TProtocolFactory guessProtocolFactory('byte'[], org.apache.thrift.protocol.TProtocolFactory)
+    {
+        'byte'[] data;
+        org.apache.thrift.protocol.TJSONProtocol$Factory $r0;
+        org.apache.thrift.protocol.TCompactProtocol$Factory $r2;
+        org.apache.thrift.protocol.TProtocolFactory fallback;
+        'short' $s12;
+        org.apache.thrift.protocol.TBinaryProtocol$Factory $r1;
+        'byte' $b0;
+        'int' $i1;
+
+        data := @parameter0: 'byte'[];
+
+        fallback := @parameter1: org.apache.thrift.protocol.TProtocolFactory;
+
+        $b0 = data[0];
+
+        $i1 = ('int') $b0;
+
+        if 123 != $i1 goto label1;
+
+        $i1 = lengthof data;
+
+        $i1 = $i1 - 1;
+
+        $b0 = data[$i1];
+
+        $i1 = ('int') $b0;
+
+        if 125 != $i1 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TJSONProtocol$Factory;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$Factory: 'void' <init>()>();
+
+        return $r0;
+
+     label1:
+        $i1 = lengthof data;
+
+        $i1 = $i1 - 1;
+
+        $b0 = data[$i1];
+
+        if $b0 == false goto label2;
+
+        $r1 = new org.apache.thrift.protocol.TBinaryProtocol$Factory;
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TBinaryProtocol$Factory: 'void' <init>()>();
+
+        return $r1;
+
+     label2:
+        $b0 = data[0];
+
+        $i1 = ('int') $b0;
+
+        if $i1 <= 16 goto label3;
+
+        $r2 = new org.apache.thrift.protocol.TCompactProtocol$Factory;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'void' <init>()>();
+
+        return $r2;
+
+     label3:
+        $i1 = lengthof data;
+
+        if $i1 <= 1 goto label4;
+
+        $b0 = data[1];
+
+        if 0 != $b0 goto label4;
+
+        $r1 = new org.apache.thrift.protocol.TBinaryProtocol$Factory;
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TBinaryProtocol$Factory: 'void' <init>()>();
+
+        return $r1;
+
+     label4:
+        $i1 = lengthof data;
+
+        if $i1 <= 1 goto label5;
+
+        $b0 = data[1];
+
+        $s12 = ('short') $b0;
+
+        $s12 = $s12 & 128;
+
+        if $s12 == false goto label5;
+
+        $r2 = new org.apache.thrift.protocol.TCompactProtocol$Factory;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'void' <init>()>();
+
+        return $r2;
+
+     label5:
+        return fallback;
+    }
+}

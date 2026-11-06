@@ -1,0 +1,37 @@
+public final class Cbact04c$Cat extends java.lang.Object
+{
+    public final 'long' acctId;
+    public final java.lang.String typeCd;
+    public final 'int' catCd;
+    public final 'long' bal;
+
+    public 'void' <init>('long', java.lang.String, 'int', 'long')
+    {
+        Cbact04c$Cat r0;
+        'int' i1;
+        'long' l0, l2;
+        java.lang.String r1;
+
+        r0 := @this: Cbact04c$Cat;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: java.lang.String;
+
+        i1 := @parameter2: 'int';
+
+        l2 := @parameter3: 'long';
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbact04c$Cat: 'long' acctId> = l0;
+
+        r0.<Cbact04c$Cat: java.lang.String typeCd> = r1;
+
+        r0.<Cbact04c$Cat: 'int' catCd> = i1;
+
+        r0.<Cbact04c$Cat: 'long' bal> = l2;
+
+        return;
+    }
+}

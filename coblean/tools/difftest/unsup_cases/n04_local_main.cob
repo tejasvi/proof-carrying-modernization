@@ -1,0 +1,10 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. N04.
+       DATA DIVISION.
+       LOCAL-STORAGE SECTION.
+       01  CNT PIC 9(4) VALUE 7.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           DISPLAY CNT.
+           STOP RUN.

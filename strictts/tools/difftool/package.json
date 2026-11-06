@@ -1,0 +1,11 @@
+{
+  "name": "strictts-difftool",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Semantic diff for TypeScript: per changed function PROVED (Lean), REFUTED (fuzzing + Lean confirmation) or UNKNOWN",
+  "main": "dist/cli.js",
+  "bin": { "strictts-diff": "dist/cli.js" },
+  "scripts": {
+    "build": "node ../../frontend/node_modules/typescript/bin/tsc -p ."
+  }
+}

@@ -1,0 +1,287 @@
+public class org.apache.thrift.transport.TMemoryBuffer extends org.apache.thrift.transport.TEndpointTransport
+{
+    private org.apache.thrift.TByteArrayOutputStream arr_;
+    private 'int' pos_;
+
+    public 'void' <init>('int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.TByteArrayOutputStream $r1;
+        'int' size;
+        'long' $l0;
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        size := @parameter0: 'int';
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        $r1 = new org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke $r1.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>('int')>(size);
+
+        this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_> = $r1;
+
+        $l0 = ('long') size;
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryBuffer: 'void' updateKnownMessageSize('long')>($l0);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TConfiguration config;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'int' size;
+        'long' $l0;
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        size := @parameter1: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        $r0 = new org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>('int')>(size);
+
+        this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_> = $r0;
+
+        $l0 = ('long') size;
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryBuffer: 'void' updateKnownMessageSize('long')>($l0);
+
+        return;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        return 1;
+    }
+
+    public 'void' open()
+    {
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        return;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        return;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf, src;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'long' $l0;
+        'int' off, len, $i1, $i2;
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $l0 = ('long') len;
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryBuffer: 'void' checkReadBytesAvailable('long')>($l0);
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        src = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        $i1 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'int' len()>();
+
+        $i2 = this.<org.apache.thrift.transport.TMemoryBuffer: 'int' pos_>;
+
+        $i1 = $i1 - $i2;
+
+        if len <= $i1 goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        len = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'int' len()>();
+
+        $i1 = this.<org.apache.thrift.transport.TMemoryBuffer: 'int' pos_>;
+
+        len = len - $i1;
+
+     label1:
+        if len <= 0 goto label2;
+
+        $i1 = this.<org.apache.thrift.transport.TMemoryBuffer: 'int' pos_>;
+
+        staticinvoke <java.lang.System: 'void' arraycopy(java.lang.Object,'int',java.lang.Object,'int','int')>(src, $i1, buf, off, len);
+
+        off = this.<org.apache.thrift.transport.TMemoryBuffer: 'int' pos_>;
+
+        off = off + len;
+
+        this.<org.apache.thrift.transport.TMemoryBuffer: 'int' pos_> = off;
+
+     label2:
+        return len;
+    }
+
+    public 'void' write('byte'[], 'int', 'int')
+    {
+        'byte'[] buf;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'int' off, len;
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' write('byte'[],'int','int')>(buf, off, len);
+
+        return;
+    }
+
+    public java.lang.String toString(java.nio.charset.Charset)
+    {
+        java.nio.charset.Charset charset;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        java.lang.String $r1;
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        charset := @parameter0: java.nio.charset.Charset;
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: java.lang.String toString(java.nio.charset.Charset)>(charset);
+
+        return $r1;
+    }
+
+    public java.lang.String inspect()
+    {
+        'byte'[] bytes;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'short' $s3;
+        'byte' $b2;
+        'int' $i0, i;
+        java.lang.StringBuilder buf, $r1;
+        java.lang.String $r2;
+        org.apache.thrift.transport.TMemoryBuffer this;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        buf = new java.lang.StringBuilder;
+
+        specialinvoke buf.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        bytes = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] toByteArray()>();
+
+        i = 0;
+
+     label1:
+        $i0 = lengthof bytes;
+
+        if i >= $i0 goto label4;
+
+        $i0 = this.<org.apache.thrift.transport.TMemoryBuffer: 'int' pos_>;
+
+        if $i0 != i goto label2;
+
+        $r2 = "==>";
+
+        goto label3;
+
+     label2:
+        $r2 = "";
+
+     label3:
+        $r1 = virtualinvoke buf.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $b2 = bytes[i];
+
+        $s3 = ('short') $b2;
+
+        $s3 = $s3 & 255;
+
+        $i0 = ('int') $s3;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.String toHexString('int')>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        $r2 = virtualinvoke buf.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public 'int' length()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.TMemoryBuffer this;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'int' size()>();
+
+        return $i0;
+    }
+
+    public 'byte'[] getArray()
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TMemoryBuffer this;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+
+        this := @this: org.apache.thrift.transport.TMemoryBuffer;
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryBuffer: org.apache.thrift.TByteArrayOutputStream arr_>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        return $r1;
+    }
+}

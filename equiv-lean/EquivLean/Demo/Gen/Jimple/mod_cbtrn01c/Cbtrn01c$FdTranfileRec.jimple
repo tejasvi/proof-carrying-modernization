@@ -1,0 +1,25 @@
+public final class Cbtrn01c$FdTranfileRec extends java.lang.Object
+{
+    public java.lang.String fdTransId;
+    public java.lang.String fdAcctData;
+
+    public 'void' <init>(java.lang.String, java.lang.String)
+    {
+        Cbtrn01c$FdTranfileRec r0;
+        java.lang.String r1, r2;
+
+        r0 := @this: Cbtrn01c$FdTranfileRec;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn01c$FdTranfileRec: java.lang.String fdTransId> = r1;
+
+        r0.<Cbtrn01c$FdTranfileRec: java.lang.String fdAcctData> = r2;
+
+        return;
+    }
+}

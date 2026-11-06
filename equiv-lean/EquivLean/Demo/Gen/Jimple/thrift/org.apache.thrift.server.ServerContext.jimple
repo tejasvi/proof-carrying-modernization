@@ -1,0 +1,19 @@
+public interface  org.apache.thrift.server.ServerContext extends java.lang.Object
+{
+
+    public abstract java.lang.Object unwrap(java.lang.Class);
+
+    public abstract 'boolean' isWrapperFor(java.lang.Class);
+
+    public 'void' setRemoteAddress(java.net.SocketAddress)
+    {
+        org.apache.thrift.server.ServerContext this;
+        java.net.SocketAddress remoteAddress;
+
+        this := @this: org.apache.thrift.server.ServerContext;
+
+        remoteAddress := @parameter0: java.net.SocketAddress;
+
+        return;
+    }
+}

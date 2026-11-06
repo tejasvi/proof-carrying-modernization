@@ -1,0 +1,2 @@
+/home/user/cirlean_work/corpus/cir/test_swap_vector.cpp.cir: 154 funcs (130 with body, 0 modelled), 49 records, 14 globals, 2306 ops
+  unknown ops: cir.vtable.get_vptr×10, cir.vtable.get_virtual_fn_addr×2, cir.get_bitfield×1, cir.vtable.address_point×1

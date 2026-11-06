@@ -1,0 +1,48 @@
+public final class org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11 extends java.lang.Object implements java.lang.Runnable
+{
+    org.apache.thrift.transport.sasl.NonblockingSaslHandler cap0;
+
+    public static java.lang.Runnable bootstrap$(org.apache.thrift.transport.sasl.NonblockingSaslHandler)
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler $r0;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11 $r1;
+
+        $r0 := @parameter0: org.apache.thrift.transport.sasl.NonblockingSaslHandler;
+
+        $r1 = new org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11;
+
+        specialinvoke $r1.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11: 'void' <init>(org.apache.thrift.transport.sasl.NonblockingSaslHandler)>($r0);
+
+        return $r1;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.sasl.NonblockingSaslHandler)
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler $r1;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11 $r0;
+
+        $r0 := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11;
+
+        $r1 := @parameter0: org.apache.thrift.transport.sasl.NonblockingSaslHandler;
+
+        specialinvoke $r0.<java.lang.Object: 'void' <init>()>();
+
+        $r0.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11: org.apache.thrift.transport.sasl.NonblockingSaslHandler cap0> = $r1;
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler $r1;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11 $r0;
+
+        $r0 := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11;
+
+        $r1 = $r0.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$lambda_handleStateChanges_0__11: org.apache.thrift.transport.sasl.NonblockingSaslHandler cap0>;
+
+        staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: 'void' lambda$handleStateChanges$0(org.apache.thrift.transport.sasl.NonblockingSaslHandler)>($r1);
+
+        return;
+    }
+}

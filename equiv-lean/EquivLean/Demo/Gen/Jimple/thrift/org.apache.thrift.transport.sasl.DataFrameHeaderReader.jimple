@@ -1,0 +1,87 @@
+public class org.apache.thrift.transport.sasl.DataFrameHeaderReader extends org.apache.thrift.transport.sasl.FixedSizeHeaderReader
+{
+    public static final 'int' PAYLOAD_LENGTH_BYTES;
+    private 'int' payloadSize;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.sasl.DataFrameHeaderReader this;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameHeaderReader;
+
+        specialinvoke this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: 'void' <init>()>();
+
+        return;
+    }
+
+    protected 'int' headerSize()
+    {
+        org.apache.thrift.transport.sasl.DataFrameHeaderReader this;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameHeaderReader;
+
+        return 4;
+    }
+
+    protected 'void' onComplete() throws org.apache.thrift.transport.sasl.TInvalidSaslFrameException
+    {
+        org.apache.thrift.transport.sasl.DataFrameHeaderReader this;
+        'int' $i0;
+        org.apache.thrift.transport.sasl.TInvalidSaslFrameException $r1;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r5;
+        java.nio.ByteBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameHeaderReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.DataFrameHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        $i0 = virtualinvoke $r0.<java.nio.ByteBuffer: 'int' getInt('int')>(0);
+
+        this.<org.apache.thrift.transport.sasl.DataFrameHeaderReader: 'int' payloadSize> = $i0;
+
+        $i0 = this.<org.apache.thrift.transport.sasl.DataFrameHeaderReader: 'int' payloadSize>;
+
+        if $i0 >= 0 goto label1;
+
+        $r1 = new org.apache.thrift.transport.sasl.TInvalidSaslFrameException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Payload size is negative: ");
+
+        $i0 = this.<org.apache.thrift.transport.sasl.DataFrameHeaderReader: 'int' payloadSize>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r5 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<org.apache.thrift.transport.sasl.TInvalidSaslFrameException: 'void' <init>(java.lang.String)>($r5);
+
+        throw $r1;
+
+     label1:
+        return;
+    }
+
+    public 'int' payloadSize()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.sasl.DataFrameHeaderReader this;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameHeaderReader;
+
+        $i0 = this.<org.apache.thrift.transport.sasl.DataFrameHeaderReader: 'int' payloadSize>;
+
+        return $i0;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.transport.sasl.DataFrameHeaderReader: 'int' PAYLOAD_LENGTH_BYTES> = 4;
+
+        return;
+    }
+}

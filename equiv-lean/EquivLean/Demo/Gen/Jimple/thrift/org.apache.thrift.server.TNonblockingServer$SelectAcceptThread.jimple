@@ -1,0 +1,432 @@
+public class org.apache.thrift.server.TNonblockingServer$SelectAcceptThread extends org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread
+{
+    private final org.apache.thrift.transport.TNonblockingServerTransport serverTransport;
+    final org.apache.thrift.server.TNonblockingServer this$0;
+
+    public 'void' <init>(org.apache.thrift.server.TNonblockingServer, org.apache.thrift.transport.TNonblockingServerTransport) throws java.io.IOException
+    {
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread this;
+        org.apache.thrift.server.TNonblockingServer this$0;
+        org.apache.thrift.transport.TNonblockingServerTransport serverTransport;
+        java.nio.channels.Selector $r0;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread;
+
+        this$0 := @parameter0: org.apache.thrift.server.TNonblockingServer;
+
+        serverTransport := @parameter1: org.apache.thrift.transport.TNonblockingServerTransport;
+
+        this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0> = this$0;
+
+        specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer)>(this$0);
+
+        this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.transport.TNonblockingServerTransport serverTransport> = serverTransport;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+        virtualinvoke serverTransport.<org.apache.thrift.transport.TNonblockingServerTransport: 'void' registerSelector(java.nio.channels.Selector)>($r0);
+
+        return;
+    }
+
+    public 'boolean' isStopped()
+    {
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread this;
+        org.apache.thrift.server.TNonblockingServer $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $z0 = $r0.<org.apache.thrift.server.TNonblockingServer: 'boolean' stopped_>;
+
+        return $z0;
+    }
+
+    public 'void' run()
+    {
+        java.lang.Throwable e_2, $r17;
+        org.apache.thrift.server.TNonblockingServer $r0;
+        org.slf4j.Logger $r9;
+        java.util.Iterator e;
+        java.nio.channels.SelectionKey selectionKey;
+        java.nio.channels.Selector $r4;
+        java.util.Set $r5;
+        java.io.IOException e_1, e_3, e_4;
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread this;
+        org.apache.thrift.server.TServerEventHandler $r1;
+        java.lang.Object $r6;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread;
+
+     label01:
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r1 = $r0.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        if $r1 == null goto label02;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r1 = $r0.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        interfaceinvoke $r1.<org.apache.thrift.server.TServerEventHandler: 'void' preServe()>();
+
+     label02:
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $z0 = $r0.<org.apache.thrift.server.TNonblockingServer: 'boolean' stopped_>;
+
+        if $z0 != 0 goto label03;
+
+        specialinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' select()>();
+
+        virtualinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' processInterestChanges()>();
+
+        goto label02;
+
+     label03:
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+        $r5 = virtualinvoke $r4.<java.nio.channels.Selector: java.util.Set keys()>();
+
+        e = interfaceinvoke $r5.<java.util.Set: java.util.Iterator iterator()>();
+
+     label04:
+        $z0 = interfaceinvoke e.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label05;
+
+        $r6 = interfaceinvoke e.<java.util.Iterator: java.lang.Object next()>();
+
+        selectionKey = (java.nio.channels.SelectionKey) $r6;
+
+        virtualinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' cleanupSelectionKey(java.nio.channels.SelectionKey)>(selectionKey);
+
+        goto label04;
+
+     label05:
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+     label06:
+        virtualinvoke $r4.<java.nio.channels.Selector: 'void' close()>();
+
+     label07:
+        goto label09;
+
+     label08:
+        e_1 := @caughtexception;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r9 = $r0.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r9.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Got an IOException while closing selector!", e_1);
+
+     label09:
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r0.<org.apache.thrift.server.TNonblockingServer: 'boolean' stopped_> = 1;
+
+        goto label21;
+
+     label10:
+        e_2 := @caughtexception;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r9 = $r0.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r9.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("run() exiting due to uncaught error", e_2);
+
+     label11:
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+     label12:
+        virtualinvoke $r4.<java.nio.channels.Selector: 'void' close()>();
+
+     label13:
+        goto label15;
+
+     label14:
+        e_3 := @caughtexception;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r9 = $r0.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r9.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Got an IOException while closing selector!", e_3);
+
+     label15:
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r0.<org.apache.thrift.server.TNonblockingServer: 'boolean' stopped_> = 1;
+
+        goto label21;
+
+     label16:
+        $r17 := @caughtexception;
+
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+     label17:
+        virtualinvoke $r4.<java.nio.channels.Selector: 'void' close()>();
+
+     label18:
+        goto label20;
+
+     label19:
+        e_4 := @caughtexception;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r9 = $r0.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r9.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Got an IOException while closing selector!", e_4);
+
+     label20:
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r0.<org.apache.thrift.server.TNonblockingServer: 'boolean' stopped_> = 1;
+
+        throw $r17;
+
+     label21:
+        return;
+
+        catch java.io.IOException from label06 to label07 with label08;
+        catch java.lang.Throwable from label01 to label05 with label10;
+        catch java.io.IOException from label12 to label13 with label14;
+        catch java.lang.Throwable from label10 to label11 with label16;
+        catch java.io.IOException from label17 to label18 with label19;
+    }
+
+    private 'void' select()
+    {
+        org.apache.thrift.server.TNonblockingServer $r4;
+        org.slf4j.Logger $r5;
+        java.util.Iterator selectedKeys#1;
+        java.nio.channels.SelectionKey key;
+        java.nio.channels.Selector $r0;
+        java.util.Set $r2;
+        java.io.IOException selectedKeys;
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread this;
+        'int' $i0;
+        java.lang.Object $r3;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r9;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+     label1:
+        virtualinvoke $r0.<java.nio.channels.Selector: 'int' select()>();
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+        $r2 = virtualinvoke $r0.<java.nio.channels.Selector: java.util.Set selectedKeys()>();
+
+        selectedKeys#1 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $z0 = $r4.<org.apache.thrift.server.TNonblockingServer: 'boolean' stopped_>;
+
+        if $z0 != 0 goto label9;
+
+        $z0 = interfaceinvoke selectedKeys#1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label9;
+
+        $r3 = interfaceinvoke selectedKeys#1.<java.util.Iterator: java.lang.Object next()>();
+
+        key = (java.nio.channels.SelectionKey) $r3;
+
+        interfaceinvoke selectedKeys#1.<java.util.Iterator: 'void' remove()>();
+
+        $z0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 != 0 goto label3;
+
+        virtualinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' cleanupSelectionKey(java.nio.channels.SelectionKey)>(key);
+
+        goto label2;
+
+     label3:
+        $z0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'boolean' isAcceptable()>();
+
+        if $z0 == false goto label4;
+
+        specialinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' handleAccept()>();
+
+        goto label2;
+
+     label4:
+        $z0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'boolean' isReadable()>();
+
+        if $z0 == false goto label5;
+
+        virtualinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' handleRead(java.nio.channels.SelectionKey)>(key);
+
+        goto label2;
+
+     label5:
+        $z0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'boolean' isWritable()>();
+
+        if $z0 == false goto label6;
+
+        virtualinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' handleWrite(java.nio.channels.SelectionKey)>(key);
+
+        goto label2;
+
+     label6:
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r5 = $r4.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unexpected state in select! ");
+
+        $i0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'int' interestOps()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r9 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' warn(java.lang.String)>($r9);
+
+     label7:
+        goto label2;
+
+     label8:
+        selectedKeys := @caughtexception;
+
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r5 = $r4.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Got an IOException while selecting!", selectedKeys);
+
+     label9:
+        return;
+
+        catch java.io.IOException from label1 to label7 with label8;
+    }
+
+    protected org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer createFrameBuffer(org.apache.thrift.transport.TNonblockingTransport, java.nio.channels.SelectionKey, org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.server.TNonblockingServer $r0;
+        java.nio.channels.SelectionKey selectionKey;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer $r4, $r6;
+        org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread selectThread;
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread this;
+        org.apache.thrift.TProcessorFactory $r1;
+        org.apache.thrift.transport.TNonblockingTransport trans;
+        org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer $r5;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread;
+
+        trans := @parameter0: org.apache.thrift.transport.TNonblockingTransport;
+
+        selectionKey := @parameter1: java.nio.channels.SelectionKey;
+
+        selectThread := @parameter2: org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r1 = $r0.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.TProcessorFactory processorFactory_>;
+
+        $z0 = virtualinvoke $r1.<org.apache.thrift.TProcessorFactory: 'boolean' isAsyncProcessor()>();
+
+        if $z0 == false goto label1;
+
+        $r5 = new org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer;
+
+        $r4 = $r5;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        specialinvoke $r5.<org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer,org.apache.thrift.transport.TNonblockingTransport,java.nio.channels.SelectionKey,org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread)>($r0, trans, selectionKey, selectThread);
+
+        goto label2;
+
+     label1:
+        $r6 = new org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r4 = $r6;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        specialinvoke $r6.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer,org.apache.thrift.transport.TNonblockingTransport,java.nio.channels.SelectionKey,org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread)>($r0, trans, selectionKey, selectThread);
+
+     label2:
+        return $r4;
+    }
+
+    private 'void' handleAccept() throws java.io.IOException
+    {
+        org.apache.thrift.server.TNonblockingServer $r2;
+        org.slf4j.Logger $r3;
+        org.apache.thrift.transport.TTransportException frameBuffer;
+        java.nio.channels.SelectionKey clientKey;
+        org.apache.thrift.transport.TNonblockingServerTransport $r0;
+        java.nio.channels.Selector $r1;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer#3;
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread this;
+        org.apache.thrift.transport.TNonblockingTransport client;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread;
+
+        clientKey = null;
+
+        client = null;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.transport.TNonblockingServerTransport serverTransport>;
+
+     label1:
+        client = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingServerTransport: org.apache.thrift.transport.TNonblockingTransport accept()>();
+
+        $r1 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: java.nio.channels.Selector selector>;
+
+        clientKey = virtualinvoke client.<org.apache.thrift.transport.TNonblockingTransport: java.nio.channels.SelectionKey registerSelector(java.nio.channels.Selector,'int')>($r1, 1);
+
+        frameBuffer#3 = virtualinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer createFrameBuffer(org.apache.thrift.transport.TNonblockingTransport,java.nio.channels.SelectionKey,org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread)>(client, clientKey, this);
+
+        virtualinvoke clientKey.<java.nio.channels.SelectionKey: java.lang.Object attach(java.lang.Object)>(frameBuffer#3);
+
+     label2:
+        goto label5;
+
+     label3:
+        frameBuffer := @caughtexception;
+
+        $r2 = this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: org.apache.thrift.server.TNonblockingServer this$0>;
+
+        $r3 = $r2.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Exception trying to accept!", frameBuffer);
+
+        if clientKey == null goto label4;
+
+        virtualinvoke this.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' cleanupSelectionKey(java.nio.channels.SelectionKey)>(clientKey);
+
+     label4:
+        if client == null goto label5;
+
+        virtualinvoke client.<org.apache.thrift.transport.TNonblockingTransport: 'void' close()>();
+
+     label5:
+        return;
+
+        catch org.apache.thrift.transport.TTransportException from label1 to label2 with label3;
+    }
+}

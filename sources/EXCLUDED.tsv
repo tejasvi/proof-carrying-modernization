@@ -1,0 +1,90 @@
+component	pattern	files	bytes	note
+equiv-lean	.lake/	0	0	git archive of the commit: tracked files only
+equiv-lean	target/	0	0	git archive of the commit: tracked files only
+equiv-lean	.git/	0	0	git archive of the commit: tracked files only
+equiv-lean	.venv/	0	0	git archive of the commit: tracked files only
+equiv-lean	__pycache__/	0	0	git archive of the commit: tracked files only
+equiv-lean	symlinks	0	0	git archive of the commit: tracked files only
+equiv-lean	third_party/	0	0	git archive of the commit: tracked files only
+equiv-lean	sec:ub-owned or R2 path	0	0	harness-study material, released in harness_study/
+equiv-lean	HANDOFF*	27	2886783	matched without regard to case
+equiv-lean	PROGRESS*	0	0	matched without regard to case
+equiv-lean	NOTES*	0	0	matched without regard to case
+equiv-lean	RESUME*	0	0	matched without regard to case
+equiv-lean	*.jsonl	0	0	
+equiv-lean	*.log	0	0	
+equiv-lean	binary file with an identifier	0	0	listed in EXCLUDED_BINARIES.tsv
+cirlean	.lake/	0	0	git archive of the commit: tracked files only
+cirlean	target/	0	0	git archive of the commit: tracked files only
+cirlean	.git/	0	0	git archive of the commit: tracked files only
+cirlean	.venv/	0	0	git archive of the commit: tracked files only
+cirlean	__pycache__/	0	0	git archive of the commit: tracked files only
+cirlean	symlinks	0	0	git archive of the commit: tracked files only
+cirlean	third_party/	0	0	git archive of the commit: tracked files only
+cirlean	sec:ub-owned or R2 path	0	0	harness-study material, released in harness_study/
+cirlean	HANDOFF*	9	190267	matched without regard to case
+cirlean	PROGRESS*	0	0	matched without regard to case
+cirlean	NOTES*	0	0	matched without regard to case
+cirlean	RESUME*	0	0	matched without regard to case
+cirlean	*.jsonl	0	0	
+cirlean	*.log	90	0	
+cirlean	binary file with an identifier	0	0	listed in EXCLUDED_BINARIES.tsv
+strictts	.lake/	0	0	git archive of the commit: tracked files only
+strictts	target/	0	0	git archive of the commit: tracked files only
+strictts	.git/	0	0	git archive of the commit: tracked files only
+strictts	.venv/	0	0	git archive of the commit: tracked files only
+strictts	__pycache__/	0	0	git archive of the commit: tracked files only
+strictts	symlinks	0	0	git archive of the commit: tracked files only
+strictts	third_party/	0	0	git archive of the commit: tracked files only
+strictts	sec:ub-owned or R2 path	0	0	harness-study material, released in harness_study/
+strictts	HANDOFF*	13	504775	matched without regard to case
+strictts	PROGRESS*	0	0	matched without regard to case
+strictts	NOTES*	0	0	matched without regard to case
+strictts	RESUME*	0	0	matched without regard to case
+strictts	*.jsonl	0	0	
+strictts	*.log	0	0	
+strictts	binary file with an identifier	0	0	listed in EXCLUDED_BINARIES.tsv
+coblean	.lake/	23597	13580617488	includes .lake/build
+coblean	target/	0	0	
+coblean	.git/	0	0	
+coblean	.venv/	0	0	
+coblean	__pycache__/	330	12255767	
+coblean	symlinks	0	0	
+coblean	third_party/	1909	147442834	GnuCOBOL binary packages and their extracted files
+coblean	sec:ub-owned or R2 path	0	0	harness-study material, released in harness_study/
+coblean	HANDOFF*	23	2553341	matched without regard to case
+coblean	PROGRESS*	1	1294	matched without regard to case
+coblean	STMCORE_PROGRESS.md	2	33076	internal progress notes (named file)
+coblean	NOTES*	0	0	matched without regard to case
+coblean	RESUME*	0	0	matched without regard to case
+coblean	*.jsonl	0	0	
+coblean	*.log	0	0	
+coblean	binary file with an identifier	2898	172411312	listed in EXCLUDED_BINARIES.tsv
+jimplelean	.lake/	0	0	includes .lake/build
+jimplelean	target/	0	0	
+jimplelean	.git/	0	0	
+jimplelean	.venv/	0	0	
+jimplelean	__pycache__/	0	0	
+jimplelean	symlinks	0	0	
+jimplelean	sec:ub-owned or R2 path	0	0	harness-study material, released in harness_study/
+jimplelean	HANDOFF*	0	0	matched without regard to case
+jimplelean	PROGRESS*	0	0	matched without regard to case
+jimplelean	NOTES*	0	0	matched without regard to case
+jimplelean	RESUME*	0	0	matched without regard to case
+jimplelean	*.jsonl	0	0	
+jimplelean	*.log	0	0	
+jimplelean	binary file with an identifier	0	0	listed in EXCLUDED_BINARIES.tsv
+veriforch	.lake/	0	0	includes .lake/build
+veriforch	target/	0	0	
+veriforch	.git/	0	0	
+veriforch	.venv/	0	0	
+veriforch	__pycache__/	0	0	
+veriforch	symlinks	69	0	
+veriforch	sec:ub-owned or R2 path	27	95172	harness-study material, released in harness_study/
+veriforch	HANDOFF*	0	0	matched without regard to case
+veriforch	PROGRESS*	0	0	matched without regard to case
+veriforch	NOTES*	0	0	matched without regard to case
+veriforch	RESUME*	0	0	matched without regard to case
+veriforch	*.jsonl	0	0	
+veriforch	*.log	0	0	
+veriforch	binary file with an identifier	0	0	listed in EXCLUDED_BINARIES.tsv

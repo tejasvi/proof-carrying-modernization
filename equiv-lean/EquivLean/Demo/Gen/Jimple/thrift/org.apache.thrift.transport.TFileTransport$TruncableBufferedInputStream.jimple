@@ -1,0 +1,47 @@
+public class org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream extends java.io.BufferedInputStream
+{
+
+    public 'void' trunc()
+    {
+        org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream;
+
+        this.<org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream: 'int' count> = 0;
+
+        this.<org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream: 'int' pos> = 0;
+
+        return;
+    }
+
+    public 'void' <init>(java.io.InputStream)
+    {
+        org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream this;
+        java.io.InputStream in;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream;
+
+        in := @parameter0: java.io.InputStream;
+
+        specialinvoke this.<java.io.BufferedInputStream: 'void' <init>(java.io.InputStream)>(in);
+
+        return;
+    }
+
+    public 'void' <init>(java.io.InputStream, 'int')
+    {
+        'int' size;
+        org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream this;
+        java.io.InputStream in;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$TruncableBufferedInputStream;
+
+        in := @parameter0: java.io.InputStream;
+
+        size := @parameter1: 'int';
+
+        specialinvoke this.<java.io.BufferedInputStream: 'void' <init>(java.io.InputStream,'int')>(in, size);
+
+        return;
+    }
+}

@@ -1,0 +1,49 @@
+public interface  org.apache.thrift.transport.sasl.SaslPeer extends java.lang.Object
+{
+
+    public abstract 'byte'[] evaluate('byte'[]) throws org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+    public abstract 'boolean' isAuthenticated();
+
+    public abstract 'boolean' isDataProtected();
+
+    public abstract 'byte'[] wrap('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException;
+
+    public 'byte'[] wrap('byte'[]) throws org.apache.thrift.transport.TTransportException
+    {
+        'int' $i0;
+        'byte'[] data;
+        org.apache.thrift.transport.sasl.SaslPeer this;
+
+        this := @this: org.apache.thrift.transport.sasl.SaslPeer;
+
+        data := @parameter0: 'byte'[];
+
+        $i0 = lengthof data;
+
+        data = interfaceinvoke this.<org.apache.thrift.transport.sasl.SaslPeer: 'byte'[] wrap('byte'[],'int','int')>(data, 0, $i0);
+
+        return data;
+    }
+
+    public abstract 'byte'[] unwrap('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException;
+
+    public 'byte'[] unwrap('byte'[]) throws org.apache.thrift.transport.TTransportException
+    {
+        'int' $i0;
+        'byte'[] data;
+        org.apache.thrift.transport.sasl.SaslPeer this;
+
+        this := @this: org.apache.thrift.transport.sasl.SaslPeer;
+
+        data := @parameter0: 'byte'[];
+
+        $i0 = lengthof data;
+
+        data = interfaceinvoke this.<org.apache.thrift.transport.sasl.SaslPeer: 'byte'[] unwrap('byte'[],'int','int')>(data, 0, $i0);
+
+        return data;
+    }
+
+    public abstract 'void' dispose();
+}

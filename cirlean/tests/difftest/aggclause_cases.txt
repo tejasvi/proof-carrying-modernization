@@ -1,0 +1,28 @@
+# The aggregate clause of C11 6.5p7 (aggclause.cpp, aggclausec.c): a structure whose members include the types of
+# the objects it covers reads and writes them member by member, each member at its offset over the scalar there;
+# a member on no scalar of its type, or outside the object, is undefined, and so is an access of another structure
+# type (G4). Each case is labelled with its expected outcome (C's) on the line above it: MATCH, or UB from cirrun.
+# expect MATCH: structure of two ints stored over an int member and the next one (audit; was UB)
+aggclause r_aggstore_member 0
+# expect MATCH: structure of two ints stored over an int array (audit; was UB)
+aggclause r_aggstore_elem 0
+# expect MATCH: structure of two ints read over an int member and the next one (audit; was UB)
+aggclause r_aggload_member 0
+# expect MATCH: member accesses through a pointer to such a structure over an int array
+aggclause c_member_through 3
+# expect MATCH: structure of three ints read over elements 1 to 3 of an int array
+aggclause c_q_over_array 3
+# expect UB: the structure's second member falls outside the object
+aggclause u_agg_past_object 3
+# expect UB: a float member over an int (6.5p7)
+aggclause u_agg_member_type 3
+# expect UB: structure copy through another structure type (6.5p7, audit G4)
+aggclause u_copy_incompat 3
+# expect MATCH: C struct assignment over an int member and the next one
+aggclausec ac_store_member 3
+# expect MATCH: C struct assignment over elements 1 and 2 of an int array
+aggclausec ac_store_elem 3
+# expect MATCH: C struct read over an int member and the next one
+aggclausec ac_load_member 3
+# expect UB: C struct assignment whose second member falls outside the object
+aggclausec uc_store_past 3

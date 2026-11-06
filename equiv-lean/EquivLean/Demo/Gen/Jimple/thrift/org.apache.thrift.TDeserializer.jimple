@@ -1,0 +1,2015 @@
+public class org.apache.thrift.TDeserializer extends java.lang.Object
+{
+    private final org.apache.thrift.protocol.TProtocol protocol_;
+    private final org.apache.thrift.transport.TMemoryInputTransport trans_;
+    private org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata_;
+    private org.apache.thrift.partial.ThriftFieldValueProcessor processor_;
+
+    public 'void' <init>() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.protocol.TBinaryProtocol$Factory $r0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        $r0 = new org.apache.thrift.protocol.TBinaryProtocol$Factory;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TBinaryProtocol$Factory: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' <init>(org.apache.thrift.protocol.TProtocolFactory)>($r0);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocolFactory) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.TConfiguration $r1;
+        org.apache.thrift.protocol.TProtocol $r3;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        protocolFactory := @parameter0: org.apache.thrift.protocol.TProtocolFactory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata_> = null;
+
+        this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_> = null;
+
+        $r0 = new org.apache.thrift.transport.TMemoryInputTransport;
+
+        $r1 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r1.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r1);
+
+        this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_> = $r0;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        $r3 = interfaceinvoke protocolFactory.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>($r0);
+
+        this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_> = $r3;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.Class, java.util.Collection, org.apache.thrift.partial.ThriftFieldValueProcessor, org.apache.thrift.protocol.TProtocolFactory) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r0;
+        org.apache.thrift.partial.ThriftFieldValueProcessor processor;
+        java.util.Collection fieldNames;
+        java.lang.Class thriftClass;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        thriftClass := @parameter0: java.lang.Class;
+
+        fieldNames := @parameter1: java.util.Collection;
+
+        processor := @parameter2: org.apache.thrift.partial.ThriftFieldValueProcessor;
+
+        protocolFactory := @parameter3: org.apache.thrift.protocol.TProtocolFactory;
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' <init>(org.apache.thrift.protocol.TProtocolFactory)>(protocolFactory);
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(thriftClass, "thriftClass");
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(fieldNames, "fieldNames");
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(processor, "processor");
+
+        $r0 = staticinvoke <org.apache.thrift.partial.ThriftMetadata$ThriftStruct: org.apache.thrift.partial.ThriftMetadata$ThriftStruct fromFieldNames(java.lang.Class,java.util.Collection)>(thriftClass, fieldNames);
+
+        this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata_> = $r0;
+
+        this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_> = processor;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.Class, java.util.Collection, org.apache.thrift.protocol.TProtocolFactory) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TDeserializer this;
+        java.util.Collection fieldNames;
+        org.apache.thrift.partial.ThriftStructProcessor $r0;
+        java.lang.Class thriftClass;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        thriftClass := @parameter0: java.lang.Class;
+
+        fieldNames := @parameter1: java.util.Collection;
+
+        protocolFactory := @parameter2: org.apache.thrift.protocol.TProtocolFactory;
+
+        $r0 = new org.apache.thrift.partial.ThriftStructProcessor;
+
+        specialinvoke $r0.<org.apache.thrift.partial.ThriftStructProcessor: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' <init>(java.lang.Class,java.util.Collection,org.apache.thrift.partial.ThriftFieldValueProcessor,org.apache.thrift.protocol.TProtocolFactory)>(thriftClass, fieldNames, $r0, protocolFactory);
+
+        return;
+    }
+
+    public org.apache.thrift.partial.ThriftMetadata$ThriftStruct getMetadata()
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata_>;
+
+        return $r0;
+    }
+
+    public 'void' deserialize(org.apache.thrift.TBase, 'byte'[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        'int' $i0;
+        org.apache.thrift.TBase base;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        base := @parameter0: org.apache.thrift.TBase;
+
+        bytes := @parameter1: 'byte'[];
+
+        $i0 = lengthof bytes;
+
+        virtualinvoke this.<org.apache.thrift.TDeserializer: 'void' deserialize(org.apache.thrift.TBase,'byte'[],'int','int')>(base, bytes, 0, $i0);
+
+        return;
+    }
+
+    public 'void' deserialize(org.apache.thrift.TBase, 'byte'[], 'int', 'int') throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r4;
+        'byte'[] bytes;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.protocol.TProtocol $r1;
+        'int' offset, length;
+        org.apache.thrift.TBase base;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        base := @parameter0: org.apache.thrift.TBase;
+
+        bytes := @parameter1: 'byte'[];
+
+        offset := @parameter2: 'int';
+
+        length := @parameter3: 'int';
+
+        $z0 = specialinvoke this.<org.apache.thrift.TDeserializer: 'boolean' isPartialDeserializationMode()>();
+
+        if $z0 == false goto label1;
+
+        virtualinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeThriftObject(org.apache.thrift.TBase,'byte'[],'int','int')>(base, bytes, offset, length);
+
+        goto label5;
+
+     label1:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[],'int','int')>(bytes, offset, length);
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        interfaceinvoke base.<org.apache.thrift.TBase: 'void' read(org.apache.thrift.protocol.TProtocol)>($r1);
+
+     label2:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        goto label5;
+
+     label3:
+        $r4 := @caughtexception;
+
+     label4:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        throw $r4;
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public 'void' deserialize(org.apache.thrift.TBase, java.lang.String, java.lang.String) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r8;
+        'byte'[] $r0;
+        org.apache.thrift.TException $r3;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.protocol.TProtocol $r1;
+        java.lang.StringBuilder $r4;
+        java.lang.String data, charset;
+        org.apache.thrift.TBase base;
+        java.io.UnsupportedEncodingException $r2;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        base := @parameter0: org.apache.thrift.TBase;
+
+        data := @parameter1: java.lang.String;
+
+        charset := @parameter2: java.lang.String;
+
+     label1:
+        $r0 = virtualinvoke data.<java.lang.String: 'byte'[] getBytes(java.lang.String)>(charset);
+
+        virtualinvoke this.<org.apache.thrift.TDeserializer: 'void' deserialize(org.apache.thrift.TBase,'byte'[])>(base, $r0);
+
+     label2:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        goto label6;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r3 = new org.apache.thrift.TException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("JVM DOES NOT SUPPORT ENCODING: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(charset);
+
+        data = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>(data);
+
+        throw $r3;
+
+     label4:
+        $r8 := @caughtexception;
+
+     label5:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        throw $r8;
+
+     label6:
+        return;
+
+        catch java.io.UnsupportedEncodingException from label1 to label2 with label3;
+        catch java.lang.Throwable from label1 to label2 with label4;
+        catch java.lang.Throwable from label3 to label5 with label4;
+    }
+
+    public transient 'void' partialDeserialize(org.apache.thrift.TBase, 'byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r5;
+        'byte'[] bytes;
+        org.apache.thrift.TException $r4;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        org.apache.thrift.transport.TMemoryInputTransport $r2;
+        java.lang.Exception e;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.protocol.TProtocol $r1;
+        org.apache.thrift.protocol.TField $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+        org.apache.thrift.TBase tb;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        tb := @parameter0: org.apache.thrift.TBase;
+
+        bytes := @parameter1: 'byte'[];
+
+        fieldIdPathFirst := @parameter2: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter3: org.apache.thrift.TFieldIdEnum[];
+
+     label1:
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TField locateField('byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        if $r0 == null goto label2;
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        interfaceinvoke tb.<org.apache.thrift.TBase: 'void' read(org.apache.thrift.protocol.TProtocol)>($r1);
+
+     label2:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        goto label6;
+
+     label3:
+        e := @caughtexception;
+
+        $r4 = new org.apache.thrift.TException;
+
+        specialinvoke $r4.<org.apache.thrift.TException: 'void' <init>(java.lang.Throwable)>(e);
+
+        throw $r4;
+
+     label4:
+        $r5 := @caughtexception;
+
+     label5:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        throw $r5;
+
+     label6:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+        catch java.lang.Throwable from label1 to label2 with label4;
+        catch java.lang.Throwable from label3 to label5 with label4;
+    }
+
+    public transient java.lang.Boolean partialDeserializeBool('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        java.lang.Boolean $r1;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(2, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.lang.Boolean) $r0;
+
+        return $r1;
+    }
+
+    public transient java.lang.Byte partialDeserializeByte('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+        java.lang.Byte $r1;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(3, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.lang.Byte) $r0;
+
+        return $r1;
+    }
+
+    public transient java.lang.Double partialDeserializeDouble('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        java.lang.Double $r1;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(4, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.lang.Double) $r0;
+
+        return $r1;
+    }
+
+    public transient java.lang.Short partialDeserializeI16('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        java.lang.Short $r1;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(6, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.lang.Short) $r0;
+
+        return $r1;
+    }
+
+    public transient java.lang.Integer partialDeserializeI32('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+        java.lang.Integer $r1;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(8, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.lang.Integer) $r0;
+
+        return $r1;
+    }
+
+    public transient java.lang.Long partialDeserializeI64('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        java.lang.Long $r1;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(10, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.lang.Long) $r0;
+
+        return $r1;
+    }
+
+    public transient java.lang.String partialDeserializeString('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+        java.lang.String $r1;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(11, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.lang.String) $r0;
+
+        return $r1;
+    }
+
+    public transient java.nio.ByteBuffer partialDeserializeByteArray('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+        java.nio.ByteBuffer $r1;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeField('byte','byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(100, bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        $r1 = (java.nio.ByteBuffer) $r0;
+
+        return $r1;
+    }
+
+    public transient java.lang.Short partialDeserializeSetFieldIdInUnion('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r8;
+        'byte'[] bytes;
+        org.apache.thrift.TException $r7;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        org.apache.thrift.transport.TMemoryInputTransport $r3;
+        java.lang.Exception field;
+        org.apache.thrift.TDeserializer this;
+        'short' $s0;
+        org.apache.thrift.protocol.TProtocol $r0;
+        java.lang.Short r11;
+        org.apache.thrift.protocol.TField field#1;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+     label1:
+        field#1 = specialinvoke this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TField locateField('byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        if field#1 == null goto label3;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TStruct readStructBegin()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        field#1 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TField readFieldBegin()>();
+
+        $s0 = field#1.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        r11 = staticinvoke <java.lang.Short: java.lang.Short valueOf('short')>($s0);
+
+     label2:
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r3.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r11;
+
+     label3:
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r3.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return null;
+
+     label4:
+        field := @caughtexception;
+
+        $r7 = new org.apache.thrift.TException;
+
+        specialinvoke $r7.<org.apache.thrift.TException: 'void' <init>(java.lang.Throwable)>(field);
+
+        throw $r7;
+
+     label5:
+        $r8 := @caughtexception;
+
+     label6:
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r3.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        throw $r8;
+
+        catch java.lang.Exception from label1 to label2 with label4;
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label4 to label6 with label5;
+    }
+
+    private transient java.lang.Object partialDeserializeField('byte', 'byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r27;
+        'byte'[] bytes;
+        java.lang.Double r32;
+        'long' $l4;
+        java.lang.Integer r34;
+        org.apache.thrift.transport.TMemoryInputTransport $r1;
+        java.nio.ByteBuffer r37;
+        org.apache.thrift.TDeserializer this;
+        'short' $s2;
+        'byte' ttype, $b0;
+        java.lang.Long r35;
+        java.lang.Short r33;
+        'int' $i3, $i7;
+        org.apache.thrift.protocol.TField field#1;
+        java.lang.Boolean r30;
+        java.lang.String r36;
+        java.lang.Byte r31;
+        'boolean' $z0;
+        'double' $d0;
+        org.apache.thrift.TException $r26;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest;
+        java.lang.Exception field;
+        org.apache.thrift.protocol.TProtocol $r0;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        ttype := @parameter0: 'byte';
+
+        bytes := @parameter1: 'byte'[];
+
+        fieldIdPathFirst := @parameter2: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter3: org.apache.thrift.TFieldIdEnum[];
+
+     label01:
+        field#1 = specialinvoke this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TField locateField('byte'[],org.apache.thrift.TFieldIdEnum,org.apache.thrift.TFieldIdEnum[])>(bytes, fieldIdPathFirst, fieldIdPathRest);
+
+        if field#1 == null goto label20;
+
+        $b0 = field#1.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $i3 = ('int') ttype;
+
+        $i7 = ('int') $b0;
+
+        if $i3 != $i7 goto label17;
+
+        $i3 = ('int') ttype;
+
+        tableswitch($i3)
+        {
+            case 2: goto label02;
+            case 3: goto label04;
+            case 4: goto label06;
+            case 5: goto label16;
+            case 6: goto label08;
+            case 7: goto label16;
+            case 8: goto label10;
+            case 9: goto label16;
+            case 10: goto label12;
+            case 11: goto label14;
+            default: goto label16;
+        };
+
+     label02:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'boolean' readBool()>();
+
+        r30 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf('boolean')>($z0);
+
+     label03:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r30;
+
+     label04:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        ttype = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'byte' readByte()>();
+
+        r31 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf('byte')>(ttype);
+
+     label05:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r31;
+
+     label06:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $d0 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'double' readDouble()>();
+
+        r32 = staticinvoke <java.lang.Double: java.lang.Double valueOf('double')>($d0);
+
+     label07:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r32;
+
+     label08:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $s2 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'short' readI16()>();
+
+        r33 = staticinvoke <java.lang.Short: java.lang.Short valueOf('short')>($s2);
+
+     label09:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r33;
+
+     label10:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $i3 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'int' readI32()>();
+
+        r34 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i3);
+
+     label11:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r34;
+
+     label12:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $l4 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'long' readI64()>();
+
+        r35 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>($l4);
+
+     label13:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r35;
+
+     label14:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        r36 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: java.lang.String readString()>();
+
+     label15:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r36;
+
+     label16:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return null;
+
+     label17:
+        $i3 = ('int') ttype;
+
+        if $i3 != 100 goto label20;
+
+     label18:
+        ttype = field#1.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $i3 = ('int') ttype;
+
+        if $i3 != 11 goto label20;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        r37 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: java.nio.ByteBuffer readBinary()>();
+
+     label19:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return r37;
+
+     label20:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        return null;
+
+     label21:
+        field := @caughtexception;
+
+        $r26 = new org.apache.thrift.TException;
+
+        specialinvoke $r26.<org.apache.thrift.TException: 'void' <init>(java.lang.Throwable)>(field);
+
+        throw $r26;
+
+     label22:
+        $r27 := @caughtexception;
+
+     label23:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        throw $r27;
+
+        catch java.lang.Exception from label01 to label03 with label21;
+        catch java.lang.Exception from label04 to label05 with label21;
+        catch java.lang.Exception from label06 to label07 with label21;
+        catch java.lang.Exception from label08 to label09 with label21;
+        catch java.lang.Exception from label10 to label11 with label21;
+        catch java.lang.Exception from label12 to label13 with label21;
+        catch java.lang.Exception from label14 to label15 with label21;
+        catch java.lang.Exception from label18 to label19 with label21;
+        catch java.lang.Throwable from label01 to label03 with label22;
+        catch java.lang.Throwable from label04 to label05 with label22;
+        catch java.lang.Throwable from label06 to label07 with label22;
+        catch java.lang.Throwable from label08 to label09 with label22;
+        catch java.lang.Throwable from label10 to label11 with label22;
+        catch java.lang.Throwable from label12 to label13 with label22;
+        catch java.lang.Throwable from label14 to label15 with label22;
+        catch java.lang.Throwable from label17 to label19 with label22;
+        catch java.lang.Throwable from label21 to label23 with label22;
+    }
+
+    private transient org.apache.thrift.protocol.TField locateField('byte'[], org.apache.thrift.TFieldIdEnum, org.apache.thrift.TFieldIdEnum[]) throws org.apache.thrift.TException
+    {
+        'byte'[] bytes;
+        org.apache.thrift.TFieldIdEnum[] fieldIdPathRest, fieldIdPath;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+        org.apache.thrift.TDeserializer this;
+        'short' $s4, $s5;
+        'byte' $b3;
+        org.apache.thrift.protocol.TProtocol $r1;
+        'int' curPathIndex, $i9, $i12;
+        org.apache.thrift.protocol.TField field;
+        org.apache.thrift.TFieldIdEnum fieldIdPathFirst;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        fieldIdPathFirst := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        fieldIdPathRest := @parameter2: org.apache.thrift.TFieldIdEnum[];
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[])>(bytes);
+
+        curPathIndex = lengthof fieldIdPathRest;
+
+        curPathIndex = curPathIndex + 1;
+
+        fieldIdPath = newarray (org.apache.thrift.TFieldIdEnum)[curPathIndex];
+
+        fieldIdPath[0] = fieldIdPathFirst;
+
+        curPathIndex = lengthof fieldIdPathRest;
+
+        staticinvoke <java.lang.System: 'void' arraycopy(java.lang.Object,'int',java.lang.Object,'int','int')>(fieldIdPathRest, 0, fieldIdPath, 1, curPathIndex);
+
+        curPathIndex = 0;
+
+        field = null;
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TStruct readStructBegin()>();
+
+     label1:
+        $i9 = lengthof fieldIdPath;
+
+        if curPathIndex >= $i9 goto label5;
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        field = virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TField readFieldBegin()>();
+
+        $b3 = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        if $b3 == false goto label2;
+
+        $s4 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        fieldIdPathFirst = fieldIdPath[curPathIndex];
+
+        $s5 = interfaceinvoke fieldIdPathFirst.<org.apache.thrift.TFieldIdEnum: 'short' getThriftFieldId()>();
+
+        $i9 = ('int') $s4;
+
+        $i12 = ('int') $s5;
+
+        if $i9 <= $i12 goto label3;
+
+     label2:
+        return null;
+
+     label3:
+        $s4 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        fieldIdPathFirst = fieldIdPath[curPathIndex];
+
+        $s5 = interfaceinvoke fieldIdPathFirst.<org.apache.thrift.TFieldIdEnum: 'short' getThriftFieldId()>();
+
+        $i9 = ('int') $s4;
+
+        $i12 = ('int') $s5;
+
+        if $i9 == $i12 goto label4;
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $b3 = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte')>($r1, $b3);
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' readFieldEnd()>();
+
+        goto label1;
+
+     label4:
+        curPathIndex = curPathIndex + 1;
+
+        $i9 = lengthof fieldIdPath;
+
+        if curPathIndex >= $i9 goto label1;
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TStruct readStructBegin()>();
+
+        goto label1;
+
+     label5:
+        return field;
+    }
+
+    public 'void' fromString(org.apache.thrift.TBase, java.lang.String) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] $r0;
+        java.lang.String data;
+        org.apache.thrift.TBase base;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        base := @parameter0: org.apache.thrift.TBase;
+
+        data := @parameter1: java.lang.String;
+
+        $r0 = virtualinvoke data.<java.lang.String: 'byte'[] getBytes()>();
+
+        virtualinvoke this.<org.apache.thrift.TDeserializer: 'void' deserialize(org.apache.thrift.TBase,'byte'[])>(base, $r0);
+
+        return;
+    }
+
+    public java.lang.Object partialDeserializeObject('byte'[]) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        'int' $i0;
+        java.lang.Object $r0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        $i0 = lengthof bytes;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeObject('byte'[],'int','int')>(bytes, 0, $i0);
+
+        return $r0;
+    }
+
+    public java.lang.Object partialDeserializeThriftObject(org.apache.thrift.TBase, 'byte'[], 'int', 'int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        'int' offset, length;
+        java.lang.Object $r0;
+        org.apache.thrift.TBase base;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        base := @parameter0: org.apache.thrift.TBase;
+
+        bytes := @parameter1: 'byte'[];
+
+        offset := @parameter2: 'int';
+
+        length := @parameter3: 'int';
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' ensurePartialThriftDeserializationMode()>();
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeObject(java.lang.Object,'byte'[],'int','int')>(base, bytes, offset, length);
+
+        return $r0;
+    }
+
+    public java.lang.Object partialDeserializeObject('byte'[], 'int', 'int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        'byte'[] bytes;
+        'int' offset, length;
+        java.lang.Object $r0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        bytes := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        length := @parameter2: 'int';
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' ensurePartialDeserializationMode()>();
+
+        $r0 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object partialDeserializeObject(java.lang.Object,'byte'[],'int','int')>(null, bytes, offset, length);
+
+        return $r0;
+    }
+
+    private java.lang.Object partialDeserializeObject(java.lang.Object, 'byte'[], 'int', 'int') throws org.apache.thrift.TException
+    {
+        'byte'[] bytes;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r2;
+        org.apache.thrift.protocol.TProtocol $r1;
+        'int' offset, length;
+        java.lang.Object instance;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        instance := @parameter0: java.lang.Object;
+
+        bytes := @parameter1: 'byte'[];
+
+        offset := @parameter2: 'int';
+
+        length := @parameter3: 'int';
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' ensurePartialDeserializationMode()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.transport.TMemoryInputTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[],'int','int')>(bytes, offset, length);
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' reset()>();
+
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata_>;
+
+        instance = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeStruct(java.lang.Object,org.apache.thrift.partial.ThriftMetadata$ThriftStruct)>(instance, $r2);
+
+        return instance;
+    }
+
+    private java.lang.Object deserialize(org.apache.thrift.partial.ThriftMetadata$ThriftObject) throws org.apache.thrift.TException
+    {
+        java.lang.Double $r23;
+        org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive $r24;
+        'long' $l3;
+        java.lang.Integer $r19;
+        java.nio.ByteBuffer $r27;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r2;
+        'short' $s1;
+        'byte' fieldType;
+        java.lang.Long $r21;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r25;
+        java.lang.Short $r17;
+        'int' $i2;
+        java.lang.Boolean $r13;
+        java.lang.Byte $r15;
+        org.apache.thrift.partial.ThriftMetadata$ThriftList $r4;
+        org.apache.thrift.meta_data.FieldMetaData $r0;
+        org.apache.thrift.meta_data.FieldValueMetaData $r1;
+        'boolean' $z0;
+        'double' $d0;
+        java.lang.UnsupportedOperationException $r33;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject data;
+        org.apache.thrift.partial.ThriftMetadata$ThriftMap $r6;
+        org.apache.thrift.protocol.TProtocol $r12;
+        java.lang.Object $r3;
+        org.apache.thrift.partial.ThriftMetadata$ThriftEnum $r10;
+        org.apache.thrift.partial.ThriftMetadata$ThriftSet $r8;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        $r0 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.meta_data.FieldMetaData data>;
+
+        $r1 = $r0.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData>;
+
+        fieldType = $r1.<org.apache.thrift.meta_data.FieldValueMetaData: 'byte' type>;
+
+        $i2 = ('int') fieldType;
+
+        tableswitch($i2)
+        {
+            case -1: goto label05;
+            case 0: goto label14;
+            case 1: goto label14;
+            case 2: goto label06;
+            case 3: goto label07;
+            case 4: goto label11;
+            case 5: goto label14;
+            case 6: goto label08;
+            case 7: goto label14;
+            case 8: goto label09;
+            case 9: goto label14;
+            case 10: goto label10;
+            case 11: goto label12;
+            case 12: goto label01;
+            case 13: goto label03;
+            case 14: goto label04;
+            case 15: goto label02;
+            default: goto label14;
+        };
+
+     label01:
+        $r2 = (org.apache.thrift.partial.ThriftMetadata$ThriftStruct) data;
+
+        $r3 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeStruct(java.lang.Object,org.apache.thrift.partial.ThriftMetadata$ThriftStruct)>(null, $r2);
+
+        return $r3;
+
+     label02:
+        $r4 = (org.apache.thrift.partial.ThriftMetadata$ThriftList) data;
+
+        $r3 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeList(org.apache.thrift.partial.ThriftMetadata$ThriftList)>($r4);
+
+        return $r3;
+
+     label03:
+        $r6 = (org.apache.thrift.partial.ThriftMetadata$ThriftMap) data;
+
+        $r3 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeMap(org.apache.thrift.partial.ThriftMetadata$ThriftMap)>($r6);
+
+        return $r3;
+
+     label04:
+        $r8 = (org.apache.thrift.partial.ThriftMetadata$ThriftSet) data;
+
+        $r3 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeSet(org.apache.thrift.partial.ThriftMetadata$ThriftSet)>($r8);
+
+        return $r3;
+
+     label05:
+        $r10 = (org.apache.thrift.partial.ThriftMetadata$ThriftEnum) data;
+
+        $r3 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeEnum(org.apache.thrift.partial.ThriftMetadata$ThriftEnum)>($r10);
+
+        return $r3;
+
+     label06:
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $z0 = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: 'boolean' readBool()>();
+
+        $r13 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf('boolean')>($z0);
+
+        return $r13;
+
+     label07:
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        fieldType = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: 'byte' readByte()>();
+
+        $r15 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf('byte')>(fieldType);
+
+        return $r15;
+
+     label08:
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $s1 = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: 'short' readI16()>();
+
+        $r17 = staticinvoke <java.lang.Short: java.lang.Short valueOf('short')>($s1);
+
+        return $r17;
+
+     label09:
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $i2 = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: 'int' readI32()>();
+
+        $r19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i2);
+
+        return $r19;
+
+     label10:
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $l3 = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: 'long' readI64()>();
+
+        $r21 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>($l3);
+
+        return $r21;
+
+     label11:
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $d0 = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: 'double' readDouble()>();
+
+        $r23 = staticinvoke <java.lang.Double: java.lang.Double valueOf('double')>($d0);
+
+        return $r23;
+
+     label12:
+        $r24 = (org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive) data;
+
+        $z0 = virtualinvoke $r24.<org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive: 'boolean' isBinary()>();
+
+        if $z0 == false goto label13;
+
+        $r25 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $r27 = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: java.nio.ByteBuffer readBinary()>();
+
+        $r3 = interfaceinvoke $r25.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object prepareBinary(java.nio.ByteBuffer)>($r27);
+
+        return $r3;
+
+     label13:
+        $r25 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r12 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $r27 = virtualinvoke $r12.<org.apache.thrift.protocol.TProtocol: java.nio.ByteBuffer readBinary()>();
+
+        $r3 = interfaceinvoke $r25.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object prepareString(java.nio.ByteBuffer)>($r27);
+
+        return $r3;
+
+     label14:
+        $r33 = staticinvoke <org.apache.thrift.TDeserializer: java.lang.UnsupportedOperationException unsupportedFieldTypeException('byte')>(fieldType);
+
+        throw $r33;
+    }
+
+    private java.lang.Object deserializeStruct(java.lang.Object, org.apache.thrift.partial.ThriftMetadata$ThriftStruct) throws org.apache.thrift.TException
+    {
+        java.lang.Integer id;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct data;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject field;
+        'short' $s0;
+        'byte' $b2;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r0;
+        org.apache.thrift.protocol.TProtocol $r1;
+        java.util.Map $r2;
+        'int' $i1;
+        java.lang.Object $r3, instance;
+        org.apache.thrift.TFieldIdEnum $r4;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        instance := @parameter0: java.lang.Object;
+
+        data := @parameter1: org.apache.thrift.partial.ThriftMetadata$ThriftStruct;
+
+        if instance != null goto label1;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        instance = interfaceinvoke $r0.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object createNewStruct(org.apache.thrift.partial.ThriftMetadata$ThriftStruct)>(data);
+
+     label1:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TStruct readStructBegin()>();
+
+     label2:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $i1 = virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'int' readFieldBeginData()>();
+
+        $b2 = staticinvoke <org.apache.thrift.partial.TFieldData: 'byte' getType('int')>($i1);
+
+        if $b2 == 0 goto label5;
+
+        $s0 = staticinvoke <org.apache.thrift.partial.TFieldData: 'short' getId('int')>($i1);
+
+        $i1 = ('int') $s0;
+
+        id = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i1);
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftStruct: java.util.Map fields>;
+
+        $r3 = interfaceinvoke $r2.<java.util.Map: java.lang.Object get(java.lang.Object)>(id);
+
+        field = (org.apache.thrift.partial.ThriftMetadata$ThriftObject) $r3;
+
+        if field == null goto label3;
+
+        $r4 = field.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.TFieldIdEnum fieldId>;
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' deserializeStructField(java.lang.Object,org.apache.thrift.TFieldIdEnum,org.apache.thrift.partial.ThriftMetadata$ThriftObject)>(instance, $r4, field);
+
+        goto label4;
+
+     label3:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' skip('byte')>($b2);
+
+     label4:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' readFieldEnd()>();
+
+        goto label2;
+
+     label5:
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r1.<org.apache.thrift.protocol.TProtocol: 'void' readStructEnd()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        instance = interfaceinvoke $r0.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object prepareStruct(java.lang.Object)>(instance);
+
+        return instance;
+    }
+
+    private 'void' deserializeStructField(java.lang.Object, org.apache.thrift.TFieldIdEnum, org.apache.thrift.partial.ThriftMetadata$ThriftObject) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive $r14;
+        'long' $l3;
+        java.nio.ByteBuffer $r17;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r21;
+        'short' $s1;
+        'byte' fieldType;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r2;
+        'int' $i2;
+        java.lang.String $r34;
+        org.apache.thrift.partial.ThriftMetadata$ThriftList $r23;
+        org.apache.thrift.meta_data.FieldMetaData $r0;
+        org.apache.thrift.meta_data.FieldValueMetaData $r1;
+        'boolean' $z0;
+        'double' $d0;
+        java.lang.RuntimeException $r31;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject data;
+        org.apache.thrift.protocol.TProtocol $r3;
+        org.apache.thrift.partial.ThriftMetadata$ThriftMap $r25;
+        java.lang.Object instance, value, value#2, value#3, value#4, value#5;
+        java.lang.StringBuilder $r32;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.partial.ThriftMetadata$ThriftEnum $r29;
+        org.apache.thrift.partial.ThriftMetadata$ThriftSet $r27;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        instance := @parameter0: java.lang.Object;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        data := @parameter2: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        $r0 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.meta_data.FieldMetaData data>;
+
+        $r1 = $r0.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData>;
+
+        fieldType = $r1.<org.apache.thrift.meta_data.FieldValueMetaData: 'byte' type>;
+
+        $i2 = ('int') fieldType;
+
+        tableswitch($i2)
+        {
+            case -1: goto label13;
+            case 0: goto label14;
+            case 1: goto label14;
+            case 2: goto label01;
+            case 3: goto label02;
+            case 4: goto label06;
+            case 5: goto label14;
+            case 6: goto label03;
+            case 7: goto label14;
+            case 8: goto label04;
+            case 9: goto label14;
+            case 10: goto label05;
+            case 11: goto label07;
+            case 12: goto label09;
+            case 13: goto label11;
+            case 14: goto label12;
+            case 15: goto label10;
+            default: goto label14;
+        };
+
+     label01:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $z0 = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: 'boolean' readBool()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setBool(java.lang.Object,org.apache.thrift.TFieldIdEnum,'boolean')>(instance, fieldId, $z0);
+
+        goto label15;
+
+     label02:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        fieldType = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: 'byte' readByte()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setByte(java.lang.Object,org.apache.thrift.TFieldIdEnum,'byte')>(instance, fieldId, fieldType);
+
+        goto label15;
+
+     label03:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $s1 = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: 'short' readI16()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setInt16(java.lang.Object,org.apache.thrift.TFieldIdEnum,'short')>(instance, fieldId, $s1);
+
+        goto label15;
+
+     label04:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $i2 = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: 'int' readI32()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setInt32(java.lang.Object,org.apache.thrift.TFieldIdEnum,'int')>(instance, fieldId, $i2);
+
+        goto label15;
+
+     label05:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $l3 = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: 'long' readI64()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setInt64(java.lang.Object,org.apache.thrift.TFieldIdEnum,'long')>(instance, fieldId, $l3);
+
+        goto label15;
+
+     label06:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $d0 = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: 'double' readDouble()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setDouble(java.lang.Object,org.apache.thrift.TFieldIdEnum,'double')>(instance, fieldId, $d0);
+
+        goto label15;
+
+     label07:
+        $r14 = (org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive) data;
+
+        $z0 = virtualinvoke $r14.<org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive: 'boolean' isBinary()>();
+
+        if $z0 == false goto label08;
+
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $r17 = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: java.nio.ByteBuffer readBinary()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setBinary(java.lang.Object,org.apache.thrift.TFieldIdEnum,java.nio.ByteBuffer)>(instance, fieldId, $r17);
+
+        goto label15;
+
+     label08:
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r3 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        $r17 = virtualinvoke $r3.<org.apache.thrift.protocol.TProtocol: java.nio.ByteBuffer readBinary()>();
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setString(java.lang.Object,org.apache.thrift.TFieldIdEnum,java.nio.ByteBuffer)>(instance, fieldId, $r17);
+
+        goto label15;
+
+     label09:
+        $r21 = (org.apache.thrift.partial.ThriftMetadata$ThriftStruct) data;
+
+        value = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeStruct(java.lang.Object,org.apache.thrift.partial.ThriftMetadata$ThriftStruct)>(null, $r21);
+
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setStructField(java.lang.Object,org.apache.thrift.TFieldIdEnum,java.lang.Object)>(instance, fieldId, value);
+
+        goto label15;
+
+     label10:
+        $r23 = (org.apache.thrift.partial.ThriftMetadata$ThriftList) data;
+
+        value#2 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeList(org.apache.thrift.partial.ThriftMetadata$ThriftList)>($r23);
+
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setListField(java.lang.Object,org.apache.thrift.TFieldIdEnum,java.lang.Object)>(instance, fieldId, value#2);
+
+        goto label15;
+
+     label11:
+        $r25 = (org.apache.thrift.partial.ThriftMetadata$ThriftMap) data;
+
+        value#3 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeMap(org.apache.thrift.partial.ThriftMetadata$ThriftMap)>($r25);
+
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setMapField(java.lang.Object,org.apache.thrift.TFieldIdEnum,java.lang.Object)>(instance, fieldId, value#3);
+
+        goto label15;
+
+     label12:
+        $r27 = (org.apache.thrift.partial.ThriftMetadata$ThriftSet) data;
+
+        value#4 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeSet(org.apache.thrift.partial.ThriftMetadata$ThriftSet)>($r27);
+
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setSetField(java.lang.Object,org.apache.thrift.TFieldIdEnum,java.lang.Object)>(instance, fieldId, value#4);
+
+        goto label15;
+
+     label13:
+        $r29 = (org.apache.thrift.partial.ThriftMetadata$ThriftEnum) data;
+
+        value#5 = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserializeEnum(org.apache.thrift.partial.ThriftMetadata$ThriftEnum)>($r29);
+
+        $r2 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r2.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setEnumField(java.lang.Object,org.apache.thrift.TFieldIdEnum,java.lang.Object)>(instance, fieldId, value#5);
+
+        goto label15;
+
+     label14:
+        $r31 = new java.lang.RuntimeException;
+
+        $r32 = new java.lang.StringBuilder;
+
+        specialinvoke $r32.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r32 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unsupported field type: ");
+
+        $r34 = virtualinvoke fieldId.<java.lang.Object: java.lang.String toString()>();
+
+        $r32 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r34);
+
+        $r34 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r31.<java.lang.RuntimeException: 'void' <init>(java.lang.String)>($r34);
+
+        throw $r31;
+
+     label15:
+        return;
+    }
+
+    private java.lang.Object deserializeList(org.apache.thrift.partial.ThriftMetadata$ThriftList) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.protocol.TList tlist;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject $r2;
+        org.apache.thrift.protocol.TProtocol $r0;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r1;
+        'int' $i0, i;
+        java.lang.Object instance, value;
+        org.apache.thrift.partial.ThriftMetadata$ThriftList data;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftList;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        tlist = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TList readListBegin()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $i0 = tlist.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        instance = interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object createNewList('int')>($i0);
+
+        i = 0;
+
+     label1:
+        $i0 = tlist.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        if i >= $i0 goto label2;
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftList: org.apache.thrift.partial.ThriftMetadata$ThriftObject elementData>;
+
+        value = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserialize(org.apache.thrift.partial.ThriftMetadata$ThriftObject)>($r2);
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setListElement(java.lang.Object,'int',java.lang.Object)>(instance, i, value);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' readListEnd()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        instance = interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object prepareList(java.lang.Object)>(instance);
+
+        return instance;
+    }
+
+    private java.lang.Object deserializeMap(org.apache.thrift.partial.ThriftMetadata$ThriftMap) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject $r2;
+        org.apache.thrift.partial.ThriftMetadata$ThriftMap data;
+        org.apache.thrift.protocol.TProtocol $r0;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r1;
+        'int' $i0, i;
+        java.lang.Object instance, key, val;
+        org.apache.thrift.protocol.TMap tmap;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftMap;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        tmap = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMap readMapBegin()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $i0 = tmap.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        instance = interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object createNewMap('int')>($i0);
+
+        i = 0;
+
+     label1:
+        $i0 = tmap.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        if i >= $i0 goto label2;
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftMap: org.apache.thrift.partial.ThriftMetadata$ThriftObject keyData>;
+
+        key = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserialize(org.apache.thrift.partial.ThriftMetadata$ThriftObject)>($r2);
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftMap: org.apache.thrift.partial.ThriftMetadata$ThriftObject valueData>;
+
+        val = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserialize(org.apache.thrift.partial.ThriftMetadata$ThriftObject)>($r2);
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setMapElement(java.lang.Object,'int',java.lang.Object,java.lang.Object)>(instance, i, key, val);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' readMapEnd()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        instance = interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object prepareMap(java.lang.Object)>(instance);
+
+        return instance;
+    }
+
+    private java.lang.Object deserializeSet(org.apache.thrift.partial.ThriftMetadata$ThriftSet) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSet tset;
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject $r2;
+        org.apache.thrift.protocol.TProtocol $r0;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r1;
+        'int' $i0, i;
+        java.lang.Object instance, eltValue;
+        org.apache.thrift.partial.ThriftMetadata$ThriftSet data;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftSet;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        tset = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TSet readSetBegin()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $i0 = tset.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        instance = interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object createNewSet('int')>($i0);
+
+        i = 0;
+
+     label1:
+        $i0 = tset.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        if i >= $i0 goto label2;
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftSet: org.apache.thrift.partial.ThriftMetadata$ThriftObject elementData>;
+
+        eltValue = specialinvoke this.<org.apache.thrift.TDeserializer: java.lang.Object deserialize(org.apache.thrift.partial.ThriftMetadata$ThriftObject)>($r2);
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: 'void' setSetElement(java.lang.Object,'int',java.lang.Object)>(instance, i, eltValue);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' readSetEnd()>();
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        instance = interfaceinvoke $r1.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object prepareSet(java.lang.Object)>(instance);
+
+        return instance;
+    }
+
+    private java.lang.Object deserializeEnum(org.apache.thrift.partial.ThriftMetadata$ThriftEnum) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.protocol.TProtocol $r0;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r4;
+        'int' ordinal;
+        java.lang.Class enumClass;
+        java.lang.Object $r5;
+        org.apache.thrift.meta_data.EnumMetaData $r3;
+        org.apache.thrift.partial.ThriftMetadata$ThriftEnum data;
+        org.apache.thrift.meta_data.FieldMetaData $r1;
+        org.apache.thrift.meta_data.FieldValueMetaData $r2;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftEnum;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        ordinal = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'int' readI32()>();
+
+        $r1 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftEnum: org.apache.thrift.meta_data.FieldMetaData data>;
+
+        $r2 = $r1.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData>;
+
+        $r3 = (org.apache.thrift.meta_data.EnumMetaData) $r2;
+
+        enumClass = $r3.<org.apache.thrift.meta_data.EnumMetaData: java.lang.Class enumClass>;
+
+        $r4 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $r5 = interfaceinvoke $r4.<org.apache.thrift.partial.ThriftFieldValueProcessor: java.lang.Object prepareEnum(java.lang.Class,'int')>(enumClass, ordinal);
+
+        return $r5;
+    }
+
+    private java.lang.Class getStructClass(org.apache.thrift.partial.ThriftMetadata$ThriftStruct)
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct data;
+        org.apache.thrift.meta_data.StructMetaData $r2;
+        java.lang.Class $r3;
+        org.apache.thrift.meta_data.FieldMetaData $r0;
+        org.apache.thrift.meta_data.FieldValueMetaData $r1;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftStruct;
+
+        $r0 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftStruct: org.apache.thrift.meta_data.FieldMetaData data>;
+
+        $r1 = $r0.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData>;
+
+        $r2 = (org.apache.thrift.meta_data.StructMetaData) $r1;
+
+        $r3 = $r2.<org.apache.thrift.meta_data.StructMetaData: java.lang.Class structClass>;
+
+        return $r3;
+    }
+
+    private static java.lang.UnsupportedOperationException unsupportedFieldTypeException('byte')
+    {
+        java.lang.UnsupportedOperationException $r0;
+        'byte' fieldType;
+        'int' $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r4;
+
+        fieldType := @parameter0: 'byte';
+
+        $r0 = new java.lang.UnsupportedOperationException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("field type not supported: ");
+
+        $i0 = ('int') fieldType;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.UnsupportedOperationException: 'void' <init>(java.lang.String)>($r4);
+
+        return $r0;
+    }
+
+    private 'boolean' isPartialDeserializationMode()
+    {
+        org.apache.thrift.TDeserializer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r0;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata_>;
+
+        if $r0 == null goto label1;
+
+        $r1 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        if $r1 == null goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    private 'void' ensurePartialDeserializationMode() throws java.lang.IllegalStateException
+    {
+        org.apache.thrift.TDeserializer this;
+        java.lang.IllegalStateException $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        $z0 = specialinvoke this.<org.apache.thrift.TDeserializer: 'boolean' isPartialDeserializationMode()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new java.lang.IllegalStateException;
+
+        specialinvoke $r0.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>("Members metadata and processor must be correctly initialized in order to use this method");
+
+        throw $r0;
+
+     label1:
+        return;
+    }
+
+    private 'void' ensurePartialThriftDeserializationMode() throws java.lang.IllegalStateException
+    {
+        org.apache.thrift.TDeserializer this;
+        java.lang.IllegalStateException $r1;
+        org.apache.thrift.partial.ThriftFieldValueProcessor $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TDeserializer;
+
+        specialinvoke this.<org.apache.thrift.TDeserializer: 'void' ensurePartialDeserializationMode()>();
+
+        $r0 = this.<org.apache.thrift.TDeserializer: org.apache.thrift.partial.ThriftFieldValueProcessor processor_>;
+
+        $z0 = $r0 instanceof org.apache.thrift.partial.ThriftStructProcessor;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>("processor must be an instance of ThriftStructProcessor to use this method");
+
+        throw $r1;
+
+     label1:
+        return;
+    }
+}

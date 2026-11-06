@@ -1,0 +1,34 @@
+-- Termination package by JimpleLean's session: TermPk/Cbtrn03c/TermPeCall2.lean (sha256 12b539670b16aa9d...); only the module root renamed.
+import EquivLean.Modernize.Cbtrn03c.JavaTop.PeCall2
+import EquivLean.Modernize.Cbtrn03c.JavaTermDefs
+
+/-!
+# Termination: thin twins of `PeCall2`
+
+The statements and preambles of the originals; the cut assertions the variants, calls by
+`callWPThin` (`callWPT` without the callee preconditions, which `MethodVC` checks).
+-/
+
+set_option jimple.modelContracts true
+open Jimple EquivLean.Cobol.Rec EquivLean.Jimple
+
+namespace EquivLean.Modernize.Cbtrn03c.Java.Top
+
+attribute [local irreducible] WsRel KeepsNonWs TranFields
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 0 in
+theorem pe_call2_t (w ld lr c : Addr) (d t : List EquivLean.Cobol.Rec.FVal) (s : Model.St)
+    (args : List Value) (σ0 : State) (fr : Frame) (σ : State)
+    (hI : fr.get 1 = some (.ref w) ∧ WsRel σ w ld lr d (Model.pageTotals (peS1 s t)) ∧
+      KeepsNonWs σ0 σ ∧ σ.inits = σ0.inits ∧ σ.statics = σ0.statics ∧
+      σ0.initOf "Cbtrn03c" = .done ∧ σ0.initOf fdC = .done) :
+    peThinWP w ld lr c d t s args σ0 21 fr σ := by
+
+  jvc [peThinWP, peSpecG, peInv, peCallees, zonedSig, add11Sig, writePageTotalsSig,
+    writeGrandTotalsSig, writePageTotalsSpecM, writeGrandTotalsSpecM, wsStepSpec, eofTail_eq, lineVs]
+  all_goals first
+    | exact ⟨Or.inl rfl, rfl⟩
+    | skip
+
+end EquivLean.Modernize.Cbtrn03c.Java.Top

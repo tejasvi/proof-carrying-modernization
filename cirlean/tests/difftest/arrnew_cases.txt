@@ -1,0 +1,22 @@
+# Array new of classes with constructors (arrnew.cpp): a default constructor, a polymorphic class
+# value-initialized and default-initialized, a derived class, a class of two members, one element, an empty
+# list, a size known at run time. Each case is labelled with its expected outcome on the line above it: MATCH,
+# or UB from cirrun on the gap g_dtor: an array cookie (a class with a non-trivial destructor), not modelled.
+# expect MATCH: new Ctor[3]
+arrnew a_ctor 0
+# expect MATCH: new Ctor[n] with n known at run time
+arrnew a_ctor_runtime 0
+# expect MATCH: new Poly[3](): value-initialized polymorphic elements
+arrnew a_poly_value_init 0
+# expect MATCH: new Poly[2]: default-initialized polymorphic elements, a virtual call
+arrnew a_poly_default 0
+# expect MATCH: new Derived[2], a virtual call through a base reference
+arrnew a_derived 0
+# expect MATCH: new Two[2], a class of two members
+arrnew a_two 0
+# expect MATCH: new Ctor[1]
+arrnew a_one 0
+# expect MATCH: new Ctor[3]{}
+arrnew a_list 0
+# expect UB: gap: new Dtor[3] of a class with a non-trivial destructor (an array cookie)
+arrnew g_dtor 0

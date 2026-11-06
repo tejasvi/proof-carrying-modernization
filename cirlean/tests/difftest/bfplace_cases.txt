@@ -1,0 +1,35 @@
+# A structure with bit-fields placed over other objects (bfplace.c; C11 6.5p7): an access through a bit-field has
+# the field's declared type, whatever storage unit Clang gives it (one byte for struct {unsigned a:4, b:4;}, two
+# for 4 + 8 bits), and touches only the unit's bytes. So unsigned int fields over an unsigned int are defined
+# whatever the unit's size, and over a float or char objects undefined. Each case is labelled with its expected
+# outcome (C's, the bit layout GCC's) on the line above it: MATCH, or UB from cirrun.
+# expect MATCH: unsigned int fields in a one-byte unit over an unsigned int
+bfplace p_bf8_over_unsigned 0
+# expect UB: the same over a float (soundness audit B1; was a character access)
+bfplace p_bf8_over_float 0
+# expect UB: the same over a char array (soundness audit B1)
+bfplace p_bf8_over_chars 0
+# expect UB: a store through such a field over a float (soundness audit B1)
+bfplace p_bf8_store_over_float 0
+# expect MATCH: 4 + 8 bits, a two-byte unit, over an unsigned int (soundness audit B2; was UB)
+bfplace p_bf12_over_unsigned 0
+# expect MATCH: a store into the 8-bit field over an unsigned int (soundness audit B2; was UB)
+bfplace p_bf12_store_over_unsigned 0
+# expect MATCH: 4 + 20 bits over an unsigned int
+bfplace p_bf24_over_unsigned 0
+# expect MATCH: 16 + 16 bits over an unsigned int
+bfplace p_bf32_over_unsigned 0
+# expect MATCH: int fields in a one-byte unit over an int
+bfplace p_bfi_over_int 0
+# expect UB: 4 + 8 bits over an unsigned short array (unsigned int lvalues over unsigned short objects)
+bfplace p_bf12_over_ushort 0
+# expect UB: int fields over a char array
+bfplace p_bfi_over_chars 0
+# expect MATCH: a _Bool field over a _Bool
+bfplace p_bfb_over_bool 0
+# expect MATCH: an unsigned char field over a float (a character lvalue)
+bfplace p_bfc_over_float 0
+# expect MATCH: control, the fields of a structure object
+bfplace p_bf12_object 0
+# expect MATCH: control, a structure object's unit read through its bytes
+bfplace p_bf12_bytes 0

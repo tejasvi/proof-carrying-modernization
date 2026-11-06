@@ -1,0 +1,106 @@
+public class org.apache.thrift.TSerializer extends java.lang.Object
+{
+    private final java.io.ByteArrayOutputStream baos_;
+    private final org.apache.thrift.protocol.TProtocol protocol_;
+
+    public 'void' <init>() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TSerializer this;
+        org.apache.thrift.protocol.TBinaryProtocol$Factory $r0;
+
+        this := @this: org.apache.thrift.TSerializer;
+
+        $r0 = new org.apache.thrift.protocol.TBinaryProtocol$Factory;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TBinaryProtocol$Factory: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.TSerializer: 'void' <init>(org.apache.thrift.protocol.TProtocolFactory)>($r0);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocolFactory) throws org.apache.thrift.transport.TTransportException
+    {
+        java.io.ByteArrayOutputStream $r0;
+        org.apache.thrift.TConfiguration $r1;
+        org.apache.thrift.protocol.TProtocol $r3;
+        org.apache.thrift.TSerializer this;
+        org.apache.thrift.transport.TIOStreamTransport transport_;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+
+        this := @this: org.apache.thrift.TSerializer;
+
+        protocolFactory := @parameter0: org.apache.thrift.protocol.TProtocolFactory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $r0.<java.io.ByteArrayOutputStream: 'void' <init>()>();
+
+        this.<org.apache.thrift.TSerializer: java.io.ByteArrayOutputStream baos_> = $r0;
+
+        transport_ = new org.apache.thrift.transport.TIOStreamTransport;
+
+        $r1 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r1.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        $r0 = this.<org.apache.thrift.TSerializer: java.io.ByteArrayOutputStream baos_>;
+
+        specialinvoke transport_.<org.apache.thrift.transport.TIOStreamTransport: 'void' <init>(org.apache.thrift.TConfiguration,java.io.OutputStream)>($r1, $r0);
+
+        $r3 = interfaceinvoke protocolFactory.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(transport_);
+
+        this.<org.apache.thrift.TSerializer: org.apache.thrift.protocol.TProtocol protocol_> = $r3;
+
+        return;
+    }
+
+    public 'byte'[] serialize(org.apache.thrift.TBase) throws org.apache.thrift.TException
+    {
+        'byte'[] $r3;
+        java.io.ByteArrayOutputStream $r0;
+        org.apache.thrift.protocol.TProtocol $r1;
+        org.apache.thrift.TSerializer this;
+        org.apache.thrift.TBase base;
+
+        this := @this: org.apache.thrift.TSerializer;
+
+        base := @parameter0: org.apache.thrift.TBase;
+
+        $r0 = this.<org.apache.thrift.TSerializer: java.io.ByteArrayOutputStream baos_>;
+
+        virtualinvoke $r0.<java.io.ByteArrayOutputStream: 'void' reset()>();
+
+        $r1 = this.<org.apache.thrift.TSerializer: org.apache.thrift.protocol.TProtocol protocol_>;
+
+        interfaceinvoke base.<org.apache.thrift.TBase: 'void' write(org.apache.thrift.protocol.TProtocol)>($r1);
+
+        $r0 = this.<org.apache.thrift.TSerializer: java.io.ByteArrayOutputStream baos_>;
+
+        $r3 = virtualinvoke $r0.<java.io.ByteArrayOutputStream: 'byte'[] toByteArray()>();
+
+        return $r3;
+    }
+
+    public java.lang.String toString(org.apache.thrift.TBase) throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.TSerializer this;
+        java.lang.String $r0;
+        org.apache.thrift.TBase base;
+
+        this := @this: org.apache.thrift.TSerializer;
+
+        base := @parameter0: org.apache.thrift.TBase;
+
+        $r0 = new java.lang.String;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.TSerializer: 'byte'[] serialize(org.apache.thrift.TBase)>(base);
+
+        specialinvoke $r0.<java.lang.String: 'void' <init>('byte'[])>($r1);
+
+        return $r0;
+    }
+}

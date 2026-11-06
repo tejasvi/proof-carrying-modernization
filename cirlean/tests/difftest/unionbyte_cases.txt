@@ -1,0 +1,17 @@
+# Character arithmetic into a union (unionbyte.c): a char pointer at a byte of a union is canonical in the union's
+# active member (the first that holds a value) when the byte lies inside it, so converted back it designates the
+# subobject that starts there, as in a structure; a byte inside a scalar, or past the active member, stays a byte
+# view. The pointer is made canonical when the arithmetic happens. Each case is labelled with its expected outcome
+# on the line above it: MATCH, or UB from cirrun.
+# expect MATCH: a short pointer at byte 2 of a union whose short array is active, read (soundness audit F10; was UB)
+unionbyte u_member_char_offset 0
+# expect MATCH: a store through that pointer
+unionbyte u_member_store 0
+# expect MATCH: the char pointer itself reads the first byte of s[1]
+unionbyte u_member_char_read 0
+# expect UB: the int member active, a short at its byte 2 (half of the int; 6.5p7)
+unionbyte u_int_half 0
+# expect UB: gap, a byte past the active member (C: an unspecified value, 6.2.6.1p7; not modelled)
+unionbyte u_past_active 0
+# expect UB: gap, the pointer formed while no member held a value stays a byte view of member i after s is stored (C: 5)
+unionbyte u_formed_before 0

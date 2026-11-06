@@ -1,0 +1,150 @@
+public class org.apache.thrift.transport.sasl.TSaslServerFactory extends java.lang.Object
+{
+    private final java.util.Map saslMechanisms;
+
+    public 'void' <init>()
+    {
+        java.util.HashMap $r0;
+        org.apache.thrift.transport.sasl.TSaslServerFactory this;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslServerFactory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.sasl.TSaslServerFactory: java.util.Map saslMechanisms> = $r0;
+
+        return;
+    }
+
+    public 'void' addSaslMechanism(java.lang.String, java.lang.String, java.lang.String, java.util.Map, javax.security.auth.callback.CallbackHandler)
+    {
+        javax.security.auth.callback.CallbackHandler cbh;
+        java.util.Map props;
+        org.apache.thrift.transport.sasl.TSaslServerDefinition definition;
+        java.lang.String mechanism, protocol, serverName;
+        org.apache.thrift.transport.sasl.TSaslServerFactory this;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslServerFactory;
+
+        mechanism := @parameter0: java.lang.String;
+
+        protocol := @parameter1: java.lang.String;
+
+        serverName := @parameter2: java.lang.String;
+
+        props := @parameter3: java.util.Map;
+
+        cbh := @parameter4: javax.security.auth.callback.CallbackHandler;
+
+        definition = new org.apache.thrift.transport.sasl.TSaslServerDefinition;
+
+        specialinvoke definition.<org.apache.thrift.transport.sasl.TSaslServerDefinition: 'void' <init>(java.lang.String,java.lang.String,java.lang.String,java.util.Map,javax.security.auth.callback.CallbackHandler)>(mechanism, protocol, serverName, props, cbh);
+
+        props = this.<org.apache.thrift.transport.sasl.TSaslServerFactory: java.util.Map saslMechanisms>;
+
+        mechanism = definition.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.lang.String mechanism>;
+
+        interfaceinvoke props.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(mechanism, definition);
+
+        return;
+    }
+
+    public org.apache.thrift.transport.sasl.ServerSaslPeer getSaslPeer(java.lang.String) throws org.apache.thrift.transport.sasl.TSaslNegotiationException
+    {
+        javax.security.sasl.SaslException saslServer;
+        javax.security.auth.callback.CallbackHandler $r13;
+        java.util.Map $r0;
+        java.lang.String mechanism, $r9, $r10, $r11;
+        org.apache.thrift.transport.sasl.TSaslServerFactory this;
+        'boolean' $z0;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r2;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException $r1;
+        org.apache.thrift.transport.sasl.ServerSaslPeer $r14;
+        org.apache.thrift.transport.sasl.TSaslServerDefinition saslDef;
+        java.lang.StringBuilder $r3;
+        java.lang.Object $r8;
+        javax.security.sasl.SaslServer saslServer#1;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslServerFactory;
+
+        mechanism := @parameter0: java.lang.String;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.TSaslServerFactory: java.util.Map saslMechanisms>;
+
+        $z0 = interfaceinvoke $r0.<java.util.Map: 'boolean' containsKey(java.lang.Object)>(mechanism);
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        $r2 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType MECHANISME_MISMATCH>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unsupported mechanism ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(mechanism);
+
+        mechanism = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<org.apache.thrift.transport.sasl.TSaslNegotiationException: 'void' <init>(org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType,java.lang.String)>($r2, mechanism);
+
+        throw $r1;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.sasl.TSaslServerFactory: java.util.Map saslMechanisms>;
+
+        $r8 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>(mechanism);
+
+        saslDef = (org.apache.thrift.transport.sasl.TSaslServerDefinition) $r8;
+
+        $r9 = saslDef.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.lang.String mechanism>;
+
+        $r10 = saslDef.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.lang.String protocol>;
+
+        $r11 = saslDef.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.lang.String serverName>;
+
+        $r0 = saslDef.<org.apache.thrift.transport.sasl.TSaslServerDefinition: java.util.Map props>;
+
+        $r13 = saslDef.<org.apache.thrift.transport.sasl.TSaslServerDefinition: javax.security.auth.callback.CallbackHandler cbh>;
+
+     label2:
+        saslServer#1 = staticinvoke <javax.security.sasl.Sasl: javax.security.sasl.SaslServer createSaslServer(java.lang.String,java.lang.String,java.lang.String,java.util.Map,javax.security.auth.callback.CallbackHandler)>($r9, $r10, $r11, $r0, $r13);
+
+        $r14 = new org.apache.thrift.transport.sasl.ServerSaslPeer;
+
+        specialinvoke $r14.<org.apache.thrift.transport.sasl.ServerSaslPeer: 'void' <init>(javax.security.sasl.SaslServer)>(saslServer#1);
+
+     label3:
+        return $r14;
+
+     label4:
+        saslServer := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        $r2 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType PROTOCOL_ERROR>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Fail to create sasl server ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(mechanism);
+
+        mechanism = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<org.apache.thrift.transport.sasl.TSaslNegotiationException: 'void' <init>(org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType,java.lang.String,java.lang.Throwable)>($r2, mechanism, saslServer);
+
+        throw $r1;
+
+        catch javax.security.sasl.SaslException from label2 to label3 with label4;
+    }
+}

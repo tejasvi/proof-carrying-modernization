@@ -1,0 +1,383 @@
+public final class org.apache.thrift.transport.TMemoryInputTransport extends org.apache.thrift.transport.TEndpointTransport
+{
+    private 'byte'[] buf_;
+    private 'int' pos_;
+    private 'int' endPos_;
+
+    public 'void' <init>() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.TConfiguration _configuration;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        _configuration := @parameter0: org.apache.thrift.TConfiguration;
+
+        $r0 = newarray ('byte')[0];
+
+        specialinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration,'byte'[])>(_configuration, $r0);
+
+        return;
+    }
+
+    public 'void' <init>('byte'[]) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration,'byte'[])>($r0, buf);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration, 'byte'[]) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.TConfiguration _configuration;
+        'int' $i0;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        _configuration := @parameter0: org.apache.thrift.TConfiguration;
+
+        buf := @parameter1: 'byte'[];
+
+        $i0 = lengthof buf;
+
+        specialinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration,'byte'[],'int','int')>(_configuration, buf, 0, $i0);
+
+        return;
+    }
+
+    public 'void' <init>('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.TConfiguration $r0;
+        'int' offset, length;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        length := @parameter2: 'int';
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration,'byte'[],'int','int')>($r0, buf, offset, length);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration, 'byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.TConfiguration _configuration;
+        'int' offset, length;
+        'long' $l0;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        _configuration := @parameter0: org.apache.thrift.TConfiguration;
+
+        buf := @parameter1: 'byte'[];
+
+        offset := @parameter2: 'int';
+
+        length := @parameter3: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(_configuration);
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[],'int','int')>(buf, offset, length);
+
+        $l0 = ('long') length;
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' updateKnownMessageSize('long')>($l0);
+
+        return;
+    }
+
+    public 'void' reset('byte'[])
+    {
+        'int' $i0;
+        'byte'[] buf;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        $i0 = lengthof buf;
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[],'int','int')>(buf, 0, $i0);
+
+        return;
+    }
+
+    public 'void' reset('byte'[], 'int', 'int')
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' offset, length;
+        'long' $l1;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        length := @parameter2: 'int';
+
+        this.<org.apache.thrift.transport.TMemoryInputTransport: 'byte'[] buf_> = buf;
+
+        this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' pos_> = offset;
+
+        offset = offset + length;
+
+        this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' endPos_> = offset;
+
+     label1:
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' resetConsumedMessageSize('long')>(-1L);
+
+        $l1 = ('long') length;
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' updateKnownMessageSize('long')>($l1);
+
+     label2:
+        goto label4;
+
+     label3:
+        $r0 := @caughtexception;
+
+     label4:
+        return;
+
+        catch org.apache.thrift.transport.TTransportException from label1 to label2 with label3;
+    }
+
+    public 'void' clear()
+    {
+        org.apache.thrift.transport.TMemoryInputTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        this.<org.apache.thrift.transport.TMemoryInputTransport: 'byte'[] buf_> = null;
+
+     label1:
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' resetConsumedMessageSize('long')>(-1L);
+
+     label2:
+        goto label4;
+
+     label3:
+        $r0 := @caughtexception;
+
+     label4:
+        return;
+
+        catch org.apache.thrift.transport.TTransportException from label1 to label2 with label3;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        return;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        return 1;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        return;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf, $r0;
+        'int' off, len, bytesRemaining;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        bytesRemaining = virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if len > bytesRemaining goto label1;
+
+        bytesRemaining = len;
+
+     label1:
+        if bytesRemaining <= 0 goto label2;
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'byte'[] buf_>;
+
+        len = this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' pos_>;
+
+        staticinvoke <java.lang.System: 'void' arraycopy(java.lang.Object,'int',java.lang.Object,'int','int')>($r0, len, buf, off, bytesRemaining);
+
+        virtualinvoke this.<org.apache.thrift.transport.TMemoryInputTransport: 'void' consumeBuffer('int')>(bytesRemaining);
+
+     label2:
+        return bytesRemaining;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        java.lang.UnsupportedOperationException $r0;
+        'int' off, len;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r0.<java.lang.UnsupportedOperationException: 'void' <init>(java.lang.String)>("No writing allowed!");
+
+        throw $r0;
+    }
+
+    public 'byte'[] getBuffer()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'byte'[] buf_>;
+
+        return $r0;
+    }
+
+    public 'int' getBufferPosition()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        $i0 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' pos_>;
+
+        return $i0;
+    }
+
+    public 'int' getBytesRemainingInBuffer()
+    {
+        'int' $i0, $i1;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        $i0 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' endPos_>;
+
+        $i1 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' pos_>;
+
+        $i0 = $i0 - $i1;
+
+        return $i0;
+    }
+
+    public 'void' consumeBuffer('int')
+    {
+        'byte' $b4;
+        'int' len, $i0;
+        'long' $l2, $l3;
+        org.apache.thrift.transport.TMemoryInputTransport this;
+
+        this := @this: org.apache.thrift.transport.TMemoryInputTransport;
+
+        len := @parameter0: 'int';
+
+        $i0 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' pos_>;
+
+        $i0 = $i0 + len;
+
+        this.<org.apache.thrift.transport.TMemoryInputTransport: 'int' pos_> = $i0;
+
+        $l2 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'long' remainingMessageSize>;
+
+        $l3 = ('long') len;
+
+        $b4 = $l2 cmp $l3;
+
+        $i0 = ('int') $b4;
+
+        if $i0 < 0 goto label1;
+
+        $l2 = this.<org.apache.thrift.transport.TMemoryInputTransport: 'long' remainingMessageSize>;
+
+        $l3 = ('long') len;
+
+        $l2 = $l2 - $l3;
+
+        this.<org.apache.thrift.transport.TMemoryInputTransport: 'long' remainingMessageSize> = $l2;
+
+        goto label2;
+
+     label1:
+        this.<org.apache.thrift.transport.TMemoryInputTransport: 'long' remainingMessageSize> = 0L;
+
+     label2:
+        return;
+    }
+}

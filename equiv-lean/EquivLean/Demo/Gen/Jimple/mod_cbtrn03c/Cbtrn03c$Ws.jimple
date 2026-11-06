@@ -1,0 +1,50 @@
+final class Cbtrn03c$Ws extends java.lang.Object
+{
+    java.util.List displays;
+    java.util.List writes;
+    'boolean' firstTime;
+    java.lang.String currCardNum;
+    'long' xrefAcctId;
+    'long' lineCounter;
+    'long' pageTotal;
+    'long' accountTotal;
+    'long' grandTotal;
+    java.lang.String startDate;
+    java.lang.String endDate;
+
+    private 'void' <init>()
+    {
+        Cbtrn03c$Ws r0;
+        java.lang.String $r1;
+
+        r0 := @this: Cbtrn03c$Ws;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn03c$Ws: 'boolean' firstTime> = 1;
+
+        $r1 = staticinvoke <Cbtrn03c: java.lang.String spaces('int')>(16);
+
+        r0.<Cbtrn03c$Ws: java.lang.String currCardNum> = $r1;
+
+        r0.<Cbtrn03c$Ws: 'long' xrefAcctId> = 0L;
+
+        r0.<Cbtrn03c$Ws: 'long' lineCounter> = 0L;
+
+        r0.<Cbtrn03c$Ws: 'long' pageTotal> = 0L;
+
+        r0.<Cbtrn03c$Ws: 'long' accountTotal> = 0L;
+
+        r0.<Cbtrn03c$Ws: 'long' grandTotal> = 0L;
+
+        $r1 = staticinvoke <Cbtrn03c: java.lang.String spaces('int')>(10);
+
+        r0.<Cbtrn03c$Ws: java.lang.String startDate> = $r1;
+
+        $r1 = staticinvoke <Cbtrn03c: java.lang.String spaces('int')>(10);
+
+        r0.<Cbtrn03c$Ws: java.lang.String endDate> = $r1;
+
+        return;
+    }
+}

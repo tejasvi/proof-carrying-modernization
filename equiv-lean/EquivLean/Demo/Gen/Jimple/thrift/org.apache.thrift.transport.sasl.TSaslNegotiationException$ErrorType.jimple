@@ -1,0 +1,131 @@
+public final enum class org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType extends java.lang.Enum
+{
+    public static final enum org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType INTERNAL_ERROR;
+    public static final enum org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType PROTOCOL_ERROR;
+    public static final enum org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType MECHANISME_MISMATCH;
+    public static final enum org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType AUTHENTICATION_FAILURE;
+    public final org.apache.thrift.transport.sasl.NegotiationStatus code;
+    private static final org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $VALUES;
+
+    public static org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] values()
+    {
+        java.lang.Object $r1;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $r0;
+
+        $r0 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $VALUES>;
+
+        $r1 = virtualinvoke $r0.<java.lang.Object: java.lang.Object clone()>();
+
+        $r0 = (org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[]) $r1;
+
+        return $r0;
+    }
+
+    public static org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType valueOf(java.lang.String)
+    {
+        java.lang.String name;
+        java.lang.Enum $r0;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r1;
+
+        name := @parameter0: java.lang.String;
+
+        $r0 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "Lorg/apache/thrift/transport/sasl/TSaslNegotiationException$ErrorType;", name);
+
+        $r1 = (org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType) $r0;
+
+        return $r1;
+    }
+
+    private 'void' <init>(java.lang.String, 'int', org.apache.thrift.transport.sasl.NegotiationStatus)
+    {
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType this;
+        org.apache.thrift.transport.sasl.NegotiationStatus code;
+        'int' i0;
+        java.lang.String r0;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType;
+
+        r0 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: 'int';
+
+        code := @parameter2: org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        specialinvoke this.<java.lang.Enum: 'void' <init>(java.lang.String,'int')>(r0, i0);
+
+        this.<org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.NegotiationStatus code> = code;
+
+        return;
+    }
+
+    private static org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $values()
+    {
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $r0;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r1;
+
+        $r0 = newarray (org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType)[4];
+
+        $r1 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType INTERNAL_ERROR>;
+
+        $r0[0] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType PROTOCOL_ERROR>;
+
+        $r0[1] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType MECHANISME_MISMATCH>;
+
+        $r0[2] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType AUTHENTICATION_FAILURE>;
+
+        $r0[3] = $r1;
+
+        return $r0;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $r8;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r0;
+        org.apache.thrift.transport.sasl.NegotiationStatus $r1;
+
+        $r0 = new org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus ERROR>;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: 'void' <init>(java.lang.String,'int',org.apache.thrift.transport.sasl.NegotiationStatus)>("INTERNAL_ERROR", 0, $r1);
+
+        <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType INTERNAL_ERROR> = $r0;
+
+        $r0 = new org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus ERROR>;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: 'void' <init>(java.lang.String,'int',org.apache.thrift.transport.sasl.NegotiationStatus)>("PROTOCOL_ERROR", 1, $r1);
+
+        <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType PROTOCOL_ERROR> = $r0;
+
+        $r0 = new org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus BAD>;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: 'void' <init>(java.lang.String,'int',org.apache.thrift.transport.sasl.NegotiationStatus)>("MECHANISME_MISMATCH", 2, $r1);
+
+        <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType MECHANISME_MISMATCH> = $r0;
+
+        $r0 = new org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType;
+
+        $r1 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus BAD>;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: 'void' <init>(java.lang.String,'int',org.apache.thrift.transport.sasl.NegotiationStatus)>("AUTHENTICATION_FAILURE", 3, $r1);
+
+        <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType AUTHENTICATION_FAILURE> = $r0;
+
+        $r8 = staticinvoke <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $values()>();
+
+        <org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType[] $VALUES> = $r8;
+
+        return;
+    }
+}

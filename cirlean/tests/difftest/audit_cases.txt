@@ -1,0 +1,40 @@
+# Items of rog's audit of next3 (audit.cpp; scratch/soundaudit_n3/FINDINGS.md): M12 fflush of stdin or of a
+# non-stream (undefined), F5 the typeinfo objects of the fundamental types, F6 typeinfo names as strings, N1 one
+# what() string per class, F15 vector left shifts wrapping, N4 memcmp's byte difference. Each case is labelled with
+# its expected outcome on the line above it: MATCH, or UB from cirrun where the C or C++ program is undefined.
+# expect UB: fflush(stdin), an input stream (C11 7.21.5.2p2)
+audit u_fflush_stdin 0
+# expect UB: fflush of an array of longs as a FILE * (7.1.4p1)
+audit u_fflush_not_stream 0
+# expect MATCH: fflush of stdout, stderr and a null pointer: 0
+audit t_fflush_out 0
+# expect MATCH: typeid of int, const int, double, int *, const char *, unsigned long long, bool, void (their typeinfo objects and names), of a variable, and of a class (its name a string)
+audit t_typeid 0
+audit t_typeid 1
+audit t_typeid 2
+audit t_typeid 3
+audit t_typeid 4
+audit t_typeid 5
+audit t_typeid 6
+audit t_typeid 7
+audit t_typeid 8
+audit t_typeid 9
+audit t_typeid 10
+audit t_typeid 11
+# expect MATCH: what() of std::exception twice, of two objects, and of std::bad_alloc: one string each
+audit t_what_same 0
+audit t_what_same 1
+audit t_what_same 2
+# expect MATCH: vector left shifts of negative and large elements wrap
+audit t_vec_shl 0
+audit t_vec_shl 1
+audit t_vec_shl 2
+audit t_vec_shl 3
+# expect UB: a vector shift by the element width
+audit u_vec_shl_count 1
+# expect MATCH: memcmp's result, the difference of the first differing bytes (as unsigned char), as glibc's
+audit t_memcmp 0
+audit t_memcmp 1
+audit t_memcmp 2
+audit t_memcmp 3
+audit t_memcmp 4

@@ -1,0 +1,78 @@
+public final class org.apache.thrift.protocol.TMap extends java.lang.Object
+{
+    public final 'byte' keyType;
+    public final 'byte' valueType;
+    public final 'int' size;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TMap this;
+
+        this := @this: org.apache.thrift.protocol.TMap;
+
+        specialinvoke this.<org.apache.thrift.protocol.TMap: 'void' <init>('byte','byte','int')>(0, 0, 0);
+
+        return;
+    }
+
+    public 'void' <init>('byte', 'byte', 'int')
+    {
+        'byte' k, v;
+        'int' s;
+        org.apache.thrift.protocol.TMap this;
+
+        this := @this: org.apache.thrift.protocol.TMap;
+
+        k := @parameter0: 'byte';
+
+        v := @parameter1: 'byte';
+
+        s := @parameter2: 'int';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TMap: 'byte' keyType> = k;
+
+        this.<org.apache.thrift.protocol.TMap: 'byte' valueType> = v;
+
+        this.<org.apache.thrift.protocol.TMap: 'int' size> = s;
+
+        return;
+    }
+
+    public 'byte' getKeyType()
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TMap this;
+
+        this := @this: org.apache.thrift.protocol.TMap;
+
+        $b0 = this.<org.apache.thrift.protocol.TMap: 'byte' keyType>;
+
+        return $b0;
+    }
+
+    public 'byte' getValueType()
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TMap this;
+
+        this := @this: org.apache.thrift.protocol.TMap;
+
+        $b0 = this.<org.apache.thrift.protocol.TMap: 'byte' valueType>;
+
+        return $b0;
+    }
+
+    public 'int' getSize()
+    {
+        'int' $i0;
+        org.apache.thrift.protocol.TMap this;
+
+        this := @this: org.apache.thrift.protocol.TMap;
+
+        $i0 = this.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        return $i0;
+    }
+}

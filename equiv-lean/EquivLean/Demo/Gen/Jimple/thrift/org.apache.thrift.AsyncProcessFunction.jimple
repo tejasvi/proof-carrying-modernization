@@ -1,0 +1,87 @@
+public abstract class org.apache.thrift.AsyncProcessFunction extends java.lang.Object
+{
+    final java.lang.String methodName;
+
+    public 'void' <init>(java.lang.String)
+    {
+        org.apache.thrift.AsyncProcessFunction this;
+        java.lang.String methodName;
+
+        this := @this: org.apache.thrift.AsyncProcessFunction;
+
+        methodName := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.AsyncProcessFunction: java.lang.String methodName> = methodName;
+
+        return;
+    }
+
+    public abstract 'boolean' isOneway();
+
+    public abstract 'void' start(java.lang.Object, org.apache.thrift.TBase, org.apache.thrift.async.AsyncMethodCallback) throws org.apache.thrift.TException;
+
+    public abstract org.apache.thrift.TBase getEmptyArgsInstance();
+
+    public abstract org.apache.thrift.TBase getEmptyResultInstance();
+
+    public abstract org.apache.thrift.async.AsyncMethodCallback getResultHandler(org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer, 'int');
+
+    public java.lang.String getMethodName()
+    {
+        org.apache.thrift.AsyncProcessFunction this;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.AsyncProcessFunction;
+
+        $r0 = this.<org.apache.thrift.AsyncProcessFunction: java.lang.String methodName>;
+
+        return $r0;
+    }
+
+    public 'void' sendResponse(org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer, org.apache.thrift.TSerializable, 'byte', 'int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TMessage $r0;
+        org.apache.thrift.AsyncProcessFunction this;
+        'byte' type;
+        org.apache.thrift.transport.TTransport $r2;
+        org.apache.thrift.protocol.TProtocol oprot;
+        'int' seqid;
+        org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer fb;
+        org.apache.thrift.TSerializable result;
+        java.lang.String $r1;
+
+        this := @this: org.apache.thrift.AsyncProcessFunction;
+
+        fb := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer;
+
+        result := @parameter1: org.apache.thrift.TSerializable;
+
+        type := @parameter2: 'byte';
+
+        seqid := @parameter3: 'int';
+
+        oprot = virtualinvoke fb.<org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer: org.apache.thrift.protocol.TProtocol getOutputProtocol()>();
+
+        $r0 = new org.apache.thrift.protocol.TMessage;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.AsyncProcessFunction: java.lang.String getMethodName()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>($r1, type, seqid);
+
+        virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage)>($r0);
+
+        interfaceinvoke result.<org.apache.thrift.TSerializable: 'void' write(org.apache.thrift.protocol.TProtocol)>(oprot);
+
+        virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageEnd()>();
+
+        $r2 = virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        virtualinvoke fb.<org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer: 'void' responseReady()>();
+
+        return;
+    }
+}

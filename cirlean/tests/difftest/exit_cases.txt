@@ -1,0 +1,49 @@
+# Program termination: run with MODE=status CASES=exit_cases.txt (exit statuses,
+# cirrun's integer modulo 256). Cases with function `main` are programs with
+# their own main.
+exit_main0 main
+exit_main main
+return_main main
+exits t_exit_direct 0
+exits t_exit_direct 3
+exits t_exit_nested 3
+exits t_exit_nested 0
+exits t_exit_for 2
+exits t_exit_for 20
+exits t_exit_while_cond 3
+exits t_exit_while_cond 9
+exits t_exit_do_cond 2
+exits t_exit_do_cond 9
+exits t_exit_after_printf 3
+exits t_exit_after_printf 0
+exits t_exit_auto_dtor 3
+exits t_exit_auto_dtor 0
+exits t_exit_in_try 3
+exits t_exit_in_try 0
+exits t_exit_switch 1
+exits t_exit_switch 2
+exits t_exit_switch 3
+exits t_exit_from_dtor 5
+exits t_exit_fnptr 4
+exits t_Exit 5
+exits t_quick_exit 6
+exits t_exit_wide 44
+exits t_exit_neg 1
+exits t_return_plain 21
+# The exit sequence (exitseq.cpp, exit_ctor.cpp), each case labelled with its expected outcome:
+# expect MATCH: exit after atexit registrations runs the handlers, the last registered first (12)
+exitseq t_exit_handlers 3
+# expect MATCH: a return from main runs them too (12)
+exitseq t_return_handlers 3
+# expect MATCH: exit reaches the static objects' destructors, which print (45)
+exitseq t_exit_statics 3
+# expect MATCH: a handler registered after the static objects runs before their destructors (145)
+exitseq t_exit_handler_statics 3
+# expect MATCH: _Exit runs no handler and no static destructor (7)
+exitseq t_Exit_skips 7
+# expect MATCH: quick_exit neither (7)
+exitseq t_quick_exit_skips 7
+# expect UB: exit from an atexit handler (C11 7.22.4.4p2); glibc ends with the inner status
+exitseq t_exit_in_handler 3
+# expect MATCH: exit from a constructor runs the exit sequence for what was constructed (42)
+exit_ctor main

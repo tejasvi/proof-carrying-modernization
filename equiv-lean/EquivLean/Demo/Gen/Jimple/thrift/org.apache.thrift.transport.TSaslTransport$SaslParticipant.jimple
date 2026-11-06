@@ -1,0 +1,218 @@
+class org.apache.thrift.transport.TSaslTransport$SaslParticipant extends java.lang.Object
+{
+    public javax.security.sasl.SaslServer saslServer;
+    public javax.security.sasl.SaslClient saslClient;
+
+    public 'void' <init>(javax.security.sasl.SaslServer)
+    {
+        javax.security.sasl.SaslServer saslServer;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        saslServer := @parameter0: javax.security.sasl.SaslServer;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer> = saslServer;
+
+        return;
+    }
+
+    public 'void' <init>(javax.security.sasl.SaslClient)
+    {
+        javax.security.sasl.SaslClient saslClient;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        saslClient := @parameter0: javax.security.sasl.SaslClient;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient> = saslClient;
+
+        return;
+    }
+
+    public 'byte'[] evaluateChallengeOrResponse('byte'[]) throws javax.security.sasl.SaslException
+    {
+        'byte'[] challengeOrResponse;
+        javax.security.sasl.SaslClient $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+        javax.security.sasl.SaslServer $r3;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        challengeOrResponse := @parameter0: 'byte'[];
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        challengeOrResponse = interfaceinvoke $r0.<javax.security.sasl.SaslClient: 'byte'[] evaluateChallenge('byte'[])>(challengeOrResponse);
+
+        return challengeOrResponse;
+
+     label1:
+        $r3 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer>;
+
+        challengeOrResponse = interfaceinvoke $r3.<javax.security.sasl.SaslServer: 'byte'[] evaluateResponse('byte'[])>(challengeOrResponse);
+
+        return challengeOrResponse;
+    }
+
+    public 'boolean' isComplete()
+    {
+        javax.security.sasl.SaslClient $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+        javax.security.sasl.SaslServer $r2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        $z0 = interfaceinvoke $r0.<javax.security.sasl.SaslClient: 'boolean' isComplete()>();
+
+        return $z0;
+
+     label1:
+        $r2 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer>;
+
+        $z0 = interfaceinvoke $r2.<javax.security.sasl.SaslServer: 'boolean' isComplete()>();
+
+        return $z0;
+    }
+
+    public 'void' dispose() throws javax.security.sasl.SaslException
+    {
+        javax.security.sasl.SaslClient $r0;
+        javax.security.sasl.SaslServer $r2;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        interfaceinvoke $r0.<javax.security.sasl.SaslClient: 'void' dispose()>();
+
+        goto label2;
+
+     label1:
+        $r2 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer>;
+
+        interfaceinvoke $r2.<javax.security.sasl.SaslServer: 'void' dispose()>();
+
+     label2:
+        return;
+    }
+
+    public 'byte'[] unwrap('byte'[], 'int', 'int') throws javax.security.sasl.SaslException
+    {
+        'byte'[] buf;
+        javax.security.sasl.SaslClient $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+        'int' off, len;
+        javax.security.sasl.SaslServer $r3;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        buf = interfaceinvoke $r0.<javax.security.sasl.SaslClient: 'byte'[] unwrap('byte'[],'int','int')>(buf, off, len);
+
+        return buf;
+
+     label1:
+        $r3 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer>;
+
+        buf = interfaceinvoke $r3.<javax.security.sasl.SaslServer: 'byte'[] unwrap('byte'[],'int','int')>(buf, off, len);
+
+        return buf;
+    }
+
+    public 'byte'[] wrap('byte'[], 'int', 'int') throws javax.security.sasl.SaslException
+    {
+        'byte'[] buf;
+        javax.security.sasl.SaslClient $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+        'int' off, len;
+        javax.security.sasl.SaslServer $r3;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        buf = interfaceinvoke $r0.<javax.security.sasl.SaslClient: 'byte'[] wrap('byte'[],'int','int')>(buf, off, len);
+
+        return buf;
+
+     label1:
+        $r3 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer>;
+
+        buf = interfaceinvoke $r3.<javax.security.sasl.SaslServer: 'byte'[] wrap('byte'[],'int','int')>(buf, off, len);
+
+        return buf;
+    }
+
+    public java.lang.Object getNegotiatedProperty(java.lang.String)
+    {
+        javax.security.sasl.SaslClient $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant this;
+        java.lang.Object $r2;
+        java.lang.String propName;
+        javax.security.sasl.SaslServer $r3;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        propName := @parameter0: java.lang.String;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        $r2 = interfaceinvoke $r0.<javax.security.sasl.SaslClient: java.lang.Object getNegotiatedProperty(java.lang.String)>(propName);
+
+        return $r2;
+
+     label1:
+        $r3 = this.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer>;
+
+        $r2 = interfaceinvoke $r3.<javax.security.sasl.SaslServer: java.lang.Object getNegotiatedProperty(java.lang.String)>(propName);
+
+        return $r2;
+    }
+}

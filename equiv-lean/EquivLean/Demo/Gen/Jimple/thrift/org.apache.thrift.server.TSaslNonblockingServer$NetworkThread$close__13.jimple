@@ -1,0 +1,48 @@
+public final class org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13 extends java.lang.Object implements java.lang.Runnable
+{
+    org.apache.thrift.transport.TNonblockingTransport cap0;
+
+    public static java.lang.Runnable bootstrap$(org.apache.thrift.transport.TNonblockingTransport)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13 $r1;
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+
+        $r0 := @parameter0: org.apache.thrift.transport.TNonblockingTransport;
+
+        $r1 = new org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13;
+
+        specialinvoke $r1.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13: 'void' <init>(org.apache.thrift.transport.TNonblockingTransport)>($r0);
+
+        return $r1;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TNonblockingTransport)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13 $r0;
+        org.apache.thrift.transport.TNonblockingTransport $r1;
+
+        $r0 := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13;
+
+        $r1 := @parameter0: org.apache.thrift.transport.TNonblockingTransport;
+
+        specialinvoke $r0.<java.lang.Object: 'void' <init>()>();
+
+        $r0.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13: org.apache.thrift.transport.TNonblockingTransport cap0> = $r1;
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13 $r0;
+        org.apache.thrift.transport.TNonblockingTransport $r1;
+
+        $r0 := @this: org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13;
+
+        $r1 = $r0.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread$close__13: org.apache.thrift.transport.TNonblockingTransport cap0>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        return;
+    }
+}

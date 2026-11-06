@@ -1,0 +1,34 @@
+// Compound assignment and update expressions used as values; logical assignment.
+let a = 5n;
+const b = a++;
+const c = ++a;
+console.log(`${a} ${b} ${c}`);
+let s = "x";
+s += "y";
+s += s;
+console.log(s);
+const arr: bigint[] = [1n, 2n, 3n];
+arr[0] += 10n;
+arr[2]++;
+const old = arr[1]--;
+console.log(`${arr.join(",")} old=${old}`);
+class Box { v = 1n; }
+const box = new Box();
+box.v *= 7n;
+const pre = ++box.v;
+console.log(`${box.v} ${pre}`);
+let maybe: string | undefined;
+maybe ??= "set once";
+maybe ??= "not again";
+console.log(maybe);
+let flag = false;
+flag ||= true;
+let other = true;
+other &&= false;
+console.log(`${flag} ${other}`);
+let x = 1n, y = 2n;
+x = y = 9n;
+console.log(`${x} ${y}`);
+let n = 2n;
+n **= 10n; n %= 1000n; n <<= 2n; n >>= 1n; n |= 1n; n &= 0xffn; n ^= 3n;
+console.log(`${n}`);

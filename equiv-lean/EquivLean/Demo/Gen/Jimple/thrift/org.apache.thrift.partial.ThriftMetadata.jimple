@@ -1,0 +1,72 @@
+public class org.apache.thrift.partial.ThriftMetadata extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.partial.ThriftMetadata this;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    static java.lang.IllegalArgumentException fieldNotFoundException(java.lang.String)
+    {
+        java.lang.StringBuilder $r1;
+        java.lang.String fieldName;
+        java.lang.IllegalArgumentException $r0;
+
+        fieldName := @parameter0: java.lang.String;
+
+        $r0 = new java.lang.IllegalArgumentException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("field not found: \'");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(fieldName);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        fieldName = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>(fieldName);
+
+        return $r0;
+    }
+
+    static java.lang.UnsupportedOperationException unsupportedFieldTypeException('byte')
+    {
+        java.lang.UnsupportedOperationException $r0;
+        'byte' fieldType;
+        'int' $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r5;
+
+        fieldType := @parameter0: 'byte';
+
+        $r0 = new java.lang.UnsupportedOperationException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("field type not supported: \'");
+
+        $i0 = ('int') fieldType;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.UnsupportedOperationException: 'void' <init>(java.lang.String)>($r5);
+
+        return $r0;
+    }
+}

@@ -1,0 +1,173 @@
+pair	version	valid	first diagnostic
+2024-06-08_958de0f9_shuffle	old	yes	
+2024-06-08_958de0f9_shuffle	new	yes	
+2024-06-20_92c9db00_round	old	yes	
+2024-06-20_92c9db00_round	new	yes	
+2024-06-28_0c9afc27_compact	old	yes	
+2024-06-28_0c9afc27_compact	new	yes	
+2024-07-18_8e5a4f32_fill	old	yes	
+2024-07-18_8e5a4f32_fill	new	yes	
+2024-07-18_d5c415aa_drop	old	yes	
+2024-07-18_d5c415aa_drop	new	yes	
+2024-07-18_d5c415aa_dropRight	old	yes	
+2024-07-18_d5c415aa_dropRight	new	yes	
+2024-07-21_25cd782b_takeRight	old	yes	
+2024-07-21_25cd782b_takeRight	new	yes	
+2024-08-07_ce412ff9_isEqual	old	yes	
+2024-08-07_ce412ff9_isEqual	new	yes	
+2024-08-10_0054dc81_isPlainObject	old	yes	
+2024-08-10_0054dc81_isPlainObject	new	yes	
+2024-08-31_0fa6ab02_pullAt	old	yes	
+2024-08-31_0fa6ab02_pullAt	new	yes	
+2024-08-31_5bccc517_delay	old	no	Type '{}' is missing the following properties from type 'AbortSignal': aborted, onabort, reason, throwIfAborted, and 3 more.
+2024-08-31_5bccc517_delay	new	no	Type '{}' is missing the following properties from type 'AbortSignal': aborted, onabort, reason, throwIfAborted, and 3 more.
+2024-08-31_6a676986_at	old	yes	
+2024-08-31_6a676986_at	new	yes	
+2024-09-07_ba0d03df_compareValues	old	yes	
+2024-09-07_ba0d03df_compareValues	new	yes	
+2024-09-14_30f8633f_normalizeForCase	old	yes	
+2024-09-14_30f8633f_normalizeForCase	new	yes	
+2024-09-24_1e04c48d_startCase	old	yes	
+2024-09-24_1e04c48d_startCase	new	yes	
+2024-09-26_6fb9b5dd_startCase	old	yes	
+2024-09-26_6fb9b5dd_startCase	new	yes	
+2024-09-29_ac1e79e0_isMatch	old	yes	
+2024-09-29_ac1e79e0_isMatch	new	yes	
+2024-09-29_ded56755_isPlainObject	old	yes	
+2024-09-29_ded56755_isPlainObject	new	yes	
+2024-10-01_63302ce0_merge	old	yes	
+2024-10-01_63302ce0_merge	new	yes	
+2024-10-01_feb5c356_merge	old	yes	
+2024-10-01_feb5c356_merge	new	yes	
+2024-10-09_8ba7fbe4_isPlainObject	old	yes	
+2024-10-09_8ba7fbe4_isPlainObject	new	yes	
+2024-10-14_2f9740eb_copyProperties	old	yes	
+2024-10-14_2f9740eb_copyProperties	new	yes	
+2024-10-14_5b60dbc7_copyProperties	old	yes	
+2024-10-14_5b60dbc7_copyProperties	new	yes	
+2024-10-25_72c7721c_isMatch	old	yes	
+2024-10-25_72c7721c_isMatch	new	yes	
+2024-11-01_b51351f2_zip	old	no	Expected 1-4 arguments, but got 0.
+2024-11-01_b51351f2_zip	new	no	Expected 1-4 arguments, but got 0.
+2024-11-14_ba84918c_trim	old	yes	
+2024-11-14_ba84918c_trim	new	yes	
+2024-11-14_ba84918c_trimEnd	old	yes	
+2024-11-14_ba84918c_trimEnd	new	yes	
+2024-11-14_ba84918c_trimStart	old	yes	
+2024-11-14_ba84918c_trimStart	new	yes	
+2024-12-01_7d9b11d9_flattenObjectImpl	old	yes	
+2024-12-01_7d9b11d9_flattenObjectImpl	new	yes	
+2024-12-04_f7abb57d_stubA	old	yes	
+2024-12-04_f7abb57d_stubA	new	yes	
+2024-12-04_f7abb57d_stubB	old	yes	
+2024-12-04_f7abb57d_stubB	new	yes	
+2024-12-27_2cf3ddaf_mergeWith	old	yes	
+2024-12-27_2cf3ddaf_mergeWith	new	yes	
+2024-12-27_81cf21fb_pull	old	yes	
+2024-12-27_81cf21fb_pull	new	yes	
+2025-03-09_59d76e80_assignInImpl	old	yes	
+2025-03-09_59d76e80_assignInImpl	new	yes	
+2025-03-17_25841dca_divide	old	yes	
+2025-03-17_25841dca_divide	new	yes	
+2025-03-27_4069aa6b_trimEnd	old	yes	
+2025-03-27_4069aa6b_trimEnd	new	yes	
+2025-04-19_470acc29_toKey	old	yes	
+2025-04-19_470acc29_toKey	new	yes	
+2025-04-24_d7d8f2c6_repeat	old	yes	
+2025-04-24_d7d8f2c6_repeat	new	yes	
+2025-04-24_d7d8f2c6_takeRight	old	yes	
+2025-04-24_d7d8f2c6_takeRight	new	yes	
+2025-05-26_eecbdf75_isMatch	old	yes	
+2025-05-26_eecbdf75_isMatch	new	yes	
+2025-06-21_b1dc508f_merge	old	yes	
+2025-06-21_b1dc508f_merge	new	yes	
+2025-07-02_518b685a_values	old	yes	
+2025-07-02_518b685a_values	new	yes	
+2025-09-04_25641b56_toPath	old	yes	
+2025-09-04_25641b56_toPath	new	yes	
+2025-09-04_7175a5f1_repeat	old	no	Argument of type 'boolean' is not assignable to parameter of type 'string'.
+2025-09-04_7175a5f1_repeat	new	no	Argument of type 'boolean' is not assignable to parameter of type 'string'.
+2025-11-20_0377ff18_camelCase	old	yes	
+2025-11-20_0377ff18_camelCase	new	yes	
+2025-11-20_0377ff18_kebabCase	old	yes	
+2025-11-20_0377ff18_kebabCase	new	yes	
+2025-11-20_0377ff18_lowerCase	old	yes	
+2025-11-20_0377ff18_lowerCase	new	yes	
+2025-11-20_0377ff18_snakeCase	old	yes	
+2025-11-20_0377ff18_snakeCase	new	yes	
+2025-11-20_0377ff18_startCase	old	yes	
+2025-11-20_0377ff18_startCase	new	yes	
+2025-11-20_0377ff18_upperCase	old	yes	
+2025-11-20_0377ff18_upperCase	new	yes	
+2025-12-12_89b5a00e_merge	old	yes	
+2025-12-12_89b5a00e_merge	new	yes	
+2025-12-18_5625eb25_clamp	old	yes	
+2025-12-18_5625eb25_clamp	new	yes	
+2026-01-15_a46806bb_zipWith	old	no	Expected 2-5 arguments, but got 1.
+2026-01-15_a46806bb_zipWith	new	no	Expected 2-5 arguments, but got 1.
+2026-01-16_5fa79749_flattenObjectImpl	old	yes	
+2026-01-16_5fa79749_flattenObjectImpl	new	yes	
+2026-05-31_031f8cf2_compareValues	old	yes	
+2026-05-31_031f8cf2_compareValues	new	yes	
+2026-06-07_c9504368_random	old	no	No overload matches this call. Overload 1 of 4, '(floating?: boolean | undefined): number', gave the following error. Argument of type '{}' is not assignable to
+2026-06-07_c9504368_random	new	no	No overload matches this call. Overload 1 of 4, '(floating?: boolean | undefined): number', gave the following error. Argument of type '{}' is not assignable to
+2026-06-07_cb464cc3_toLength	old	yes	
+2026-06-07_cb464cc3_toLength	new	yes	
+2026-06-11_b2673a29_decimalAdjust	old	yes	
+2026-06-11_b2673a29_decimalAdjust	new	yes	
+2026-06-19_27fa6805_toPath	old	yes	
+2026-06-19_27fa6805_toPath	new	yes	
+2026-06-22_2733faf3_trimStart	old	yes	
+2026-06-22_2733faf3_trimStart	new	yes	
+2026-06-24_e008a281_random	old	no	No overload matches this call. Overload 1 of 4, '(max: number, floating?: boolean | undefined): number', gave the following error. Argument of type 'undefined' 
+2026-06-24_e008a281_random	new	no	No overload matches this call. Overload 1 of 4, '(max: number, floating?: boolean | undefined): number', gave the following error. Argument of type 'undefined' 
+2026-06-27_4f5e0074_deburr	old	yes	
+2026-06-27_4f5e0074_deburr	new	yes	
+2026-07-01_5b339aa6_inRange	old	yes	
+2026-07-01_5b339aa6_inRange	new	yes	
+2026-07-05_76c1b728_camelCase	old	yes	
+2026-07-05_76c1b728_camelCase	new	yes	
+2026-07-05_76c1b728_kebabCase	old	yes	
+2026-07-05_76c1b728_kebabCase	new	yes	
+2026-07-05_76c1b728_lowerCase	old	yes	
+2026-07-05_76c1b728_lowerCase	new	yes	
+2026-07-05_76c1b728_snakeCase	old	yes	
+2026-07-05_76c1b728_snakeCase	new	yes	
+2026-07-05_76c1b728_upperCase	old	yes	
+2026-07-05_76c1b728_upperCase	new	yes	
+2026-07-09_e4a79cd1_size	old	yes	
+2026-07-09_e4a79cd1_size	new	yes	
+2026-07-09_fb26dbe1_padEnd	old	yes	
+2026-07-09_fb26dbe1_padEnd	new	yes	
+2026-07-09_fb26dbe1_padStart	old	yes	
+2026-07-09_fb26dbe1_padStart	new	yes	
+2026-07-24_ffea687a_intersectionBy	old	yes	
+2026-07-24_ffea687a_intersectionBy	new	yes	
+2026-08-05_43932e61_toString	old	yes	
+2026-08-05_43932e61_toString	new	yes	
+2026-08-08_eabd029d_orderBy	old	yes	
+2026-08-08_eabd029d_orderBy	new	yes	
+2026-08-09_15043d8e_orderBy	old	yes	
+2026-08-09_15043d8e_orderBy	new	yes	
+2026-08-09_341859af_sampleSize	old	yes	
+2026-08-09_341859af_sampleSize	new	yes	
+2026-08-10_2c4c0478_template	old	no	Expected 0-2 arguments, but got 3.
+2026-08-10_2c4c0478_template	new	no	Expected 0-2 arguments, but got 3.
+2026-08-13_323893f2_orderBy	old	no	No overload matches this call. The last overload gave the following error. Argument of type '{}' is not assignable to parameter of type 'Many<ObjectIteratee<{ c
+2026-08-13_323893f2_orderBy	new	no	No overload matches this call. The last overload gave the following error. Argument of type '{}' is not assignable to parameter of type 'Many<ObjectIteratee<{ c
+2026-08-15_dd7fb9fb_size	old	yes	
+2026-08-15_dd7fb9fb_size	new	yes	
+2026-08-16_6d186257_pullAt	old	yes	
+2026-08-16_6d186257_pullAt	new	yes	
+2024-06-13_d7c37c9f_uniq	old	yes	
+2024-06-13_d7c37c9f_uniq	new	yes	
+2024-08-11_5cb0b788_areObjectsEqual	old	yes	
+2024-08-11_5cb0b788_areObjectsEqual	new	yes	
+2024-09-14_0edff252_toPath	old	yes	
+2024-09-14_0edff252_toPath	new	yes	
+2024-09-16_0f26a676_zip	old	no	Expected 1-4 arguments, but got 0.
+2024-09-16_0f26a676_zip	new	no	Expected 1-4 arguments, but got 0.
+2024-09-16_e37b2957_zipWith	old	no	Argument of type 'number' is not assignable to parameter of type 'readonly unknown[]'.
+2024-09-16_e37b2957_zipWith	new	no	Argument of type 'number' is not assignable to parameter of type 'readonly unknown[]'.
+2024-11-07_c739a739_toPath	old	yes	
+2024-11-07_c739a739_toPath	new	yes	

@@ -1,0 +1,8767 @@
+{
+ "name": "CBTRN03C",
+ "config": {
+  "charset": "ebcdic",
+  "zonedSign": "ebcdic",
+  "trunc": "std",
+  "numprocPfd": false,
+  "binaryLE": false,
+  "comp5LE": false,
+  "binary1Byte": false,
+  "sizeErrorTruncates": true
+ },
+ "dialect": {
+  "divExtraForRounded": true
+ },
+ "data": [
+  {
+   "id": 1,
+   "level": 1,
+   "name": "FD-TRANFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 2,
+     "level": 5,
+     "name": "FD-TRANS-DATA",
+     "pic": {
+      "alnum": {
+       "len": 304
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 3,
+     "level": 5,
+     "name": "FD-TRAN-PROC-TS",
+     "pic": {
+      "alnum": {
+       "len": 26
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 4,
+     "level": 5,
+     "name": "FD-FILLER",
+     "pic": {
+      "alnum": {
+       "len": 20
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "level": 1,
+   "name": "FD-CARDXREF-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 6,
+     "level": 5,
+     "name": "FD-XREF-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 7,
+     "level": 5,
+     "name": "FD-XREF-DATA",
+     "pic": {
+      "alnum": {
+       "len": 34
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "level": 1,
+   "name": "FD-TRANTYPE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 9,
+     "level": 5,
+     "name": "FD-TRAN-TYPE",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 10,
+     "level": 5,
+     "name": "FD-TRAN-DATA",
+     "pic": {
+      "alnum": {
+       "len": 58
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "level": 1,
+   "name": "FD-TRAN-CAT-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 12,
+     "level": 5,
+     "name": "FD-TRAN-CAT-KEY",
+     "pic": null,
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": [
+      {
+       "id": 13,
+       "level": 10,
+       "name": "FD-TRAN-TYPE-CD",
+       "pic": {
+        "alnum": {
+         "len": 2
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 14,
+       "level": 10,
+       "name": "FD-TRAN-CAT-CD",
+       "pic": {
+        "num": {
+         "digits": 4,
+         "scale": 0,
+         "signed": false
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": 15,
+     "level": 5,
+     "name": "FD-TRAN-CAT-DATA",
+     "pic": {
+      "alnum": {
+       "len": 54
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "level": 1,
+   "name": "FD-REPTFILE-REC",
+   "pic": {
+    "alnum": {
+     "len": 133
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 17,
+   "level": 1,
+   "name": "FD-DATEPARM-REC",
+   "pic": {
+    "alnum": {
+     "len": 80
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 18,
+   "level": 1,
+   "name": "TRAN-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 19,
+     "level": 5,
+     "name": "TRAN-ID",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 20,
+     "level": 5,
+     "name": "TRAN-TYPE-CD",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 21,
+     "level": 5,
+     "name": "TRAN-CAT-CD",
+     "pic": {
+      "num": {
+       "digits": 4,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 22,
+     "level": 5,
+     "name": "TRAN-SOURCE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 23,
+     "level": 5,
+     "name": "TRAN-DESC",
+     "pic": {
+      "alnum": {
+       "len": 100
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 24,
+     "level": 5,
+     "name": "TRAN-AMT",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 25,
+     "level": 5,
+     "name": "TRAN-MERCHANT-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 26,
+     "level": 5,
+     "name": "TRAN-MERCHANT-NAME",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 27,
+     "level": 5,
+     "name": "TRAN-MERCHANT-CITY",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 28,
+     "level": 5,
+     "name": "TRAN-MERCHANT-ZIP",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 29,
+     "level": 5,
+     "name": "TRAN-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 30,
+     "level": 5,
+     "name": "TRAN-ORIG-TS",
+     "pic": {
+      "alnum": {
+       "len": 26
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 31,
+     "level": 5,
+     "name": "TRAN-PROC-TS",
+     "pic": {
+      "alnum": {
+       "len": 26
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 32,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 20
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 33,
+   "level": 1,
+   "name": "TRANFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 34,
+     "level": 5,
+     "name": "TRANFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 35,
+     "level": 5,
+     "name": "TRANFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 36,
+   "level": 1,
+   "name": "CARD-XREF-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 37,
+     "level": 5,
+     "name": "XREF-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 38,
+     "level": 5,
+     "name": "XREF-CUST-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 39,
+     "level": 5,
+     "name": "XREF-ACCT-ID",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 40,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 14
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 41,
+   "level": 1,
+   "name": "CARDXREF-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 42,
+     "level": 5,
+     "name": "CARDXREF-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 43,
+     "level": 5,
+     "name": "CARDXREF-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 44,
+   "level": 1,
+   "name": "TRAN-TYPE-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 45,
+     "level": 5,
+     "name": "TRAN-TYPE",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 46,
+     "level": 5,
+     "name": "TRAN-TYPE-DESC",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 47,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 8
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 48,
+   "level": 1,
+   "name": "TRANTYPE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 49,
+     "level": 5,
+     "name": "TRANTYPE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 50,
+     "level": 5,
+     "name": "TRANTYPE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 51,
+   "level": 1,
+   "name": "TRAN-CAT-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 52,
+     "level": 5,
+     "name": "TRAN-CAT-KEY",
+     "pic": null,
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": [
+      {
+       "id": 53,
+       "level": 10,
+       "name": "TRAN-TYPE-CD",
+       "pic": {
+        "alnum": {
+         "len": 2
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 54,
+       "level": 10,
+       "name": "TRAN-CAT-CD",
+       "pic": {
+        "num": {
+         "digits": 4,
+         "scale": 0,
+         "signed": false
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": 55,
+     "level": 5,
+     "name": "TRAN-CAT-TYPE-DESC",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 56,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 4
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 57,
+   "level": 1,
+   "name": "TRANCATG-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 58,
+     "level": 5,
+     "name": "TRANCATG-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 59,
+     "level": 5,
+     "name": "TRANCATG-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 60,
+   "level": 1,
+   "name": "REPORT-NAME-HEADER",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 61,
+     "level": 5,
+     "name": "REPT-SHORT-NAME",
+     "pic": {
+      "alnum": {
+       "len": 38
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        196,
+        193,
+        211,
+        232,
+        217,
+        197,
+        215,
+        227
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 62,
+     "level": 5,
+     "name": "REPT-LONG-NAME",
+     "pic": {
+      "alnum": {
+       "len": 41
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        196,
+        129,
+        137,
+        147,
+        168,
+        64,
+        227,
+        153,
+        129,
+        149,
+        162,
+        129,
+        131,
+        163,
+        137,
+        150,
+        149,
+        64,
+        217,
+        133,
+        151,
+        150,
+        153,
+        163
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 63,
+     "level": 5,
+     "name": "REPT-DATE-HEADER",
+     "pic": {
+      "alnum": {
+       "len": 12
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        196,
+        129,
+        163,
+        133,
+        64,
+        217,
+        129,
+        149,
+        135,
+        133,
+        122,
+        64
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 64,
+     "level": 5,
+     "name": "REPT-START-DATE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 65,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 4
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        64,
+        163,
+        150,
+        64
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 66,
+     "level": 5,
+     "name": "REPT-END-DATE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 67,
+   "level": 1,
+   "name": "TRANSACTION-DETAIL-REPORT",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 68,
+     "level": 5,
+     "name": "TRAN-REPORT-TRANS-ID",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 69,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 70,
+     "level": 5,
+     "name": "TRAN-REPORT-ACCOUNT-ID",
+     "pic": {
+      "alnum": {
+       "len": 11
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 71,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 72,
+     "level": 5,
+     "name": "TRAN-REPORT-TYPE-CD",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 73,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        96
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 74,
+     "level": 5,
+     "name": "TRAN-REPORT-TYPE-DESC",
+     "pic": {
+      "alnum": {
+       "len": 15
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 75,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 76,
+     "level": 5,
+     "name": "TRAN-REPORT-CAT-CD",
+     "pic": {
+      "num": {
+       "digits": 4,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 77,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        96
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 78,
+     "level": 5,
+     "name": "TRAN-REPORT-CAT-DESC",
+     "pic": {
+      "alnum": {
+       "len": 29
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 79,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 80,
+     "level": 5,
+     "name": "TRAN-REPORT-SOURCE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 81,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 4
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 82,
+     "level": 5,
+     "name": "TRAN-REPORT-AMT",
+     "pic": {
+      "numEdited": {
+       "pic": [
+        "minus",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "dot",
+        "z",
+        "z"
+       ]
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 83,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 84,
+   "level": 1,
+   "name": "TRANSACTION-HEADER-1",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 85,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 17
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        227,
+        153,
+        129,
+        149,
+        162,
+        129,
+        131,
+        163,
+        137,
+        150,
+        149,
+        64,
+        201,
+        196
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 86,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 12
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        193,
+        131,
+        131,
+        150,
+        164,
+        149,
+        163,
+        64,
+        201,
+        196
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 87,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 19
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        227,
+        153,
+        129,
+        149,
+        162,
+        129,
+        131,
+        163,
+        137,
+        150,
+        149,
+        64,
+        227,
+        168,
+        151,
+        133
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 88,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 35
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        227,
+        153,
+        129,
+        149,
+        64,
+        195,
+        129,
+        163,
+        133,
+        135,
+        150,
+        153,
+        168
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 89,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 14
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        227,
+        153,
+        129,
+        149,
+        64,
+        226,
+        150,
+        164,
+        153,
+        131,
+        133
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 90,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 91,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        193,
+        148,
+        150,
+        164,
+        149,
+        163
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 92,
+   "level": 1,
+   "name": "TRANSACTION-HEADER-2",
+   "pic": {
+    "alnum": {
+     "len": 133
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": {
+    "fig": {
+     "f": {
+      "all": {
+       "bs": [
+        96
+       ]
+      }
+     }
+    }
+   },
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 93,
+   "level": 1,
+   "name": "REPORT-PAGE-TOTALS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 94,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 11
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        215,
+        129,
+        135,
+        133,
+        64,
+        227,
+        150,
+        163,
+        129,
+        147
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 95,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 86
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": {
+        "all": {
+         "bs": [
+          75
+         ]
+        }
+       }
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 96,
+     "level": 5,
+     "name": "REPT-PAGE-TOTAL",
+     "pic": {
+      "numEdited": {
+       "pic": [
+        "plus",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "dot",
+        "z",
+        "z"
+       ]
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 97,
+   "level": 1,
+   "name": "REPORT-ACCOUNT-TOTALS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 98,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 13
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        193,
+        131,
+        131,
+        150,
+        164,
+        149,
+        163,
+        64,
+        227,
+        150,
+        163,
+        129,
+        147
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 99,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 84
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": {
+        "all": {
+         "bs": [
+          75
+         ]
+        }
+       }
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 100,
+     "level": 5,
+     "name": "REPT-ACCOUNT-TOTAL",
+     "pic": {
+      "numEdited": {
+       "pic": [
+        "plus",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "dot",
+        "z",
+        "z"
+       ]
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 101,
+   "level": 1,
+   "name": "REPORT-GRAND-TOTALS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 102,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 11
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        199,
+        153,
+        129,
+        149,
+        132,
+        64,
+        227,
+        150,
+        163,
+        129,
+        147
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 103,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 86
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": {
+        "all": {
+         "bs": [
+          75
+         ]
+        }
+       }
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 104,
+     "level": 5,
+     "name": "REPT-GRAND-TOTAL",
+     "pic": {
+      "numEdited": {
+       "pic": [
+        "plus",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "comma",
+        "z",
+        "z",
+        "z",
+        "dot",
+        "z",
+        "z"
+       ]
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 105,
+   "level": 1,
+   "name": "TRANREPT-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 106,
+     "level": 5,
+     "name": "REPTFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 107,
+     "level": 5,
+     "name": "REPTFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 108,
+   "level": 1,
+   "name": "DATEPARM-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 109,
+     "level": 5,
+     "name": "DATEPARM-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 110,
+     "level": 5,
+     "name": "DATEPARM-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 111,
+   "level": 1,
+   "name": "WS-DATEPARM-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 112,
+     "level": 5,
+     "name": "WS-START-DATE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 113,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 114,
+     "level": 5,
+     "name": "WS-END-DATE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 115,
+   "level": 1,
+   "name": "WS-REPORT-VARS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 116,
+     "level": 5,
+     "name": "WS-FIRST-TIME",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        232
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 117,
+     "level": 5,
+     "name": "WS-LINE-COUNTER",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "packed",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 118,
+     "level": 5,
+     "name": "WS-PAGE-SIZE",
+     "pic": {
+      "num": {
+       "digits": 3,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "packed",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 20,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 119,
+     "level": 5,
+     "name": "WS-BLANK-LINE",
+     "pic": {
+      "alnum": {
+       "len": 133
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 120,
+     "level": 5,
+     "name": "WS-PAGE-TOTAL",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 121,
+     "level": 5,
+     "name": "WS-ACCOUNT-TOTAL",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 122,
+     "level": 5,
+     "name": "WS-GRAND-TOTAL",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 123,
+     "level": 5,
+     "name": "WS-CURR-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 124,
+   "level": 1,
+   "name": "IO-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 125,
+     "level": 5,
+     "name": "IO-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 126,
+     "level": 5,
+     "name": "IO-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 127,
+   "level": 1,
+   "name": "TWO-BYTES-BINARY",
+   "pic": {
+    "num": {
+     "digits": 4,
+     "scale": 0,
+     "signed": false
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 128,
+   "level": 1,
+   "name": "TWO-BYTES-ALPHA",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": 127,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 129,
+     "level": 5,
+     "name": "TWO-BYTES-LEFT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 130,
+     "level": 5,
+     "name": "TWO-BYTES-RIGHT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 131,
+   "level": 1,
+   "name": "IO-STATUS-04",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 132,
+     "level": 5,
+     "name": "IO-STATUS-0401",
+     "pic": {
+      "num": {
+       "digits": 1,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 133,
+     "level": 5,
+     "name": "IO-STATUS-0403",
+     "pic": {
+      "num": {
+       "digits": 3,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 134,
+   "level": 1,
+   "name": "APPL-RESULT",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [
+    [
+     135,
+     [
+      "APPL-AOK",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 0,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ],
+    [
+     136,
+     [
+      "APPL-EOF",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 16,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": 137,
+   "level": 1,
+   "name": "END-OF-FILE",
+   "pic": {
+    "alnum": {
+     "len": 1
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": {
+    "alnum": {
+     "bs": [
+      213
+     ]
+    }
+   },
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 138,
+   "level": 1,
+   "name": "ABCODE",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 139,
+   "level": 1,
+   "name": "TIMING",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  }
+ ],
+ "paras": [
+  {
+   "name": "",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "START OF EXECUTION OF PROGRAM CBTRN03C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0000-TRANFILE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0100-REPTFILE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0200-CARDXREF-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0300-TRANTYPE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0400-TRANCATG-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0500-DATEPARM-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0550-DATEPARM-READ",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "performInline": {
+       "body": [
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": "=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 137,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "lit": {
+              "l": {
+               "str": {
+                "s": "N"
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           {
+            "perform": {
+             "first": "1000-TRANFILE-GET-NEXT",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "ite": {
+             "c": {
+              "and": {
+               "a": {
+                "rel": {
+                 "op": ">=",
+                 "a": {
+                  "ref": {
+                   "r": {
+                    "item": 31,
+                    "subs": [],
+                    "refStart": {
+                     "lit": {
+                      "n": 1
+                     }
+                    },
+                    "refLen": {
+                     "lit": {
+                      "n": 10
+                     }
+                    }
+                   }
+                  }
+                 },
+                 "b": {
+                  "ref": {
+                   "r": {
+                    "item": 112,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                }
+               },
+               "b": {
+                "rel": {
+                 "op": "<=",
+                 "a": {
+                  "ref": {
+                   "r": {
+                    "item": 31,
+                    "subs": [],
+                    "refStart": {
+                     "lit": {
+                      "n": 1
+                     }
+                    },
+                    "refLen": {
+                     "lit": {
+                      "n": 10
+                     }
+                    }
+                   }
+                  }
+                 },
+                 "b": {
+                  "ref": {
+                   "r": {
+                    "item": 114,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             },
+             "t": [
+              "cont"
+             ],
+             "e": [
+              "nextSentence"
+             ]
+            }
+           },
+           {
+            "ite": {
+             "c": {
+              "rel": {
+               "op": "=",
+               "a": {
+                "ref": {
+                 "r": {
+                  "item": 137,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                }
+               },
+               "b": {
+                "lit": {
+                 "l": {
+                  "str": {
+                   "s": "N"
+                  }
+                 }
+                }
+               }
+              }
+             },
+             "t": [
+              {
+               "display": {
+                "ops": [
+                 {
+                  "ref": {
+                   "r": {
+                    "item": 18,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                ]
+               }
+              },
+              {
+               "ite": {
+                "c": {
+                 "rel": {
+                  "op": "<>",
+                  "a": {
+                   "ref": {
+                    "r": {
+                     "item": 123,
+                     "subs": [],
+                     "refStart": null,
+                     "refLen": null
+                    }
+                   }
+                  },
+                  "b": {
+                   "ref": {
+                    "r": {
+                     "item": 29,
+                     "subs": [],
+                     "refStart": null,
+                     "refLen": null
+                    }
+                   }
+                  }
+                 }
+                },
+                "t": [
+                 {
+                  "ite": {
+                   "c": {
+                    "rel": {
+                     "op": "=",
+                     "a": {
+                      "ref": {
+                       "r": {
+                        "item": 116,
+                        "subs": [],
+                        "refStart": null,
+                        "refLen": null
+                       }
+                      }
+                     },
+                     "b": {
+                      "lit": {
+                       "l": {
+                        "str": {
+                         "s": "N"
+                        }
+                       }
+                      }
+                     }
+                    }
+                   },
+                   "t": [
+                    {
+                     "perform": {
+                      "first": "1120-WRITE-ACCOUNT-TOTALS",
+                      "last": null,
+                      "loop": "once"
+                     }
+                    }
+                   ],
+                   "e": []
+                  }
+                 },
+                 {
+                  "move": {
+                   "src": {
+                    "ref": {
+                     "r": {
+                      "item": 29,
+                      "subs": [],
+                      "refStart": null,
+                      "refLen": null
+                     }
+                    }
+                   },
+                   "dsts": [
+                    {
+                     "item": 123,
+                     "subs": [],
+                     "refStart": null,
+                     "refLen": null
+                    }
+                   ]
+                  }
+                 },
+                 {
+                  "move": {
+                   "src": {
+                    "ref": {
+                     "r": {
+                      "item": 29,
+                      "subs": [],
+                      "refStart": null,
+                      "refLen": null
+                     }
+                    }
+                   },
+                   "dsts": [
+                    {
+                     "item": 6,
+                     "subs": [],
+                     "refStart": null,
+                     "refLen": null
+                    }
+                   ]
+                  }
+                 },
+                 {
+                  "perform": {
+                   "first": "1500-A-LOOKUP-XREF",
+                   "last": null,
+                   "loop": "once"
+                  }
+                 }
+                ],
+                "e": []
+               }
+              },
+              {
+               "move": {
+                "src": {
+                 "ref": {
+                  "r": {
+                   "item": 20,
+                   "subs": [],
+                   "refStart": null,
+                   "refLen": null
+                  }
+                 }
+                },
+                "dsts": [
+                 {
+                  "item": 9,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                ]
+               }
+              },
+              {
+               "perform": {
+                "first": "1500-B-LOOKUP-TRANTYPE",
+                "last": null,
+                "loop": "once"
+               }
+              },
+              {
+               "move": {
+                "src": {
+                 "ref": {
+                  "r": {
+                   "item": 20,
+                   "subs": [],
+                   "refStart": null,
+                   "refLen": null
+                  }
+                 }
+                },
+                "dsts": [
+                 {
+                  "item": 13,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                ]
+               }
+              },
+              {
+               "move": {
+                "src": {
+                 "ref": {
+                  "r": {
+                   "item": 21,
+                   "subs": [],
+                   "refStart": null,
+                   "refLen": null
+                  }
+                 }
+                },
+                "dsts": [
+                 {
+                  "item": 14,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                ]
+               }
+              },
+              {
+               "perform": {
+                "first": "1500-C-LOOKUP-TRANCATG",
+                "last": null,
+                "loop": "once"
+               }
+              },
+              {
+               "perform": {
+                "first": "1100-WRITE-TRANSACTION-REPORT",
+                "last": null,
+                "loop": "once"
+               }
+              }
+             ],
+             "e": [
+              {
+               "display": {
+                "ops": [
+                 {
+                  "lit": {
+                   "l": {
+                    "str": {
+                     "s": "TRAN-AMT "
+                    }
+                   }
+                  }
+                 },
+                 {
+                  "ref": {
+                   "r": {
+                    "item": 24,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                ]
+               }
+              },
+              {
+               "display": {
+                "ops": [
+                 {
+                  "lit": {
+                   "l": {
+                    "str": {
+                     "s": "WS-PAGE-TOTAL"
+                    }
+                   }
+                  }
+                 },
+                 {
+                  "ref": {
+                   "r": {
+                    "item": 120,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                ]
+               }
+              },
+              {
+               "add": {
+                "ops": [
+                 {
+                  "ref": {
+                   "r": {
+                    "item": 24,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                ],
+                "rcv": [
+                 {
+                  "ref": {
+                   "item": 120,
+                   "subs": [],
+                   "refStart": null,
+                   "refLen": null
+                  },
+                  "rounded": null
+                 },
+                 {
+                  "ref": {
+                   "item": 121,
+                   "subs": [],
+                   "refStart": null,
+                   "refLen": null
+                  },
+                  "rounded": null
+                 }
+                ],
+                "giving": false,
+                "onSize": null,
+                "notOnSize": []
+               }
+              },
+              {
+               "perform": {
+                "first": "1110-WRITE-PAGE-TOTALS",
+                "last": null,
+                "loop": "once"
+               }
+              },
+              {
+               "perform": {
+                "first": "1110-WRITE-GRAND-TOTALS",
+                "last": null,
+                "loop": "once"
+               }
+              }
+             ]
+            }
+           }
+          ],
+          "e": []
+         }
+        }
+       ],
+       "loop": {
+        "until": {
+         "testAfter": false,
+         "c": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 137,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "Y"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9000-TRANFILE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9100-REPTFILE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9200-CARDXREF-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9300-TRANTYPE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9400-TRANCATG-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9500-DATEPARM-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "END OF EXECUTION OF PROGRAM CBTRN03C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     "goback"
+    ]
+   ]
+  },
+  {
+   "name": "0550-DATEPARM-READ",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 6,
+       "key": null,
+       "into": {
+        "item": 111,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     },
+     {
+      "evaluate": {
+       "arms": [
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 108,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "00"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "move": {
+            "src": {
+             "lit": {
+              "l": {
+               "num": {
+                "v": 0,
+                "scale": 0,
+                "digits": 1
+               }
+              }
+             }
+            },
+            "dsts": [
+             {
+              "item": 134,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            ]
+           }
+          }
+         ]
+        ],
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 108,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "10"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "move": {
+            "src": {
+             "lit": {
+              "l": {
+               "num": {
+                "v": 16,
+                "scale": 0,
+                "digits": 2
+               }
+              }
+             }
+            },
+            "dsts": [
+             {
+              "item": 134,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            ]
+           }
+          }
+         ]
+        ]
+       ],
+       "other": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "Reporting from "
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 112,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": " to "
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 114,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "cond88": {
+            "id": 136,
+            "subs": []
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "Y"
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 137,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "display": {
+             "ops": [
+              {
+               "lit": {
+                "l": {
+                 "str": {
+                  "s": "ERROR READING DATEPARM FILE"
+                 }
+                }
+               }
+              }
+             ]
+            }
+           },
+           {
+            "move": {
+             "src": {
+              "ref": {
+               "r": {
+                "item": 108,
+                "subs": [],
+                "refStart": null,
+                "refLen": null
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 124,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           },
+           {
+            "perform": {
+             "first": "9910-DISPLAY-IO-STATUS",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "perform": {
+             "first": "9999-ABEND-PROGRAM",
+             "last": null,
+             "loop": "once"
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "1000-TRANFILE-GET-NEXT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 1,
+       "key": null,
+       "into": {
+        "item": 18,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     }
+    ],
+    [
+     {
+      "evaluate": {
+       "arms": [
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 33,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "00"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "move": {
+            "src": {
+             "lit": {
+              "l": {
+               "num": {
+                "v": 0,
+                "scale": 0,
+                "digits": 1
+               }
+              }
+             }
+            },
+            "dsts": [
+             {
+              "item": 134,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            ]
+           }
+          }
+         ]
+        ],
+        [
+         {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 33,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "10"
+              }
+             }
+            }
+           }
+          }
+         },
+         [
+          {
+           "move": {
+            "src": {
+             "lit": {
+              "l": {
+               "num": {
+                "v": 16,
+                "scale": 0,
+                "digits": 2
+               }
+              }
+             }
+            },
+            "dsts": [
+             {
+              "item": 134,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            ]
+           }
+          }
+         ]
+        ]
+       ],
+       "other": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "cond88": {
+            "id": 136,
+            "subs": []
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "Y"
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 137,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "display": {
+             "ops": [
+              {
+               "lit": {
+                "l": {
+                 "str": {
+                  "s": "ERROR READING TRANSACTION FILE"
+                 }
+                }
+               }
+              }
+             ]
+            }
+           },
+           {
+            "move": {
+             "src": {
+              "ref": {
+               "r": {
+                "item": 33,
+                "subs": [],
+                "refStart": null,
+                "refLen": null
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 124,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           },
+           {
+            "perform": {
+             "first": "9910-DISPLAY-IO-STATUS",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "perform": {
+             "first": "9999-ABEND-PROGRAM",
+             "last": null,
+             "loop": "once"
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1100-WRITE-TRANSACTION-REPORT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 116,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "Y"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "N"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 116,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 112,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 64,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 114,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 66,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "1120-WRITE-HEADERS",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ],
+       "e": []
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "relExpr": {
+         "op": "=",
+         "a": {
+          "fn": {
+           "name": "MOD",
+           "args": [
+            {
+             "ref": {
+              "r": {
+               "item": 117,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            {
+             "ref": {
+              "r": {
+               "item": 118,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            }
+           ]
+          }
+         },
+         "b": {
+          "lit": {
+           "v": 0,
+           "scale": 0
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "perform": {
+          "first": "1110-WRITE-PAGE-TOTALS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "1120-WRITE-HEADERS",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ],
+       "e": []
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "ref": {
+          "r": {
+           "item": 24,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 120,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        },
+        {
+         "ref": {
+          "item": 121,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "perform": {
+       "first": "1120-WRITE-DETAIL",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1110-WRITE-PAGE-TOTALS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 120,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 96,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 93,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "ref": {
+          "r": {
+           "item": 120,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 122,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 0,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 120,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 92,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1120-WRITE-ACCOUNT-TOTALS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 121,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 100,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 97,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 0,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 121,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 92,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1110-WRITE-GRAND-TOTALS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 122,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 104,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 101,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1120-WRITE-HEADERS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 60,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 119,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 84,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 92,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1111-WRITE-REPORT-REC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fwrite": {
+       "file": 5,
+       "rec": {
+        "item": 16,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 105,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR WRITING REPTFILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 105,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1120-WRITE-DETAIL",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "initialize": {
+       "dsts": [
+        {
+         "item": 67,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 19,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 68,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 39,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 70,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 20,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 72,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 46,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 74,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 21,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 76,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 55,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 78,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 22,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 80,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 24,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 82,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 67,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "1111-WRITE-REPORT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0000-TRANFILE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 1,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 33,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING TRANFILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 33,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0100-REPTFILE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 5,
+       "mode": "OUTPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 105,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING REPTFILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 105,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0200-CARDXREF-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 2,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 41,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING CROSS REF FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 41,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0300-TRANTYPE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 3,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 48,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING TRANSACTION TYPE FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 48,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0400-TRANCATG-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 4,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 57,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING TRANSACTION CATG FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 57,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0500-DATEPARM-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 6,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 108,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING DATE PARM FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 108,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1500-A-LOOKUP-XREF",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 2,
+       "key": 6,
+       "into": {
+        "item": 36,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": true,
+       "exc": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "INVALID CARD NUMBER : "
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 6,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 23,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ],
+       "noExc": []
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1500-B-LOOKUP-TRANTYPE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 3,
+       "key": 9,
+       "into": {
+        "item": 44,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": true,
+       "exc": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "INVALID TRANSACTION TYPE : "
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 9,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 23,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ],
+       "noExc": []
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1500-C-LOOKUP-TRANCATG",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 4,
+       "key": 12,
+       "into": {
+        "item": 51,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": true,
+       "exc": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "INVALID TRAN CATG KEY : "
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 12,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 23,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ],
+       "noExc": []
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9000-TRANFILE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 8,
+          "scale": 0
+         }
+        },
+        {
+         "lit": {
+          "v": 0,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 134,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": true,
+       "onSize": null,
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 1
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 33,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "subtract": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 134,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 134,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": null,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ],
+       "e": [
+        {
+         "add": {
+          "ops": [
+           {
+            "lit": {
+             "v": 12,
+             "scale": 0
+            }
+           },
+           {
+            "lit": {
+             "v": 0,
+             "scale": 0
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 134,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": true,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING POSTED TRANSACTION FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 33,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9100-REPTFILE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 8,
+          "scale": 0
+         }
+        },
+        {
+         "lit": {
+          "v": 0,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 134,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": true,
+       "onSize": null,
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 5
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 105,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "subtract": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 134,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 134,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": null,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ],
+       "e": [
+        {
+         "add": {
+          "ops": [
+           {
+            "lit": {
+             "v": 12,
+             "scale": 0
+            }
+           },
+           {
+            "lit": {
+             "v": 0,
+             "scale": 0
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 134,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": true,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING REPORT FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 105,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9200-CARDXREF-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 2
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 41,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING CROSS REF FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 41,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9300-TRANTYPE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 3
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 48,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING TRANSACTION TYPE FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 48,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9400-TRANCATG-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 4
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 57,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING TRANSACTION CATG FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 57,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9500-DATEPARM-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 6
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 108,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 134,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 135,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING DATE PARM FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 108,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 124,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9999-ABEND-PROGRAM",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "ABENDING PROGRAM"
+           }
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 0,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 139,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 999,
+           "scale": 0,
+           "digits": 3
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 138,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "abend": {
+       "code": {
+        "ref": {
+         "r": {
+          "item": 138,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       }
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "9910-DISPLAY-IO-STATUS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "or": {
+         "a": {
+          "not": {
+           "c": {
+            "cls": {
+             "test": "NUMERIC",
+             "r": {
+              "item": 124,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          }
+         },
+         "b": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 125,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "9"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 125,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 131,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 1
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 1
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 127,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 126,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 130,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 127,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 133,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 131,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "0000"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 131,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 124,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 131,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 3
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 2
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 131,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  }
+ ],
+ "isMain": true,
+ "files": [
+  {
+   "id": 1,
+   "org": "sequential",
+   "access": "sequential",
+   "record": 1,
+   "key": null,
+   "alt": [],
+   "status": 33,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 2,
+   "org": "indexed",
+   "access": "random",
+   "record": 5,
+   "key": 6,
+   "alt": [],
+   "status": 41,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 3,
+   "org": "indexed",
+   "access": "random",
+   "record": 8,
+   "key": 9,
+   "alt": [],
+   "status": 48,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 4,
+   "org": "indexed",
+   "access": "random",
+   "record": 11,
+   "key": 12,
+   "alt": [],
+   "status": 57,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 5,
+   "org": "sequential",
+   "access": "sequential",
+   "record": 16,
+   "key": null,
+   "alt": [],
+   "status": 105,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 6,
+   "org": "sequential",
+   "access": "sequential",
+   "record": 17,
+   "key": null,
+   "alt": [],
+   "status": 108,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  }
+ ]
+}

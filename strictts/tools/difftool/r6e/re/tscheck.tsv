@@ -1,0 +1,129 @@
+pair	version	valid	first diagnostic
+2018-08-11_3b32e4da__pick	old	yes	
+2018-08-11_3b32e4da__pick	new	yes	
+2018-11-03_e80402da__processItem	old	yes	
+2018-11-03_e80402da__processItem	new	yes	
+2020-05-04_79fcd2a6__dropLast	old	yes	
+2020-05-04_79fcd2a6__dropLast	new	yes	
+2020-11-03_cfecd4e0__pick	old	yes	
+2020-11-03_cfecd4e0__pick	new	yes	
+2020-11-09_77b02064__pick	old	yes	
+2020-11-09_77b02064__pick	new	yes	
+2023-03-25_713fb7ea__chunk	old	yes	
+2023-03-25_713fb7ea__chunk	new	yes	
+2023-08-15_91686dc8__dropLast	old	yes	
+2023-08-15_91686dc8__dropLast	new	yes	
+2023-09-01_9c79944e_isEmpty	old	no	No overload matches this call. Overload 1 of 3, '(data: string): data is ""', gave the following error. Argument of type 'undefined' is not assignable to parame
+2023-09-01_9c79944e_isEmpty	new	yes	
+2024-02-18_bf52b3c2_zipWith	old	no	Expected 1-3 arguments, but got 0.
+2024-02-18_bf52b3c2_zipWith	new	no	Expected 1-3 arguments, but got 0.
+2024-03-06_b08a667d__take	old	yes	
+2024-03-06_b08a667d__take	new	yes	
+2024-03-06_b08a667d_sampleImplementation	old	yes	
+2024-03-06_b08a667d_sampleImplementation	new	yes	
+2024-03-10_436c7726__chunk	old	yes	
+2024-03-10_436c7726__chunk	new	yes	
+2024-03-23_8b6f1bc7__swapString	old	yes	
+2024-03-23_8b6f1bc7__swapString	new	yes	
+2024-03-23_8b6f1bc7_concat	old	no	Argument of type 'null' is not assignable to parameter of type 'readonly unknown[]'.
+2024-03-23_8b6f1bc7_concat	new	no	Argument of type 'null' is not assignable to parameter of type 'readonly unknown[]'.
+2024-03-23_8b6f1bc7_fromEntries	old	no	Argument of type 'undefined' is not assignable to parameter of type 'IterableContainer<Entry<PropertyKey, unknown>>'.
+2024-03-23_8b6f1bc7_fromEntries	new	no	Argument of type 'undefined' is not assignable to parameter of type 'IterableContainer<Entry<PropertyKey, unknown>>'.
+2024-03-23_8b6f1bc7_reverse	old	no	Argument of type 'null' is not assignable to parameter of type 'readonly unknown[]'.
+2024-03-23_8b6f1bc7_reverse	new	no	Argument of type 'null' is not assignable to parameter of type 'readonly unknown[]'.
+2024-04-04_48f6b48a_randomStringImplementation	old	yes	
+2024-04-04_48f6b48a_randomStringImplementation	new	yes	
+2024-04-04_48f6b48a_setPath	old	no	Argument of type 'string' is not assignable to parameter of type 'PropertyKey[] & []'. Type 'string' is not assignable to type 'PropertyKey[]'.
+2024-04-04_48f6b48a_setPath	new	no	Argument of type 'string' is not assignable to parameter of type 'readonly []'.
+2024-04-22_4da195bb_sampleImplementation	old	yes	
+2024-04-22_4da195bb_sampleImplementation	new	yes	
+2024-04-22_4da195bb_swapIndices	old	no	Argument of type 'undefined' is not assignable to parameter of type 'string | IterableContainer'.
+2024-04-22_4da195bb_swapIndices	new	no	Argument of type 'undefined' is not assignable to parameter of type 'string | IterableContainer'.
+2024-05-10_ac358851_difference	old	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly never[]'.
+2024-05-10_ac358851_difference	new	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly never[]'.
+2024-05-10_ac358851_differenceWith	old	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_differenceWith	new	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_flat	old	yes	
+2024-05-10_ac358851_flat	new	yes	
+2024-05-10_ac358851_intersection	old	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_intersection	new	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_intersectionWith	old	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_intersectionWith	new	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_isEmpty	old	no	No overload matches this call. Overload 1 of 3, '(data: string | undefined): data is "" | undefined', gave the following error. Argument of type 'null' is not a
+2024-05-10_ac358851_isEmpty	new	no	No overload matches this call. Overload 1 of 3, '(data: string | undefined): data is "" | undefined', gave the following error. Argument of type 'null' is not a
+2024-05-10_ac358851_mapWithFeedback	old	no	Argument of type 'undefined' is not assignable to parameter of type 'IterableContainer'.
+2024-05-10_ac358851_mapWithFeedback	new	no	Argument of type 'undefined' is not assignable to parameter of type 'IterableContainer'.
+2024-05-10_ac358851_splitAtImplementation	old	yes	
+2024-05-10_ac358851_splitAtImplementation	new	yes	
+2024-05-10_ac358851_takeImplementation	old	yes	
+2024-05-10_ac358851_takeImplementation	new	yes	
+2024-05-10_ac358851_unique	old	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_unique	new	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_uniqueBy	old	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_uniqueBy	new	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_uniqueWith	old	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_uniqueWith	new	no	Argument of type 'undefined' is not assignable to parameter of type 'readonly unknown[]'.
+2024-05-10_ac358851_zip	old	no	Argument of type '{}' is not assignable to parameter of type 'IterableContainer'.
+2024-05-10_ac358851_zip	new	no	Argument of type '{}' is not assignable to parameter of type 'IterableContainer'.
+2024-07-09_0149aeda_func1	old	yes	
+2024-07-09_0149aeda_func1	new	yes	
+2024-07-09_0149aeda_func2	old	yes	
+2024-07-09_0149aeda_func2	new	yes	
+2024-08-02_785b885c_chunkImplementation	old	yes	
+2024-08-02_785b885c_chunkImplementation	new	yes	
+2024-08-05_90a66744_dropLastImplementation	old	yes	
+2024-08-05_90a66744_dropLastImplementation	new	yes	
+2024-08-05_90a66744_takeLastImplementation	old	yes	
+2024-08-05_90a66744_takeLastImplementation	new	yes	
+2024-08-13_47b323c0_randomInteger	old	yes	
+2024-08-13_47b323c0_randomInteger	new	yes	
+2025-06-06_85271743_voidReducer	old	yes	
+2025-06-06_85271743_voidReducer	new	yes	
+2025-07-15_0fde627f_stringToPath	old	yes	
+2025-07-15_0fde627f_stringToPath	new	yes	
+2026-03-31_cf2dee04_rangeImplementation	old	yes	
+2026-03-31_cf2dee04_rangeImplementation	new	yes	
+2026-05-26_16338d8d_splice	old	no	Expected 3-4 arguments, but got 0.
+2026-05-26_16338d8d_splice	new	no	Expected 2-4 arguments, but got 0.
+2026-08-14_035ae147_shiftDecimalPoint	old	yes	
+2026-08-14_035ae147_shiftDecimalPoint	new	yes	
+2026-08-14_035ae147_swapArray	old	yes	
+2026-08-14_035ae147_swapArray	new	yes	
+2026-08-23_80c2fcf7_pipe	old	no	Object literal may only specify known properties, and 'lazy' does not exist in type '(input: null) => unknown'.
+2026-08-23_80c2fcf7_pipe	new	no	Object literal may only specify known properties, and 'lazy' does not exist in type '(input: null) => unknown'.
+2026-10-15_34fec07e_difference	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_difference	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_differenceWith	old	no	Expected 2-3 arguments, but got 0.
+2026-10-15_34fec07e_differenceWith	new	no	Expected 2-3 arguments, but got 0.
+2026-10-15_34fec07e_drop	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_drop	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_filter	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_filter	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_find	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_find	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_first	old	no	Expected 0-1 arguments, but got 2.
+2026-10-15_34fec07e_first	new	no	Expected 0-1 arguments, but got 2.
+2026-10-15_34fec07e_flatMap	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_flatMap	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_forEach	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_forEach	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_fromEntries	old	no	Expected 0-1 arguments, but got 2.
+2026-10-15_34fec07e_fromEntries	new	no	Expected 0-1 arguments, but got 2.
+2026-10-15_34fec07e_intersection	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_intersection	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_intersectionWith	old	no	Expected 2-3 arguments, but got 0.
+2026-10-15_34fec07e_intersectionWith	new	no	Expected 2-3 arguments, but got 0.
+2026-10-15_34fec07e_map	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_map	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_mapWithFeedback	old	no	Expected 2-3 arguments, but got 0.
+2026-10-15_34fec07e_mapWithFeedback	new	no	Expected 2-3 arguments, but got 0.
+2026-10-15_34fec07e_take	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_take	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_unique	old	no	Argument of type 'undefined' is not assignable to parameter of type 'IterableContainer'.
+2026-10-15_34fec07e_unique	new	no	Argument of type 'undefined' is not assignable to parameter of type 'IterableContainer'.
+2026-10-15_34fec07e_uniqueBy	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_uniqueBy	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_uniqueWith	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_uniqueWith	new	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_zip	old	no	Expected 1-2 arguments, but got 0.
+2026-10-15_34fec07e_zip	new	no	Expected 1-2 arguments, but got 0.

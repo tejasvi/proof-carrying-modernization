@@ -1,0 +1,304 @@
+public final class Cbact04cFixed extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        Cbact04cFixed r0;
+
+        r0 := @this: Cbact04cFixed;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    static Cbact04cFixed$Account readAccount(Cbact04cFixed$Account[], 'long')
+    {
+        'byte' $b3;
+        'int' $i1, i4;
+        'long' l0, $l2;
+        Cbact04cFixed$Account[] r0;
+        Cbact04cFixed$Account $r1;
+
+        r0 := @parameter0: Cbact04cFixed$Account[];
+
+        l0 := @parameter1: 'long';
+
+        i4 = 0;
+
+     label1:
+        $i1 = lengthof r0;
+
+        if i4 >= $i1 goto label3;
+
+        $r1 = r0[i4];
+
+        $l2 = $r1.<Cbact04cFixed$Account: 'long' id>;
+
+        $b3 = $l2 cmp l0;
+
+        if $b3 != 0 goto label2;
+
+        $r1 = r0[i4];
+
+        return $r1;
+
+     label2:
+        i4 = i4 + 1;
+
+        goto label1;
+
+     label3:
+        return null;
+    }
+
+    static 'long' readRate(Cbact04cFixed$Disc[], java.lang.String, java.lang.String, 'int')
+    {
+        java.lang.IllegalStateException $r7;
+        Cbact04cFixed$Disc r8;
+        'long' $l3;
+        Cbact04cFixed$Disc[] r0;
+        'int' i0, $i1, i7;
+        java.lang.String r1, r2, $r3;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbact04cFixed$Disc[];
+
+        r1 := @parameter1: java.lang.String;
+
+        r2 := @parameter2: java.lang.String;
+
+        i0 := @parameter3: 'int';
+
+        i7 = 0;
+
+     label1:
+        $i1 = lengthof r0;
+
+        if i7 >= $i1 goto label3;
+
+        r8 = r0[i7];
+
+        $r3 = r8.<Cbact04cFixed$Disc: java.lang.String groupId>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: 'boolean' equals(java.lang.Object)>(r1);
+
+        if $z0 == false goto label2;
+
+        $r3 = r8.<Cbact04cFixed$Disc: java.lang.String typeCd>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: 'boolean' equals(java.lang.Object)>(r2);
+
+        if $z0 == false goto label2;
+
+        $i1 = r8.<Cbact04cFixed$Disc: 'int' catCd>;
+
+        if $i1 != i0 goto label2;
+
+        $l3 = r8.<Cbact04cFixed$Disc: 'long' rate>;
+
+        return $l3;
+
+     label2:
+        i7 = i7 + 1;
+
+        goto label1;
+
+     label3:
+        i7 = 0;
+
+     label4:
+        $i1 = lengthof r0;
+
+        if i7 >= $i1 goto label6;
+
+        r8 = r0[i7];
+
+        r1 = r8.<Cbact04cFixed$Disc: java.lang.String groupId>;
+
+        $z0 = virtualinvoke r1.<java.lang.String: 'boolean' equals(java.lang.Object)>("DEFAULT");
+
+        if $z0 == false goto label5;
+
+        r1 = r8.<Cbact04cFixed$Disc: java.lang.String typeCd>;
+
+        $z0 = virtualinvoke r1.<java.lang.String: 'boolean' equals(java.lang.Object)>(r2);
+
+        if $z0 == false goto label5;
+
+        $i1 = r8.<Cbact04cFixed$Disc: 'int' catCd>;
+
+        if $i1 != i0 goto label5;
+
+        $l3 = r8.<Cbact04cFixed$Disc: 'long' rate>;
+
+        return $l3;
+
+     label5:
+        i7 = i7 + 1;
+
+        goto label4;
+
+     label6:
+        $r7 = new java.lang.IllegalStateException;
+
+        specialinvoke $r7.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>("no disclosure group record");
+
+        throw $r7;
+    }
+
+    static Cbact04cFixed$Account post(Cbact04cFixed$Account, 'long')
+    {
+        'long' l0, $l1, $l2;
+        java.lang.String $r2;
+        Cbact04cFixed$Account r0, $r1;
+
+        r0 := @parameter0: Cbact04cFixed$Account;
+
+        l0 := @parameter1: 'long';
+
+        $r1 = new Cbact04cFixed$Account;
+
+        $l1 = r0.<Cbact04cFixed$Account: 'long' id>;
+
+        $l2 = r0.<Cbact04cFixed$Account: 'long' bal>;
+
+        l0 = $l2 + l0;
+
+        l0 = l0 % 1000000000000L;
+
+        $r2 = r0.<Cbact04cFixed$Account: java.lang.String groupId>;
+
+        specialinvoke $r1.<Cbact04cFixed$Account: 'void' <init>('long','long','long','long',java.lang.String)>($l1, l0, 0L, 0L, $r2);
+
+        return $r1;
+    }
+
+    public static Cbact04cFixed$Result run(Cbact04cFixed$Cat[], Cbact04cFixed$Account[], Cbact04cFixed$Disc[])
+    {
+        'long' $l1, $l8, l10, $l14;
+        Cbact04cFixed$Cat[] r0;
+        java.util.ArrayList $r3;
+        Cbact04cFixed$Result $r7;
+        'byte' $b2;
+        'int' $i0, i9, i12;
+        java.lang.String $r9, $r10;
+        Cbact04cFixed$Account $r5;
+        'boolean' z1, z2, z3;
+        Cbact04cFixed$Account[] r1;
+        Cbact04cFixed$Disc[] r2;
+        Cbact04cFixed$Cat r4;
+
+        r0 := @parameter0: Cbact04cFixed$Cat[];
+
+        r1 := @parameter1: Cbact04cFixed$Account[];
+
+        r2 := @parameter2: Cbact04cFixed$Disc[];
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: 'void' <init>()>();
+
+        i9 = 0;
+
+        z3 = 1;
+
+        z2 = 1;
+
+        z1 = 1;
+
+        l10 = 0L;
+
+        $l8 = 0L;
+
+        $r5 = null;
+
+        i12 = 0;
+
+     label1:
+        $i0 = lengthof r0;
+
+        if i12 >= $i0 goto label7;
+
+        r4 = r0[i12];
+
+        if z2 != 0 goto label2;
+
+        $l1 = r4.<Cbact04cFixed$Cat: 'long' acctId>;
+
+        $b2 = $l1 cmp l10;
+
+        if $b2 == false goto label5;
+
+     label2:
+        if z3 != 0 goto label3;
+
+        $r5 = staticinvoke <Cbact04cFixed: Cbact04cFixed$Account post(Cbact04cFixed$Account,'long')>($r5, $l8);
+
+        virtualinvoke $r3.<java.util.ArrayList: 'boolean' add(java.lang.Object)>($r5);
+
+        goto label4;
+
+     label3:
+        z3 = 0;
+
+        z2 = 0;
+
+        z1 = 0;
+
+     label4:
+        $l8 = 0L;
+
+        l10 = r4.<Cbact04cFixed$Cat: 'long' acctId>;
+
+        $l1 = r4.<Cbact04cFixed$Cat: 'long' acctId>;
+
+        $r5 = staticinvoke <Cbact04cFixed: Cbact04cFixed$Account readAccount(Cbact04cFixed$Account[],'long')>(r1, $l1);
+
+     label5:
+        $r9 = $r5.<Cbact04cFixed$Account: java.lang.String groupId>;
+
+        $r10 = r4.<Cbact04cFixed$Cat: java.lang.String typeCd>;
+
+        $i0 = r4.<Cbact04cFixed$Cat: 'int' catCd>;
+
+        $l14 = staticinvoke <Cbact04cFixed: 'long' readRate(Cbact04cFixed$Disc[],java.lang.String,java.lang.String,'int')>(r2, $r9, $r10, $i0);
+
+        $b2 = $l14 cmp 0L;
+
+        if $b2 == false goto label6;
+
+        $l1 = r4.<Cbact04cFixed$Cat: 'long' bal>;
+
+        $l1 = $l1 * $l14;
+
+        $l1 = $l1 / 120000L;
+
+        $l1 = $l1 % 100000000000L;
+
+        $l8 = $l8 + $l1;
+
+        $l8 = $l8 % 100000000000L;
+
+        i9 = i9 + 1;
+
+     label6:
+        i12 = i12 + 1;
+
+        goto label1;
+
+     label7:
+        if z1 != 0 goto label8;
+
+        $r5 = staticinvoke <Cbact04cFixed: Cbact04cFixed$Account post(Cbact04cFixed$Account,'long')>($r5, $l8);
+
+        virtualinvoke $r3.<java.util.ArrayList: 'boolean' add(java.lang.Object)>($r5);
+
+     label8:
+        $r7 = new Cbact04cFixed$Result;
+
+        specialinvoke $r7.<Cbact04cFixed$Result: 'void' <init>(java.util.ArrayList,'int')>($r3, i9);
+
+        return $r7;
+    }
+}

@@ -1,0 +1,9 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ZN103A.
+       DATA DIVISION.
+       LINKAGE SECTION.
+       01  Z PIC 9(4).
+       PROCEDURE DIVISION USING Z.
+       P1.
+           ADD 10 TO Z.
+           GOBACK.

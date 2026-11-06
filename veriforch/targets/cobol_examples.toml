@@ -1,0 +1,15 @@
+# COBOL validation target: example programs of coblean (surface IR from its extractors / front end),
+# plus one AWS CardDemo batch program (CBACT02C) extracted by coblean's front end.
+name = "cobol_examples"
+lang = "cobol"
+root = "/home/user/veriforch/targets/cobol_examples"
+sources = ["acctint.ir.json", "bincnt.ir.json", "recsum.ir.json", "cbact02c.ir.json"]
+
+[extra.cobol_sources]
+ACCTINT = ["ACCTINT.cob", "ACCTREC.cpy"]
+BINCNT = ["BINCNT.cob"]
+RECSUM = ["RECSUM.cob"]
+
+[[variants]]
+name = "default"
+flags = []

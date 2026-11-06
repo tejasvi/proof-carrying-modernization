@@ -1,0 +1,90 @@
+public class org.apache.thrift.protocol.TMultiplexedProtocol extends org.apache.thrift.protocol.TProtocolDecorator
+{
+    public static final java.lang.String SEPARATOR;
+    private final java.lang.String SERVICE_NAME;
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocol, java.lang.String)
+    {
+        java.lang.String serviceName;
+        org.apache.thrift.protocol.TMultiplexedProtocol this;
+        org.apache.thrift.protocol.TProtocol protocol;
+
+        this := @this: org.apache.thrift.protocol.TMultiplexedProtocol;
+
+        protocol := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        serviceName := @parameter1: java.lang.String;
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocolDecorator: 'void' <init>(org.apache.thrift.protocol.TProtocol)>(protocol);
+
+        this.<org.apache.thrift.protocol.TMultiplexedProtocol: java.lang.String SERVICE_NAME> = serviceName;
+
+        return;
+    }
+
+    public 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TMessage tMessage, $r0;
+        'byte' $b0;
+        'int' $i3;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        org.apache.thrift.protocol.TMultiplexedProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TMultiplexedProtocol;
+
+        tMessage := @parameter0: org.apache.thrift.protocol.TMessage;
+
+        $b0 = tMessage.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        if $b0 == 1 goto label1;
+
+        $b0 = tMessage.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $i3 = ('int') $b0;
+
+        if $i3 != 4 goto label2;
+
+     label1:
+        $r0 = new org.apache.thrift.protocol.TMessage;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = this.<org.apache.thrift.protocol.TMultiplexedProtocol: java.lang.String SERVICE_NAME>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $r2 = tMessage.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $b0 = tMessage.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $i3 = tMessage.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>($r2, $b0, $i3);
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocolDecorator: 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage)>($r0);
+
+        goto label3;
+
+     label2:
+        specialinvoke this.<org.apache.thrift.protocol.TProtocolDecorator: 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage)>(tMessage);
+
+     label3:
+        return;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.protocol.TMultiplexedProtocol: java.lang.String SEPARATOR> = ":";
+
+        return;
+    }
+}

@@ -1,0 +1,111 @@
+public final class Cbcus01c$CustomerRecord extends java.lang.Object
+{
+    public 'long' custId;
+    public java.lang.String custFirstName;
+    public java.lang.String custMiddleName;
+    public java.lang.String custLastName;
+    public java.lang.String custAddrLine1;
+    public java.lang.String custAddrLine2;
+    public java.lang.String custAddrLine3;
+    public java.lang.String custAddrStateCd;
+    public java.lang.String custAddrCountryCd;
+    public java.lang.String custAddrZip;
+    public java.lang.String custPhoneNum1;
+    public java.lang.String custPhoneNum2;
+    public 'long' custSsn;
+    public java.lang.String custGovtIssuedId;
+    public java.lang.String custDobYyyyMmDd;
+    public java.lang.String custEftAccountId;
+    public java.lang.String custPriCardHolderInd;
+    public 'long' custFicoCreditScore;
+    public java.lang.String filler1;
+
+    public 'void' <init>('long', java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, 'long', java.lang.String, java.lang.String, java.lang.String, java.lang.String, 'long', java.lang.String)
+    {
+        'long' l0, l1, l2;
+        java.lang.String r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16;
+        Cbcus01c$CustomerRecord r0;
+
+        r0 := @this: Cbcus01c$CustomerRecord;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: java.lang.String;
+
+        r2 := @parameter2: java.lang.String;
+
+        r3 := @parameter3: java.lang.String;
+
+        r4 := @parameter4: java.lang.String;
+
+        r5 := @parameter5: java.lang.String;
+
+        r6 := @parameter6: java.lang.String;
+
+        r7 := @parameter7: java.lang.String;
+
+        r8 := @parameter8: java.lang.String;
+
+        r9 := @parameter9: java.lang.String;
+
+        r10 := @parameter10: java.lang.String;
+
+        r11 := @parameter11: java.lang.String;
+
+        l1 := @parameter12: 'long';
+
+        r12 := @parameter13: java.lang.String;
+
+        r13 := @parameter14: java.lang.String;
+
+        r14 := @parameter15: java.lang.String;
+
+        r15 := @parameter16: java.lang.String;
+
+        l2 := @parameter17: 'long';
+
+        r16 := @parameter18: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbcus01c$CustomerRecord: 'long' custId> = l0;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custFirstName> = r1;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custMiddleName> = r2;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custLastName> = r3;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custAddrLine1> = r4;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custAddrLine2> = r5;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custAddrLine3> = r6;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custAddrStateCd> = r7;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custAddrCountryCd> = r8;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custAddrZip> = r9;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custPhoneNum1> = r10;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custPhoneNum2> = r11;
+
+        r0.<Cbcus01c$CustomerRecord: 'long' custSsn> = l1;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custGovtIssuedId> = r12;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custDobYyyyMmDd> = r13;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custEftAccountId> = r14;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String custPriCardHolderInd> = r15;
+
+        r0.<Cbcus01c$CustomerRecord: 'long' custFicoCreditScore> = l2;
+
+        r0.<Cbcus01c$CustomerRecord: java.lang.String filler1> = r16;
+
+        return;
+    }
+}

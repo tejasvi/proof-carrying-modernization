@@ -1,0 +1,15 @@
+# Program startup and exit (startup.cpp): run with CASES=startup_cases.txt; every case is expected to MATCH.
+# Constructors by priority, dynamic and guarded initialization, atexit; an exit_* case compares the value its
+# function's *out holds once the program has exited (atexit handlers, static destructors, destructor(p) functions).
+startup t_ctor_prio 4
+startup t_dyn_init 5
+startup t_init_priority 6
+startup t_ctor_dep 7
+startup t_guarded 3
+startup t_local_static 5
+startup t_local_static_throw 3
+startup t_local_static_throw 0
+startup t_atexit 9
+startup exit_order
+startup exit_local_static
+startup exit_static_array

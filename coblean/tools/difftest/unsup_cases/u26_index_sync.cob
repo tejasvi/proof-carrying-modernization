@@ -1,0 +1,11 @@
+      * EXPECT-FAULT: SYNCHRONIZED index data item SX
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U26.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  G.
+           05  GA PIC X.
+           05  SX USAGE INDEX SYNCHRONIZED.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

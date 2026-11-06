@@ -1,0 +1,3279 @@
+public class org.apache.thrift.protocol.TJSONProtocol extends org.apache.thrift.protocol.TProtocol
+{
+    private static final 'byte'[] COMMA;
+    private static final 'byte'[] COLON;
+    private static final 'byte'[] LBRACE;
+    private static final 'byte'[] RBRACE;
+    private static final 'byte'[] LBRACKET;
+    private static final 'byte'[] RBRACKET;
+    private static final 'byte'[] QUOTE;
+    private static final 'byte'[] BACKSLASH;
+    private static final 'byte'[] ESCSEQ;
+    private static final 'long' VERSION;
+    private static final 'byte'[] JSON_CHAR_TABLE;
+    private static final java.lang.String ESCAPE_CHARS;
+    private static final 'byte'[] ESCAPE_CHAR_VALS;
+    private static final 'int' DEF_STRING_SIZE;
+    private static final 'byte'[] NAME_BOOL;
+    private static final 'byte'[] NAME_BYTE;
+    private static final 'byte'[] NAME_I16;
+    private static final 'byte'[] NAME_I32;
+    private static final 'byte'[] NAME_I64;
+    private static final 'byte'[] NAME_UUID;
+    private static final 'byte'[] NAME_DOUBLE;
+    private static final 'byte'[] NAME_STRUCT;
+    private static final 'byte'[] NAME_STRING;
+    private static final 'byte'[] NAME_MAP;
+    private static final 'byte'[] NAME_LIST;
+    private static final 'byte'[] NAME_SET;
+    private static final org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT;
+    private final java.util.Stack contextStack_;
+    private org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_;
+    private org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_;
+    private 'boolean' fieldNamesAsString_;
+    private final 'byte'[] tmpbuf_;
+
+    private static 'byte'[] getTypeNameForTypeID('byte') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'byte' typeID;
+        'int' $i0;
+        org.apache.thrift.protocol.TProtocolException $r12;
+
+        typeID := @parameter0: 'byte';
+
+        $i0 = ('int') typeID;
+
+        tableswitch($i0)
+        {
+            case 2: goto label01;
+            case 3: goto label02;
+            case 4: goto label07;
+            case 5: goto label13;
+            case 6: goto label03;
+            case 7: goto label13;
+            case 8: goto label04;
+            case 9: goto label13;
+            case 10: goto label05;
+            case 11: goto label08;
+            case 12: goto label09;
+            case 13: goto label10;
+            case 14: goto label11;
+            case 15: goto label12;
+            case 16: goto label06;
+            default: goto label13;
+        };
+
+     label01:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_BOOL>;
+
+        return $r0;
+
+     label02:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_BYTE>;
+
+        return $r0;
+
+     label03:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_I16>;
+
+        return $r0;
+
+     label04:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_I32>;
+
+        return $r0;
+
+     label05:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_I64>;
+
+        return $r0;
+
+     label06:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_UUID>;
+
+        return $r0;
+
+     label07:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_DOUBLE>;
+
+        return $r0;
+
+     label08:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_STRING>;
+
+        return $r0;
+
+     label09:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_STRUCT>;
+
+        return $r0;
+
+     label10:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_MAP>;
+
+        return $r0;
+
+     label11:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_SET>;
+
+        return $r0;
+
+     label12:
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_LIST>;
+
+        return $r0;
+
+     label13:
+        $r12 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r12.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(5, "Unrecognized type");
+
+        throw $r12;
+    }
+
+    private static 'byte' getTypeIDForTypeName('byte'[]) throws org.apache.thrift.TException
+    {
+        'byte'[] name;
+        'byte' $b1, result, result#1_2;
+        'int' $i0;
+        org.apache.thrift.protocol.TProtocolException $r0;
+
+        name := @parameter0: 'byte'[];
+
+        result#1_2 = 0;
+
+        result = 0;
+
+        $i0 = lengthof name;
+
+        if $i0 <= 1 goto label14;
+
+        $b1 = name[0];
+
+        $i0 = ('int') $b1;
+
+        tableswitch($i0)
+        {
+            case 100: goto label01;
+            case 101: goto label14;
+            case 102: goto label14;
+            case 103: goto label14;
+            case 104: goto label14;
+            case 105: goto label02;
+            case 106: goto label14;
+            case 107: goto label14;
+            case 108: goto label07;
+            case 109: goto label08;
+            case 110: goto label14;
+            case 111: goto label14;
+            case 112: goto label14;
+            case 113: goto label14;
+            case 114: goto label09;
+            case 115: goto label10;
+            case 116: goto label13;
+            case 117: goto label12;
+            default: goto label14;
+        };
+
+     label01:
+        result#1_2 = 4;
+
+        result = 4;
+
+        goto label14;
+
+     label02:
+        $b1 = name[1];
+
+        $i0 = ('int') $b1;
+
+        tableswitch($i0)
+        {
+            case 49: goto label04;
+            case 50: goto label14;
+            case 51: goto label05;
+            case 52: goto label14;
+            case 53: goto label14;
+            case 54: goto label06;
+            case 55: goto label14;
+            case 56: goto label03;
+            default: goto label14;
+        };
+
+     label03:
+        result#1_2 = 3;
+
+        result = 3;
+
+        goto label14;
+
+     label04:
+        result#1_2 = 6;
+
+        result = 6;
+
+        goto label14;
+
+     label05:
+        result#1_2 = 8;
+
+        result = 8;
+
+        goto label14;
+
+     label06:
+        result#1_2 = 10;
+
+        result = 10;
+
+        goto label14;
+
+     label07:
+        result#1_2 = 15;
+
+        result = 15;
+
+        goto label14;
+
+     label08:
+        result#1_2 = 13;
+
+        result = 13;
+
+        goto label14;
+
+     label09:
+        result#1_2 = 12;
+
+        result = 12;
+
+        goto label14;
+
+     label10:
+        $b1 = name[1];
+
+        $i0 = ('int') $b1;
+
+        if $i0 != 116 goto label11;
+
+        result#1_2 = 11;
+
+        result = 11;
+
+        goto label14;
+
+     label11:
+        $b1 = name[1];
+
+        $i0 = ('int') $b1;
+
+        if $i0 != 101 goto label14;
+
+        result#1_2 = 14;
+
+        result = 14;
+
+        goto label14;
+
+     label12:
+        result#1_2 = 16;
+
+        result = 16;
+
+        goto label14;
+
+     label13:
+        result#1_2 = 2;
+
+        result = 2;
+
+     label14:
+        if result != 0 goto label15;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(5, "Unrecognized type");
+
+        throw $r0;
+
+     label15:
+        return result#1_2;
+    }
+
+    private 'void' pushContext(org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext)
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext c, $r1;
+        java.util.Stack $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        c := @parameter0: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: java.util.Stack contextStack_>;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<java.util.Stack: java.lang.Object push(java.lang.Object)>($r1);
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_> = c;
+
+        return;
+    }
+
+    private 'void' popContext()
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r2;
+        java.lang.Object $r1;
+        java.util.Stack $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: java.util.Stack contextStack_>;
+
+        $r1 = virtualinvoke $r0.<java.util.Stack: java.lang.Object pop()>();
+
+        $r2 = (org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext) $r1;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_> = $r2;
+
+        return;
+    }
+
+    private 'void' resetContext()
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        java.util.Stack $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: java.util.Stack contextStack_>;
+
+        $z0 = virtualinvoke $r0.<java.util.Stack: 'boolean' isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' popContext()>();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport)
+    {
+        'byte'[] $r3;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r2;
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r1;
+        java.util.Stack $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' <init>(org.apache.thrift.transport.TTransport)>(trans);
+
+        $r0 = new java.util.Stack;
+
+        specialinvoke $r0.<java.util.Stack: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: java.util.Stack contextStack_> = $r0;
+
+        $r1 = new org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_> = $r1;
+
+        $r2 = new org.apache.thrift.protocol.TJSONProtocol$LookaheadReader;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)>(this);
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_> = $r2;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: 'boolean' fieldNamesAsString_> = 0;
+
+        $r3 = newarray ('byte')[4];
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_> = $r3;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'boolean')
+    {
+        'byte'[] $r3;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r2;
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r1;
+        java.util.Stack $r0;
+        'boolean' fieldNamesAsString;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        fieldNamesAsString := @parameter1: 'boolean';
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' <init>(org.apache.thrift.transport.TTransport)>(trans);
+
+        $r0 = new java.util.Stack;
+
+        specialinvoke $r0.<java.util.Stack: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: java.util.Stack contextStack_> = $r0;
+
+        $r1 = new org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_> = $r1;
+
+        $r2 = new org.apache.thrift.protocol.TJSONProtocol$LookaheadReader;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)>(this);
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_> = $r2;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: 'boolean' fieldNamesAsString_> = 0;
+
+        $r3 = newarray ('byte')[4];
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_> = $r3;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: 'boolean' fieldNamesAsString_> = fieldNamesAsString;
+
+        return;
+    }
+
+    public 'void' reset()
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r2;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r1;
+        java.util.Stack $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: java.util.Stack contextStack_>;
+
+        virtualinvoke $r0.<java.util.Stack: 'void' clear()>();
+
+        $r1 = new org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_> = $r1;
+
+        $r2 = new org.apache.thrift.protocol.TJSONProtocol$LookaheadReader;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)>(this);
+
+        this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_> = $r2;
+
+        return;
+    }
+
+    protected 'void' readJSONSyntaxChar('byte'[]) throws org.apache.thrift.TException
+    {
+        'byte'[] b;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'char' $c1;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r0;
+        'byte' ch, $b0;
+        'int' $i2, $i3;
+        java.lang.StringBuilder $r2;
+        org.apache.thrift.protocol.TProtocolException $r1;
+        java.lang.String $r5;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        b := @parameter0: 'byte'[];
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_>;
+
+        ch = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'byte' read()>();
+
+        $b0 = b[0];
+
+        $i2 = ('int') ch;
+
+        $i3 = ('int') $b0;
+
+        if $i2 == $i3 goto label1;
+
+        $r1 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unexpected character:");
+
+        $c1 = ('char') ch;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>($c1);
+
+        $r5 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, $r5);
+
+        throw $r1;
+
+     label1:
+        return;
+    }
+
+    private static 'byte' hexVal('byte') throws org.apache.thrift.TException
+    {
+        'byte' ch;
+        'int' $i1;
+        'char' $c0;
+        org.apache.thrift.protocol.TProtocolException $r0;
+
+        ch := @parameter0: 'byte';
+
+        $i1 = ('int') ch;
+
+        if $i1 < 48 goto label1;
+
+        $i1 = ('int') ch;
+
+        if $i1 > 57 goto label1;
+
+        $c0 = ('char') ch;
+
+        $i1 = ('int') $c0;
+
+        $i1 = $i1 - 48;
+
+        ch = ('byte') $i1;
+
+        return ch;
+
+     label1:
+        $i1 = ('int') ch;
+
+        if $i1 < 97 goto label2;
+
+        $i1 = ('int') ch;
+
+        if $i1 > 102 goto label2;
+
+        $c0 = ('char') ch;
+
+        $i1 = ('int') $c0;
+
+        $i1 = $i1 - 97;
+
+        $i1 = $i1 + 10;
+
+        ch = ('byte') $i1;
+
+        return ch;
+
+     label2:
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Expected hex character");
+
+        throw $r0;
+    }
+
+    private static 'byte' hexChar('byte')
+    {
+        'int' $i2;
+        'char' $c1;
+        'byte' val;
+
+        val := @parameter0: 'byte';
+
+        val = val & 15;
+
+        $i2 = ('int') val;
+
+        if $i2 >= 10 goto label1;
+
+        $c1 = ('char') val;
+
+        $i2 = ('int') $c1;
+
+        $i2 = $i2 + 48;
+
+        val = ('byte') $i2;
+
+        return val;
+
+     label1:
+        $i2 = ('int') val;
+
+        $i2 = $i2 - 10;
+
+        $c1 = ('char') $i2;
+
+        $i2 = ('int') $c1;
+
+        $i2 = $i2 + 97;
+
+        val = ('byte') $i2;
+
+        return val;
+    }
+
+    private 'void' writeJSONString('byte'[]) throws org.apache.thrift.TException
+    {
+        'byte'[] b, $r2, $r10;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'short' $s1;
+        org.apache.thrift.transport.TTransport $r1;
+        'byte' $b0, $b3;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        'int' len, $i9, i, $i17;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        b := @parameter0: 'byte'[];
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        len = lengthof b;
+
+        i = 0;
+
+     label1:
+        if i >= len goto label7;
+
+        $b0 = b[i];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i9 = ('int') $s1;
+
+        if $i9 < 48 goto label3;
+
+        $b0 = b[i];
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] BACKSLASH>;
+
+        $b3 = $r2[0];
+
+        $i9 = ('int') $b0;
+
+        $i17 = ('int') $b3;
+
+        if $i9 != $i17 goto label2;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] BACKSLASH>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] BACKSLASH>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        goto label6;
+
+     label2:
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(b, i, 1);
+
+        goto label6;
+
+     label3:
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $r10 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] JSON_CHAR_TABLE>;
+
+        $b0 = b[i];
+
+        $i9 = ('int') $b0;
+
+        $b0 = $r10[$i9];
+
+        $r2[0] = $b0;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b0 = $r2[0];
+
+        if $b0 != 1 goto label4;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(b, i, 1);
+
+        goto label6;
+
+     label4:
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b0 = $r2[0];
+
+        $i9 = ('int') $b0;
+
+        if $i9 <= 1 goto label5;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] BACKSLASH>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r2, 0, 1);
+
+        goto label6;
+
+     label5:
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] ESCSEQ>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b0 = b[i];
+
+        $i9 = ('int') $b0;
+
+        $i9 = $i9 >> 4;
+
+        $b0 = ('byte') $i9;
+
+        $b0 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' hexChar('byte')>($b0);
+
+        $r2[0] = $b0;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b0 = b[i];
+
+        $b0 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' hexChar('byte')>($b0);
+
+        $r2[1] = $b0;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r2, 0, 2);
+
+     label6:
+        i = i + 1;
+
+        goto label1;
+
+     label7:
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        b = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(b);
+
+        return;
+    }
+
+    private 'void' writeJSONInteger('long') throws org.apache.thrift.TException
+    {
+        'byte'[] buf;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' num;
+        org.apache.thrift.transport.TTransport $r2;
+        java.nio.charset.Charset $r4;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        java.lang.String str;
+        'boolean' escapeNum;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        num := @parameter0: 'long';
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' write()>();
+
+        str = staticinvoke <java.lang.Long: java.lang.String toString('long')>(num);
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        escapeNum = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'boolean' escapeNum()>();
+
+        if escapeNum == false goto label1;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(buf);
+
+     label1:
+        $r4 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        buf = virtualinvoke str.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r4);
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(buf);
+
+        if escapeNum == false goto label2;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(buf);
+
+     label2:
+        return;
+    }
+
+    private 'void' writeJSONDouble('double') throws org.apache.thrift.TException
+    {
+        'byte'[] b;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'char' $c0;
+        org.apache.thrift.transport.TTransport $r2;
+        java.nio.charset.Charset $r4;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        'int' $i2;
+        java.lang.String str;
+        'double' num;
+        'boolean' special, $z3;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        num := @parameter0: 'double';
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' write()>();
+
+        str = staticinvoke <java.lang.Double: java.lang.String toString('double')>(num);
+
+        special = 0;
+
+        $c0 = virtualinvoke str.<java.lang.String: 'char' charAt('int')>(0);
+
+        $i2 = ('int') $c0;
+
+        lookupswitch($i2)
+        {
+            case 45: goto label2;
+            case 73: goto label1;
+            case 78: goto label1;
+            default: goto label3;
+        };
+
+     label1:
+        special = 1;
+
+        goto label3;
+
+     label2:
+        $c0 = virtualinvoke str.<java.lang.String: 'char' charAt('int')>(1);
+
+        $i2 = ('int') $c0;
+
+        if $i2 != 73 goto label3;
+
+        special = 1;
+
+     label3:
+        if special != 0 goto label4;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        special = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'boolean' escapeNum()>();
+
+        if special == false goto label5;
+
+     label4:
+        $z3 = 1;
+
+        special = 1;
+
+        goto label6;
+
+     label5:
+        $z3 = 0;
+
+        special = 0;
+
+     label6:
+        if $z3 == false goto label7;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        b = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(b);
+
+     label7:
+        $r4 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        b = virtualinvoke str.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r4);
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i2 = lengthof b;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(b, 0, $i2);
+
+        if special == false goto label8;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        b = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(b);
+
+     label8:
+        return;
+    }
+
+    private 'void' writeJSONBase64('byte'[], 'int', 'int') throws org.apache.thrift.TException
+    {
+        'byte'[] b, $r2;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        'int' offset, length, len#1, off#2, $i2;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        b := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        length := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        len#1 = length;
+
+        off#2 = offset;
+
+     label1:
+        if len#1 < 3 goto label2;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        staticinvoke <org.apache.thrift.protocol.TBase64Utils: 'void' encode('byte'[],'int','int','byte'[],'int')>(b, off#2, 3, $r2, 0);
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r2, 0, 4);
+
+        off#2 = off#2 + 3;
+
+        $i2 = ('int') -3;
+
+        len#1 = len#1 + $i2;
+
+        goto label1;
+
+     label2:
+        if len#1 <= 0 goto label3;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        staticinvoke <org.apache.thrift.protocol.TBase64Utils: 'void' encode('byte'[],'int','int','byte'[],'int')>(b, off#2, len#1, $r2, 0);
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        b = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        offset = len#1 + 1;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(b, 0, offset);
+
+     label3:
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        b = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(b);
+
+        return;
+    }
+
+    private 'void' writeJSONObjectStart() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        org.apache.thrift.protocol.TJSONProtocol$JSONPairContext $r3;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] LBRACE>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r3 = new org.apache.thrift.protocol.TJSONProtocol$JSONPairContext;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)>(this);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' pushContext(org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext)>($r3);
+
+        return;
+    }
+
+    private 'void' writeJSONObjectEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' popContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] RBRACE>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        return;
+    }
+
+    private 'void' writeJSONArrayStart() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        org.apache.thrift.protocol.TJSONProtocol$JSONListContext $r3;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] LBRACKET>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r3 = new org.apache.thrift.protocol.TJSONProtocol$JSONListContext;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)>(this);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' pushContext(org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext)>($r3);
+
+        return;
+    }
+
+    private 'void' writeJSONArrayEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' popContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] RBRACKET>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        return;
+    }
+
+    public 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage) throws org.apache.thrift.TException
+    {
+        'byte'[] b;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l1;
+        org.apache.thrift.protocol.TMessage message;
+        java.nio.charset.Charset $r1;
+        'byte' $b0;
+        'int' $i2;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        message := @parameter0: org.apache.thrift.protocol.TMessage;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' resetContext()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayStart()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>(1L);
+
+        $r0 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $r1 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        b = virtualinvoke $r0.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r1);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>(b);
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $l1 = ('long') $b0;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l1);
+
+        $i2 = message.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        $l1 = ('long') $i2;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l1);
+
+        return;
+    }
+
+    public 'void' writeMessageEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayEnd()>();
+
+        return;
+    }
+
+    public 'void' writeStructBegin(org.apache.thrift.protocol.TStruct) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TStruct struct;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        struct := @parameter0: org.apache.thrift.protocol.TStruct;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONObjectStart()>();
+
+        return;
+    }
+
+    public 'void' writeStructEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONObjectEnd()>();
+
+        return;
+    }
+
+    public 'void' writeFieldBegin(org.apache.thrift.protocol.TField) throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l1;
+        'short' $s0;
+        'byte' $b2;
+        org.apache.thrift.protocol.TField field;
+        java.lang.String $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        field := @parameter0: org.apache.thrift.protocol.TField;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol: 'boolean' fieldNamesAsString_>;
+
+        if $z0 == false goto label1;
+
+        $r0 = field.<org.apache.thrift.protocol.TField: java.lang.String name>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeString(java.lang.String)>($r0);
+
+        goto label2;
+
+     label1:
+        $s0 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $l1 = ('long') $s0;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l1);
+
+     label2:
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONObjectStart()>();
+
+        $b2 = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $r1 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] getTypeNameForTypeID('byte')>($b2);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>($r1);
+
+        return;
+    }
+
+    public 'void' writeFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONObjectEnd()>();
+
+        return;
+    }
+
+    public 'void' writeFieldStop()
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        return;
+    }
+
+    public 'void' writeMapBegin(org.apache.thrift.protocol.TMap) throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' $b0;
+        'int' $i2;
+        'long' $l3;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        map := @parameter0: org.apache.thrift.protocol.TMap;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayStart()>();
+
+        $b0 = map.<org.apache.thrift.protocol.TMap: 'byte' keyType>;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] getTypeNameForTypeID('byte')>($b0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>($r0);
+
+        $b0 = map.<org.apache.thrift.protocol.TMap: 'byte' valueType>;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] getTypeNameForTypeID('byte')>($b0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>($r0);
+
+        $i2 = map.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        $l3 = ('long') $i2;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l3);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONObjectStart()>();
+
+        return;
+    }
+
+    public 'void' writeMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONObjectEnd()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayEnd()>();
+
+        return;
+    }
+
+    public 'void' writeListBegin(org.apache.thrift.protocol.TList) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' $b0;
+        'int' $i1;
+        'long' $l2;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        list := @parameter0: org.apache.thrift.protocol.TList;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayStart()>();
+
+        $b0 = list.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] getTypeNameForTypeID('byte')>($b0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>($r0);
+
+        $i1 = list.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        $l2 = ('long') $i1;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l2);
+
+        return;
+    }
+
+    public 'void' writeListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayEnd()>();
+
+        return;
+    }
+
+    public 'void' writeSetBegin(org.apache.thrift.protocol.TSet) throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' $b0;
+        org.apache.thrift.protocol.TSet set;
+        'int' $i1;
+        'long' $l2;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        set := @parameter0: org.apache.thrift.protocol.TSet;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayStart()>();
+
+        $b0 = set.<org.apache.thrift.protocol.TSet: 'byte' elemType>;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] getTypeNameForTypeID('byte')>($b0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>($r0);
+
+        $i1 = set.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        $l2 = ('long') $i1;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l2);
+
+        return;
+    }
+
+    public 'void' writeSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONArrayEnd()>();
+
+        return;
+    }
+
+    public 'void' writeBool('boolean') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l0;
+        'boolean' b;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        b := @parameter0: 'boolean';
+
+        if b == false goto label1;
+
+        $l0 = 1L;
+
+        goto label2;
+
+     label1:
+        $l0 = 0L;
+
+     label2:
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l0);
+
+        return;
+    }
+
+    public 'void' writeByte('byte') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l0;
+        'byte' b;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        b := @parameter0: 'byte';
+
+        $l0 = ('long') b;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l0);
+
+        return;
+    }
+
+    public 'void' writeI16('short') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'short' i16;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        i16 := @parameter0: 'short';
+
+        $l0 = ('long') i16;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l0);
+
+        return;
+    }
+
+    public 'void' writeI32('int') throws org.apache.thrift.TException
+    {
+        'int' i32;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        i32 := @parameter0: 'int';
+
+        $l0 = ('long') i32;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>($l0);
+
+        return;
+    }
+
+    public 'void' writeI64('long') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' i64;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        i64 := @parameter0: 'long';
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONInteger('long')>(i64);
+
+        return;
+    }
+
+    public 'void' writeUuid(java.util.UUID) throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        java.nio.charset.Charset $r1;
+        java.util.UUID uuid;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        uuid := @parameter0: java.util.UUID;
+
+        $r0 = virtualinvoke uuid.<java.util.UUID: java.lang.String toString()>();
+
+        $r1 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        $r2 = virtualinvoke $r0.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r1);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>($r2);
+
+        return;
+    }
+
+    public 'void' writeDouble('double') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'double' dub;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        dub := @parameter0: 'double';
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONDouble('double')>(dub);
+
+        return;
+    }
+
+    public 'void' writeString(java.lang.String) throws org.apache.thrift.TException
+    {
+        'byte'[] b;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        java.nio.charset.Charset $r0;
+        java.lang.String str;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        str := @parameter0: java.lang.String;
+
+        $r0 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        b = virtualinvoke str.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONString('byte'[])>(b);
+
+        return;
+    }
+
+    public 'void' writeBinary(java.nio.ByteBuffer) throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'int' $i0, $i1, $i4;
+        java.nio.ByteBuffer bin;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        bin := @parameter0: java.nio.ByteBuffer;
+
+        $r0 = virtualinvoke bin.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        $i0 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' position()>();
+
+        $i1 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' arrayOffset()>();
+
+        $i0 = $i0 + $i1;
+
+        $i1 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $i4 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' position()>();
+
+        $i1 = $i1 - $i4;
+
+        $i4 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' arrayOffset()>();
+
+        $i1 = $i1 - $i4;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' writeJSONBase64('byte'[],'int','int')>($r0, $i0, $i1);
+
+        return;
+    }
+
+    private org.apache.thrift.TByteArrayOutputStream readJSONString('boolean') throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransportException $r4;
+        'long' maxSize, count, $l31;
+        java.util.ArrayList codeunits;
+        'short' cu;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r11;
+        org.apache.thrift.transport.TTransport $r2;
+        'byte' $b1, $b3, ch, ch#21;
+        java.lang.Character $r20;
+        java.nio.charset.Charset $r29;
+        'int'[] $r24;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        'int' cu#23, $i11;
+        java.lang.String $r8;
+        org.apache.thrift.protocol.TProtocolException $r19;
+        'boolean' skipContext;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.TConfiguration $r3;
+        org.apache.thrift.TByteArrayOutputStream arr;
+        'char' $c22;
+        java.io.IOException $r35;
+        java.lang.StringBuilder $r5;
+        java.lang.Object $r25;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        skipContext := @parameter0: 'boolean';
+
+        arr = new org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke arr.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>('int')>(16);
+
+        codeunits = new java.util.ArrayList;
+
+        specialinvoke codeunits.<java.util.ArrayList: 'void' <init>()>();
+
+        if skipContext != 0 goto label01;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' read()>();
+
+     label01:
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r1);
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r3 = virtualinvoke $r2.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        cu#23 = virtualinvoke $r3.<org.apache.thrift.TConfiguration: 'int' getMaxMessageSize()>();
+
+        maxSize = ('long') cu#23;
+
+        count = 0L;
+
+     label02:
+        $r11 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_>;
+
+        $b3 = virtualinvoke $r11.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'byte' read()>();
+
+        ch = $b3;
+
+        $l31 = count + 1L;
+
+        count = $l31;
+
+        $b1 = $l31 cmp maxSize;
+
+        cu#23 = ('int') $b1;
+
+        if cu#23 <= 0 goto label03;
+
+        $r4 = new org.apache.thrift.transport.TTransportException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Message size exceeds limit: ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>(maxSize);
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(6, $r8);
+
+        throw $r4;
+
+     label03:
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        $b1 = $r1[0];
+
+        cu#23 = ('int') $b3;
+
+        $i11 = ('int') $b1;
+
+        if cu#23 == $i11 goto label14;
+
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] ESCSEQ>;
+
+        $b1 = $r1[0];
+
+        cu#23 = ('int') $b3;
+
+        $i11 = ('int') $b1;
+
+        if cu#23 != $i11 goto label13;
+
+        $r11 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_>;
+
+        ch#21 = virtualinvoke $r11.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'byte' read()>();
+
+        count = $l31 + 1L;
+
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] ESCSEQ>;
+
+        $b3 = $r1[1];
+
+        cu#23 = ('int') ch#21;
+
+        $i11 = ('int') $b3;
+
+        if cu#23 != $i11 goto label11;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>($r1, 0, 4);
+
+        count = count + 4L;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b3 = $r1[0];
+
+        $b3 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' hexVal('byte')>($b3);
+
+        cu = ('short') $b3;
+
+        cu#23 = ('int') cu;
+
+        cu#23 = cu#23 << 12;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b3 = $r1[1];
+
+        $b3 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' hexVal('byte')>($b3);
+
+        cu = ('short') $b3;
+
+        $i11 = ('int') cu;
+
+        $i11 = $i11 << 8;
+
+        cu#23 = cu#23 + $i11;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b3 = $r1[2];
+
+        $b3 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' hexVal('byte')>($b3);
+
+        cu = ('short') $b3;
+
+        $i11 = ('int') cu;
+
+        $i11 = $i11 << 4;
+
+        cu#23 = cu#23 + $i11;
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] tmpbuf_>;
+
+        $b3 = $r1[3];
+
+        $b3 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' hexVal('byte')>($b3);
+
+        cu = ('short') $b3;
+
+        $i11 = ('int') cu;
+
+        cu#23 = cu#23 + $i11;
+
+        cu = ('short') cu#23;
+
+        $c22 = ('char') cu;
+
+     label04:
+        skipContext = staticinvoke <java.lang.Character: 'boolean' isHighSurrogate('char')>($c22);
+
+        if skipContext == false goto label06;
+
+        cu#23 = virtualinvoke codeunits.<java.util.ArrayList: 'int' size()>();
+
+        if cu#23 <= 0 goto label05;
+
+        $r19 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r19.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Expected low surrogate char");
+
+        throw $r19;
+
+     label05:
+        $c22 = ('char') cu;
+
+        $r20 = staticinvoke <java.lang.Character: java.lang.Character valueOf('char')>($c22);
+
+        virtualinvoke codeunits.<java.util.ArrayList: 'boolean' add(java.lang.Object)>($r20);
+
+        goto label02;
+
+     label06:
+        $c22 = ('char') cu;
+
+        skipContext = staticinvoke <java.lang.Character: 'boolean' isLowSurrogate('char')>($c22);
+
+        if skipContext == false goto label08;
+
+        cu#23 = virtualinvoke codeunits.<java.util.ArrayList: 'int' size()>();
+
+        if cu#23 != 0 goto label07;
+
+        $r19 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r19.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Expected high surrogate char");
+
+        throw $r19;
+
+     label07:
+        $c22 = ('char') cu;
+
+        $r20 = staticinvoke <java.lang.Character: java.lang.Character valueOf('char')>($c22);
+
+        virtualinvoke codeunits.<java.util.ArrayList: 'boolean' add(java.lang.Object)>($r20);
+
+        $r8 = new java.lang.String;
+
+        $r24 = newarray ('int')[2];
+
+        $r25 = virtualinvoke codeunits.<java.util.ArrayList: java.lang.Object get('int')>(0);
+
+        $r20 = (java.lang.Character) $r25;
+
+        $c22 = virtualinvoke $r20.<java.lang.Character: 'char' charValue()>();
+
+        cu#23 = ('int') $c22;
+
+        $r24[0] = cu#23;
+
+        $r25 = virtualinvoke codeunits.<java.util.ArrayList: java.lang.Object get('int')>(1);
+
+        $r20 = (java.lang.Character) $r25;
+
+        $c22 = virtualinvoke $r20.<java.lang.Character: 'char' charValue()>();
+
+        cu#23 = ('int') $c22;
+
+        $r24[1] = cu#23;
+
+        specialinvoke $r8.<java.lang.String: 'void' <init>('int'[],'int','int')>($r24, 0, 2);
+
+        $r29 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        $r1 = virtualinvoke $r8.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r29);
+
+        virtualinvoke arr.<org.apache.thrift.TByteArrayOutputStream: 'void' write('byte'[])>($r1);
+
+        virtualinvoke codeunits.<java.util.ArrayList: 'void' clear()>();
+
+        goto label02;
+
+     label08:
+        $r8 = new java.lang.String;
+
+        $r24 = newarray ('int')[1];
+
+        cu#23 = ('int') cu;
+
+        $r24[0] = cu#23;
+
+        specialinvoke $r8.<java.lang.String: 'void' <init>('int'[],'int','int')>($r24, 0, 1);
+
+        $r29 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        $r1 = virtualinvoke $r8.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r29);
+
+        virtualinvoke arr.<org.apache.thrift.TByteArrayOutputStream: 'void' write('byte'[])>($r1);
+
+     label09:
+        goto label02;
+
+     label10:
+        $r35 := @caughtexception;
+
+        $r19 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r19.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Invalid unicode sequence");
+
+        throw $r19;
+
+     label11:
+        $r8 = "\"\\/bfnrt";
+
+        cu#23 = ('int') ch#21;
+
+        cu#23 = virtualinvoke $r8.<java.lang.String: 'int' indexOf('int')>(cu#23);
+
+        $i11 = ('int') -1;
+
+        if cu#23 != $i11 goto label12;
+
+        $r19 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r19.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Expected control char");
+
+        throw $r19;
+
+     label12:
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] ESCAPE_CHAR_VALS>;
+
+        ch = $r1[cu#23];
+
+     label13:
+        cu#23 = ('int') ch;
+
+        virtualinvoke arr.<org.apache.thrift.TByteArrayOutputStream: 'void' write('int')>(cu#23);
+
+        goto label02;
+
+     label14:
+        return arr;
+
+        catch java.io.IOException from label04 to label09 with label10;
+    }
+
+    private 'boolean' isJSONNumeric('byte')
+    {
+        'int' $i0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' b;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        b := @parameter0: 'byte';
+
+        $i0 = ('int') b;
+
+        tableswitch($i0)
+        {
+            case 43: goto label1;
+            case 44: goto label2;
+            case 45: goto label1;
+            case 46: goto label1;
+            case 47: goto label2;
+            case 48: goto label1;
+            case 49: goto label1;
+            case 50: goto label1;
+            case 51: goto label1;
+            case 52: goto label1;
+            case 53: goto label1;
+            case 54: goto label1;
+            case 55: goto label1;
+            case 56: goto label1;
+            case 57: goto label1;
+            case 58: goto label2;
+            case 59: goto label2;
+            case 60: goto label2;
+            case 61: goto label2;
+            case 62: goto label2;
+            case 63: goto label2;
+            case 64: goto label2;
+            case 65: goto label2;
+            case 66: goto label2;
+            case 67: goto label2;
+            case 68: goto label2;
+            case 69: goto label1;
+            case 70: goto label2;
+            case 71: goto label2;
+            case 72: goto label2;
+            case 73: goto label2;
+            case 74: goto label2;
+            case 75: goto label2;
+            case 76: goto label2;
+            case 77: goto label2;
+            case 78: goto label2;
+            case 79: goto label2;
+            case 80: goto label2;
+            case 81: goto label2;
+            case 82: goto label2;
+            case 83: goto label2;
+            case 84: goto label2;
+            case 85: goto label2;
+            case 86: goto label2;
+            case 87: goto label2;
+            case 88: goto label2;
+            case 89: goto label2;
+            case 90: goto label2;
+            case 91: goto label2;
+            case 92: goto label2;
+            case 93: goto label2;
+            case 94: goto label2;
+            case 95: goto label2;
+            case 96: goto label2;
+            case 97: goto label2;
+            case 98: goto label2;
+            case 99: goto label2;
+            case 100: goto label2;
+            case 101: goto label1;
+            default: goto label2;
+        };
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    private java.lang.String readJSONNumericChars() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.TConfiguration $r1;
+        org.apache.thrift.transport.TTransportException $r4;
+        'long' maxSize, $l4;
+        'char' $c2;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r2;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' ch;
+        'int' $i0;
+        java.lang.StringBuilder strbld;
+        java.lang.String $r8;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        strbld = new java.lang.StringBuilder;
+
+        specialinvoke strbld.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.TConfiguration: 'int' getMaxMessageSize()>();
+
+        maxSize = ('long') $i0;
+
+     label1:
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_>;
+
+        ch = virtualinvoke $r2.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'byte' peek()>();
+
+        $z0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'boolean' isJSONNumeric('byte')>(ch);
+
+        if $z0 == 0 goto label2;
+
+        $r2 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_>;
+
+        ch = virtualinvoke $r2.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'byte' read()>();
+
+        $c2 = ('char') ch;
+
+        virtualinvoke strbld.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>($c2);
+
+        $i0 = virtualinvoke strbld.<java.lang.StringBuilder: 'int' length()>();
+
+        $l4 = ('long') $i0;
+
+        ch = $l4 cmp maxSize;
+
+        $i0 = ('int') ch;
+
+        if $i0 <= 0 goto label1;
+
+        $r4 = new org.apache.thrift.transport.TTransportException;
+
+        strbld = new java.lang.StringBuilder;
+
+        specialinvoke strbld.<java.lang.StringBuilder: 'void' <init>()>();
+
+        strbld = virtualinvoke strbld.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Message size exceeds limit: ");
+
+        strbld = virtualinvoke strbld.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>(maxSize);
+
+        $r8 = virtualinvoke strbld.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(6, $r8);
+
+        throw $r4;
+
+     label2:
+        $r8 = virtualinvoke strbld.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r8;
+    }
+
+    private 'long' readJSONInteger() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l0;
+        java.lang.NumberFormatException $r5;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        java.lang.String str;
+        org.apache.thrift.protocol.TProtocolException $r6;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' read()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'boolean' escapeNum()>();
+
+        if $z0 == false goto label1;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r2);
+
+     label1:
+        str = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: java.lang.String readJSONNumericChars()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'boolean' escapeNum()>();
+
+        if $z0 == false goto label2;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r2);
+
+     label2:
+        $l0 = staticinvoke <java.lang.Long: 'long' parseLong(java.lang.String)>(str);
+
+     label3:
+        return $l0;
+
+     label4:
+        $r5 := @caughtexception;
+
+        $r6 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r6.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Bad data encounted in numeric data");
+
+        throw $r6;
+
+        catch java.lang.NumberFormatException from label2 to label3 with label4;
+    }
+
+    private 'double' readJSONDouble() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.TByteArrayOutputStream arr;
+        java.lang.NumberFormatException $r10;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r1;
+        'byte' $b0, $b1;
+        java.nio.charset.Charset $r3;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        'int' $i2, $i3;
+        java.lang.String $r4;
+        org.apache.thrift.protocol.TProtocolException $r6;
+        'double' dub;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' read()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_>;
+
+        $b0 = virtualinvoke $r1.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'byte' peek()>();
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        $b1 = $r2[0];
+
+        $i2 = ('int') $b0;
+
+        $i3 = ('int') $b1;
+
+        if $i2 != $i3 goto label2;
+
+        arr = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(1);
+
+        $r3 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        $r4 = virtualinvoke arr.<org.apache.thrift.TByteArrayOutputStream: java.lang.String toString(java.nio.charset.Charset)>($r3);
+
+        dub = staticinvoke <java.lang.Double: 'double' parseDouble(java.lang.String)>($r4);
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'boolean' escapeNum()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = staticinvoke <java.lang.Double: 'boolean' isNaN('double')>(dub);
+
+        if $z0 != 0 goto label1;
+
+        $z0 = staticinvoke <java.lang.Double: 'boolean' isInfinite('double')>(dub);
+
+        if $z0 != 0 goto label1;
+
+        $r6 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r6.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Numeric data unexpectedly quoted");
+
+        throw $r6;
+
+     label1:
+        return dub;
+
+     label2:
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'boolean' escapeNum()>();
+
+        if $z0 == false goto label3;
+
+        $r2 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r2);
+
+     label3:
+        $r4 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: java.lang.String readJSONNumericChars()>();
+
+        dub = staticinvoke <java.lang.Double: 'double' parseDouble(java.lang.String)>($r4);
+
+     label4:
+        return dub;
+
+     label5:
+        $r10 := @caughtexception;
+
+        $r6 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r6.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, "Bad data encounted in numeric data");
+
+        throw $r6;
+
+        catch java.lang.NumberFormatException from label3 to label4 with label5;
+    }
+
+    private 'byte'[] readJSONBase64() throws org.apache.thrift.TException
+    {
+        'byte'[] b, i;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.TByteArrayOutputStream arr;
+        'byte' $b0;
+        'int' len, off, size, $i2, i#5, $i3;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        arr = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        b = virtualinvoke arr.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        len = virtualinvoke arr.<org.apache.thrift.TByteArrayOutputStream: 'int' len()>();
+
+        off = 0;
+
+        size = 0;
+
+        if len < 2 goto label1;
+
+        $i2 = len - 2;
+
+        goto label2;
+
+     label1:
+        $i2 = 0;
+
+     label2:
+        i#5 = len - 1;
+
+     label3:
+        if i#5 < $i2 goto label4;
+
+        $b0 = b[i#5];
+
+        $i3 = ('int') $b0;
+
+        if $i3 != 61 goto label4;
+
+        $i3 = ('int') -1;
+
+        len = len + $i3;
+
+        $i3 = ('int') -1;
+
+        i#5 = i#5 + $i3;
+
+        goto label3;
+
+     label4:
+        if len < 4 goto label5;
+
+        staticinvoke <org.apache.thrift.protocol.TBase64Utils: 'void' decode('byte'[],'int','int','byte'[],'int')>(b, off, 4, b, size);
+
+        off = off + 4;
+
+        $i2 = ('int') -4;
+
+        len = len + $i2;
+
+        size = size + 3;
+
+        goto label4;
+
+     label5:
+        if len <= 1 goto label6;
+
+        staticinvoke <org.apache.thrift.protocol.TBase64Utils: 'void' decode('byte'[],'int','int','byte'[],'int')>(b, off, len, b, size);
+
+        len = len - 1;
+
+        size = size + len;
+
+     label6:
+        i = newarray ('byte')[size];
+
+        staticinvoke <java.lang.System: 'void' arraycopy(java.lang.Object,'int',java.lang.Object,'int','int')>(b, 0, i, 0, size);
+
+        return i;
+    }
+
+    private 'void' readJSONObjectStart() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        org.apache.thrift.protocol.TJSONProtocol$JSONPairContext $r2;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' read()>();
+
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] LBRACE>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r1);
+
+        $r2 = new org.apache.thrift.protocol.TJSONProtocol$JSONPairContext;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)>(this);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' pushContext(org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext)>($r2);
+
+        return;
+    }
+
+    private 'void' readJSONObjectEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] RBRACE>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' popContext()>();
+
+        return;
+    }
+
+    private 'void' readJSONArrayStart() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext $r0;
+        org.apache.thrift.protocol.TJSONProtocol$JSONListContext $r2;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext context_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' read()>();
+
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] LBRACKET>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r1);
+
+        $r2 = new org.apache.thrift.protocol.TJSONProtocol$JSONListContext;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TJSONProtocol$JSONListContext: 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)>(this);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' pushContext(org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext)>($r2);
+
+        return;
+    }
+
+    private 'void' readJSONArrayEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] RBRACKET>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r0);
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' popContext()>();
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TMessage readMessageBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.TByteArrayOutputStream $r1;
+        'long' $l0;
+        org.apache.thrift.protocol.TMessage $r3;
+        'byte' type;
+        java.nio.charset.Charset $r2;
+        'int' seqid;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String name;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' resetContext()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayStart()>();
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        type = $l0 cmp 1L;
+
+        if type == false goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(4, "Message contained bad version.");
+
+        throw $r0;
+
+     label1:
+        $r1 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        $r2 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        name = virtualinvoke $r1.<org.apache.thrift.TByteArrayOutputStream: java.lang.String toString(java.nio.charset.Charset)>($r2);
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        seqid = ('int') $l0;
+
+        type = ('byte') seqid;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        seqid = ('int') $l0;
+
+        $r3 = new org.apache.thrift.protocol.TMessage;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>(name, type, seqid);
+
+        return $r3;
+    }
+
+    public 'void' readMessageEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayEnd()>();
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TStruct readStructBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.protocol.TStruct $r0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONObjectStart()>();
+
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT>;
+
+        return $r0;
+    }
+
+    public 'void' readStructEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONObjectEnd()>();
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TField readFieldBegin() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.TByteArrayOutputStream $r2;
+        'long' $l1;
+        'short' id;
+        org.apache.thrift.protocol.TJSONProtocol$LookaheadReader $r0;
+        'byte' ch, $b0, type#2;
+        'int' $i2, $i4;
+        org.apache.thrift.protocol.TField $r4;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TJSONProtocol$LookaheadReader reader_>;
+
+        ch = virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol$LookaheadReader: 'byte' peek()>();
+
+        id = 0;
+
+        $r1 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] RBRACE>;
+
+        $b0 = $r1[0];
+
+        $i2 = ('int') ch;
+
+        $i4 = ('int') $b0;
+
+        if $i2 != $i4 goto label1;
+
+        type#2 = 0;
+
+        goto label2;
+
+     label1:
+        $l1 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        $i2 = ('int') $l1;
+
+        id = ('short') $i2;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONObjectStart()>();
+
+        $r2 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        $r1 = virtualinvoke $r2.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        type#2 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' getTypeIDForTypeName('byte'[])>($r1);
+
+     label2:
+        $r4 = new org.apache.thrift.protocol.TField;
+
+        specialinvoke $r4.<org.apache.thrift.protocol.TField: 'void' <init>(java.lang.String,'byte','short')>("", type#2, id);
+
+        return $r4;
+    }
+
+    public 'void' readFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONObjectEnd()>();
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TMap readMapBegin() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'long' $l0;
+        'byte' keyType, valueType;
+        'int' size;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayStart()>();
+
+        $r0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        keyType = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' getTypeIDForTypeName('byte'[])>($r1);
+
+        $r0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        valueType = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' getTypeIDForTypeName('byte'[])>($r1);
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        size = ('int') $l0;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONObjectStart()>();
+
+        map = new org.apache.thrift.protocol.TMap;
+
+        specialinvoke map.<org.apache.thrift.protocol.TMap: 'void' <init>('byte','byte','int')>(keyType, valueType, size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TMap)>(map);
+
+        return map;
+    }
+
+    public 'void' readMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONObjectEnd()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayEnd()>();
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TList readListBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' elemType;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'int' size;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayStart()>();
+
+        $r0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        elemType = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' getTypeIDForTypeName('byte'[])>($r1);
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        size = ('int') $l0;
+
+        list = new org.apache.thrift.protocol.TList;
+
+        specialinvoke list.<org.apache.thrift.protocol.TList: 'void' <init>('byte','int')>(elemType, size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TList)>(list);
+
+        return list;
+    }
+
+    public 'void' readListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayEnd()>();
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TSet readSetBegin() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' elemType;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        org.apache.thrift.protocol.TSet set;
+        'int' size;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayStart()>();
+
+        $r0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        elemType = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte' getTypeIDForTypeName('byte'[])>($r1);
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        size = ('int') $l0;
+
+        set = new org.apache.thrift.protocol.TSet;
+
+        specialinvoke set.<org.apache.thrift.protocol.TSet: 'void' <init>('byte','int')>(elemType, size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TSet)>(set);
+
+        return set;
+    }
+
+    public 'void' readSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONArrayEnd()>();
+
+        return;
+    }
+
+    public 'boolean' readBool() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' $b1;
+        'long' $l0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 == false goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'byte' readByte() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' $b2;
+        'int' $i1;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        $i1 = ('int') $l0;
+
+        $b2 = ('byte') $i1;
+
+        return $b2;
+    }
+
+    public 'short' readI16() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'short' $s2;
+        'int' $i1;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        $i1 = ('int') $l0;
+
+        $s2 = ('short') $i1;
+
+        return $s2;
+    }
+
+    public 'int' readI32() throws org.apache.thrift.TException
+    {
+        'int' $i1;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        $i1 = ('int') $l0;
+
+        return $i1;
+    }
+
+    public 'long' readI64() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $l0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'long' readJSONInteger()>();
+
+        return $l0;
+    }
+
+    public java.util.UUID readUuid() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        java.lang.String $r0;
+        java.util.UUID $r1;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.protocol.TJSONProtocol: java.lang.String readString()>();
+
+        $r1 = staticinvoke <java.util.UUID: java.util.UUID fromString(java.lang.String)>($r0);
+
+        return $r1;
+    }
+
+    public 'double' readDouble() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'double' $d0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $d0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'double' readJSONDouble()>();
+
+        return $d0;
+    }
+
+    public java.lang.String readString() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        java.nio.charset.Charset $r1;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        java.lang.String $r2;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.TByteArrayOutputStream readJSONString('boolean')>(0);
+
+        $r1 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        $r2 = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: java.lang.String toString(java.nio.charset.Charset)>($r1);
+
+        return $r2;
+    }
+
+    public java.nio.ByteBuffer readBinary() throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TJSONProtocol this;
+        java.nio.ByteBuffer $r1;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        $r0 = specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol: 'byte'[] readJSONBase64()>();
+
+        $r1 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>($r0);
+
+        return $r1;
+    }
+
+    public 'int' getMinSerializedSize('byte') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.protocol.TJSONProtocol this;
+        'byte' type;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol;
+
+        type := @parameter0: 'byte';
+
+        $i0 = ('int') type;
+
+        tableswitch($i0)
+        {
+            case 0: goto label01;
+            case 1: goto label02;
+            case 2: goto label03;
+            case 3: goto label04;
+            case 4: goto label05;
+            case 5: goto label14;
+            case 6: goto label06;
+            case 7: goto label14;
+            case 8: goto label07;
+            case 9: goto label14;
+            case 10: goto label08;
+            case 11: goto label09;
+            case 12: goto label10;
+            case 13: goto label11;
+            case 14: goto label12;
+            case 15: goto label13;
+            default: goto label14;
+        };
+
+     label01:
+        return 1;
+
+     label02:
+        return 1;
+
+     label03:
+        return 1;
+
+     label04:
+        return 1;
+
+     label05:
+        return 1;
+
+     label06:
+        return 1;
+
+     label07:
+        return 1;
+
+     label08:
+        return 1;
+
+     label09:
+        return 2;
+
+     label10:
+        return 2;
+
+     label11:
+        return 2;
+
+     label12:
+        return 2;
+
+     label13:
+        return 2;
+
+     label14:
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(0, "unrecognized type code");
+
+        throw $r0;
+    }
+
+    static 'byte'[] access$000()
+    {
+        'byte'[] $r0;
+
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] COMMA>;
+
+        return $r0;
+    }
+
+    static 'byte'[] access$100()
+    {
+        'byte'[] $r0;
+
+        $r0 = <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] COLON>;
+
+        return $r0;
+    }
+
+    static 'void' <clinit>()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TStruct $r23;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'int' DEF_STRING_SIZE> = 16;
+
+        <org.apache.thrift.protocol.TJSONProtocol: java.lang.String ESCAPE_CHARS> = "\"\\/bfnrt";
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'long' VERSION> = 1L;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 44;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] COMMA> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 58;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] COLON> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 123;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] LBRACE> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 125;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] RBRACE> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 91;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] LBRACKET> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 93;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] RBRACKET> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 34;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] QUOTE> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 92;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] BACKSLASH> = $r0;
+
+        $r0 = newarray ('byte')[4];
+
+        $r0[0] = 92;
+
+        $r0[1] = 117;
+
+        $r0[2] = 48;
+
+        $r0[3] = 48;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] ESCSEQ> = $r0;
+
+        $r0 = newarray ('byte')[48];
+
+        $r0[0] = 0;
+
+        $r0[1] = 0;
+
+        $r0[2] = 0;
+
+        $r0[3] = 0;
+
+        $r0[4] = 0;
+
+        $r0[5] = 0;
+
+        $r0[6] = 0;
+
+        $r0[7] = 0;
+
+        $r0[8] = 98;
+
+        $r0[9] = 116;
+
+        $r0[10] = 110;
+
+        $r0[11] = 0;
+
+        $r0[12] = 102;
+
+        $r0[13] = 114;
+
+        $r0[14] = 0;
+
+        $r0[15] = 0;
+
+        $r0[16] = 0;
+
+        $r0[17] = 0;
+
+        $r0[18] = 0;
+
+        $r0[19] = 0;
+
+        $r0[20] = 0;
+
+        $r0[21] = 0;
+
+        $r0[22] = 0;
+
+        $r0[23] = 0;
+
+        $r0[24] = 0;
+
+        $r0[25] = 0;
+
+        $r0[26] = 0;
+
+        $r0[27] = 0;
+
+        $r0[28] = 0;
+
+        $r0[29] = 0;
+
+        $r0[30] = 0;
+
+        $r0[31] = 0;
+
+        $r0[32] = 1;
+
+        $r0[33] = 1;
+
+        $r0[34] = 34;
+
+        $r0[35] = 1;
+
+        $r0[36] = 1;
+
+        $r0[37] = 1;
+
+        $r0[38] = 1;
+
+        $r0[39] = 1;
+
+        $r0[40] = 1;
+
+        $r0[41] = 1;
+
+        $r0[42] = 1;
+
+        $r0[43] = 1;
+
+        $r0[44] = 1;
+
+        $r0[45] = 1;
+
+        $r0[46] = 1;
+
+        $r0[47] = 1;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] JSON_CHAR_TABLE> = $r0;
+
+        $r0 = newarray ('byte')[8];
+
+        $r0[0] = 34;
+
+        $r0[1] = 92;
+
+        $r0[2] = 47;
+
+        $r0[3] = 8;
+
+        $r0[4] = 12;
+
+        $r0[5] = 10;
+
+        $r0[6] = 13;
+
+        $r0[7] = 9;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] ESCAPE_CHAR_VALS> = $r0;
+
+        $r0 = newarray ('byte')[2];
+
+        $r0[0] = 116;
+
+        $r0[1] = 102;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_BOOL> = $r0;
+
+        $r0 = newarray ('byte')[2];
+
+        $r0[0] = 105;
+
+        $r0[1] = 56;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_BYTE> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 105;
+
+        $r0[1] = 49;
+
+        $r0[2] = 54;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_I16> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 105;
+
+        $r0[1] = 51;
+
+        $r0[2] = 50;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_I32> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 105;
+
+        $r0[1] = 54;
+
+        $r0[2] = 52;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_I64> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 117;
+
+        $r0[1] = 105;
+
+        $r0[2] = 100;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_UUID> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 100;
+
+        $r0[1] = 98;
+
+        $r0[2] = 108;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_DOUBLE> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 114;
+
+        $r0[1] = 101;
+
+        $r0[2] = 99;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_STRUCT> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 115;
+
+        $r0[1] = 116;
+
+        $r0[2] = 114;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_STRING> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 109;
+
+        $r0[1] = 97;
+
+        $r0[2] = 112;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_MAP> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 108;
+
+        $r0[1] = 115;
+
+        $r0[2] = 116;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_LIST> = $r0;
+
+        $r0 = newarray ('byte')[3];
+
+        $r0[0] = 115;
+
+        $r0[1] = 101;
+
+        $r0[2] = 116;
+
+        <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] NAME_SET> = $r0;
+
+        $r23 = new org.apache.thrift.protocol.TStruct;
+
+        specialinvoke $r23.<org.apache.thrift.protocol.TStruct: 'void' <init>()>();
+
+        <org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT> = $r23;
+
+        return;
+    }
+}

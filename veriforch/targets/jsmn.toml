@@ -1,0 +1,48 @@
+# jsmn (zserge/jsmn @ 25647e6): minimalistic JSON tokenizer in C, header-only.
+name = "jsmn"
+lang = "cir"
+root = "/home/user/veriforch/targets/jsmn"
+sources = ["jsmn.h"]
+tests = ["test/tests.c"]
+test_helpers = ["test/test.h", "test/testutil.h"]
+test_pass = "zero"     # jsmn tests return 0 on success, the failing line otherwise
+entry = ["jsmn_init", "jsmn_parse"]
+
+[[variants]]
+name = "default"
+flags = []
+
+[[variants]]
+name = "strict"
+flags = ["-DJSMN_STRICT=1"]
+
+[[variants]]
+name = "links"
+flags = ["-DJSMN_PARENT_LINKS=1"]
+
+[[variants]]
+name = "strict_links"
+flags = ["-DJSMN_STRICT=1", "-DJSMN_PARENT_LINKS=1"]
+
+# the real test suite as builds, one per program of jsmn's Makefile (test_default, test_strict, test_links,
+# test_strict_links): test/tests.c includes jsmn.h; its test_* functions are test units. Several tests are
+# compiled only under JSMN_STRICT (e.g. test_partial_array's body is `return 0;` in the default program).
+[[variants]]
+name = "tests"
+flags = []
+sources = ["test/tests.c"]
+
+[[variants]]
+name = "tests_strict"
+flags = ["-DJSMN_STRICT=1"]
+sources = ["test/tests.c"]
+
+[[variants]]
+name = "tests_links"
+flags = ["-DJSMN_PARENT_LINKS=1"]
+sources = ["test/tests.c"]
+
+[[variants]]
+name = "tests_strict_links"
+flags = ["-DJSMN_STRICT=1", "-DJSMN_PARENT_LINKS=1"]
+sources = ["test/tests.c"]

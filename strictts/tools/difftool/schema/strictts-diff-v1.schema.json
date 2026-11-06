@@ -1,0 +1,425 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "strictts-diff/v1",
+  "title": "strictts-diff result (diff command), version 1",
+  "description": "Output of `node tools/difftool/dist/cli.js [diff] OLD NEW --json FILE|-`. See tools/difftool/INTERFACE.md. Consumers must ignore unknown fields and treat unknown reason codes as \"other\".",
+  "type": "object",
+  "required": [
+    "schema",
+    "command",
+    "old",
+    "new",
+    "options",
+    "summary",
+    "functions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "strictts-diff/v1"
+    },
+    "command": {
+      "const": "diff"
+    },
+    "old": {
+      "type": "string",
+      "description": "OLD spec as given"
+    },
+    "new": {
+      "type": "string",
+      "description": "NEW spec as given"
+    },
+    "options": {
+      "type": "object",
+      "required": [
+        "seed",
+        "runs",
+        "lean",
+        "tactic",
+        "tacticWf"
+      ],
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "runs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lean": {
+          "type": "boolean"
+        },
+        "tactic": {
+          "enum": [
+            "default",
+            "custom"
+          ]
+        },
+        "tacticWf": {
+          "enum": [
+            "default",
+            "custom"
+          ]
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "changed",
+        "proved",
+        "refuted",
+        "refutedNodeOnly",
+        "unknown",
+        "added",
+        "removed"
+      ],
+      "properties": {
+        "changed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "proved": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "refuted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "refutedNodeOnly": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unknown": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "added": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "removed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "functions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/function"
+      }
+    }
+  },
+  "$defs": {
+    "reasonCode": {
+      "enum": [
+        "outside-subset",
+        "external-module",
+        "signature-changed",
+        "kind-changed",
+        "inputs-not-generated",
+        "fuzz-error",
+        "slice-error",
+        "module-state-differs",
+        "translated-signatures-differ",
+        "target-not-translated",
+        "no-counterexample",
+        "no-proof",
+        "proof:loops",
+        "proof:callbacks",
+        "proof:map",
+        "proof:async",
+        "proof:call",
+        "proof:allocation",
+        "proof:strings",
+        "proof:numbers",
+        "proof:timeout",
+        "proof:other",
+        "lean-disabled",
+        "lean-error",
+        "soundness-alert",
+        "node-only:driver-outside-subset",
+        "node-only:lean-mismatch",
+        "node-only:not-observable",
+        "node-only:lean-failed",
+        "node-only:lean-disabled",
+        "other"
+      ]
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "outcome",
+        "console",
+        "args",
+        "receiver",
+        "unhandled"
+      ],
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "description": "return V | throw Name: message | resolve V | reject Name: message | pending (canonical printing, INTERFACE.md)"
+        },
+        "console": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "arguments after the call (canonical)"
+        },
+        "receiver": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "receiver after the call (methods)"
+        },
+        "unhandled": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "function": {
+      "type": "object",
+      "required": [
+        "key",
+        "file",
+        "name",
+        "kind",
+        "status",
+        "verdict",
+        "reasonCodes",
+        "reasons",
+        "notes",
+        "counterexample",
+        "proof",
+        "fuzz"
+      ],
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "module::qualifiedName (module = path relative to the spec root, or <file> for single-file specs)"
+        },
+        "file": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "function",
+            "arrow",
+            "method",
+            "static",
+            "ctor"
+          ]
+        },
+        "status": {
+          "enum": [
+            "changed",
+            "added",
+            "removed"
+          ]
+        },
+        "verdict": {
+          "enum": [
+            "PROVED",
+            "REFUTED",
+            "REFUTED*",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "reasonCodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reasonCode"
+          }
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "human-readable, not stable"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "human-readable, not stable"
+        },
+        "counterexample": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "call",
+                "inputs",
+                "receiverArgs",
+                "old",
+                "new",
+                "differs",
+                "leanConfirmed",
+                "lean"
+              ],
+              "properties": {
+                "call": {
+                  "type": "string",
+                  "description": "the call as TypeScript, e.g. f(-0)"
+                },
+                "inputs": {
+                  "type": "array",
+                  "description": "arguments as tagged values (INTERFACE.md)"
+                },
+                "receiverArgs": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "description": "constructor arguments of the receiver (methods)"
+                },
+                "old": {
+                  "$ref": "#/$defs/observation"
+                },
+                "new": {
+                  "$ref": "#/$defs/observation"
+                },
+                "differs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "leanConfirmed": {
+                  "type": "boolean"
+                },
+                "lean": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "old",
+                        "new"
+                      ],
+                      "properties": {
+                        "old": {
+                          "type": "string"
+                        },
+                        "new": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "proof": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "file",
+                "theorem",
+                "statement",
+                "checked",
+                "axioms",
+                "axiomsOk",
+                "nativeAxiom"
+              ],
+              "properties": {
+                "file": {
+                  "type": "string",
+                  "description": "Lean file holding the theorem"
+                },
+                "theorem": {
+                  "type": "string"
+                },
+                "statement": {
+                  "enum": [
+                    "all-worlds",
+                    "allocated-arguments",
+                    "allocated-arguments-strlen",
+                    "allocated-arguments-objects",
+                    "observational",
+                    "old-no-panic"
+                  ],
+                  "description": "added 10-27, additive: old-no-panic (WEAKER than equality of worlds: for every argument list and world the two runs are equal or the old run panics; see INTERFACE.md). Added 10-24, additive: allocated-arguments-strlen (allocated arguments and string arguments with at most 2^53 - 1 code units), allocated-arguments-objects (allocated arguments and allocated object arguments with initialised fields, array fields allocated with fewer than 2^32 - 1 elements), observational (WEAKER than equality of worlds: same outcome or same/equal-content result array, console, cells below the caller's allocation counter and oracle positions; callee-allocated cells and the counter not compared; see INTERFACE.md)"
+                },
+                "checked": {
+                  "type": "boolean"
+                },
+                "axioms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "axiomsOk": {
+                  "type": "boolean"
+                },
+                "nativeAxiom": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "fuzz": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "runs",
+                "inconclusive",
+                "ms"
+              ],
+              "properties": {
+                "runs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "inconclusive": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "ms": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

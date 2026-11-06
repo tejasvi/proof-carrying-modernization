@@ -1,0 +1,179 @@
+public class org.apache.thrift.protocol.TField extends java.lang.Object
+{
+    public final java.lang.String name;
+    public final 'byte' type;
+    public final 'short' id;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TField this;
+
+        this := @this: org.apache.thrift.protocol.TField;
+
+        specialinvoke this.<org.apache.thrift.protocol.TField: 'void' <init>(java.lang.String,'byte','short')>("", 0, 0);
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, 'byte', 'short')
+    {
+        'short' i;
+        'byte' t;
+        org.apache.thrift.protocol.TField this;
+        java.lang.String n;
+
+        this := @this: org.apache.thrift.protocol.TField;
+
+        n := @parameter0: java.lang.String;
+
+        t := @parameter1: 'byte';
+
+        i := @parameter2: 'short';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TField: java.lang.String name> = n;
+
+        this.<org.apache.thrift.protocol.TField: 'byte' type> = t;
+
+        this.<org.apache.thrift.protocol.TField: 'short' id> = i;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        'short' $s1;
+        'byte' $b0;
+        'int' $i2;
+        org.apache.thrift.protocol.TField this;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r2;
+
+        this := @this: org.apache.thrift.protocol.TField;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<TField name:\'");
+
+        $r2 = this.<org.apache.thrift.protocol.TField: java.lang.String name>;
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' type:");
+
+        $b0 = this.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $i2 = ('int') $b0;
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i2);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" field-id:");
+
+        $s1 = this.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $i2 = ('int') $s1;
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i2);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        $r2 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public 'int' hashCode()
+    {
+        'short' $s0;
+        'byte' $b2;
+        'int' result, $i4;
+        org.apache.thrift.protocol.TField this;
+
+        this := @this: org.apache.thrift.protocol.TField;
+
+        $s0 = this.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        result = ('int') $s0;
+
+        result = 31 + result;
+
+        result = 31 * result;
+
+        $b2 = this.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $i4 = ('int') $b2;
+
+        result = result + $i4;
+
+        return result;
+    }
+
+    public 'boolean' equals(java.lang.Object)
+    {
+        'short' $s2, $s3;
+        'byte' $b0, $b1;
+        'int' $i4, $i5;
+        org.apache.thrift.protocol.TField this, otherField;
+        java.lang.Object obj;
+        java.lang.Class $r0, $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TField;
+
+        obj := @parameter0: java.lang.Object;
+
+        if this != obj goto label1;
+
+        return 1;
+
+     label1:
+        if obj != null goto label2;
+
+        return 0;
+
+     label2:
+        $r0 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r1 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $r0 == $r1 goto label3;
+
+        return 0;
+
+     label3:
+        otherField = (org.apache.thrift.protocol.TField) obj;
+
+        $b0 = this.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $b1 = otherField.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $i4 = ('int') $b0;
+
+        $i5 = ('int') $b1;
+
+        if $i4 != $i5 goto label4;
+
+        $s2 = this.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $s3 = otherField.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $i4 = ('int') $s2;
+
+        $i5 = ('int') $s3;
+
+        if $i4 != $i5 goto label4;
+
+        $z0 = 1;
+
+        goto label5;
+
+     label4:
+        $z0 = 0;
+
+     label5:
+        return $z0;
+    }
+}

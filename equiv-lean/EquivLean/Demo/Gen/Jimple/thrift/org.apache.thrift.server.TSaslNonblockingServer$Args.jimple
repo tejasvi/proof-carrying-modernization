@@ -1,0 +1,263 @@
+public class org.apache.thrift.server.TSaslNonblockingServer$Args extends org.apache.thrift.server.TServer$AbstractServerArgs
+{
+    private 'int' networkThreads;
+    private 'int' saslThreads;
+    private 'int' processingThreads;
+    private org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory;
+    private org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory;
+
+    public 'void' <init>(org.apache.thrift.transport.TNonblockingServerTransport)
+    {
+        org.apache.thrift.transport.TNonblockingServerTransport transport;
+        'int' $i0;
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+        org.apache.thrift.transport.sasl.TSaslServerFactory $r0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        transport := @parameter0: org.apache.thrift.transport.TNonblockingServerTransport;
+
+        specialinvoke this.<org.apache.thrift.server.TServer$AbstractServerArgs: 'void' <init>(org.apache.thrift.transport.TServerTransport)>(transport);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' networkThreads> = 1;
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' saslThreads> = 1;
+
+        $i0 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer: 'int' access$1600()>();
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' processingThreads> = $i0;
+
+        $r0 = new org.apache.thrift.transport.sasl.TSaslServerFactory;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.TSaslServerFactory: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory> = $r0;
+
+        return;
+    }
+
+    public org.apache.thrift.server.TSaslNonblockingServer$Args networkThreads('int')
+    {
+        'int' networkThreads;
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        networkThreads := @parameter0: 'int';
+
+        if networkThreads > 0 goto label1;
+
+        networkThreads = 1;
+
+     label1:
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' networkThreads> = networkThreads;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TSaslNonblockingServer$Args saslThreads('int')
+    {
+        'int' authenticationThreads;
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        authenticationThreads := @parameter0: 'int';
+
+        if authenticationThreads > 0 goto label1;
+
+        authenticationThreads = 1;
+
+     label1:
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' saslThreads> = authenticationThreads;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TSaslNonblockingServer$Args processingThreads('int')
+    {
+        'int' processingThreads;
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        processingThreads := @parameter0: 'int';
+
+        if processingThreads > 0 goto label1;
+
+        processingThreads = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer: 'int' access$1600()>();
+
+     label1:
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' processingThreads> = processingThreads;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TSaslNonblockingServer$Args processor(org.apache.thrift.TProcessor)
+    {
+        org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory $r0;
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        $r0 = new org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory: 'void' <init>(org.apache.thrift.TProcessor)>(processor);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory> = $r0;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TSaslNonblockingServer$Args saslProcessorFactory(org.apache.thrift.transport.sasl.TSaslProcessorFactory)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+        org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory;
+        java.lang.NullPointerException $r0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        saslProcessorFactory := @parameter0: org.apache.thrift.transport.sasl.TSaslProcessorFactory;
+
+        if saslProcessorFactory != null goto label1;
+
+        $r0 = new java.lang.NullPointerException;
+
+        specialinvoke $r0.<java.lang.NullPointerException: 'void' <init>(java.lang.String)>("Processor factory cannot be null");
+
+        throw $r0;
+
+     label1:
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory> = saslProcessorFactory;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TSaslNonblockingServer$Args addSaslMechanism(java.lang.String, java.lang.String, java.lang.String, java.util.Map, javax.security.auth.callback.CallbackHandler)
+    {
+        javax.security.auth.callback.CallbackHandler cbh;
+        java.util.Map props;
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+        java.lang.String mechanism, protocol, serverName;
+        org.apache.thrift.transport.sasl.TSaslServerFactory $r0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        mechanism := @parameter0: java.lang.String;
+
+        protocol := @parameter1: java.lang.String;
+
+        serverName := @parameter2: java.lang.String;
+
+        props := @parameter3: java.util.Map;
+
+        cbh := @parameter4: javax.security.auth.callback.CallbackHandler;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.sasl.TSaslServerFactory: 'void' addSaslMechanism(java.lang.String,java.lang.String,java.lang.String,java.util.Map,javax.security.auth.callback.CallbackHandler)>(mechanism, protocol, serverName, props, cbh);
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TSaslNonblockingServer$Args saslServerFactory(org.apache.thrift.transport.sasl.TSaslServerFactory)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+        org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory;
+        java.lang.NullPointerException $r0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        saslServerFactory := @parameter0: org.apache.thrift.transport.sasl.TSaslServerFactory;
+
+        if saslServerFactory != null goto label1;
+
+        $r0 = new java.lang.NullPointerException;
+
+        specialinvoke $r0.<java.lang.NullPointerException: 'void' <init>(java.lang.String)>("saslServerFactory cannot be null");
+
+        throw $r0;
+
+     label1:
+        this.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory> = saslServerFactory;
+
+        return this;
+    }
+
+    public volatile org.apache.thrift.server.TServer$AbstractServerArgs processor(org.apache.thrift.TProcessor)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$Args this;
+        org.apache.thrift.TProcessor r0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        r0 := @parameter0: org.apache.thrift.TProcessor;
+
+        this = virtualinvoke this.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.server.TSaslNonblockingServer$Args processor(org.apache.thrift.TProcessor)>(r0);
+
+        return this;
+    }
+
+    static 'int' access$100(org.apache.thrift.server.TSaslNonblockingServer$Args)
+    {
+        'int' $i0;
+        org.apache.thrift.server.TSaslNonblockingServer$Args x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        $i0 = x0.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' networkThreads>;
+
+        return $i0;
+    }
+
+    static 'int' access$200(org.apache.thrift.server.TSaslNonblockingServer$Args)
+    {
+        'int' $i0;
+        org.apache.thrift.server.TSaslNonblockingServer$Args x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        $i0 = x0.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' saslThreads>;
+
+        return $i0;
+    }
+
+    static 'int' access$300(org.apache.thrift.server.TSaslNonblockingServer$Args)
+    {
+        'int' $i0;
+        org.apache.thrift.server.TSaslNonblockingServer$Args x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        $i0 = x0.<org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' processingThreads>;
+
+        return $i0;
+    }
+
+    static org.apache.thrift.transport.sasl.TSaslServerFactory access$400(org.apache.thrift.server.TSaslNonblockingServer$Args)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$Args x0;
+        org.apache.thrift.transport.sasl.TSaslServerFactory $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory>;
+
+        return $r0;
+    }
+
+    static org.apache.thrift.transport.sasl.TSaslProcessorFactory access$500(org.apache.thrift.server.TSaslNonblockingServer$Args)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$Args x0;
+        org.apache.thrift.transport.sasl.TSaslProcessorFactory $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory>;
+
+        return $r0;
+    }
+}

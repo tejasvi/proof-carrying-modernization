@@ -1,0 +1,14 @@
+# kokke/tiny-regex-c @ f2632c6 (public domain): a small regex engine in C with its own test programs.
+# Build input: a compile_commands.json written by hand from the Makefile's flags (no project script runs);
+# link_groups mirror the Makefile's programs (re.c linked with each test file); each file is compiled with its own
+# flags and the units are linked by cir2lean (link_mode), so re.c's static helpers keep their linkage
+# (`re$matchpattern`, ...).
+name = "tiny_regex_c"
+lang = "cir"
+root = "/home/user/veriforch/targets/tiny-regex-c"
+compile_commands = "../tiny-regex-c.compile_commands.json"
+tests = ["tests/test1.c", "tests/test2.c", "tests/test_compile.c", "tests/test_rand.c", "tests/test_rand_neg.c"]
+entry = ["main"]
+test_pass = "zero"      # the test programs exit with 0 on success
+link_mode = "cir2lean"
+link_groups = [["re.c", "tests/test1.c"], ["re.c", "tests/test_compile.c"], ["re.c", "tests/test_rand.c"], ["re.c", "tests/test_rand_neg.c"]]

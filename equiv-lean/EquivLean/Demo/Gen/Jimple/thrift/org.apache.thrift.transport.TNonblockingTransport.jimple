@@ -1,0 +1,23 @@
+public abstract class org.apache.thrift.transport.TNonblockingTransport extends org.apache.thrift.transport.TEndpointTransport
+{
+
+    public 'void' <init>(org.apache.thrift.TConfiguration) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TConfiguration config;
+        org.apache.thrift.transport.TNonblockingTransport this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingTransport;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        return;
+    }
+
+    public abstract 'boolean' startConnect() throws java.io.IOException;
+
+    public abstract 'boolean' finishConnect() throws java.io.IOException;
+
+    public abstract java.nio.channels.SelectionKey registerSelector(java.nio.channels.Selector, 'int') throws java.io.IOException;
+}

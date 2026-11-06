@@ -1,0 +1,1903 @@
+public class org.apache.thrift.protocol.TBinaryProtocol extends org.apache.thrift.protocol.TProtocol
+{
+    private static final org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT;
+    private static final 'long' NO_LENGTH_LIMIT;
+    protected static final 'int' VERSION_MASK;
+    protected static final 'int' VERSION_1;
+    private final 'long' stringLengthLimit_;
+    private final 'long' containerLengthLimit_;
+    protected 'boolean' strictRead_;
+    protected 'boolean' strictWrite_;
+    private final 'byte'[] inoutTemp;
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' <init>(org.apache.thrift.transport.TTransport,'boolean','boolean')>(trans, 0, 1);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'boolean', 'boolean')
+    {
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'boolean' strictRead, strictWrite;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        strictRead := @parameter1: 'boolean';
+
+        strictWrite := @parameter2: 'boolean';
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' <init>(org.apache.thrift.transport.TTransport,'long','long','boolean','boolean')>(trans, -1L, -1L, strictRead, strictWrite);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'long', 'long')
+    {
+        org.apache.thrift.transport.TTransport trans;
+        'long' stringLengthLimit, containerLengthLimit;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        stringLengthLimit := @parameter1: 'long';
+
+        containerLengthLimit := @parameter2: 'long';
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' <init>(org.apache.thrift.transport.TTransport,'long','long','boolean','boolean')>(trans, stringLengthLimit, containerLengthLimit, 0, 1);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'long', 'long', 'boolean', 'boolean')
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.TTransport trans;
+        'long' stringLengthLimit, containerLengthLimit;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'boolean' strictRead, strictWrite;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        stringLengthLimit := @parameter1: 'long';
+
+        containerLengthLimit := @parameter2: 'long';
+
+        strictRead := @parameter3: 'boolean';
+
+        strictWrite := @parameter4: 'boolean';
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' <init>(org.apache.thrift.transport.TTransport)>(trans);
+
+        $r0 = newarray ('byte')[16];
+
+        this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp> = $r0;
+
+        this.<org.apache.thrift.protocol.TBinaryProtocol: 'long' stringLengthLimit_> = stringLengthLimit;
+
+        this.<org.apache.thrift.protocol.TBinaryProtocol: 'long' containerLengthLimit_> = containerLengthLimit;
+
+        this.<org.apache.thrift.protocol.TBinaryProtocol: 'boolean' strictRead_> = strictRead;
+
+        this.<org.apache.thrift.protocol.TBinaryProtocol: 'boolean' strictWrite_> = strictWrite;
+
+        return;
+    }
+
+    public 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TMessage message;
+        'byte' $b0;
+        'int' version;
+        java.lang.String $r0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        message := @parameter0: org.apache.thrift.protocol.TMessage;
+
+        $z0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'boolean' strictWrite_>;
+
+        if $z0 == false goto label1;
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        version = ('int') $b0;
+
+        version = -2147418112 | version;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>(version);
+
+        $r0 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeString(java.lang.String)>($r0);
+
+        version = message.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>(version);
+
+        goto label2;
+
+     label1:
+        $r0 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeString(java.lang.String)>($r0);
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>($b0);
+
+        version = message.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>(version);
+
+     label2:
+        return;
+    }
+
+    public 'void' writeMessageEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public 'void' writeStructBegin(org.apache.thrift.protocol.TStruct) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        org.apache.thrift.protocol.TStruct struct;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        struct := @parameter0: org.apache.thrift.protocol.TStruct;
+
+        return;
+    }
+
+    public 'void' writeStructEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public 'void' writeFieldBegin(org.apache.thrift.protocol.TField) throws org.apache.thrift.TException
+    {
+        'short' $s1;
+        'byte' $b0;
+        org.apache.thrift.protocol.TField field;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        field := @parameter0: org.apache.thrift.protocol.TField;
+
+        $b0 = field.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>($b0);
+
+        $s1 = field.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI16('short')>($s1);
+
+        return;
+    }
+
+    public 'void' writeFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public 'void' writeFieldStop() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>(0);
+
+        return;
+    }
+
+    public 'void' writeMapBegin(org.apache.thrift.protocol.TMap) throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        'int' $i2;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        map := @parameter0: org.apache.thrift.protocol.TMap;
+
+        $b0 = map.<org.apache.thrift.protocol.TMap: 'byte' keyType>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>($b0);
+
+        $b0 = map.<org.apache.thrift.protocol.TMap: 'byte' valueType>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>($b0);
+
+        $i2 = map.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>($i2);
+
+        return;
+    }
+
+    public 'void' writeMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public 'void' writeListBegin(org.apache.thrift.protocol.TList) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte' $b0;
+        'int' $i1;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        list := @parameter0: org.apache.thrift.protocol.TList;
+
+        $b0 = list.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>($b0);
+
+        $i1 = list.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>($i1);
+
+        return;
+    }
+
+    public 'void' writeListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public 'void' writeSetBegin(org.apache.thrift.protocol.TSet) throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TSet set;
+        'int' $i1;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        set := @parameter0: org.apache.thrift.protocol.TSet;
+
+        $b0 = set.<org.apache.thrift.protocol.TSet: 'byte' elemType>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>($b0);
+
+        $i1 = set.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>($i1);
+
+        return;
+    }
+
+    public 'void' writeSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public 'void' writeBool('boolean') throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'boolean' b;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        b := @parameter0: 'boolean';
+
+        if b == false goto label1;
+
+        $b0 = 1;
+
+        goto label2;
+
+     label1:
+        $b0 = 0;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeByte('byte')>($b0);
+
+        return;
+    }
+
+    public 'void' writeByte('byte') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'byte' b;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        b := @parameter0: 'byte';
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $r0[0] = b;
+
+        $r1 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 1);
+
+        return;
+    }
+
+    public 'void' writeI16('short') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'short' i16;
+        'byte' $b2;
+        org.apache.thrift.transport.TTransport $r2;
+        'int' $i0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        i16 := @parameter0: 'short';
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $i0 = ('int') i16;
+
+        $i0 = $i0 >> 8;
+
+        $i0 = 255 & $i0;
+
+        $b2 = ('byte') $i0;
+
+        $r0[0] = $b2;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        i16 = 255 & i16;
+
+        $b2 = ('byte') i16;
+
+        $r0[1] = $b2;
+
+        $r2 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        virtualinvoke $r2.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 2);
+
+        return;
+    }
+
+    public 'void' writeI32('int') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'byte' $b2;
+        org.apache.thrift.transport.TTransport $r4;
+        'int' i32, $i0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        i32 := @parameter0: 'int';
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $i0 = i32 >> 24;
+
+        $i0 = 255 & $i0;
+
+        $b2 = ('byte') $i0;
+
+        $r0[0] = $b2;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $i0 = i32 >> 16;
+
+        $i0 = 255 & $i0;
+
+        $b2 = ('byte') $i0;
+
+        $r0[1] = $b2;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $i0 = i32 >> 8;
+
+        $i0 = 255 & $i0;
+
+        $b2 = ('byte') $i0;
+
+        $r0[2] = $b2;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        i32 = 255 & i32;
+
+        $b2 = ('byte') i32;
+
+        $r0[3] = $b2;
+
+        $r4 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        virtualinvoke $r4.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 4);
+
+        return;
+    }
+
+    public 'void' writeI64('long') throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        'byte' $b3;
+        org.apache.thrift.transport.TTransport $r8;
+        'int' $i2;
+        'long' i64, $l0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        i64 := @parameter0: 'long';
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $l0 = i64 >> 56;
+
+        $l0 = 255L & $l0;
+
+        $i2 = ('int') $l0;
+
+        $b3 = ('byte') $i2;
+
+        $r0[0] = $b3;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $l0 = i64 >> 48;
+
+        $l0 = 255L & $l0;
+
+        $i2 = ('int') $l0;
+
+        $b3 = ('byte') $i2;
+
+        $r0[1] = $b3;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $l0 = i64 >> 40;
+
+        $l0 = 255L & $l0;
+
+        $i2 = ('int') $l0;
+
+        $b3 = ('byte') $i2;
+
+        $r0[2] = $b3;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $l0 = i64 >> 32;
+
+        $l0 = 255L & $l0;
+
+        $i2 = ('int') $l0;
+
+        $b3 = ('byte') $i2;
+
+        $r0[3] = $b3;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $l0 = i64 >> 24;
+
+        $l0 = 255L & $l0;
+
+        $i2 = ('int') $l0;
+
+        $b3 = ('byte') $i2;
+
+        $r0[4] = $b3;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $l0 = i64 >> 16;
+
+        $l0 = 255L & $l0;
+
+        $i2 = ('int') $l0;
+
+        $b3 = ('byte') $i2;
+
+        $r0[5] = $b3;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        $l0 = i64 >> 8;
+
+        $l0 = 255L & $l0;
+
+        $i2 = ('int') $l0;
+
+        $b3 = ('byte') $i2;
+
+        $r0[6] = $b3;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        i64 = 255L & i64;
+
+        $i2 = ('int') i64;
+
+        $b3 = ('byte') $i2;
+
+        $r0[7] = $b3;
+
+        $r8 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        virtualinvoke $r8.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 8);
+
+        return;
+    }
+
+    public 'void' writeUuid(java.util.UUID) throws org.apache.thrift.TException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        'long' $l0;
+        java.util.UUID uuid;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        java.nio.ByteBuffer bb;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        uuid := @parameter0: java.util.UUID;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>($r0);
+
+        $l0 = virtualinvoke uuid.<java.util.UUID: 'long' getMostSignificantBits()>();
+
+        virtualinvoke bb.<java.nio.ByteBuffer: java.nio.ByteBuffer putLong('long')>($l0);
+
+        $l0 = virtualinvoke uuid.<java.util.UUID: 'long' getLeastSignificantBits()>();
+
+        virtualinvoke bb.<java.nio.ByteBuffer: java.nio.ByteBuffer putLong('long')>($l0);
+
+        $r1 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r0, 0, 16);
+
+        return;
+    }
+
+    public 'void' writeDouble('double') throws org.apache.thrift.TException
+    {
+        'long' $l0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'double' dub;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        dub := @parameter0: 'double';
+
+        $l0 = staticinvoke <java.lang.Double: 'long' doubleToLongBits('double')>(dub);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI64('long')>($l0);
+
+        return;
+    }
+
+    public 'void' writeString(java.lang.String) throws org.apache.thrift.TException
+    {
+        'byte'[] dat;
+        java.nio.charset.Charset $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        'int' $i0;
+        java.lang.String str;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        str := @parameter0: java.lang.String;
+
+        $r0 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        dat = virtualinvoke str.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r0);
+
+        $i0 = lengthof dat;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>($i0);
+
+        $r1 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = lengthof dat;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(dat, 0, $i0);
+
+        return;
+    }
+
+    public 'void' writeBinary(java.nio.ByteBuffer) throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        'int' length, $i1, $i3;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        java.nio.ByteBuffer bin;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        bin := @parameter0: java.nio.ByteBuffer;
+
+        length = virtualinvoke bin.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $i1 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' position()>();
+
+        length = length - $i1;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' writeI32('int')>(length);
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = virtualinvoke bin.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        $i1 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' position()>();
+
+        $i3 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' arrayOffset()>();
+
+        $i1 = $i1 + $i3;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>($r1, $i1, length);
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TMessage readMessageBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        org.apache.thrift.protocol.TMessage $r1;
+        'byte' $b1;
+        'int' size, version;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        size = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        if size >= 0 goto label2;
+
+        version = size & -65536;
+
+        if version == -2147418112 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(4, "Bad version in readMessageBegin");
+
+        throw $r0;
+
+     label1:
+        $r1 = new org.apache.thrift.protocol.TMessage;
+
+        $r2 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: java.lang.String readString()>();
+
+        size = size & 255;
+
+        $b1 = ('byte') size;
+
+        size = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>($r2, $b1, size);
+
+        return $r1;
+
+     label2:
+        $z0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'boolean' strictRead_>;
+
+        if $z0 == false goto label3;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(4, "Missing version in readMessageBegin, old client?");
+
+        throw $r0;
+
+     label3:
+        $r1 = new org.apache.thrift.protocol.TMessage;
+
+        $r2 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: java.lang.String readStringBody('int')>(size);
+
+        $b1 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        size = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>($r2, $b1, size);
+
+        return $r1;
+    }
+
+    public 'void' readMessageEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TStruct readStructBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        org.apache.thrift.protocol.TStruct $r0;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        $r0 = <org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT>;
+
+        return $r0;
+    }
+
+    public 'void' readStructEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TField readFieldBegin() throws org.apache.thrift.TException
+    {
+        'short' $s0;
+        'byte' type;
+        org.apache.thrift.protocol.TField $r0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        type = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        if type != 0 goto label1;
+
+        $s0 = 0;
+
+        goto label2;
+
+     label1:
+        $s0 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'short' readI16()>();
+
+     label2:
+        $r0 = new org.apache.thrift.protocol.TField;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TField: 'void' <init>(java.lang.String,'byte','short')>("", type, $s0);
+
+        return $r0;
+    }
+
+    public 'void' readFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TMap readMapBegin() throws org.apache.thrift.TException
+    {
+        'byte' $b0, $b1;
+        'int' $i2;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        map = new org.apache.thrift.protocol.TMap;
+
+        $b0 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        $b1 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        $i2 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke map.<org.apache.thrift.protocol.TMap: 'void' <init>('byte','byte','int')>($b0, $b1, $i2);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TMap)>(map);
+
+        $i2 = map.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkContainerReadLength('int')>($i2);
+
+        return map;
+    }
+
+    public 'void' readMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TList readListBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte' $b0;
+        'int' $i1;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        list = new org.apache.thrift.protocol.TList;
+
+        $b0 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        $i1 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke list.<org.apache.thrift.protocol.TList: 'void' <init>('byte','int')>($b0, $i1);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TList)>(list);
+
+        $i1 = list.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkContainerReadLength('int')>($i1);
+
+        return list;
+    }
+
+    public 'void' readListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TSet readSetBegin() throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TSet set;
+        'int' $i1;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        set = new org.apache.thrift.protocol.TSet;
+
+        $b0 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        $i1 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke set.<org.apache.thrift.protocol.TSet: 'void' <init>('byte','int')>($b0, $i1);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TSet)>(set);
+
+        $i1 = set.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkContainerReadLength('int')>($i1);
+
+        return set;
+    }
+
+    public 'void' readSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        return;
+    }
+
+    public 'boolean' readBool() throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        $b0 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        if $b0 != 1 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'byte' readByte() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' b;
+        'int' $i0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < 1 goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        b = $r2[$i0];
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(1);
+
+        return b;
+
+     label1:
+        $r2 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readAll('byte'[],'int','int')>($r2, 0, 1);
+
+        $r2 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        b = $r2[0];
+
+        return b;
+    }
+
+    public 'short' readI16() throws org.apache.thrift.TException
+    {
+        'byte'[] $r4, buf;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'short' $s2;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' $b1;
+        'int' $i0, off;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        buf = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        off = 0;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < 2 goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(2);
+
+        goto label2;
+
+     label1:
+        $r4 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readAll('byte'[],'int','int')>($r4, 0, 2);
+
+     label2:
+        $b1 = buf[off];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $i0 = ('int') $s2;
+
+        $i0 = $i0 << 8;
+
+        off = off + 1;
+
+        $b1 = buf[off];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        off = ('int') $s2;
+
+        $i0 = $i0 | off;
+
+        $s2 = ('short') $i0;
+
+        return $s2;
+    }
+
+    public 'int' readI32() throws org.apache.thrift.TException
+    {
+        'byte'[] $r4, buf;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'short' $s2;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' $b1;
+        'int' $i0, $i4, off;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        buf = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        off = 0;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < 4 goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(4);
+
+        goto label2;
+
+     label1:
+        $r4 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readAll('byte'[],'int','int')>($r4, 0, 4);
+
+     label2:
+        $b1 = buf[off];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $i0 = ('int') $s2;
+
+        $i0 = $i0 << 24;
+
+        $i4 = off + 1;
+
+        $b1 = buf[$i4];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $i4 = ('int') $s2;
+
+        $i4 = $i4 << 16;
+
+        $i0 = $i0 | $i4;
+
+        $i4 = off + 2;
+
+        $b1 = buf[$i4];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $i4 = ('int') $s2;
+
+        $i4 = $i4 << 8;
+
+        $i0 = $i0 | $i4;
+
+        off = off + 3;
+
+        $b1 = buf[off];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        off = ('int') $s2;
+
+        off = $i0 | off;
+
+        return off;
+    }
+
+    public 'long' readI64() throws org.apache.thrift.TException
+    {
+        'byte'[] $r4, buf;
+        'long' $l3, $l8;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'short' $s2;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' $b1;
+        'int' $i0, off;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        buf = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        off = 0;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < 8 goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(8);
+
+        goto label2;
+
+     label1:
+        $r4 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readAll('byte'[],'int','int')>($r4, 0, 8);
+
+     label2:
+        $b1 = buf[off];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l3 = ('long') $s2;
+
+        $l3 = $l3 << 56;
+
+        $i0 = off + 1;
+
+        $b1 = buf[$i0];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l8 = ('long') $s2;
+
+        $l8 = $l8 << 48;
+
+        $l3 = $l3 | $l8;
+
+        $i0 = off + 2;
+
+        $b1 = buf[$i0];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l8 = ('long') $s2;
+
+        $l8 = $l8 << 40;
+
+        $l3 = $l3 | $l8;
+
+        $i0 = off + 3;
+
+        $b1 = buf[$i0];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l8 = ('long') $s2;
+
+        $l8 = $l8 << 32;
+
+        $l3 = $l3 | $l8;
+
+        $i0 = off + 4;
+
+        $b1 = buf[$i0];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l8 = ('long') $s2;
+
+        $l8 = $l8 << 24;
+
+        $l3 = $l3 | $l8;
+
+        $i0 = off + 5;
+
+        $b1 = buf[$i0];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l8 = ('long') $s2;
+
+        $l8 = $l8 << 16;
+
+        $l3 = $l3 | $l8;
+
+        $i0 = off + 6;
+
+        $b1 = buf[$i0];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l8 = ('long') $s2;
+
+        $l8 = $l8 << 8;
+
+        $l3 = $l3 | $l8;
+
+        off = off + 7;
+
+        $b1 = buf[off];
+
+        $s2 = ('short') $b1;
+
+        $s2 = $s2 & 255;
+
+        $l8 = ('long') $s2;
+
+        $l3 = $l3 | $l8;
+
+        return $l3;
+    }
+
+    public java.util.UUID readUuid() throws org.apache.thrift.TException
+    {
+        'byte'[] $r4, buf;
+        'long' msb, lsb;
+        java.util.UUID $r5;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        java.nio.ByteBuffer bb;
+        org.apache.thrift.transport.TTransport $r0;
+        'int' $i0, off;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        buf = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        off = 0;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < 16 goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(16);
+
+        goto label2;
+
+     label1:
+        $r4 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte'[] inoutTemp>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readAll('byte'[],'int','int')>($r4, 0, 16);
+
+     label2:
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>(buf, off, 16);
+
+        msb = virtualinvoke bb.<java.nio.ByteBuffer: 'long' getLong()>();
+
+        lsb = virtualinvoke bb.<java.nio.ByteBuffer: 'long' getLong()>();
+
+        $r5 = new java.util.UUID;
+
+        specialinvoke $r5.<java.util.UUID: 'void' <init>('long','long')>(msb, lsb);
+
+        return $r5;
+    }
+
+    public 'double' readDouble() throws org.apache.thrift.TException
+    {
+        'long' $l0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'double' $d0;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        $l0 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'long' readI64()>();
+
+        $d0 = staticinvoke <java.lang.Double: 'double' longBitsToDouble('long')>($l0);
+
+        return $d0;
+    }
+
+    public java.lang.String readString() throws org.apache.thrift.TException
+    {
+        'byte'[] s#2;
+        org.apache.thrift.transport.TTransport $r0;
+        java.nio.charset.Charset $r4;
+        'int' size, $i0;
+        java.lang.String s;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        size = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkStringReadLength('int')>(size);
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < size goto label1;
+
+        s = new java.lang.String;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        s#2 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        $r4 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke s.<java.lang.String: 'void' <init>('byte'[],'int','int',java.nio.charset.Charset)>(s#2, $i0, size, $r4);
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(size);
+
+        return s;
+
+     label1:
+        s#2 = newarray ('byte')[size];
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(s#2, 0, size);
+
+        s = new java.lang.String;
+
+        $r4 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke s.<java.lang.String: 'void' <init>('byte'[],java.nio.charset.Charset)>(s#2, $r4);
+
+        return s;
+    }
+
+    public java.lang.String readStringBody('int') throws org.apache.thrift.TException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransport $r0;
+        java.nio.charset.Charset $r2;
+        'int' size;
+        java.lang.String $r1;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        size := @parameter0: 'int';
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkStringReadLength('int')>(size);
+
+        buf = newarray ('byte')[size];
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(buf, 0, size);
+
+        $r1 = new java.lang.String;
+
+        $r2 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke $r1.<java.lang.String: 'void' <init>('byte'[],java.nio.charset.Charset)>(buf, $r2);
+
+        return $r1;
+    }
+
+    public java.nio.ByteBuffer readBinary() throws org.apache.thrift.TException
+    {
+        'byte'[] bb#2;
+        org.apache.thrift.transport.TTransport $r0;
+        'int' size, $i0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        java.nio.ByteBuffer bb;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        size = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkStringReadLength('int')>(size);
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < size goto label1;
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        bb#2 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'byte'[] getBuffer()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBufferPosition()>();
+
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>(bb#2, $i0, size);
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(size);
+
+        return bb;
+
+     label1:
+        bb#2 = newarray ('byte')[size];
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(bb#2, 0, size);
+
+        bb = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>(bb#2);
+
+        return bb;
+    }
+
+    private 'void' checkStringReadLength('int') throws org.apache.thrift.TException
+    {
+        'long' $l0, $l4;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        org.apache.thrift.transport.TTransport $r5;
+        'byte' $b2;
+        'int' length, $i6;
+        java.lang.StringBuilder $r1;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        length := @parameter0: 'int';
+
+        if length >= 0 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Negative length: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(2, $r4);
+
+        throw $r0;
+
+     label1:
+        $r5 = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        $l0 = ('long') length;
+
+        virtualinvoke $r5.<org.apache.thrift.transport.TTransport: 'void' checkReadBytesAvailable('long')>($l0);
+
+        $l0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'long' stringLengthLimit_>;
+
+        $b2 = $l0 cmp -1L;
+
+        if $b2 == false goto label2;
+
+        $l0 = ('long') length;
+
+        $l4 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'long' stringLengthLimit_>;
+
+        $b2 = $l0 cmp $l4;
+
+        $i6 = ('int') $b2;
+
+        if $i6 <= 0 goto label2;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Length exceeded max allowed: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(3, $r4);
+
+        throw $r0;
+
+     label2:
+        return;
+    }
+
+    private 'void' checkContainerReadLength('int') throws org.apache.thrift.protocol.TProtocolException
+    {
+        'long' $l0, $l3;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+        'byte' $b1;
+        'int' length, $i5;
+        java.lang.StringBuilder $r1;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        length := @parameter0: 'int';
+
+        if length >= 0 goto label1;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Negative length: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(2, $r4);
+
+        throw $r0;
+
+     label1:
+        $l0 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'long' containerLengthLimit_>;
+
+        $b1 = $l0 cmp -1L;
+
+        if $b1 == false goto label2;
+
+        $l0 = ('long') length;
+
+        $l3 = this.<org.apache.thrift.protocol.TBinaryProtocol: 'long' containerLengthLimit_>;
+
+        $b1 = $l0 cmp $l3;
+
+        $i5 = ('int') $b1;
+
+        if $i5 <= 0 goto label2;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Length exceeded max allowed: ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(length);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(3, $r4);
+
+        throw $r0;
+
+     label2:
+        return;
+    }
+
+    private 'int' readAll('byte'[], 'int', 'int') throws org.apache.thrift.TException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransport $r0;
+        'int' off, len;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(buf, off, len);
+
+        return off;
+    }
+
+    public 'int' getMinSerializedSize('byte') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte' type;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' $i0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        type := @parameter0: 'byte';
+
+        $i0 = ('int') type;
+
+        tableswitch($i0)
+        {
+            case 0: goto label01;
+            case 1: goto label02;
+            case 2: goto label03;
+            case 3: goto label04;
+            case 4: goto label05;
+            case 5: goto label14;
+            case 6: goto label06;
+            case 7: goto label14;
+            case 8: goto label07;
+            case 9: goto label14;
+            case 10: goto label08;
+            case 11: goto label09;
+            case 12: goto label10;
+            case 13: goto label11;
+            case 14: goto label12;
+            case 15: goto label13;
+            default: goto label14;
+        };
+
+     label01:
+        return 1;
+
+     label02:
+        return 1;
+
+     label03:
+        return 1;
+
+     label04:
+        return 1;
+
+     label05:
+        return 8;
+
+     label06:
+        return 2;
+
+     label07:
+        return 4;
+
+     label08:
+        return 8;
+
+     label09:
+        return 4;
+
+     label10:
+        return 1;
+
+     label11:
+        return 4;
+
+     label12:
+        return 4;
+
+     label13:
+        return 4;
+
+     label14:
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(0, "unrecognized type code");
+
+        throw $r0;
+    }
+
+    public 'int' readFieldBeginData() throws org.apache.thrift.TException
+    {
+        'short' id;
+        'byte' type;
+        'int' $i0;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        type = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'byte' readByte()>();
+
+        if type != 0 goto label1;
+
+        $i0 = staticinvoke <org.apache.thrift.partial.TFieldData: 'int' encode('byte')>(type);
+
+        return $i0;
+
+     label1:
+        id = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'short' readI16()>();
+
+        $i0 = staticinvoke <org.apache.thrift.partial.TFieldData: 'int' encode('byte','short')>(type, id);
+
+        return $i0;
+    }
+
+    protected 'void' skipBool() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' skipBytes('int')>(1);
+
+        return;
+    }
+
+    protected 'void' skipByte() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' skipBytes('int')>(1);
+
+        return;
+    }
+
+    protected 'void' skipI16() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' skipBytes('int')>(2);
+
+        return;
+    }
+
+    protected 'void' skipI32() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' skipBytes('int')>(4);
+
+        return;
+    }
+
+    protected 'void' skipI64() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' skipBytes('int')>(8);
+
+        return;
+    }
+
+    protected 'void' skipDouble() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' skipBytes('int')>(8);
+
+        return;
+    }
+
+    protected 'void' skipBinary() throws org.apache.thrift.TException
+    {
+        'int' size;
+        org.apache.thrift.protocol.TBinaryProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TBinaryProtocol;
+
+        size = virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'int' readI32()>();
+
+        specialinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' checkStringReadLength('int')>(size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TBinaryProtocol: 'void' skipBytes('int')>(size);
+
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.protocol.TStruct $r0;
+
+        <org.apache.thrift.protocol.TBinaryProtocol: 'int' VERSION_1> = -2147418112;
+
+        <org.apache.thrift.protocol.TBinaryProtocol: 'int' VERSION_MASK> = -65536;
+
+        <org.apache.thrift.protocol.TBinaryProtocol: 'long' NO_LENGTH_LIMIT> = -1L;
+
+        $r0 = new org.apache.thrift.protocol.TStruct;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TStruct: 'void' <init>()>();
+
+        <org.apache.thrift.protocol.TBinaryProtocol: org.apache.thrift.protocol.TStruct ANONYMOUS_STRUCT> = $r0;
+
+        return;
+    }
+}

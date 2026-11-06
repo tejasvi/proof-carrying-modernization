@@ -1,0 +1,126 @@
+class org.apache.thrift.TBaseHelper$NestedStructureComparator extends java.lang.Object implements java.util.Comparator, java.io.Serializable
+{
+
+    private 'void' <init>()
+    {
+        org.apache.thrift.TBaseHelper$NestedStructureComparator this;
+
+        this := @this: org.apache.thrift.TBaseHelper$NestedStructureComparator;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'int' compare(java.lang.Object, java.lang.Object)
+    {
+        'byte'[] $r6, $r7;
+        java.util.Set $r2, $r3;
+        org.apache.thrift.TBaseHelper$NestedStructureComparator this;
+        java.util.List $r0, $r1;
+        java.util.Map $r4, $r5;
+        'int' $i0;
+        java.lang.Object oA, oB;
+        java.lang.Comparable $r8, $r9;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TBaseHelper$NestedStructureComparator;
+
+        oA := @parameter0: java.lang.Object;
+
+        oB := @parameter1: java.lang.Object;
+
+        if oA != null goto label2;
+
+        if oB != null goto label1;
+
+        return 0;
+
+     label1:
+        if oA != null goto label2;
+
+        $i0 = ('int') -1;
+
+        return $i0;
+
+     label2:
+        if oB != null goto label3;
+
+        return 1;
+
+     label3:
+        $z0 = oA instanceof java.util.List;
+
+        if $z0 == false goto label4;
+
+        $r0 = (java.util.List) oA;
+
+        $r1 = (java.util.List) oB;
+
+        $i0 = staticinvoke <org.apache.thrift.TBaseHelper: 'int' compareTo(java.util.List,java.util.List)>($r0, $r1);
+
+        return $i0;
+
+     label4:
+        $z0 = oA instanceof java.util.Set;
+
+        if $z0 == false goto label5;
+
+        $r2 = (java.util.Set) oA;
+
+        $r3 = (java.util.Set) oB;
+
+        $i0 = staticinvoke <org.apache.thrift.TBaseHelper: 'int' compareTo(java.util.Set,java.util.Set)>($r2, $r3);
+
+        return $i0;
+
+     label5:
+        $z0 = oA instanceof java.util.Map;
+
+        if $z0 == false goto label6;
+
+        $r4 = (java.util.Map) oA;
+
+        $r5 = (java.util.Map) oB;
+
+        $i0 = staticinvoke <org.apache.thrift.TBaseHelper: 'int' compareTo(java.util.Map,java.util.Map)>($r4, $r5);
+
+        return $i0;
+
+     label6:
+        $z0 = oA instanceof 'byte'[];
+
+        if $z0 == false goto label7;
+
+        $r6 = ('byte'[]) oA;
+
+        $r7 = ('byte'[]) oB;
+
+        $i0 = staticinvoke <org.apache.thrift.TBaseHelper: 'int' compareTo('byte'[],'byte'[])>($r6, $r7);
+
+        return $i0;
+
+     label7:
+        $r8 = (java.lang.Comparable) oA;
+
+        $r9 = (java.lang.Comparable) oB;
+
+        $i0 = staticinvoke <org.apache.thrift.TBaseHelper: 'int' compareTo(java.lang.Comparable,java.lang.Comparable)>($r8, $r9);
+
+        return $i0;
+    }
+
+    'void' <init>(org.apache.thrift.TBaseHelper$1)
+    {
+        org.apache.thrift.TBaseHelper$NestedStructureComparator this;
+        org.apache.thrift.TBaseHelper$1 x0;
+
+        this := @this: org.apache.thrift.TBaseHelper$NestedStructureComparator;
+
+        x0 := @parameter0: org.apache.thrift.TBaseHelper$1;
+
+        specialinvoke this.<org.apache.thrift.TBaseHelper$NestedStructureComparator: 'void' <init>()>();
+
+        return;
+    }
+}

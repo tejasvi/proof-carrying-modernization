@@ -1,0 +1,20 @@
+# Stores of empty values (gaps7.cpp): a [[no_unique_address]] empty member, which CIR's records leave out and whose
+# value CIR stores through a cast of the address it shares with another member, and libc++'s map, set and list copy
+# constructors, which build their allocators that way (the census main graph_cycle_check copies a map). Each case is
+# labelled with its expected outcome on the line above it: MATCH.
+# expect MATCH: an empty member built after the pointer it overlaps
+gaps7 t_nua_after 0
+# expect MATCH: an empty member built before the pointer
+gaps7 t_nua_before 0
+# expect MATCH: an empty member assigned after the pointer it overlaps
+gaps7 t_nua_assign 0
+# expect MATCH: a std::map<unsigned, std::vector<unsigned>> copied
+gaps7 t_map_copy 0
+# expect MATCH: a std::map<unsigned, std::vector<unsigned>> copied
+gaps7 t_map_copy 3
+# expect MATCH: a std::map copy-assigned
+gaps7 t_map_assign 0
+# expect MATCH: a std::set copied
+gaps7 t_set_copy 0
+# expect MATCH: a std::list copied
+gaps7 t_list_copy 0

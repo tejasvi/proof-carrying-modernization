@@ -1,0 +1,30 @@
+public abstract class org.apache.thrift.transport.TNonblockingServerTransport extends org.apache.thrift.transport.TServerTransport
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TNonblockingServerTransport this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingServerTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerTransport: 'void' <init>()>();
+
+        return;
+    }
+
+    public abstract 'void' registerSelector(java.nio.channels.Selector);
+
+    public abstract org.apache.thrift.transport.TNonblockingTransport accept() throws org.apache.thrift.transport.TTransportException;
+
+    public volatile org.apache.thrift.transport.TTransport accept() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        org.apache.thrift.transport.TNonblockingServerTransport this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingServerTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.TNonblockingServerTransport: org.apache.thrift.transport.TNonblockingTransport accept()>();
+
+        return $r0;
+    }
+}

@@ -1,0 +1,41 @@
+# Atomic exchange and compare-exchange (atomics2.cpp, atomics2std.cpp): cir.atomic.xchg / cir.atomic.cmpxchg with
+# their sequential meaning (exact with one thread). Each case is labelled with its expected outcome on the line
+# above it: MATCH, or UB from cirrun (a punned access to a struct member, an indeterminate object).
+# expect MATCH: int exchange
+atomics2 a_xchg_int 3 8
+# expect MATCH: long exchange
+atomics2 a_xchg_long 5 9
+# expect MATCH: pointer exchange
+atomics2 a_xchg_ptr 4 7
+# expect MATCH: int compare-exchange, success (desired stored)
+atomics2 a_cas_int 12 34 1
+# expect MATCH: int compare-exchange, failure (expected gets the object's value)
+atomics2 a_cas_int 12 34 0
+# expect MATCH: long compare-exchange, success
+atomics2 a_cas_long 6 21 1
+# expect MATCH: long compare-exchange, failure
+atomics2 a_cas_long 6 21 0
+# expect MATCH: pointer compare-exchange, success
+atomics2 a_cas_ptr 5 9 1
+# expect MATCH: pointer compare-exchange, failure
+atomics2 a_cas_ptr 5 9 0
+# expect MATCH: weak compare-exchange in a loop (increment unless zero)
+atomics2 a_weak_loop 4
+# expect MATCH: weak compare-exchange in a loop, the count is zero
+atomics2 a_weak_loop 0
+# expect MATCH: exchange and compare-exchange on struct members of their own type
+atomics2 a_member_ops 2 5
+# expect UB: long long exchange over two int members (punned)
+atomics2 u_xchg_punned 1 2
+# expect UB: long long compare-exchange over two int members (punned)
+atomics2 u_cas_punned 1 2
+# expect UB: exchange on an indeterminate object
+atomics2 u_xchg_indeterminate 7
+# expect MATCH: std::atomic<int> members: exchange, compare_exchange_strong (success), compare_exchange_weak (failure)
+atomics2std s_atomic_members 3 4
+# expect MATCH: std::atomic<int> members, compare_exchange_weak succeeds (b = 0)
+atomics2std s_atomic_members 3 0
+# expect MATCH: std::atomic<int> increment unless zero (compare_exchange_weak loop)
+atomics2std s_inc_unless_zero 6
+# expect MATCH: std::atomic<int> increment unless zero, zero
+atomics2std s_inc_unless_zero 0

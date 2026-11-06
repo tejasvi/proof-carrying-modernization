@@ -1,0 +1,25 @@
+public final class Cbact02c$Result extends java.lang.Object
+{
+    public java.util.List displays;
+    public 'boolean' abended;
+
+    public 'void' <init>()
+    {
+        Cbact02c$Result r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this: Cbact02c$Result;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbact02c$Result: java.util.List displays> = $r1;
+
+        r0.<Cbact02c$Result: 'boolean' abended> = 0;
+
+        return;
+    }
+}

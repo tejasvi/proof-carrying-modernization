@@ -1,0 +1,469 @@
+mode	file	line	name	kind	loc	status	rules
+strict	backtracking/all_combinations_of_size_k.ts	12	generateCombinations	function	24	covered	
+strict	backtracking/generateparentheses.ts	8	generateParentheses	arrow	21	covered	
+strict	bit_manipulation/add_binary.ts	8	addBinary	function	22	covered	
+strict	bit_manipulation/is_power_of_2.ts	25	isPowerOfTwo	arrow	1	covered	
+strict	bit_manipulation/is_power_of_4.ts	15	isPowerOfFour	arrow	2	covered	
+strict	bit_manipulation/log_two.ts	8	logTwo	arrow	8	covered	
+strict	ciphers/xor_cipher.ts	12	XORCipher	arrow	4	blocked	extern-callback:1
+strict	data_structures/disjoint_set/disjoint_set.ts	24	DisjointSet.constructor	constructor	5	blocked	any-type:2
+strict	data_structures/disjoint_set/disjoint_set.ts	33	DisjointSet.find	method	7	blocked	no-loose-eq:2
+strict	data_structures/disjoint_set/disjoint_set.ts	44	DisjointSet.join	method	15	covered	
+strict	data_structures/disjoint_set/disjoint_set.ts	67	DisjointSet.isSame	method	3	covered	
+strict	data_structures/heap/heap.ts	17	Heap.constructor	constructor	4	covered	
+strict	data_structures/heap/heap.ts	27	Heap.isRightlyPlaced	method	3	covered	
+strict	data_structures/heap/heap.ts	35	Heap.getChildIndexToSwap	method	11	covered	
+strict	data_structures/heap/heap.ts	47	Heap.insert	method	4	covered	
+strict	data_structures/heap/heap.ts	52	Heap.extract	method	7	covered	
+strict	data_structures/heap/heap.ts	60	Heap.size	method	3	covered	
+strict	data_structures/heap/heap.ts	64	Heap.isEmpty	method	3	covered	
+strict	data_structures/heap/heap.ts	68	Heap.swap	method	3	covered	
+strict	data_structures/heap/heap.ts	72	Heap.bubbleUp	method	9	blocked	any-type:1
+strict	data_structures/heap/heap.ts	83	Heap.sinkDown	method	17	blocked	any-type:1
+strict	data_structures/heap/heap.ts	102	Heap.getLeftChildIndex	method	3	covered	
+strict	data_structures/heap/heap.ts	106	Heap.getRightChildIndex	method	3	covered	
+strict	data_structures/heap/heap.ts	110	Heap.check	method	3	covered	
+strict	data_structures/heap/heap.ts	114	Heap._check	method	19	covered	
+strict	data_structures/heap/heap.ts	139	MinHeap.constructor	constructor	3	blocked	mixed-compare:1,no-extends:2
+strict	data_structures/heap/heap.ts	145	MaxHeap.constructor	constructor	3	blocked	mixed-compare:1,no-extends:2
+strict	data_structures/heap/heap.ts	156	PriorityQueue.constructor	constructor	9	blocked	any-type:1,mixed-compare:1,no-extends:2
+strict	data_structures/heap/heap.ts	166	PriorityQueue.swap	method	6	blocked	no-extends:1
+strict	data_structures/heap/heap.ts	173	PriorityQueue.insert	method	4	blocked	no-extends:1
+strict	data_structures/heap/heap.ts	178	PriorityQueue.extract	method	8	blocked	no-extends:1
+strict	data_structures/heap/heap.ts	187	PriorityQueue.increasePriority	method	15	blocked	no-extends:1
+strict	data_structures/list/doubly_linked_list.ts	25	DoublyLinkedList.isEmpty	method	3	covered	
+strict	data_structures/list/doubly_linked_list.ts	36	DoublyLinkedList.get	method	10	covered	
+strict	data_structures/list/doubly_linked_list.ts	55	DoublyLinkedList.push	method	12	covered	
+strict	data_structures/list/doubly_linked_list.ts	77	DoublyLinkedList.pop	method	14	covered	
+strict	data_structures/list/doubly_linked_list.ts	102	DoublyLinkedList.append	method	11	covered	
+strict	data_structures/list/doubly_linked_list.ts	123	DoublyLinkedList.removeTail	method	14	covered	
+strict	data_structures/list/doubly_linked_list.ts	150	DoublyLinkedList.insertAt	method	24	covered	
+strict	data_structures/list/doubly_linked_list.ts	188	DoublyLinkedList.removeAt	method	19	covered	
+strict	data_structures/list/doubly_linked_list.ts	219	DoublyLinkedList.reverse	method	19	covered	
+strict	data_structures/list/doubly_linked_list.ts	248	DoublyLinkedList.clear	method	5	covered	
+strict	data_structures/list/doubly_linked_list.ts	259	DoublyLinkedList.toArray	method	9	covered	
+strict	data_structures/list/doubly_linked_list.ts	277	DoublyLinkedList.getLength	method	3	covered	
+strict	data_structures/list/doubly_linked_list.ts	291	DoublyLinkedListNode.constructor	constructor	5	covered	
+strict	data_structures/list/singly_linked_list.ts	11	ListNode.constructor	constructor	4	covered	
+strict	data_structures/list/singly_linked_list.ts	36	SinglyLinkedList.constructor	constructor	5	covered	
+strict	data_structures/list/singly_linked_list.ts	47	SinglyLinkedList.isEmpty	method	3	covered	
+strict	data_structures/list/singly_linked_list.ts	58	SinglyLinkedList.get	method	16	covered	
+strict	data_structures/list/singly_linked_list.ts	85	SinglyLinkedList.push	method	11	covered	
+strict	data_structures/list/singly_linked_list.ts	106	SinglyLinkedList.pop	method	9	covered	
+strict	data_structures/list/singly_linked_list.ts	124	SinglyLinkedList.append	method	10	covered	
+strict	data_structures/list/singly_linked_list.ts	144	SinglyLinkedList.removeTail	method	19	covered	
+strict	data_structures/list/singly_linked_list.ts	177	SinglyLinkedList.insertAt	method	22	covered	
+strict	data_structures/list/singly_linked_list.ts	215	SinglyLinkedList.removeAt	method	22	covered	
+strict	data_structures/list/singly_linked_list.ts	247	SinglyLinkedList.clear	method	5	covered	
+strict	data_structures/list/singly_linked_list.ts	258	SinglyLinkedList.toArray	method	9	covered	
+strict	data_structures/list/singly_linked_list.ts	275	SinglyLinkedList.getLength	method	3	covered	
+strict	data_structures/map/hash_map.ts	21	HashMap.constructor	constructor	3	covered	
+strict	data_structures/map/hash_map.ts	30	HashMap.getSize	method	3	covered	
+strict	data_structures/map/hash_map.ts	40	HashMap.set	method	21	covered	
+strict	data_structures/map/hash_map.ts	72	HashMap.get	method	10	covered	
+strict	data_structures/map/hash_map.ts	90	HashMap.delete	method	11	covered	
+strict	data_structures/map/hash_map.ts	109	HashMap.has	method	10	covered	
+strict	data_structures/map/hash_map.ts	125	HashMap.clear	method	4	covered	
+strict	data_structures/map/hash_map.ts	135	HashMap.keys	method	9	covered	
+strict	data_structures/map/hash_map.ts	151	HashMap.values	method	9	covered	
+strict	data_structures/map/hash_map.ts	167	HashMap.entries	method	9	covered	
+strict	data_structures/map/hash_map.ts	183	HashMap.initializeBuckets	method	6	covered	
+strict	data_structures/map/hash_map.ts	198	HashMap.hash	method	7	blocked	template-hole:2
+strict	data_structures/map/hash_map.ts	211	HashMap.resize	method	8	covered	
+strict	data_structures/map/hash_map.ts	235	MapEntry.constructor	constructor	4	covered	
+strict	data_structures/queue/array_queue.ts	16	ArrayQueue.length	method	3	covered	
+strict	data_structures/queue/array_queue.ts	25	ArrayQueue.isEmpty	method	3	covered	
+strict	data_structures/queue/array_queue.ts	34	ArrayQueue.enqueue	method	3	covered	
+strict	data_structures/queue/array_queue.ts	44	ArrayQueue.dequeue	method	6	blocked	as-downcast:1
+strict	data_structures/queue/array_queue.ts	57	ArrayQueue.peek	method	6	covered	
+strict	data_structures/queue/circular_queue.ts	16	CircularQueue.constructor	constructor	6	blocked	any-type:1
+strict	data_structures/queue/circular_queue.ts	28	CircularQueue.enqueue	method	18	blocked	no-loose-eq:12
+strict	data_structures/queue/circular_queue.ts	53	CircularQueue.dequeue	method	15	blocked	no-loose-eq:6
+strict	data_structures/queue/circular_queue.ts	76	CircularQueue.peek	method	6	blocked	no-loose-eq:2
+strict	data_structures/queue/circular_queue.ts	89	CircularQueue.isEmpty	method	3	blocked	no-loose-eq:2
+strict	data_structures/queue/circular_queue.ts	98	CircularQueue.length	method	9	blocked	no-loose-eq:2
+strict	data_structures/queue/linked_queue.ts	19	LinkedQueue.constructor	constructor	4	covered	
+strict	data_structures/queue/linked_queue.ts	29	LinkedQueue.enqueue	method	10	covered	
+strict	data_structures/queue/linked_queue.ts	47	LinkedQueue.dequeue	method	9	covered	
+strict	data_structures/queue/linked_queue.ts	63	LinkedQueue.peek	method	6	covered	
+strict	data_structures/queue/linked_queue.ts	75	LinkedQueue.isEmpty	method	3	covered	
+strict	data_structures/queue/linked_queue.ts	84	LinkedQueue.length	method	3	covered	
+strict	data_structures/stack/stack.ts	15	Stack.constructor	constructor	3	covered	
+strict	data_structures/stack/stack.ts	24	Stack.push	method	6	covered	
+strict	data_structures/stack/stack.ts	38	Stack.pop	method	6	blocked	as-downcast:1
+strict	data_structures/stack/stack.ts	51	Stack.length	method	3	covered	
+strict	data_structures/stack/stack.ts	60	Stack.isEmpty	method	3	covered	
+strict	data_structures/stack/stack.ts	69	Stack.top	method	6	covered	
+strict	data_structures/queue/stack_queue.ts	22	StackQueue.length	method	3	covered	
+strict	data_structures/queue/stack_queue.ts	31	StackQueue.isEmpty	method	3	covered	
+strict	data_structures/queue/stack_queue.ts	40	StackQueue.enqueue	method	3	covered	
+strict	data_structures/queue/stack_queue.ts	50	StackQueue.shift	method	6	covered	
+strict	data_structures/queue/stack_queue.ts	63	StackQueue.dequeue	method	9	covered	
+strict	data_structures/queue/stack_queue.ts	80	StackQueue.peek	method	9	covered	
+strict	data_structures/set/map_set.ts	14	MapSet.constructor	constructor	3	ts-error	ts-error:1
+strict	data_structures/set/map_set.ts	28	MapSet.add	method	3	ts-error	ts-error:1
+strict	data_structures/set/map_set.ts	37	MapSet.delete	method	3	ts-error	ts-error:1
+strict	data_structures/set/map_set.ts	47	MapSet.has	method	3	ts-error	ts-error:1
+strict	data_structures/set/map_set.ts	54	MapSet.clear	method	3	ts-error	ts-error:1
+strict	data_structures/set/map_set.ts	63	MapSet.values	method	3	ts-error	ts-error:1
+strict	data_structures/set/map_set.ts	72	MapSet.getSize	method	3	ts-error	ts-error:1
+strict	data_structures/set/hash_map_set.ts	12	HashMapSet.constructor	constructor	3	blocked	no-extends:2
+strict	data_structures/set/hash_map_set.ts	21	HashMapSet.initMap	method	3	blocked	no-extends:1
+strict	data_structures/stack/linked_list_stack.ts	16	LinkedListStack.constructor	constructor	4	covered	
+strict	data_structures/stack/linked_list_stack.ts	27	LinkedListStack.top	method	6	covered	
+strict	data_structures/stack/linked_list_stack.ts	42	LinkedListStack.push	method	6	covered	
+strict	data_structures/stack/linked_list_stack.ts	57	LinkedListStack.pop	method	6	covered	
+strict	data_structures/stack/linked_list_stack.ts	70	LinkedListStack.length	method	3	covered	
+strict	data_structures/stack/linked_list_stack.ts	79	LinkedListStack.isEmpty	method	3	covered	
+strict	data_structures/tree/binary_search_tree.ts	7	TreeNode.constructor	constructor	5	covered	
+strict	data_structures/tree/binary_search_tree.ts	37	BinarySearchTree.constructor	constructor	3	covered	
+strict	data_structures/tree/binary_search_tree.ts	46	BinarySearchTree.isEmpty	method	3	covered	
+strict	data_structures/tree/binary_search_tree.ts	55	BinarySearchTree.has	method	20	blocked	mixed-compare:1
+strict	data_structures/tree/binary_search_tree.ts	86	BinarySearchTree.insert	method	24	blocked	mixed-compare:1
+strict	data_structures/tree/binary_search_tree.ts	117	BinarySearchTree.findMin	method	9	covered	
+strict	data_structures/tree/binary_search_tree.ts	134	BinarySearchTree.findMax	method	9	covered	
+strict	data_structures/tree/binary_search_tree.ts	153	BinarySearchTree.inOrderTraversal	method	15	covered	
+strict	data_structures/tree/binary_search_tree.ts	179	BinarySearchTree.preOrderTraversal	method	15	covered	
+strict	data_structures/tree/binary_search_tree.ts	206	BinarySearchTree.postOrderTraversal	method	15	covered	
+strict	data_structures/tries/tries.ts	30	Trie.insertNode	method	9	covered	
+strict	data_structures/tries/tries.ts	49	Trie.find	method	3	covered	
+strict	data_structures/tries/tries.ts	59	Trie.add	method	4	blocked	unsupported-generic:1
+strict	data_structures/tries/tries.ts	73	Trie.searchNode	method	13	covered	
+strict	dynamic_programming/coin_change.ts	13	coinChange	arrow	26	blocked	any-type:2
+strict	dynamic_programming/knapsack.ts	12	knapsack	arrow	39	blocked	any-type:2
+strict	dynamic_programming/lcs.ts	8	longestCommonSubsequence	arrow	37	blocked	any-type:1
+strict	graph/bellman_ford.ts	12	bellmanFord	arrow	33	blocked	any-type:11
+strict	graph/bipartite_graph.ts	1	dfs	arrow	17	covered	
+strict	graph/bipartite_graph.ts	33	isBipartite	arrow	10	blocked	any-type:1
+strict	graph/dijkstra.ts	13	dijkstra	arrow	34	blocked	any-type:9,no-extends:1
+strict	graph/edmonds_karp.ts	15	edmondsKarp	function	73	blocked	any-type:11,unsupported:2
+strict	graph/floyd_warshall.ts	11	floydWarshall	arrow	25	blocked	any-type:4
+strict	graph/johnson.ts	14	johnson	arrow	36	blocked	unsupported:1
+strict	graph/kosajaru.ts	2	getNodePriorities	arrow	16	covered	
+strict	graph/kosajaru.ts	21	transpose	arrow	12	blocked	any-op:1,any-type:2,unsupported-builtin:1
+strict	graph/kosajaru.ts	37	gatherScc	arrow	15	covered	
+strict	graph/kosajaru.ts	64	kosajaru	arrow	18	blocked	any-type:8
+strict	graph/kruskal.ts	14	kruskal	arrow	20	blocked	any-type:2
+strict	graph/kruskal.ts	43	Edge.constructor	constructor	5	covered	
+strict	graph/prim.ts	12	prim	arrow	32	blocked	no-extends:3,no-loose-eq:2
+strict	graph/prim.ts	49	add_children	arrow	13	blocked	no-extends:1
+strict	graph/prim.ts	67	Edge.constructor	constructor	5	covered	
+strict	graph/tarjan.ts	11	tarjan	arrow	54	blocked	any-type:4,no-loose-eq:2,unsupported-builtin:1
+strict	maths/absolute_value.ts	12	absoluteValue	arrow	5	covered	
+strict	maths/aliquot_sum.ts	15	aliquotSum	arrow	10	covered	
+strict	maths/armstrong_number.ts	16	armstrongNumber	arrow	11	covered	
+strict	maths/binary_convert.ts	11	binaryConvert	arrow	8	blocked	mixed-plus:1
+strict	maths/factorial.ts	10	factorial	arrow	6	covered	
+strict	maths/binomial_coefficient.ts	14	binomialCoefficient	arrow	10	covered	
+strict	maths/calculate_mean.ts	11	calculateMean	arrow	9	covered	
+strict	maths/calculate_median.ts	11	calculateMedian	arrow	13	covered	
+strict	maths/degrees_to_radians.ts	9	degreesToRadians	arrow	3	covered	
+strict	maths/digit_sum.ts	11	digitSum	arrow	11	blocked	no-loose-eq:2
+strict	maths/double_factorial_iterative.ts	19	DoubleFactorialIterative	arrow	6	covered	
+strict	maths/euler_totient.ts	9	phi	arrow	11	blocked	no-loose-eq:4
+strict	maths/factors.ts	11	findFactors	arrow	15	covered	
+strict	maths/fibonacci.ts	13	generateFibonacci	function	10	blocked	no-generators:2,unsupported-type:1
+strict	maths/fibonacci.ts	24	nthFibonacci	arrow	14	blocked	unsupported-type:2
+strict	maths/fibonacci.ts	53	nthFibonacciRecursively	arrow	11	covered	
+strict	maths/fibonacci.ts	79	nthFibonacciUsingFormula	arrow	2	covered	
+strict	maths/find_min.ts	12	findMin	arrow	12	covered	
+strict	maths/gaussian_elimination.ts	7	gaussianElimination	function	39	blocked	any-type:1
+strict	maths/greatest_common_factor.ts	12	binaryGCF	arrow	9	covered	
+strict	maths/greatest_common_factor.ts	23	greatestCommonFactor	arrow	6	covered	
+strict	maths/hamming_distance.ts	15	hammingDistance	arrow	7	covered	
+strict	maths/is_divisible.ts	11	isDivisible	arrow	6	covered	
+strict	maths/is_even.ts	10	isEven	arrow	6	covered	
+strict	maths/is_leap_year.ts	12	isLeapYear	arrow	6	blocked	no-loose-eq:6
+strict	maths/is_odd.ts	10	isOdd	arrow	6	covered	
+strict	maths/is_palindrome.ts	9	isPalindrome	arrow	11	covered	
+strict	maths/is_square_free.ts	11	isSquareFree	arrow	12	covered	
+strict	maths/juggler_sequence.ts	16	jugglerSequence	arrow	7	covered	
+strict	maths/lowest_common_multiple.ts	16	naiveLCM	arrow	19	blocked	unsupported-builtin:1
+strict	maths/lowest_common_multiple.ts	42	binaryLCM	arrow	3	covered	
+strict	maths/lowest_common_multiple.ts	46	lowestCommonMultiple	arrow	6	covered	
+strict	maths/matrix_multiplication.ts	16	matrixMultiplication	function	31	blocked	any-type:11,no-any:2
+strict	maths/number_of_digits.ts	12	numberOfDigits	arrow	6	covered	
+strict	maths/pascals_triangle.ts	17	pascalsTriangle	arrow	20	covered	
+strict	maths/perfect_cube.ts	7	perfectCube	arrow	3	covered	
+strict	maths/perfect_number.ts	11	isPerfectNumber	arrow	16	covered	
+strict	maths/perfect_square.ts	9	perfectSquare	arrow	3	covered	
+strict	maths/prime_factorization.ts	9	factorize	arrow	17	blocked	any-type:1,no-loose-eq:2
+strict	maths/primes.ts	9	sieveOfEratosthenes	function	19	blocked	any-type:1
+strict	maths/primes.ts	37	primeGenerator	function	20	blocked	no-any:1,no-generators:6,unsupported-type:5
+strict	maths/primes.ts	70	isPrime	arrow	15	covered	
+strict	maths/pronic_number.ts	16	pronicNumber	arrow	10	covered	
+strict	maths/radians_to_degrees.ts	9	radiansToDegrees	arrow	3	covered	
+strict	maths/sieve_of_eratosthenes.ts	11	sieveOfEratosthenes	function	16	covered	
+strict	maths/signum.ts	16	signum	arrow	6	covered	
+strict	maths/square_root.ts	12	squareRoot	arrow	13	covered	
+strict	maths/ugly_numbers.ts	12	uglyNumbers	function	19	blocked	no-any:1,no-generators:3,unsupported-type:1
+strict	maths/zellers_congruence.ts	17	getWeekday	arrow	46	blocked	later-declared:1,no-enum-decl:2
+strict	maths/series/hexagonal_numbers.ts	17	HexagonalNumbers	arrow	10	blocked	any-type:2
+strict	other/is_sorted_array.ts	9	isSortedArray	function	8	covered	
+strict	other/parse_nested_brackets.ts	19	parseNestedBrackets	arrow	29	covered	
+strict	other/shuffle_array.ts	1	shuffleArray	function	8	covered	
+strict	search/binary_search.ts	17	binarySearchIterative	arrow	22	covered	
+strict	search/binary_search.ts	43	binarySearchRecursive	arrow	18	covered	
+strict	search/exponential_search.ts	21	exponentialSearch	arrow	16	covered	
+strict	search/fibonacci_search.ts	16	fibonacciSearch	arrow	36	covered	
+strict	search/interpolation_search.ts	12	interpolationSearch	arrow	36	covered	
+strict	search/jump_search.ts	21	jumpSearch	arrow	21	blocked	no-loose-eq:2
+strict	search/linear_search.ts	13	linearSearch	arrow	6	blocked	any-type:5,no-any:2
+strict	search/sentinel_search.ts	25	sentinelSearch	arrow	16	covered	
+strict	sorts/bogo_sort.ts	24	bogoSort	function	6	covered	
+strict	sorts/bubble_sort.ts	20	bubbleSort	arrow	14	covered	
+strict	sorts/counting_sort.ts	11	countingSort	arrow	12	blocked	any-type:11
+strict	sorts/cycle_sort.ts	10	cycleSort	arrow	6	covered	
+strict	sorts/cycle_sort.ts	17	MoveCycle	function	20	blocked	no-loose-eq:4
+strict	sorts/cycle_sort.ts	42	CountSmallerItems	function	13	covered	
+strict	sorts/cycle_sort.ts	58	SkipDuplicates	function	10	blocked	no-loose-eq:2
+strict	sorts/gnome_sort.ts	10	gnomeSort	arrow	15	covered	
+strict	sorts/heap_sort.ts	15	HeapSort	arrow	8	covered	
+strict	sorts/heap_sort.ts	27	buildMaxHeap	function	6	covered	
+strict	sorts/heap_sort.ts	36	heapify	function	15	covered	
+strict	sorts/heap_sort.ts	56	swap	function	5	covered	
+strict	sorts/insertion_sort.ts	10	insertionSort	arrow	12	covered	
+strict	sorts/merge_sort.ts	18	mergeSort	function	7	covered	
+strict	sorts/merge_sort.ts	28	merge	function	20	blocked	unsupported-builtin:1
+strict	sorts/quick_sort.ts	8	partition	arrow	20	covered	
+strict	sorts/quick_sort.ts	39	choosePivot	arrow	3	covered	
+strict	sorts/quick_sort.ts	61	QuickSort	arrow	16	covered	
+strict	sorts/quick_select.ts	13	QuickSelect	arrow	26	covered	
+strict	sorts/selection_sort.ts	20	selectionSort	arrow	14	covered	
+strict	sorts/shell_sort.ts	16	shellSort	function	16	blocked	mixed-compare:1
+strict	sorts/swap_sort.ts	10	minSwapsToSort	arrow	18	blocked	any-type:8,unsupported-builtin:1
+strict	sorts/tree_sort.ts	12	treeSort	arrow	7	covered	
+dyn	backtracking/all_combinations_of_size_k.ts	12	generateCombinations	function	24	covered	
+dyn	backtracking/generateparentheses.ts	8	generateParentheses	arrow	21	covered	
+dyn	bit_manipulation/add_binary.ts	8	addBinary	function	22	covered	
+dyn	bit_manipulation/is_power_of_2.ts	25	isPowerOfTwo	arrow	1	covered	
+dyn	bit_manipulation/is_power_of_4.ts	15	isPowerOfFour	arrow	2	covered	
+dyn	bit_manipulation/log_two.ts	8	logTwo	arrow	8	covered	
+dyn	ciphers/xor_cipher.ts	12	XORCipher	arrow	4	blocked	extern-callback:1
+dyn	data_structures/disjoint_set/disjoint_set.ts	24	DisjointSet.constructor	constructor	5	blocked	unsupported-conversion:1
+dyn	data_structures/disjoint_set/disjoint_set.ts	33	DisjointSet.find	method	7	blocked	no-loose-eq:2
+dyn	data_structures/disjoint_set/disjoint_set.ts	44	DisjointSet.join	method	15	covered	
+dyn	data_structures/disjoint_set/disjoint_set.ts	67	DisjointSet.isSame	method	3	covered	
+dyn	data_structures/heap/heap.ts	17	Heap.constructor	constructor	4	covered	
+dyn	data_structures/heap/heap.ts	27	Heap.isRightlyPlaced	method	3	covered	
+dyn	data_structures/heap/heap.ts	35	Heap.getChildIndexToSwap	method	11	covered	
+dyn	data_structures/heap/heap.ts	47	Heap.insert	method	4	covered	
+dyn	data_structures/heap/heap.ts	52	Heap.extract	method	7	covered	
+dyn	data_structures/heap/heap.ts	60	Heap.size	method	3	covered	
+dyn	data_structures/heap/heap.ts	64	Heap.isEmpty	method	3	covered	
+dyn	data_structures/heap/heap.ts	68	Heap.swap	method	3	covered	
+dyn	data_structures/heap/heap.ts	72	Heap.bubbleUp	method	9	covered	
+dyn	data_structures/heap/heap.ts	83	Heap.sinkDown	method	17	covered	
+dyn	data_structures/heap/heap.ts	102	Heap.getLeftChildIndex	method	3	covered	
+dyn	data_structures/heap/heap.ts	106	Heap.getRightChildIndex	method	3	covered	
+dyn	data_structures/heap/heap.ts	110	Heap.check	method	3	covered	
+dyn	data_structures/heap/heap.ts	114	Heap._check	method	19	covered	
+dyn	data_structures/heap/heap.ts	139	MinHeap.constructor	constructor	3	blocked	mixed-compare:1,no-extends:2
+dyn	data_structures/heap/heap.ts	145	MaxHeap.constructor	constructor	3	blocked	mixed-compare:1,no-extends:2
+dyn	data_structures/heap/heap.ts	156	PriorityQueue.constructor	constructor	9	blocked	mixed-compare:1,no-extends:2
+dyn	data_structures/heap/heap.ts	166	PriorityQueue.swap	method	6	blocked	no-extends:1
+dyn	data_structures/heap/heap.ts	173	PriorityQueue.insert	method	4	blocked	no-extends:1
+dyn	data_structures/heap/heap.ts	178	PriorityQueue.extract	method	8	blocked	no-extends:1
+dyn	data_structures/heap/heap.ts	187	PriorityQueue.increasePriority	method	15	blocked	no-extends:1
+dyn	data_structures/list/doubly_linked_list.ts	25	DoublyLinkedList.isEmpty	method	3	covered	
+dyn	data_structures/list/doubly_linked_list.ts	36	DoublyLinkedList.get	method	10	covered	
+dyn	data_structures/list/doubly_linked_list.ts	55	DoublyLinkedList.push	method	12	covered	
+dyn	data_structures/list/doubly_linked_list.ts	77	DoublyLinkedList.pop	method	14	covered	
+dyn	data_structures/list/doubly_linked_list.ts	102	DoublyLinkedList.append	method	11	covered	
+dyn	data_structures/list/doubly_linked_list.ts	123	DoublyLinkedList.removeTail	method	14	covered	
+dyn	data_structures/list/doubly_linked_list.ts	150	DoublyLinkedList.insertAt	method	24	covered	
+dyn	data_structures/list/doubly_linked_list.ts	188	DoublyLinkedList.removeAt	method	19	covered	
+dyn	data_structures/list/doubly_linked_list.ts	219	DoublyLinkedList.reverse	method	19	covered	
+dyn	data_structures/list/doubly_linked_list.ts	248	DoublyLinkedList.clear	method	5	covered	
+dyn	data_structures/list/doubly_linked_list.ts	259	DoublyLinkedList.toArray	method	9	covered	
+dyn	data_structures/list/doubly_linked_list.ts	277	DoublyLinkedList.getLength	method	3	covered	
+dyn	data_structures/list/doubly_linked_list.ts	291	DoublyLinkedListNode.constructor	constructor	5	covered	
+dyn	data_structures/list/singly_linked_list.ts	11	ListNode.constructor	constructor	4	covered	
+dyn	data_structures/list/singly_linked_list.ts	36	SinglyLinkedList.constructor	constructor	5	covered	
+dyn	data_structures/list/singly_linked_list.ts	47	SinglyLinkedList.isEmpty	method	3	covered	
+dyn	data_structures/list/singly_linked_list.ts	58	SinglyLinkedList.get	method	16	covered	
+dyn	data_structures/list/singly_linked_list.ts	85	SinglyLinkedList.push	method	11	covered	
+dyn	data_structures/list/singly_linked_list.ts	106	SinglyLinkedList.pop	method	9	covered	
+dyn	data_structures/list/singly_linked_list.ts	124	SinglyLinkedList.append	method	10	covered	
+dyn	data_structures/list/singly_linked_list.ts	144	SinglyLinkedList.removeTail	method	19	covered	
+dyn	data_structures/list/singly_linked_list.ts	177	SinglyLinkedList.insertAt	method	22	covered	
+dyn	data_structures/list/singly_linked_list.ts	215	SinglyLinkedList.removeAt	method	22	covered	
+dyn	data_structures/list/singly_linked_list.ts	247	SinglyLinkedList.clear	method	5	covered	
+dyn	data_structures/list/singly_linked_list.ts	258	SinglyLinkedList.toArray	method	9	covered	
+dyn	data_structures/list/singly_linked_list.ts	275	SinglyLinkedList.getLength	method	3	covered	
+dyn	data_structures/map/hash_map.ts	21	HashMap.constructor	constructor	3	covered	
+dyn	data_structures/map/hash_map.ts	30	HashMap.getSize	method	3	covered	
+dyn	data_structures/map/hash_map.ts	40	HashMap.set	method	21	covered	
+dyn	data_structures/map/hash_map.ts	72	HashMap.get	method	10	covered	
+dyn	data_structures/map/hash_map.ts	90	HashMap.delete	method	11	covered	
+dyn	data_structures/map/hash_map.ts	109	HashMap.has	method	10	covered	
+dyn	data_structures/map/hash_map.ts	125	HashMap.clear	method	4	covered	
+dyn	data_structures/map/hash_map.ts	135	HashMap.keys	method	9	covered	
+dyn	data_structures/map/hash_map.ts	151	HashMap.values	method	9	covered	
+dyn	data_structures/map/hash_map.ts	167	HashMap.entries	method	9	covered	
+dyn	data_structures/map/hash_map.ts	183	HashMap.initializeBuckets	method	6	covered	
+dyn	data_structures/map/hash_map.ts	198	HashMap.hash	method	7	blocked	template-hole:2
+dyn	data_structures/map/hash_map.ts	211	HashMap.resize	method	8	covered	
+dyn	data_structures/map/hash_map.ts	235	MapEntry.constructor	constructor	4	covered	
+dyn	data_structures/queue/array_queue.ts	16	ArrayQueue.length	method	3	covered	
+dyn	data_structures/queue/array_queue.ts	25	ArrayQueue.isEmpty	method	3	covered	
+dyn	data_structures/queue/array_queue.ts	34	ArrayQueue.enqueue	method	3	covered	
+dyn	data_structures/queue/array_queue.ts	44	ArrayQueue.dequeue	method	6	blocked	as-downcast:1
+dyn	data_structures/queue/array_queue.ts	57	ArrayQueue.peek	method	6	covered	
+dyn	data_structures/queue/circular_queue.ts	16	CircularQueue.constructor	constructor	6	blocked	unsupported-builtin:1
+dyn	data_structures/queue/circular_queue.ts	28	CircularQueue.enqueue	method	18	blocked	no-loose-eq:12
+dyn	data_structures/queue/circular_queue.ts	53	CircularQueue.dequeue	method	15	blocked	no-loose-eq:6
+dyn	data_structures/queue/circular_queue.ts	76	CircularQueue.peek	method	6	blocked	no-loose-eq:2
+dyn	data_structures/queue/circular_queue.ts	89	CircularQueue.isEmpty	method	3	blocked	no-loose-eq:2
+dyn	data_structures/queue/circular_queue.ts	98	CircularQueue.length	method	9	blocked	no-loose-eq:2
+dyn	data_structures/queue/linked_queue.ts	19	LinkedQueue.constructor	constructor	4	covered	
+dyn	data_structures/queue/linked_queue.ts	29	LinkedQueue.enqueue	method	10	covered	
+dyn	data_structures/queue/linked_queue.ts	47	LinkedQueue.dequeue	method	9	covered	
+dyn	data_structures/queue/linked_queue.ts	63	LinkedQueue.peek	method	6	covered	
+dyn	data_structures/queue/linked_queue.ts	75	LinkedQueue.isEmpty	method	3	covered	
+dyn	data_structures/queue/linked_queue.ts	84	LinkedQueue.length	method	3	covered	
+dyn	data_structures/stack/stack.ts	15	Stack.constructor	constructor	3	covered	
+dyn	data_structures/stack/stack.ts	24	Stack.push	method	6	covered	
+dyn	data_structures/stack/stack.ts	38	Stack.pop	method	6	blocked	as-downcast:1
+dyn	data_structures/stack/stack.ts	51	Stack.length	method	3	covered	
+dyn	data_structures/stack/stack.ts	60	Stack.isEmpty	method	3	covered	
+dyn	data_structures/stack/stack.ts	69	Stack.top	method	6	covered	
+dyn	data_structures/queue/stack_queue.ts	22	StackQueue.length	method	3	covered	
+dyn	data_structures/queue/stack_queue.ts	31	StackQueue.isEmpty	method	3	covered	
+dyn	data_structures/queue/stack_queue.ts	40	StackQueue.enqueue	method	3	covered	
+dyn	data_structures/queue/stack_queue.ts	50	StackQueue.shift	method	6	covered	
+dyn	data_structures/queue/stack_queue.ts	63	StackQueue.dequeue	method	9	covered	
+dyn	data_structures/queue/stack_queue.ts	80	StackQueue.peek	method	9	covered	
+dyn	data_structures/set/map_set.ts	14	MapSet.constructor	constructor	3	ts-error	ts-error:1
+dyn	data_structures/set/map_set.ts	28	MapSet.add	method	3	ts-error	ts-error:1
+dyn	data_structures/set/map_set.ts	37	MapSet.delete	method	3	ts-error	ts-error:1
+dyn	data_structures/set/map_set.ts	47	MapSet.has	method	3	ts-error	ts-error:1
+dyn	data_structures/set/map_set.ts	54	MapSet.clear	method	3	ts-error	ts-error:1
+dyn	data_structures/set/map_set.ts	63	MapSet.values	method	3	ts-error	ts-error:1
+dyn	data_structures/set/map_set.ts	72	MapSet.getSize	method	3	ts-error	ts-error:1
+dyn	data_structures/set/hash_map_set.ts	12	HashMapSet.constructor	constructor	3	blocked	no-extends:2
+dyn	data_structures/set/hash_map_set.ts	21	HashMapSet.initMap	method	3	blocked	no-extends:1
+dyn	data_structures/stack/linked_list_stack.ts	16	LinkedListStack.constructor	constructor	4	covered	
+dyn	data_structures/stack/linked_list_stack.ts	27	LinkedListStack.top	method	6	covered	
+dyn	data_structures/stack/linked_list_stack.ts	42	LinkedListStack.push	method	6	covered	
+dyn	data_structures/stack/linked_list_stack.ts	57	LinkedListStack.pop	method	6	covered	
+dyn	data_structures/stack/linked_list_stack.ts	70	LinkedListStack.length	method	3	covered	
+dyn	data_structures/stack/linked_list_stack.ts	79	LinkedListStack.isEmpty	method	3	covered	
+dyn	data_structures/tree/binary_search_tree.ts	7	TreeNode.constructor	constructor	5	covered	
+dyn	data_structures/tree/binary_search_tree.ts	37	BinarySearchTree.constructor	constructor	3	covered	
+dyn	data_structures/tree/binary_search_tree.ts	46	BinarySearchTree.isEmpty	method	3	covered	
+dyn	data_structures/tree/binary_search_tree.ts	55	BinarySearchTree.has	method	20	blocked	mixed-compare:1
+dyn	data_structures/tree/binary_search_tree.ts	86	BinarySearchTree.insert	method	24	blocked	mixed-compare:1
+dyn	data_structures/tree/binary_search_tree.ts	117	BinarySearchTree.findMin	method	9	covered	
+dyn	data_structures/tree/binary_search_tree.ts	134	BinarySearchTree.findMax	method	9	covered	
+dyn	data_structures/tree/binary_search_tree.ts	153	BinarySearchTree.inOrderTraversal	method	15	covered	
+dyn	data_structures/tree/binary_search_tree.ts	179	BinarySearchTree.preOrderTraversal	method	15	covered	
+dyn	data_structures/tree/binary_search_tree.ts	206	BinarySearchTree.postOrderTraversal	method	15	covered	
+dyn	data_structures/tries/tries.ts	30	Trie.insertNode	method	9	covered	
+dyn	data_structures/tries/tries.ts	49	Trie.find	method	3	covered	
+dyn	data_structures/tries/tries.ts	59	Trie.add	method	4	blocked	unsupported-generic:1
+dyn	data_structures/tries/tries.ts	73	Trie.searchNode	method	13	covered	
+dyn	dynamic_programming/coin_change.ts	13	coinChange	arrow	26	blocked	unsupported-conversion:2
+dyn	dynamic_programming/knapsack.ts	12	knapsack	arrow	39	blocked	unsupported-conversion:1
+dyn	dynamic_programming/lcs.ts	8	longestCommonSubsequence	arrow	37	blocked	unsupported-conversion:1
+dyn	graph/bellman_ford.ts	12	bellmanFord	arrow	33	blocked	any-op:3,unsupported-conversion:1
+dyn	graph/bipartite_graph.ts	1	dfs	arrow	17	covered	
+dyn	graph/bipartite_graph.ts	33	isBipartite	arrow	10	blocked	unsupported-conversion:1
+dyn	graph/dijkstra.ts	13	dijkstra	arrow	34	blocked	any-op:2,no-extends:1,unsupported-conversion:1
+dyn	graph/edmonds_karp.ts	15	edmondsKarp	function	73	blocked	unsupported:2,unsupported-conversion:1
+dyn	graph/floyd_warshall.ts	11	floydWarshall	arrow	25	blocked	unsupported-conversion:2
+dyn	graph/johnson.ts	14	johnson	arrow	36	blocked	unsupported:1
+dyn	graph/kosajaru.ts	2	getNodePriorities	arrow	16	covered	
+dyn	graph/kosajaru.ts	21	transpose	arrow	12	blocked	any-op:1,unsupported-builtin:1,unsupported-conversion:1
+dyn	graph/kosajaru.ts	37	gatherScc	arrow	15	covered	
+dyn	graph/kosajaru.ts	64	kosajaru	arrow	18	blocked	unsupported-conversion:1
+dyn	graph/kruskal.ts	14	kruskal	arrow	20	blocked	unsupported-conversion:1
+dyn	graph/kruskal.ts	43	Edge.constructor	constructor	5	covered	
+dyn	graph/prim.ts	12	prim	arrow	32	blocked	no-extends:3,no-loose-eq:2
+dyn	graph/prim.ts	49	add_children	arrow	13	blocked	no-extends:1
+dyn	graph/prim.ts	67	Edge.constructor	constructor	5	covered	
+dyn	graph/tarjan.ts	11	tarjan	arrow	54	blocked	no-loose-eq:2,unsupported-builtin:1,unsupported-conversion:1
+dyn	maths/absolute_value.ts	12	absoluteValue	arrow	5	covered	
+dyn	maths/aliquot_sum.ts	15	aliquotSum	arrow	10	covered	
+dyn	maths/armstrong_number.ts	16	armstrongNumber	arrow	11	covered	
+dyn	maths/binary_convert.ts	11	binaryConvert	arrow	8	blocked	mixed-plus:1
+dyn	maths/factorial.ts	10	factorial	arrow	6	covered	
+dyn	maths/binomial_coefficient.ts	14	binomialCoefficient	arrow	10	covered	
+dyn	maths/calculate_mean.ts	11	calculateMean	arrow	9	covered	
+dyn	maths/calculate_median.ts	11	calculateMedian	arrow	13	covered	
+dyn	maths/degrees_to_radians.ts	9	degreesToRadians	arrow	3	covered	
+dyn	maths/digit_sum.ts	11	digitSum	arrow	11	blocked	no-loose-eq:2
+dyn	maths/double_factorial_iterative.ts	19	DoubleFactorialIterative	arrow	6	covered	
+dyn	maths/euler_totient.ts	9	phi	arrow	11	blocked	no-loose-eq:4
+dyn	maths/factors.ts	11	findFactors	arrow	15	covered	
+dyn	maths/fibonacci.ts	13	generateFibonacci	function	10	blocked	no-generators:2,unsupported-type:1
+dyn	maths/fibonacci.ts	24	nthFibonacci	arrow	14	blocked	unsupported-type:2
+dyn	maths/fibonacci.ts	53	nthFibonacciRecursively	arrow	11	covered	
+dyn	maths/fibonacci.ts	79	nthFibonacciUsingFormula	arrow	2	covered	
+dyn	maths/find_min.ts	12	findMin	arrow	12	covered	
+dyn	maths/gaussian_elimination.ts	7	gaussianElimination	function	39	blocked	unsupported-builtin:1
+dyn	maths/greatest_common_factor.ts	12	binaryGCF	arrow	9	covered	
+dyn	maths/greatest_common_factor.ts	23	greatestCommonFactor	arrow	6	covered	
+dyn	maths/hamming_distance.ts	15	hammingDistance	arrow	7	covered	
+dyn	maths/is_divisible.ts	11	isDivisible	arrow	6	covered	
+dyn	maths/is_even.ts	10	isEven	arrow	6	covered	
+dyn	maths/is_leap_year.ts	12	isLeapYear	arrow	6	blocked	no-loose-eq:6
+dyn	maths/is_odd.ts	10	isOdd	arrow	6	covered	
+dyn	maths/is_palindrome.ts	9	isPalindrome	arrow	11	covered	
+dyn	maths/is_square_free.ts	11	isSquareFree	arrow	12	covered	
+dyn	maths/juggler_sequence.ts	16	jugglerSequence	arrow	7	covered	
+dyn	maths/lowest_common_multiple.ts	16	naiveLCM	arrow	19	blocked	unsupported-builtin:1
+dyn	maths/lowest_common_multiple.ts	42	binaryLCM	arrow	3	covered	
+dyn	maths/lowest_common_multiple.ts	46	lowestCommonMultiple	arrow	6	covered	
+dyn	maths/matrix_multiplication.ts	16	matrixMultiplication	function	31	blocked	any-op:3
+dyn	maths/number_of_digits.ts	12	numberOfDigits	arrow	6	covered	
+dyn	maths/pascals_triangle.ts	17	pascalsTriangle	arrow	20	covered	
+dyn	maths/perfect_cube.ts	7	perfectCube	arrow	3	covered	
+dyn	maths/perfect_number.ts	11	isPerfectNumber	arrow	16	covered	
+dyn	maths/perfect_square.ts	9	perfectSquare	arrow	3	covered	
+dyn	maths/prime_factorization.ts	9	factorize	arrow	17	blocked	map-key:1,no-loose-eq:2
+dyn	maths/primes.ts	9	sieveOfEratosthenes	function	19	blocked	unsupported-conversion:1
+dyn	maths/primes.ts	37	primeGenerator	function	20	blocked	no-generators:6,unsupported-type:5
+dyn	maths/primes.ts	70	isPrime	arrow	15	covered	
+dyn	maths/pronic_number.ts	16	pronicNumber	arrow	10	covered	
+dyn	maths/radians_to_degrees.ts	9	radiansToDegrees	arrow	3	covered	
+dyn	maths/sieve_of_eratosthenes.ts	11	sieveOfEratosthenes	function	16	covered	
+dyn	maths/signum.ts	16	signum	arrow	6	covered	
+dyn	maths/square_root.ts	12	squareRoot	arrow	13	covered	
+dyn	maths/ugly_numbers.ts	12	uglyNumbers	function	19	blocked	no-generators:3,unsupported-type:1
+dyn	maths/zellers_congruence.ts	17	getWeekday	arrow	46	blocked	later-declared:1,no-enum-decl:2
+dyn	maths/series/hexagonal_numbers.ts	17	HexagonalNumbers	arrow	10	blocked	unsupported-conversion:1
+dyn	other/is_sorted_array.ts	9	isSortedArray	function	8	covered	
+dyn	other/parse_nested_brackets.ts	19	parseNestedBrackets	arrow	29	covered	
+dyn	other/shuffle_array.ts	1	shuffleArray	function	8	covered	
+dyn	search/binary_search.ts	17	binarySearchIterative	arrow	22	covered	
+dyn	search/binary_search.ts	43	binarySearchRecursive	arrow	18	covered	
+dyn	search/exponential_search.ts	21	exponentialSearch	arrow	16	covered	
+dyn	search/fibonacci_search.ts	16	fibonacciSearch	arrow	36	covered	
+dyn	search/interpolation_search.ts	12	interpolationSearch	arrow	36	covered	
+dyn	search/jump_search.ts	21	jumpSearch	arrow	21	blocked	no-loose-eq:2
+dyn	search/linear_search.ts	13	linearSearch	arrow	6	covered	
+dyn	search/sentinel_search.ts	25	sentinelSearch	arrow	16	covered	
+dyn	sorts/bogo_sort.ts	24	bogoSort	function	6	covered	
+dyn	sorts/bubble_sort.ts	20	bubbleSort	arrow	14	covered	
+dyn	sorts/counting_sort.ts	11	countingSort	arrow	12	blocked	any-op:2,unsupported:2,unsupported-conversion:1
+dyn	sorts/cycle_sort.ts	10	cycleSort	arrow	6	covered	
+dyn	sorts/cycle_sort.ts	17	MoveCycle	function	20	blocked	no-loose-eq:4
+dyn	sorts/cycle_sort.ts	42	CountSmallerItems	function	13	covered	
+dyn	sorts/cycle_sort.ts	58	SkipDuplicates	function	10	blocked	no-loose-eq:2
+dyn	sorts/gnome_sort.ts	10	gnomeSort	arrow	15	covered	
+dyn	sorts/heap_sort.ts	15	HeapSort	arrow	8	covered	
+dyn	sorts/heap_sort.ts	27	buildMaxHeap	function	6	covered	
+dyn	sorts/heap_sort.ts	36	heapify	function	15	covered	
+dyn	sorts/heap_sort.ts	56	swap	function	5	covered	
+dyn	sorts/insertion_sort.ts	10	insertionSort	arrow	12	covered	
+dyn	sorts/merge_sort.ts	18	mergeSort	function	7	covered	
+dyn	sorts/merge_sort.ts	28	merge	function	20	blocked	unsupported-builtin:1
+dyn	sorts/quick_sort.ts	8	partition	arrow	20	covered	
+dyn	sorts/quick_sort.ts	39	choosePivot	arrow	3	covered	
+dyn	sorts/quick_sort.ts	61	QuickSort	arrow	16	covered	
+dyn	sorts/quick_select.ts	13	QuickSelect	arrow	26	covered	
+dyn	sorts/selection_sort.ts	20	selectionSort	arrow	14	covered	
+dyn	sorts/shell_sort.ts	16	shellSort	function	16	blocked	mixed-compare:1
+dyn	sorts/swap_sort.ts	10	minSwapsToSort	arrow	18	blocked	map-key:8,unsupported-builtin:1
+dyn	sorts/tree_sort.ts	12	treeSort	arrow	7	covered	

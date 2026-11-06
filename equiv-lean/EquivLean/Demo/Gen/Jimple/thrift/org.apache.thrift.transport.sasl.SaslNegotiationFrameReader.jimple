@@ -1,0 +1,19 @@
+public class org.apache.thrift.transport.sasl.SaslNegotiationFrameReader extends org.apache.thrift.transport.sasl.FrameReader
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.sasl.SaslNegotiationHeaderReader $r0;
+        org.apache.thrift.transport.sasl.SaslNegotiationFrameReader this;
+
+        this := @this: org.apache.thrift.transport.sasl.SaslNegotiationFrameReader;
+
+        $r0 = new org.apache.thrift.transport.sasl.SaslNegotiationHeaderReader;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.SaslNegotiationHeaderReader: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.sasl.FrameReader: 'void' <init>(org.apache.thrift.transport.sasl.FrameHeaderReader)>($r0);
+
+        return;
+    }
+}

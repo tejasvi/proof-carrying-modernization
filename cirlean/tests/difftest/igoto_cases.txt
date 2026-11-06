@@ -1,0 +1,39 @@
+# GNU computed goto (igoto.cpp). Each case is labelled with its expected outcome on the line above it: MATCH, or UB
+# from cirrun (an indirect goto to a pointer that is not a label address or to a label of another function, an access
+# through a label address).
+# expect MATCH: bytecode interpreter, dispatch table of label addresses (static array)
+igoto t_ok_interp 3
+# expect MATCH: bytecode interpreter, another start value
+igoto t_ok_interp -2
+# expect MATCH: label pointers in a static array, first entry
+igoto t_ok_static_table 0
+# expect MATCH: label pointers in a static array, second entry
+igoto t_ok_static_table 4
+# expect MATCH: label pointers in a static array, third entry
+igoto t_ok_static_table -1
+# expect MATCH: computed goto inside nested loops
+igoto t_ok_nested 5
+# expect MATCH: computed goto inside nested loops, no iteration
+igoto t_ok_nested 0
+# expect MATCH: computed goto out of nested loops (local array of label addresses)
+igoto t_ok_escape 20
+# expect MATCH: computed goto out of nested loops, the other label
+igoto t_ok_escape 10
+# expect MATCH: computed goto out of nested loops, never taken
+igoto t_ok_escape 100000
+# expect MATCH: comparisons of label addresses, jump to the second label
+igoto t_ok_compare 1
+# expect MATCH: comparisons of label addresses, jump to the first label
+igoto t_ok_compare 0
+# expect MATCH: label addresses stored in an array of structs
+igoto t_ok_struct 0
+# expect MATCH: label addresses stored in an array of structs, other order
+igoto t_ok_struct 1
+# expect UB: indirect goto to a data pointer
+igoto t_ub_data_ptr 1
+# expect UB: indirect goto to the null pointer
+igoto t_ub_null 1
+# expect UB: indirect goto to a label of another function
+igoto t_ub_other_fn 2
+# expect UB: read through a label address
+igoto t_ub_read_label 1

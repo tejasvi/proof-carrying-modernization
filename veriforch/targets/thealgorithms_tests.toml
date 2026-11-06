@@ -1,0 +1,14 @@
+# Test units of TheAlgorithms/C-Plus-Plus files whose test() asserts on integers without printing, proved by
+# concrete execution (cirlean cir_eval) with mechanical statements. Same source copy as thealgorithms_cpp.
+name = "thealgorithms_tests"
+lang = "cir"
+root = "/home/user/veriforch/targets/thealgorithms_cpp"
+sources = []
+entry = ["main"]
+
+[extra]
+cxxflags = ["-nostdinc++", "-isystem", "/home/user/cirlean_work/dl_cir2c_eb2a332/cir2c-eb2a332/libcxx/include/c++/v1", "-w"]
+
+[[variants]]
+name = "math_gcd_of_n_numbers"
+sources = ["math/gcd_of_n_numbers.cpp"]

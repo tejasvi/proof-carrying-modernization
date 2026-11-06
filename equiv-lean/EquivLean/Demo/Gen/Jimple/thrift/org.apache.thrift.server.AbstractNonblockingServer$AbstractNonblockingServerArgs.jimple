@@ -1,0 +1,27 @@
+public abstract class org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs extends org.apache.thrift.server.TServer$AbstractServerArgs
+{
+    public 'long' maxReadBufferBytes;
+
+    public 'void' <init>(org.apache.thrift.transport.TNonblockingServerTransport)
+    {
+        org.apache.thrift.transport.layered.TFramedTransport$Factory $r0;
+        org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs this;
+        org.apache.thrift.transport.TNonblockingServerTransport transport;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs;
+
+        transport := @parameter0: org.apache.thrift.transport.TNonblockingServerTransport;
+
+        specialinvoke this.<org.apache.thrift.server.TServer$AbstractServerArgs: 'void' <init>(org.apache.thrift.transport.TServerTransport)>(transport);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs: 'long' maxReadBufferBytes> = 268435456L;
+
+        $r0 = new org.apache.thrift.transport.layered.TFramedTransport$Factory;
+
+        specialinvoke $r0.<org.apache.thrift.transport.layered.TFramedTransport$Factory: 'void' <init>()>();
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs: org.apache.thrift.server.TServer$AbstractServerArgs transportFactory(org.apache.thrift.transport.TTransportFactory)>($r0);
+
+        return;
+    }
+}

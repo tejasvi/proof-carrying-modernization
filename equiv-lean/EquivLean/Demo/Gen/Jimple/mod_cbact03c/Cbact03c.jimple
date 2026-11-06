@@ -1,0 +1,706 @@
+public final class Cbact03c extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        Cbact03c r0;
+
+        r0 := @this: Cbact03c;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static Cbact03c$Result run(Cbact03c$CardXrefRecord[])
+    {
+        java.util.List $r6;
+        Cbact03c$CardXrefRecord[] r0;
+        Cbact03c$State $r1;
+        Cbact03c$Result $r2;
+        java.lang.String $r3;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbact03c$CardXrefRecord[];
+
+        $r1 = new Cbact03c$State;
+
+        specialinvoke $r1.<Cbact03c$State: 'void' <init>()>();
+
+        $r2 = new Cbact03c$Result;
+
+        specialinvoke $r2.<Cbact03c$Result: 'void' <init>()>();
+
+        $r1.<Cbact03c$State: Cbact03c$Result result> = $r2;
+
+        if r0 != null goto label1;
+
+        r0 = newarray (Cbact03c$CardXrefRecord)[0];
+
+     label1:
+        $r1.<Cbact03c$State: Cbact03c$CardXrefRecord[] file> = r0;
+
+        $r1.<Cbact03c$State: 'int' pos> = 0;
+
+        $r1.<Cbact03c$State: 'boolean' atEof> = 0;
+
+        $r1.<Cbact03c$State: java.lang.String xreffileStatus> = "  ";
+
+        $r1.<Cbact03c$State: 'long' applResult> = 0L;
+
+        $r1.<Cbact03c$State: java.lang.String endOfFile> = "N";
+
+        $r3 = staticinvoke <Cbact03c: java.lang.String spaces('int')>(16);
+
+        $r1.<Cbact03c$State: java.lang.String recCardNum> = $r3;
+
+        $r1.<Cbact03c$State: 'long' recCustId> = 0L;
+
+        $r1.<Cbact03c$State: 'long' recAcctId> = 0L;
+
+        $r3 = staticinvoke <Cbact03c: java.lang.String spaces('int')>(14);
+
+        $r1.<Cbact03c$State: java.lang.String recFiller> = $r3;
+
+        $r1.<Cbact03c$State: 'boolean' abended> = 0;
+
+        $r2 = $r1.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r6 = $r2.<Cbact03c$Result: java.util.List displays>;
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>("START OF EXECUTION OF PROGRAM CBACT03C");
+
+        staticinvoke <Cbact03c: 'void' xreffileOpen(Cbact03c$State)>($r1);
+
+        $z0 = $r1.<Cbact03c$State: 'boolean' abended>;
+
+        if $z0 == false goto label2;
+
+        $r2 = staticinvoke <Cbact03c: Cbact03c$Result finish(Cbact03c$State)>($r1);
+
+        return $r2;
+
+     label2:
+        $r3 = $r1.<Cbact03c$State: java.lang.String endOfFile>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: 'boolean' equals(java.lang.Object)>("Y");
+
+        if $z0 != 0 goto label4;
+
+        $r3 = $r1.<Cbact03c$State: java.lang.String endOfFile>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: 'boolean' equals(java.lang.Object)>("N");
+
+        if $z0 == false goto label2;
+
+        staticinvoke <Cbact03c: 'void' getNext(Cbact03c$State)>($r1);
+
+        $z0 = $r1.<Cbact03c$State: 'boolean' abended>;
+
+        if $z0 == false goto label3;
+
+        $r2 = staticinvoke <Cbact03c: Cbact03c$Result finish(Cbact03c$State)>($r1);
+
+        return $r2;
+
+     label3:
+        $r3 = $r1.<Cbact03c$State: java.lang.String endOfFile>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: 'boolean' equals(java.lang.Object)>("N");
+
+        if $z0 == false goto label2;
+
+        $r2 = $r1.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r6 = $r2.<Cbact03c$Result: java.util.List displays>;
+
+        $r3 = staticinvoke <Cbact03c: java.lang.String recordText(Cbact03c$State)>($r1);
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>($r3);
+
+        goto label2;
+
+     label4:
+        staticinvoke <Cbact03c: 'void' xreffileClose(Cbact03c$State)>($r1);
+
+        $z0 = $r1.<Cbact03c$State: 'boolean' abended>;
+
+        if $z0 == false goto label5;
+
+        $r2 = staticinvoke <Cbact03c: Cbact03c$Result finish(Cbact03c$State)>($r1);
+
+        return $r2;
+
+     label5:
+        $r2 = $r1.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r6 = $r2.<Cbact03c$Result: java.util.List displays>;
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>("END OF EXECUTION OF PROGRAM CBACT03C");
+
+        $r2 = staticinvoke <Cbact03c: Cbact03c$Result finish(Cbact03c$State)>($r1);
+
+        return $r2;
+    }
+
+    private static Cbact03c$Result finish(Cbact03c$State)
+    {
+        Cbact03c$Result $r1;
+        Cbact03c$State r0;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbact03c$State;
+
+        $r1 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $z0 = r0.<Cbact03c$State: 'boolean' abended>;
+
+        $r1.<Cbact03c$Result: 'boolean' abended> = $z0;
+
+        $r1 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        return $r1;
+    }
+
+    private static 'void' getNext(Cbact03c$State)
+    {
+        Cbact03c$Result $r8;
+        Cbact03c$CardXrefRecord r3;
+        'long' $l5;
+        java.util.List $r9;
+        Cbact03c$CardXrefRecord[] $r1;
+        'byte' $b8;
+        Cbact03c$State r0;
+        'int' $i0, $i1;
+        java.lang.String $r4;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbact03c$State;
+
+        $z0 = r0.<Cbact03c$State: 'boolean' atEof>;
+
+        if $z0 == false goto label1;
+
+        r0.<Cbact03c$State: java.lang.String xreffileStatus> = "46";
+
+        goto label3;
+
+     label1:
+        $i0 = r0.<Cbact03c$State: 'int' pos>;
+
+        $r1 = r0.<Cbact03c$State: Cbact03c$CardXrefRecord[] file>;
+
+        $i1 = lengthof $r1;
+
+        if $i0 < $i1 goto label2;
+
+        r0.<Cbact03c$State: 'boolean' atEof> = 1;
+
+        r0.<Cbact03c$State: java.lang.String xreffileStatus> = "10";
+
+        goto label3;
+
+     label2:
+        $r1 = r0.<Cbact03c$State: Cbact03c$CardXrefRecord[] file>;
+
+        $i0 = r0.<Cbact03c$State: 'int' pos>;
+
+        r3 = $r1[$i0];
+
+        $i0 = r0.<Cbact03c$State: 'int' pos>;
+
+        $i0 = $i0 + 1;
+
+        r0.<Cbact03c$State: 'int' pos> = $i0;
+
+        $r4 = r3.<Cbact03c$CardXrefRecord: java.lang.String xrefCardNum>;
+
+        $r4 = staticinvoke <Cbact03c: java.lang.String fixLen(java.lang.String,'int')>($r4, 16);
+
+        r0.<Cbact03c$State: java.lang.String recCardNum> = $r4;
+
+        $l5 = r3.<Cbact03c$CardXrefRecord: 'long' xrefCustId>;
+
+        r0.<Cbact03c$State: 'long' recCustId> = $l5;
+
+        $l5 = r3.<Cbact03c$CardXrefRecord: 'long' xrefAcctId>;
+
+        r0.<Cbact03c$State: 'long' recAcctId> = $l5;
+
+        $r4 = r3.<Cbact03c$CardXrefRecord: java.lang.String filler1>;
+
+        $r4 = staticinvoke <Cbact03c: java.lang.String fixLen(java.lang.String,'int')>($r4, 14);
+
+        r0.<Cbact03c$State: java.lang.String recFiller> = $r4;
+
+        r0.<Cbact03c$State: java.lang.String xreffileStatus> = "00";
+
+     label3:
+        $r4 = r0.<Cbact03c$State: java.lang.String xreffileStatus>;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: 'boolean' equals(java.lang.Object)>("00");
+
+        if $z0 == false goto label4;
+
+        r0.<Cbact03c$State: 'long' applResult> = 0L;
+
+        $r8 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r9 = $r8.<Cbact03c$Result: java.util.List displays>;
+
+        $r4 = staticinvoke <Cbact03c: java.lang.String recordText(Cbact03c$State)>(r0);
+
+        interfaceinvoke $r9.<java.util.List: 'boolean' add(java.lang.Object)>($r4);
+
+        goto label6;
+
+     label4:
+        $r4 = r0.<Cbact03c$State: java.lang.String xreffileStatus>;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: 'boolean' equals(java.lang.Object)>("10");
+
+        if $z0 == false goto label5;
+
+        r0.<Cbact03c$State: 'long' applResult> = 16L;
+
+        goto label6;
+
+     label5:
+        r0.<Cbact03c$State: 'long' applResult> = 12L;
+
+     label6:
+        $l5 = r0.<Cbact03c$State: 'long' applResult>;
+
+        $b8 = $l5 cmp 0L;
+
+        if $b8 == 0 goto label8;
+
+        $l5 = r0.<Cbact03c$State: 'long' applResult>;
+
+        $b8 = $l5 cmp 16L;
+
+        if $b8 != 0 goto label7;
+
+        r0.<Cbact03c$State: java.lang.String endOfFile> = "Y";
+
+        goto label8;
+
+     label7:
+        $r8 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r9 = $r8.<Cbact03c$Result: java.util.List displays>;
+
+        interfaceinvoke $r9.<java.util.List: 'boolean' add(java.lang.Object)>("ERROR READING XREFFILE");
+
+        $r4 = r0.<Cbact03c$State: java.lang.String xreffileStatus>;
+
+        staticinvoke <Cbact03c: 'void' displayIoStatus(Cbact03c$State,java.lang.String)>(r0, $r4);
+
+        staticinvoke <Cbact03c: 'void' abendProgram(Cbact03c$State)>(r0);
+
+     label8:
+        return;
+    }
+
+    private static 'void' xreffileOpen(Cbact03c$State)
+    {
+        java.util.List $r3;
+        'byte' $b1;
+        Cbact03c$State r0;
+        Cbact03c$Result $r2;
+        'long' $l0;
+        java.lang.String $r1;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbact03c$State;
+
+        r0.<Cbact03c$State: 'long' applResult> = 8L;
+
+        r0.<Cbact03c$State: java.lang.String xreffileStatus> = "00";
+
+        $r1 = r0.<Cbact03c$State: java.lang.String xreffileStatus>;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: 'boolean' equals(java.lang.Object)>("00");
+
+        if $z0 == false goto label1;
+
+        r0.<Cbact03c$State: 'long' applResult> = 0L;
+
+        goto label2;
+
+     label1:
+        r0.<Cbact03c$State: 'long' applResult> = 12L;
+
+     label2:
+        $l0 = r0.<Cbact03c$State: 'long' applResult>;
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 == false goto label3;
+
+        $r2 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r3 = $r2.<Cbact03c$Result: java.util.List displays>;
+
+        interfaceinvoke $r3.<java.util.List: 'boolean' add(java.lang.Object)>("ERROR OPENING XREFFILE");
+
+        $r1 = r0.<Cbact03c$State: java.lang.String xreffileStatus>;
+
+        staticinvoke <Cbact03c: 'void' displayIoStatus(Cbact03c$State,java.lang.String)>(r0, $r1);
+
+        staticinvoke <Cbact03c: 'void' abendProgram(Cbact03c$State)>(r0);
+
+     label3:
+        return;
+    }
+
+    private static 'void' xreffileClose(Cbact03c$State)
+    {
+        Cbact03c$Result $r2;
+        'long' $l0, $l1;
+        java.util.List $r3;
+        'byte' $b4;
+        Cbact03c$State r0;
+        java.lang.String $r1;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbact03c$State;
+
+        r0.<Cbact03c$State: 'long' applResult> = 8L;
+
+        r0.<Cbact03c$State: java.lang.String xreffileStatus> = "00";
+
+        $r1 = r0.<Cbact03c$State: java.lang.String xreffileStatus>;
+
+        $z0 = virtualinvoke $r1.<java.lang.String: 'boolean' equals(java.lang.Object)>("00");
+
+        if $z0 == false goto label1;
+
+        $l0 = r0.<Cbact03c$State: 'long' applResult>;
+
+        $l1 = r0.<Cbact03c$State: 'long' applResult>;
+
+        $l0 = $l0 - $l1;
+
+        r0.<Cbact03c$State: 'long' applResult> = $l0;
+
+        goto label2;
+
+     label1:
+        r0.<Cbact03c$State: 'long' applResult> = 12L;
+
+     label2:
+        $l0 = r0.<Cbact03c$State: 'long' applResult>;
+
+        $b4 = $l0 cmp 0L;
+
+        if $b4 == false goto label3;
+
+        $r2 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r3 = $r2.<Cbact03c$Result: java.util.List displays>;
+
+        interfaceinvoke $r3.<java.util.List: 'boolean' add(java.lang.Object)>("ERROR CLOSING XREFFILE");
+
+        $r1 = r0.<Cbact03c$State: java.lang.String xreffileStatus>;
+
+        staticinvoke <Cbact03c: 'void' displayIoStatus(Cbact03c$State,java.lang.String)>(r0, $r1);
+
+        staticinvoke <Cbact03c: 'void' abendProgram(Cbact03c$State)>(r0);
+
+     label3:
+        return;
+    }
+
+    private static 'void' abendProgram(Cbact03c$State)
+    {
+        Cbact03c$Result $r1;
+        java.util.List $r2;
+        Cbact03c$State r0;
+
+        r0 := @parameter0: Cbact03c$State;
+
+        $r1 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r2 = $r1.<Cbact03c$Result: java.util.List displays>;
+
+        interfaceinvoke $r2.<java.util.List: 'boolean' add(java.lang.Object)>("ABENDING PROGRAM");
+
+        r0.<Cbact03c$State: 'boolean' abended> = 1;
+
+        return;
+    }
+
+    private static 'void' displayIoStatus(Cbact03c$State, java.lang.String)
+    {
+        Cbact03c$Result $r5;
+        'char' c0, c1;
+        'long' $l2;
+        java.util.List $r6;
+        Cbact03c$State r0;
+        'int' $i5;
+        java.lang.String r1, $r3;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbact03c$State;
+
+        r1 := @parameter1: java.lang.String;
+
+        c0 = virtualinvoke r1.<java.lang.String: 'char' charAt('int')>(0);
+
+        c1 = virtualinvoke r1.<java.lang.String: 'char' charAt('int')>(1);
+
+        $z0 = staticinvoke <Cbact03c: 'boolean' isDigit('char')>(c0);
+
+        if $z0 == false goto label1;
+
+        $z0 = staticinvoke <Cbact03c: 'boolean' isDigit('char')>(c1);
+
+        if $z0 == false goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        if $z0 == false goto label3;
+
+        $i5 = ('int') c0;
+
+        if $i5 != 57 goto label4;
+
+     label3:
+        $l2 = ('long') c1;
+
+        $l2 = $l2 & 255L;
+
+        $l2 = $l2 % 1000L;
+
+        r1 = staticinvoke <java.lang.String: java.lang.String valueOf('char')>(c0);
+
+        $r3 = staticinvoke <Cbact03c: java.lang.String zeroPad('long','int')>($l2, 3);
+
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String,java.lang.String)>(r1, $r3) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("\u0001\u0001");
+
+        $r5 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r6 = $r5.<Cbact03c$Result: java.util.List displays>;
+
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String)>(r1) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("FILE STATUS IS: NNNN\u0001");
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>(r1);
+
+        goto label5;
+
+     label4:
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String)>(r1) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("00\u0001");
+
+        $r5 = r0.<Cbact03c$State: Cbact03c$Result result>;
+
+        $r6 = $r5.<Cbact03c$Result: java.util.List displays>;
+
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String)>(r1) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("FILE STATUS IS: NNNN\u0001");
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>(r1);
+
+     label5:
+        return;
+    }
+
+    private static 'boolean' isDigit('char')
+    {
+        'int' $i1;
+        'char' c0;
+        'boolean' $z0;
+
+        c0 := @parameter0: 'char';
+
+        $i1 = ('int') c0;
+
+        if $i1 < 48 goto label1;
+
+        $i1 = ('int') c0;
+
+        if $i1 > 57 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    private static java.lang.String recordText(Cbact03c$State)
+    {
+        Cbact03c$State r0;
+        java.lang.StringBuilder $r1;
+        'long' $l0;
+        java.lang.String $r2;
+
+        r0 := @parameter0: Cbact03c$State;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = r0.<Cbact03c$State: java.lang.String recCardNum>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $l0 = r0.<Cbact03c$State: 'long' recCustId>;
+
+        $r2 = staticinvoke <Cbact03c: java.lang.String zeroPad('long','int')>($l0, 9);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $l0 = r0.<Cbact03c$State: 'long' recAcctId>;
+
+        $r2 = staticinvoke <Cbact03c: java.lang.String zeroPad('long','int')>($l0, 11);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbact03c$State: java.lang.String recFiller>;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    private static java.lang.String zeroPad('long', 'int')
+    {
+        'long' l0, l8;
+        'char' $c6;
+        'byte' $b2;
+        'int' i1, $i4;
+        'char'[] $r0;
+        java.lang.String $r1;
+
+        l0 := @parameter0: 'long';
+
+        i1 := @parameter1: 'int';
+
+        $b2 = l0 cmp 0L;
+
+        $i4 = ('int') $b2;
+
+        if $i4 >= 0 goto label1;
+
+        l0 = neg l0;
+
+     label1:
+        l8 = l0;
+
+        $r0 = newarray ('char')[i1];
+
+        i1 = i1 - 1;
+
+     label2:
+        if i1 < 0 goto label3;
+
+        l0 = l8 % 10L;
+
+        $i4 = ('int') l0;
+
+        $i4 = 48 + $i4;
+
+        $c6 = ('char') $i4;
+
+        $r0[i1] = $c6;
+
+        l8 = l8 / 10L;
+
+        $i4 = ('int') -1;
+
+        i1 = i1 + $i4;
+
+        goto label2;
+
+     label3:
+        $r1 = new java.lang.String;
+
+        specialinvoke $r1.<java.lang.String: 'void' <init>('char'[])>($r0);
+
+        return $r1;
+    }
+
+    private static java.lang.String spaces('int')
+    {
+        'int' i0, i1;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r1;
+
+        i0 := @parameter0: 'int';
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        i1 = 0;
+
+     label1:
+        if i1 >= i0 goto label2;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(32);
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        $r1 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+    }
+
+    private static java.lang.String fixLen(java.lang.String, 'int')
+    {
+        'int' i0, $i1;
+        java.lang.StringBuilder $r2;
+        java.lang.String r0;
+
+        r0 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: 'int';
+
+        if r0 != null goto label1;
+
+        r0 = "";
+
+     label1:
+        $i1 = virtualinvoke r0.<java.lang.String: 'int' length()>();
+
+        if $i1 < i0 goto label2;
+
+        r0 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(0, i0);
+
+        return r0;
+
+     label2:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>(java.lang.String)>(r0);
+
+     label3:
+        $i1 = virtualinvoke $r2.<java.lang.StringBuilder: 'int' length()>();
+
+        if $i1 >= i0 goto label4;
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(32);
+
+        goto label3;
+
+     label4:
+        r0 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return r0;
+    }
+}

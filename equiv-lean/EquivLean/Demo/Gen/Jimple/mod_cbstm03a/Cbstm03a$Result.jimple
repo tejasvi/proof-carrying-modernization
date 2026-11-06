@@ -1,0 +1,37 @@
+public final class Cbstm03a$Result extends java.lang.Object
+{
+    public java.util.List displays;
+    public java.util.List stmtFileWrites;
+    public java.util.List htmlFileWrites;
+    public 'boolean' abended;
+
+    public 'void' <init>()
+    {
+        Cbstm03a$Result this;
+        java.util.ArrayList $r0;
+
+        this := @this: Cbstm03a$Result;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: 'void' <init>()>();
+
+        this.<Cbstm03a$Result: java.util.List displays> = $r0;
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: 'void' <init>()>();
+
+        this.<Cbstm03a$Result: java.util.List stmtFileWrites> = $r0;
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: 'void' <init>()>();
+
+        this.<Cbstm03a$Result: java.util.List htmlFileWrites> = $r0;
+
+        return;
+    }
+}

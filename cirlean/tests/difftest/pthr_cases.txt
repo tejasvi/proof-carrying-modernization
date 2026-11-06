@@ -1,0 +1,10 @@
+# pthr.c: POSIX threads library models. Each case is labelled on the line above it (before the
+# change: UB "call to an external function without a model").
+# expect MATCH: two calls give equal ids
+pthr t_self_equal 0
+pthr t_self_equal 4
+# expect MATCH: the id is not 0
+pthr t_self_nonzero 0
+# expect MATCH: an id differs from another value (glibc compares the values)
+pthr t_equal_other 0
+pthr t_equal_other 7

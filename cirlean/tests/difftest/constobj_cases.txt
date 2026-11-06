@@ -1,0 +1,93 @@
+# Const-qualified local objects (constobj.cpp, and constobjc.c for C): a const local of scalar, pointer or array
+# type, in C also a structure of such members, is read-only once initialized (C11 6.7.3p6, C++
+# [dcl.type.cv]p4). Each case is labelled with its expected outcome on the line above it: MATCH, or UB from
+# cirrun (the native runs print GCC's result).
+# expect UB: a const int modified through a cast pointer
+constobj c_mod_scalar 1
+# expect MATCH: a const int initialized from an argument, read through a pointer to const
+constobj c_read_scalar 3
+# expect UB: an element of a const array modified through a cast pointer
+constobj c_mod_array 1
+# expect MATCH: a const array with zero-filled elements (clang's fill loop is its initialization)
+constobj c_read_array_partial 1
+# expect MATCH: a const local in a loop body, a new object initialized in each iteration
+constobj c_loop 4
+# expect MATCH: a write through a cast of a pointer to const to a non-const object
+constobj c_ptr_to_const 1
+# expect UB: the const pointer object itself (int *const p) modified through a cast
+constobj c_const_ptr 1
+# expect MATCH (gap): a const parameter keeps a plain stack slot
+constobj c_gap_param 1
+# expect MATCH (gap): CIR drops the const of a structure member
+constobj c_gap_member 1
+# expect MATCH (gap): C++ class objects are not made read-only (constructors and destructors write them)
+constobj c_gap_class 1
+# expect UB: memcpy into an initialized const array
+constobj c_memcpy_into 1
+# expect UB: a const double modified through a cast pointer
+constobj c_double 1
+# expect MATCH (gap): a const local read after its block ended (a const local outlives its region; natively the stale slot)
+constobj c_scope 4
+# expect UB: a static const local (a read-only global) modified
+constobj c_static_const 6
+# expect MATCH: a constexpr local read through a pointer
+constobj c_constexpr 2
+# expect MATCH: a temporary bound to a const reference, read
+constobj c_const_ref_temp 6
+# expect MATCH: range-for loop variables (const int, const int &), initialized again in each iteration
+constobj c_range_for 1
+# expect MATCH: a partly initialized two-dimensional const array (clang zero-fills the other rows with memset)
+constobj c_init_rows 1
+# expect UB: a zero-filled element of a const array modified, with the value it has
+constobj c_mod_filled_row 1
+# expect UB: a const int modified with the value it has ("modify" includes it, C11 3.1)
+constobj c_same_value 1
+# expect MATCH: a backward goto initializes the const local again
+constobj c_goto_back 1
+# expect MATCH: the bytes of a const int read through unsigned char
+constobj c_byte_read 1
+# expect UB: a char store into a byte of a const int
+constobj c_byte_mod 1
+# expect UB: a char store of the byte it holds into a const int
+constobj c_byte_same 1
+# expect UB: a char store into a byte of a static const int (a read-only global)
+constobj c_byte_static 1
+# expect UB: an int store through a pointer to a const array, which reaches its element 0
+constobj c_store_at_array 1
+# C (constobjc.c). rog's audit items M15 (soundaudit_n3 n3mb.c, n3p7.c), as written there:
+# expect UB: a const int local written through a cast pointer (M15)
+constobjc mb_const_local_store 0
+# expect UB: a const int local written by memcpy, which the read-only check refuses (M15)
+constobjc mb_const_local_memcpy 0
+# expect MATCH (gap): a const member of a non-const structure written (M15; CIR drops the member's const)
+constobjc q_const_member_store 0
+# expect UB: M15's store with the read through the pointer
+constobjc c_store_read_ptr 0
+# expect MATCH: a const structure (int, double, int array) initialized from calls, read through a pointer
+constobjc c_struct_read 1
+# expect UB: an element of an array member of a const structure written
+constobjc c_struct_mod 1
+# expect UB: a char store into a byte of a double member of a const structure
+constobjc c_struct_byte 1
+# expect UB: an int store through a pointer to a const structure (reaches its first member)
+constobjc c_struct_start 1
+# expect MATCH: a const structure initialized by copying another
+constobjc c_struct_copy 1
+# expect MATCH: a partly initialized two-dimensional const array (clang zero-fills the other rows with memset)
+constobjc c_rows 1
+# expect UB: memset over an initialized const array
+constobjc c_memset_into 1
+# expect UB: memcpy into a const array with length 0 (C11 7.24.1p2, 7.1.4: a pointer to non-modifiable storage)
+constobjc c_memcpy_len0 1
+# expect UB: a char store into a const int without initializer (no byte is written into an indeterminate value)
+constobjc c_byte_noinit 1
+# expect MATCH (gap): a store into a const int without initializer is taken for its initialization
+constobjc c_gap_noinit 1
+# expect MATCH (gap): CIR drops the const of a compound literal
+constobjc c_gap_compound_literal 1
+# expect MATCH (gap): a const union is not made read-only
+constobjc c_gap_union 1
+# expect MATCH: a backward goto initializes the const local again
+constobjc c_goto_back 1
+# expect MATCH: a longjmp back initializes the const local again
+constobjc c_longjmp_back 1

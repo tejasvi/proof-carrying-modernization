@@ -1,0 +1,49 @@
+public final class org.apache.thrift.protocol.TProtocol$getValue__2 extends java.lang.Object implements org.apache.thrift.protocol.TProtocol$ReadCollectionCallback
+{
+    org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback cap0;
+
+    public static org.apache.thrift.protocol.TProtocol$ReadCollectionCallback bootstrap$(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback)
+    {
+        org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback $r0;
+        org.apache.thrift.protocol.TProtocol$getValue__2 $r1;
+
+        $r0 := @parameter0: org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback;
+
+        $r1 = new org.apache.thrift.protocol.TProtocol$getValue__2;
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TProtocol$getValue__2: 'void' <init>(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback)>($r0);
+
+        return $r1;
+    }
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback)
+    {
+        org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback $r1;
+        org.apache.thrift.protocol.TProtocol$getValue__2 $r0;
+
+        $r0 := @this: org.apache.thrift.protocol.TProtocol$getValue__2;
+
+        $r1 := @parameter0: org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback;
+
+        specialinvoke $r0.<java.lang.Object: 'void' <init>()>();
+
+        $r0.<org.apache.thrift.protocol.TProtocol$getValue__2: org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback cap0> = $r1;
+
+        return;
+    }
+
+    public java.lang.Object call()
+    {
+        org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback $r1;
+        java.lang.Object $r2;
+        org.apache.thrift.protocol.TProtocol$getValue__2 $r0;
+
+        $r0 := @this: org.apache.thrift.protocol.TProtocol$getValue__2;
+
+        $r1 = $r0.<org.apache.thrift.protocol.TProtocol$getValue__2: org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback cap0>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback: java.lang.Object getValue()>();
+
+        return $r2;
+    }
+}

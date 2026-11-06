@@ -1,0 +1,52 @@
+class org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1 extends java.lang.Object implements java.lang.Runnable
+{
+    final org.apache.thrift.server.TThreadedSelectorServer$SelectorThread val$targetThread;
+    final org.apache.thrift.transport.TNonblockingTransport val$client;
+    final org.apache.thrift.server.TThreadedSelectorServer$AcceptThread this$1;
+
+    'void' <init>(org.apache.thrift.server.TThreadedSelectorServer$AcceptThread, org.apache.thrift.server.TThreadedSelectorServer$SelectorThread, org.apache.thrift.transport.TNonblockingTransport)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1 this;
+        org.apache.thrift.transport.TNonblockingTransport r1;
+        org.apache.thrift.server.TThreadedSelectorServer$AcceptThread this$1;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThread r0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1;
+
+        this$1 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread;
+
+        r0 := @parameter1: org.apache.thrift.server.TThreadedSelectorServer$SelectorThread;
+
+        r1 := @parameter2: org.apache.thrift.transport.TNonblockingTransport;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread this$1> = this$1;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1: org.apache.thrift.server.TThreadedSelectorServer$SelectorThread val$targetThread> = r0;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1: org.apache.thrift.transport.TNonblockingTransport val$client> = r1;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1 this;
+        org.apache.thrift.transport.TNonblockingTransport $r2;
+        org.apache.thrift.server.TThreadedSelectorServer$AcceptThread $r0;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThread $r1;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread this$1>;
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1: org.apache.thrift.server.TThreadedSelectorServer$SelectorThread val$targetThread>;
+
+        $r2 = this.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread$1: org.apache.thrift.transport.TNonblockingTransport val$client>;
+
+        staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$AcceptThread: 'void' access$900(org.apache.thrift.server.TThreadedSelectorServer$AcceptThread,org.apache.thrift.server.TThreadedSelectorServer$SelectorThread,org.apache.thrift.transport.TNonblockingTransport)>($r0, $r1, $r2);
+
+        return;
+    }
+}

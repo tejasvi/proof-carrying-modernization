@@ -1,0 +1,107 @@
+public final enum class org.apache.thrift.transport.TFileTransport$TailPolicy extends java.lang.Enum
+{
+    public static final enum org.apache.thrift.transport.TFileTransport$TailPolicy NOWAIT;
+    public static final enum org.apache.thrift.transport.TFileTransport$TailPolicy WAIT_FOREVER;
+    public final 'int' timeout_;
+    public final 'int' retries_;
+    private static final org.apache.thrift.transport.TFileTransport$TailPolicy[] $VALUES;
+
+    public static org.apache.thrift.transport.TFileTransport$TailPolicy[] values()
+    {
+        java.lang.Object $r1;
+        org.apache.thrift.transport.TFileTransport$TailPolicy[] $r0;
+
+        $r0 = <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy[] $VALUES>;
+
+        $r1 = virtualinvoke $r0.<java.lang.Object: java.lang.Object clone()>();
+
+        $r0 = (org.apache.thrift.transport.TFileTransport$TailPolicy[]) $r1;
+
+        return $r0;
+    }
+
+    public static org.apache.thrift.transport.TFileTransport$TailPolicy valueOf(java.lang.String)
+    {
+        java.lang.String name;
+        java.lang.Enum $r0;
+        org.apache.thrift.transport.TFileTransport$TailPolicy $r1;
+
+        name := @parameter0: java.lang.String;
+
+        $r0 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "Lorg/apache/thrift/transport/TFileTransport$TailPolicy;", name);
+
+        $r1 = (org.apache.thrift.transport.TFileTransport$TailPolicy) $r0;
+
+        return $r1;
+    }
+
+    private 'void' <init>(java.lang.String, 'int', 'int', 'int')
+    {
+        'int' i0, timeout, retries;
+        java.lang.String r0;
+        org.apache.thrift.transport.TFileTransport$TailPolicy this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$TailPolicy;
+
+        r0 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: 'int';
+
+        timeout := @parameter2: 'int';
+
+        retries := @parameter3: 'int';
+
+        specialinvoke this.<java.lang.Enum: 'void' <init>(java.lang.String,'int')>(r0, i0);
+
+        this.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'int' timeout_> = timeout;
+
+        this.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'int' retries_> = retries;
+
+        return;
+    }
+
+    private static org.apache.thrift.transport.TFileTransport$TailPolicy[] $values()
+    {
+        org.apache.thrift.transport.TFileTransport$TailPolicy $r1;
+        org.apache.thrift.transport.TFileTransport$TailPolicy[] $r0;
+
+        $r0 = newarray (org.apache.thrift.transport.TFileTransport$TailPolicy)[2];
+
+        $r1 = <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy NOWAIT>;
+
+        $r0[0] = $r1;
+
+        $r1 = <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy WAIT_FOREVER>;
+
+        $r0[1] = $r1;
+
+        return $r0;
+    }
+
+    static 'void' <clinit>()
+    {
+        'int' $i1;
+        org.apache.thrift.transport.TFileTransport$TailPolicy $r0;
+        org.apache.thrift.transport.TFileTransport$TailPolicy[] $r2;
+
+        $r0 = new org.apache.thrift.transport.TFileTransport$TailPolicy;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'void' <init>(java.lang.String,'int','int','int')>("NOWAIT", 0, 0, 0);
+
+        <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy NOWAIT> = $r0;
+
+        $r0 = new org.apache.thrift.transport.TFileTransport$TailPolicy;
+
+        $i1 = ('int') -1;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TFileTransport$TailPolicy: 'void' <init>(java.lang.String,'int','int','int')>("WAIT_FOREVER", 1, 500, $i1);
+
+        <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy WAIT_FOREVER> = $r0;
+
+        $r2 = staticinvoke <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy[] $values()>();
+
+        <org.apache.thrift.transport.TFileTransport$TailPolicy: org.apache.thrift.transport.TFileTransport$TailPolicy[] $VALUES> = $r2;
+
+        return;
+    }
+}

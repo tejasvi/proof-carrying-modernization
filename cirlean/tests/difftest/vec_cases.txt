@@ -1,0 +1,145 @@
+# Vectors (vec.cpp): !cir.vector<N x T> as T[N]; #cir.const_vector; cir.vec.create / splat / extract / insert /
+# cmp / shuffle / ternary; the integer, floating, unary, shift, cir.fmuladd and cast operations of vector types,
+# element by element (integer elements wrap); bitcasts between vector types, and between a vector and a scalar of
+# its size, by the value's bytes. Each case is labelled with its expected outcome on the line above it: MATCH, or
+# UB from cirrun for an index outside a vector, an integer division by a zero element and a read one past a
+# vector's last element through a pointer to its element type (undefined), and for one gap: a float element
+# whose bits are a NaN's, made by a bitcast and read (Float has a single NaN).
+# expect MATCH: element-wise integer operations, scalar operands (splats), comparisons (0 / -1), ?: of vectors, compound assignment
+vec t_int 0 
+vec t_int 1 
+vec t_int 2 
+vec t_int 3 
+vec t_int 4 
+vec t_int 5 
+vec t_int 6 
+vec t_int 7 
+vec t_int 8 
+vec t_int 9 
+vec t_int 10 
+vec t_int 11 
+vec t_int 12 
+vec t_int 13 
+vec t_int 14 
+vec t_int 15 
+vec t_int 16 
+vec t_int 17 
+vec t_int 18 
+vec t_int 19 
+vec t_int 20 
+# expect MATCH: unsigned elements: wrapping, logical shifts, unsigned division and comparison
+vec t_uint 0 
+vec t_uint 1 
+vec t_uint 2 
+vec t_uint 3 
+vec t_uint 4 
+vec t_uint 5 
+vec t_uint 6 
+vec t_uint 7 
+# expect MATCH: 16-bit, 8-bit and 64-bit elements
+vec t_widths 0 
+vec t_widths 1 
+vec t_widths 2 
+vec t_widths 3 
+vec t_widths 4 
+vec t_widths 5 
+# expect MATCH: element reads and writes at variable indices
+vec t_elem 0 0
+vec t_elem 0 1
+vec t_elem 0 2
+vec t_elem 0 3
+vec t_elem 1 0
+vec t_elem 1 1
+vec t_elem 1 2
+vec t_elem 1 3
+vec t_elem 2 0
+vec t_elem 2 1
+vec t_elem 2 2
+vec t_elem 2 3
+vec t_elem 3 0
+# expect MATCH: constants (#cir.const_vector, #cir.zero), splats, compound literals; size and alignment
+vec t_const 0 0
+vec t_const 1 0
+vec t_const 2 0
+vec t_const 3 0
+vec t_const 4 5
+vec t_const 4 -3
+vec t_const 5 5
+vec t_const 5 -3
+vec t_const 6 5
+vec t_const 6 -3
+vec t_const 7 0
+vec t_const 8 0
+# expect MATCH: __builtin_shufflevector, from one or two vectors, to other lengths, with undefined (unread) elements
+vec t_shuffle 0 
+vec t_shuffle 1 
+vec t_shuffle 2 
+vec t_shuffle 3 
+vec t_shuffle 4 
+vec t_shuffle 5 
+# expect MATCH: __builtin_convertvector: int to float (rounded), float to int (truncated), widening, int to unsigned
+vec t_convert 0 
+vec t_convert 1 
+vec t_convert 2 
+vec t_convert 3 
+vec t_convert 4 
+# expect MATCH: bitcasts between vector types (the elements' bytes, little-endian; float bit patterns)
+vec t_bitcast 0 
+vec t_bitcast 1 
+vec t_bitcast 2 
+vec t_bitcast 3 
+vec t_bitcast 4 
+vec t_bitcast 5 
+vec t_bitcast 6 
+vec t_bitcast 7 
+# expect MATCH: float and double vectors: arithmetic (a * b + a, which Clang emits as cir.fmuladd, evaluated unfused as g++ -O0 computes it), negation, comparisons with a NaN element
+vec t_float 0 
+vec t_float 1 
+vec t_float 2 
+vec t_float 3 
+vec t_float 4 
+vec t_float 5 
+vec t_float 6 
+vec t_float 7 
+vec t_float 8 
+vec t_float 9 
+vec t_float 10 
+vec t_float 11 
+# expect MATCH: vectors in memory: arrays of vectors, struct members, pointers, memcpy to and from int[4], a union with an int[4]; layout
+vec t_mem 0 
+vec t_mem 1 
+vec t_mem 2 
+vec t_mem 3 
+vec t_mem 4 
+vec t_mem 5 
+# expect MATCH: the elements through a pointer to int ((int *)&v designates element 0; its strides count the vector's elements): reads, writes, one past
+vec t_int_ptr 0 0
+vec t_int_ptr 0 2
+vec t_int_ptr 0 3
+vec t_int_ptr 1 0
+vec t_int_ptr 1 2
+vec t_int_ptr 1 3
+vec t_int_ptr 2 0
+# expect MATCH: bitcasts between a vector and a scalar of its size, both ways (long long, __int128, double, float elements, unsigned): the value's bytes, little-endian
+vec t_scalar_cast 0 
+vec t_scalar_cast 1 
+vec t_scalar_cast 2 
+vec t_scalar_cast 3 
+vec t_scalar_cast 4 
+vec t_scalar_cast 5 
+vec t_scalar_cast 6 
+vec t_scalar_cast 7 
+vec t_scalar_cast 8 
+# expect MATCH: bitcasts where some elements' bytes are a NaN's: the other elements, read, are exact
+vec t_nan_lanes 0 
+vec t_nan_lanes 1 
+vec t_nan_lanes 2 
+# expect UB: an element index outside the vector
+vec u_index 4
+vec u_index -1
+# expect UB: an integer division by a zero element
+vec u_div0
+# expect UB: a read one past the last element through a pointer to int
+vec u_int_ptr_past
+# expect UB: gap: a float element whose bits are a NaN's, made by a bitcast and read (Float has a single NaN, without sign or payload); a NaN natively
+vec g_nan_cast

@@ -1,0 +1,12 @@
+# Prereg D (frozen v2): zlib 1.3.1 (51b7f2abdade), the frozen source tree of the prereg package (archive sha256 in
+# ~/fv_paper/prereg/D/downloads.sha256), the 15 library files of Makefile.in (OBJZ + OBJG), compiled alone with the
+# prereg's flags and linked by cir2lean (--link). No project build script runs.
+name = "prereg_d_zlib"
+lang = "cir"
+root = "/home/user/fv_paper/prereg/D/src_zlib/zlib-1.3.1"
+sources = ["adler32.c", "crc32.c", "deflate.c", "infback.c", "inffast.c", "inflate.c", "inftrees.c", "trees.c", "zutil.c", "compress.c", "uncompr.c", "gzclose.c", "gzlib.c", "gzread.c", "gzwrite.c"]
+link_mode = "cir2lean"
+
+[[variants]]
+name = "lib"
+flags = ["-std=c11", "-DHAVE_UNISTD_H", "-DHAVE_STDARG_H", "-D_LARGEFILE64_SOURCE=1", "-DHAVE_HIDDEN"]

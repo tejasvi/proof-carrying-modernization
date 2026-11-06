@@ -1,0 +1,1 @@
+equivalent bigint a * 2n vs a + a

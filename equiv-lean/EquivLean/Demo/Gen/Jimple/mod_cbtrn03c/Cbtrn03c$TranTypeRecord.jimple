@@ -1,0 +1,30 @@
+public final class Cbtrn03c$TranTypeRecord extends java.lang.Object
+{
+    public java.lang.String tranType;
+    public java.lang.String tranTypeDesc;
+    public java.lang.String filler1;
+
+    public 'void' <init>(java.lang.String, java.lang.String, java.lang.String)
+    {
+        Cbtrn03c$TranTypeRecord r0;
+        java.lang.String r1, r2, r3;
+
+        r0 := @this: Cbtrn03c$TranTypeRecord;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 := @parameter2: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn03c$TranTypeRecord: java.lang.String tranType> = r1;
+
+        r0.<Cbtrn03c$TranTypeRecord: java.lang.String tranTypeDesc> = r2;
+
+        r0.<Cbtrn03c$TranTypeRecord: java.lang.String filler1> = r3;
+
+        return;
+    }
+}

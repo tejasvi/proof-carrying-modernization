@@ -1,0 +1,153 @@
+public class org.apache.thrift.transport.TFileTransport$ChunkState extends java.lang.Object
+{
+    public static final 'int' DEFAULT_CHUNK_SIZE;
+    private 'int' chunk_size_;
+    private 'long' offset_;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' chunk_size_> = 16777216;
+
+        this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_> = 0L;
+
+        return;
+    }
+
+    public 'void' <init>('int')
+    {
+        'int' chunk_size;
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        chunk_size := @parameter0: 'int';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' chunk_size_> = 16777216;
+
+        this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_> = 0L;
+
+        this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' chunk_size_> = chunk_size;
+
+        return;
+    }
+
+    public 'void' skip('int')
+    {
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+        'int' size;
+        'long' $l0, $l1;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        size := @parameter0: 'int';
+
+        $l0 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_>;
+
+        $l1 = ('long') size;
+
+        $l0 = $l0 + $l1;
+
+        this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_> = $l0;
+
+        return;
+    }
+
+    public 'void' seek('long')
+    {
+        'long' offset;
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        offset := @parameter0: 'long';
+
+        this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_> = offset;
+
+        return;
+    }
+
+    public 'int' getChunkSize()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        $i0 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' chunk_size_>;
+
+        return $i0;
+    }
+
+    public 'int' getChunkNum()
+    {
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+        'int' $i1;
+        'long' $l0, $l2;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        $l0 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_>;
+
+        $i1 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' chunk_size_>;
+
+        $l2 = ('long') $i1;
+
+        $l0 = $l0 / $l2;
+
+        $i1 = ('int') $l0;
+
+        return $i1;
+    }
+
+    public 'int' getRemaining()
+    {
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+        'int' $i0, $i2;
+        'long' $l1, $l3;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        $i0 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' chunk_size_>;
+
+        $l1 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_>;
+
+        $i2 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'int' chunk_size_>;
+
+        $l3 = ('long') $i2;
+
+        $l1 = $l1 % $l3;
+
+        $i2 = ('int') $l1;
+
+        $i0 = $i0 - $i2;
+
+        return $i0;
+    }
+
+    public 'long' getOffset()
+    {
+        'long' $l0;
+        org.apache.thrift.transport.TFileTransport$ChunkState this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$ChunkState;
+
+        $l0 = this.<org.apache.thrift.transport.TFileTransport$ChunkState: 'long' offset_>;
+
+        return $l0;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.transport.TFileTransport$ChunkState: 'int' DEFAULT_CHUNK_SIZE> = 16777216;
+
+        return;
+    }
+}

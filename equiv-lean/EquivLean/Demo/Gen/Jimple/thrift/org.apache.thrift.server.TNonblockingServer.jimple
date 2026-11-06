@@ -1,0 +1,155 @@
+public class org.apache.thrift.server.TNonblockingServer extends org.apache.thrift.server.AbstractNonblockingServer
+{
+    private org.apache.thrift.server.TNonblockingServer$SelectAcceptThread selectAcceptThread_;
+
+    public 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs)
+    {
+        org.apache.thrift.server.TNonblockingServer this;
+        org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs args;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer;
+
+        args := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs;
+
+        specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs)>(args);
+
+        return;
+    }
+
+    protected 'boolean' startThreads()
+    {
+        org.apache.thrift.transport.TServerTransport $r1;
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread $r0;
+        org.apache.thrift.server.TNonblockingServer this;
+        org.slf4j.Logger $r4;
+        org.apache.thrift.transport.TNonblockingServerTransport $r2;
+        java.io.IOException e;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer;
+
+        $r0 = new org.apache.thrift.server.TNonblockingServer$SelectAcceptThread;
+
+        $r1 = this.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.transport.TServerTransport serverTransport_>;
+
+        $r2 = (org.apache.thrift.transport.TNonblockingServerTransport) $r1;
+
+     label1:
+        specialinvoke $r0.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' <init>(org.apache.thrift.server.TNonblockingServer,org.apache.thrift.transport.TNonblockingServerTransport)>(this, $r2);
+
+        this.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread selectAcceptThread_> = $r0;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread selectAcceptThread_>;
+
+        virtualinvoke $r0.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' start()>();
+
+     label2:
+        return 1;
+
+     label3:
+        e := @caughtexception;
+
+        $r4 = this.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Failed to start selector thread!", e);
+
+        return 0;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    protected 'void' waitForShutdown()
+    {
+        org.apache.thrift.server.TNonblockingServer this;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer;
+
+        virtualinvoke this.<org.apache.thrift.server.TNonblockingServer: 'void' joinSelector()>();
+
+        return;
+    }
+
+    protected 'void' joinSelector()
+    {
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread $r0;
+        org.apache.thrift.server.TNonblockingServer this;
+        org.slf4j.Logger $r1;
+        java.lang.InterruptedException e;
+        java.lang.Thread $r2;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread selectAcceptThread_>;
+
+     label1:
+        virtualinvoke $r0.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' join()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        e := @caughtexception;
+
+        $r1 = this.<org.apache.thrift.server.TNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r1.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Throwable)>("Interrupted while waiting for accept thread", e);
+
+        $r2 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        virtualinvoke $r2.<java.lang.Thread: 'void' interrupt()>();
+
+     label4:
+        return;
+
+        catch java.lang.InterruptedException from label1 to label2 with label3;
+    }
+
+    public 'void' stop()
+    {
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread $r0;
+        org.apache.thrift.server.TNonblockingServer this;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer;
+
+        this.<org.apache.thrift.server.TNonblockingServer: 'boolean' stopped_> = 1;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread selectAcceptThread_>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread selectAcceptThread_>;
+
+        virtualinvoke $r0.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'void' wakeupSelector()>();
+
+     label1:
+        return;
+    }
+
+    protected 'boolean' requestInvoke(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)
+    {
+        org.apache.thrift.server.TNonblockingServer this;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer;
+
+        frameBuffer := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        virtualinvoke frameBuffer.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' invoke()>();
+
+        return 1;
+    }
+
+    public 'boolean' isStopped()
+    {
+        org.apache.thrift.server.TNonblockingServer$SelectAcceptThread $r0;
+        org.apache.thrift.server.TNonblockingServer this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TNonblockingServer;
+
+        $r0 = this.<org.apache.thrift.server.TNonblockingServer: org.apache.thrift.server.TNonblockingServer$SelectAcceptThread selectAcceptThread_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.server.TNonblockingServer$SelectAcceptThread: 'boolean' isStopped()>();
+
+        return $z0;
+    }
+}

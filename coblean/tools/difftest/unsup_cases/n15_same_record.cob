@@ -1,0 +1,19 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. N08.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT F1 ASSIGN TO 'U07A.DAT'.
+           SELECT F2 ASSIGN TO 'U07B.DAT'.
+       I-O-CONTROL.
+           SAME RECORD AREA FOR F1 F2.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  F1.
+       01  R1 PIC X(10).
+       FD  F2.
+       01  R2 PIC X(10).
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

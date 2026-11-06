@@ -1,0 +1,2 @@
+pair	commit	type	fn	old declared return	new declared return	translated (note)
+2026-03-02_fa2afcd6_sample	fa2afcd6f8	fix	sample	T	T | undefined	[(.arr .num)] .num -> [(.arr .num)] (.opt .num)

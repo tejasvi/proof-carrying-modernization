@@ -1,0 +1,25 @@
+# The C++ standard library's own <string.h> calls with length 0 (stdmem.cpp): libc++ relocates, copies and compares
+# empty ranges through null pointers; those calls (from the bodies of std:: functions) skip the zero-length pointer
+# checks, which C11 7.24.1p2 imposes on the program's calls. Each case is labelled with its expected outcome on the line
+# above it: MATCH for the library's calls and for the program's call with valid pointers, UB from cirrun for the
+# program's own calls with length 0 and a null or dangling pointer.
+# expect MATCH: libc++ relocates a vector's empty buffer (null pointers) at its first growth
+stdmem l_relocate_empty 0
+# expect MATCH: a vector of vectors grows from empty
+stdmem l_vec_of_vecs 0
+# expect MATCH: std::copy of an empty range of null pointers (libc++'s memmove with length 0)
+stdmem l_copy_empty 0
+# expect MATCH: std::equal of an empty range of null pointers (libc++'s memcmp with length 0)
+stdmem l_equal_empty 0
+# expect UB: the program's memcpy from a null pointer with length 0
+stdmem u_memcpy_null 0
+# expect UB: the program's memmove to a null pointer with length 0
+stdmem u_memmove_null 0
+# expect UB: the program's memset of a null pointer with length 0
+stdmem u_memset_null 0
+# expect UB: the program's memcmp of a null pointer with length 0
+stdmem u_memcmp_null 0
+# expect UB: the program's memcpy from a freed block with length 0
+stdmem u_memcpy_dangling 0
+# expect MATCH: the program's memcpy with length 0 and valid pointers
+stdmem c_memcpy_zero 1

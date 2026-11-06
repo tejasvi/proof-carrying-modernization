@@ -1,0 +1,66 @@
+# setjmp/longjmp after rog's audit (auditsj.c): run with CASES=auditsj_cases.txt. Each case is labelled with
+# its expected outcome on the line above it: MATCH, or UB from cirrun where the program breaks the rule named
+# (natively it does something); the gap is cirlean's. rog's finding in brackets.
+# expect UB: changed, then changed back before the longjmp, read (7.13.2.1p3) [M3]
+auditsj s_changed_back 0
+# expect UB: stored with the value it had, read [M3]
+auditsj s_stored_same 0
+# expect UB: changed through a volatile lvalue, its own type not volatile, read [M4]
+auditsj s_volatile_lvalue 0
+# expect UB: changed by a callee through a pointer, read
+auditsj s_changed_by_callee 0
+# expect MATCH: unchanged, keeps its value
+auditsj s_unchanged 0
+# expect MATCH: a volatile object keeps its new value
+auditsj s_volatile_changed 0
+# expect UB: setjmp in an initializer in a function with a goto (7.13.1.1p5) [M2]
+auditsj s_init_goto 0
+# expect UB: the non-volatile member of a structure with a volatile member, changed, read [M5]
+auditsj s_member_volatile 0
+# expect MATCH: a volatile object that only callees access keeps its new value: their volatile
+# accesses are evidence, as the setjmp's function's own through other pointers [F2; before: UB, a gap]
+auditsj s_volatile_via_callee 0
+# expect UB: sprintf %d with a long after a setjmp (7.21.6.1p9) [M1]
+auditsj s_fmt_after_setjmp 0
+# expect MATCH: flowing off the end after a setjmp, the value discarded (6.9.1p12) [F1]
+auditsj s_flowoff_after_setjmp 0
+# expect UB: a parameter changed between setjmp and longjmp, read
+auditsj s_param_changed 0
+# expect UB: fprintf %d with a long after a setjmp [M1]
+auditsj s_fprintf_after_setjmp 0
+# expect MATCH: a volatile object reached through a pointer keeps its new value
+auditsj s_volatile_via_pointer 0
+# expect MATCH: a volatile object changed through a pointer formed after the setjmp keeps it [F2]
+auditsj s_volatile_pointer_after 0
+# expect MATCH: the volatile member of a structure keeps its new value
+auditsj t_member_volatile_kept 0
+# expect MATCH: one member changed, another read: that one keeps its value
+auditsj t_member_other_kept 0
+# expect UB: the changed member read
+auditsj t_member_changed 0
+# expect MATCH: a volatile array keeps the values it was changed to
+auditsj t_volatile_array 0
+# expect UB: changed in a loop after the setjmp, read
+auditsj t_changed_in_loop 0
+# expect MATCH: a change in a branch not taken: unchanged
+auditsj t_change_not_taken 0
+# expect UB: changed after an inner setjmp, read after the longjmp to the outer one
+auditsj t_nested_setjmp 0
+# expect UB: changed after the first longjmp back, read after the second
+auditsj t_changed_after_first_longjmp 0
+# expect MATCH: an object a callee only reads keeps its value, through int *, const int * and a
+# member's address (rog's AF1; before: UB, a pointer argument counted as a change)
+auditsj t_callee_reads 0
+auditsj t_callee_reads_const 0
+auditsj t_callee_reads_member 0
+# expect UB: a callee stored the value it read back into the object
+auditsj t_callee_stores_same 0
+# expect MATCH: a callee stored into one member, the other is read
+auditsj t_callee_stores_member 0
+# expect UB: a callee stored the same value through a pointer it got from a global (before: MATCH, only
+# a changed value was seen)
+auditsj t_callee_global_ptr_same 0
+# expect UB: sscanf changed the object and restored its value (rog's AF2; before: MATCH)
+auditsj t_sscanf_restore 0
+# expect UB: strtol stored into the end pointer variable
+auditsj t_strtol_end 0

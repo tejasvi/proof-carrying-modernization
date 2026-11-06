@@ -1,0 +1,86 @@
+public class org.apache.thrift.TConfiguration$Builder extends java.lang.Object
+{
+    private 'int' maxMessageSize;
+    private 'int' maxFrameSize;
+    private 'int' recursionLimit;
+
+    'void' <init>()
+    {
+        org.apache.thrift.TConfiguration$Builder this;
+
+        this := @this: org.apache.thrift.TConfiguration$Builder;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.TConfiguration$Builder: 'int' maxFrameSize> = 16384000;
+
+        this.<org.apache.thrift.TConfiguration$Builder: 'int' maxMessageSize> = 104857600;
+
+        this.<org.apache.thrift.TConfiguration$Builder: 'int' recursionLimit> = 64;
+
+        return;
+    }
+
+    public org.apache.thrift.TConfiguration$Builder setMaxMessageSize('int')
+    {
+        'int' maxMessageSize;
+        org.apache.thrift.TConfiguration$Builder this;
+
+        this := @this: org.apache.thrift.TConfiguration$Builder;
+
+        maxMessageSize := @parameter0: 'int';
+
+        this.<org.apache.thrift.TConfiguration$Builder: 'int' maxMessageSize> = maxMessageSize;
+
+        return this;
+    }
+
+    public org.apache.thrift.TConfiguration$Builder setMaxFrameSize('int')
+    {
+        'int' maxFrameSize;
+        org.apache.thrift.TConfiguration$Builder this;
+
+        this := @this: org.apache.thrift.TConfiguration$Builder;
+
+        maxFrameSize := @parameter0: 'int';
+
+        this.<org.apache.thrift.TConfiguration$Builder: 'int' maxFrameSize> = maxFrameSize;
+
+        return this;
+    }
+
+    public org.apache.thrift.TConfiguration$Builder setRecursionLimit('int')
+    {
+        'int' recursionLimit;
+        org.apache.thrift.TConfiguration$Builder this;
+
+        this := @this: org.apache.thrift.TConfiguration$Builder;
+
+        recursionLimit := @parameter0: 'int';
+
+        this.<org.apache.thrift.TConfiguration$Builder: 'int' recursionLimit> = recursionLimit;
+
+        return this;
+    }
+
+    public org.apache.thrift.TConfiguration build()
+    {
+        org.apache.thrift.TConfiguration$Builder this;
+        org.apache.thrift.TConfiguration $r0;
+        'int' $i0, $i1, $i2;
+
+        this := @this: org.apache.thrift.TConfiguration$Builder;
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        $i0 = this.<org.apache.thrift.TConfiguration$Builder: 'int' maxMessageSize>;
+
+        $i1 = this.<org.apache.thrift.TConfiguration$Builder: 'int' maxFrameSize>;
+
+        $i2 = this.<org.apache.thrift.TConfiguration$Builder: 'int' recursionLimit>;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>('int','int','int')>($i0, $i1, $i2);
+
+        return $r0;
+    }
+}

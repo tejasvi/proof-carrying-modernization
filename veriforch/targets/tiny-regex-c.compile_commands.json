@@ -1,0 +1,98 @@
+[
+ {
+  "directory": "/home/user/veriforch/targets/tiny-regex-c",
+  "file": "re.c",
+  "arguments": [
+   "gcc",
+   "-O3",
+   "-Wall",
+   "-Wextra",
+   "-std=c99",
+   "-I.",
+   "-c",
+   "re.c",
+   "-o",
+   "re.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/tiny-regex-c",
+  "file": "tests/test1.c",
+  "arguments": [
+   "gcc",
+   "-O3",
+   "-Wall",
+   "-Wextra",
+   "-std=c99",
+   "-I.",
+   "-c",
+   "tests/test1.c",
+   "-o",
+   "tests/test1.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/tiny-regex-c",
+  "file": "tests/test2.c",
+  "arguments": [
+   "gcc",
+   "-O3",
+   "-Wall",
+   "-Wextra",
+   "-std=c99",
+   "-I.",
+   "-c",
+   "tests/test2.c",
+   "-o",
+   "tests/test2.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/tiny-regex-c",
+  "file": "tests/test_compile.c",
+  "arguments": [
+   "gcc",
+   "-O3",
+   "-Wall",
+   "-Wextra",
+   "-std=c99",
+   "-I.",
+   "-c",
+   "tests/test_compile.c",
+   "-o",
+   "tests/test_compile.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/tiny-regex-c",
+  "file": "tests/test_rand.c",
+  "arguments": [
+   "gcc",
+   "-O3",
+   "-Wall",
+   "-Wextra",
+   "-std=c99",
+   "-I.",
+   "-c",
+   "tests/test_rand.c",
+   "-o",
+   "tests/test_rand.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/tiny-regex-c",
+  "file": "tests/test_rand_neg.c",
+  "arguments": [
+   "gcc",
+   "-O3",
+   "-Wall",
+   "-Wextra",
+   "-std=c99",
+   "-I.",
+   "-c",
+   "tests/test_rand_neg.c",
+   "-o",
+   "tests/test_rand_neg.o"
+  ]
+ }
+]

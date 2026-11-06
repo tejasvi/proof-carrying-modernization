@@ -1,0 +1,20 @@
+# std::string::reserve as Shootout-C++ strcat uses it and fread from standard input as Shootout-C++ wordfreq uses
+# it (gaps4.cpp). Each case is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun on
+# the u_ cases (a pointer into a string used after reserve, which invalidates it here as a reallocation would; a
+# null pointer given to fread, C11 7.1.4p1).
+# expect MATCH: reserve, then an append
+gaps4 t_reserve 0
+# expect MATCH: reserve, then an append
+gaps4 t_reserve 7
+# expect MATCH: the capacity doubled with reserve while appending (Shootout's strcat.cpp)
+gaps4 t_reserve_loop 0
+# expect MATCH: the capacity doubled with reserve while appending (Shootout's strcat.cpp)
+gaps4 t_reserve_loop 25
+# expect UB: a pointer into the string used after reserve
+gaps4 u_reserve_ptr 0
+# expect MATCH: fread from stdin, which is at its end: 0, the buffer unchanged
+gaps4 t_fread_stdin 0
+# expect MATCH: fread of size 0
+gaps4 t_fread_zero 0
+# expect UB: fread into a null pointer
+gaps4 u_fread_null 0

@@ -1,0 +1,124 @@
+public abstract class org.apache.thrift.partial.ThriftMetadata$ThriftStructBase extends org.apache.thrift.partial.ThriftMetadata$ThriftObject
+{
+
+    public 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject, org.apache.thrift.TFieldIdEnum, org.apache.thrift.meta_data.FieldMetaData)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject parent;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStructBase this;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.meta_data.FieldMetaData data;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftStructBase;
+
+        parent := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        data := @parameter2: org.apache.thrift.meta_data.FieldMetaData;
+
+        specialinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData)>(parent, fieldId, data);
+
+        return;
+    }
+
+    public java.lang.Class getStructClass()
+    {
+        java.lang.Class $r1;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStructBase this;
+        org.apache.thrift.meta_data.FieldMetaData $r0;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftStructBase;
+
+        $r0 = this.<org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: org.apache.thrift.meta_data.FieldMetaData data>;
+
+        $r1 = staticinvoke <org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: java.lang.Class getStructClass(org.apache.thrift.meta_data.FieldMetaData)>($r0);
+
+        return $r1;
+    }
+
+    public static java.lang.Class getStructClass(org.apache.thrift.meta_data.FieldMetaData)
+    {
+        org.apache.thrift.meta_data.StructMetaData $r1;
+        java.lang.Class $r2;
+        org.apache.thrift.meta_data.FieldMetaData data;
+        org.apache.thrift.meta_data.FieldValueMetaData $r0;
+
+        data := @parameter0: org.apache.thrift.meta_data.FieldMetaData;
+
+        $r0 = data.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData>;
+
+        $r1 = (org.apache.thrift.meta_data.StructMetaData) $r0;
+
+        $r2 = $r1.<org.apache.thrift.meta_data.StructMetaData: java.lang.Class structClass>;
+
+        return $r2;
+    }
+
+    public 'boolean' isUnion()
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftStructBase this;
+        org.apache.thrift.meta_data.FieldMetaData $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftStructBase;
+
+        $r0 = this.<org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: org.apache.thrift.meta_data.FieldMetaData data>;
+
+        $z0 = staticinvoke <org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: 'boolean' isUnion(org.apache.thrift.meta_data.FieldMetaData)>($r0);
+
+        return $z0;
+    }
+
+    public static 'boolean' isUnion(org.apache.thrift.meta_data.FieldMetaData)
+    {
+        java.lang.Class $r0, $r1;
+        org.apache.thrift.meta_data.FieldMetaData data;
+        'boolean' $z0;
+
+        data := @parameter0: org.apache.thrift.meta_data.FieldMetaData;
+
+        $r0 = class "Lorg/apache/thrift/TUnion;";
+
+        $r1 = staticinvoke <org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: java.lang.Class getStructClass(org.apache.thrift.meta_data.FieldMetaData)>(data);
+
+        $z0 = virtualinvoke $r0.<java.lang.Class: 'boolean' isAssignableFrom(java.lang.Class)>($r1);
+
+        return $z0;
+    }
+
+    public static org.apache.thrift.partial.ThriftMetadata$ThriftStructBase create(org.apache.thrift.partial.ThriftMetadata$ThriftObject, org.apache.thrift.TFieldIdEnum, org.apache.thrift.meta_data.FieldMetaData, java.lang.Iterable)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r1;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject parent;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.partial.ThriftMetadata$ThriftUnion $r0;
+        java.lang.Iterable fieldsData;
+        org.apache.thrift.meta_data.FieldMetaData data;
+        'boolean' $z0;
+
+        parent := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        data := @parameter2: org.apache.thrift.meta_data.FieldMetaData;
+
+        fieldsData := @parameter3: java.lang.Iterable;
+
+        $z0 = staticinvoke <org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: 'boolean' isUnion(org.apache.thrift.meta_data.FieldMetaData)>(data);
+
+        if $z0 == false goto label1;
+
+        $r0 = new org.apache.thrift.partial.ThriftMetadata$ThriftUnion;
+
+        specialinvoke $r0.<org.apache.thrift.partial.ThriftMetadata$ThriftUnion: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData,java.lang.Iterable)>(parent, fieldId, data, fieldsData);
+
+        return $r0;
+
+     label1:
+        $r1 = new org.apache.thrift.partial.ThriftMetadata$ThriftStruct;
+
+        specialinvoke $r1.<org.apache.thrift.partial.ThriftMetadata$ThriftStruct: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData,java.lang.Iterable)>(parent, fieldId, data, fieldsData);
+
+        return $r1;
+    }
+}

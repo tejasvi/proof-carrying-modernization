@@ -1,0 +1,25 @@
+{
+ "format": "strictts-index-map/1",
+ "namespace": "LoopsMod",
+ "funs": [
+  {"name":"maxOf","module":"maxOf"},
+  {"name":"maxOfReduce","module":"maxOfReduce"},
+  {"name":"range","module":"range"},
+  {"name":"countPositive","module":"countPositive"},
+  {"name":"joinWords","module":"joinWords"},
+  {"name":"positives","module":"positives"},
+  {"name":"positivesFilter","module":"positivesFilter"},
+  {"name":"hasNegative","module":"hasNegative"},
+  {"name":"hasNegativeSome","module":"hasNegativeSome"},
+  {"name":"allPositive","module":"allPositive"},
+  {"name":"allPositiveEvery","module":"allPositiveEvery"},
+  {"name":"firstNegative","module":"firstNegative"},
+  {"name":"firstNegativeIndex","module":"firstNegativeIndex"},
+  {"name":"lastNegative","module":"lastNegative"},
+  {"name":"lastNegativeIndex","module":"lastNegativeIndex"},
+  {"name":"touchAll","module":"touchAll"},
+  {"name":"sortAsc","module":"sortAsc"}
+ ],
+ "globals": [],
+ "externs": []
+}

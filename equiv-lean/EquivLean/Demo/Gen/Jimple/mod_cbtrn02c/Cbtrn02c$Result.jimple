@@ -1,0 +1,59 @@
+public final class Cbtrn02c$Result extends java.lang.Object
+{
+    public java.util.List displays;
+    public java.util.List transactFileWrites;
+    public java.util.List dalyrejsFileWrites;
+    public java.util.List tcatbalFileWrites;
+    public java.util.List accountFileRewrites;
+    public java.util.List tcatbalFileRewrites;
+    public 'int' returnCode;
+    public 'boolean' abended;
+
+    public 'void' <init>()
+    {
+        Cbtrn02c$Result r0;
+        java.util.ArrayList $r1;
+
+        r0 := @this: Cbtrn02c$Result;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn02c$Result: java.util.List displays> = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn02c$Result: java.util.List transactFileWrites> = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn02c$Result: java.util.List dalyrejsFileWrites> = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn02c$Result: java.util.List tcatbalFileWrites> = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn02c$Result: java.util.List accountFileRewrites> = $r1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        r0.<Cbtrn02c$Result: java.util.List tcatbalFileRewrites> = $r1;
+
+        return;
+    }
+}

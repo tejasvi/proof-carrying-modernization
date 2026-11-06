@@ -1,0 +1,3 @@
+       01 DEPT.
+           02 DEPT-WEEK PIC 99 VALUE 5.
+           02 DEPT-GROSS-PAY PIC 9(5)V99 VALUE 2.5.

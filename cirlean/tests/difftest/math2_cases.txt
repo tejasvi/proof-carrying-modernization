@@ -1,0 +1,80 @@
+# More <math.h> functions (math2.cpp): exact bits of the results (x = n / 8). Each case is labelled with its expected
+# outcome on the line above it (before the change: UB "call to an external function without a model").
+# expect MATCH: asin on [-1, 1]
+math2 t_asin -8
+math2 t_asin -7
+math2 t_asin -3
+math2 t_asin 0
+math2 t_asin 1
+math2 t_asin 5
+math2 t_asin 8
+# expect MATCH: acos on [-1, 1]
+math2 t_acos -8
+math2 t_acos -7
+math2 t_acos -3
+math2 t_acos 0
+math2 t_acos 1
+math2 t_acos 5
+math2 t_acos 8
+# expect MATCH: atanh on (-1, 1] (atanh(1) is infinite)
+math2 t_atanh -7
+math2 t_atanh -3
+math2 t_atanh 0
+math2 t_atanh 1
+math2 t_atanh 5
+math2 t_atanh 8
+# expect MATCH: acosh on [1, ...)
+math2 t_acosh 8
+math2 t_acosh 9
+math2 t_acosh 20
+math2 t_acosh 100
+# expect MATCH: sinh
+math2 t_sinh -20
+math2 t_sinh -1
+math2 t_sinh 0
+math2 t_sinh 3
+math2 t_sinh 40
+math2 t_sinh 2000
+# expect MATCH: cosh
+math2 t_cosh -20
+math2 t_cosh -1
+math2 t_cosh 0
+math2 t_cosh 3
+math2 t_cosh 40
+math2 t_cosh 2000
+# expect MATCH: tanh
+math2 t_tanh -20
+math2 t_tanh -1
+math2 t_tanh 0
+math2 t_tanh 3
+math2 t_tanh 40
+math2 t_tanh 2000
+# expect MATCH: asinh
+math2 t_asinh -20
+math2 t_asinh -1
+math2 t_asinh 0
+math2 t_asinh 3
+math2 t_asinh 40
+math2 t_asinh 2000
+# expect MATCH: exp2
+math2 t_exp2 -20
+math2 t_exp2 -1
+math2 t_exp2 0
+math2 t_exp2 3
+math2 t_exp2 40
+math2 t_exp2 2000
+# expect MATCH: asinf
+math2 t_asinf -7
+math2 t_asinf 0
+math2 t_asinf 5
+# expect MATCH: tanhf
+math2 t_tanhf -20
+math2 t_tanhf 1
+math2 t_tanhf 40
+# expect MATCH: exp2f
+math2 t_exp2f -20
+math2 t_exp2f 3
+math2 t_exp2f 100
+# expect MATCH: asin out of its domain is a NaN
+math2 t_asin_nan 9
+math2 t_asin_nan -12

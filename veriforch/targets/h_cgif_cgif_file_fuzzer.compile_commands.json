@@ -1,0 +1,40 @@
+[
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226",
+  "file": "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/fuzz/cgif_file_fuzzer.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/inc",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/fuzz/cgif_file_fuzzer.c",
+   "-o",
+   "cgif_file_fuzzer.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226",
+  "file": "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/src/cgif.c",
+  "arguments": [
+   "cc",
+   "-std=c99",
+   "-I/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/inc",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/src/cgif.c",
+   "-o",
+   "cgif.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226",
+  "file": "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/src/cgif_raw.c",
+  "arguments": [
+   "cc",
+   "-std=c99",
+   "-I/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/inc",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/cgif@b1facf77a226/src/cgif_raw.c",
+   "-o",
+   "cgif_raw.c.o"
+  ]
+ }
+]

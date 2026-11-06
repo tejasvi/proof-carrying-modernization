@@ -1,0 +1,41 @@
+public class org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext extends java.lang.Object
+{
+
+    protected 'void' <init>()
+    {
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    protected 'void' write() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        return;
+    }
+
+    protected 'void' read() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        return;
+    }
+
+    protected 'boolean' escapeNum()
+    {
+        org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext;
+
+        return 0;
+    }
+}

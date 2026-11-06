@@ -1,0 +1,30 @@
+# Function aliases (alias.cpp): run with CASES=alias_cases.txt. Each case is labelled with its expected outcome
+# on the line above it: MATCH, or UB from cirrun where the program breaks the rule named (natively it does
+# something). Before the change, every case that calls an alias was UB ("call to an external function without
+# a model").
+# expect MATCH: a constructor defined out of line, called through its complete-object alias (C1 -> C2)
+alias t_ctor_alias 4
+# expect MATCH: the alias constructor through new and for the elements of an array
+alias t_ctor_alias_new 4
+# expect MATCH: a destructor defined out of line, run through its alias (D1 -> D2) at the end of a scope
+alias t_dtor_alias 4
+# expect MATCH: delete through the base: the deleting destructor calls the D1 alias
+alias t_virtual_dtor_alias 4
+# expect MATCH: an explicit virtual destructor call, through the vtable's D1 entry (an alias)
+alias t_virtual_dtor_call 4
+# expect MATCH: __attribute__((alias)) and an alias of that alias
+alias t_c_alias 4
+# expect MATCH: an alias and its target have the same address (C11 6.5.9p6)
+alias t_c_alias_addr 4
+# expect MATCH: aliases in a table of function pointers (a global initializer)
+alias t_c_alias_table 4
+# expect MATCH: an alias of a function with internal linkage, which the program also calls directly
+alias t_c_alias_static 4
+# expect UB (gap, ClangIR's): it emits no static function that only an alias uses; the alias has no body
+alias t_gap_c_alias_static_unused 4
+# expect MATCH: a variadic function through an alias
+alias t_c_alias_varargs 4
+# expect UB: va_arg of an int where the call through the alias passed a long (7.16.1.1p2)
+alias t_ub_c_alias_varargs_long 4
+# expect UB: signed overflow in the alias's target (6.5p5)
+alias t_ub_c_alias_overflow 4

@@ -1,0 +1,125 @@
+public abstract class org.apache.thrift.Option extends java.lang.Object
+{
+    private static final org.apache.thrift.Option NONE;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.Option this;
+
+        this := @this: org.apache.thrift.Option;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public abstract 'boolean' isDefined();
+
+    public abstract java.lang.Object get();
+
+    public java.lang.Object or(java.lang.Object)
+    {
+        java.lang.Object other;
+        org.apache.thrift.Option this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.Option;
+
+        other := @parameter0: java.lang.Object;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.Option: 'boolean' isDefined()>();
+
+        if $z0 == false goto label1;
+
+        other = virtualinvoke this.<org.apache.thrift.Option: java.lang.Object get()>();
+
+        return other;
+
+     label1:
+        return other;
+    }
+
+    public java.util.Optional toOptional()
+    {
+        java.util.Optional $r1;
+        java.lang.Object $r0;
+        org.apache.thrift.Option this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.Option;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.Option: 'boolean' isDefined()>();
+
+        if $z0 == false goto label1;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.Option: java.lang.Object get()>();
+
+        $r1 = staticinvoke <java.util.Optional: java.util.Optional of(java.lang.Object)>($r0);
+
+        return $r1;
+
+     label1:
+        $r1 = staticinvoke <java.util.Optional: java.util.Optional empty()>();
+
+        return $r1;
+    }
+
+    public static org.apache.thrift.Option fromNullable(java.lang.Object)
+    {
+        org.apache.thrift.Option$None $r1;
+        java.lang.Object value;
+        org.apache.thrift.Option$Some $r0;
+
+        value := @parameter0: java.lang.Object;
+
+        if value == null goto label1;
+
+        $r0 = staticinvoke <org.apache.thrift.Option: org.apache.thrift.Option$Some some(java.lang.Object)>(value);
+
+        return $r0;
+
+     label1:
+        $r1 = staticinvoke <org.apache.thrift.Option: org.apache.thrift.Option$None none()>();
+
+        return $r1;
+    }
+
+    public static org.apache.thrift.Option$Some some(java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.thrift.Option$Some $r0;
+
+        value := @parameter0: java.lang.Object;
+
+        $r0 = new org.apache.thrift.Option$Some;
+
+        specialinvoke $r0.<org.apache.thrift.Option$Some: 'void' <init>(java.lang.Object)>(value);
+
+        return $r0;
+    }
+
+    public static org.apache.thrift.Option$None none()
+    {
+        org.apache.thrift.Option$None $r1;
+        org.apache.thrift.Option $r0;
+
+        $r0 = <org.apache.thrift.Option: org.apache.thrift.Option NONE>;
+
+        $r1 = (org.apache.thrift.Option$None) $r0;
+
+        return $r1;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.Option$None $r0;
+
+        $r0 = new org.apache.thrift.Option$None;
+
+        specialinvoke $r0.<org.apache.thrift.Option$None: 'void' <init>()>();
+
+        <org.apache.thrift.Option: org.apache.thrift.Option NONE> = $r0;
+
+        return;
+    }
+}

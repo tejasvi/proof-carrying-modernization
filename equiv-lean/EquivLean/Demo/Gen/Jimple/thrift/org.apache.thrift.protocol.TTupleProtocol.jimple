@@ -1,0 +1,314 @@
+public final class org.apache.thrift.protocol.TTupleProtocol extends org.apache.thrift.protocol.TCompactProtocol
+{
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.protocol.TTupleProtocol this;
+        org.apache.thrift.transport.TTransport transport;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'void' <init>(org.apache.thrift.transport.TTransport)>(transport);
+
+        return;
+    }
+
+    public java.lang.Class getScheme()
+    {
+        org.apache.thrift.protocol.TTupleProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        return class "Lorg/apache/thrift/scheme/TupleScheme;";
+    }
+
+    public 'void' writeBitSet(java.util.BitSet, 'int') throws org.apache.thrift.TException
+    {
+        'byte'[] bytes;
+        'byte' b;
+        org.apache.thrift.protocol.TTupleProtocol this;
+        'int' vectorWidth, i1;
+        java.util.BitSet bs;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        bs := @parameter0: java.util.BitSet;
+
+        vectorWidth := @parameter1: 'int';
+
+        bytes = staticinvoke <org.apache.thrift.protocol.TTupleProtocol: 'byte'[] toByteArray(java.util.BitSet,'int')>(bs, vectorWidth);
+
+        vectorWidth = lengthof bytes;
+
+        i1 = 0;
+
+     label1:
+        if i1 >= vectorWidth goto label2;
+
+        b = bytes[i1];
+
+        virtualinvoke this.<org.apache.thrift.protocol.TTupleProtocol: 'void' writeByte('byte')>(b);
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public java.util.BitSet readBitSet('int') throws org.apache.thrift.TException
+    {
+        'byte'[] bytes;
+        org.apache.thrift.protocol.TTupleProtocol this;
+        'byte' $b0;
+        'int' i, length, j;
+        java.util.BitSet j#2;
+        'double' $d0;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        i := @parameter0: 'int';
+
+        $d0 = ('double') i;
+
+        $d0 = $d0 / 8.0;
+
+        $d0 = staticinvoke <java.lang.Math: 'double' ceil('double')>($d0);
+
+        length = ('int') $d0;
+
+        bytes = newarray ('byte')[length];
+
+        j = 0;
+
+     label1:
+        if j >= length goto label2;
+
+        $b0 = virtualinvoke this.<org.apache.thrift.protocol.TTupleProtocol: 'byte' readByte()>();
+
+        bytes[j] = $b0;
+
+        j = j + 1;
+
+        goto label1;
+
+     label2:
+        j#2 = staticinvoke <org.apache.thrift.protocol.TTupleProtocol: java.util.BitSet fromByteArray('byte'[])>(bytes);
+
+        return j#2;
+    }
+
+    public static java.util.BitSet fromByteArray('byte'[])
+    {
+        'byte'[] bytes;
+        'byte' $b6;
+        'int' $i0, $i3, i;
+        java.util.BitSet bits;
+
+        bytes := @parameter0: 'byte'[];
+
+        bits = new java.util.BitSet;
+
+        specialinvoke bits.<java.util.BitSet: 'void' <init>()>();
+
+        i = 0;
+
+     label1:
+        $i0 = lengthof bytes;
+
+        $i0 = $i0 * 8;
+
+        if i >= $i0 goto label3;
+
+        $i0 = lengthof bytes;
+
+        $i3 = i / 8;
+
+        $i0 = $i0 - $i3;
+
+        $i0 = $i0 - 1;
+
+        $b6 = bytes[$i0];
+
+        $i0 = i % 8;
+
+        $i0 = 1 << $i0;
+
+        $i3 = ('int') $b6;
+
+        $i0 = $i3 & $i0;
+
+        if $i0 <= 0 goto label2;
+
+        virtualinvoke bits.<java.util.BitSet: 'void' set('int')>(i);
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return bits;
+    }
+
+    public static 'byte'[] toByteArray(java.util.BitSet, 'int')
+    {
+        'byte'[] bytes;
+        'byte' $b6;
+        'int' vectorWidth, $i1, $i3, i#1, $i11;
+        java.util.BitSet bits;
+        'double' $d0;
+        'boolean' $z0;
+
+        bits := @parameter0: java.util.BitSet;
+
+        vectorWidth := @parameter1: 'int';
+
+        $d0 = ('double') vectorWidth;
+
+        $d0 = $d0 / 8.0;
+
+        $d0 = staticinvoke <java.lang.Math: 'double' ceil('double')>($d0);
+
+        vectorWidth = ('int') $d0;
+
+        bytes = newarray ('byte')[vectorWidth];
+
+        i#1 = 0;
+
+     label1:
+        $i1 = virtualinvoke bits.<java.util.BitSet: 'int' length()>();
+
+        if i#1 >= $i1 goto label3;
+
+        $z0 = virtualinvoke bits.<java.util.BitSet: 'boolean' get('int')>(i#1);
+
+        if $z0 == false goto label2;
+
+        $i1 = lengthof bytes;
+
+        $i3 = i#1 / 8;
+
+        $i1 = $i1 - $i3;
+
+        $i1 = $i1 - 1;
+
+        $b6 = bytes[$i1];
+
+        $i3 = i#1 % 8;
+
+        $i3 = 1 << $i3;
+
+        $i11 = ('int') $b6;
+
+        $i3 = $i11 | $i3;
+
+        $b6 = ('byte') $i3;
+
+        bytes[$i1] = $b6;
+
+     label2:
+        i#1 = i#1 + 1;
+
+        goto label1;
+
+     label3:
+        return bytes;
+    }
+
+    public org.apache.thrift.protocol.TMap readMapBegin('byte', 'byte') throws org.apache.thrift.TException
+    {
+        'byte' keyType, valTyep;
+        org.apache.thrift.protocol.TTupleProtocol this;
+        'int' size;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        keyType := @parameter0: 'byte';
+
+        valTyep := @parameter1: 'byte';
+
+        size = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readI32()>();
+
+        map = new org.apache.thrift.protocol.TMap;
+
+        specialinvoke map.<org.apache.thrift.protocol.TMap: 'void' <init>('byte','byte','int')>(keyType, valTyep, size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TTupleProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TMap)>(map);
+
+        return map;
+    }
+
+    public org.apache.thrift.protocol.TList readListBegin('byte') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte' type;
+        org.apache.thrift.protocol.TTupleProtocol this;
+        'int' size;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        type := @parameter0: 'byte';
+
+        size = specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol: 'int' readI32()>();
+
+        list = new org.apache.thrift.protocol.TList;
+
+        specialinvoke list.<org.apache.thrift.protocol.TList: 'void' <init>('byte','int')>(type, size);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TTupleProtocol: 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TList)>(list);
+
+        return list;
+    }
+
+    public org.apache.thrift.protocol.TSet readSetBegin('byte') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList $r1;
+        'byte' type;
+        org.apache.thrift.protocol.TSet $r0;
+        org.apache.thrift.protocol.TTupleProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        type := @parameter0: 'byte';
+
+        $r0 = new org.apache.thrift.protocol.TSet;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TTupleProtocol: org.apache.thrift.protocol.TList readListBegin('byte')>(type);
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TSet: 'void' <init>(org.apache.thrift.protocol.TList)>($r1);
+
+        return $r0;
+    }
+
+    public 'void' readMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TTupleProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        return;
+    }
+
+    public 'void' readListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TTupleProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        return;
+    }
+
+    public 'void' readSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TTupleProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol;
+
+        return;
+    }
+}

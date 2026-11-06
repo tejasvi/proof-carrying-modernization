@@ -1,0 +1,30 @@
+public final class Cbtrn03c$WsDateparmRecord extends java.lang.Object
+{
+    public java.lang.String wsStartDate;
+    public java.lang.String filler1;
+    public java.lang.String wsEndDate;
+
+    public 'void' <init>(java.lang.String, java.lang.String, java.lang.String)
+    {
+        Cbtrn03c$WsDateparmRecord r0;
+        java.lang.String r1, r2, r3;
+
+        r0 := @this: Cbtrn03c$WsDateparmRecord;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        r3 := @parameter2: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn03c$WsDateparmRecord: java.lang.String wsStartDate> = r1;
+
+        r0.<Cbtrn03c$WsDateparmRecord: java.lang.String filler1> = r2;
+
+        r0.<Cbtrn03c$WsDateparmRecord: java.lang.String wsEndDate> = r3;
+
+        return;
+    }
+}

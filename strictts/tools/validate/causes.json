@@ -1,0 +1,6 @@
+{
+  "projects/es-toolkit/src/compat/util/eq.ts:eq": {
+    "cause": "model limitation: `===` on two objects held in `unknown` values, when both are records of the same type (records have no identity in StrictTS); Node compares references (two distinct objects: false)",
+    "detail": "eq(value?: unknown, other?: unknown) computes `value === other`. The driver builds two distinct object literals whose fields are all `unknown`, so both runtime values are records of the type { isNaN: unknown }. Dyn.eq decides === on runtime values of different types (false) and of types with identity, but stops with a panic for two records of one type: they may be one object or two equal ones. The other 47 inputs agree."
+  }
+}

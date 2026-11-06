@@ -1,0 +1,238 @@
+public class org.apache.thrift.transport.AutoExpandingBufferReadTransport extends org.apache.thrift.transport.TEndpointTransport
+{
+    private final org.apache.thrift.transport.AutoExpandingBuffer buf;
+    private 'int' pos;
+    private 'int' limit;
+
+    public 'void' <init>(org.apache.thrift.TConfiguration, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TConfiguration config;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+        'int' initialCapacity;
+        org.apache.thrift.transport.AutoExpandingBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        initialCapacity := @parameter1: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' pos> = 0;
+
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' limit> = 0;
+
+        $r0 = new org.apache.thrift.transport.AutoExpandingBuffer;
+
+        specialinvoke $r0.<org.apache.thrift.transport.AutoExpandingBuffer: 'void' <init>('int')>(initialCapacity);
+
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: org.apache.thrift.transport.AutoExpandingBuffer buf> = $r0;
+
+        return;
+    }
+
+    public 'void' fill(org.apache.thrift.transport.TTransport, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport inTrans;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+        'int' length;
+        org.apache.thrift.transport.AutoExpandingBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        inTrans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        length := @parameter1: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: org.apache.thrift.transport.AutoExpandingBuffer buf>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBuffer: 'void' resizeIfNecessary('int')>(length);
+
+        $r0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: org.apache.thrift.transport.AutoExpandingBuffer buf>;
+
+        $r2 = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array()>();
+
+        virtualinvoke inTrans.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>($r2, 0, length);
+
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' pos> = 0;
+
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' limit> = length;
+
+        virtualinvoke this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'void' resetConsumedMessageSize('long')>(-1L);
+
+        return;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        return;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        return 1;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        return;
+    }
+
+    public final 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] target, $r1;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+        'int' off, len, $i0, amtToRead;
+        org.apache.thrift.transport.AutoExpandingBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        target := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $i0 = virtualinvoke this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' getBytesRemainingInBuffer()>();
+
+        amtToRead = staticinvoke <java.lang.Math: 'int' min('int','int')>(len, $i0);
+
+        if amtToRead <= 0 goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: org.apache.thrift.transport.AutoExpandingBuffer buf>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array()>();
+
+        $i0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' pos>;
+
+        staticinvoke <java.lang.System: 'void' arraycopy(java.lang.Object,'int',java.lang.Object,'int','int')>($r1, $i0, target, off, amtToRead);
+
+        virtualinvoke this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'void' consumeBuffer('int')>(amtToRead);
+
+     label1:
+        return amtToRead;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        java.lang.UnsupportedOperationException $r0;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+        'int' off, len;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $r0.<java.lang.UnsupportedOperationException: 'void' <init>()>();
+
+        throw $r0;
+    }
+
+    public final 'void' consumeBuffer('int')
+    {
+        'byte' $b4;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+        'int' len, $i0;
+        'long' $l2, $l3;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        len := @parameter0: 'int';
+
+        $i0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' pos>;
+
+        $i0 = $i0 + len;
+
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' pos> = $i0;
+
+        $l2 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'long' remainingMessageSize>;
+
+        $l3 = ('long') len;
+
+        $b4 = $l2 cmp $l3;
+
+        $i0 = ('int') $b4;
+
+        if $i0 < 0 goto label1;
+
+        $l2 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'long' remainingMessageSize>;
+
+        $l3 = ('long') len;
+
+        $l2 = $l2 - $l3;
+
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'long' remainingMessageSize> = $l2;
+
+        goto label2;
+
+     label1:
+        this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'long' remainingMessageSize> = 0L;
+
+     label2:
+        return;
+    }
+
+    public final 'byte'[] getBuffer()
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+        org.apache.thrift.transport.AutoExpandingBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        $r0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: org.apache.thrift.transport.AutoExpandingBuffer buf>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array()>();
+
+        return $r1;
+    }
+
+    public final 'int' getBufferPosition()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        $i0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' pos>;
+
+        return $i0;
+    }
+
+    public final 'int' getBytesRemainingInBuffer()
+    {
+        'int' $i0, $i1;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        $i0 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' limit>;
+
+        $i1 = this.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' pos>;
+
+        $i0 = $i0 - $i1;
+
+        return $i0;
+    }
+}

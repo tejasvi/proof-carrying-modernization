@@ -1,0 +1,126 @@
+public abstract class org.apache.thrift.transport.layered.TLayeredTransport extends org.apache.thrift.transport.TTransport
+{
+    private final org.apache.thrift.transport.TTransport innerTransport;
+
+    public org.apache.thrift.TConfiguration getConfiguration()
+    {
+        org.apache.thrift.transport.layered.TLayeredTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.TConfiguration $r1;
+
+        this := @this: org.apache.thrift.transport.layered.TLayeredTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TLayeredTransport: org.apache.thrift.transport.TTransport innerTransport>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        return $r1;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.transport.layered.TLayeredTransport this;
+        org.apache.thrift.transport.TTransport transport;
+
+        this := @this: org.apache.thrift.transport.layered.TLayeredTransport;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransport: 'void' <init>()>();
+
+        staticinvoke <java.util.Objects: java.lang.Object requireNonNull(java.lang.Object,java.lang.String)>(transport, "TTransport cannot be null.");
+
+        this.<org.apache.thrift.transport.layered.TLayeredTransport: org.apache.thrift.transport.TTransport innerTransport> = transport;
+
+        return;
+    }
+
+    public 'void' updateKnownMessageSize('long') throws org.apache.thrift.transport.TTransportException
+    {
+        'long' size;
+        org.apache.thrift.transport.layered.TLayeredTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TLayeredTransport;
+
+        size := @parameter0: 'long';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TLayeredTransport: org.apache.thrift.transport.TTransport innerTransport>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' updateKnownMessageSize('long')>(size);
+
+        return;
+    }
+
+    public 'void' checkReadBytesAvailable('long') throws org.apache.thrift.transport.TTransportException
+    {
+        'long' numBytes;
+        org.apache.thrift.transport.layered.TLayeredTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TLayeredTransport;
+
+        numBytes := @parameter0: 'long';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TLayeredTransport: org.apache.thrift.transport.TTransport innerTransport>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' checkReadBytesAvailable('long')>(numBytes);
+
+        return;
+    }
+
+    public 'void' resetMessageSizeAndConsumedBytes('long') throws org.apache.thrift.transport.TTransportException
+    {
+        'long' newSize;
+        org.apache.thrift.transport.layered.TLayeredTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TLayeredTransport;
+
+        newSize := @parameter0: 'long';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TLayeredTransport: org.apache.thrift.transport.TTransport innerTransport>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' resetMessageSizeAndConsumedBytes('long')>(newSize);
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getInnerTransport()
+    {
+        org.apache.thrift.transport.layered.TLayeredTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TLayeredTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TLayeredTransport: org.apache.thrift.transport.TTransport innerTransport>;
+
+        return $r0;
+    }
+
+    protected static 'int' configuredMaxFrameSize(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.transport.TTransport transport;
+        org.apache.thrift.TConfiguration configuration;
+        'int' $i0;
+        'boolean' $z0;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        configuration = virtualinvoke transport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>(configuration);
+
+        if $z0 == false goto label1;
+
+        $i0 = 16384000;
+
+        goto label2;
+
+     label1:
+        $i0 = virtualinvoke configuration.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+     label2:
+        return $i0;
+    }
+}

@@ -1,0 +1,662 @@
+public abstract class org.apache.thrift.TUnion extends java.lang.Object implements org.apache.thrift.TBase
+{
+    protected java.lang.Object value_;
+    protected org.apache.thrift.TFieldIdEnum setField_;
+    private static final java.util.Map schemes;
+
+    protected 'void' <init>()
+    {
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_> = null;
+
+        this.<org.apache.thrift.TUnion: java.lang.Object value_> = null;
+
+        return;
+    }
+
+    protected 'void' <init>(org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum setField;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        setField := @parameter0: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter1: java.lang.Object;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        virtualinvoke this.<org.apache.thrift.TUnion: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(setField, value);
+
+        return;
+    }
+
+    protected 'void' <init>(org.apache.thrift.TUnion)
+    {
+        java.lang.ClassCastException $r2;
+        org.apache.thrift.TUnion this, other;
+        java.lang.Class $r0, $r1;
+        java.lang.Object $r4;
+        org.apache.thrift.TFieldIdEnum $r3;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        other := @parameter0: org.apache.thrift.TUnion;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = virtualinvoke other.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r1 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = virtualinvoke $r0.<java.lang.Object: 'boolean' equals(java.lang.Object)>($r1);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.ClassCastException;
+
+        specialinvoke $r2.<java.lang.ClassCastException: 'void' <init>()>();
+
+        throw $r2;
+
+     label1:
+        $r3 = other.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_>;
+
+        this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_> = $r3;
+
+        $r4 = other.<org.apache.thrift.TUnion: java.lang.Object value_>;
+
+        $r4 = staticinvoke <org.apache.thrift.TUnion: java.lang.Object deepCopyObject(java.lang.Object)>($r4);
+
+        this.<org.apache.thrift.TUnion: java.lang.Object value_> = $r4;
+
+        return;
+    }
+
+    private static java.lang.Object deepCopyObject(java.lang.Object)
+    {
+        java.util.List $r4;
+        java.util.Map $r8;
+        java.util.Set $r6;
+        java.lang.Object o;
+        org.apache.thrift.TBase $r0;
+        java.nio.ByteBuffer $r2;
+        'boolean' $z0;
+
+        o := @parameter0: java.lang.Object;
+
+        $z0 = o instanceof org.apache.thrift.TBase;
+
+        if $z0 == false goto label1;
+
+        $r0 = (org.apache.thrift.TBase) o;
+
+        $r0 = interfaceinvoke $r0.<org.apache.thrift.TBase: org.apache.thrift.TBase deepCopy()>();
+
+        return $r0;
+
+     label1:
+        $z0 = o instanceof java.nio.ByteBuffer;
+
+        if $z0 == false goto label2;
+
+        $r2 = (java.nio.ByteBuffer) o;
+
+        $r2 = staticinvoke <org.apache.thrift.TBaseHelper: java.nio.ByteBuffer copyBinary(java.nio.ByteBuffer)>($r2);
+
+        return $r2;
+
+     label2:
+        $z0 = o instanceof java.util.List;
+
+        if $z0 == false goto label3;
+
+        $r4 = (java.util.List) o;
+
+        $r4 = staticinvoke <org.apache.thrift.TUnion: java.util.List deepCopyList(java.util.List)>($r4);
+
+        return $r4;
+
+     label3:
+        $z0 = o instanceof java.util.Set;
+
+        if $z0 == false goto label4;
+
+        $r6 = (java.util.Set) o;
+
+        $r6 = staticinvoke <org.apache.thrift.TUnion: java.util.Set deepCopySet(java.util.Set)>($r6);
+
+        return $r6;
+
+     label4:
+        $z0 = o instanceof java.util.Map;
+
+        if $z0 == false goto label5;
+
+        $r8 = (java.util.Map) o;
+
+        $r8 = staticinvoke <org.apache.thrift.TUnion: java.util.Map deepCopyMap(java.util.Map)>($r8);
+
+        return $r8;
+
+     label5:
+        return o;
+    }
+
+    private static java.util.Map deepCopyMap(java.util.Map)
+    {
+        java.util.Map$Entry entry;
+        java.util.Iterator r1;
+        java.util.Set $r0;
+        java.util.HashMap copy;
+        java.util.Map map;
+        'int' $i0;
+        java.lang.Object $r2, $r5;
+        'boolean' $z0;
+
+        map := @parameter0: java.util.Map;
+
+        copy = new java.util.HashMap;
+
+        $i0 = interfaceinvoke map.<java.util.Map: 'int' size()>();
+
+        specialinvoke copy.<java.util.HashMap: 'void' <init>('int')>($i0);
+
+        $r0 = interfaceinvoke map.<java.util.Map: java.util.Set entrySet()>();
+
+        r1 = interfaceinvoke $r0.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r2 = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        entry = (java.util.Map$Entry) $r2;
+
+        $r2 = interfaceinvoke entry.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r2 = staticinvoke <org.apache.thrift.TUnion: java.lang.Object deepCopyObject(java.lang.Object)>($r2);
+
+        $r5 = interfaceinvoke entry.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r5 = staticinvoke <org.apache.thrift.TUnion: java.lang.Object deepCopyObject(java.lang.Object)>($r5);
+
+        interfaceinvoke copy.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r5);
+
+        goto label1;
+
+     label2:
+        return copy;
+    }
+
+    private static java.util.Set deepCopySet(java.util.Set)
+    {
+        java.util.HashSet copy;
+        java.util.Iterator r0;
+        'int' $i0;
+        java.util.Set set;
+        java.lang.Object o;
+        'boolean' $z0;
+
+        set := @parameter0: java.util.Set;
+
+        copy = new java.util.HashSet;
+
+        $i0 = interfaceinvoke set.<java.util.Set: 'int' size()>();
+
+        specialinvoke copy.<java.util.HashSet: 'void' <init>('int')>($i0);
+
+        r0 = interfaceinvoke set.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r0.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        o = interfaceinvoke r0.<java.util.Iterator: java.lang.Object next()>();
+
+        o = staticinvoke <org.apache.thrift.TUnion: java.lang.Object deepCopyObject(java.lang.Object)>(o);
+
+        interfaceinvoke copy.<java.util.Set: 'boolean' add(java.lang.Object)>(o);
+
+        goto label1;
+
+     label2:
+        return copy;
+    }
+
+    private static java.util.List deepCopyList(java.util.List)
+    {
+        java.util.List list;
+        java.util.Iterator r0;
+        'int' $i0;
+        java.lang.Object o;
+        java.util.ArrayList copy;
+        'boolean' $z0;
+
+        list := @parameter0: java.util.List;
+
+        copy = new java.util.ArrayList;
+
+        $i0 = interfaceinvoke list.<java.util.List: 'int' size()>();
+
+        specialinvoke copy.<java.util.ArrayList: 'void' <init>('int')>($i0);
+
+        r0 = interfaceinvoke list.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r0.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        o = interfaceinvoke r0.<java.util.Iterator: java.lang.Object next()>();
+
+        o = staticinvoke <org.apache.thrift.TUnion: java.lang.Object deepCopyObject(java.lang.Object)>(o);
+
+        interfaceinvoke copy.<java.util.List: 'boolean' add(java.lang.Object)>(o);
+
+        goto label1;
+
+     label2:
+        return copy;
+    }
+
+    public org.apache.thrift.TFieldIdEnum getSetField()
+    {
+        org.apache.thrift.TFieldIdEnum $r0;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        $r0 = this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_>;
+
+        return $r0;
+    }
+
+    public java.lang.Object getFieldValue()
+    {
+        java.lang.Object $r0;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        $r0 = this.<org.apache.thrift.TUnion: java.lang.Object value_>;
+
+        return $r0;
+    }
+
+    public java.lang.Object getFieldValue(org.apache.thrift.TFieldIdEnum)
+    {
+        java.lang.StringBuilder $r2;
+        java.lang.Object $r9;
+        org.apache.thrift.TFieldIdEnum fieldId, $r0;
+        java.lang.String $r8;
+        java.lang.IllegalArgumentException $r1;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        fieldId := @parameter0: org.apache.thrift.TFieldIdEnum;
+
+        $r0 = this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_>;
+
+        if fieldId == $r0 goto label1;
+
+        $r1 = new java.lang.IllegalArgumentException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cannot get the value of field ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(fieldId);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" because union\'s set field is ");
+
+        fieldId = this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_>;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(fieldId);
+
+        $r8 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>($r8);
+
+        throw $r1;
+
+     label1:
+        $r9 = virtualinvoke this.<org.apache.thrift.TUnion: java.lang.Object getFieldValue()>();
+
+        return $r9;
+    }
+
+    public java.lang.Object getFieldValue('int')
+    {
+        'short' $s0;
+        'int' fieldId;
+        java.lang.Object $r1;
+        org.apache.thrift.TFieldIdEnum $r0;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        fieldId := @parameter0: 'int';
+
+        $s0 = ('short') fieldId;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum enumForId('short')>($s0);
+
+        $r1 = virtualinvoke this.<org.apache.thrift.TUnion: java.lang.Object getFieldValue(org.apache.thrift.TFieldIdEnum)>($r0);
+
+        return $r1;
+    }
+
+    public 'boolean' isSet()
+    {
+        org.apache.thrift.TFieldIdEnum $r0;
+        org.apache.thrift.TUnion this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        $r0 = this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_>;
+
+        if $r0 == null goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'boolean' isSet(org.apache.thrift.TFieldIdEnum)
+    {
+        org.apache.thrift.TFieldIdEnum fieldId, $r0;
+        org.apache.thrift.TUnion this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        fieldId := @parameter0: org.apache.thrift.TFieldIdEnum;
+
+        $r0 = this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_>;
+
+        if $r0 != fieldId goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'boolean' isSet('int')
+    {
+        'short' $s0;
+        'int' fieldId;
+        org.apache.thrift.TFieldIdEnum $r0;
+        org.apache.thrift.TUnion this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        fieldId := @parameter0: 'int';
+
+        $s0 = ('short') fieldId;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum enumForId('short')>($s0);
+
+        $z0 = virtualinvoke this.<org.apache.thrift.TUnion: 'boolean' isSet(org.apache.thrift.TFieldIdEnum)>($r0);
+
+        return $z0;
+    }
+
+    public 'void' read(org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.scheme.SchemeFactory $r3;
+        org.apache.thrift.scheme.IScheme $r4;
+        org.apache.thrift.protocol.TProtocol iprot;
+        java.util.Map $r0;
+        java.lang.Class $r1;
+        java.lang.Object $r2;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        iprot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        $r0 = <org.apache.thrift.TUnion: java.util.Map schemes>;
+
+        $r1 = virtualinvoke iprot.<org.apache.thrift.protocol.TProtocol: java.lang.Class getScheme()>();
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r3 = (org.apache.thrift.scheme.SchemeFactory) $r2;
+
+        $r4 = interfaceinvoke $r3.<org.apache.thrift.scheme.SchemeFactory: org.apache.thrift.scheme.IScheme getScheme()>();
+
+        interfaceinvoke $r4.<org.apache.thrift.scheme.IScheme: 'void' read(org.apache.thrift.protocol.TProtocol,org.apache.thrift.TBase)>(iprot, this);
+
+        return;
+    }
+
+    public 'void' setFieldValue(org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        fieldId := @parameter0: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter1: java.lang.Object;
+
+        virtualinvoke this.<org.apache.thrift.TUnion: 'void' checkType(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_> = fieldId;
+
+        this.<org.apache.thrift.TUnion: java.lang.Object value_> = value;
+
+        return;
+    }
+
+    public 'void' setFieldValue('int', java.lang.Object)
+    {
+        'short' $s0;
+        'int' fieldId;
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum $r0;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        fieldId := @parameter0: 'int';
+
+        value := @parameter1: java.lang.Object;
+
+        $s0 = ('short') fieldId;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum enumForId('short')>($s0);
+
+        virtualinvoke this.<org.apache.thrift.TUnion: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>($r0, value);
+
+        return;
+    }
+
+    public 'void' write(org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.scheme.SchemeFactory $r3;
+        org.apache.thrift.scheme.IScheme $r4;
+        org.apache.thrift.protocol.TProtocol oprot;
+        java.util.Map $r0;
+        java.lang.Class $r1;
+        java.lang.Object $r2;
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        oprot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        $r0 = <org.apache.thrift.TUnion: java.util.Map schemes>;
+
+        $r1 = virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: java.lang.Class getScheme()>();
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r3 = (org.apache.thrift.scheme.SchemeFactory) $r2;
+
+        $r4 = interfaceinvoke $r3.<org.apache.thrift.scheme.SchemeFactory: org.apache.thrift.scheme.IScheme getScheme()>();
+
+        interfaceinvoke $r4.<org.apache.thrift.scheme.IScheme: 'void' write(org.apache.thrift.protocol.TProtocol,org.apache.thrift.TBase)>(oprot, this);
+
+        return;
+    }
+
+    protected abstract 'void' checkType(org.apache.thrift.TFieldIdEnum, java.lang.Object) throws java.lang.ClassCastException;
+
+    protected abstract java.lang.Object standardSchemeReadValue(org.apache.thrift.protocol.TProtocol, org.apache.thrift.protocol.TField) throws org.apache.thrift.TException;
+
+    protected abstract 'void' standardSchemeWriteValue(org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException;
+
+    protected abstract java.lang.Object tupleSchemeReadValue(org.apache.thrift.protocol.TProtocol, 'short') throws org.apache.thrift.TException;
+
+    protected abstract 'void' tupleSchemeWriteValue(org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException;
+
+    protected abstract org.apache.thrift.protocol.TStruct getStructDesc();
+
+    protected abstract org.apache.thrift.protocol.TField getFieldDesc(org.apache.thrift.TFieldIdEnum);
+
+    protected abstract org.apache.thrift.TFieldIdEnum enumForId('short');
+
+    public java.lang.String toString()
+    {
+        org.apache.thrift.TUnion this;
+        java.nio.ByteBuffer $r6;
+        org.apache.thrift.protocol.TField $r4;
+        java.lang.StringBuilder sb;
+        java.lang.Class $r0;
+        java.lang.Object v;
+        java.lang.String $r1;
+        org.apache.thrift.TFieldIdEnum $r2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        sb = new java.lang.StringBuilder;
+
+        specialinvoke sb.<java.lang.StringBuilder: 'void' <init>()>();
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<");
+
+        $r0 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getSimpleName()>();
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $r2 = virtualinvoke this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum getSetField()>();
+
+        if $r2 == null goto label2;
+
+        v = virtualinvoke this.<org.apache.thrift.TUnion: java.lang.Object getFieldValue()>();
+
+        $r2 = virtualinvoke this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum getSetField()>();
+
+        $r4 = virtualinvoke this.<org.apache.thrift.TUnion: org.apache.thrift.protocol.TField getFieldDesc(org.apache.thrift.TFieldIdEnum)>($r2);
+
+        $r1 = $r4.<org.apache.thrift.protocol.TField: java.lang.String name>;
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $z0 = v instanceof java.nio.ByteBuffer;
+
+        if $z0 == false goto label1;
+
+        $r6 = (java.nio.ByteBuffer) v;
+
+        staticinvoke <org.apache.thrift.TBaseHelper: 'void' toString(java.nio.ByteBuffer,java.lang.StringBuilder)>($r6, sb);
+
+        goto label2;
+
+     label1:
+        $r1 = virtualinvoke v.<java.lang.Object: java.lang.String toString()>();
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+     label2:
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        $r1 = virtualinvoke sb.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+    }
+
+    public final 'void' clear()
+    {
+        org.apache.thrift.TUnion this;
+
+        this := @this: org.apache.thrift.TUnion;
+
+        this.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_> = null;
+
+        this.<org.apache.thrift.TUnion: java.lang.Object value_> = null;
+
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.TUnion$TUnionStandardSchemeFactory $r2;
+        org.apache.thrift.TUnion$TUnionTupleSchemeFactory $r4;
+        java.util.Map $r1;
+        java.util.HashMap $r0;
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>()>();
+
+        <org.apache.thrift.TUnion: java.util.Map schemes> = $r0;
+
+        $r1 = <org.apache.thrift.TUnion: java.util.Map schemes>;
+
+        $r2 = new org.apache.thrift.TUnion$TUnionStandardSchemeFactory;
+
+        specialinvoke $r2.<org.apache.thrift.TUnion$TUnionStandardSchemeFactory: 'void' <init>(org.apache.thrift.TUnion$1)>(null);
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "Lorg/apache/thrift/scheme/StandardScheme;", $r2);
+
+        $r1 = <org.apache.thrift.TUnion: java.util.Map schemes>;
+
+        $r4 = new org.apache.thrift.TUnion$TUnionTupleSchemeFactory;
+
+        specialinvoke $r4.<org.apache.thrift.TUnion$TUnionTupleSchemeFactory: 'void' <init>(org.apache.thrift.TUnion$1)>(null);
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(class "Lorg/apache/thrift/scheme/TupleScheme;", $r4);
+
+        return;
+    }
+}

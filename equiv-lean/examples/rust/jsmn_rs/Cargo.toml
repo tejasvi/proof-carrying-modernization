@@ -1,0 +1,23 @@
+[package]
+name = "jsmn_rs"
+version = "0.1.0"
+edition = "2021"
+build = false
+autobins = false
+autoexamples = false
+autotests = false
+autobenches = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+
+[profile.dev]
+opt-level = 1
+debug = false
+overflow-checks = true
+debug-assertions = true
+incremental = false
+
+[workspace]

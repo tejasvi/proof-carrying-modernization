@@ -1,0 +1,495 @@
+public class org.apache.thrift.transport.TIOStreamTransport extends org.apache.thrift.transport.TEndpointTransport
+{
+    private static final org.slf4j.Logger LOGGER;
+    protected java.io.InputStream inputStream_;
+    protected java.io.OutputStream outputStream_;
+
+    protected 'void' <init>(org.apache.thrift.TConfiguration) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TIOStreamTransport this;
+        org.apache.thrift.TConfiguration config;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        return;
+    }
+
+    protected 'void' <init>() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TIOStreamTransport this;
+        org.apache.thrift.TConfiguration $r0;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration, java.io.InputStream) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TIOStreamTransport this;
+        org.apache.thrift.TConfiguration config;
+        java.io.InputStream is;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        is := @parameter1: java.io.InputStream;
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = is;
+
+        return;
+    }
+
+    public 'void' <init>(java.io.InputStream) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TIOStreamTransport this;
+        org.apache.thrift.TConfiguration $r0;
+        java.io.InputStream is;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        is := @parameter0: java.io.InputStream;
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = is;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration, java.io.OutputStream) throws org.apache.thrift.transport.TTransportException
+    {
+        java.io.OutputStream os;
+        org.apache.thrift.transport.TIOStreamTransport this;
+        org.apache.thrift.TConfiguration config;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        os := @parameter1: java.io.OutputStream;
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = os;
+
+        return;
+    }
+
+    public 'void' <init>(java.io.OutputStream) throws org.apache.thrift.transport.TTransportException
+    {
+        java.io.OutputStream os;
+        org.apache.thrift.transport.TIOStreamTransport this;
+        org.apache.thrift.TConfiguration $r0;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        os := @parameter0: java.io.OutputStream;
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = os;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration, java.io.InputStream, java.io.OutputStream) throws org.apache.thrift.transport.TTransportException
+    {
+        java.io.OutputStream os;
+        org.apache.thrift.TConfiguration config;
+        org.apache.thrift.transport.TIOStreamTransport this;
+        java.io.InputStream is;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        is := @parameter1: java.io.InputStream;
+
+        os := @parameter2: java.io.OutputStream;
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = is;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = os;
+
+        return;
+    }
+
+    public 'void' <init>(java.io.InputStream, java.io.OutputStream) throws org.apache.thrift.transport.TTransportException
+    {
+        java.io.OutputStream os;
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TIOStreamTransport this;
+        java.io.InputStream is;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        is := @parameter0: java.io.InputStream;
+
+        os := @parameter1: java.io.OutputStream;
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = is;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = os;
+
+        return;
+    }
+
+    public 'boolean' isOpen()
+    {
+        java.io.OutputStream $r1;
+        org.apache.thrift.transport.TIOStreamTransport this;
+        java.io.InputStream $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_>;
+
+        if $r0 != null goto label1;
+
+        $r1 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_>;
+
+        if $r1 == null goto label2;
+
+     label1:
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        return $z0;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TIOStreamTransport this;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        return;
+    }
+
+    public 'void' close()
+    {
+        java.io.OutputStream $r3;
+        java.lang.Throwable $r5;
+        org.slf4j.Logger $r2;
+        java.io.IOException iox_1, iox_2;
+        org.apache.thrift.transport.TIOStreamTransport this;
+        java.io.InputStream $r0;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+     label01:
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_>;
+
+        if $r0 == null goto label05;
+
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_>;
+
+     label02:
+        virtualinvoke $r0.<java.io.InputStream: 'void' close()>();
+
+     label03:
+        goto label05;
+
+     label04:
+        iox_1 := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TIOStreamTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Error closing input stream.", iox_1);
+
+     label05:
+        $r3 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_>;
+
+        if $r3 == null goto label09;
+
+        $r3 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_>;
+
+     label06:
+        virtualinvoke $r3.<java.io.OutputStream: 'void' close()>();
+
+     label07:
+        goto label09;
+
+     label08:
+        iox_2 := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TIOStreamTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Error closing output stream.", iox_2);
+
+     label09:
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        goto label11;
+
+     label10:
+        $r5 := @caughtexception;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_> = null;
+
+        this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_> = null;
+
+        throw $r5;
+
+     label11:
+        return;
+
+        catch java.io.IOException from label02 to label03 with label04;
+        catch java.io.IOException from label06 to label07 with label08;
+        catch java.lang.Throwable from label01 to label09 with label10;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransportException $r1;
+        java.io.IOException ste_2;
+        java.net.SocketTimeoutException ste_1;
+        'int' off, len, bytesRead;
+        org.apache.thrift.transport.TIOStreamTransport this;
+        java.io.InputStream $r0;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_>;
+
+        if $r0 != null goto label1;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Cannot read from null inputStream");
+
+        throw $r1;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.InputStream inputStream_>;
+
+     label2:
+        bytesRead = virtualinvoke $r0.<java.io.InputStream: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+     label3:
+        goto label6;
+
+     label4:
+        ste_1 := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(3, ste_1);
+
+        throw $r1;
+
+     label5:
+        ste_2 := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(0, ste_2);
+
+        throw $r1;
+
+     label6:
+        if bytesRead >= 0 goto label7;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(4, "Socket is closed by peer.");
+
+        throw $r1;
+
+     label7:
+        return bytesRead;
+
+        catch java.net.SocketTimeoutException from label2 to label3 with label4;
+        catch java.io.IOException from label2 to label3 with label5;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        java.io.OutputStream $r0;
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransportException $r1;
+        'int' off, len;
+        java.io.IOException iox;
+        org.apache.thrift.transport.TIOStreamTransport this;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_>;
+
+        if $r0 != null goto label1;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Cannot write to null outputStream");
+
+        throw $r1;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_>;
+
+     label2:
+        virtualinvoke $r0.<java.io.OutputStream: 'void' write('byte'[],'int','int')>(buf, off, len);
+
+     label3:
+        goto label5;
+
+     label4:
+        iox := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(0, iox);
+
+        throw $r1;
+
+     label5:
+        return;
+
+        catch java.io.IOException from label2 to label3 with label4;
+    }
+
+    public 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        java.io.OutputStream $r0;
+        org.apache.thrift.transport.TTransportException $r1;
+        java.io.IOException iox;
+        org.apache.thrift.transport.TIOStreamTransport this;
+
+        this := @this: org.apache.thrift.transport.TIOStreamTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_>;
+
+        if $r0 != null goto label1;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Cannot flush null outputStream");
+
+        throw $r1;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TIOStreamTransport: java.io.OutputStream outputStream_>;
+
+     label2:
+        virtualinvoke $r0.<java.io.OutputStream: 'void' flush()>();
+
+        virtualinvoke this.<org.apache.thrift.transport.TIOStreamTransport: 'void' resetConsumedMessageSize('long')>(-1L);
+
+     label3:
+        goto label5;
+
+     label4:
+        iox := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(0, iox);
+
+        throw $r1;
+
+     label5:
+        return;
+
+        catch java.io.IOException from label2 to label3 with label4;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        org.slf4j.Logger $r2;
+
+        $r0 = class "Lorg/apache/thrift/transport/TIOStreamTransport;";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        <org.apache.thrift.transport.TIOStreamTransport: org.slf4j.Logger LOGGER> = $r2;
+
+        return;
+    }
+}

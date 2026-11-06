@@ -1,0 +1,9 @@
+2024-06-13_e595e5e0_xor	PROVED (allocated-arguments)	PROVED (all-worlds)		
+2024-09-12_63e3755f_isObject	UNKNOWN	PROVED (all-worlds)	no proof: proof search timed out (heartbeats); observational statement: proof search timed out (heartbeats); old-no-panic statement: proof search timed out (hea	
+2024-09-14_ec79293f_trim	UNKNOWN	PROVED (all-worlds)	no proof: proof search timed out (heartbeats); allocated-arguments-strlen statement: proof search timed out (heartbeats); observational statement: proof search 	
+2024-09-14_ec79293f_trimEnd	UNKNOWN	PROVED (all-worlds)	no proof: proof search timed out (heartbeats); allocated-arguments-strlen statement: proof search timed out (heartbeats); observational statement: proof search 	
+2024-09-14_ec79293f_trimStart	UNKNOWN	PROVED (all-worlds)	no proof: proof search timed out (heartbeats); allocated-arguments-strlen statement: proof search timed out (heartbeats); observational statement: proof search 	
+2025-06-24_e3525153_padEnd	UNKNOWN	PROVED (all-worlds)	no proof: proof search timed out (heartbeats); allocated-arguments-strlen statement: proof search timed out (heartbeats); observational statement: proof search 	
+2025-06-24_e3525153_padStart	UNKNOWN	PROVED (all-worlds)	no proof: proof search timed out (heartbeats); allocated-arguments-strlen statement: proof search timed out (heartbeats); observational statement: proof search 	
+#	6	UNKNOWN -> PROVED (all-worlds)
+#	1	PROVED (allocated-arguments) -> PROVED (all-worlds)

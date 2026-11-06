@@ -1,0 +1,1 @@
+equivalent Math.min(a, b) vs Math.min(b, a) (symmetric, -0 and NaN included)

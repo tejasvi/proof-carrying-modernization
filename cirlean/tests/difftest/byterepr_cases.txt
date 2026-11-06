@@ -1,0 +1,36 @@
+# Bytes that are no value of the object's type (byterepr.c; C11 6.2.6.1p4-5): a _Bool's byte other than 0 or 1, a
+# NaN's bit pattern in a double or a float, written through a character lvalue or by memcpy / memset byte by byte.
+# The object keeps the bytes (cirlean holds them as an integer); character reads and copies give them back, a later
+# store that makes a value again gives that value, and only a read of the object as its type is undefined (a _Bool,
+# 6.2.6.1p5) or not modelled (a NaN). Each case is labelled with its expected outcome on the line above it: MATCH,
+# or UB from cirrun.
+# expect MATCH: a _Bool's byte set to 2, then 0, then the _Bool read (soundness audit F8; was UB)
+byterepr r_bool_2_then_0 0
+# expect MATCH: the byte read back while it is 2, then set to 1 and the _Bool read
+byterepr r_bool_byte_read 0
+# expect UB: the _Bool read while its byte is 2 (6.2.6.1p5)
+byterepr r_bool_read_2 0
+# expect MATCH: a structure with such a _Bool member copied, the copy's byte read
+byterepr r_bool_struct_copy 0
+# expect MATCH: infinity copied into a double byte by byte, last byte first: NaN bits for some steps (audit F9; was UB)
+byterepr r_transient_nan 0
+# expect MATCH: control, the forward copy
+byterepr r_forward_copy 0
+# expect MATCH: the same for a float, last byte first
+byterepr r_float_transient 0
+# expect MATCH: a NaN's bytes written into a double and read back through the character lvalue
+byterepr r_nan_bytes_read 0
+# expect UB: gap, the double read while it holds a NaN's bits (C: defined, 1; NaNs are not modelled)
+byterepr r_nan_double_read 0
+# expect MATCH: byte 2 copied into a _Bool by memcpy and copied back out into an unsigned char (was UB)
+byterepr r_memcpy_bool_byte 0
+# expect UB: the _Bool read after byte 2 was copied into it (6.2.6.1p5)
+byterepr r_memcpy_bool_read 0
+# expect MATCH: memset of 0xff makes a double's bytes a NaN's, read back through the character lvalue (was UB)
+byterepr r_memset_nan_bytes 0
+# expect MATCH: a NaN's bytes copied into a double, then its two high bytes replaced by those of 1.0 (was UB)
+byterepr r_memcpy_nan_partial 0
+# expect MATCH: infinity copied into a double one byte per memcpy, last byte first: NaN bits for some steps (was UB)
+byterepr r_memcpy_transient 0
+# expect MATCH: control, a double holding a NaN's bytes copied whole by memcpy, a byte of the copy read
+byterepr r_memcpy_raw_whole 0

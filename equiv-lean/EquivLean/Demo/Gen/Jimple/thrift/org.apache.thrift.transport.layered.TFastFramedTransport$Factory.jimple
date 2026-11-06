@@ -1,0 +1,116 @@
+public class org.apache.thrift.transport.layered.TFastFramedTransport$Factory extends org.apache.thrift.transport.TTransportFactory
+{
+    private final 'int' initialCapacity;
+    private final java.lang.Integer maxLength;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport$Factory this;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport$Factory;
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: 'void' <init>('int',java.lang.Integer)>(1024, null);
+
+        return;
+    }
+
+    public 'void' <init>('int')
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport$Factory this;
+        'int' initialCapacity;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport$Factory;
+
+        initialCapacity := @parameter0: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: 'void' <init>('int',java.lang.Integer)>(initialCapacity, null);
+
+        return;
+    }
+
+    public 'void' <init>('int', 'int')
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport$Factory this;
+        'int' initialCapacity, maxLength;
+        java.lang.Integer $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport$Factory;
+
+        initialCapacity := @parameter0: 'int';
+
+        maxLength := @parameter1: 'int';
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(maxLength);
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: 'void' <init>('int',java.lang.Integer)>(initialCapacity, $r0);
+
+        return;
+    }
+
+    private 'void' <init>('int', java.lang.Integer)
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport$Factory this;
+        'int' initialCapacity;
+        java.lang.Integer maxLength;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport$Factory;
+
+        initialCapacity := @parameter0: 'int';
+
+        maxLength := @parameter1: java.lang.Integer;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: 'int' initialCapacity> = initialCapacity;
+
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: java.lang.Integer maxLength> = maxLength;
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport$Factory this;
+        org.apache.thrift.transport.layered.TFastFramedTransport $r2, $r3;
+        java.lang.Integer $r0;
+        org.apache.thrift.transport.TTransport trans;
+        'int' $i0, $i2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport$Factory;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: java.lang.Integer maxLength>;
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>($r0);
+
+        if $z0 == false goto label1;
+
+        $r3 = new org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r2 = $r3;
+
+        $i0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: 'int' initialCapacity>;
+
+        specialinvoke $r3.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' <init>(org.apache.thrift.transport.TTransport,'int')>(trans, $i0);
+
+        goto label2;
+
+     label1:
+        $r3 = new org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r2 = $r3;
+
+        $i0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: 'int' initialCapacity>;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport$Factory: java.lang.Integer maxLength>;
+
+        $i2 = virtualinvoke $r0.<java.lang.Integer: 'int' intValue()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' <init>(org.apache.thrift.transport.TTransport,'int','int')>(trans, $i0, $i2);
+
+     label2:
+        return $r2;
+    }
+}

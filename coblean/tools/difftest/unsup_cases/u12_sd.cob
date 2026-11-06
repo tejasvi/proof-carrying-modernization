@@ -1,0 +1,14 @@
+      * EXPECT-FAULT: sort file (SD S1)
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U12.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT S1 ASSIGN TO 'U12.TMP'.
+       DATA DIVISION.
+       FILE SECTION.
+       SD  S1.
+       01  SR1 PIC X(10).
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

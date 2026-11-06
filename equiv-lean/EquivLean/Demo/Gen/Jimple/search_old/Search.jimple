@@ -1,0 +1,45 @@
+public final class Search extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        Search r0;
+
+        r0 := @this: Search;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static 'boolean' contains('int'[], 'int')
+    {
+        'int'[] r0;
+        'int' i0, $i1, i3;
+
+        r0 := @parameter0: 'int'[];
+
+        i0 := @parameter1: 'int';
+
+        i3 = 0;
+
+     label1:
+        $i1 = lengthof r0;
+
+        if i3 >= $i1 goto label3;
+
+        $i1 = r0[i3];
+
+        if $i1 != i0 goto label2;
+
+        return 1;
+
+     label2:
+        i3 = i3 + 1;
+
+        goto label1;
+
+     label3:
+        return 0;
+    }
+}

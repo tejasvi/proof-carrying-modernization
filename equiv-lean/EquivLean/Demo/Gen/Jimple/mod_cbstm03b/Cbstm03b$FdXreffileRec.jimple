@@ -1,0 +1,25 @@
+public final class Cbstm03b$FdXreffileRec extends java.lang.Object
+{
+    public java.lang.String fdXrefCardNum;
+    public java.lang.String fdXrefData;
+
+    public 'void' <init>(java.lang.String, java.lang.String)
+    {
+        java.lang.String r1, r2;
+        Cbstm03b$FdXreffileRec r0;
+
+        r0 := @this: Cbstm03b$FdXreffileRec;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbstm03b$FdXreffileRec: java.lang.String fdXrefCardNum> = r1;
+
+        r0.<Cbstm03b$FdXreffileRec: java.lang.String fdXrefData> = r2;
+
+        return;
+    }
+}

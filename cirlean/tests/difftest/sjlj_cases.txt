@@ -1,0 +1,41 @@
+# setjmp / longjmp (sjlj.cpp): run with CASES=sjlj_cases.txt. Each case is labelled with its expected
+# outcome on the line above it: MATCH, UB from cirrun where the program breaks a rule of C11 7.13 or
+# C++ [csetjmp.syn] (natively it does something), or UB where cirlean does not model the case (gap).
+# expect MATCH: longjmp three frames down, through frames with their own setjmp and jmp_buf
+sjlj t_far 5
+sjlj t_far 7
+# expect MATCH: repeated jumps to one setjmp, counted in a volatile object
+sjlj t_loop 0
+sjlj t_loop 2
+# expect MATCH: a global jmp_buf, the longjmp from a later statement's callee
+sjlj t_inline 7
+# expect MATCH: longjmp(b, 0) makes setjmp return 1
+sjlj t_zero 3
+# expect MATCH: a changed volatile object keeps its new value, an unchanged one its value
+sjlj t_kept 9
+# expect MATCH: setjmp as an expression statement, jumped back to from a later statement
+sjlj t_stmt 4
+# expect MATCH: a second setjmp on the same buffer; the longjmp goes to the latest
+sjlj t_multiple 5
+# expect MATCH: the statements after the setjmp's statement and enclosing block run again
+sjlj t_after_block 6
+# expect MATCH: sigsetjmp / siglongjmp
+sjlj t_sig 5
+# expect MATCH: a goto out of the setjmp's statement after the longjmp
+sjlj t_goto_out 2
+# expect UB: a non-volatile object changed between setjmp and longjmp, then read (7.13.2.1p3)
+sjlj t_ub_changed 4
+# expect UB: setjmp in an assignment (7.13.1.1p4-5)
+sjlj t_ub_assign 3
+# expect UB: setjmp in an initializer (7.13.1.1p4-5)
+sjlj t_ub_init 3
+# expect UB: a longjmp over a non-trivial destructor (C++ [csetjmp.syn]p2)
+sjlj t_ub_dtor 2
+# expect UB: longjmp to a setjmp whose function has returned (7.13.2.1p2)
+sjlj t_ub_dead 1
+# expect UB (gap): setjmp in a loop condition, jumped back to from the loop body
+sjlj t_gap_loop_cond 2
+# expect UB (gap): a longjmp after the if branch holding the setjmp was left
+sjlj t_gap_branch_left 2
+# expect UB (gap): a longjmp after the setjmp's statement in a block that branches (into a label)
+sjlj t_gap_label 2

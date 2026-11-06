@@ -1,0 +1,95 @@
+# Stores and loads of a vector type (T[N] in the model) and of a complex type through pointers to objects of
+# other types: elements of a float, int, unsigned or double array (also after a round trip through a char
+# pointer, in a loop, on the heap, of a local array), a structure of four floats (vecstore.c, a C source). Such
+# an access reads or writes the objects at its bytes, element by element. The layout of records with vector
+# members (a vector, an array of vectors, a structure and a union holding one) is LLVM's: a vector at a multiple
+# of its size rounded up to a power of two, which the bytes of the record and differences of char pointers show.
+# A vector load or store whose stated alignment exceeds its element's needs a pointer aligned to it, in C and in
+# C++ (vecstorex.cpp), unless the vector type is aligned as its element. Each case is labelled with its expected
+# outcome on the line above it: MATCH, or UB from cirrun on the u_ cases: elements past the end of the array, a
+# pointer at a byte where no float starts (C11 6.3.2.3p7), an element that is an int object (6.5p7), elements
+# never written, a vector access through a pointer aligned for float but not for the vector (6.3.2.3p7; natively
+# an aligned vector move that faults); and on the gaps, a vector access to a std::vector<float>'s elements
+# (vecstorex.cpp), not modelled.
+# expect MATCH: m19, a vector store through float* from a char pointer from the array
+vecstore s_m19 0
+# expect MATCH: a vector store through the array's decayed pointer
+vecstore s_direct 0
+# expect MATCH: a vector store at element 4, the elements around it kept
+vecstore s_elem4 0
+# expect MATCH: a vector store into a local array
+vecstore s_local 0
+# expect MATCH: a vector load at element 4
+vecstore l_array 0
+# expect MATCH: a vector load through a char pointer and back
+vecstore l_char_roundtrip 0
+# expect MATCH: vector loads and stores in a loop over an array
+vecstore s_loop 0
+# expect MATCH: a vector store over a structure of four floats
+vecstore s_struct 0
+# expect MATCH: a vector load from a structure of four floats
+vecstore l_struct 0
+# expect MATCH: an int vector store at element 4 of an int array
+vecstore s_int 0
+# expect MATCH: an int vector store over an unsigned array
+vecstore s_int_over_unsigned 0
+# expect MATCH: a double vector store at element 2
+vecstore s_double 0
+# expect MATCH: a vector type aligned as float, stored at element 1
+vecstore s_unaligned_type 0
+# expect MATCH: a vector store into heap storage typed as floats
+vecstore s_heap 0
+# expect MATCH: a complex store over two elements of a double array
+vecstore s_complex 0
+# expect MATCH: a complex load from two elements of a double array
+vecstore l_complex 0
+# expect MATCH: struct {float; v4sf}: the vector at byte 16, size 32
+vecstore r_member16 0
+# expect MATCH: memcpy of struct {float; v4sf} by its size
+vecstore r_member_copy 0
+# expect MATCH: struct {float; v8sf}: the vector at byte 32, size 64
+vecstore r_member32 0
+# expect MATCH: struct {char; v2sf}: the vector at byte 8, size 16
+vecstore r_member8 0
+# expect MATCH: an array of vectors as a member, and the member after it
+vecstore r_member_array 0
+# expect MATCH: a structure with a vector member as a member
+vecstore r_member_nested 0
+# expect MATCH: a union with a vector member as a member
+vecstore r_member_union 0
+# expect MATCH: the offset of a v4sf member after a float: 16
+vecstore r_offset16 0
+# expect MATCH: the offset of a v8sf member after a float: 32
+vecstore r_offset32 0
+# expect MATCH: the offset of a v2sf member after a char: 8
+vecstore r_offset8 0
+# expect MATCH: the size of struct {float; v4sf} from an array's elements: 32
+vecstore r_size_array 0
+# expect MATCH: the offsets of the member after an array of vectors and of its second vector
+vecstore r_offset_after_array 0
+# expect MATCH: the offset of a vector in a nested structure
+vecstore r_offset_nested 0
+# expect UB: a vector store past the end of the array
+vecstore u_past_end 0
+# expect UB: a vector pointer at a byte where no float starts
+vecstore u_misaligned_bytes 0
+# expect UB: a vector store whose second element is an int object
+vecstore u_struct_mixed 0
+# expect UB: a vector load of elements never written
+vecstore u_load_uninit 0
+# expect UB: a vector store through a pointer aligned for float, not for the vector
+vecstore u_misaligned_vector 0
+# expect UB: a vector load through a pointer aligned for float, not for the vector
+vecstore u_misaligned_load 0
+# expect MATCH: C++: a vector store at an aligned element
+vecstorex s_aligned_cxx 0
+# expect MATCH: C++: a vector type aligned as float, stored at element 1
+vecstorex s_unaligned_type_cxx 0
+# expect UB: C++: a vector store through a pointer aligned for float, not for the vector
+vecstorex u_misaligned_cxx 0
+# expect UB: C++: a vector load through a pointer aligned for float, not for the vector
+vecstorex u_misaligned_load_cxx 0
+# expect UB: gap: a vector store to a std::vector<float>'s elements
+vecstorex g_container_store 0
+# expect UB: gap: a vector load from a std::vector<float>'s elements
+vecstorex g_container_load 0

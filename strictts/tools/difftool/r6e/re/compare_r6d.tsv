@@ -1,0 +1,2 @@
+2026-01-06_a5b389b8_doesNothing	UNKNOWN	PROVED (all-worlds)	generic doesNothing: no instance for the constraint Args extends ReadonlyArray<unknown>	
+#	1	UNKNOWN -> PROVED (all-worlds)

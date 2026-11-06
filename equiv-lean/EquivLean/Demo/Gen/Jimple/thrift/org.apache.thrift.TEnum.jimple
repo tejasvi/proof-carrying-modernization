@@ -1,0 +1,5 @@
+public interface  org.apache.thrift.TEnum extends java.lang.Object
+{
+
+    public abstract 'int' getValue();
+}

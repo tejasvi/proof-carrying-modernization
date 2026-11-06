@@ -1,0 +1,36 @@
+public final class Cbtrn03c$TranCatRecord extends java.lang.Object
+{
+    public java.lang.String tranTypeCd;
+    public 'long' tranCatCd;
+    public java.lang.String tranCatTypeDesc;
+    public java.lang.String filler1;
+
+    public 'void' <init>(java.lang.String, 'long', java.lang.String, java.lang.String)
+    {
+        Cbtrn03c$TranCatRecord r0;
+        'long' l0;
+        java.lang.String r1, r2, r3;
+
+        r0 := @this: Cbtrn03c$TranCatRecord;
+
+        r1 := @parameter0: java.lang.String;
+
+        l0 := @parameter1: 'long';
+
+        r2 := @parameter2: java.lang.String;
+
+        r3 := @parameter3: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn03c$TranCatRecord: java.lang.String tranTypeCd> = r1;
+
+        r0.<Cbtrn03c$TranCatRecord: 'long' tranCatCd> = l0;
+
+        r0.<Cbtrn03c$TranCatRecord: java.lang.String tranCatTypeDesc> = r2;
+
+        r0.<Cbtrn03c$TranCatRecord: java.lang.String filler1> = r3;
+
+        return;
+    }
+}

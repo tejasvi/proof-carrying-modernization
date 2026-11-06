@@ -1,0 +1,43 @@
+public final class org.apache.thrift.protocol.TStruct extends java.lang.Object
+{
+    public final java.lang.String name;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TStruct this;
+
+        this := @this: org.apache.thrift.protocol.TStruct;
+
+        specialinvoke this.<org.apache.thrift.protocol.TStruct: 'void' <init>(java.lang.String)>("");
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String)
+    {
+        java.lang.String n;
+        org.apache.thrift.protocol.TStruct this;
+
+        this := @this: org.apache.thrift.protocol.TStruct;
+
+        n := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TStruct: java.lang.String name> = n;
+
+        return;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String $r0;
+        org.apache.thrift.protocol.TStruct this;
+
+        this := @this: org.apache.thrift.protocol.TStruct;
+
+        $r0 = this.<org.apache.thrift.protocol.TStruct: java.lang.String name>;
+
+        return $r0;
+    }
+}

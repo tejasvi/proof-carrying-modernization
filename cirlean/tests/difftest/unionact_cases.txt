@@ -1,0 +1,106 @@
+# Union activation by stores (unionact.cpp, C++; unionact_c.c, C): the member last stored is the active one,
+# whichever pointer was used (C11 6.5.2.3p3, footnote 95); another member reads the stored bytes: a scalar of the
+# same type at the same offset as it is, one of the same size reinterpreted, another composed from the bytes
+# (6.5p7); the common initial sequence of structs may be read through either struct (6.5.2.3p6); a bit-field unit
+# stored after another member keeps that member's bits; a member access of a const union writes nothing, and
+# another member reads the initialized one. C++ modules read unions as C does (GCC and Clang document it; ISO C++
+# leaves it undefined). Each case is labelled with its expected outcome on the line above it: MATCH, or UB from
+# cirrun where C leaves the value undefined or unspecified, where the bytes read are not modelled (a NaN pattern),
+# or for the one gap (an array member of a const union read through another array member).
+# expect MATCH: U1, pointers formed first, a float then an int stored through them, the int's bits read as a float (0)
+unionact u_stale_member 0
+# expect MATCH: U1, the float 1.0 stored through an earlier pointer, read through the int pointer (1065353216)
+unionact u_stale_member_int 0
+# expect MATCH: U1, the float 3.0 stored through an earlier pointer, read through the int pointer
+unionact u_stale_member_int 2
+# expect MATCH: U1, two integer members of one width (7)
+unionact u_stale_ints 0
+# expect MATCH: U1, two integer members of one width, a negative int read as unsigned and back
+unionact u_stale_ints -9
+# expect MATCH: U1, a read through a pointer formed before another member was assigned (1073741824)
+unionact u_old_ptr_read 0
+# expect MATCH: U1, a character read through a pointer into the other member formed first: the int's low byte (4)
+unionact u_byte_old_ptr 0
+# expect MATCH: U1, a character store through such a pointer, the int read with its low byte replaced (16909072)
+unionact u_byte_store_old_ptr 0
+# expect MATCH: the common initial sequence of two structs (3)
+unionact u_common_initial 0
+# expect MATCH: past the common initial sequence, an int's bits read as a float (3141)
+unionact u_cis_other_member 0
+# expect MATCH: a struct's first member read through an int member at the same offset (5)
+unionact u_struct_then_int 0
+# expect MATCH: a const union read through another member of the same size (1065353216)
+unionact u_const_other_member 0
+# expect MATCH: F2, a const union at file scope read through its initialized member, not the first (3)
+unionact u_const_init_member 0
+# expect MATCH: F3, a const union at file scope read through another member of the same size (1065353216)
+unionact u_const_global_pun 0
+# expect MATCH: F2, a const union read through its active first member by a pointer (42)
+unionact u_const_active 0
+# expect MATCH: a table of const unions indexed at run time, read through the int member (1065353216)
+unionact u_const_table 0
+# expect MATCH: a table of const unions indexed at run time, the element whose int member is initialized (7)
+unionact u_const_table 1
+# expect MATCH: a bit-field of a const union whose unsigned member is initialized, the unit its bits (536870911)
+unionact u_const_bitfield 0
+# expect MATCH: control, a const local union read through another member (1065353216)
+unionact u_const_local_other 0
+# expect MATCH: U2, a bit-field unit stored after a float member, the other bits the float's (133169152)
+unionact u_bitfield_after_float 0
+# expect MATCH: U2, a bit-field unit stored after an unsigned member (536870911)
+unionact u_bitfield_after_int 0
+# expect MATCH: U2, a bit-field unit stored after an unsigned member, another value
+unionact u_bitfield_after_int 12345
+# expect MATCH: U2 through a pointer to the struct formed before the other member was stored
+unionact u_bitfield_old_ptr 3
+# expect MATCH: a union in a struct in an array, through a pointer formed before (1073741825)
+unionact u_array_struct_member 0
+# expect MATCH: a union inside a union, the inner members reinterpreted (1082130432)
+unionact u_nested 0
+# expect MATCH: control, stores and reads through the same member pointers (12)
+unionact u_same_member 0
+# expect MATCH: a struct member stored after a long long through an earlier pointer, the long long's low half (4)
+unionact u_split_scalar 0
+# expect MATCH: NX1, C++ module: another member read reinterprets the active member's bytes, as GCC and Clang
+# document (ISO C++: undefined, [class.union], [basic.life]p7; the common initial sequence exempt in both) (10)
+unionact x_cxx_inactive_read 0
+# expect UB: control, 2 read as a bool, a trap representation in C (6.2.6.1p5)
+unionact u_bool_trap 0
+# expect UB: control, a larger member than the one stored, its other bytes unspecified (6.2.6.1p7)
+unionact u_larger_member 0
+# expect UB: control, a stale larger member after a smaller one is stored (its high bytes unspecified)
+unionact u_stale_larger 0
+# expect UB: the gap, an array member of a const union read through another array member (C: 1065353216)
+unionact u_const_array_other 0
+# expect UB: control, a store through another member of a const union, a modification of the const object (6.7.3p6)
+unionact u_const_store_other 0
+# expect MATCH: NX2 (C), byte 1 of an int read through a char array member (3)
+unionact_c c_char_member 0
+# expect MATCH: control (C), the same byte through a char pointer to the union (3)
+unionact_c c_char_pointer 0
+# expect MATCH: NX2 (C), a byte stored through the char array member, then the int read (16909072)
+unionact_c c_char_member_store 0
+# expect MATCH: NX2 (C), the halves of an int through a short array member (12)
+unionact_c c_short_halves 0
+# expect MATCH: NX2 (C), the halves of a long long through an int array member (12)
+unionact_c c_ll_halves 0
+# expect MATCH: C, a float composed from bytes stored through the char array member (10)
+unionact_c c_float_from_bytes 0
+# expect MATCH: C, a _Bool read from an int's first byte, 1 (1)
+unionact_c c_bool_from_int 0
+# expect UB: control (C), a _Bool from a byte 2, a trap representation (6.2.6.1p5)
+unionact_c c_bool_trap_from_int 0
+# expect UB: control (C), an int read after a char store, its other bytes unspecified (6.2.6.1p7)
+unionact_c c_larger_member 0
+# expect UB: control (C), a NaN pattern composed from bytes (not modelled)
+unionact_c c_nan_from_bytes 0
+# expect MATCH: C, a _Bool 1 read through an unsigned char member of the same size (1)
+unionact_c c_bool_to_char 0
+# expect MATCH: C, an unsigned char 1 read through a _Bool member (1)
+unionact_c c_char_to_bool 0
+# expect UB: control (C), an unsigned char 2 read through a _Bool member, a trap representation (6.2.6.1p5)
+unionact_c c_char_to_bool_trap 0
+# expect MATCH: C, a byte 2 stored into the _Bool member through a char pointer, read through the unsigned char member (2)
+unionact_c c_bool_byte_as_char 0
+# expect MATCH: C, a NaN pattern stored into the float member through a char pointer, its bits read through the int member (32704)
+unionact_c c_nan_bytes_as_int 0

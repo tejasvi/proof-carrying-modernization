@@ -1,0 +1,31 @@
+public final class Clamp extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        Clamp r0;
+
+        r0 := @this: Clamp;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static 'int' clamp('int', 'int', 'int')
+    {
+        'int' i0, i1, i2;
+
+        i0 := @parameter0: 'int';
+
+        i1 := @parameter1: 'int';
+
+        i2 := @parameter2: 'int';
+
+        i0 = staticinvoke <java.lang.Math: 'int' min('int','int')>(i0, i2);
+
+        i0 = staticinvoke <java.lang.Math: 'int' max('int','int')>(i1, i0);
+
+        return i0;
+    }
+}

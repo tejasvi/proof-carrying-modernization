@@ -1,0 +1,957 @@
+public class org.apache.thrift.partial.PartialThriftComparer extends java.lang.Object
+{
+    private org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata;
+
+    public 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftStruct)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata;
+        org.apache.thrift.partial.PartialThriftComparer this;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        metadata := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftStruct;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata> = metadata;
+
+        return;
+    }
+
+    public 'boolean' areEqual(org.apache.thrift.TBase, org.apache.thrift.TBase, java.lang.StringBuilder)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r0;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        java.lang.StringBuilder sb;
+        org.apache.thrift.TBase t1, t2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        t1 := @parameter0: org.apache.thrift.TBase;
+
+        t2 := @parameter1: org.apache.thrift.TBase;
+
+        sb := @parameter2: java.lang.StringBuilder;
+
+        $r0 = this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata>;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftStruct,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r0, t1, t2, sb);
+
+        return $z0;
+    }
+
+    private 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive $r7;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct $r2;
+        'byte' fieldType;
+        'int' $i0;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        org.apache.thrift.partial.ThriftMetadata$ThriftList $r3;
+        org.apache.thrift.meta_data.FieldMetaData $r0;
+        org.apache.thrift.meta_data.FieldValueMetaData $r1;
+        'boolean' $z0;
+        java.lang.UnsupportedOperationException $r8;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject data;
+        org.apache.thrift.partial.ThriftMetadata$ThriftMap $r4;
+        java.lang.Object o1, o2;
+        java.lang.StringBuilder sb;
+        org.apache.thrift.partial.ThriftMetadata$ThriftEnum $r6;
+        org.apache.thrift.partial.ThriftMetadata$ThriftSet $r5;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        $r0 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.meta_data.FieldMetaData data>;
+
+        $r1 = $r0.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData>;
+
+        fieldType = $r1.<org.apache.thrift.meta_data.FieldValueMetaData: 'byte' type>;
+
+        $i0 = ('int') fieldType;
+
+        tableswitch($i0)
+        {
+            case -1: goto label5;
+            case 0: goto label7;
+            case 1: goto label7;
+            case 2: goto label6;
+            case 3: goto label6;
+            case 4: goto label6;
+            case 5: goto label7;
+            case 6: goto label6;
+            case 7: goto label7;
+            case 8: goto label6;
+            case 9: goto label7;
+            case 10: goto label6;
+            case 11: goto label6;
+            case 12: goto label1;
+            case 13: goto label3;
+            case 14: goto label4;
+            case 15: goto label2;
+            default: goto label7;
+        };
+
+     label1:
+        $r2 = (org.apache.thrift.partial.ThriftMetadata$ThriftStruct) data;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftStruct,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r2, o1, o2, sb);
+
+        return $z0;
+
+     label2:
+        $r3 = (org.apache.thrift.partial.ThriftMetadata$ThriftList) data;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftList,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r3, o1, o2, sb);
+
+        return $z0;
+
+     label3:
+        $r4 = (org.apache.thrift.partial.ThriftMetadata$ThriftMap) data;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftMap,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r4, o1, o2, sb);
+
+        return $z0;
+
+     label4:
+        $r5 = (org.apache.thrift.partial.ThriftMetadata$ThriftSet) data;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftSet,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r5, o1, o2, sb);
+
+        return $z0;
+
+     label5:
+        $r6 = (org.apache.thrift.partial.ThriftMetadata$ThriftEnum) data;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftEnum,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r6, o1, o2, sb);
+
+        return $z0;
+
+     label6:
+        $r7 = (org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive) data;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r7, o1, o2, sb);
+
+        return $z0;
+
+     label7:
+        $r8 = staticinvoke <org.apache.thrift.partial.PartialThriftComparer: java.lang.UnsupportedOperationException unsupportedFieldTypeException('byte')>(fieldType);
+
+        throw $r8;
+    }
+
+    private 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftStruct, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct data;
+        java.util.Map $r2;
+        'int' $i0;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        org.apache.thrift.TBase t1, t2;
+        'boolean' $z0, overallResult;
+        java.util.Iterator r5;
+        java.util.Collection $r4;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject field;
+        org.apache.thrift.partial.PartialThriftComparer$ComparisonResult result, $r0;
+        java.lang.Object o1, o2, o, f1, f2;
+        java.lang.StringBuilder sb;
+        org.apache.thrift.TFieldIdEnum $r6;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftStruct;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        result = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult checkNullEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>(data, o1, o2, sb);
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult UNKNOWN>;
+
+        if result == $r0 goto label3;
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult EQUAL>;
+
+        if result != $r0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+
+     label3:
+        t1 = (org.apache.thrift.TBase) o1;
+
+        t2 = (org.apache.thrift.TBase) o2;
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftStruct: java.util.Map fields>;
+
+        $i0 = interfaceinvoke $r2.<java.util.Map: 'int' size()>();
+
+        if $i0 != 0 goto label5;
+
+        $z0 = virtualinvoke t1.<java.lang.Object: 'boolean' equals(java.lang.Object)>(t2);
+
+        if $z0 == false goto label4;
+
+        return 1;
+
+     label4:
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendNotEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.Object,java.lang.Object,java.lang.String,java.lang.String)>(data, sb, t1, t2, "struct1", "struct2");
+
+        return 0;
+
+     label5:
+        overallResult = 1;
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftStruct: java.util.Map fields>;
+
+        $r4 = interfaceinvoke $r2.<java.util.Map: java.util.Collection values()>();
+
+        r5 = interfaceinvoke $r4.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label6:
+        $z0 = interfaceinvoke r5.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label9;
+
+        o = interfaceinvoke r5.<java.util.Iterator: java.lang.Object next()>();
+
+        field = (org.apache.thrift.partial.ThriftMetadata$ThriftObject) o;
+
+        $r6 = field.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.TFieldIdEnum fieldId>;
+
+        f1 = interfaceinvoke t1.<org.apache.thrift.TBase: java.lang.Object getFieldValue(org.apache.thrift.TFieldIdEnum)>($r6);
+
+        $r6 = field.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.TFieldIdEnum fieldId>;
+
+        f2 = interfaceinvoke t2.<org.apache.thrift.TBase: java.lang.Object getFieldValue(org.apache.thrift.TFieldIdEnum)>($r6);
+
+        if overallResult == false goto label7;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>(field, f1, f2, sb);
+
+        if $z0 == false goto label7;
+
+        $z0 = 1;
+
+        goto label8;
+
+     label7:
+        $z0 = 0;
+
+     label8:
+        overallResult = $z0;
+
+        goto label6;
+
+     label9:
+        return overallResult;
+    }
+
+    private 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive data;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        org.apache.thrift.partial.PartialThriftComparer$ComparisonResult result, $r0;
+        java.lang.Object o1, o2;
+        java.lang.StringBuilder sb;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        result = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult checkNullEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>(data, o1, o2, sb);
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult UNKNOWN>;
+
+        if result == $r0 goto label3;
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult EQUAL>;
+
+        if result != $r0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+
+     label3:
+        $z0 = virtualinvoke data.<org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive: 'boolean' isBinary()>();
+
+        if $z0 == false goto label4;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areBinaryFieldsEqual(java.lang.Object,java.lang.Object)>(o1, o2);
+
+        if $z0 == false goto label5;
+
+        return 1;
+
+     label4:
+        $z0 = virtualinvoke o1.<java.lang.Object: 'boolean' equals(java.lang.Object)>(o2);
+
+        if $z0 == false goto label5;
+
+        return 1;
+
+     label5:
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendNotEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.Object,java.lang.Object,java.lang.String,java.lang.String)>(data, sb, o1, o2, "o1", "o2");
+
+        return 0;
+    }
+
+    private 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftEnum, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        org.apache.thrift.partial.PartialThriftComparer this;
+        org.apache.thrift.partial.PartialThriftComparer$ComparisonResult result, $r0;
+        java.lang.Object o1, o2;
+        java.lang.StringBuilder sb;
+        org.apache.thrift.partial.ThriftMetadata$ThriftEnum data;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftEnum;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        result = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult checkNullEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>(data, o1, o2, sb);
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult UNKNOWN>;
+
+        if result == $r0 goto label3;
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult EQUAL>;
+
+        if result != $r0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+
+     label3:
+        $z0 = virtualinvoke o1.<java.lang.Object: 'boolean' equals(java.lang.Object)>(o2);
+
+        if $z0 == false goto label4;
+
+        return 1;
+
+     label4:
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendNotEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.Object,java.lang.Object,java.lang.String,java.lang.String)>(data, sb, o1, o2, "o1", "o2");
+
+        return 0;
+    }
+
+    private 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftList, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject $r2;
+        java.util.List l1, l2;
+        'int' $i0, i;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        org.apache.thrift.partial.PartialThriftComparer$ComparisonResult result, $r0;
+        java.lang.Object o1, o2, e1, e2;
+        java.lang.StringBuilder sb;
+        org.apache.thrift.partial.ThriftMetadata$ThriftList data;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftList;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        l1 = (java.util.List) o1;
+
+        l2 = (java.util.List) o2;
+
+        result = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult checkNullEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>(data, o1, o2, sb);
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult UNKNOWN>;
+
+        if result == $r0 goto label3;
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult EQUAL>;
+
+        if result != $r0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+
+     label3:
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' checkSizeEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.util.Collection,java.util.Collection,java.lang.StringBuilder,java.lang.String)>(data, l1, l2, sb, "list");
+
+        if $z0 != 0 goto label4;
+
+        return 0;
+
+     label4:
+        i = 0;
+
+     label5:
+        $i0 = interfaceinvoke l1.<java.util.List: 'int' size()>();
+
+        if i >= $i0 goto label7;
+
+        e1 = interfaceinvoke l1.<java.util.List: java.lang.Object get('int')>(i);
+
+        e2 = interfaceinvoke l2.<java.util.List: java.lang.Object get('int')>(i);
+
+        $r2 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftList: org.apache.thrift.partial.ThriftMetadata$ThriftObject elementData>;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r2, e1, e2, sb);
+
+        if $z0 != 0 goto label6;
+
+        return 0;
+
+     label6:
+        i = i + 1;
+
+        goto label5;
+
+     label7:
+        return 1;
+    }
+
+    private 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftSet, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        java.lang.Object[] $r3;
+        java.util.Iterator r2;
+        java.util.Set s1, s2;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        org.apache.thrift.partial.PartialThriftComparer$ComparisonResult result, $r0;
+        java.lang.Object o1, o2, e1;
+        java.lang.StringBuilder sb;
+        org.apache.thrift.partial.ThriftMetadata$ThriftSet data;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftSet;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        s1 = (java.util.Set) o1;
+
+        s2 = (java.util.Set) o2;
+
+        result = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult checkNullEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>(data, o1, o2, sb);
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult UNKNOWN>;
+
+        if result == $r0 goto label3;
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult EQUAL>;
+
+        if result != $r0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+
+     label3:
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' checkSizeEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.util.Collection,java.util.Collection,java.lang.StringBuilder,java.lang.String)>(data, s1, s2, sb, "set");
+
+        if $z0 != 0 goto label4;
+
+        return 0;
+
+     label4:
+        r2 = interfaceinvoke s1.<java.util.Set: java.util.Iterator iterator()>();
+
+     label5:
+        $z0 = interfaceinvoke r2.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label6;
+
+        e1 = interfaceinvoke r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $z0 = interfaceinvoke s2.<java.util.Set: 'boolean' contains(java.lang.Object)>(e1);
+
+        if $z0 != 0 goto label5;
+
+        $r3 = newarray (java.lang.Object)[1];
+
+        $r3[0] = e1;
+
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(data, sb, "Element %s in s1 not found in s2", $r3);
+
+        return 0;
+
+     label6:
+        return 1;
+    }
+
+    private 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftMap, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        java.lang.Object[] $r7;
+        java.util.Map m1, m2;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        'boolean' $z0;
+        java.util.Map$Entry e1;
+        java.util.Iterator r5;
+        java.util.Set $r2, $r3;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject $r8;
+        org.apache.thrift.partial.ThriftMetadata$ThriftMap data;
+        org.apache.thrift.partial.PartialThriftComparer$ComparisonResult result, $r0;
+        java.lang.Object o1, o2, k1, v1, v2;
+        java.lang.StringBuilder sb;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftMap;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        m1 = (java.util.Map) o1;
+
+        m2 = (java.util.Map) o2;
+
+        result = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult checkNullEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>(data, o1, o2, sb);
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult UNKNOWN>;
+
+        if result == $r0 goto label3;
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult EQUAL>;
+
+        if result != $r0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+
+     label3:
+        $r2 = interfaceinvoke m1.<java.util.Map: java.util.Set keySet()>();
+
+        $r3 = interfaceinvoke m2.<java.util.Map: java.util.Set keySet()>();
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' checkSizeEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.util.Collection,java.util.Collection,java.lang.StringBuilder,java.lang.String)>(data, $r2, $r3, sb, "map.keySet");
+
+        if $z0 != 0 goto label4;
+
+        return 0;
+
+     label4:
+        $r2 = interfaceinvoke m1.<java.util.Map: java.util.Set entrySet()>();
+
+        r5 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label5:
+        $z0 = interfaceinvoke r5.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label7;
+
+        o1 = interfaceinvoke r5.<java.util.Iterator: java.lang.Object next()>();
+
+        e1 = (java.util.Map$Entry) o1;
+
+        k1 = interfaceinvoke e1.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $z0 = interfaceinvoke m2.<java.util.Map: 'boolean' containsKey(java.lang.Object)>(k1);
+
+        if $z0 != 0 goto label6;
+
+        $r7 = newarray (java.lang.Object)[1];
+
+        $r7[0] = k1;
+
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(data, sb, "Key %s in m1 not found in m2", $r7);
+
+        return 0;
+
+     label6:
+        v1 = interfaceinvoke e1.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        v2 = interfaceinvoke m2.<java.util.Map: java.lang.Object get(java.lang.Object)>(k1);
+
+        $r8 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftMap: org.apache.thrift.partial.ThriftMetadata$ThriftObject valueData>;
+
+        $z0 = specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'boolean' areEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.Object,java.lang.Object,java.lang.StringBuilder)>($r8, v1, v2, sb);
+
+        if $z0 != 0 goto label5;
+
+        return 0;
+
+     label7:
+        return 1;
+    }
+
+    private 'boolean' areBinaryFieldsEqual(java.lang.Object, java.lang.Object)
+    {
+        'byte'[] $r0, $r1;
+        java.lang.UnsupportedOperationException $r4;
+        java.lang.Object[] $r5;
+        java.nio.ByteBuffer $r2, $r3;
+        'int' $i0;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        java.lang.Object o1, o2;
+        java.lang.Class $r6;
+        java.lang.String $r7;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        o1 := @parameter0: java.lang.Object;
+
+        o2 := @parameter1: java.lang.Object;
+
+        $z0 = o1 instanceof 'byte'[];
+
+        if $z0 == false goto label1;
+
+        $r0 = ('byte'[]) o1;
+
+        $r1 = ('byte'[]) o2;
+
+        $z0 = staticinvoke <java.util.Arrays: 'boolean' equals('byte'[],'byte'[])>($r0, $r1);
+
+        if $z0 == false goto label3;
+
+        return 1;
+
+     label1:
+        $z0 = o1 instanceof java.nio.ByteBuffer;
+
+        if $z0 == false goto label2;
+
+        $r2 = (java.nio.ByteBuffer) o1;
+
+        $r3 = (java.nio.ByteBuffer) o2;
+
+        $i0 = virtualinvoke $r2.<java.nio.ByteBuffer: 'int' compareTo(java.nio.ByteBuffer)>($r3);
+
+        if $i0 != 0 goto label3;
+
+        return 1;
+
+     label2:
+        $r4 = new java.lang.UnsupportedOperationException;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r6 = virtualinvoke o1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.Class: java.lang.String getName()>();
+
+        $r5[0] = $r7;
+
+        $r7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("Unsupported binary field type: %s", $r5);
+
+        specialinvoke $r4.<java.lang.UnsupportedOperationException: 'void' <init>(java.lang.String)>($r7);
+
+        throw $r4;
+
+     label3:
+        return 0;
+    }
+
+    private transient 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject, java.lang.StringBuilder, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] args;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject data;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        java.lang.StringBuilder sb;
+        java.lang.String format, msg, $r1;
+        org.apache.thrift.TFieldIdEnum $r0;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        sb := @parameter1: java.lang.StringBuilder;
+
+        format := @parameter2: java.lang.String;
+
+        args := @parameter3: java.lang.Object[];
+
+        if sb == null goto label1;
+
+        msg = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(format, args);
+
+        $r0 = data.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.TFieldIdEnum fieldId>;
+
+        $r1 = interfaceinvoke $r0.<org.apache.thrift.TFieldIdEnum: java.lang.String getFieldName()>();
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" : ");
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(msg);
+
+     label1:
+        return;
+    }
+
+    private 'void' appendNotEqual(org.apache.thrift.partial.ThriftMetadata$ThriftObject, java.lang.StringBuilder, java.lang.Object, java.lang.Object, java.lang.String, java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject data;
+        'int' $i0, $i1;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        java.lang.StringBuilder sb;
+        java.lang.Object o1, o2;
+        java.lang.String o1name, o2name, o1s, o2s;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        sb := @parameter1: java.lang.StringBuilder;
+
+        o1 := @parameter2: java.lang.Object;
+
+        o2 := @parameter3: java.lang.Object;
+
+        o1name := @parameter4: java.lang.String;
+
+        o2name := @parameter5: java.lang.String;
+
+        o1s = virtualinvoke o1.<java.lang.Object: java.lang.String toString()>();
+
+        o2s = virtualinvoke o2.<java.lang.Object: java.lang.String toString()>();
+
+        $i0 = virtualinvoke o1s.<java.lang.String: 'int' length()>();
+
+        $i1 = virtualinvoke o2s.<java.lang.String: 'int' length()>();
+
+        $i0 = $i0 + $i1;
+
+        if $i0 >= 100 goto label1;
+
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = o1name;
+
+        $r0[1] = o1s;
+
+        $r0[2] = o2name;
+
+        $r0[3] = o2s;
+
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(data, sb, "%s (%s) != %s (%s)", $r0);
+
+        goto label2;
+
+     label1:
+        $r0 = newarray (java.lang.Object)[6];
+
+        $r0[0] = o1name;
+
+        $r0[1] = o2name;
+
+        $r0[2] = o1name;
+
+        $r0[3] = o1s;
+
+        $r0[4] = o2name;
+
+        $r0[5] = o2s;
+
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(data, sb, "%s != %s\n%s =\n%s\n%s =\n%s\n", $r0);
+
+     label2:
+        return;
+    }
+
+    private org.apache.thrift.partial.PartialThriftComparer$ComparisonResult checkNullEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject, java.lang.Object, java.lang.Object, java.lang.StringBuilder)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject data;
+        java.lang.Object[] $r1;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        org.apache.thrift.partial.PartialThriftComparer$ComparisonResult $r0;
+        java.lang.Object o1, o2;
+        java.lang.StringBuilder sb;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        if o1 != null goto label2;
+
+        if o2 != null goto label1;
+
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult EQUAL>;
+
+        return $r0;
+
+     label1:
+        if o1 != null goto label2;
+
+        $r1 = newarray (java.lang.Object)[0];
+
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(data, sb, "o1 (null) != o2", $r1);
+
+     label2:
+        if o2 != null goto label3;
+
+        $r1 = newarray (java.lang.Object)[0];
+
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(data, sb, "o1 != o2 (null)", $r1);
+
+     label3:
+        $r0 = <org.apache.thrift.partial.PartialThriftComparer$ComparisonResult: org.apache.thrift.partial.PartialThriftComparer$ComparisonResult UNKNOWN>;
+
+        return $r0;
+    }
+
+    private 'boolean' checkSizeEquality(org.apache.thrift.partial.ThriftMetadata$ThriftObject, java.util.Collection, java.util.Collection, java.lang.StringBuilder, java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        java.util.Collection c1, c2;
+        java.lang.Integer $r1;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject data;
+        'int' $i0, $i1;
+        org.apache.thrift.partial.PartialThriftComparer this;
+        java.lang.StringBuilder sb;
+        java.lang.String typeName;
+
+        this := @this: org.apache.thrift.partial.PartialThriftComparer;
+
+        data := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        c1 := @parameter1: java.util.Collection;
+
+        c2 := @parameter2: java.util.Collection;
+
+        sb := @parameter3: java.lang.StringBuilder;
+
+        typeName := @parameter4: java.lang.String;
+
+        $i0 = interfaceinvoke c1.<java.util.Collection: 'int' size()>();
+
+        $i1 = interfaceinvoke c2.<java.util.Collection: 'int' size()>();
+
+        if $i0 == $i1 goto label1;
+
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = typeName;
+
+        $i0 = interfaceinvoke c1.<java.util.Collection: 'int' size()>();
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[1] = $r1;
+
+        $r0[2] = typeName;
+
+        $i0 = interfaceinvoke c2.<java.util.Collection: 'int' size()>();
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[3] = $r1;
+
+        specialinvoke this.<org.apache.thrift.partial.PartialThriftComparer: 'void' appendResult(org.apache.thrift.partial.ThriftMetadata$ThriftObject,java.lang.StringBuilder,java.lang.String,java.lang.Object[])>(data, sb, "%s1.size(%d) != %s2.size(%d)", $r0);
+
+        return 0;
+
+     label1:
+        return 1;
+    }
+
+    static java.lang.UnsupportedOperationException unsupportedFieldTypeException('byte')
+    {
+        java.lang.UnsupportedOperationException $r0;
+        'byte' fieldType;
+        'int' $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r5;
+
+        fieldType := @parameter0: 'byte';
+
+        $r0 = new java.lang.UnsupportedOperationException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("field type not supported: \'");
+
+        $i0 = ('int') fieldType;
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.UnsupportedOperationException: 'void' <init>(java.lang.String)>($r5);
+
+        return $r0;
+    }
+}

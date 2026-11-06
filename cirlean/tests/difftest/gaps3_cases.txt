@@ -1,0 +1,24 @@
+# libc++'s hashing support as the census programs use it (Shootout-C++ hash and hash2): std::__hash_memory
+# (CityHash64) and std::__next_prime (gaps3.cpp). The native side uses libstdc++, whose hash functions differ, so
+# the t_ cases do not depend on the hash values. Each case is labelled with its expected outcome on the line above
+# it: MATCH; MISMATCH on v_hash_values (libc++'s CityHash64 here, libstdc++'s _Hash_bytes natively; the values
+# are those of libc++'s library, CHANGES_gaps3.md); UB from cirrun on u_hash_uninit (indeterminate bytes hashed)
+# and on the gap g_hash_string (the characters of a std::string are not read).
+# expect MATCH: __gnu_cxx::hash_map of const char * keys from strdup (Shootout's hash.cpp)
+gaps3 t_hash_map_count 0
+# expect MATCH: __gnu_cxx::hash_map of const char * keys from strdup (Shootout's hash.cpp)
+gaps3 t_hash_map_count 57
+# expect MATCH: std::unordered_map<int, int> (its bucket counts from __next_prime)
+gaps3 t_unordered_int 0
+# expect MATCH: std::unordered_map<int, int> (its bucket counts from __next_prime)
+gaps3 t_unordered_int 3
+# expect MATCH: std::unordered_set of string views into a char array
+gaps3 t_string_view_set 0
+# expect MISMATCH: libc++'s CityHash64 of 0 to 80 bytes; libstdc++ hashes otherwise
+gaps3 v_hash_values 0
+# expect MISMATCH: libc++'s CityHash64 of 0 to 80 bytes; libstdc++ hashes otherwise
+gaps3 v_hash_values 5
+# expect UB: indeterminate bytes hashed
+gaps3 u_hash_uninit 0
+# expect UB: gap: a std::string hashed (its characters are not read)
+gaps3 g_hash_string 0

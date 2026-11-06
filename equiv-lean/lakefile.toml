@@ -1,0 +1,40 @@
+name = "equivlean"
+version = "0.1.0"
+defaultTargets = ["EquivLean"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+# under the address-space cap of the shared machine, asynchronous elaboration fails to create
+# threads (Lean exits with code 134)
+Elab.async = false
+
+# The five encodings, pinned read-only copies (see README "Pins").
+[[require]]
+name = "cirlean"
+path = "../equivlean_work/vendor/cirlean-7c73739"
+
+[[require]]
+name = "strictts"
+path = "../equivlean_work/vendor/strictts-a15926a"
+
+[[require]]
+name = "coblean"
+path = "../equivlean_work/vendor/coblean-20261028T0109Z"
+
+[[require]]
+name = "JimpleLean"
+path = "../equivlean_work/vendor/JimpleLean-20261026T2035Z"
+
+[[require]]
+name = "aeneas"
+path = "../equivlean_work/dl/aeneas/backends/lean"
+
+# Core: semantics bridge, simulation, loop rules, representation refinement, tactics
+# (root module EquivLean: core Lean only, no encoding is imported).  The globs also build
+# the bridges (EquivLean.Bridge.<E>), the demos on real front-end output (EquivLean.Demo)
+# the tests (EquivLean.Test) and the CardDemo modernization proofs (EquivLean.Modernize).
+[[lean_lib]]
+name = "EquivLean"
+globs = ["EquivLean", "EquivLean.Core.+", "EquivLean.Repr.+", "EquivLean.Tactic.+",
+         "EquivLean.Bridge.+", "EquivLean.Demo.+", "EquivLean.Test.+", "EquivLean.Modernize.+"]

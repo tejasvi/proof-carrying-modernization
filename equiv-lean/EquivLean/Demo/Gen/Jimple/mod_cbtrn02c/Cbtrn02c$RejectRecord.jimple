@@ -1,0 +1,25 @@
+public final class Cbtrn02c$RejectRecord extends java.lang.Object
+{
+    public java.lang.String rejectTranData;
+    public java.lang.String validationTrailer;
+
+    public 'void' <init>(java.lang.String, java.lang.String)
+    {
+        Cbtrn02c$RejectRecord r0;
+        java.lang.String r1, r2;
+
+        r0 := @this: Cbtrn02c$RejectRecord;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn02c$RejectRecord: java.lang.String rejectTranData> = r1;
+
+        r0.<Cbtrn02c$RejectRecord: java.lang.String validationTrailer> = r2;
+
+        return;
+    }
+}

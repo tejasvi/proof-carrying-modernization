@@ -1,0 +1,36 @@
+public final class Cbstm03a$CardXrefRecord extends java.lang.Object
+{
+    public java.lang.String xrefCardNum;
+    public 'long' xrefCustId;
+    public 'long' xrefAcctId;
+    public java.lang.String filler1;
+
+    public 'void' <init>(java.lang.String, 'long', 'long', java.lang.String)
+    {
+        Cbstm03a$CardXrefRecord this;
+        'long' xrefCustId, xrefAcctId;
+        java.lang.String xrefCardNum, filler1;
+
+        this := @this: Cbstm03a$CardXrefRecord;
+
+        xrefCardNum := @parameter0: java.lang.String;
+
+        xrefCustId := @parameter1: 'long';
+
+        xrefAcctId := @parameter2: 'long';
+
+        filler1 := @parameter3: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<Cbstm03a$CardXrefRecord: java.lang.String xrefCardNum> = xrefCardNum;
+
+        this.<Cbstm03a$CardXrefRecord: 'long' xrefCustId> = xrefCustId;
+
+        this.<Cbstm03a$CardXrefRecord: 'long' xrefAcctId> = xrefAcctId;
+
+        this.<Cbstm03a$CardXrefRecord: java.lang.String filler1> = filler1;
+
+        return;
+    }
+}

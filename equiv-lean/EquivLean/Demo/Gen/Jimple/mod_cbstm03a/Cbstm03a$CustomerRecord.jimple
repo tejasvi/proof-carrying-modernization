@@ -1,0 +1,111 @@
+public final class Cbstm03a$CustomerRecord extends java.lang.Object
+{
+    public 'long' custId;
+    public java.lang.String custFirstName;
+    public java.lang.String custMiddleName;
+    public java.lang.String custLastName;
+    public java.lang.String custAddrLine1;
+    public java.lang.String custAddrLine2;
+    public java.lang.String custAddrLine3;
+    public java.lang.String custAddrStateCd;
+    public java.lang.String custAddrCountryCd;
+    public java.lang.String custAddrZip;
+    public java.lang.String custPhoneNum1;
+    public java.lang.String custPhoneNum2;
+    public 'long' custSsn;
+    public java.lang.String custGovtIssuedId;
+    public java.lang.String custDobYyyymmdd;
+    public java.lang.String custEftAccountId;
+    public java.lang.String custPriCardHolderInd;
+    public 'long' custFicoCreditScore;
+    public java.lang.String filler1;
+
+    public 'void' <init>('long', java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, 'long', java.lang.String, java.lang.String, java.lang.String, java.lang.String, 'long', java.lang.String)
+    {
+        'long' custId, custSsn, custFicoCreditScore;
+        Cbstm03a$CustomerRecord this;
+        java.lang.String custFirstName, custMiddleName, custLastName, custAddrLine1, custAddrLine2, custAddrLine3, custAddrStateCd, custAddrCountryCd, custAddrZip, custPhoneNum1, custPhoneNum2, custGovtIssuedId, custDobYyyymmdd, custEftAccountId, custPriCardHolderInd, filler1;
+
+        this := @this: Cbstm03a$CustomerRecord;
+
+        custId := @parameter0: 'long';
+
+        custFirstName := @parameter1: java.lang.String;
+
+        custMiddleName := @parameter2: java.lang.String;
+
+        custLastName := @parameter3: java.lang.String;
+
+        custAddrLine1 := @parameter4: java.lang.String;
+
+        custAddrLine2 := @parameter5: java.lang.String;
+
+        custAddrLine3 := @parameter6: java.lang.String;
+
+        custAddrStateCd := @parameter7: java.lang.String;
+
+        custAddrCountryCd := @parameter8: java.lang.String;
+
+        custAddrZip := @parameter9: java.lang.String;
+
+        custPhoneNum1 := @parameter10: java.lang.String;
+
+        custPhoneNum2 := @parameter11: java.lang.String;
+
+        custSsn := @parameter12: 'long';
+
+        custGovtIssuedId := @parameter13: java.lang.String;
+
+        custDobYyyymmdd := @parameter14: java.lang.String;
+
+        custEftAccountId := @parameter15: java.lang.String;
+
+        custPriCardHolderInd := @parameter16: java.lang.String;
+
+        custFicoCreditScore := @parameter17: 'long';
+
+        filler1 := @parameter18: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<Cbstm03a$CustomerRecord: 'long' custId> = custId;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custFirstName> = custFirstName;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custMiddleName> = custMiddleName;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custLastName> = custLastName;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custAddrLine1> = custAddrLine1;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custAddrLine2> = custAddrLine2;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custAddrLine3> = custAddrLine3;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custAddrStateCd> = custAddrStateCd;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custAddrCountryCd> = custAddrCountryCd;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custAddrZip> = custAddrZip;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custPhoneNum1> = custPhoneNum1;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custPhoneNum2> = custPhoneNum2;
+
+        this.<Cbstm03a$CustomerRecord: 'long' custSsn> = custSsn;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custGovtIssuedId> = custGovtIssuedId;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custDobYyyymmdd> = custDobYyyymmdd;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custEftAccountId> = custEftAccountId;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String custPriCardHolderInd> = custPriCardHolderInd;
+
+        this.<Cbstm03a$CustomerRecord: 'long' custFicoCreditScore> = custFicoCreditScore;
+
+        this.<Cbstm03a$CustomerRecord: java.lang.String filler1> = filler1;
+
+        return;
+    }
+}

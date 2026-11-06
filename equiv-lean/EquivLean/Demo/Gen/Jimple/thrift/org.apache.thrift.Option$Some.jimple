@@ -1,0 +1,67 @@
+public class org.apache.thrift.Option$Some extends org.apache.thrift.Option
+{
+    private final java.lang.Object value;
+
+    public 'void' <init>(java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.thrift.Option$Some this;
+
+        this := @this: org.apache.thrift.Option$Some;
+
+        value := @parameter0: java.lang.Object;
+
+        specialinvoke this.<org.apache.thrift.Option: 'void' <init>()>();
+
+        this.<org.apache.thrift.Option$Some: java.lang.Object value> = value;
+
+        return;
+    }
+
+    public 'boolean' isDefined()
+    {
+        org.apache.thrift.Option$Some this;
+
+        this := @this: org.apache.thrift.Option$Some;
+
+        return 1;
+    }
+
+    public java.lang.Object get()
+    {
+        java.lang.Object $r0;
+        org.apache.thrift.Option$Some this;
+
+        this := @this: org.apache.thrift.Option$Some;
+
+        $r0 = this.<org.apache.thrift.Option$Some: java.lang.Object value>;
+
+        return $r0;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.thrift.Option$Some this;
+        java.lang.StringBuilder $r0;
+        java.lang.Object $r2;
+        java.lang.String $r5;
+
+        this := @this: org.apache.thrift.Option$Some;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Some(");
+
+        $r2 = this.<org.apache.thrift.Option$Some: java.lang.Object value>;
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r5 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r5;
+    }
+}

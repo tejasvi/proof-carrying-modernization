@@ -1,0 +1,86 @@
+public final class Cbtrn02c$DalytranRecord extends java.lang.Object
+{
+    public java.lang.String dalytranId;
+    public java.lang.String dalytranTypeCd;
+    public 'long' dalytranCatCd;
+    public java.lang.String dalytranSource;
+    public java.lang.String dalytranDesc;
+    public 'long' dalytranAmt;
+    public 'long' dalytranMerchantId;
+    public java.lang.String dalytranMerchantName;
+    public java.lang.String dalytranMerchantCity;
+    public java.lang.String dalytranMerchantZip;
+    public java.lang.String dalytranCardNum;
+    public java.lang.String dalytranOrigTs;
+    public java.lang.String dalytranProcTs;
+    public java.lang.String filler1;
+
+    public 'void' <init>(java.lang.String, java.lang.String, 'long', java.lang.String, java.lang.String, 'long', 'long', java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        Cbtrn02c$DalytranRecord r0;
+        'long' l0, l1, l2;
+        java.lang.String r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11;
+
+        r0 := @this: Cbtrn02c$DalytranRecord;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        l0 := @parameter2: 'long';
+
+        r3 := @parameter3: java.lang.String;
+
+        r4 := @parameter4: java.lang.String;
+
+        l1 := @parameter5: 'long';
+
+        l2 := @parameter6: 'long';
+
+        r5 := @parameter7: java.lang.String;
+
+        r6 := @parameter8: java.lang.String;
+
+        r7 := @parameter9: java.lang.String;
+
+        r8 := @parameter10: java.lang.String;
+
+        r9 := @parameter11: java.lang.String;
+
+        r10 := @parameter12: java.lang.String;
+
+        r11 := @parameter13: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranId> = r1;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranTypeCd> = r2;
+
+        r0.<Cbtrn02c$DalytranRecord: 'long' dalytranCatCd> = l0;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranSource> = r3;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranDesc> = r4;
+
+        r0.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt> = l1;
+
+        r0.<Cbtrn02c$DalytranRecord: 'long' dalytranMerchantId> = l2;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantName> = r5;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantCity> = r6;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantZip> = r7;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranCardNum> = r8;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranOrigTs> = r9;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranProcTs> = r10;
+
+        r0.<Cbtrn02c$DalytranRecord: java.lang.String filler1> = r11;
+
+        return;
+    }
+}

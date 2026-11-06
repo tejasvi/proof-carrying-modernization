@@ -1,0 +1,350 @@
+public class org.apache.thrift.TNonblockingMultiFetchClient extends java.lang.Object
+{
+    private static final org.slf4j.Logger LOGGER;
+    private final 'int' maxRecvBufBytesPerServer;
+    private final 'int' fetchTimeoutSeconds;
+    private final java.nio.ByteBuffer requestBuf;
+    private java.nio.ByteBuffer requestBufDuplication;
+    private final java.util.List servers;
+    private final org.apache.thrift.TNonblockingMultiFetchStats stats;
+    private java.nio.ByteBuffer[] recvBuf;
+
+    public 'void' <init>('int', 'int', java.nio.ByteBuffer, java.util.List)
+    {
+        java.util.List servers;
+        org.apache.thrift.TNonblockingMultiFetchStats $r0;
+        org.apache.thrift.TNonblockingMultiFetchClient this;
+        'int' maxRecvBufBytesPerServer, fetchTimeoutSeconds;
+        java.nio.ByteBuffer requestBuf;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        maxRecvBufBytesPerServer := @parameter0: 'int';
+
+        fetchTimeoutSeconds := @parameter1: 'int';
+
+        requestBuf := @parameter2: java.nio.ByteBuffer;
+
+        servers := @parameter3: java.util.List;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: 'int' maxRecvBufBytesPerServer> = maxRecvBufBytesPerServer;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: 'int' fetchTimeoutSeconds> = fetchTimeoutSeconds;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBuf> = requestBuf;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: java.util.List servers> = servers;
+
+        $r0 = new org.apache.thrift.TNonblockingMultiFetchStats;
+
+        specialinvoke $r0.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' <init>()>();
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats stats> = $r0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] recvBuf> = null;
+
+        return;
+    }
+
+    public synchronized 'int' getMaxRecvBufBytesPerServer()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchClient this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: 'int' maxRecvBufBytesPerServer>;
+
+        return $i0;
+    }
+
+    public synchronized 'int' getFetchTimeoutSeconds()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchClient this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: 'int' fetchTimeoutSeconds>;
+
+        return $i0;
+    }
+
+    public synchronized java.nio.ByteBuffer getRequestBuf()
+    {
+        org.apache.thrift.TNonblockingMultiFetchClient this;
+        java.nio.ByteBuffer $r0;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBuf>;
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBufDuplication>;
+
+        if $r0 != null goto label2;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBuf>;
+
+        $r0 = virtualinvoke $r0.<java.nio.ByteBuffer: java.nio.ByteBuffer duplicate()>();
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBufDuplication> = $r0;
+
+     label2:
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBufDuplication>;
+
+        return $r0;
+    }
+
+    public synchronized java.util.List getServerList()
+    {
+        java.util.List $r0;
+        org.apache.thrift.TNonblockingMultiFetchClient this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.util.List servers>;
+
+        if $r0 != null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.util.List servers>;
+
+        $r0 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($r0);
+
+        return $r0;
+    }
+
+    public synchronized org.apache.thrift.TNonblockingMultiFetchStats getFetchStats()
+    {
+        org.apache.thrift.TNonblockingMultiFetchStats $r0;
+        org.apache.thrift.TNonblockingMultiFetchClient this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats stats>;
+
+        return $r0;
+    }
+
+    public synchronized java.nio.ByteBuffer[] fetch()
+    {
+        java.nio.ByteBuffer[] $r8;
+        org.slf4j.Logger $r5;
+        org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch multiFetch;
+        java.util.concurrent.FutureTask task;
+        java.util.concurrent.TimeoutException ie_3;
+        'long' $l3;
+        java.nio.ByteBuffer $r3;
+        java.util.concurrent.TimeUnit $r4;
+        java.util.concurrent.ExecutionException ie_2;
+        java.util.List $r1;
+        org.apache.thrift.TNonblockingMultiFetchStats $r0;
+        java.lang.InterruptedException ie_1;
+        org.apache.thrift.TNonblockingMultiFetchClient this;
+        'int' $i0;
+        java.util.concurrent.ExecutorService executor;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] recvBuf> = null;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats stats>;
+
+        virtualinvoke $r0.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' clear()>();
+
+        $r1 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.util.List servers>;
+
+        if $r1 == null goto label1;
+
+        $r1 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.util.List servers>;
+
+        $i0 = interfaceinvoke $r1.<java.util.List: 'int' size()>();
+
+        if $i0 == false goto label1;
+
+        $r3 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBuf>;
+
+        if $r3 == null goto label1;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: 'int' fetchTimeoutSeconds>;
+
+        if $i0 > 0 goto label2;
+
+     label1:
+        $r8 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] recvBuf>;
+
+        return $r8;
+
+     label2:
+        executor = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        multiFetch = new org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch;
+
+        specialinvoke multiFetch.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: 'void' <init>(org.apache.thrift.TNonblockingMultiFetchClient,org.apache.thrift.TNonblockingMultiFetchClient$1)>(this, null);
+
+        task = new java.util.concurrent.FutureTask;
+
+        specialinvoke task.<java.util.concurrent.FutureTask: 'void' <init>(java.lang.Runnable,java.lang.Object)>(multiFetch, null);
+
+        interfaceinvoke executor.<java.util.concurrent.ExecutorService: 'void' execute(java.lang.Runnable)>(task);
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchClient: 'int' fetchTimeoutSeconds>;
+
+        $l3 = ('long') $i0;
+
+        $r4 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+     label3:
+        virtualinvoke task.<java.util.concurrent.FutureTask: java.lang.Object get('long',java.util.concurrent.TimeUnit)>($l3, $r4);
+
+     label4:
+        goto label8;
+
+     label5:
+        ie_1 := @caughtexception;
+
+        virtualinvoke task.<java.util.concurrent.FutureTask: 'boolean' cancel('boolean')>(1);
+
+        $r5 = <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Interrupted during fetch", ie_1);
+
+        goto label8;
+
+     label6:
+        ie_2 := @caughtexception;
+
+        virtualinvoke task.<java.util.concurrent.FutureTask: 'boolean' cancel('boolean')>(1);
+
+        $r5 = <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Exception during fetch", ie_2);
+
+        goto label8;
+
+     label7:
+        ie_3 := @caughtexception;
+
+        virtualinvoke task.<java.util.concurrent.FutureTask: 'boolean' cancel('boolean')>(1);
+
+        $r5 = <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Timeout for fetch", ie_3);
+
+     label8:
+        interfaceinvoke executor.<java.util.concurrent.ExecutorService: java.util.List shutdownNow()>();
+
+        virtualinvoke multiFetch.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: 'void' close()>();
+
+        $r8 = this.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] recvBuf>;
+
+        return $r8;
+
+        catch java.lang.InterruptedException from label3 to label4 with label5;
+        catch java.util.concurrent.ExecutionException from label3 to label4 with label6;
+        catch java.util.concurrent.TimeoutException from label3 to label4 with label7;
+    }
+
+    static java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)
+    {
+        java.util.List $r0;
+        org.apache.thrift.TNonblockingMultiFetchClient x0;
+
+        x0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $r0 = x0.<org.apache.thrift.TNonblockingMultiFetchClient: java.util.List servers>;
+
+        return $r0;
+    }
+
+    static org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)
+    {
+        org.apache.thrift.TNonblockingMultiFetchStats $r0;
+        org.apache.thrift.TNonblockingMultiFetchClient x0;
+
+        x0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $r0 = x0.<org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats stats>;
+
+        return $r0;
+    }
+
+    static java.nio.ByteBuffer[] access$302(org.apache.thrift.TNonblockingMultiFetchClient, java.nio.ByteBuffer[])
+    {
+        java.nio.ByteBuffer[] x1;
+        org.apache.thrift.TNonblockingMultiFetchClient x0;
+
+        x0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        x1 := @parameter1: java.nio.ByteBuffer[];
+
+        x0.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] recvBuf> = x1;
+
+        return x1;
+    }
+
+    static org.slf4j.Logger access$400()
+    {
+        org.slf4j.Logger $r0;
+
+        $r0 = <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger LOGGER>;
+
+        return $r0;
+    }
+
+    static java.nio.ByteBuffer access$500(org.apache.thrift.TNonblockingMultiFetchClient)
+    {
+        org.apache.thrift.TNonblockingMultiFetchClient x0;
+        java.nio.ByteBuffer $r0;
+
+        x0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $r0 = x0.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer requestBuf>;
+
+        return $r0;
+    }
+
+    static java.nio.ByteBuffer[] access$300(org.apache.thrift.TNonblockingMultiFetchClient)
+    {
+        java.nio.ByteBuffer[] $r0;
+        org.apache.thrift.TNonblockingMultiFetchClient x0;
+
+        x0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $r0 = x0.<org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] recvBuf>;
+
+        return $r0;
+    }
+
+    static 'int' access$600(org.apache.thrift.TNonblockingMultiFetchClient)
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchClient x0;
+
+        x0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        $i0 = x0.<org.apache.thrift.TNonblockingMultiFetchClient: 'int' maxRecvBufBytesPerServer>;
+
+        return $i0;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.slf4j.Logger $r0;
+
+        $r0 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.Class)>(class "Lorg/apache/thrift/TNonblockingMultiFetchClient;");
+
+        <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger LOGGER> = $r0;
+
+        return;
+    }
+}

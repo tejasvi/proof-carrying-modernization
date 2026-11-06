@@ -1,0 +1,23 @@
+public class org.apache.thrift.meta_data.SetMetaData extends org.apache.thrift.meta_data.FieldValueMetaData
+{
+    public final org.apache.thrift.meta_data.FieldValueMetaData elemMetaData;
+
+    public 'void' <init>('byte', org.apache.thrift.meta_data.FieldValueMetaData)
+    {
+        'byte' type;
+        org.apache.thrift.meta_data.SetMetaData this;
+        org.apache.thrift.meta_data.FieldValueMetaData eMetaData;
+
+        this := @this: org.apache.thrift.meta_data.SetMetaData;
+
+        type := @parameter0: 'byte';
+
+        eMetaData := @parameter1: org.apache.thrift.meta_data.FieldValueMetaData;
+
+        specialinvoke this.<org.apache.thrift.meta_data.FieldValueMetaData: 'void' <init>('byte')>(type);
+
+        this.<org.apache.thrift.meta_data.SetMetaData: org.apache.thrift.meta_data.FieldValueMetaData elemMetaData> = eMetaData;
+
+        return;
+    }
+}

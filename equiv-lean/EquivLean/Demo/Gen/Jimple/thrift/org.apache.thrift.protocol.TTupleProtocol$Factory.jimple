@@ -1,0 +1,31 @@
+public class org.apache.thrift.protocol.TTupleProtocol$Factory extends java.lang.Object implements org.apache.thrift.protocol.TProtocolFactory
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TTupleProtocol$Factory this;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol$Factory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.protocol.TTupleProtocol $r0;
+        org.apache.thrift.protocol.TTupleProtocol$Factory this;
+        org.apache.thrift.transport.TTransport trans;
+
+        this := @this: org.apache.thrift.protocol.TTupleProtocol$Factory;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = new org.apache.thrift.protocol.TTupleProtocol;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TTupleProtocol: 'void' <init>(org.apache.thrift.transport.TTransport)>(trans);
+
+        return $r0;
+    }
+}

@@ -1,0 +1,37 @@
+public final class Cbstm03b$CustFile extends java.lang.Object
+{
+    public 'boolean' open;
+    public Cbstm03b$FdCustfileRec[] recs;
+    public 'int' pos;
+    public 'boolean' eof;
+
+    public 'void' <init>('boolean', Cbstm03b$FdCustfileRec[], 'int', 'boolean')
+    {
+        'int' i0;
+        Cbstm03b$CustFile r0;
+        Cbstm03b$FdCustfileRec[] r1;
+        'boolean' z0, z1;
+
+        r0 := @this: Cbstm03b$CustFile;
+
+        z0 := @parameter0: 'boolean';
+
+        r1 := @parameter1: Cbstm03b$FdCustfileRec[];
+
+        i0 := @parameter2: 'int';
+
+        z1 := @parameter3: 'boolean';
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbstm03b$CustFile: 'boolean' open> = z0;
+
+        r0.<Cbstm03b$CustFile: Cbstm03b$FdCustfileRec[] recs> = r1;
+
+        r0.<Cbstm03b$CustFile: 'int' pos> = i0;
+
+        r0.<Cbstm03b$CustFile: 'boolean' eof> = z1;
+
+        return;
+    }
+}

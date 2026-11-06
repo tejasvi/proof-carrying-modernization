@@ -1,0 +1,125 @@
+public abstract class org.apache.thrift.TBaseProcessor extends java.lang.Object implements org.apache.thrift.TProcessor
+{
+    private final java.lang.Object iface;
+    private final java.util.Map processMap;
+
+    protected 'void' <init>(java.lang.Object, java.util.Map)
+    {
+        java.lang.Object iface;
+        org.apache.thrift.TBaseProcessor this;
+        java.util.Map processFunctionMap;
+
+        this := @this: org.apache.thrift.TBaseProcessor;
+
+        iface := @parameter0: java.lang.Object;
+
+        processFunctionMap := @parameter1: java.util.Map;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.TBaseProcessor: java.lang.Object iface> = iface;
+
+        this.<org.apache.thrift.TBaseProcessor: java.util.Map processMap> = processFunctionMap;
+
+        return;
+    }
+
+    public java.util.Map getProcessMapView()
+    {
+        org.apache.thrift.TBaseProcessor this;
+        java.util.Map $r0;
+
+        this := @this: org.apache.thrift.TBaseProcessor;
+
+        $r0 = this.<org.apache.thrift.TBaseProcessor: java.util.Map processMap>;
+
+        $r0 = staticinvoke <java.util.Collections: java.util.Map unmodifiableMap(java.util.Map)>($r0);
+
+        return $r0;
+    }
+
+    public 'void' process(org.apache.thrift.protocol.TProtocol, org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.ProcessFunction fn;
+        org.apache.thrift.protocol.TMessage msg, $r9;
+        org.apache.thrift.transport.TTransport $r11;
+        org.apache.thrift.protocol.TProtocol in, out;
+        java.util.Map $r0;
+        'int' $i0;
+        java.lang.Object $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r1;
+        org.apache.thrift.TBaseProcessor this;
+        org.apache.thrift.TApplicationException x;
+
+        this := @this: org.apache.thrift.TBaseProcessor;
+
+        in := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        out := @parameter1: org.apache.thrift.protocol.TProtocol;
+
+        msg = virtualinvoke in.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMessage readMessageBegin()>();
+
+        $r0 = this.<org.apache.thrift.TBaseProcessor: java.util.Map processMap>;
+
+        $r1 = msg.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $r2 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        fn = (org.apache.thrift.ProcessFunction) $r2;
+
+        if fn != null goto label1;
+
+        staticinvoke <org.apache.thrift.protocol.TProtocolUtil: 'void' skip(org.apache.thrift.protocol.TProtocol,'byte')>(in, 12);
+
+        virtualinvoke in.<org.apache.thrift.protocol.TProtocol: 'void' readMessageEnd()>();
+
+        x = new org.apache.thrift.TApplicationException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid method name: \'");
+
+        $r1 = msg.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke x.<org.apache.thrift.TApplicationException: 'void' <init>('int',java.lang.String)>(1, $r1);
+
+        $r9 = new org.apache.thrift.protocol.TMessage;
+
+        $r1 = msg.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        $i0 = msg.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        specialinvoke $r9.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>($r1, 3, $i0);
+
+        virtualinvoke out.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage)>($r9);
+
+        virtualinvoke x.<org.apache.thrift.TApplicationException: 'void' write(org.apache.thrift.protocol.TProtocol)>(out);
+
+        virtualinvoke out.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageEnd()>();
+
+        $r11 = virtualinvoke out.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        virtualinvoke $r11.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        goto label2;
+
+     label1:
+        $i0 = msg.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        $r2 = this.<org.apache.thrift.TBaseProcessor: java.lang.Object iface>;
+
+        virtualinvoke fn.<org.apache.thrift.ProcessFunction: 'void' process('int',org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol,java.lang.Object)>($i0, in, out, $r2);
+
+     label2:
+        return;
+    }
+}

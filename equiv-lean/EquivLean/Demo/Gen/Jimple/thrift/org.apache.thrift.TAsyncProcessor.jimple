@@ -1,0 +1,5 @@
+public interface  org.apache.thrift.TAsyncProcessor extends java.lang.Object
+{
+
+    public abstract 'void' process(org.apache.thrift.server.AbstractNonblockingServer$AsyncFrameBuffer) throws org.apache.thrift.TException;
+}

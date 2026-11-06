@@ -1,0 +1,1 @@
+equivalent s.indexOf(t) >= 0 vs s.includes(t) on strings

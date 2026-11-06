@@ -1,0 +1,54 @@
+class org.apache.thrift.TUnion$TUnionTupleSchemeFactory extends java.lang.Object implements org.apache.thrift.scheme.SchemeFactory
+{
+
+    private 'void' <init>()
+    {
+        org.apache.thrift.TUnion$TUnionTupleSchemeFactory this;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleSchemeFactory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public org.apache.thrift.TUnion$TUnionTupleScheme getScheme()
+    {
+        org.apache.thrift.TUnion$TUnionTupleScheme $r0;
+        org.apache.thrift.TUnion$TUnionTupleSchemeFactory this;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleSchemeFactory;
+
+        $r0 = new org.apache.thrift.TUnion$TUnionTupleScheme;
+
+        specialinvoke $r0.<org.apache.thrift.TUnion$TUnionTupleScheme: 'void' <init>(org.apache.thrift.TUnion$1)>(null);
+
+        return $r0;
+    }
+
+    public volatile org.apache.thrift.scheme.IScheme getScheme()
+    {
+        org.apache.thrift.TUnion$TUnionTupleScheme $r0;
+        org.apache.thrift.TUnion$TUnionTupleSchemeFactory this;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleSchemeFactory;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.TUnion$TUnionTupleSchemeFactory: org.apache.thrift.TUnion$TUnionTupleScheme getScheme()>();
+
+        return $r0;
+    }
+
+    'void' <init>(org.apache.thrift.TUnion$1)
+    {
+        org.apache.thrift.TUnion$1 x0;
+        org.apache.thrift.TUnion$TUnionTupleSchemeFactory this;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleSchemeFactory;
+
+        x0 := @parameter0: org.apache.thrift.TUnion$1;
+
+        specialinvoke this.<org.apache.thrift.TUnion$TUnionTupleSchemeFactory: 'void' <init>()>();
+
+        return;
+    }
+}

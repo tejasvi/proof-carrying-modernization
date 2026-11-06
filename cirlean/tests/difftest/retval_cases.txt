@@ -1,0 +1,41 @@
+# Reaching the closing brace of a non-void function (retval.c, retval_main.c; C sources), run with MODE=status:
+# undefined only if the caller uses the value (C11 6.9.1p12). Each case is labelled with its expected outcome on the
+# line above it: MATCH, or UB from cirrun (the caller uses the missing value).
+# expect MATCH: the missing value discarded
+retval t_unused 5
+# expect MATCH: the value present, discarded
+retval t_unused 150
+# expect MATCH: the value present and used
+retval t_present 3
+# expect UB: the missing value stored
+retval t_stored 5
+# expect UB: the missing value added
+retval t_added 5
+# expect UB: the missing value compared
+retval t_compared 5
+# expect UB: the missing value tested by a conditional
+retval t_branch 5
+# expect UB: the missing value passed to a function
+retval t_passed 5
+# expect UB: the missing value returned again
+retval t_returned 5
+# expect MATCH: the value present, returned again
+retval t_returned 150
+# expect MATCH: the missing value of a function returning from a loop, discarded
+retval t_loop_unused 3
+# expect UB: the missing value of a function returning from a loop, returned
+retval t_loop_used 3
+# expect MATCH: the value of a function returning from a loop, present
+retval t_loop_used 10
+# expect MATCH: a missing double discarded
+retval t_double_unused 0
+# expect UB: a missing double compared
+retval t_double_used 0
+# expect MATCH: a missing pointer discarded
+retval t_ptr_unused 0
+# expect MATCH: a void function reaching its closing brace
+retval t_void 4
+# expect MATCH: a void function reaching its closing brace, nothing done
+retval t_void 0
+# expect MATCH: main reaching its closing brace returns 0 (C11 5.1.2.2.3)
+retval_main main

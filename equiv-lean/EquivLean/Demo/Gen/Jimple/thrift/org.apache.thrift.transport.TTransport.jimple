@@ -1,0 +1,234 @@
+public abstract class org.apache.thrift.transport.TTransport extends java.lang.Object implements java.io.Closeable
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public abstract 'boolean' isOpen();
+
+    public 'boolean' peek()
+    {
+        org.apache.thrift.transport.TTransport this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        return $z0;
+    }
+
+    public abstract 'void' open() throws org.apache.thrift.transport.TTransportException;
+
+    public abstract 'void' close();
+
+    public 'int' read(java.nio.ByteBuffer) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] arr;
+        org.apache.thrift.transport.TTransport this;
+        'int' n;
+        java.nio.ByteBuffer dst;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        dst := @parameter0: java.nio.ByteBuffer;
+
+        n = virtualinvoke dst.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        arr = newarray ('byte')[n];
+
+        n = lengthof arr;
+
+        n = virtualinvoke this.<org.apache.thrift.transport.TTransport: 'int' read('byte'[],'int','int')>(arr, 0, n);
+
+        virtualinvoke dst.<java.nio.ByteBuffer: java.nio.ByteBuffer put('byte'[],'int','int')>(arr, 0, n);
+
+        return n;
+    }
+
+    public abstract 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException;
+
+    public 'int' readAll('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransportException $r0;
+        org.apache.thrift.transport.TTransport this;
+        'int' off, len, 'ret', $i1, got;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r7;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        got = 0;
+
+     label1:
+        if got >= len goto label3;
+
+        'ret' = off + got;
+
+        $i1 = len - got;
+
+        'ret' = virtualinvoke this.<org.apache.thrift.transport.TTransport: 'int' read('byte'[],'int','int')>(buf, 'ret', $i1);
+
+        if 'ret' > 0 goto label2;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cannot read. Remote side has closed. Tried to read ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(len);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes, but only got ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(got);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes. (This is often indicative of an internal error on the server side. Please check your server logs.)");
+
+        $r7 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>($r7);
+
+        throw $r0;
+
+     label2:
+        got = got + 'ret';
+
+        goto label1;
+
+     label3:
+        return got;
+    }
+
+    public 'void' write('byte'[]) throws org.apache.thrift.transport.TTransportException
+    {
+        'int' $i0;
+        'byte'[] buf;
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        $i0 = lengthof buf;
+
+        virtualinvoke this.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(buf, 0, $i0);
+
+        return;
+    }
+
+    public abstract 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException;
+
+    public 'int' write(java.nio.ByteBuffer) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] arr;
+        org.apache.thrift.transport.TTransport this;
+        'int' $i0;
+        java.nio.ByteBuffer src;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        src := @parameter0: java.nio.ByteBuffer;
+
+        $i0 = virtualinvoke src.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        arr = newarray ('byte')[$i0];
+
+        virtualinvoke src.<java.nio.ByteBuffer: java.nio.ByteBuffer get('byte'[])>(arr);
+
+        $i0 = lengthof arr;
+
+        virtualinvoke this.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(arr, 0, $i0);
+
+        $i0 = lengthof arr;
+
+        return $i0;
+    }
+
+    public 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        return;
+    }
+
+    public 'byte'[] getBuffer()
+    {
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        return null;
+    }
+
+    public 'int' getBufferPosition()
+    {
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        return 0;
+    }
+
+    public 'int' getBytesRemainingInBuffer()
+    {
+        'int' $i1;
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        $i1 = ('int') -1;
+
+        return $i1;
+    }
+
+    public 'void' consumeBuffer('int')
+    {
+        'int' len;
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        len := @parameter0: 'int';
+
+        return;
+    }
+
+    public abstract org.apache.thrift.TConfiguration getConfiguration();
+
+    public abstract 'void' updateKnownMessageSize('long') throws org.apache.thrift.transport.TTransportException;
+
+    public abstract 'void' checkReadBytesAvailable('long') throws org.apache.thrift.transport.TTransportException;
+
+    public abstract 'void' resetMessageSizeAndConsumedBytes('long') throws org.apache.thrift.transport.TTransportException;
+
+    public 'void' resetMessageSizeAndConsumedBytes() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransport this;
+
+        this := @this: org.apache.thrift.transport.TTransport;
+
+        virtualinvoke this.<org.apache.thrift.transport.TTransport: 'void' resetMessageSizeAndConsumedBytes('long')>(-1L);
+
+        return;
+    }
+}

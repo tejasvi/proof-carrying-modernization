@@ -1,0 +1,765 @@
+set	function	source	args	ret	loops	callbacks	uses_unknown	verdict	class	counterexample
+es-toolkit	sum	sum	(.arr .num)	.num	forLoop		false	PROVED	proved	
+es-toolkit	median	median	(.arr .num)	.num		arrSort	false	FAILED	K: other	
+es-toolkit	percentile	percentile	(.arr .num) .num	.num		arrSort	false	FAILED	B: explicit throw (argument validation)	
+es-toolkit	dedentImpl	dedentImpl	.str	.str	forLoop,while		false	FAILED	C: while loop (no automatic termination argument)	
+es-toolkit	reverseString	reverseString	.str	.str	forOfStr		false	PROVED	proved	
+es-toolkit	trimEnd	trimEnd	.str (.opt (.union tys[(.arr .str), .str]))	.str	while		true	FAILED	B: explicit throw (argument validation)	
+es-toolkit	trimStart	trimStart	.str (.opt (.union tys[(.arr .str), .str]))	.str	while		true	FAILED	B: explicit throw (argument validation)	
+es-toolkit	max	max	(.arr .bigint)	.bigint	forLoop		false	FAILED	B: explicit throw (argument validation)	
+es-toolkit	median_2	median	(.arr .bigint)	.bigint		arrSort	false	FAILED	B: explicit throw (argument validation)	
+es-toolkit	min	min	(.arr .bigint)	.bigint	forLoop		false	FAILED	B: explicit throw (argument validation)	
+es-toolkit	percentile_2	percentile	(.arr .bigint) .num	.bigint		arrSort	false	FAILED	B: explicit throw (argument validation)	
+es-toolkit	sum_3	sum	(.arr .bigint)	.bigint	forLoop		false	PROVED	proved	
+es-toolkit generic@number	chunkBy_number	chunkBy<number>	(.arr .num) (.fn tys[.num] .dyn)	(.arr (.arr .num))	forLoop		true	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	countBy_number_number_string	countBy<number, number, string>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .str)	(.map .str .num)	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	countBy_number_number	countBy<number, number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .num)	(.map .num .num)	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	difference_number	difference<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	FAILED	K: other	
+es-toolkit generic@number	differenceWith_number_number	differenceWith<number, number>	(.arr .num) (.arr .num) (.fn tys[.num, .num] .bool)	(.arr .num)		arrEvery,arrFilter	false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	dropRightWhile_number	dropRightWhile<number>	(.arr .num) (.fn tys[.num, .num, (.arr .num)] .bool)	(.arr .num)	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	dropWhile_number	dropWhile<number>	(.arr .num) (.fn tys[.num, .num, (.arr .num)] .bool)	(.arr .num)		arrFindIndex	false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	every_number_number	every<number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .bool)	.bool	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	every_number	every<number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .bool)	.bool	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	filter_number_number	filter<number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .bool)	(.map .num .num)	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	filter_number	filter<number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .bool)	(.set .num)	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	findIndex_number	findIndex<number>	(.fn tys[.num, .num, (.arr .num)] .bool)	(.fn tys[(.arr .num)] .num)		arrFindIndex	false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit generic@number	findKey_number_number	findKey<number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .bool)	(.opt .num)	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	findLastIndex_number	findLastIndex<number>	(.fn tys[.num, .num, (.arr .num)] .bool)	(.fn tys[(.arr .num)] .num)	forLoop		false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit generic@number	findValue_number_number	findValue<number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .bool)	(.opt .num)	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	find_number	find<number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .bool)	(.opt .num)	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	forEach_number_number	forEach<number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .undef)	.undef	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	forEach_number_2	forEach<number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .undef)	.undef	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	hasValue_number_number	hasValue<number, number>	(.map .num .num) .num	.bool	forOfMap		false	FAILED	G: return/break inside the loop	
+es-toolkit generic@number	intersection_number	intersection<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	FAILED	K: other	
+es-toolkit generic@number	intersectionWith_number_number	intersectionWith<number, number>	(.arr .num) (.arr .num) (.fn tys[.num, .num] .bool)	(.arr .num)		arrFilter,arrSome	false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	keyBy_number_number_number	keyBy<number, number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .num)	(.map .num .num)	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	keyBy_number_number	keyBy<number, number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .num)	(.map .num .num)	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	mapKeys_number_number	mapKeys<number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .num)	(.map .num .num)	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	mapValues_number_number_number	mapValues<number, number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .num)	(.map .num .num)	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	map_number_number_2	map<number, number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .num)	(.set .num)	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	maxBy_number	maxBy<number>	(.arr .num) (.fn tys[.num, .num, (.arr .num)] .bigint)	.num	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	medianBy_number	medianBy<number>	(.arr .num) (.fn tys[.num] .num)	.num		arrMap	false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	medianBy_number_2	medianBy<number>	(.arr .num) (.fn tys[.num] .bigint)	.bigint		arrMap	false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	minBy_number	minBy<number>	(.arr .num) (.fn tys[.num, .num, (.arr .num)] .bigint)	.num	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	shuffle_number	shuffle<number>	(.arr .num)	(.arr .num)	forLoop		false	FAILED	M: false for an input found by reading the code	Math.random() = 1: index i + 1 is out of bounds
+es-toolkit generic@number	some_number_number	some<number, number>	(.map .num .num) (.fn tys[.num, .num, (.map .num .num)] .bool)	.bool	forOfMap		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	some_number	some<number>	(.set .num) (.fn tys[.num, .num, (.set .num)] .bool)	.bool	forOfSet		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	sumBy_number	sumBy<number>	(.arr .num) (.fn tys[.num, .num] .num)	.num	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	sumBy_number_2	sumBy<number>	(.arr .num) (.fn tys[.num, .num] .bigint)	.bigint	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	takeRightWhile_number	takeRightWhile<number>	(.arr .num) (.fn tys[.num, .num, (.arr .num)] .bool)	(.arr .num)	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	takeWhile_number	takeWhile<number>	(.arr .num) (.fn tys[.num, .num, (.arr .num)] .bool)	(.arr .num)	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	uniqBy_number_number	uniqBy<number, number>	(.arr .num) (.fn tys[.num, .num, (.arr .num)] .num)	(.arr .num)	forLoop		false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit generic@number	uniqWith_number	uniqWith<number>	(.arr .num) (.fn tys[.num, .num] .bool)	(.arr .num)	forLoop	arrEvery	false	FAILED	A: callback parameter (an arbitrary function may throw)	
+es-toolkit with fixed pure callbacks	cb_chunkBy	cb_chunkBy	(.arr .num)	(.arr (.arr .num))	forLoop		true	FAILED	H: loop body allocates	
+es-toolkit with fixed pure callbacks	cb_chunkBy_2	cb_chunkBy_2		(.fn tys[(.arr .num)] (.arr (.arr .num)))	forLoop		true	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_countBy	cb_countBy	(.map .num .num)	(.map .str .num)	forOfMap		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_countBy_2	cb_countBy_2	(.set .num)	(.map .num .num)	forOfSet		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_differenceWith	cb_differenceWith	(.arr .num) (.arr .num)	(.arr .num)		arrEvery,arrFilter	false	FAILED	K: other	
+es-toolkit with fixed pure callbacks	cb_dropRightWhile	cb_dropRightWhile	(.arr .num)	(.arr .num)	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+es-toolkit with fixed pure callbacks	cb_dropRightWhile_2	cb_dropRightWhile_2		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_dropWhile	cb_dropWhile	(.arr .num)	(.arr .num)		arrFindIndex	false	FAILED	K: other	
+es-toolkit with fixed pure callbacks	cb_every	cb_every	(.map .num .num)	.bool	forOfMap		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_every_2	cb_every_2	(.set .num)	.bool	forOfSet		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_filter_2	cb_filter_2	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_filter_3	cb_filter_3	(.set .num)	(.set .num)	forOfSet		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_findIndex	cb_findIndex		(.fn tys[(.arr .num)] .num)		arrFindIndex	false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_findKey	cb_findKey	(.map .num .num)	(.opt .num)	forOfMap		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_findLastIndex	cb_findLastIndex		(.fn tys[(.arr .num)] .num)	forLoop		false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_findValue	cb_findValue	(.map .num .num)	(.opt .num)	forOfMap		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_find_2	cb_find_2	(.set .num)	(.opt .num)	forOfSet		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_forEach_2	cb_forEach_2	(.map .num .num)	.undef	forOfMap		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_forEach_3	cb_forEach_3	(.set .num)	.undef	forOfSet		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_intersectionWith	cb_intersectionWith	(.arr .num) (.arr .num)	(.arr .num)		arrFilter,arrSome	false	FAILED	K: other	
+es-toolkit with fixed pure callbacks	cb_isSubsetWith	cb_isSubsetWith	(.arr .num) (.arr .num)	.bool		arrEvery,arrFilter	false	FAILED	K: other	
+es-toolkit with fixed pure callbacks	cb_isSubsetWith_2	cb_isSubsetWith_2	(.arr .num)	(.fn tys[(.arr .num)] .bool)		arrEvery,arrFilter	false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_keyBy	cb_keyBy	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_keyBy_2	cb_keyBy_2	(.set .num)	(.map .num .num)	forOfSet		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_mapKeys	cb_mapKeys	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_mapValues	cb_mapValues	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_map_2	cb_map_2	(.set .num)	(.set .num)	forOfSet		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_maxBy_2	cb_maxBy_2	(.arr .num)	.num	forLoop		false	FAILED	B: explicit throw (argument validation)	
+es-toolkit with fixed pure callbacks	cb_meanBy	cb_meanBy	(.arr .num)	.num	forLoop		false	FAILED	K: other	
+es-toolkit with fixed pure callbacks	cb_medianBy	cb_medianBy	(.arr .num)	.num		arrMap,arrSort	false	FAILED	K: other	
+es-toolkit with fixed pure callbacks	cb_medianBy_2	cb_medianBy_2	(.arr .num)	.bigint		arrMap,arrSort	false	FAILED	B: explicit throw (argument validation)	
+es-toolkit with fixed pure callbacks	cb_minBy_2	cb_minBy_2	(.arr .num)	.num	forLoop		false	FAILED	B: explicit throw (argument validation)	
+es-toolkit with fixed pure callbacks	cb_some	cb_some	(.map .num .num)	.bool	forOfMap		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_some_2	cb_some_2	(.set .num)	.bool	forOfSet		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_sumBy	cb_sumBy	(.arr .num)	.num	forLoop		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_sumBy_2	cb_sumBy_2	(.arr .num)	.bigint	forLoop		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_takeRightWhile	cb_takeRightWhile	(.arr .num)	(.arr .num)	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+es-toolkit with fixed pure callbacks	cb_takeRightWhile_2	cb_takeRightWhile_2		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_takeWhile	cb_takeWhile	(.arr .num)	(.arr .num)	forLoop		false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_unionBy	cb_unionBy	(.arr .num) (.arr .num)	(.arr .num)	forLoop		false	FAILED	K: other	
+es-toolkit with fixed pure callbacks	cb_unionBy_2	cb_unionBy_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_unionWith	cb_unionWith	(.arr .num) (.arr .num)	(.arr .num)	forLoop	arrEvery	false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_unionWith_2	cb_unionWith_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop	arrEvery	false	PROVED	proved (returns a function: the loop is not run)	
+es-toolkit with fixed pure callbacks	cb_uniqBy	cb_uniqBy	(.arr .num)	(.arr .num)	forLoop		false	PROVED	proved	
+es-toolkit with fixed pure callbacks	cb_uniqWith	cb_uniqWith	(.arr .num)	(.arr .num)	forLoop	arrEvery	false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_xorWith	cb_xorWith	(.arr .num) (.arr .num)	(.arr .num)	forLoop	arrEvery,arrFilter,arrSome	false	FAILED	G: return/break inside the loop	
+es-toolkit with fixed pure callbacks	cb_xorWith_2	cb_xorWith_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop	arrEvery,arrFilter,arrSome	false	PROVED	proved (returns a function: the loop is not run)	
+TheAlgorithms	addBinary	addBinary	.str .str	.str	while		false	FAILED	C: while loop (no automatic termination argument)	
+TheAlgorithms	logTwo	logTwo	.num	.num	while		false	FAILED	M: false for an input found by reading the code	n = -1: `-1 >> 1 === -1`, the loop never ends
+TheAlgorithms	Trie_insertNode	Trie.insertNode	(.obj "Trie") (.obj "TrieNode") .str	.undef	forOfStr		false	FAILED	N: reads a reference the statement leaves without a cell	
+TheAlgorithms	Trie_searchNode	Trie.searchNode	(.obj "Trie") (.obj "TrieNode") .str .bool	.bool	forOfStr		false	FAILED	N: reads a reference the statement leaves without a cell	
+TheAlgorithms	dfs	dfs	(.arr (.arr .num)) (.arr .num) .num .num	.bool	forOf		false	FAILED	N: reads a reference the statement leaves without a cell	
+TheAlgorithms	getNodePriorities	getNodePriorities	(.arr (.arr .num)) (.arr .bool) (.arr .num) .num	.undef	forOf		false	FAILED	N: reads a reference the statement leaves without a cell	
+TheAlgorithms	gatherScc	gatherScc	(.arr (.arr .num)) (.arr .bool) .num (.arr .num)	.undef	forOf		false	FAILED	N: reads a reference the statement leaves without a cell	
+TheAlgorithms	aliquotSum	aliquotSum	.num	.num	forLoop		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	armstrongNumber	armstrongNumber	.num	.bool	while		false	FAILED	M: false for an input found by reading the code	num = Infinity: `Math.floor(Infinity / 10) === Infinity`, the loop never ends
+TheAlgorithms	calculateMean	calculateMean	(.arr .num)	.num		arrReduce	false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	DoubleFactorialIterative	DoubleFactorialIterative	.num	.num	forLoop		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	findFactors	findFactors	.num	(.set .num)	forLoop		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	findMin	findMin	(.arr .num)	.num	forOf		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	binaryGCF	binaryGCF	.num .num	.num	while		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	hammingDistance	hammingDistance	.str .str	.num	forLoop		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	isPalindrome	isPalindrome	.num	.bool	while		false	FAILED	C: while loop (no automatic termination argument)	
+TheAlgorithms	isSquareFree	isSquareFree	.num	.bool	forLoop		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	jugglerSequence	jugglerSequence	.num .num	.num	forLoop		false	FAILED	M: false for an input found by reading the code	n = Infinity: `for (i = 0; i < n; i++)` never ends
+TheAlgorithms	pascalsTriangle	pascalsTriangle	.num	(.arr .num)	forLoop		false	FAILED	M: false for an input found by reading the code	n = 0: `arr[arr.length - 1]` reads index -1
+TheAlgorithms	isPerfectNumber	isPerfectNumber	.num	.bool	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms	isPrime	isPrime	.num	.bool	forLoop		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	sieveOfEratosthenes	sieveOfEratosthenes	.num	(.arr .num)	forLoop		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	squareRoot	squareRoot	.num (.opt .num)	.num	while		false	FAILED	B: explicit throw (argument validation)	
+TheAlgorithms	isSortedArray	isSortedArray	(.arr .num)	.bool	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms	parseNestedBrackets	parseNestedBrackets	.str (.opt .str) (.opt .str)	(.arr .str)	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms	shuffleArray	shuffleArray	(.arr .num)	.undef	forLoop		false	FAILED	M: false for an input found by reading the code	Math.random() = 1: index i + 1 is out of bounds
+TheAlgorithms	binarySearchIterative	binarySearchIterative	(.arr .num) .num (.opt .num) (.opt .num)	(.union tys[.null, .num])	while		false	FAILED	M: false for an input found by reading the code	start = -1: `array[start]` is out of bounds
+TheAlgorithms	exponentialSearch	exponentialSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	FAILED	C: while loop (no automatic termination argument)	
+TheAlgorithms	fibonacciSearch	fibonacciSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	FAILED	M: false for an input found by reading the code	array = []: `array[offset + 1]` reads index 0
+TheAlgorithms	interpolationSearch	interpolationSearch	(.arr .num) .num	.num	while		false	FAILED	M: false for an input found by reading the code	array = []: `array[0]` is read before the loop
+TheAlgorithms	linearSearch	linearSearch	(.arr .dyn) .dyn	.num	forLoop		true	FAILED	G: return/break inside the loop	
+TheAlgorithms	sentinelSearch	sentinelSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	FAILED	M: false for an input found by reading the code	target = NaN: no element equals it, the scan runs past the end
+TheAlgorithms	bogoSort	bogoSort	(.arr .num)	(.arr .num)	while		false	FAILED	M: false for an input found by reading the code	Math.random() always 0.99, arr = [2, 1]: never sorted
+TheAlgorithms	bubbleSort	bubbleSort	(.arr .num)	(.arr .num)	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms	CountSmallerItems	CountSmallerItems	(.arr .num) .num .num	.num	forLoop		false	FAILED	M: false for an input found by reading the code	startIndex = -5: `array[-4]` is out of bounds
+TheAlgorithms	gnomeSort	gnomeSort	(.arr .num)	(.arr .num)	while		false	FAILED	M: false for an input found by reading the code	arr = [NaN, 1]: the two elements are swapped forever
+TheAlgorithms	HeapSort	HeapSort	(.arr .num)	(.arr .num)	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms	buildMaxHeap	buildMaxHeap	(.arr .num)	.undef	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms	insertionSort	insertionSort	(.arr .num)	(.arr .num)	forLoop,while		false	FAILED	C: while loop (no automatic termination argument)	
+TheAlgorithms	partition	partition	(.arr .num) (.opt .num) (.opt .num)	.num	while		false	FAILED	M: false for an input found by reading the code	left = -5: the pivot index is out of bounds
+TheAlgorithms	selectionSort	selectionSort	(.arr .num)	(.arr .num)	forLoop		false	FAILED	F: nested or several loops	
+TheAlgorithms	generateAllCombos	generateAllCombos	(.arr .num) (.arr (.arr .num)) .num .num .num	(.arr (.arr .num))	forLoop		false	FAILED	N: reads a reference the statement leaves without a cell	
+TheAlgorithms generic@number	treeSort_number	treeSort<number>	(.arr .num)	(.arr .num)	forOf		false	FAILED	J: loop body calls a project function	
+TheAlgorithms generic@number	BinarySearchTree_number__insert	BinarySearchTree<number>.insert	(.obj "BinarySearchTree<number>") .num	.undef	while		false	FAILED	N: reads a reference the statement leaves without a cell	
+es-toolkit NoPanic	percentile	percentile	(.arr .num) .num	.num		arrSort	false	FAILED	K: other	
+es-toolkit NoPanic	trimEnd	trimEnd	.str (.opt (.union tys[(.arr .str), .str]))	.str	while		true	FAILED	N: reads a reference the statement leaves without a cell	
+es-toolkit NoPanic	trimStart	trimStart	.str (.opt (.union tys[(.arr .str), .str]))	.str	while		true	FAILED	N: reads a reference the statement leaves without a cell	
+es-toolkit NoPanic	max	max	(.arr .bigint)	.bigint	forLoop		false	FAILED	K: other	
+es-toolkit NoPanic	median_2	median	(.arr .bigint)	.bigint		arrSort	false	FAILED	K: other	
+es-toolkit NoPanic	min	min	(.arr .bigint)	.bigint	forLoop		false	FAILED	K: other	
+es-toolkit NoPanic	percentile_2	percentile	(.arr .bigint) .num	.bigint		arrSort	false	FAILED	K: other	
+es-toolkit pure callbacks NoPanic	cb_maxBy_2	cb_maxBy_2	(.arr .num)	.num	forLoop		false	FAILED	K: other	
+es-toolkit pure callbacks NoPanic	cb_medianBy_2	cb_medianBy_2	(.arr .num)	.bigint		arrMap,arrSort	false	FAILED	K: other	
+es-toolkit pure callbacks NoPanic	cb_minBy_2	cb_minBy_2	(.arr .num)	.num	forLoop		false	FAILED	K: other	
+TheAlgorithms NoPanic	aliquotSum	aliquotSum	.num	.num	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms NoPanic	calculateMean	calculateMean	(.arr .num)	.num		arrReduce	false	FAILED	K: other	
+TheAlgorithms NoPanic	DoubleFactorialIterative	DoubleFactorialIterative	.num	.num	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms NoPanic	findFactors	findFactors	.num	(.set .num)	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms NoPanic	findMin	findMin	(.arr .num)	.num	forOf		false	FAILED	K: other	
+TheAlgorithms NoPanic	binaryGCF	binaryGCF	.num .num	.num	while		false	FAILED	C: while loop (no automatic termination argument)	
+TheAlgorithms NoPanic	hammingDistance	hammingDistance	.str .str	.num	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms NoPanic	isSquareFree	isSquareFree	.num	.bool	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms NoPanic	isPrime	isPrime	.num	.bool	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms NoPanic	sieveOfEratosthenes	sieveOfEratosthenes	.num	(.arr .num)	forLoop		false	FAILED	D: counted loop bound not `i < xs.length` or `i < constant`	
+TheAlgorithms NoPanic	squareRoot	squareRoot	.num (.opt .num)	.num	while		false	FAILED	C: while loop (no automatic termination argument)	
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_chunkBy	cb_chunkBy	(.arr .num)	(.arr (.arr .num))	forLoop		true	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_chunkBy_2	cb_chunkBy_2		(.fn tys[(.arr .num)] (.arr (.arr .num)))	forLoop		true	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_countBy_2	cb_countBy_2	(.map .num .num)	(.map .str .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_countBy_3	cb_countBy_3	(.set .num)	(.map .num .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_differenceWith	cb_differenceWith	(.arr .num) (.arr .num)	(.arr .num)		arrEvery,arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_dropRightWhile	cb_dropRightWhile	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_dropRightWhile_2	cb_dropRightWhile_2		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_dropWhile	cb_dropWhile	(.arr .num)	(.arr .num)		arrFindIndex	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_every	cb_every	(.map .num .num)	.bool	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_every_2	cb_every_2	(.set .num)	.bool	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_filter_2	cb_filter_2	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_filter_3	cb_filter_3	(.set .num)	(.set .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_findIndex	cb_findIndex		(.fn tys[(.arr .num)] .num)		arrFindIndex	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_findKey	cb_findKey	(.map .num .num)	(.opt .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_findLastIndex	cb_findLastIndex		(.fn tys[(.arr .num)] .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_findValue	cb_findValue	(.map .num .num)	(.opt .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_find_2	cb_find_2	(.set .num)	(.opt .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_forEach_2	cb_forEach_2	(.map .num .num)	.undef	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_forEach_3	cb_forEach_3	(.set .num)	.undef	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_intersectionWith	cb_intersectionWith	(.arr .num) (.arr .num)	(.arr .num)		arrFilter,arrSome	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_isSubsetWith	cb_isSubsetWith	(.arr .num) (.arr .num)	.bool		arrEvery,arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_isSubsetWith_2	cb_isSubsetWith_2	(.arr .num)	(.fn tys[(.arr .num)] .bool)		arrEvery,arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_keyBy_2	cb_keyBy_2	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_keyBy_3	cb_keyBy_3	(.set .num)	(.map .num .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_mapKeys	cb_mapKeys	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_mapValues	cb_mapValues	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_map_2	cb_map_2	(.set .num)	(.set .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_maxBy_2	cb_maxBy_2	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_meanBy	cb_meanBy	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_medianBy	cb_medianBy	(.arr .num)	.num		arrMap,arrSort	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_medianBy_2	cb_medianBy_2	(.arr .num)	.bigint		arrMap,arrSort	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_minBy_2	cb_minBy_2	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_partition_3	cb_partition_3	(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])	(.tup tys[(.arr .num), (.arr .num)])	while		true	UNKNOWN	call of a function value	applyFn I program ((match v0 with | Val.record vs => vs).get Mem.here) Vals.nil
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_partition_4	cb_partition_4		(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])] (.tup tys[(.arr .num), (.arr .num)]))	while		true	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_reduce	cb_reduce	(.map .num .num) (.opt .num)	.num	forOfMap		true	COUNTEREXAMPLE	unsound read tolerated	[new Map([[3.8183909599847904e+214, 5], [-380.5, 0], [-9.586949237758194e+272, -28], [-499.5, 0]]), undefined]
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_reduce_2	cb_reduce_2	(.set .num) (.opt .num)	.num	forOfSet		true	COUNTEREXAMPLE	unsound read tolerated	[new Set([-499.5, 0]), undefined]
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_some	cb_some	(.map .num .num)	.bool	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_some_2	cb_some_2	(.set .num)	.bool	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_sumBy	cb_sumBy	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_sumBy_2	cb_sumBy_2	(.arr .num)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_takeRightWhile	cb_takeRightWhile	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_takeRightWhile_2	cb_takeRightWhile_2		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_takeWhile	cb_takeWhile	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_unionBy	cb_unionBy	(.arr .num) (.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_unionBy_2	cb_unionBy_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_unionWith	cb_unionWith	(.arr .num) (.arr .num)	(.arr .num)	forLoop	arrEvery	false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_unionWith_2	cb_unionWith_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop	arrEvery	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_uniqBy	cb_uniqBy	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_uniqWith	cb_uniqWith	(.arr .num)	(.arr .num)	forLoop	arrEvery	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_xorWith	cb_xorWith	(.arr .num) (.arr .num)	(.arr .num)	forLoop	arrEvery,arrFilter,arrSome	false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: es-toolkit fixed callbacks dyn	cb_xorWith_2	cb_xorWith_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop	arrEvery,arrFilter,arrSome	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_countBy	cb_countBy	(.map .num .num)	(.map .str .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_countBy_2	cb_countBy_2	(.set .num)	(.map .num .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_differenceWith	cb_differenceWith	(.arr .num) (.arr .num)	(.arr .num)		arrEvery,arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_dropRightWhile	cb_dropRightWhile	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_dropRightWhile_2	cb_dropRightWhile_2		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_dropWhile	cb_dropWhile	(.arr .num)	(.arr .num)		arrFindIndex	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_every	cb_every	(.map .num .num)	.bool	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_every_2	cb_every_2	(.set .num)	.bool	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_filter	cb_filter	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_filter_2	cb_filter_2	(.set .num)	(.set .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_findIndex	cb_findIndex		(.fn tys[(.arr .num)] .num)		arrFindIndex	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_findKey	cb_findKey	(.map .num .num)	(.opt .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_findLastIndex	cb_findLastIndex		(.fn tys[(.arr .num)] .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_findValue	cb_findValue	(.map .num .num)	(.opt .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_find_2	cb_find_2	(.set .num)	(.opt .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_forEach	cb_forEach	(.map .num .num)	.undef	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_forEach_2	cb_forEach_2	(.set .num)	.undef	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_intersectionWith	cb_intersectionWith	(.arr .num) (.arr .num)	(.arr .num)		arrFilter,arrSome	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_isSubsetWith	cb_isSubsetWith	(.arr .num) (.arr .num)	.bool		arrEvery,arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_isSubsetWith_2	cb_isSubsetWith_2	(.arr .num)	(.fn tys[(.arr .num)] .bool)		arrEvery,arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_keyBy	cb_keyBy	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_keyBy_2	cb_keyBy_2	(.set .num)	(.map .num .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_map	cb_map	(.set .num)	(.set .num)	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_mapKeys	cb_mapKeys	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_mapValues	cb_mapValues	(.map .num .num)	(.map .num .num)	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_maxBy_2	cb_maxBy_2	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_meanBy	cb_meanBy	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_medianBy	cb_medianBy	(.arr .num)	.num		arrMap,arrSort	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_medianBy_2	cb_medianBy_2	(.arr .num)	.bigint		arrMap,arrSort	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_minBy_2	cb_minBy_2	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_some	cb_some	(.map .num .num)	.bool	forOfMap		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_some_2	cb_some_2	(.set .num)	.bool	forOfSet		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_sumBy	cb_sumBy	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_sumBy_2	cb_sumBy_2	(.arr .num)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_takeRightWhile	cb_takeRightWhile	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_takeRightWhile_2	cb_takeRightWhile_2		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_takeWhile	cb_takeWhile	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_unionBy	cb_unionBy	(.arr .num) (.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_unionBy_2	cb_unionBy_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_unionWith	cb_unionWith	(.arr .num) (.arr .num)	(.arr .num)	forLoop	arrEvery	false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_unionWith_2	cb_unionWith_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop	arrEvery	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_uniqBy	cb_uniqBy	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_uniqWith	cb_uniqWith	(.arr .num)	(.arr .num)	forLoop	arrEvery	false	PROVED		
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_xorWith	cb_xorWith	(.arr .num) (.arr .num)	(.arr .num)	forLoop	arrEvery,arrFilter,arrSome	false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: es-toolkit fixed callbacks strict	cb_xorWith_2	cb_xorWith_2	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))	forLoop	arrEvery,arrFilter,arrSome	false	PROVED		
+uniform NoPanic: es-toolkit dyn	Semaphore_new	Semaphore.constructor	.num	(.obj "Semaphore")			false	PROVED		
+uniform NoPanic: es-toolkit dyn	Semaphore_acquire	Semaphore.acquire	(.obj "Semaphore")	(.promise .undef)			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match match match match match match match Std.ExtDHashMap. … | last hypothesis
+uniform NoPanic: es-toolkit dyn	Semaphore_release	Semaphore.release	(.obj "Semaphore")	.undef			false	UNKNOWN	call of a function value	applyFn I program c0_2[0] Vals.nil
+uniform NoPanic: es-toolkit dyn	nullishRank	nullishRank	.dyn	.num			true	PROVED		
+uniform NoPanic: es-toolkit dyn	random	random	.num (.opt .num)	.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	asyncNoop	asyncNoop		(.promise .undef)			false	PROVED		
+uniform NoPanic: es-toolkit dyn	noop	noop		.undef			false	PROVED		
+uniform NoPanic: es-toolkit dyn	DEFAULT_SHOULD_RETRY	DEFAULT_SHOULD_RETRY		.bool			false	PROVED		
+uniform NoPanic: es-toolkit dyn	clamp	clamp	.num .num (.opt .num)	.num			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v2 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit dyn	inRange	inRange	.num .num (.opt .num)	.bool			false	PROVED		
+uniform NoPanic: es-toolkit dyn	sum	sum	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit dyn	mean	mean	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit dyn	median	median	(.arr .num)	.num		arrSort	false	PROVED		
+uniform NoPanic: es-toolkit dyn	percentile	percentile	(.arr .num) .num	.num		arrSort	false	UNKNOWN	undecided test	val✝ < c0.size
+uniform NoPanic: es-toolkit dyn	round	round	.num (.opt .num)	.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	isTypedArray	isTypedArray	.dyn	.bool			true	UNKNOWN	external call answer	w.ext "ArrayBuffer.isView" [Ty.dyn] Ty.bool (Vals.cons v0 Vals.nil) w.extIdx
+uniform NoPanic: es-toolkit dyn	isArray	isArray	(.opt .dyn)	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isArrayBuffer	isArrayBuffer	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isBoolean	isBoolean	.dyn	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isBrowser	isBrowser		.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isDate	isDate	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	eq	eq	.dyn .dyn	.bool			true	UNKNOWN	undecided test	val✝ = true
+uniform NoPanic: es-toolkit dyn	isError	isError	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isFunction	isFunction	.dyn	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isJSON	isJSON	.dyn	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isLength	isLength	(.opt .dyn)	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isNil	isNil	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isNode	isNode		.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isNull	isNull	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isNumber	isNumber	.dyn	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isString	isString	.dyn	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isUndefined	isUndefined	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isWeakMap	isWeakMap	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isWeakSet	isWeakSet	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	Mutex_get_isLocked	Mutex.get isLocked	(.obj "Mutex")	.bool			false	UNKNOWN	residual condition	False | last hypothesis: Std.ExtDHashMap.get? w.heap (HKind.obj "Semaphore" Semaphore.fields.types, match f0_0 with | Va
+uniform NoPanic: es-toolkit dyn	Mutex_acquire	Mutex.acquire	(.obj "Mutex")	(.promise .undef)			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match match match match match match match match match matc … | last hypothesis
+uniform NoPanic: es-toolkit dyn	Mutex_release	Mutex.release	(.obj "Mutex")	.undef			false	UNKNOWN	residual condition	False | last hypothesis: Std.ExtDHashMap.get? w.heap (HKind.obj "Semaphore" Semaphore.fields.types, match f0_0 with | Va
+uniform NoPanic: es-toolkit dyn	deburr	deburr	.str	.str	forLoop		false	UNKNOWN	heartbeat limit	maxHeartbeats reached
+uniform NoPanic: es-toolkit dyn	dedentImpl	dedentImpl	.str	.str	forLoop,while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.lit (Lit.bool true)) (Block.decl { ty := Ty.num } (Expr.prim PrimOp.indexOf (Args.cons (Expr.va
+uniform NoPanic: es-toolkit dyn	escape	escape	.str	.str	forOf		false	UNKNOWN	heartbeat limit	maxHeartbeats reached
+uniform NoPanic: es-toolkit dyn	escapeRegExp	escapeRegExp	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	lowerFirst	lowerFirst	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	pad	pad	.str .num (.opt .str)	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	reverseString	reverseString	.str	.str	forOfStr		false	PROVED		
+uniform NoPanic: es-toolkit dyn	trimEnd	trimEnd	.str (.opt (.union tys[(.arr .str), .str]))	.str	while		true	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match a✝.fst with | Completion.normal => JS.panic "function ende … | last hypothesis
+uniform NoPanic: es-toolkit dyn	trimStart	trimStart	.str (.opt (.union tys[(.arr .str), .str]))	.str	while		true	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match a✝.fst with | Completion.normal => JS.panic "function ende … | last hypothesis
+uniform NoPanic: es-toolkit dyn	trim	trim	.str (.opt (.union tys[(.arr .str), .str]))	.str	while		true	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match a✝.fst with | Completion.normal => JS.panic "function ende … | last hypothesis
+uniform NoPanic: es-toolkit dyn	unescape	unescape	.str	.str	forOf		false	UNKNOWN	heartbeat limit	maxHeartbeats reached
+uniform NoPanic: es-toolkit dyn	upperFirst	upperFirst	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	invariant	invariant	.dyn (.union tys[.err, .str])	.undef			true	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v1 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit dyn	isArrayLike	isArrayLike	(.opt .dyn)	.bool			true	COUNTEREXAMPLE	model limitation	[true]
+uniform NoPanic: es-toolkit dyn	isObject	isObject	(.opt .dyn)	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isObjectLike	isObjectLike	(.opt .dyn)	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	identity	identity	(.opt .dyn)	.dyn			true	PROVED		
+uniform NoPanic: es-toolkit dyn	getPriority	getPriority	.dyn	.num			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isTypedArray_2	isTypedArray	.dyn	.bool			true	UNKNOWN	external call answer	w.ext "ArrayBuffer.isView" [Ty.dyn] Ty.bool (Vals.cons v0 Vals.nil) w.extIdx
+uniform NoPanic: es-toolkit dyn	isNil_2	isNil	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	toolkit	toolkit	.dyn	.dyn			true	PROVED		
+uniform NoPanic: es-toolkit dyn	noop_2	noop	(.arr .dyn)	.undef			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isFunction_2	isFunction	.dyn	.bool			true	COUNTEREXAMPLE	model limitation	[({})]
+uniform NoPanic: es-toolkit dyn	isLength_2	isLength	(.opt .dyn)	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isNull_2	isNull	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isUndefined_2	isUndefined	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isArrayBuffer_2	isArrayBuffer	(.opt .dyn)	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isDate_2	isDate	(.opt .dyn)	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isFinite	isFinite	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isInteger	isInteger	(.opt .dyn)	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isSafeInteger	isSafeInteger	.dyn	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isWeakMap_2	isWeakMap	(.opt .dyn)	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	isWeakSet_2	isWeakSet	(.opt .dyn)	.bool			true	PROVED		
+uniform NoPanic: es-toolkit dyn	getUnicodeWordPattern	getUnicodeWordPattern		(.record flds["flags" : .str, "source" : .str])			false	PROVED		
+uniform NoPanic: es-toolkit dyn	endsWith	endsWith	(.opt .str) (.opt .str) (.opt .num)	.bool			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v0 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit dyn	stringSize	stringSize	.str	.num	forOfStr		false	UNKNOWN	undecided test	(match (match a✝¹ with | Val.record vs => vs).get Mem.here with | Val.str s => s).includes (JSStr.ofString "y") (Prim.po
+uniform NoPanic: es-toolkit dyn	createPadding	createPadding	.num .str	.str	forOfStr		false	UNKNOWN	undecided test	(match (match a✝¹ with | Val.record vs => vs).get Mem.here with | Val.str s => s).includes (JSStr.ofString "y") (Prim.po
+uniform NoPanic: es-toolkit dyn	startsWith	startsWith	(.opt .str) (.opt .str) (.opt .num)	.bool			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v0 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit dyn	escapeString	escapeString	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	parseLength	parseLength	(.opt .num)	.num			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v0 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit dyn	now	now		.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubArray	stubArray		(.arr .dyn)			true	PROVED		
+uniform NoPanic: es-toolkit dyn	stubFalse	stubFalse		.bool			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubObject	stubObject		.dyn			true	PROVED		
+uniform NoPanic: es-toolkit dyn	stubString	stubString		.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubTrue	stubTrue		.bool			false	PROVED		
+uniform NoPanic: es-toolkit dyn	uniqueId	uniqueId	(.opt .str)	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	bigIntRangeLength	bigIntRangeLength	.bigint .bigint .bigint	.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	clamp_3	clamp	.bigint .bigint (.opt .bigint)	.bigint			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v2 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit dyn	inRange_3	inRange	.bigint .bigint (.opt .bigint)	.bool			false	PROVED		
+uniform NoPanic: es-toolkit dyn	max	max	(.arr .bigint)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit dyn	median_2	median	(.arr .bigint)	.bigint		arrSort	false	PROVED		
+uniform NoPanic: es-toolkit dyn	min	min	(.arr .bigint)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit dyn	percentile_2	percentile	(.arr .bigint) .num	.bigint		arrSort	false	UNKNOWN	undecided test	val✝ < c0.size
+uniform NoPanic: es-toolkit dyn	sum_3	sum	(.arr .bigint)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit dyn	doubled	doubled	.num	.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubA	stubA		.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubB	stubB		.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubC	stubC		.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubFour	stubFour		.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubNaN	stubNaN		.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubNull	stubNull		.null			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubOne	stubOne		.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubThree	stubThree		.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubTwo	stubTwo		.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	stubZero	stubZero		.num			false	PROVED		
+uniform NoPanic: es-toolkit dyn	add_2	add	.num	(.fn tys[.num] .num)			false	PROVED		
+uniform NoPanic: es-toolkit dyn	multiply_2	multiply	.num	(.fn tys[.num] .num)			false	PROVED		
+uniform NoPanic: es-toolkit dyn	streamToString	streamToString	(.ext "Stream.Readable")	(.promise .str)			true	UNKNOWN	external call answer	w.ext
+uniform NoPanic: es-toolkit dyn	handleStdin	handleStdin	(.ext "child_process.ChildProcess") (.record flds["signal" : (.opt (.ext "AbortSignal")), "spawnOptions" : (.opt (.ext "child_process.SpawnOptions")), "stdin" : (.opt .str), "throwOnNonZeroExitCode" : (.opt .bool), "timeout" : (.opt .num)])	.undef			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match match match (match (match v1 with | Val.record vs => … | last hypothesis
+uniform NoPanic: es-toolkit dyn	parseAbortSignal	parseAbortSignal	(.record flds["signal" : (.opt (.ext "AbortSignal")), "spawnOptions" : (.opt (.ext "child_process.SpawnOptions")), "stdin" : (.opt .str), "throwOnNonZeroExitCode" : (.opt .bool), "timeout" : (.opt .num)])	(.opt (.ext "AbortSignal"))			false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: es-toolkit dyn	wrapAnsi	wrapAnsi	.str .str .str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	ansi256	ansi256	.num	(.fn tys[.str] .str)			false	PROVED		
+uniform NoPanic: es-toolkit dyn	wrapAnsiBg	wrapAnsiBg	.str .str .str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgAnsi256	bgAnsi256	.num	(.fn tys[.str] .str)	forOf		false	PROVED		
+uniform NoPanic: es-toolkit dyn	bgBlack	bgBlack	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgBlackBright	bgBlackBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgBlue	bgBlue	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgBlueBright	bgBlueBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgCyan	bgCyan	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgCyanBright	bgCyanBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgGreen	bgGreen	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgGreenBright	bgGreenBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	parseHex	parseHex	.str	(.tup tys[.num, .num, .num])			false	PROVED		
+uniform NoPanic: es-toolkit dyn	bgHex	bgHex	.str	(.fn tys[.str] .str)	forOf		false	PROVED		
+uniform NoPanic: es-toolkit dyn	bgMagenta	bgMagenta	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgMagentaBright	bgMagentaBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgRed	bgRed	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgRedBright	bgRedBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgRgb	bgRgb	.num .num .num	(.fn tys[.str] .str)	forOf		false	PROVED		
+uniform NoPanic: es-toolkit dyn	bgWhite	bgWhite	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgWhiteBright	bgWhiteBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgYellow	bgYellow	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	bgYellowBright	bgYellowBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit dyn	black	black	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	blackBright	blackBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	blue	blue	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	blueBright	blueBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	bold	bold	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	cyan	cyan	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	cyanBright	cyanBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	dim	dim	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	green	green	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	greenBright	greenBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	hex	hex	.str	(.fn tys[.str] .str)			false	PROVED		
+uniform NoPanic: es-toolkit dyn	hidden	hidden	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	inverse	inverse	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	italic	italic	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	magenta	magenta	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	magentaBright	magentaBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	red	red	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	redBright	redBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	reset	reset	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	rgb	rgb	.num .num .num	(.fn tys[.str] .str)			false	PROVED		
+uniform NoPanic: es-toolkit dyn	strikethrough	strikethrough	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	underline	underline	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	white	white	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	whiteBright	whiteBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	yellow	yellow	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit dyn	yellowBright	yellowBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	constant_number	constant<number>	(.opt .num)	(.fn tys[] (.opt .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	count_number	count<number>	(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])	.num	while		true	UNKNOWN	call of a function value	applyFn I program ((match v0 with | Val.record vs => vs).get Mem.here) Vals.nil
+uniform NoPanic: es-toolkit generic@number dyn	count_number_2	count<number>		(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])] .num)	while		true	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	defaultTo_number_number	defaultTo<number, number>	(.opt (.union tys[.null, .num])) .num	.num			false	UNKNOWN	expression	evalE I program ((Alts.cons Expr.none (Alts.cons (Expr.var Var.here).some Alts.nil)).select a✝) (Env.cons a✝¹ (Env.cons 
+uniform NoPanic: es-toolkit generic@number dyn	difference_number	difference<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	drop_number	drop<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	dropRight_number	dropRight<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	dropRight_number_2	dropRight<number>	.num	(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	drop_number_3	drop<number>	.num	(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])] (.ext "IteratorObject"))			true	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	identity_number	identity<number>	.num	.num			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	hasValue_number_number	hasValue<number, number>	(.map .num .num) .num	.bool	forOfMap		true	UNKNOWN	for-of over a Map	evalForOfMap I program a0 0 (Block.decl { ty := Ty.num } ((Expr.var Var.here).getTup Mem.here.there) (Block.seq (Stmt.it
+uniform NoPanic: es-toolkit generic@number dyn	head_number	head<number>	(.arr .num)	(.opt .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	head_number_4	head<number>	(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])	(.opt .num)			true	UNKNOWN	call of a function value	applyFn I program ((match v0 with | Val.record vs => vs).get Mem.here) Vals.nil
+uniform NoPanic: es-toolkit generic@number dyn	head_number_5	head<number>		(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])] (.opt .num))			true	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	initial_number	initial<number>	(.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	intersection_number	intersection<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	isNotNil_number	isNotNil<number>	(.opt (.union tys[.null, .num]))	.bool			false	UNKNOWN	expression	evalE I program ((Alts.cons Expr.none (Alts.cons (Expr.var Var.here).some Alts.nil)).select a✝) (Env.cons a✝¹ (Env.cons 
+uniform NoPanic: es-toolkit generic@number dyn	isSubset_number	isSubset<number>	(.arr .num) (.arr .num)	.bool		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	isSubset_number_2	isSubset<number>	(.arr .num)	(.fn tys[(.arr .num)] .bool)		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	last_number	last<number>	(.arr .num)	(.opt .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	length_number	length<number>		(.fn tys[(.arr .num)] .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	reverse_number	reverse<number>		(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	sample_number	sample<number>	(.arr .num)	.num			false	COUNTEREXAMPLE	latent bug	[[]]
+uniform NoPanic: es-toolkit generic@number dyn	sample_number_3	sample<number>		(.fn tys[(.arr .num)] .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	shuffle_number	shuffle<number>	(.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: es-toolkit generic@number dyn	shuffle_number_2	shuffle<number>		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	tail_number	tail<number>	(.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	take_number	take<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	takeRight_number	takeRight<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	takeRight_number_2	takeRight<number>	.num	(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	take_number_3	take<number>	.num	(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])] (.ext "IteratorObject"))			true	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	toArray_number	toArray<number>		(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])), "return" : (.opt (.fn tys[(.opt .dyn)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .dyn])])))])] (.arr .num))			true	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	uniq_number	uniq<number>	(.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	union_number	union<number>	(.arr .num) (.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	union_number_2	union<number>	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number dyn	xor_number	xor<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrFilter Ty.num) (Vals.cons (Val.arr a0) (Vals.cons (Val.clo [{ ty := Ty.num.set }] (Lam
+uniform NoPanic: es-toolkit generic@number dyn	xor_number_2	xor<number>	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	constant_number	constant<number>	(.opt .num)	(.fn tys[] (.opt .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	count_number	count<number>	(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])), "return" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])))])	.num	while		false	UNKNOWN	call of a function value	applyFn I program ((match v0 with | Val.record vs => vs).get Mem.here) Vals.nil
+uniform NoPanic: es-toolkit generic@number strict	count_number_2	count<number>		(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])), "return" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])))])] .num)	while		false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	defaultTo_number_number	defaultTo<number, number>	(.opt (.union tys[.null, .num])) .num	.num			false	UNKNOWN	expression	evalE I program ((Alts.cons Expr.none (Alts.cons (Expr.var Var.here).some Alts.nil)).select a✝) (Env.cons a✝¹ (Env.cons 
+uniform NoPanic: es-toolkit generic@number strict	difference_number	difference<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	drop_number	drop<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	dropRight_number	dropRight<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	dropRight_number_2	dropRight<number>	.num	(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	drop_number_2	drop<number>	.num	(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])), "return" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])))])] (.ext "IteratorObject"))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	head_number	head<number>	(.arr .num)	(.opt .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	head_number_4	head<number>	(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])), "return" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])))])	(.opt .num)			false	UNKNOWN	call of a function value	applyFn I program ((match v0 with | Val.record vs => vs).get Mem.here) Vals.nil
+uniform NoPanic: es-toolkit generic@number strict	head_number_5	head<number>		(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])), "return" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])))])] (.opt .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	identity_number	identity<number>	.num	.num			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	initial_number	initial<number>	(.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	intersection_number	intersection<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	isNotNil_number	isNotNil<number>	(.opt (.union tys[.null, .num]))	.bool			false	UNKNOWN	expression	evalE I program ((Alts.cons Expr.none (Alts.cons (Expr.var Var.here).some Alts.nil)).select a✝) (Env.cons a✝¹ (Env.cons 
+uniform NoPanic: es-toolkit generic@number strict	isSubset_number	isSubset<number>	(.arr .num) (.arr .num)	.bool		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	isSubset_number_2	isSubset<number>	(.arr .num)	(.fn tys[(.arr .num)] .bool)		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	last_number	last<number>	(.arr .num)	(.opt .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	length_number	length<number>		(.fn tys[(.arr .num)] .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	reverse_number	reverse<number>		(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	sample_number	sample<number>	(.arr .num)	.num			false	COUNTEREXAMPLE	latent bug	[[]]
+uniform NoPanic: es-toolkit generic@number strict	sample_number_3	sample<number>		(.fn tys[(.arr .num)] .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	shuffle_number	shuffle<number>	(.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: es-toolkit generic@number strict	shuffle_number_2	shuffle<number>		(.fn tys[(.arr .num)] (.arr .num))	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	tail_number	tail<number>	(.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	take_number	take<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	takeRight_number	takeRight<number>	(.arr .num) .num	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	takeRight_number_2	takeRight<number>	.num	(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	take_number_2	take<number>	.num	(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])), "return" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])))])] (.ext "IteratorObject"))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	toArray_number	toArray<number>		(.fn tys[(.record flds["next" : (.fn tys[] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])), "return" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])]))), "throw" : (.opt (.fn tys[(.opt .undef)] (.union tys[(.record flds["done" : (.opt .bool), "value" : .num]), (.record flds["done" : .bool, "value" : .undef])])))])] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	uniq_number	uniq<number>	(.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	union_number	union<number>	(.arr .num) (.arr .num)	(.arr .num)			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	union_number_2	union<number>	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))			false	PROVED		
+uniform NoPanic: es-toolkit generic@number strict	xor_number	xor<number>	(.arr .num) (.arr .num)	(.arr .num)		arrFilter	false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrFilter Ty.num) (Vals.cons (Val.arr a0) (Vals.cons (Val.clo [{ ty := Ty.num.set }] (Lam
+uniform NoPanic: es-toolkit generic@number strict	xor_number_2	xor<number>	(.arr .num)	(.fn tys[(.arr .num)] (.arr .num))		arrFilter	false	PROVED		
+uniform NoPanic: es-toolkit strict	Semaphore_new	Semaphore.constructor	.num	(.obj "Semaphore")			false	PROVED		
+uniform NoPanic: es-toolkit strict	Semaphore_acquire	Semaphore.acquire	(.obj "Semaphore")	(.promise .undef)			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match match match match match match match Std.ExtDHashMap. … | last hypothesis
+uniform NoPanic: es-toolkit strict	Semaphore_release	Semaphore.release	(.obj "Semaphore")	.undef			false	UNKNOWN	call of a function value	applyFn I program c0_2[0] Vals.nil
+uniform NoPanic: es-toolkit strict	random	random	.num (.opt .num)	.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	asyncNoop	asyncNoop		(.promise .undef)			false	PROVED		
+uniform NoPanic: es-toolkit strict	noop	noop		.undef			false	PROVED		
+uniform NoPanic: es-toolkit strict	DEFAULT_SHOULD_RETRY	DEFAULT_SHOULD_RETRY		.bool			false	PROVED		
+uniform NoPanic: es-toolkit strict	clamp	clamp	.num .num (.opt .num)	.num			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v2 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit strict	inRange	inRange	.num .num (.opt .num)	.bool			false	PROVED		
+uniform NoPanic: es-toolkit strict	sum	sum	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit strict	mean	mean	(.arr .num)	.num	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit strict	median	median	(.arr .num)	.num		arrSort	false	PROVED		
+uniform NoPanic: es-toolkit strict	percentile	percentile	(.arr .num) .num	.num		arrSort	false	UNKNOWN	undecided test	val✝ < c0.size
+uniform NoPanic: es-toolkit strict	round	round	.num (.opt .num)	.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	Mutex_get_isLocked	Mutex.get isLocked	(.obj "Mutex")	.bool			false	UNKNOWN	residual condition	False | last hypothesis: Std.ExtDHashMap.get? w.heap (HKind.obj "Semaphore" Semaphore.fields.types, match f0_0 with | Va
+uniform NoPanic: es-toolkit strict	Mutex_acquire	Mutex.acquire	(.obj "Mutex")	(.promise .undef)			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match match match match match match match match match matc … | last hypothesis
+uniform NoPanic: es-toolkit strict	Mutex_release	Mutex.release	(.obj "Mutex")	.undef			false	UNKNOWN	residual condition	False | last hypothesis: Std.ExtDHashMap.get? w.heap (HKind.obj "Semaphore" Semaphore.fields.types, match f0_0 with | Va
+uniform NoPanic: es-toolkit strict	deburr	deburr	.str	.str	forLoop		false	UNKNOWN	heartbeat limit	maxHeartbeats reached
+uniform NoPanic: es-toolkit strict	dedentImpl	dedentImpl	.str	.str	forLoop,while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.lit (Lit.bool true)) (Block.decl { ty := Ty.num } (Expr.prim PrimOp.indexOf (Args.cons (Expr.va
+uniform NoPanic: es-toolkit strict	escape	escape	.str	.str	forOf		false	UNKNOWN	heartbeat limit	maxHeartbeats reached
+uniform NoPanic: es-toolkit strict	escapeRegExp	escapeRegExp	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	lowerFirst	lowerFirst	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	pad	pad	.str .num (.opt .str)	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	reverseString	reverseString	.str	.str	forOfStr		false	PROVED		
+uniform NoPanic: es-toolkit strict	unescape	unescape	.str	.str	forOf		false	UNKNOWN	heartbeat limit	maxHeartbeats reached
+uniform NoPanic: es-toolkit strict	upperFirst	upperFirst	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	getUnicodeWordPattern	getUnicodeWordPattern		(.record flds["flags" : .str, "source" : .str])			false	PROVED		
+uniform NoPanic: es-toolkit strict	endsWith	endsWith	(.opt .str) (.opt .str) (.opt .num)	.bool			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v0 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit strict	stringSize	stringSize	.str	.num	forOfStr		false	UNKNOWN	undecided test	(match (match a✝¹ with | Val.record vs => vs).get Mem.here with | Val.str s => s).includes (JSStr.ofString "y") (Prim.po
+uniform NoPanic: es-toolkit strict	createPadding	createPadding	.num .str	.str	forOfStr		false	UNKNOWN	undecided test	(match (match a✝¹ with | Val.record vs => vs).get Mem.here with | Val.str s => s).includes (JSStr.ofString "y") (Prim.po
+uniform NoPanic: es-toolkit strict	startsWith	startsWith	(.opt .str) (.opt .str) (.opt .num)	.bool			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v0 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit strict	escapeString	escapeString	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	parseLength	parseLength	(.opt .num)	.num			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v0 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit strict	now	now		.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubFalse	stubFalse		.bool			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubString	stubString		.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubTrue	stubTrue		.bool			false	PROVED		
+uniform NoPanic: es-toolkit strict	uniqueId	uniqueId	(.opt .str)	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	bigIntRangeLength	bigIntRangeLength	.bigint .bigint .bigint	.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	clamp_2	clamp	.bigint .bigint (.opt .bigint)	.bigint			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match (match Except.ok v2 with | Except.error ex => pure ( … | last hypothesis
+uniform NoPanic: es-toolkit strict	inRange_3	inRange	.bigint .bigint (.opt .bigint)	.bool			false	PROVED		
+uniform NoPanic: es-toolkit strict	max	max	(.arr .bigint)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit strict	median_2	median	(.arr .bigint)	.bigint		arrSort	false	PROVED		
+uniform NoPanic: es-toolkit strict	min	min	(.arr .bigint)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit strict	percentile_2	percentile	(.arr .bigint) .num	.bigint		arrSort	false	UNKNOWN	undecided test	val✝ < c0.size
+uniform NoPanic: es-toolkit strict	sum_2	sum	(.arr .bigint)	.bigint	forLoop		false	PROVED		
+uniform NoPanic: es-toolkit strict	doubled	doubled	.num	.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubA	stubA		.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubB	stubB		.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubC	stubC		.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubFour	stubFour		.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubNaN	stubNaN		.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubNull	stubNull		.null			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubOne	stubOne		.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubThree	stubThree		.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubTwo	stubTwo		.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	stubZero	stubZero		.num			false	PROVED		
+uniform NoPanic: es-toolkit strict	add	add	.num	(.fn tys[.num] .num)			false	PROVED		
+uniform NoPanic: es-toolkit strict	multiply	multiply	.num	(.fn tys[.num] .num)			false	PROVED		
+uniform NoPanic: es-toolkit strict	handleStdin	handleStdin	(.ext "child_process.ChildProcess") (.record flds["signal" : (.opt (.ext "AbortSignal")), "spawnOptions" : (.opt (.ext "child_process.SpawnOptions")), "stdin" : (.opt .str), "throwOnNonZeroExitCode" : (.opt .bool), "timeout" : (.opt .num)])	.undef			false	UNKNOWN	residual condition	∀ (msg : String) (w' : World TT), ¬(match match match match (match (match v1 with | Val.record vs => … | last hypothesis
+uniform NoPanic: es-toolkit strict	parseAbortSignal	parseAbortSignal	(.record flds["signal" : (.opt (.ext "AbortSignal")), "spawnOptions" : (.opt (.ext "child_process.SpawnOptions")), "stdin" : (.opt .str), "throwOnNonZeroExitCode" : (.opt .bool), "timeout" : (.opt .num)])	(.opt (.ext "AbortSignal"))			false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: es-toolkit strict	wrapAnsi	wrapAnsi	.str .str .str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	ansi256	ansi256	.num	(.fn tys[.str] .str)			false	PROVED		
+uniform NoPanic: es-toolkit strict	wrapAnsiBg	wrapAnsiBg	.str .str .str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgAnsi256	bgAnsi256	.num	(.fn tys[.str] .str)	forOf		false	PROVED		
+uniform NoPanic: es-toolkit strict	bgBlack	bgBlack	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgBlackBright	bgBlackBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgBlue	bgBlue	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgBlueBright	bgBlueBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgCyan	bgCyan	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgCyanBright	bgCyanBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgGreen	bgGreen	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgGreenBright	bgGreenBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	parseHex	parseHex	.str	(.tup tys[.num, .num, .num])			false	PROVED		
+uniform NoPanic: es-toolkit strict	bgHex	bgHex	.str	(.fn tys[.str] .str)	forOf		false	PROVED		
+uniform NoPanic: es-toolkit strict	bgMagenta	bgMagenta	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgMagentaBright	bgMagentaBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgRed	bgRed	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgRedBright	bgRedBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgRgb	bgRgb	.num .num .num	(.fn tys[.str] .str)	forOf		false	PROVED		
+uniform NoPanic: es-toolkit strict	bgWhite	bgWhite	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgWhiteBright	bgWhiteBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgYellow	bgYellow	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	bgYellowBright	bgYellowBright	.str	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: es-toolkit strict	black	black	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	blackBright	blackBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	blue	blue	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	blueBright	blueBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	bold	bold	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	cyan	cyan	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	cyanBright	cyanBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	dim	dim	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	green	green	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	greenBright	greenBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	hex	hex	.str	(.fn tys[.str] .str)			false	PROVED		
+uniform NoPanic: es-toolkit strict	hidden	hidden	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	inverse	inverse	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	italic	italic	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	magenta	magenta	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	magentaBright	magentaBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	red	red	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	redBright	redBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	reset	reset	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	rgb	rgb	.num .num .num	(.fn tys[.str] .str)			false	PROVED		
+uniform NoPanic: es-toolkit strict	strikethrough	strikethrough	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	underline	underline	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	white	white	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	whiteBright	whiteBright	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	yellow	yellow	.str	.str			false	PROVED		
+uniform NoPanic: es-toolkit strict	yellowBright	yellowBright	.str	.str			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	generateCombinations	generateCombinations	.num .num	(.arr (.arr .num))	forLoop		false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms dyn	generateParentheses	generateParentheses	.num	(.arr .str)			false	UNKNOWN	call	callFun I program solveRef (Vals.cons v0 (Vals.cons (Val.arr w.next) (Vals.cons (Val.str (JSStr.ofString "(")) (Vals.con
+uniform NoPanic: TheAlgorithms dyn	addBinary	addBinary	.str .str	.str	while		false	UNKNOWN	while/for loop	evalLoop I program ((Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here.there.there.there) (Args.cons (Expr.
+uniform NoPanic: TheAlgorithms dyn	isPowerOfTwo	isPowerOfTwo	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isPowerOfFour	isPowerOfFour	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	logTwo	logTwo	.num	.num	while		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	XORCipher	XORCipher	.str .num	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: TheAlgorithms dyn	Trie_insertNode	Trie.insertNode	(.obj "Trie") (.obj "TrieNode") .str	.undef	forOfStr		false	UNKNOWN	for-of over a string	evalForOfStr I program (Conv.codePointStrs a✝¹.units) (Block.seq (Stmt.ite (Expr.prim PrimOp.not (Args.cons ((Expr.built
+uniform NoPanic: TheAlgorithms dyn	Trie_find	Trie.find	(.obj "Trie") .str (.opt .bool)	.bool	forOfStr		false	UNKNOWN	for-of over a string	evalForOfStr I program (Conv.codePointStrs a✝.units) (Block.seq (Stmt.ite (Expr.prim PrimOp.not (Args.cons ((Expr.builti
+uniform NoPanic: TheAlgorithms dyn	Trie_searchNode	Trie.searchNode	(.obj "Trie") (.obj "TrieNode") .str .bool	.bool	forOfStr		false	UNKNOWN	for-of over a string	evalForOfStr I program (Conv.codePointStrs a✝¹.units) (Block.seq (Stmt.ite (Expr.prim PrimOp.not (Args.cons ((Expr.built
+uniform NoPanic: TheAlgorithms dyn	dfs	dfs	(.arr (.arr .num)) (.arr .num) .num .num	.bool	forOf		false	COUNTEREXAMPLE	unsound read tolerated	[[], [], 0, 5]
+uniform NoPanic: TheAlgorithms dyn	getNodePriorities	getNodePriorities	(.arr (.arr .num)) (.arr .bool) (.arr .num) .num	.undef	forOf		false	COUNTEREXAMPLE	latent bug	[[], [], [5, 82, 3.005866186518087e+201], 685597484]
+uniform NoPanic: TheAlgorithms dyn	gatherScc	gatherScc	(.arr (.arr .num)) (.arr .bool) .num (.arr .num)	.undef	forOf		false	COUNTEREXAMPLE	latent bug	[[], [], 0, [98, 492.5, 5.694854281447043e-181, -0]]
+uniform NoPanic: TheAlgorithms dyn	Edge_new	Edge.constructor	.num .num .num	(.obj "Edge")			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	absoluteValue	absoluteValue	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	aliquotSum	aliquotSum	.num	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	armstrongNumber	armstrongNumber	.num	.bool	while		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	factorial	factorial	.num	.num			false	UNKNOWN	call	callFun I program factorialRef (Vals.cons (Val.num ((match v0 with | Val.num x => x) - F64.ofNat 1)) Vals.nil)
+uniform NoPanic: TheAlgorithms dyn	binomialCoefficient	binomialCoefficient	.num .num	.num			false	UNKNOWN	call	callFun I program factorialRef (Vals.cons v1 Vals.nil)
+uniform NoPanic: TheAlgorithms dyn	calculateMean	calculateMean	(.arr .num)	.num		arrReduce	false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	calculateMedian	calculateMedian	(.arr .num)	.num			false	UNKNOWN	undecided test	val✝ < c0.size
+uniform NoPanic: TheAlgorithms dyn	degreesToRadians	degreesToRadians	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	DoubleFactorialIterative	DoubleFactorialIterative	.num	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	findFactors	findFactors	.num	(.set .num)	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	nthFibonacciRecursively	nthFibonacciRecursively	.num	.num			false	UNKNOWN	call	callFun I program nthFibonacciRecursivelyRef (Vals.cons (Val.num ((match v0 with | Val.num x => x) - F64.ofNat 1)) Vals.
+uniform NoPanic: TheAlgorithms dyn	nthFibonacciUsingFormula	nthFibonacciUsingFormula	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	findMin	findMin	(.arr .num)	.num	forOf		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	binaryGCF	binaryGCF	.num .num	.num	while		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	greatestCommonFactor	greatestCommonFactor	(.arr .num)	.num	while		false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrReduce1 Ty.num) (Vals.cons (Val.arr a0) (Vals.cons (Val.clo [] (Lam.sync [{ ty := Ty.n
+uniform NoPanic: TheAlgorithms dyn	hammingDistance	hammingDistance	.str .str	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isDivisible	isDivisible	.num .num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isEven	isEven	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isOdd	isOdd	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isPalindrome	isPalindrome	.num	.bool	while		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isSquareFree	isSquareFree	.num	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	jugglerSequence	jugglerSequence	.num .num	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	naiveLCM	naiveLCM	(.arr .num)	.num	while	arrEvery,arrReduce,arrSome	false	UNKNOWN	while/for loop	evalLoop I program (Expr.lit (Lit.bool true)) (Block.seq (Stmt.ite (Expr.builtin (Builtin.arrEvery Ty.num) (Args.cons (E
+uniform NoPanic: TheAlgorithms dyn	binaryLCM	binaryLCM	.num .num	.num	while		false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrReduce1 Ty.num) (Vals.cons (Val.arr w.next) (Vals.cons (Val.clo [] (Lam.sync [{ ty := 
+uniform NoPanic: TheAlgorithms dyn	lowestCommonMultiple	lowestCommonMultiple	(.arr .num)	.num	while		false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrReduce1 Ty.num) (Vals.cons (Val.arr a0) (Vals.cons (Val.clo [] (Lam.sync [{ ty := Ty.n
+uniform NoPanic: TheAlgorithms dyn	numberOfDigits	numberOfDigits	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	pascalsTriangle	pascalsTriangle	.num	(.arr .num)	forLoop		false	COUNTEREXAMPLE	latent bug	[NaN]
+uniform NoPanic: TheAlgorithms dyn	perfectCube	perfectCube	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isPerfectNumber	isPerfectNumber	.num	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	perfectSquare	perfectSquare	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isPrime	isPrime	.num	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	pronicNumber	pronicNumber	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	radiansToDegrees	radiansToDegrees	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	sieveOfEratosthenes	sieveOfEratosthenes	.num	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.le) (Args.cons (Expr.var Var.here) (Args.cons (Expr.var Var.here.there.
+uniform NoPanic: TheAlgorithms dyn	signum	signum	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	squareRoot	squareRoot	.num (.opt .num)	.num	while		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	isSortedArray	isSortedArray	(.arr .num)	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	parseNestedBrackets	parseNestedBrackets	.str (.opt .str) (.opt .str)	(.arr .str)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.prim PrimOp.strLeng
+uniform NoPanic: TheAlgorithms dyn	shuffleArray	shuffleArray	(.arr .num)	.undef	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.gt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: TheAlgorithms dyn	binarySearchIterative	binarySearchIterative	(.arr .num) .num (.opt .num) (.opt .num)	(.union tys[.null, .num])	while		false	COUNTEREXAMPLE	unsound read tolerated	[[172, -160, 3664979655, -2137647482.784605], 755184333, 1565118000, -380.5]
+uniform NoPanic: TheAlgorithms dyn	binarySearchRecursive	binarySearchRecursive	(.arr .num) .num (.opt .num) (.opt .num)	(.union tys[.null, .num])			false	COUNTEREXAMPLE	unsound read tolerated	[[172, -160, 3664979655, -2137647482.784605], 755184333, 1565118000, -380.5]
+uniform NoPanic: TheAlgorithms dyn	exponentialSearch	exponentialSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	UNKNOWN	while/for loop	evalLoop I program ((Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.var Var.here.there
+uniform NoPanic: TheAlgorithms dyn	fibonacciSearch	fibonacciSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5]
+uniform NoPanic: TheAlgorithms dyn	interpolationSearch	interpolationSearch	(.arr .num) .num	.num	while		false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5]
+uniform NoPanic: TheAlgorithms dyn	linearSearch	linearSearch	(.arr .dyn) .dyn	.num	forLoop		true	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: TheAlgorithms dyn	sentinelSearch	sentinelSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	COUNTEREXAMPLE	latent bug	[[-0, -Infinity, -97, -10], NaN]
+uniform NoPanic: TheAlgorithms dyn	bogoSort	bogoSort	(.arr .num)	(.arr .num)	forLoop,while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim PrimOp.not (Args.cons (Expr.call isSortedArrayRef (Args.cons (Expr.var Var.here) Args.nil)
+uniform NoPanic: TheAlgorithms dyn	bubbleSort	bubbleSort	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	CountSmallerItems	CountSmallerItems	(.arr .num) .num .num	.num	forLoop		false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5, 5]
+uniform NoPanic: TheAlgorithms dyn	gnomeSort	gnomeSort	(.arr .num)	(.arr .num)	while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: TheAlgorithms dyn	HeapSort	HeapSort	(.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: TheAlgorithms dyn	buildMaxHeap	buildMaxHeap	(.arr .num)	.undef	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: TheAlgorithms dyn	heapify	heapify	(.arr .num) .num .num	.undef			false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5, 5]
+uniform NoPanic: TheAlgorithms dyn	swap	swap	(.arr .num) .num .num	.undef			false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5, 5]
+uniform NoPanic: TheAlgorithms dyn	insertionSort	insertionSort	(.arr .num)	(.arr .num)	forLoop,while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: TheAlgorithms dyn	partition	partition	(.arr .num) (.opt .num) (.opt .num)	.num	while		false	COUNTEREXAMPLE	unsound read tolerated	[[], 0, 98]
+uniform NoPanic: TheAlgorithms dyn	choosePivot	choosePivot	.num .num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms dyn	QuickSort	QuickSort	(.arr .num) (.opt .num) (.opt .num)	(.arr .num)	while		false	COUNTEREXAMPLE	latent bug	[[5.694854281447043e-181, -0, 172, -160, 3664979655], -0, 5.792627780079549e+116]
+uniform NoPanic: TheAlgorithms dyn	QuickSelect	QuickSelect	(.arr .num) .num (.opt .num) (.opt .num)	.num	while		false	COUNTEREXAMPLE	latent bug	[[31, 122851254, -23], -0, NaN, -488]
+uniform NoPanic: TheAlgorithms dyn	selectionSort	selectionSort	(.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: TheAlgorithms dyn	generateAllCombos	generateAllCombos	(.arr .num) (.arr (.arr .num)) .num .num .num	(.arr (.arr .num))	forLoop		false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms dyn	solve	solve	.num (.arr .str) .str .num .num	.undef			false	UNKNOWN	call	callFun I program solveRef (Vals.cons v0 (Vals.cons (Val.arr a1) (Vals.cons (Val.str (a✝ ++ JSStr.ofString "(")) (Vals.c
+uniform NoPanic: TheAlgorithms dyn	TrieNode_new	TrieNode.constructor		(.obj "TrieNode")			false	PROVED		
+uniform NoPanic: TheAlgorithms generic@number dyn	treeSort_number	treeSort<number>	(.arr .num)	(.arr .num)	forOf,while		false	UNKNOWN	for-of over an array	evalForOf I program a0 0 (Block.seq (Stmt.expr (Expr.call BinarySearchTree_number__insertRef (Args.cons (Expr.var Var.he
+uniform NoPanic: TheAlgorithms generic@number dyn	BinarySearchTree_number__new	BinarySearchTree<number>.constructor		(.obj "BinarySearchTree<number>")			false	PROVED		
+uniform NoPanic: TheAlgorithms generic@number dyn	BinarySearchTree_number__insert	BinarySearchTree<number>.insert	(.obj "BinarySearchTree<number>") .num	.undef	while		false	UNKNOWN	residual condition	False | last hypothesis: Std.ExtDHashMap.get? w.heap (HKind.obj "BinarySearchTree<number>" BinarySearchTree_number_.fiel
+uniform NoPanic: TheAlgorithms generic@number dyn	BinarySearchTree_number__inOrderTraversal	BinarySearchTree<number>.inOrderTraversal	(.obj "BinarySearchTree<number>") (.opt (.arr .num))	(.arr .num)			false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms generic@number dyn	TreeNode_number__new	TreeNode<number>.constructor	.num (.opt (.obj "TreeNode<number>")) (.opt (.obj "TreeNode<number>"))	(.obj "TreeNode<number>")			false	PROVED		
+uniform NoPanic: TheAlgorithms generic@number dyn	traverse	traverse	(.opt (.obj "TreeNode<number>")) (.opt (.arr .num))	(.arr .num)			false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms generic@number strict	treeSort_number	treeSort<number>	(.arr .num)	(.arr .num)	forOf,while		false	UNKNOWN	for-of over an array	evalForOf I program a0 0 (Block.seq (Stmt.expr (Expr.call BinarySearchTree_number__insertRef (Args.cons (Expr.var Var.he
+uniform NoPanic: TheAlgorithms generic@number strict	BinarySearchTree_number__new	BinarySearchTree<number>.constructor		(.obj "BinarySearchTree<number>")			false	PROVED		
+uniform NoPanic: TheAlgorithms generic@number strict	BinarySearchTree_number__insert	BinarySearchTree<number>.insert	(.obj "BinarySearchTree<number>") .num	.undef	while		false	UNKNOWN	residual condition	False | last hypothesis: Std.ExtDHashMap.get? w.heap (HKind.obj "BinarySearchTree<number>" BinarySearchTree_number_.fiel
+uniform NoPanic: TheAlgorithms generic@number strict	BinarySearchTree_number__inOrderTraversal	BinarySearchTree<number>.inOrderTraversal	(.obj "BinarySearchTree<number>") (.opt (.arr .num))	(.arr .num)			false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms generic@number strict	TreeNode_number__new	TreeNode<number>.constructor	.num (.opt (.obj "TreeNode<number>")) (.opt (.obj "TreeNode<number>"))	(.obj "TreeNode<number>")			false	PROVED		
+uniform NoPanic: TheAlgorithms generic@number strict	traverse	traverse	(.opt (.obj "TreeNode<number>")) (.opt (.arr .num))	(.arr .num)			false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms strict	generateCombinations	generateCombinations	.num .num	(.arr (.arr .num))	forLoop		false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms strict	generateParentheses	generateParentheses	.num	(.arr .str)			false	UNKNOWN	call	callFun I program solveRef (Vals.cons v0 (Vals.cons (Val.arr w.next) (Vals.cons (Val.str (JSStr.ofString "(")) (Vals.con
+uniform NoPanic: TheAlgorithms strict	addBinary	addBinary	.str .str	.str	while		false	UNKNOWN	while/for loop	evalLoop I program ((Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here.there.there.there) (Args.cons (Expr.
+uniform NoPanic: TheAlgorithms strict	isPowerOfTwo	isPowerOfTwo	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isPowerOfFour	isPowerOfFour	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	logTwo	logTwo	.num	.num	while		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	XORCipher	XORCipher	.str .num	.str	forOf		false	UNKNOWN	for-of over an array	evalForOf I program a✝¹ 0 (Block.decl { ty := Ty.num } (Expr.extern "RegExpExecArray.get:index" (Args.cons (Expr.var Var
+uniform NoPanic: TheAlgorithms strict	Trie_insertNode	Trie.insertNode	(.obj "Trie") (.obj "TrieNode") .str	.undef	forOfStr		false	UNKNOWN	for-of over a string	evalForOfStr I program (Conv.codePointStrs a✝¹.units) (Block.seq (Stmt.ite (Expr.prim PrimOp.not (Args.cons ((Expr.built
+uniform NoPanic: TheAlgorithms strict	Trie_find	Trie.find	(.obj "Trie") .str (.opt .bool)	.bool	forOfStr		false	UNKNOWN	for-of over a string	evalForOfStr I program (Conv.codePointStrs a✝.units) (Block.seq (Stmt.ite (Expr.prim PrimOp.not (Args.cons ((Expr.builti
+uniform NoPanic: TheAlgorithms strict	Trie_searchNode	Trie.searchNode	(.obj "Trie") (.obj "TrieNode") .str .bool	.bool	forOfStr		false	UNKNOWN	for-of over a string	evalForOfStr I program (Conv.codePointStrs a✝¹.units) (Block.seq (Stmt.ite (Expr.prim PrimOp.not (Args.cons ((Expr.built
+uniform NoPanic: TheAlgorithms strict	dfs	dfs	(.arr (.arr .num)) (.arr .num) .num .num	.bool	forOf		false	COUNTEREXAMPLE	unsound read tolerated	[[], [], 0, 5]
+uniform NoPanic: TheAlgorithms strict	getNodePriorities	getNodePriorities	(.arr (.arr .num)) (.arr .bool) (.arr .num) .num	.undef	forOf		false	COUNTEREXAMPLE	latent bug	[[], [], [5, 82, 3.005866186518087e+201], 685597484]
+uniform NoPanic: TheAlgorithms strict	gatherScc	gatherScc	(.arr (.arr .num)) (.arr .bool) .num (.arr .num)	.undef	forOf		false	COUNTEREXAMPLE	latent bug	[[], [], 0, [98, 492.5, 5.694854281447043e-181, -0]]
+uniform NoPanic: TheAlgorithms strict	Edge_new	Edge.constructor	.num .num .num	(.obj "Edge")			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	absoluteValue	absoluteValue	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	aliquotSum	aliquotSum	.num	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	armstrongNumber	armstrongNumber	.num	.bool	while		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	factorial	factorial	.num	.num			false	UNKNOWN	call	callFun I program factorialRef (Vals.cons (Val.num ((match v0 with | Val.num x => x) - F64.ofNat 1)) Vals.nil)
+uniform NoPanic: TheAlgorithms strict	binomialCoefficient	binomialCoefficient	.num .num	.num			false	UNKNOWN	call	callFun I program factorialRef (Vals.cons v1 Vals.nil)
+uniform NoPanic: TheAlgorithms strict	calculateMean	calculateMean	(.arr .num)	.num		arrReduce	false	PROVED		
+uniform NoPanic: TheAlgorithms strict	calculateMedian	calculateMedian	(.arr .num)	.num			false	UNKNOWN	undecided test	val✝ < c0.size
+uniform NoPanic: TheAlgorithms strict	degreesToRadians	degreesToRadians	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	DoubleFactorialIterative	DoubleFactorialIterative	.num	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	findFactors	findFactors	.num	(.set .num)	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	nthFibonacciRecursively	nthFibonacciRecursively	.num	.num			false	UNKNOWN	call	callFun I program nthFibonacciRecursivelyRef (Vals.cons (Val.num ((match v0 with | Val.num x => x) - F64.ofNat 1)) Vals.
+uniform NoPanic: TheAlgorithms strict	nthFibonacciUsingFormula	nthFibonacciUsingFormula	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	findMin	findMin	(.arr .num)	.num	forOf		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	binaryGCF	binaryGCF	.num .num	.num	while		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	greatestCommonFactor	greatestCommonFactor	(.arr .num)	.num	while		false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrReduce1 Ty.num) (Vals.cons (Val.arr a0) (Vals.cons (Val.clo [] (Lam.sync [{ ty := Ty.n
+uniform NoPanic: TheAlgorithms strict	hammingDistance	hammingDistance	.str .str	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isDivisible	isDivisible	.num .num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isEven	isEven	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isOdd	isOdd	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isPalindrome	isPalindrome	.num	.bool	while		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isSquareFree	isSquareFree	.num	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	jugglerSequence	jugglerSequence	.num .num	.num	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	naiveLCM	naiveLCM	(.arr .num)	.num	while	arrEvery,arrReduce,arrSome	false	UNKNOWN	while/for loop	evalLoop I program (Expr.lit (Lit.bool true)) (Block.seq (Stmt.ite (Expr.builtin (Builtin.arrEvery Ty.num) (Args.cons (E
+uniform NoPanic: TheAlgorithms strict	binaryLCM	binaryLCM	.num .num	.num	while		false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrReduce1 Ty.num) (Vals.cons (Val.arr w.next) (Vals.cons (Val.clo [] (Lam.sync [{ ty := 
+uniform NoPanic: TheAlgorithms strict	lowestCommonMultiple	lowestCommonMultiple	(.arr .num)	.num	while		false	UNKNOWN	builtin	evalBuiltin I program (Builtin.arrReduce1 Ty.num) (Vals.cons (Val.arr a0) (Vals.cons (Val.clo [] (Lam.sync [{ ty := Ty.n
+uniform NoPanic: TheAlgorithms strict	numberOfDigits	numberOfDigits	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	pascalsTriangle	pascalsTriangle	.num	(.arr .num)	forLoop		false	COUNTEREXAMPLE	latent bug	[NaN]
+uniform NoPanic: TheAlgorithms strict	perfectCube	perfectCube	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isPerfectNumber	isPerfectNumber	.num	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	perfectSquare	perfectSquare	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isPrime	isPrime	.num	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	pronicNumber	pronicNumber	.num	.bool			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	radiansToDegrees	radiansToDegrees	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	sieveOfEratosthenes	sieveOfEratosthenes	.num	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.le) (Args.cons (Expr.var Var.here) (Args.cons (Expr.var Var.here.there.
+uniform NoPanic: TheAlgorithms strict	signum	signum	.num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	squareRoot	squareRoot	.num (.opt .num)	.num	while		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	isSortedArray	isSortedArray	(.arr .num)	.bool	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	parseNestedBrackets	parseNestedBrackets	.str (.opt .str) (.opt .str)	(.arr .str)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.prim PrimOp.strLeng
+uniform NoPanic: TheAlgorithms strict	shuffleArray	shuffleArray	(.arr .num)	.undef	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.gt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: TheAlgorithms strict	binarySearchIterative	binarySearchIterative	(.arr .num) .num (.opt .num) (.opt .num)	(.union tys[.null, .num])	while		false	COUNTEREXAMPLE	unsound read tolerated	[[172, -160, 3664979655, -2137647482.784605], 755184333, 1565118000, -380.5]
+uniform NoPanic: TheAlgorithms strict	binarySearchRecursive	binarySearchRecursive	(.arr .num) .num (.opt .num) (.opt .num)	(.union tys[.null, .num])			false	COUNTEREXAMPLE	unsound read tolerated	[[172, -160, 3664979655, -2137647482.784605], 755184333, 1565118000, -380.5]
+uniform NoPanic: TheAlgorithms strict	exponentialSearch	exponentialSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	UNKNOWN	while/for loop	evalLoop I program ((Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.var Var.here.there
+uniform NoPanic: TheAlgorithms strict	fibonacciSearch	fibonacciSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5]
+uniform NoPanic: TheAlgorithms strict	interpolationSearch	interpolationSearch	(.arr .num) .num	.num	while		false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5]
+uniform NoPanic: TheAlgorithms strict	sentinelSearch	sentinelSearch	(.arr .num) .num	(.union tys[.null, .num])	while		false	COUNTEREXAMPLE	latent bug	[[-0, -Infinity, -97, -10], NaN]
+uniform NoPanic: TheAlgorithms strict	bogoSort	bogoSort	(.arr .num)	(.arr .num)	forLoop,while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim PrimOp.not (Args.cons (Expr.call isSortedArrayRef (Args.cons (Expr.var Var.here) Args.nil)
+uniform NoPanic: TheAlgorithms strict	bubbleSort	bubbleSort	(.arr .num)	(.arr .num)	forLoop		false	PROVED		
+uniform NoPanic: TheAlgorithms strict	CountSmallerItems	CountSmallerItems	(.arr .num) .num .num	.num	forLoop		false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5, 5]
+uniform NoPanic: TheAlgorithms strict	gnomeSort	gnomeSort	(.arr .num)	(.arr .num)	while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: TheAlgorithms strict	HeapSort	HeapSort	(.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: TheAlgorithms strict	buildMaxHeap	buildMaxHeap	(.arr .num)	.undef	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.ge) (Args.cons (Expr.var Var.here) (Args.cons (Expr.lit (Lit.num (F64.o
+uniform NoPanic: TheAlgorithms strict	heapify	heapify	(.arr .num) .num .num	.undef			false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5, 5]
+uniform NoPanic: TheAlgorithms strict	swap	swap	(.arr .num) .num .num	.undef			false	COUNTEREXAMPLE	unsound read tolerated	[[], -398.5, 5]
+uniform NoPanic: TheAlgorithms strict	insertionSort	insertionSort	(.arr .num)	(.arr .num)	forLoop,while		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: TheAlgorithms strict	partition	partition	(.arr .num) (.opt .num) (.opt .num)	.num	while		false	COUNTEREXAMPLE	unsound read tolerated	[[], 0, 98]
+uniform NoPanic: TheAlgorithms strict	choosePivot	choosePivot	.num .num	.num			false	PROVED		
+uniform NoPanic: TheAlgorithms strict	QuickSort	QuickSort	(.arr .num) (.opt .num) (.opt .num)	(.arr .num)	while		false	COUNTEREXAMPLE	latent bug	[[5.694854281447043e-181, -0, 172, -160, 3664979655], -0, 5.792627780079549e+116]
+uniform NoPanic: TheAlgorithms strict	QuickSelect	QuickSelect	(.arr .num) .num (.opt .num) (.opt .num)	.num	while		false	COUNTEREXAMPLE	latent bug	[[31, 122851254, -23], -0, NaN, -488]
+uniform NoPanic: TheAlgorithms strict	selectionSort	selectionSort	(.arr .num)	(.arr .num)	forLoop		false	UNKNOWN	while/for loop	evalLoop I program (Expr.prim (PrimOp.numCmp Cmp.lt) (Args.cons (Expr.var Var.here) (Args.cons (Expr.builtin (Builtin.ar
+uniform NoPanic: TheAlgorithms strict	generateAllCombos	generateAllCombos	(.arr .num) (.arr (.arr .num)) .num .num .num	(.arr (.arr .num))	forLoop		false	UNKNOWN	external call answer	w.ext
+uniform NoPanic: TheAlgorithms strict	solve	solve	.num (.arr .str) .str .num .num	.undef			false	UNKNOWN	call	callFun I program solveRef (Vals.cons v0 (Vals.cons (Val.arr a1) (Vals.cons (Val.str (a✝ ++ JSStr.ofString "(")) (Vals.c
+uniform NoPanic: TheAlgorithms strict	TrieNode_new	TrieNode.constructor		(.obj "TrieNode")			false	PROVED		

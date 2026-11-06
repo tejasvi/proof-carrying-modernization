@@ -1,0 +1,35 @@
+# libcfix.cpp: cases added with the libcfix model fixes; ub_* lines are
+# undefined behaviour (reason in libcfix.cpp), not expected to match
+# %s and %.*s with a precision on a char array without a terminator
+# (sprintf, snprintf, printf)
+libcfix t_sprec 0
+libcfix t_sprec 1
+libcfix t_sprec 2
+libcfix t_sprec 3
+libcfix t_sprec 4
+libcfix ub_sprec 0
+# sscanf %x and %X with a 0x prefix; 0x alone is a matching failure
+libcfix t_scnx 0
+libcfix t_scnx 1
+libcfix t_scnx 2
+libcfix t_scnx 3
+libcfix t_scnx 4
+libcfix t_scnx 5
+# fmin, fmax, fminf, fmaxf (cir.fminnum and cir.fmaxnum with libc++)
+libcfix t_fminmax 0
+libcfix t_fminmax 1
+# format combinations C11 leaves undefined (sprintf, snprintf, printf)
+libcfix ub_fmtx 0
+libcfix ub_fmtx 1
+libcfix ub_fmtx 2
+libcfix ub_fmtx 3
+libcfix ub_fmtx 4
+libcfix ub_fmtx 5
+libcfix ub_fmtx 6
+libcfix ub_fmtx 7
+libcfix ub_fmtx 8
+libcfix ub_fmtx 9
+libcfix ub_fmtx 10
+# combinations that stay defined (l before f e g, + and space with unsigned, # with o and f)
+libcfix t_fmtok 0
+libcfix t_fmtok 1

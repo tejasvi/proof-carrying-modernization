@@ -1,0 +1,7 @@
+2024-12-08_8db96e45_isFinite	UNKNOWN	PROVED (all-worlds)	no proof: a call that was not unfolded (recursion or closure); observational statement: a call that was not unfolded (recursion or closure)	
+2024-12-08_8db96e45_isNaN	UNKNOWN	PROVED (all-worlds)	no proof: a call that was not unfolded (recursion or closure); observational statement: a call that was not unfolded (recursion or closure)	
+2024-12-08_8db96e45_isObject	UNKNOWN	PROVED (all-worlds)	no proof: a call that was not unfolded (recursion or closure); observational statement: a call that was not unfolded (recursion or closure)	
+2024-12-08_8db96e45_isObjectLike	UNKNOWN	PROVED (all-worlds)	no proof: a call that was not unfolded (recursion or closure); observational statement: a call that was not unfolded (recursion or closure)	
+2025-06-24_e3525153_isLength	UNKNOWN	PROVED (all-worlds)	no proof: a call that was not unfolded (recursion or closure); observational statement: a call that was not unfolded (recursion or closure)	
+2024-07-21_4c285773_startsWith	UNKNOWN	PROVED (all-worlds)	target startsWith not found in the translation	
+#	6	UNKNOWN -> PROVED (all-worlds)

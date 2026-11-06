@@ -1,0 +1,132 @@
+# std::vector::assign (n copies, an iterator range, a list) and operator=(initializer_list); std::string's swap,
+# constructor of n copies of a character, iterator-range constructor (char pointers, string and vector iterators,
+# reverse iterators), operator+ (libc++'s
+# __concatenate_strings and its exported operator+(const char*, const string&)) and compare (compare(const char*),
+# compare(pos, n1, const char*, n2), operator== with a C string; operator< and compare of two strings through
+# char_traits::compare, memcmp over their characters) (contb3.cpp). Each case is labelled with its expected outcome
+# on the line above it: MATCH, or UB from cirrun on the u_ cases: assign's value or range in the vector itself
+# ([sequence.reqmts]), a pointer read after assign invalidated it, an indeterminate character read
+# ([basic.indet]), compare(const char*) without a terminator; and on two gaps, defined in C++: a string's c_str()
+# as the C string argument of compare and of operator+ (the C string models read char arrays only).
+# expect MATCH: assign(5, x) grows a vector
+contb3 a_fill_grow 0
+# expect MATCH: assign(2, x) shrinks a vector
+contb3 a_fill_shrink 0
+# expect MATCH: assign(0, x) empties a vector
+contb3 a_fill_zero 0
+# expect MATCH: assign(n, x) of unsigned long
+contb3 a_fill_ulong 1
+# expect MATCH: assign(n, x) of double
+contb3 a_fill_double 2
+# expect MATCH: assign(n, x) with x an element of another vector
+contb3 a_fill_from_other 1
+# expect UB: assign(n, x) with x an element of the vector itself
+contb3 u_fill_self_elem 1
+# expect UB: a pointer to an element read after assign
+contb3 u_fill_stale_ptr 0
+# expect MATCH: operator=(initializer_list) of long
+contb3 a_list_assign 0
+# expect MATCH: operator=(initializer_list) shrinks a vector
+contb3 a_list_shrink 0
+# expect MATCH: operator= of an empty list
+contb3 a_list_empty 0
+# expect MATCH: operator=(initializer_list) of char, through its result
+contb3 a_list_result 1
+# expect MATCH: assign(first, last) from int pointers
+contb3 a_range_ptrs 0
+# expect MATCH: assign(first, last) from int pointers, one more
+contb3 a_range_ptrs 1
+# expect MATCH: assign(first, last) from another vector's iterators
+contb3 a_range_iters 1
+# expect MATCH: assign(first, first) empties a vector
+contb3 a_range_empty 0
+# expect MATCH: assign(initializer_list), through assign(first, last)
+contb3 a_assign_list 1
+# expect UB: assign(first, last) from the vector's own iterators
+contb3 u_range_self 0
+# expect MATCH: basic_string::swap
+contb3 s_swap 0
+# expect MATCH: basic_string::swap, the other character
+contb3 s_swap 1
+# expect MATCH: std::swap of a short and a long string
+contb3 s_std_swap 0
+# expect MATCH: string(n, c)
+contb3 s_fill 1
+# expect MATCH: string(0, c) is empty
+contb3 s_fill_empty 0
+# expect MATCH: string(n, c) longer than the short buffer, then +=
+contb3 s_fill_long 2
+# expect MATCH: compare and == of two string(n, c), equal
+contb3 s_fill_compare 0
+# expect MATCH: compare and == of two string(n, c), a prefix
+contb3 s_fill_compare 1
+# expect MATCH: string(first, last) from char pointers
+contb3 r_ptrs 0
+# expect MATCH: string(first, last) from char pointers, one more
+contb3 r_ptrs 1
+# expect MATCH: string(first, last) from string iterators
+contb3 r_iters 2
+# expect MATCH: string(rbegin(), rend())
+contb3 r_reverse 0
+# expect MATCH: string(rbegin() + 1, rend())
+contb3 r_reverse 1
+# expect MATCH: string(rbegin(), rend()) of a const string
+contb3 r_reverse_const 0
+# expect MATCH: string(first, last) from vector<char> iterators
+contb3 r_vector_chars 1
+# expect MATCH: string(first, last, allocator)
+contb3 r_alloc 0
+# expect MATCH: string(first, first) is empty
+contb3 r_empty 0
+# expect UB: string(first, last) over an indeterminate character
+contb3 u_range_indeterminate 0
+# expect MATCH: string + string
+contb3 p_strings 1
+# expect MATCH: string + C string
+contb3 p_string_cstr 3
+# expect MATCH: C string + string (libc++'s exported operator+)
+contb3 p_cstr_string 3
+# expect MATCH: string + char
+contb3 p_string_char 1
+# expect MATCH: char + string
+contb3 p_char_string 1
+# expect MATCH: a temporary string + C string (append, move)
+contb3 p_rvalue 0
+# expect MATCH: a chain of +: string, C string, char
+contb3 p_chain 5
+# expect MATCH: + of two long strings
+contb3 p_long 0
+# expect MATCH: + with empty strings
+contb3 p_empty 2
+# expect MATCH: operator< of strings, a prefix
+contb3 c_less 0
+# expect MATCH: operator< of strings, a differing character
+contb3 c_less 1
+# expect MATCH: compare of equal strings
+contb3 c_compare 0
+# expect MATCH: compare of differing strings
+contb3 c_compare 1
+# expect MATCH: compare(const char*): equal, a prefix, a differing character
+contb3 c_compare_cstr 0
+# expect MATCH: compare(const char*): equal, longer, a differing character
+contb3 c_compare_cstr 1
+# expect MATCH: operator== with a C string
+contb3 c_eq_cstr 0
+# expect MATCH: operator== with a shorter C string
+contb3 c_eq_cstr 1
+# expect MATCH: compare(pos, n1, const char*, n2)
+contb3 c_compare_sub 0
+# expect MATCH: compare(pos, n1, const char*, n2) at position 2
+contb3 c_compare_sub 2
+# expect MATCH: comparisons of characters as unsigned char
+contb3 c_unsigned 0
+# expect MATCH: compare(pos, ...) past the end throws out_of_range
+contb3 c_compare_pos_throw 0
+# expect MATCH: compare reads only the characters it compares
+contb3 c_compare_sub_short 0
+# expect UB: compare(const char*) with no terminator in the array
+contb3 u_compare_unterminated 0
+# expect UB: gap, compare(const char*) of another string's c_str()
+contb3 g_compare_c_str 1
+# expect UB: gap, operator+(const char*, const string&) of a string's c_str()
+contb3 g_plus_c_str 2

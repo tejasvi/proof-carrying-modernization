@@ -1,0 +1,12 @@
+{
+  "repo": "es-toolkit",
+  "commit": "4ec747ea812bfe1d7c119c4bf9361ed03933d1e3",
+  "parent": "795c83bd8457acceec8f99defd6213cb16aeee2d",
+  "date": "2024-06-08",
+  "subject": "perf(difference): Optimize `difference` (#27)",
+  "file": "src/array/difference.ts",
+  "entry": "src/array/difference.ts",
+  "function": "difference",
+  "inSubset": true,
+  "rules": []
+}

@@ -1,0 +1,108 @@
+class org.apache.thrift.server.TServlet$1 extends java.lang.Object implements java.util.Map$Entry
+{
+    final java.lang.String val$key;
+    final java.lang.String val$value;
+    final org.apache.thrift.server.TServlet this$0;
+
+    'void' <init>(org.apache.thrift.server.TServlet, java.lang.String, java.lang.String)
+    {
+        org.apache.thrift.server.TServlet this$0;
+        org.apache.thrift.server.TServlet$1 this;
+        java.lang.String r0, r1;
+
+        this := @this: org.apache.thrift.server.TServlet$1;
+
+        this$0 := @parameter0: org.apache.thrift.server.TServlet;
+
+        r0 := @parameter1: java.lang.String;
+
+        r1 := @parameter2: java.lang.String;
+
+        this.<org.apache.thrift.server.TServlet$1: org.apache.thrift.server.TServlet this$0> = this$0;
+
+        this.<org.apache.thrift.server.TServlet$1: java.lang.String val$key> = r0;
+
+        this.<org.apache.thrift.server.TServlet$1: java.lang.String val$value> = r1;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public java.lang.String getKey()
+    {
+        java.lang.String $r0;
+        org.apache.thrift.server.TServlet$1 this;
+
+        this := @this: org.apache.thrift.server.TServlet$1;
+
+        $r0 = this.<org.apache.thrift.server.TServlet$1: java.lang.String val$key>;
+
+        return $r0;
+    }
+
+    public java.lang.String getValue()
+    {
+        java.lang.String $r0;
+        org.apache.thrift.server.TServlet$1 this;
+
+        this := @this: org.apache.thrift.server.TServlet$1;
+
+        $r0 = this.<org.apache.thrift.server.TServlet$1: java.lang.String val$value>;
+
+        return $r0;
+    }
+
+    public java.lang.String setValue(java.lang.String)
+    {
+        java.lang.String value;
+        org.apache.thrift.server.TServlet$1 this;
+
+        this := @this: org.apache.thrift.server.TServlet$1;
+
+        value := @parameter0: java.lang.String;
+
+        return null;
+    }
+
+    public volatile java.lang.Object setValue(java.lang.Object)
+    {
+        java.lang.Object r0;
+        java.lang.String $r1;
+        org.apache.thrift.server.TServlet$1 this;
+
+        this := @this: org.apache.thrift.server.TServlet$1;
+
+        r0 := @parameter0: java.lang.Object;
+
+        $r1 = (java.lang.String) r0;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.server.TServlet$1: java.lang.String setValue(java.lang.String)>($r1);
+
+        return $r1;
+    }
+
+    public volatile java.lang.Object getValue()
+    {
+        java.lang.String $r0;
+        org.apache.thrift.server.TServlet$1 this;
+
+        this := @this: org.apache.thrift.server.TServlet$1;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.server.TServlet$1: java.lang.String getValue()>();
+
+        return $r0;
+    }
+
+    public volatile java.lang.Object getKey()
+    {
+        java.lang.String $r0;
+        org.apache.thrift.server.TServlet$1 this;
+
+        this := @this: org.apache.thrift.server.TServlet$1;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.server.TServlet$1: java.lang.String getKey()>();
+
+        return $r0;
+    }
+}

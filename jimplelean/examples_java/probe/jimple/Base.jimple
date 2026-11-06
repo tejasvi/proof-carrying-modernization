@@ -1,0 +1,30 @@
+abstract class Base extends java.lang.Object
+{
+
+    'void' <init>()
+    {
+        Base r0;
+
+        r0 := @this: Base;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    abstract 'int' f('int');
+
+    'int' g()
+    {
+        'int' $i0;
+        Base r0;
+
+        r0 := @this: Base;
+
+        $i0 = virtualinvoke r0.<Base: 'int' f('int')>(1);
+
+        $i0 = $i0 + 1;
+
+        return $i0;
+    }
+}

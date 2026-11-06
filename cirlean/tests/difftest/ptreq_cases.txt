@@ -1,0 +1,38 @@
+# Pointer comparison by address (ptreq.cpp): pointers into the same complete object compare by the bytes they
+# designate (C11 6.5.9p6, 6.5.8p5, 6.7.2.1p15, p16); pointers into different objects stay unequal, and their
+# relational comparison undefined. Each case is labelled with its expected outcome on the line above it: MATCH,
+# or UB from cirrun.
+# expect MATCH: a structure and its first member compare equal (was unequal)
+ptreq q_struct_first 7
+# expect MATCH: a structure and its second member compare unequal
+ptreq q_struct_second 7
+# expect MATCH: an array and its element 0 compare equal (was unequal)
+ptreq q_array_first 7
+# expect MATCH: a row and its element 0 compare equal (was unequal)
+ptreq q_row_first 7
+# expect MATCH: one past a row and the start of the next row compare equal (was unequal)
+ptreq q_past_row 7
+# expect MATCH: one past a member and the next member compare equal (was unequal)
+ptreq q_one_past_member 7
+# expect MATCH: one past an array object and one past its last element compare equal
+ptreq q_array_object_end 7
+# expect MATCH: the members of a union compare equal (was unequal)
+ptreq q_union_members 7
+# expect MATCH: a char pointer at byte 4 of an int array and its element 1 compare equal
+ptreq q_char_byte4 7
+# expect MATCH: container_of's result and the object compare equal
+ptreq q_container_of 7
+# expect MATCH: relational comparisons of elements of two rows (were UB)
+ptreq q_rel_rows 7
+# expect MATCH: relational comparisons of a member and the structure
+ptreq q_rel_members 7
+# expect MATCH: relational comparisons of elements of one array
+ptreq q_rel_same_array 7
+# expect MATCH: two objects compare unequal
+ptreq q_ne_objects 7
+# expect UB: relational comparison of two objects
+ptreq q_rel_objects 7
+# expect MATCH: elements of a vector compare equal
+ptreq q_vector_elems 7
+# expect MATCH: atomic compare-exchange of a pointer compares addresses (was a failed exchange)
+ptreq q_cmpxchg_ptr 7

@@ -1,0 +1,52 @@
+# va_list life (C11 7.16), printf-family argument types (7.21.6.1p9) and negative VLA sizes (6.7.6.2p5)
+# (vafmt.cpp): run with CASES=vafmt_cases.txt. Each case is labelled with its expected outcome on the
+# line above it: MATCH, or UB from cirrun where the program breaks the rule named (natively it does
+# something); the gap is cirlean's.
+# expect MATCH: va_start, va_arg, va_end
+vafmt t_va_ok 4
+# expect MATCH: va_start again after va_end
+vafmt t_va_restart 4
+# expect MATCH: va_copy into a fresh va_list, both ended
+vafmt t_va_copy_ok 4
+# expect MATCH: a callee's va_arg on the caller's va_list, which the caller then only ends
+vafmt t_va_callee_ok 4
+# expect UB: va_arg after va_end (7.16.1.1p2)
+vafmt t_ub_va_after_end 4
+# expect UB: va_start again without va_end (7.16.1.4p3)
+vafmt t_ub_va_start_twice 4
+# expect UB: a return without va_end (7.16.1.3p2)
+vafmt t_ub_va_no_end 4
+# expect UB: va_copy into an initialized va_list without va_end (7.16.1.2p2)
+vafmt t_ub_va_copy_twice 4
+# expect UB: the caller's va_arg after a callee's va_arg on its va_list (7.16p3)
+vafmt t_ub_va_callee_consumes 4
+# expect UB: va_end without a va_start (7.16.1.3p2)
+vafmt t_ub_va_end_twice 4
+# expect MATCH (gap): an int read as long through a function pointer is not caught (values only)
+vafmt t_gap_va_fnptr 5
+# expect MATCH: printf conversions with the types they need
+vafmt t_fmt_ok 3
+# expect MATCH: %u with an int that fits
+vafmt t_fmt_u_pos 5
+# expect UB: %d with a long (7.21.6.1p9)
+vafmt t_ub_fmt_d_long 0
+# expect UB: %ld with an int
+vafmt t_ub_fmt_ld_int 0
+# expect UB: printf %d with a long
+vafmt t_ub_printf_d_long 0
+# expect UB: a * field width that is a long (7.21.6.1p5)
+vafmt t_ub_fmt_star_long 0
+# expect UB: %lld with an int
+vafmt t_ub_fmt_lld_int 0
+# expect UB: %c with a long
+vafmt t_ub_fmt_c_long 0
+# expect UB: %ls with a char * (7.21.6.1p8)
+vafmt t_ub_fmt_ls_char 0
+# expect UB: %u with a negative int (its value does not fit unsigned int)
+vafmt t_ub_fmt_u_neg 1
+# expect UB: snprintf %d with a double
+vafmt t_ub_snprintf_d_double 2
+# expect MATCH: a VLA of positive size
+vafmt t_vla_pos 3
+# expect UB: a VLA of negative size (6.7.6.2p5)
+vafmt t_ub_vla_neg 1

@@ -1,0 +1,31 @@
+public final class AcctInt$Result extends java.lang.Object
+{
+    public final java.math.BigDecimal balance;
+    public final java.math.BigDecimal interest;
+    public final 'char' status;
+
+    public 'void' <init>(java.math.BigDecimal, java.math.BigDecimal, 'char')
+    {
+        java.math.BigDecimal r1, r2;
+        AcctInt$Result r0;
+        'char' c0;
+
+        r0 := @this: AcctInt$Result;
+
+        r1 := @parameter0: java.math.BigDecimal;
+
+        r2 := @parameter1: java.math.BigDecimal;
+
+        c0 := @parameter2: 'char';
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<AcctInt$Result: java.math.BigDecimal balance> = r1;
+
+        r0.<AcctInt$Result: java.math.BigDecimal interest> = r2;
+
+        r0.<AcctInt$Result: 'char' status> = c0;
+
+        return;
+    }
+}

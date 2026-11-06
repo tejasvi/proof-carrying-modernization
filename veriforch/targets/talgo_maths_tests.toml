@@ -1,0 +1,41 @@
+# TheAlgorithms/Java @ 2994ec3 (MIT): the talgo_maths classes WITH their JUnit 5 test classes, one build (variant
+# "tests"): every @Test method becomes a test unit with a mechanical theorem statement (adapters/jimple).
+# Same run directory as targets/talgo_maths.toml (name talgo_maths), next to its "default" build.
+name = "talgo_maths"
+lang = "jimple"
+root = "/home/user/veriforch/targets/talgo_maths"
+sources = [
+  "src/com/thealgorithms/maths/GCD.java",
+  "src/com/thealgorithms/maths/FindMax.java",
+  "src/com/thealgorithms/maths/FindMin.java",
+  "src/com/thealgorithms/maths/DigitalRoot.java",
+  "src/com/thealgorithms/maths/LeastCommonMultiple.java",
+  "src/com/thealgorithms/maths/NumberOfDigits.java",
+]
+tests = [
+  "test/com/thealgorithms/maths/GCDTest.java",
+  "test/com/thealgorithms/maths/FindMaxTest.java",
+  "test/com/thealgorithms/maths/FindMinTest.java",
+  "test/com/thealgorithms/maths/DigitalRootTest.java",
+  "test/com/thealgorithms/maths/LeastCommonMultipleTest.java",
+  "test/com/thealgorithms/maths/NumberOfDigitsTest.java",
+]
+release = 11
+
+# src + tests compiled together; the JUnit 5 API (Maven Central jars, as in JimpleLean's difftests) on the class
+# path of javac and Soot; JimpleLean models org.junit.jupiter.api.Assertions natively. The test files with
+# @ParameterizedTest (FindMax/FindMin/LeastCommonMultiple/NumberOfDigits) need junit-jupiter-params, which is not
+# in ~/jimplelean_work/junit_dl, and their cases come from provider methods: not in this build yet.
+[[variants]]
+name = "tests"
+flags = ["-cp", "/home/user/jimplelean_work/junit_dl/junit-jupiter-api-5.10.2.jar:/home/user/jimplelean_work/junit_dl/junit-platform-commons-1.10.2.jar:/home/user/jimplelean_work/junit_dl/opentest4j-1.3.0.jar:/home/user/jimplelean_work/junit_dl/apiguardian-api-1.1.2.jar"]
+sources = [
+  "src/com/thealgorithms/maths/GCD.java",
+  "src/com/thealgorithms/maths/FindMax.java",
+  "src/com/thealgorithms/maths/FindMin.java",
+  "src/com/thealgorithms/maths/DigitalRoot.java",
+  "src/com/thealgorithms/maths/LeastCommonMultiple.java",
+  "src/com/thealgorithms/maths/NumberOfDigits.java",
+  "test/com/thealgorithms/maths/GCDTest.java",
+  "test/com/thealgorithms/maths/DigitalRootTest.java",
+]

@@ -1,0 +1,280 @@
+{
+ "name": "BINCNT",
+ "config": {
+  "charset": "ebcdic",
+  "zonedSign": "ebcdic",
+  "trunc": "std",
+  "numprocPfd": false,
+  "binaryLE": false,
+  "comp5LE": false,
+  "binary1Byte": false,
+  "sizeErrorTruncates": true
+ },
+ "dialect": {
+  "divExtraForRounded": true
+ },
+ "data": [
+  {
+   "id": 1,
+   "level": 1,
+   "name": "WS-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 2,
+     "level": 5,
+     "name": "WS-CNT",
+     "pic": {
+      "num": {
+       "digits": 4,
+       "scale": 0,
+       "signed": true
+      }
+     },
+     "usage": "comp5",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 3,
+     "level": 5,
+     "name": "WS-TOTAL",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": true
+      }
+     },
+     "usage": "comp5",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 4,
+     "level": 5,
+     "name": "WS-TOTAL-X",
+     "pic": null,
+     "usage": "display",
+     "occurs": 1,
+     "redefines": 3,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": [
+      {
+       "id": 5,
+       "level": 10,
+       "name": "WS-HI",
+       "pic": {
+        "alnum": {
+         "len": 2
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 6,
+       "level": 10,
+       "name": "WS-LO",
+       "pic": {
+        "alnum": {
+         "len": 2
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": 7,
+     "level": 5,
+     "name": "WS-OUT",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  }
+ ],
+ "paras": [
+  {
+   "name": "0000-MAIN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 1,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 2,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "compute": {
+       "rcv": [
+        {
+         "ref": {
+          "item": 3,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "e": {
+        "add": {
+         "a": {
+          "ref": {
+           "r": {
+            "item": 3,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "mul": {
+           "a": {
+            "ref": {
+             "r": {
+              "item": 2,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "v": 3,
+             "scale": 0
+            }
+           }
+          }
+         }
+        }
+       },
+       "onSize": null,
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 5,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 7,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     "goback"
+    ]
+   ]
+  }
+ ],
+ "isMain": false
+}

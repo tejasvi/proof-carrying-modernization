@@ -1,0 +1,15 @@
+      * EXPECT-FAULT: CURRENCY SIGN: more than one clause
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U61.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           CURRENCY SIGN IS 'W'
+           CURRENCY SIGN IS 'Y'.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  E PIC YYY9.99.
+       01  F PIC W99.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

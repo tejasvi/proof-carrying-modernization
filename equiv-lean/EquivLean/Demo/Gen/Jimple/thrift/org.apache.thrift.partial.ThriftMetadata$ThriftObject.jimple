@@ -1,0 +1,135 @@
+public abstract class org.apache.thrift.partial.ThriftMetadata$ThriftObject extends java.lang.Object implements java.io.Serializable
+{
+    public final org.apache.thrift.partial.ThriftMetadata$ThriftObject parent;
+    public final org.apache.thrift.TFieldIdEnum fieldId;
+    public final org.apache.thrift.meta_data.FieldMetaData data;
+    public java.lang.Object additionalData;
+    protected java.util.List noFields;
+
+    'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject, org.apache.thrift.TFieldIdEnum, org.apache.thrift.meta_data.FieldMetaData)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject this, parent;
+        java.util.List $r0;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.meta_data.FieldMetaData data;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        parent := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        data := @parameter2: org.apache.thrift.meta_data.FieldMetaData;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: java.util.List noFields> = $r0;
+
+        this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.partial.ThriftMetadata$ThriftObject parent> = parent;
+
+        this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.TFieldIdEnum fieldId> = fieldId;
+
+        this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.meta_data.FieldMetaData data> = data;
+
+        return;
+    }
+
+    protected abstract 'void' toPrettyString(java.lang.StringBuilder, 'int');
+
+    protected java.lang.String getIndent('int')
+    {
+        'int' level;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject this;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        level := @parameter0: 'int';
+
+        level = level * 4;
+
+        $r0 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String repeat(java.lang.String,'int')>(" ", level);
+
+        return $r0;
+    }
+
+    protected transient 'void' append(java.lang.StringBuilder, java.lang.String, java.lang.Object[])
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject this;
+        java.lang.Object[] args;
+        java.lang.StringBuilder sb;
+        java.lang.String format;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        sb := @parameter0: java.lang.StringBuilder;
+
+        format := @parameter1: java.lang.String;
+
+        args := @parameter2: java.lang.Object[];
+
+        format = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(format, args);
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(format);
+
+        return;
+    }
+
+    protected java.lang.String getName()
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject this;
+        org.apache.thrift.TFieldIdEnum $r0;
+        java.lang.String $r1;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        $r0 = this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: org.apache.thrift.TFieldIdEnum fieldId>;
+
+        $r1 = interfaceinvoke $r0.<org.apache.thrift.TFieldIdEnum: java.lang.String getFieldName()>();
+
+        return $r1;
+    }
+
+    protected java.lang.String getSubElementName(org.apache.thrift.TFieldIdEnum)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject this;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter0: org.apache.thrift.TFieldIdEnum;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.partial.ThriftMetadata$ThriftObject: java.lang.String getSubElementName(org.apache.thrift.TFieldIdEnum,java.lang.String)>(fieldId, "element");
+
+        return $r0;
+    }
+
+    protected java.lang.String getSubElementName(org.apache.thrift.TFieldIdEnum, java.lang.String)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject this;
+        java.lang.Object[] $r0;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        java.lang.String suffix, $r1;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter0: org.apache.thrift.TFieldIdEnum;
+
+        suffix := @parameter1: java.lang.String;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r1 = interfaceinvoke fieldId.<org.apache.thrift.TFieldIdEnum: java.lang.String getFieldName()>();
+
+        $r0[0] = $r1;
+
+        $r0[1] = suffix;
+
+        suffix = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%s_%s", $r0);
+
+        return suffix;
+    }
+}

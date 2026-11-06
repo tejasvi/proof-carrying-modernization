@@ -1,0 +1,149 @@
+public class org.apache.thrift.protocol.TJSONProtocol$JSONPairContext extends org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext
+{
+    private 'boolean' first_;
+    private 'boolean' colon_;
+    final org.apache.thrift.protocol.TJSONProtocol this$0;
+
+    protected 'void' <init>(org.apache.thrift.protocol.TJSONProtocol)
+    {
+        org.apache.thrift.protocol.TJSONProtocol$JSONPairContext this;
+        org.apache.thrift.protocol.TJSONProtocol this$0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONPairContext;
+
+        this$0 := @parameter0: org.apache.thrift.protocol.TJSONProtocol;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: org.apache.thrift.protocol.TJSONProtocol this$0> = this$0;
+
+        specialinvoke this.<org.apache.thrift.protocol.TJSONProtocol$JSONBaseContext: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' first_> = 1;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_> = 1;
+
+        return;
+    }
+
+    protected 'void' write() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.protocol.TJSONProtocol $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TJSONProtocol$JSONPairContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONPairContext;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' first_>;
+
+        if $z0 == false goto label1;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' first_> = 0;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_> = 1;
+
+        goto label6;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: org.apache.thrift.protocol.TJSONProtocol this$0>;
+
+        $r1 = $r0.<org.apache.thrift.protocol.TJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_>;
+
+        if $z0 == false goto label2;
+
+        $r2 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] access$100()>();
+
+        goto label3;
+
+     label2:
+        $r2 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] access$000()>();
+
+     label3:
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_>;
+
+        if $z0 != 0 goto label4;
+
+        $z0 = 1;
+
+        goto label5;
+
+     label4:
+        $z0 = 0;
+
+     label5:
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_> = $z0;
+
+     label6:
+        return;
+    }
+
+    protected 'void' read() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TJSONProtocol $r0;
+        org.apache.thrift.protocol.TJSONProtocol$JSONPairContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONPairContext;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' first_>;
+
+        if $z0 == false goto label1;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' first_> = 0;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_> = 1;
+
+        goto label6;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: org.apache.thrift.protocol.TJSONProtocol this$0>;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_>;
+
+        if $z0 == false goto label2;
+
+        $r1 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] access$100()>();
+
+        goto label3;
+
+     label2:
+        $r1 = staticinvoke <org.apache.thrift.protocol.TJSONProtocol: 'byte'[] access$000()>();
+
+     label3:
+        virtualinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol: 'void' readJSONSyntaxChar('byte'[])>($r1);
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_>;
+
+        if $z0 != 0 goto label4;
+
+        $z0 = 1;
+
+        goto label5;
+
+     label4:
+        $z0 = 0;
+
+     label5:
+        this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_> = $z0;
+
+     label6:
+        return;
+    }
+
+    protected 'boolean' escapeNum()
+    {
+        org.apache.thrift.protocol.TJSONProtocol$JSONPairContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$JSONPairContext;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$JSONPairContext: 'boolean' colon_>;
+
+        return $z0;
+    }
+}

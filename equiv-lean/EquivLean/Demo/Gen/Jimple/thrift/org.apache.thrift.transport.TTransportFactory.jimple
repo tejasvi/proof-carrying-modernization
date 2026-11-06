@@ -1,0 +1,26 @@
+public class org.apache.thrift.transport.TTransportFactory extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TTransportFactory this;
+
+        this := @this: org.apache.thrift.transport.TTransportFactory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransportFactory this;
+        org.apache.thrift.transport.TTransport trans;
+
+        this := @this: org.apache.thrift.transport.TTransportFactory;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        return trans;
+    }
+}

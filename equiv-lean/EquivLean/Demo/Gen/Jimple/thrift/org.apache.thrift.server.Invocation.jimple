@@ -1,0 +1,34 @@
+class org.apache.thrift.server.Invocation extends java.lang.Object implements java.lang.Runnable
+{
+    private final org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+
+    public 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)
+    {
+        org.apache.thrift.server.Invocation this;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+
+        this := @this: org.apache.thrift.server.Invocation;
+
+        frameBuffer := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.Invocation: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer> = frameBuffer;
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        org.apache.thrift.server.Invocation this;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer $r0;
+
+        this := @this: org.apache.thrift.server.Invocation;
+
+        $r0 = this.<org.apache.thrift.server.Invocation: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer>;
+
+        virtualinvoke $r0.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' invoke()>();
+
+        return;
+    }
+}

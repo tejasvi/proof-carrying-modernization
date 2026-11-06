@@ -1,0 +1,180 @@
+public class org.apache.thrift.meta_data.FieldMetaData extends java.lang.Object implements java.io.Serializable
+{
+    public final java.lang.String fieldName;
+    public final 'byte' requirementType;
+    public final org.apache.thrift.meta_data.FieldValueMetaData valueMetaData;
+    private final java.util.Map fieldAnnotations;
+    private static final java.util.concurrent.ConcurrentMap structMap;
+
+    public 'void' <init>(java.lang.String, 'byte', org.apache.thrift.meta_data.FieldValueMetaData)
+    {
+        'byte' req;
+        java.util.Map $r0;
+        java.lang.String name;
+        org.apache.thrift.meta_data.FieldMetaData this;
+        org.apache.thrift.meta_data.FieldValueMetaData vMetaData;
+
+        this := @this: org.apache.thrift.meta_data.FieldMetaData;
+
+        name := @parameter0: java.lang.String;
+
+        req := @parameter1: 'byte';
+
+        vMetaData := @parameter2: org.apache.thrift.meta_data.FieldValueMetaData;
+
+        $r0 = staticinvoke <java.util.Collections: java.util.Map emptyMap()>();
+
+        specialinvoke this.<org.apache.thrift.meta_data.FieldMetaData: 'void' <init>(java.lang.String,'byte',org.apache.thrift.meta_data.FieldValueMetaData,java.util.Map)>(name, req, vMetaData, $r0);
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, 'byte', org.apache.thrift.meta_data.FieldValueMetaData, java.util.Map)
+    {
+        'byte' requirementType;
+        java.util.Map fieldAnnotations;
+        java.lang.String fieldName;
+        org.apache.thrift.meta_data.FieldMetaData this;
+        org.apache.thrift.meta_data.FieldValueMetaData valueMetaData;
+
+        this := @this: org.apache.thrift.meta_data.FieldMetaData;
+
+        fieldName := @parameter0: java.lang.String;
+
+        requirementType := @parameter1: 'byte';
+
+        valueMetaData := @parameter2: org.apache.thrift.meta_data.FieldValueMetaData;
+
+        fieldAnnotations := @parameter3: java.util.Map;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.meta_data.FieldMetaData: java.lang.String fieldName> = fieldName;
+
+        this.<org.apache.thrift.meta_data.FieldMetaData: 'byte' requirementType> = requirementType;
+
+        this.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData> = valueMetaData;
+
+        this.<org.apache.thrift.meta_data.FieldMetaData: java.util.Map fieldAnnotations> = fieldAnnotations;
+
+        return;
+    }
+
+    public java.util.Map getFieldAnnotations()
+    {
+        org.apache.thrift.meta_data.FieldMetaData this;
+        java.util.Map $r0;
+
+        this := @this: org.apache.thrift.meta_data.FieldMetaData;
+
+        $r0 = this.<org.apache.thrift.meta_data.FieldMetaData: java.util.Map fieldAnnotations>;
+
+        $r0 = staticinvoke <java.util.Collections: java.util.Map unmodifiableMap(java.util.Map)>($r0);
+
+        return $r0;
+    }
+
+    public static 'void' addStructMetaDataMap(java.lang.Class, java.util.Map)
+    {
+        java.lang.Class sClass;
+        java.util.Map map;
+        java.util.concurrent.ConcurrentMap $r0;
+
+        sClass := @parameter0: java.lang.Class;
+
+        map := @parameter1: java.util.Map;
+
+        $r0 = <org.apache.thrift.meta_data.FieldMetaData: java.util.concurrent.ConcurrentMap structMap>;
+
+        interfaceinvoke $r0.<java.util.concurrent.ConcurrentMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(sClass, map);
+
+        return;
+    }
+
+    public static java.util.Map getStructMetaDataMap(java.lang.Class)
+    {
+        java.lang.Object[] $r3;
+        java.lang.Class[] $r1;
+        java.lang.ReflectiveOperationException e;
+        java.lang.RuntimeException $r4;
+        java.lang.reflect.Constructor $r2;
+        java.util.concurrent.ConcurrentMap $r0;
+        java.util.Map $r15;
+        java.lang.Class sClass, $r6;
+        java.lang.StringBuilder $r5;
+        java.lang.Object $r14;
+        java.lang.String $r7;
+        'boolean' $z0;
+
+        sClass := @parameter0: java.lang.Class;
+
+        $r0 = <org.apache.thrift.meta_data.FieldMetaData: java.util.concurrent.ConcurrentMap structMap>;
+
+        $z0 = interfaceinvoke $r0.<java.util.concurrent.ConcurrentMap: 'boolean' containsKey(java.lang.Object)>(sClass);
+
+        if $z0 != 0 goto label4;
+
+        $r1 = newarray (java.lang.Class)[0];
+
+     label1:
+        $r2 = virtualinvoke sClass.<java.lang.Class: java.lang.reflect.Constructor getDeclaredConstructor(java.lang.Class[])>($r1);
+
+        $r3 = newarray (java.lang.Object)[0];
+
+        virtualinvoke $r2.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>($r3);
+
+     label2:
+        goto label4;
+
+     label3:
+        e := @caughtexception;
+
+        $r4 = new java.lang.RuntimeException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke e.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.Class: java.lang.String getSimpleName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" for TBase class: ");
+
+        $r7 = virtualinvoke sClass.<java.lang.Class: java.lang.String getName()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<java.lang.RuntimeException: 'void' <init>(java.lang.String,java.lang.Throwable)>($r7, e);
+
+        throw $r4;
+
+     label4:
+        $r0 = <org.apache.thrift.meta_data.FieldMetaData: java.util.concurrent.ConcurrentMap structMap>;
+
+        $r14 = interfaceinvoke $r0.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>(sClass);
+
+        $r15 = (java.util.Map) $r14;
+
+        return $r15;
+
+        catch java.lang.ReflectiveOperationException from label1 to label2 with label3;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.util.concurrent.ConcurrentHashMap $r0;
+
+        $r0 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $r0.<java.util.concurrent.ConcurrentHashMap: 'void' <init>()>();
+
+        <org.apache.thrift.meta_data.FieldMetaData: java.util.concurrent.ConcurrentMap structMap> = $r0;
+
+        return;
+    }
+}

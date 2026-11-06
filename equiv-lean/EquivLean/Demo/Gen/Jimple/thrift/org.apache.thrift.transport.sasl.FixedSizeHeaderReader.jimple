@@ -1,0 +1,146 @@
+public abstract class org.apache.thrift.transport.sasl.FixedSizeHeaderReader extends java.lang.Object implements org.apache.thrift.transport.sasl.FrameHeaderReader
+{
+    protected final java.nio.ByteBuffer byteBuffer;
+
+    public 'void' <init>()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.sasl.FixedSizeHeaderReader this;
+        java.nio.ByteBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.FixedSizeHeaderReader;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $i0 = virtualinvoke this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: 'int' headerSize()>();
+
+        $r0 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>($i0);
+
+        this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer> = $r0;
+
+        return;
+    }
+
+    public 'boolean' isComplete()
+    {
+        org.apache.thrift.transport.sasl.FixedSizeHeaderReader this;
+        java.nio.ByteBuffer $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FixedSizeHeaderReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        $z0 = virtualinvoke $r0.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 != 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'void' clear()
+    {
+        org.apache.thrift.transport.sasl.FixedSizeHeaderReader this;
+        java.nio.ByteBuffer $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.FixedSizeHeaderReader;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        virtualinvoke $r0.<java.nio.ByteBuffer: java.nio.Buffer clear()>();
+
+        return;
+    }
+
+    public 'byte'[] toBytes()
+    {
+        java.lang.IllegalStateException $r0;
+        'byte'[] $r4;
+        org.apache.thrift.transport.sasl.FixedSizeHeaderReader this;
+        java.nio.ByteBuffer $r3;
+        'int' $i0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r6;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FixedSizeHeaderReader;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: 'boolean' isComplete()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new java.lang.IllegalStateException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Header is not yet complete ");
+
+        $r3 = this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        $r4 = virtualinvoke $r3.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        $r3 = this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        $i0 = virtualinvoke $r3.<java.nio.ByteBuffer: 'int' position()>();
+
+        $r6 = staticinvoke <org.apache.thrift.utils.StringUtils: java.lang.String bytesToHexString('byte'[],'int','int')>($r4, 0, $i0);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>($r6);
+
+        throw $r0;
+
+     label1:
+        $r3 = this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        $r4 = virtualinvoke $r3.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        return $r4;
+    }
+
+    public 'boolean' read(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransport transport;
+        org.apache.thrift.transport.sasl.FixedSizeHeaderReader this;
+        java.nio.ByteBuffer $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FixedSizeHeaderReader;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        staticinvoke <org.apache.thrift.transport.sasl.FrameReader: 'int' readAvailable(org.apache.thrift.transport.TTransport,java.nio.ByteBuffer)>(transport, $r0);
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: java.nio.ByteBuffer byteBuffer>;
+
+        $z0 = virtualinvoke $r0.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 == false goto label1;
+
+        return 0;
+
+     label1:
+        virtualinvoke this.<org.apache.thrift.transport.sasl.FixedSizeHeaderReader: 'void' onComplete()>();
+
+        return 1;
+    }
+
+    protected abstract 'int' headerSize();
+
+    protected abstract 'void' onComplete() throws org.apache.thrift.transport.TTransportException;
+}

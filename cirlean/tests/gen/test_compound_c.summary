@@ -1,0 +1,2 @@
+/home/user/cirlean_work/corpus/cir/test_compound.c.cir: 10 funcs (6 with body, 0 modelled), 0 records, 3 globals, 589 ops
+  unknown ops: cir.goto×13, cir.label×8

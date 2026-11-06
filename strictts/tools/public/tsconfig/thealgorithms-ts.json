@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["backtracking", "bit_manipulation", "ciphers", "data_structures", "dynamic_programming", "graph", "maths", "other", "search", "sorts"],
+  "exclude": ["**/test/**", "**/*.test.ts"]
+}

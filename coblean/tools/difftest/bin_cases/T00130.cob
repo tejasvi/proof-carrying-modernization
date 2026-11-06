@@ -1,0 +1,34 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. T00130.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 R.
+          05 A2 PIC X(5) JUSTIFIED RIGHT VALUE 'QKJVB'.
+          05 E3 PIC 99/99/99 VALUE ZERO.
+          05 N4 PIC S9(5) COMP-5 VALUE 23632.
+          05 N5 PIC S9(1) COMP VALUE 5.
+          05 N6 PIC S9(2)V9(1) COMP-3 VALUE -88.7.
+          05 A7 PIC X(6) VALUE 'SUW266'.
+          05 FLAG PIC X(1) VALUE 'N'.
+          05 OTRACE PIC X(4) VALUE '....'.
+       01 RX REDEFINES R.
+          05 BYTE PIC X OCCURS 32.
+       01 IDX PIC 9(4) COMP.
+       PROCEDURE DIVISION.
+       MAIN-PARA.
+           MOVE 1999.28 TO N5
+           ADD N5 TO N6 N4
+           ON SIZE ERROR MOVE 'E' TO FLAG MOVE 'E' TO OTRACE(2:1) NOT
+           ON SIZE ERROR MOVE 'K' TO FLAG MOVE 'K' TO OTRACE(2:1)
+           END-ADD
+           IF A2 < A2
+           MOVE 'Y' TO FLAG MOVE 'Y' TO OTRACE(3:1)
+           ELSE
+           MOVE 'N' TO FLAG MOVE 'N' TO OTRACE(3:1)
+           END-IF
+           MOVE N5 TO N6
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 32
+              DISPLAY FUNCTION ORD(BYTE(IDX)) ' ' WITH NO ADVANCING
+           END-PERFORM
+           DISPLAY ' '
+           STOP RUN.

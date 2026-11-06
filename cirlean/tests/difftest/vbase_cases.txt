@@ -1,0 +1,30 @@
+# Virtual inheritance (vbase.cpp): VTTs, construction vtables, virtual base offsets read from the vtable,
+# virtual and non-virtual thunks. Each case is labelled with its expected outcome on the line above it
+# (before the change: UB "unsupported operation cir.vtt.address_point"; t_single UB "pointer arithmetic out
+# of bounds", the virtual base offset before the vptr; t_nonprimary* UB "virtual call: unsupported class
+# layout", the thunk).
+# expect MATCH: the diamond's members, one virtual base
+vbase t_diamond 3
+vbase t_diamond -5
+# expect MATCH: a virtual base's member through pointers to both bases (two vtables' vbase offsets)
+vbase t_vbase_member 4
+# expect MATCH: a write through one base read through the other
+vbase t_vbase_write 2
+# expect MATCH: the virtual calls of the base constructors see the bases' overriders (construction vtables)
+vbase t_ctor_calls 1
+# expect MATCH: a virtual call through the virtual base (virtual thunk) and a virtual base member
+vbase t_thunk_call 6
+# expect MATCH: the destructors see their own classes' overriders, in reverse order
+vbase t_dtor_calls 7
+# expect MATCH: a further derived class (D's base-object constructor gets its part of F's VTT)
+vbase t_further 2
+# expect MATCH: the destructors of the further derived object
+vbase t_further_dtor 3
+# expect MATCH: new, virtual calls and delete through the virtual base (the deleting destructor's thunk)
+vbase t_heap 5
+# expect MATCH: a lone virtual base
+vbase t_single 8
+# expect MATCH: a virtual call through a non-primary base of a class without virtual bases (non-virtual thunk)
+vbase t_nonprimary 4
+# expect MATCH: delete through a non-primary base (the deleting destructor's non-virtual thunk)
+vbase t_nonprimary_delete 3

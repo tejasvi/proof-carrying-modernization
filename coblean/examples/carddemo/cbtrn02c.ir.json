@@ -1,0 +1,9190 @@
+{
+ "name": "CBTRN02C",
+ "config": {
+  "charset": "ebcdic",
+  "zonedSign": "ebcdic",
+  "trunc": "std",
+  "numprocPfd": false,
+  "binaryLE": false,
+  "comp5LE": false,
+  "binary1Byte": false,
+  "sizeErrorTruncates": true
+ },
+ "dialect": {
+  "divExtraForRounded": true
+ },
+ "data": [
+  {
+   "id": 1,
+   "level": 1,
+   "name": "FD-TRAN-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 2,
+     "level": 5,
+     "name": "FD-TRAN-ID",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 3,
+     "level": 5,
+     "name": "FD-CUST-DATA",
+     "pic": {
+      "alnum": {
+       "len": 334
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "level": 1,
+   "name": "FD-TRANFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 5,
+     "level": 5,
+     "name": "FD-TRANS-ID",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 6,
+     "level": 5,
+     "name": "FD-ACCT-DATA",
+     "pic": {
+      "alnum": {
+       "len": 334
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "level": 1,
+   "name": "FD-XREFFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 8,
+     "level": 5,
+     "name": "FD-XREF-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 9,
+     "level": 5,
+     "name": "FD-XREF-DATA",
+     "pic": {
+      "alnum": {
+       "len": 34
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "level": 1,
+   "name": "FD-REJS-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 11,
+     "level": 5,
+     "name": "FD-REJECT-RECORD",
+     "pic": {
+      "alnum": {
+       "len": 350
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 12,
+     "level": 5,
+     "name": "FD-VALIDATION-TRAILER",
+     "pic": {
+      "alnum": {
+       "len": 80
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "level": 1,
+   "name": "FD-ACCTFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 14,
+     "level": 5,
+     "name": "FD-ACCT-ID",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 15,
+     "level": 5,
+     "name": "FD-ACCT-DATA",
+     "pic": {
+      "alnum": {
+       "len": 289
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "level": 1,
+   "name": "FD-TRAN-CAT-BAL-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 17,
+     "level": 5,
+     "name": "FD-TRAN-CAT-KEY",
+     "pic": null,
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": [
+      {
+       "id": 18,
+       "level": 10,
+       "name": "FD-TRANCAT-ACCT-ID",
+       "pic": {
+        "num": {
+         "digits": 11,
+         "scale": 0,
+         "signed": false
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 19,
+       "level": 10,
+       "name": "FD-TRANCAT-TYPE-CD",
+       "pic": {
+        "alnum": {
+         "len": 2
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 20,
+       "level": 10,
+       "name": "FD-TRANCAT-CD",
+       "pic": {
+        "num": {
+         "digits": 4,
+         "scale": 0,
+         "signed": false
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": 21,
+     "level": 5,
+     "name": "FD-FD-TRAN-CAT-DATA",
+     "pic": {
+      "alnum": {
+       "len": 33
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "level": 1,
+   "name": "DALYTRAN-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 23,
+     "level": 5,
+     "name": "DALYTRAN-ID",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 24,
+     "level": 5,
+     "name": "DALYTRAN-TYPE-CD",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 25,
+     "level": 5,
+     "name": "DALYTRAN-CAT-CD",
+     "pic": {
+      "num": {
+       "digits": 4,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 26,
+     "level": 5,
+     "name": "DALYTRAN-SOURCE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 27,
+     "level": 5,
+     "name": "DALYTRAN-DESC",
+     "pic": {
+      "alnum": {
+       "len": 100
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 28,
+     "level": 5,
+     "name": "DALYTRAN-AMT",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 29,
+     "level": 5,
+     "name": "DALYTRAN-MERCHANT-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 30,
+     "level": 5,
+     "name": "DALYTRAN-MERCHANT-NAME",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 31,
+     "level": 5,
+     "name": "DALYTRAN-MERCHANT-CITY",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 32,
+     "level": 5,
+     "name": "DALYTRAN-MERCHANT-ZIP",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 33,
+     "level": 5,
+     "name": "DALYTRAN-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 34,
+     "level": 5,
+     "name": "DALYTRAN-ORIG-TS",
+     "pic": {
+      "alnum": {
+       "len": 26
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 35,
+     "level": 5,
+     "name": "DALYTRAN-PROC-TS",
+     "pic": {
+      "alnum": {
+       "len": 26
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 36,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 20
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 37,
+   "level": 1,
+   "name": "DALYTRAN-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 38,
+     "level": 5,
+     "name": "DALYTRAN-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 39,
+     "level": 5,
+     "name": "DALYTRAN-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 40,
+   "level": 1,
+   "name": "TRAN-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 41,
+     "level": 5,
+     "name": "TRAN-ID",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 42,
+     "level": 5,
+     "name": "TRAN-TYPE-CD",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 43,
+     "level": 5,
+     "name": "TRAN-CAT-CD",
+     "pic": {
+      "num": {
+       "digits": 4,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 44,
+     "level": 5,
+     "name": "TRAN-SOURCE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 45,
+     "level": 5,
+     "name": "TRAN-DESC",
+     "pic": {
+      "alnum": {
+       "len": 100
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 46,
+     "level": 5,
+     "name": "TRAN-AMT",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 47,
+     "level": 5,
+     "name": "TRAN-MERCHANT-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 48,
+     "level": 5,
+     "name": "TRAN-MERCHANT-NAME",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 49,
+     "level": 5,
+     "name": "TRAN-MERCHANT-CITY",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 50,
+     "level": 5,
+     "name": "TRAN-MERCHANT-ZIP",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 51,
+     "level": 5,
+     "name": "TRAN-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 52,
+     "level": 5,
+     "name": "TRAN-ORIG-TS",
+     "pic": {
+      "alnum": {
+       "len": 26
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 53,
+     "level": 5,
+     "name": "TRAN-PROC-TS",
+     "pic": {
+      "alnum": {
+       "len": 26
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 54,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 20
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 55,
+   "level": 1,
+   "name": "TRANFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 56,
+     "level": 5,
+     "name": "TRANFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 57,
+     "level": 5,
+     "name": "TRANFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 58,
+   "level": 1,
+   "name": "CARD-XREF-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 59,
+     "level": 5,
+     "name": "XREF-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 60,
+     "level": 5,
+     "name": "XREF-CUST-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 61,
+     "level": 5,
+     "name": "XREF-ACCT-ID",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 62,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 14
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 63,
+   "level": 1,
+   "name": "XREFFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 64,
+     "level": 5,
+     "name": "XREFFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 65,
+     "level": 5,
+     "name": "XREFFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 66,
+   "level": 1,
+   "name": "DALYREJS-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 67,
+     "level": 5,
+     "name": "DALYREJS-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 68,
+     "level": 5,
+     "name": "DALYREJS-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 69,
+   "level": 1,
+   "name": "ACCOUNT-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 70,
+     "level": 5,
+     "name": "ACCT-ID",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 71,
+     "level": 5,
+     "name": "ACCT-ACTIVE-STATUS",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 72,
+     "level": 5,
+     "name": "ACCT-CURR-BAL",
+     "pic": {
+      "num": {
+       "digits": 12,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 73,
+     "level": 5,
+     "name": "ACCT-CREDIT-LIMIT",
+     "pic": {
+      "num": {
+       "digits": 12,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 74,
+     "level": 5,
+     "name": "ACCT-CASH-CREDIT-LIMIT",
+     "pic": {
+      "num": {
+       "digits": 12,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 75,
+     "level": 5,
+     "name": "ACCT-OPEN-DATE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 76,
+     "level": 5,
+     "name": "ACCT-EXPIRAION-DATE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 77,
+     "level": 5,
+     "name": "ACCT-REISSUE-DATE",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 78,
+     "level": 5,
+     "name": "ACCT-CURR-CYC-CREDIT",
+     "pic": {
+      "num": {
+       "digits": 12,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 79,
+     "level": 5,
+     "name": "ACCT-CURR-CYC-DEBIT",
+     "pic": {
+      "num": {
+       "digits": 12,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 80,
+     "level": 5,
+     "name": "ACCT-ADDR-ZIP",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 81,
+     "level": 5,
+     "name": "ACCT-GROUP-ID",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 82,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 178
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 83,
+   "level": 1,
+   "name": "ACCTFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 84,
+     "level": 5,
+     "name": "ACCTFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 85,
+     "level": 5,
+     "name": "ACCTFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 86,
+   "level": 1,
+   "name": "TRAN-CAT-BAL-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 87,
+     "level": 5,
+     "name": "TRAN-CAT-KEY",
+     "pic": null,
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": [
+      {
+       "id": 88,
+       "level": 10,
+       "name": "TRANCAT-ACCT-ID",
+       "pic": {
+        "num": {
+         "digits": 11,
+         "scale": 0,
+         "signed": false
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 89,
+       "level": 10,
+       "name": "TRANCAT-TYPE-CD",
+       "pic": {
+        "alnum": {
+         "len": 2
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      },
+      {
+       "id": 90,
+       "level": 10,
+       "name": "TRANCAT-CD",
+       "pic": {
+        "num": {
+         "digits": 4,
+         "scale": 0,
+         "signed": false
+        }
+       },
+       "usage": "display",
+       "occurs": 1,
+       "redefines": null,
+       "value": null,
+       "just": false,
+       "signSep": false,
+       "signLead": false,
+       "bwz": false,
+       "sync": false,
+       "conds": [],
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": 91,
+     "level": 5,
+     "name": "TRAN-CAT-BAL",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 92,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 22
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 93,
+   "level": 1,
+   "name": "TCATBALF-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 94,
+     "level": 5,
+     "name": "TCATBALF-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 95,
+     "level": 5,
+     "name": "TCATBALF-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 96,
+   "level": 1,
+   "name": "IO-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 97,
+     "level": 5,
+     "name": "IO-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 98,
+     "level": 5,
+     "name": "IO-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 99,
+   "level": 1,
+   "name": "TWO-BYTES-BINARY",
+   "pic": {
+    "num": {
+     "digits": 4,
+     "scale": 0,
+     "signed": false
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 100,
+   "level": 1,
+   "name": "TWO-BYTES-ALPHA",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": 99,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 101,
+     "level": 5,
+     "name": "TWO-BYTES-LEFT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 102,
+     "level": 5,
+     "name": "TWO-BYTES-RIGHT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 103,
+   "level": 1,
+   "name": "IO-STATUS-04",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 104,
+     "level": 5,
+     "name": "IO-STATUS-0401",
+     "pic": {
+      "num": {
+       "digits": 1,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 105,
+     "level": 5,
+     "name": "IO-STATUS-0403",
+     "pic": {
+      "num": {
+       "digits": 3,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 106,
+   "level": 1,
+   "name": "APPL-RESULT",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [
+    [
+     107,
+     [
+      "APPL-AOK",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 0,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ],
+    [
+     108,
+     [
+      "APPL-EOF",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 16,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": 109,
+   "level": 1,
+   "name": "END-OF-FILE",
+   "pic": {
+    "alnum": {
+     "len": 1
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": {
+    "alnum": {
+     "bs": [
+      213
+     ]
+    }
+   },
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 110,
+   "level": 1,
+   "name": "ABCODE",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 111,
+   "level": 1,
+   "name": "TIMING",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 112,
+   "level": 1,
+   "name": "COBOL-TS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 113,
+     "level": 5,
+     "name": "COB-YYYY",
+     "pic": {
+      "alnum": {
+       "len": 4
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 114,
+     "level": 5,
+     "name": "COB-MM",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 115,
+     "level": 5,
+     "name": "COB-DD",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 116,
+     "level": 5,
+     "name": "COB-HH",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 117,
+     "level": 5,
+     "name": "COB-MIN",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 118,
+     "level": 5,
+     "name": "COB-SS",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 119,
+     "level": 5,
+     "name": "COB-MIL",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 120,
+     "level": 5,
+     "name": "COB-REST",
+     "pic": {
+      "alnum": {
+       "len": 5
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 121,
+   "level": 1,
+   "name": "DB2-FORMAT-TS",
+   "pic": {
+    "alnum": {
+     "len": 26
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 122,
+   "level": 1,
+   "name": "FILLER",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": 121,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 123,
+     "level": 6,
+     "name": "DB2-YYYY",
+     "pic": {
+      "alnum": {
+       "len": 4
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 124,
+     "level": 6,
+     "name": "DB2-STREEP-1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 125,
+     "level": 6,
+     "name": "DB2-MM",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 126,
+     "level": 6,
+     "name": "DB2-STREEP-2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 127,
+     "level": 6,
+     "name": "DB2-DD",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 128,
+     "level": 6,
+     "name": "DB2-STREEP-3",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 129,
+     "level": 6,
+     "name": "DB2-HH",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 130,
+     "level": 6,
+     "name": "DB2-DOT-1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 131,
+     "level": 6,
+     "name": "DB2-MIN",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 132,
+     "level": 6,
+     "name": "DB2-DOT-2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 133,
+     "level": 6,
+     "name": "DB2-SS",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 134,
+     "level": 6,
+     "name": "DB2-DOT-3",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 135,
+     "level": 6,
+     "name": "DB2-MIL",
+     "pic": {
+      "num": {
+       "digits": 2,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 136,
+     "level": 6,
+     "name": "DB2-REST",
+     "pic": {
+      "alnum": {
+       "len": 4
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 137,
+   "level": 1,
+   "name": "REJECT-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 138,
+     "level": 5,
+     "name": "REJECT-TRAN-DATA",
+     "pic": {
+      "alnum": {
+       "len": 350
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 139,
+     "level": 5,
+     "name": "VALIDATION-TRAILER",
+     "pic": {
+      "alnum": {
+       "len": 80
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 140,
+   "level": 1,
+   "name": "WS-VALIDATION-TRAILER",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 141,
+     "level": 5,
+     "name": "WS-VALIDATION-FAIL-REASON",
+     "pic": {
+      "num": {
+       "digits": 4,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 142,
+     "level": 5,
+     "name": "WS-VALIDATION-FAIL-REASON-DESC",
+     "pic": {
+      "alnum": {
+       "len": 76
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 143,
+   "level": 1,
+   "name": "WS-COUNTERS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 144,
+     "level": 5,
+     "name": "WS-TRANSACTION-COUNT",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 145,
+     "level": 5,
+     "name": "WS-REJECT-COUNT",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 146,
+     "level": 5,
+     "name": "WS-TEMP-BAL",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 147,
+   "level": 1,
+   "name": "WS-FLAGS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 148,
+     "level": 5,
+     "name": "WS-CREATE-TRANCAT-REC",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "alnum": {
+       "bs": [
+        213
+       ]
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 149,
+   "level": 1,
+   "name": "RETURN-CODE",
+   "pic": {
+    "num": {
+     "digits": 4,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": {
+    "num": {
+     "v": 0,
+     "scale": 0
+    }
+   },
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  }
+ ],
+ "paras": [
+  {
+   "name": "",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "START OF EXECUTION OF PROGRAM CBTRN02C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0000-DALYTRAN-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0100-TRANFILE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0200-XREFFILE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0300-DALYREJS-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0400-ACCTFILE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0500-TCATBALF-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "performInline": {
+       "body": [
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": "=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 109,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "lit": {
+              "l": {
+               "str": {
+                "s": "N"
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           {
+            "perform": {
+             "first": "1000-DALYTRAN-GET-NEXT",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "ite": {
+             "c": {
+              "rel": {
+               "op": "=",
+               "a": {
+                "ref": {
+                 "r": {
+                  "item": 109,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                }
+               },
+               "b": {
+                "lit": {
+                 "l": {
+                  "str": {
+                   "s": "N"
+                  }
+                 }
+                }
+               }
+              }
+             },
+             "t": [
+              {
+               "add": {
+                "ops": [
+                 {
+                  "lit": {
+                   "v": 1,
+                   "scale": 0
+                  }
+                 }
+                ],
+                "rcv": [
+                 {
+                  "ref": {
+                   "item": 144,
+                   "subs": [],
+                   "refStart": null,
+                   "refLen": null
+                  },
+                  "rounded": null
+                 }
+                ],
+                "giving": false,
+                "onSize": null,
+                "notOnSize": []
+               }
+              },
+              {
+               "move": {
+                "src": {
+                 "lit": {
+                  "l": {
+                   "num": {
+                    "v": 0,
+                    "scale": 0,
+                    "digits": 1
+                   }
+                  }
+                 }
+                },
+                "dsts": [
+                 {
+                  "item": 141,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                ]
+               }
+              },
+              {
+               "move": {
+                "src": {
+                 "lit": {
+                  "l": {
+                   "fig": {
+                    "name": "SPACE"
+                   }
+                  }
+                 }
+                },
+                "dsts": [
+                 {
+                  "item": 142,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                ]
+               }
+              },
+              {
+               "perform": {
+                "first": "1500-VALIDATE-TRAN",
+                "last": null,
+                "loop": "once"
+               }
+              },
+              {
+               "ite": {
+                "c": {
+                 "rel": {
+                  "op": "=",
+                  "a": {
+                   "ref": {
+                    "r": {
+                     "item": 141,
+                     "subs": [],
+                     "refStart": null,
+                     "refLen": null
+                    }
+                   }
+                  },
+                  "b": {
+                   "lit": {
+                    "l": {
+                     "num": {
+                      "v": 0,
+                      "scale": 0,
+                      "digits": 1
+                     }
+                    }
+                   }
+                  }
+                 }
+                },
+                "t": [
+                 {
+                  "perform": {
+                   "first": "2000-POST-TRANSACTION",
+                   "last": null,
+                   "loop": "once"
+                  }
+                 }
+                ],
+                "e": [
+                 {
+                  "add": {
+                   "ops": [
+                    {
+                     "lit": {
+                      "v": 1,
+                      "scale": 0
+                     }
+                    }
+                   ],
+                   "rcv": [
+                    {
+                     "ref": {
+                      "item": 145,
+                      "subs": [],
+                      "refStart": null,
+                      "refLen": null
+                     },
+                     "rounded": null
+                    }
+                   ],
+                   "giving": false,
+                   "onSize": null,
+                   "notOnSize": []
+                  }
+                 },
+                 {
+                  "perform": {
+                   "first": "2500-WRITE-REJECT-REC",
+                   "last": null,
+                   "loop": "once"
+                  }
+                 }
+                ]
+               }
+              }
+             ],
+             "e": []
+            }
+           }
+          ],
+          "e": []
+         }
+        }
+       ],
+       "loop": {
+        "until": {
+         "testAfter": false,
+         "c": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 109,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "Y"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9000-DALYTRAN-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9100-TRANFILE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9200-XREFFILE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9300-DALYREJS-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9400-ACCTFILE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9500-TCATBALF-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "TRANSACTIONS PROCESSED :"
+           }
+          }
+         }
+        },
+        {
+         "ref": {
+          "r": {
+           "item": 144,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "TRANSACTIONS REJECTED  :"
+           }
+          }
+         }
+        },
+        {
+         "ref": {
+          "r": {
+           "item": 145,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": ">",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 145,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "num": {
+             "v": 0,
+             "scale": 0,
+             "digits": 1
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 4,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 149,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": []
+      }
+     },
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "END OF EXECUTION OF PROGRAM CBTRN02C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     "goback"
+    ]
+   ]
+  },
+  {
+   "name": "0000-DALYTRAN-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 1,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 37,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING DALYTRAN"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 37,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0100-TRANFILE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 2,
+       "mode": "OUTPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 55,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING TRANSACTION FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 55,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0200-XREFFILE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 3,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 63,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING CROSS REF FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 63,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0300-DALYREJS-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 4,
+       "mode": "OUTPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 66,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING DALY REJECTS FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 66,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0400-ACCTFILE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 5,
+       "mode": "I-O"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 83,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING ACCOUNT MASTER FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 83,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0500-TCATBALF-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 6,
+       "mode": "I-O"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 93,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING TRANSACTION BALANCE FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 93,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1000-DALYTRAN-GET-NEXT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 1,
+       "key": null,
+       "into": {
+        "item": 22,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 37,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": "=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 37,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "lit": {
+              "l": {
+               "str": {
+                "s": "10"
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 16,
+                 "scale": 0,
+                 "digits": 2
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 106,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 12,
+                 "scale": 0,
+                 "digits": 2
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 106,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "cond88": {
+            "id": 108,
+            "subs": []
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "Y"
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 109,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "display": {
+             "ops": [
+              {
+               "lit": {
+                "l": {
+                 "str": {
+                  "s": "ERROR READING DALYTRAN FILE"
+                 }
+                }
+               }
+              }
+             ]
+            }
+           },
+           {
+            "move": {
+             "src": {
+              "ref": {
+               "r": {
+                "item": 37,
+                "subs": [],
+                "refStart": null,
+                "refLen": null
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 96,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           },
+           {
+            "perform": {
+             "first": "9910-DISPLAY-IO-STATUS",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "perform": {
+             "first": "9999-ABEND-PROGRAM",
+             "last": null,
+             "loop": "once"
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1500-VALIDATE-TRAN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "perform": {
+       "first": "1500-A-LOOKUP-XREF",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 141,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "num": {
+             "v": 0,
+             "scale": 0,
+             "digits": 1
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "perform": {
+          "first": "1500-B-LOOKUP-ACCT",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ],
+       "e": [
+        "cont"
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1500-A-LOOKUP-XREF",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 33,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 8,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "fread": {
+       "file": 3,
+       "key": 8,
+       "into": {
+        "item": 58,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": true,
+       "exc": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 100,
+              "scale": 0,
+              "digits": 3
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 141,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "INVALID CARD NUMBER FOUND"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 142,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "noExc": [
+        "cont"
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "1500-B-LOOKUP-ACCT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 61,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 14,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "fread": {
+       "file": 5,
+       "key": 14,
+       "into": {
+        "item": 69,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": true,
+       "exc": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 101,
+              "scale": 0,
+              "digits": 3
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 141,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "ACCOUNT RECORD NOT FOUND"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 142,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "noExc": [
+        {
+         "compute": {
+          "rcv": [
+           {
+            "ref": {
+             "item": 146,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "e": {
+           "add": {
+            "a": {
+             "sub": {
+              "a": {
+               "ref": {
+                "r": {
+                 "item": 78,
+                 "subs": [],
+                 "refStart": null,
+                 "refLen": null
+                }
+               }
+              },
+              "b": {
+               "ref": {
+                "r": {
+                 "item": 79,
+                 "subs": [],
+                 "refStart": null,
+                 "refLen": null
+                }
+               }
+              }
+             }
+            },
+            "b": {
+             "ref": {
+              "r": {
+               "item": 28,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            }
+           }
+          },
+          "onSize": null,
+          "notOnSize": []
+         }
+        },
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": ">=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 73,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "ref": {
+              "r": {
+               "item": 146,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           "cont"
+          ],
+          "e": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 102,
+                 "scale": 0,
+                 "digits": 3
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 141,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           },
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "OVERLIMIT TRANSACTION"
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 142,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ]
+         }
+        },
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": ">=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 76,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "ref": {
+              "r": {
+               "item": 34,
+               "subs": [],
+               "refStart": {
+                "lit": {
+                 "n": 1
+                }
+               },
+               "refLen": {
+                "lit": {
+                 "n": 10
+                }
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           "cont"
+          ],
+          "e": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 103,
+                 "scale": 0,
+                 "digits": 3
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 141,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           },
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "TRANSACTION RECEIVED AFTER ACCT EXPIRATION"
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 142,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "2000-POST-TRANSACTION",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 23,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 41,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 24,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 42,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 25,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 43,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 26,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 44,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 27,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 45,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 28,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 46,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 29,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 47,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 30,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 48,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 31,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 49,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 32,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 50,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 33,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 51,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 34,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 52,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "Z-GET-DB2-FORMAT-TIMESTAMP",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 121,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 53,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "perform": {
+       "first": "2700-UPDATE-TCATBAL",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "perform": {
+       "first": "2800-UPDATE-ACCOUNT-REC",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     {
+      "perform": {
+       "first": "2900-WRITE-TRANSACTION-FILE",
+       "last": null,
+       "loop": "once"
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "2500-WRITE-REJECT-REC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 22,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 138,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 140,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 139,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 137,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 10,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "fwrite": {
+       "file": 4,
+       "rec": {
+        "item": 10,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 66,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR WRITING TO REJECTS FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 66,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "2700-UPDATE-TCATBAL",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 61,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 18,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 24,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 19,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 25,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 20,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "str": {
+           "s": "N"
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 148,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "fread": {
+       "file": 6,
+       "key": 17,
+       "into": {
+        "item": 86,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": true,
+       "exc": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "TCATBAL record not found for key : "
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 17,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": ".. Creating."
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "Y"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 148,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "noExc": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "or": {
+         "a": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 93,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "00"
+              }
+             }
+            }
+           }
+          }
+         },
+         "b": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 93,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "23"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR READING TRANSACTION BALANCE FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 93,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 148,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "Y"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "perform": {
+          "first": "2700-A-CREATE-TCATBAL-REC",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ],
+       "e": [
+        {
+         "perform": {
+          "first": "2700-B-UPDATE-TCATBAL-REC",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "2700-A-CREATE-TCATBAL-REC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "initialize": {
+       "dsts": [
+        {
+         "item": 86,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 61,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 88,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 24,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 89,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 25,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 90,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "add": {
+       "ops": [
+        {
+         "ref": {
+          "r": {
+           "item": 28,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 91,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 86,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "fwrite": {
+       "file": 6,
+       "rec": {
+        "item": 16,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 93,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR WRITING TRANSACTION BALANCE FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 93,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "2700-B-UPDATE-TCATBAL-REC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "ref": {
+          "r": {
+           "item": 28,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 91,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 86,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 16,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "frewrite": {
+       "file": 6,
+       "rec": {
+        "item": 16,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 93,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR REWRITING TRANSACTION BALANCE FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 93,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "2800-UPDATE-ACCOUNT-REC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "ref": {
+          "r": {
+           "item": 28,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 72,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": null,
+       "notOnSize": []
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": ">=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 28,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "num": {
+             "v": 0,
+             "scale": 0,
+             "digits": 1
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "add": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 28,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 78,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": false,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ],
+       "e": [
+        {
+         "add": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 28,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 79,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": false,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 69,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 13,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "frewrite": {
+       "file": 5,
+       "rec": {
+        "item": 13,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": true,
+       "exc": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 109,
+              "scale": 0,
+              "digits": 3
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 141,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "ACCOUNT RECORD NOT FOUND"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 142,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "noExc": []
+      }
+     }
+    ],
+    [
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "2900-WRITE-TRANSACTION-FILE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 40,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 4,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "fwrite": {
+       "file": 2,
+       "rec": {
+        "item": 4,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 55,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR WRITING TO TRANSACTION FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 55,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9000-DALYTRAN-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 1
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 37,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING DALYTRAN FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 37,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9100-TRANFILE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 2
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 55,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING TRANSACTION FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 55,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9200-XREFFILE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 3
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 63,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING CROSS REF FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 63,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9300-DALYREJS-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 4
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 66,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING DAILY REJECTS FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 63,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9400-ACCTFILE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 5
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 83,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING ACCOUNT FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 83,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9500-TCATBALF-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 106,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 6
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 93,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 106,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 107,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING TRANSACTION BALANCE FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 93,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 96,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "Z-GET-DB2-FORMAT-TIMESTAMP",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "clock": {
+       "dst": {
+        "item": 112,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "start": 1,
+       "len": 21
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 113,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 123,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 114,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 125,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 115,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 127,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 116,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 129,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 117,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 131,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 118,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 133,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "ref": {
+         "r": {
+          "item": 119,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 135,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "str": {
+           "s": "0000"
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 136,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "str": {
+           "s": "-"
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 124,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        },
+        {
+         "item": 126,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        },
+        {
+         "item": 128,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "str": {
+           "s": "."
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 130,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        },
+        {
+         "item": 132,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        },
+        {
+         "item": 134,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9999-ABEND-PROGRAM",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "ABENDING PROGRAM"
+           }
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 0,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 111,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 999,
+           "scale": 0,
+           "digits": 3
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 110,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "abend": {
+       "code": {
+        "ref": {
+         "r": {
+          "item": 110,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       }
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "9910-DISPLAY-IO-STATUS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "or": {
+         "a": {
+          "not": {
+           "c": {
+            "cls": {
+             "test": "NUMERIC",
+             "r": {
+              "item": 96,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          }
+         },
+         "b": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 97,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "9"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 97,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 103,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 1
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 1
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 99,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 98,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 102,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 99,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 105,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 103,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "0000"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 103,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 96,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 103,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 3
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 2
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 103,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  }
+ ],
+ "isMain": true,
+ "using": [],
+ "files": [
+  {
+   "id": 1,
+   "org": "sequential",
+   "access": "sequential",
+   "record": 1,
+   "key": null,
+   "alt": [],
+   "status": 37,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 2,
+   "org": "indexed",
+   "access": "random",
+   "record": 4,
+   "key": 5,
+   "alt": [],
+   "status": 55,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 3,
+   "org": "indexed",
+   "access": "random",
+   "record": 7,
+   "key": 8,
+   "alt": [],
+   "status": 63,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 4,
+   "org": "sequential",
+   "access": "sequential",
+   "record": 10,
+   "key": null,
+   "alt": [],
+   "status": 66,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 5,
+   "org": "indexed",
+   "access": "random",
+   "record": 13,
+   "key": 14,
+   "alt": [],
+   "status": 83,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  },
+  {
+   "id": 6,
+   "org": "indexed",
+   "access": "random",
+   "record": 16,
+   "key": 17,
+   "alt": [],
+   "status": 93,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  }
+ ]
+}

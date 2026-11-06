@@ -1,0 +1,20 @@
+      * EXPECT-FAULT: EXTERNAL record ER: 6 bytes here, 4 bytes in program U25
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U25.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  ER EXTERNAL PIC X(4).
+       PROCEDURE DIVISION.
+           CALL 'U25B'.
+           DISPLAY 'START'.
+           STOP RUN.
+       END PROGRAM U25.
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U25B.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  ER EXTERNAL PIC X(6).
+       PROCEDURE DIVISION.
+           DISPLAY 'U25B'.
+           GOBACK.
+       END PROGRAM U25B.

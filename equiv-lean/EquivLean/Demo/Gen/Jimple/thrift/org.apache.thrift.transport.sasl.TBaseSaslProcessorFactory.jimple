@@ -1,0 +1,35 @@
+public class org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory extends java.lang.Object implements org.apache.thrift.transport.sasl.TSaslProcessorFactory
+{
+    private final org.apache.thrift.TProcessor processor;
+
+    public 'void' <init>(org.apache.thrift.TProcessor)
+    {
+        org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory this;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory: org.apache.thrift.TProcessor processor> = processor;
+
+        return;
+    }
+
+    public org.apache.thrift.TProcessor getProcessor(org.apache.thrift.transport.sasl.NonblockingSaslHandler)
+    {
+        org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory this;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler saslHandler;
+        org.apache.thrift.TProcessor $r0;
+
+        this := @this: org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory;
+
+        saslHandler := @parameter0: org.apache.thrift.transport.sasl.NonblockingSaslHandler;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.TBaseSaslProcessorFactory: org.apache.thrift.TProcessor processor>;
+
+        return $r0;
+    }
+}

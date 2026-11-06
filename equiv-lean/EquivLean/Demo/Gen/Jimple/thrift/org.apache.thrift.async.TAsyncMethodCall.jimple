@@ -1,0 +1,807 @@
+public abstract class org.apache.thrift.async.TAsyncMethodCall extends java.lang.Object
+{
+    private static final 'int' INITIAL_MEMORY_BUFFER_SIZE;
+    private static final java.util.concurrent.atomic.AtomicLong sequenceIdCounter;
+    private org.apache.thrift.async.TAsyncMethodCall$State state;
+    protected final org.apache.thrift.transport.TNonblockingTransport transport;
+    private final org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+    protected final org.apache.thrift.async.TAsyncClient client;
+    private final org.apache.thrift.async.AsyncMethodCallback callback;
+    private final 'boolean' isOneway;
+    private final 'long' sequenceId;
+    private final 'long' timeout;
+    private java.nio.ByteBuffer sizeBuffer;
+    private final 'byte'[] sizeBufferArray;
+    private java.nio.ByteBuffer frameBuffer;
+    private final 'long' startTime;
+
+    protected 'void' <init>(org.apache.thrift.async.TAsyncClient, org.apache.thrift.protocol.TProtocolFactory, org.apache.thrift.transport.TNonblockingTransport, org.apache.thrift.async.AsyncMethodCallback, 'boolean')
+    {
+        'byte'[] $r0;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        org.apache.thrift.async.TAsyncClient client;
+        'long' $l0;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+        java.util.concurrent.atomic.AtomicLong $r1;
+        org.apache.thrift.transport.TNonblockingTransport transport;
+        org.apache.thrift.async.AsyncMethodCallback callback;
+        'boolean' isOneway;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        client := @parameter0: org.apache.thrift.async.TAsyncClient;
+
+        protocolFactory := @parameter1: org.apache.thrift.protocol.TProtocolFactory;
+
+        transport := @parameter2: org.apache.thrift.transport.TNonblockingTransport;
+
+        callback := @parameter3: org.apache.thrift.async.AsyncMethodCallback;
+
+        isOneway := @parameter4: 'boolean';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = null;
+
+        $r0 = newarray ('byte')[4];
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: 'byte'[] sizeBufferArray> = $r0;
+
+        $l0 = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: 'long' startTime> = $l0;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport> = transport;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.AsyncMethodCallback callback> = callback;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.protocol.TProtocolFactory protocolFactory> = protocolFactory;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncClient client> = client;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: 'boolean' isOneway> = isOneway;
+
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall: java.util.concurrent.atomic.AtomicLong sequenceIdCounter>;
+
+        $l0 = virtualinvoke $r1.<java.util.concurrent.atomic.AtomicLong: 'long' getAndIncrement()>();
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: 'long' sequenceId> = $l0;
+
+        $l0 = virtualinvoke client.<org.apache.thrift.async.TAsyncClient: 'long' getTimeout()>();
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: 'long' timeout> = $l0;
+
+        return;
+    }
+
+    protected org.apache.thrift.async.TAsyncMethodCall$State getState()
+    {
+        org.apache.thrift.async.TAsyncMethodCall$State $r0;
+        org.apache.thrift.async.TAsyncMethodCall this;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state>;
+
+        return $r0;
+    }
+
+    protected 'boolean' isFinished()
+    {
+        org.apache.thrift.async.TAsyncMethodCall this;
+        org.apache.thrift.async.TAsyncMethodCall$State $r0, $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state>;
+
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State RESPONSE_READ>;
+
+        if $r0 != $r1 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    protected 'long' getStartTime()
+    {
+        'long' $l0;
+        org.apache.thrift.async.TAsyncMethodCall this;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $l0 = this.<org.apache.thrift.async.TAsyncMethodCall: 'long' startTime>;
+
+        return $l0;
+    }
+
+    protected 'long' getSequenceId()
+    {
+        'long' $l0;
+        org.apache.thrift.async.TAsyncMethodCall this;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $l0 = this.<org.apache.thrift.async.TAsyncMethodCall: 'long' sequenceId>;
+
+        return $l0;
+    }
+
+    public org.apache.thrift.async.TAsyncClient getClient()
+    {
+        org.apache.thrift.async.TAsyncClient $r0;
+        org.apache.thrift.async.TAsyncMethodCall this;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncClient client>;
+
+        return $r0;
+    }
+
+    public 'boolean' hasTimeout()
+    {
+        'byte' $b1;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        'int' $i2;
+        'long' $l0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $l0 = this.<org.apache.thrift.async.TAsyncMethodCall: 'long' timeout>;
+
+        $b1 = $l0 cmp 0L;
+
+        $i2 = ('int') $b1;
+
+        if $i2 <= 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'long' getTimeoutTimestamp()
+    {
+        'long' $l0, $l1;
+        org.apache.thrift.async.TAsyncMethodCall this;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $l0 = this.<org.apache.thrift.async.TAsyncMethodCall: 'long' timeout>;
+
+        $l1 = this.<org.apache.thrift.async.TAsyncMethodCall: 'long' startTime>;
+
+        $l0 = $l0 + $l1;
+
+        return $l0;
+    }
+
+    protected abstract 'void' write_args(org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException;
+
+    protected abstract java.lang.Object getResult() throws java.lang.Exception;
+
+    protected 'void' prepareMethodCall() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TProtocol protocol;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        'int' length;
+        org.apache.thrift.transport.TMemoryBuffer memoryBuffer;
+        org.apache.thrift.protocol.TProtocolFactory $r0;
+        java.nio.ByteBuffer $r2;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        memoryBuffer = new org.apache.thrift.transport.TMemoryBuffer;
+
+        specialinvoke memoryBuffer.<org.apache.thrift.transport.TMemoryBuffer: 'void' <init>('int')>(128);
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.protocol.TProtocolFactory protocolFactory>;
+
+        protocol = interfaceinvoke $r0.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(memoryBuffer);
+
+        virtualinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' write_args(org.apache.thrift.protocol.TProtocol)>(protocol);
+
+        length = virtualinvoke memoryBuffer.<org.apache.thrift.transport.TMemoryBuffer: 'int' length()>();
+
+        $r1 = virtualinvoke memoryBuffer.<org.apache.thrift.transport.TMemoryBuffer: 'byte'[] getArray()>();
+
+        $r2 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>($r1, 0, length);
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer frameBuffer> = $r2;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: 'byte'[] sizeBufferArray>;
+
+        staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'void' encodeFrameSize('int','byte'[])>(length, $r1);
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: 'byte'[] sizeBufferArray>;
+
+        $r2 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>($r1);
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer sizeBuffer> = $r2;
+
+        return;
+    }
+
+    'void' start(java.nio.channels.Selector) throws java.io.IOException
+    {
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        java.nio.channels.SelectionKey key;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        java.nio.channels.Selector sel;
+        org.apache.thrift.async.TAsyncMethodCall$State $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        sel := @parameter0: java.nio.channels.Selector;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'boolean' isOpen()>();
+
+        if $z0 == false goto label1;
+
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State WRITING_REQUEST_SIZE>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r1;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        key = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: java.nio.channels.SelectionKey registerSelector(java.nio.channels.Selector,'int')>(sel, 4);
+
+        goto label2;
+
+     label1:
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State CONNECTING>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r1;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        key = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: java.nio.channels.SelectionKey registerSelector(java.nio.channels.Selector,'int')>(sel, 8);
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'boolean' startConnect()>();
+
+        if $z0 == false goto label2;
+
+        virtualinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' registerForFirstWrite(java.nio.channels.SelectionKey)>(key);
+
+     label2:
+        virtualinvoke key.<java.nio.channels.SelectionKey: java.lang.Object attach(java.lang.Object)>(this);
+
+        return;
+    }
+
+    'void' registerForFirstWrite(java.nio.channels.SelectionKey) throws java.io.IOException
+    {
+        org.apache.thrift.async.TAsyncMethodCall$State $r0;
+        java.nio.channels.SelectionKey key;
+        org.apache.thrift.async.TAsyncMethodCall this;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        key := @parameter0: java.nio.channels.SelectionKey;
+
+        $r0 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State WRITING_REQUEST_SIZE>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r0;
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(4);
+
+        return;
+    }
+
+    protected java.nio.ByteBuffer getFrameBuffer()
+    {
+        java.nio.ByteBuffer $r0;
+        org.apache.thrift.async.TAsyncMethodCall this;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer frameBuffer>;
+
+        return $r0;
+    }
+
+    'void' transition(java.nio.channels.SelectionKey)
+    {
+        java.lang.IllegalStateException $r2;
+        java.nio.channels.SelectionKey key;
+        org.apache.thrift.transport.TTransportException e_1;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        java.lang.Exception e_2;
+        'int'[] $r0;
+        'int' $i0;
+        java.lang.StringBuilder $r3;
+        java.lang.String $r8;
+        org.apache.thrift.async.TAsyncMethodCall$State $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        key := @parameter0: java.nio.channels.SelectionKey;
+
+        $z0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 != 0 goto label01;
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: 'void' cancel()>();
+
+        e_1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke e_1.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("Selection key not valid!");
+
+        virtualinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' onError(java.lang.Exception)>(e_1);
+
+        return;
+
+     label01:
+        $r0 = <org.apache.thrift.async.TAsyncMethodCall$1: 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State>;
+
+     label02:
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state>;
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.async.TAsyncMethodCall$State: 'int' ordinal()>();
+
+        $i0 = $r0[$i0];
+
+        tableswitch($i0)
+        {
+            case 1: goto label03;
+            case 2: goto label04;
+            case 3: goto label05;
+            case 4: goto label06;
+            case 5: goto label07;
+            default: goto label08;
+        };
+
+     label03:
+        specialinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' doConnecting(java.nio.channels.SelectionKey)>(key);
+
+        goto label10;
+
+     label04:
+        specialinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' doWritingRequestSize()>();
+
+        goto label10;
+
+     label05:
+        specialinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' doWritingRequestBody(java.nio.channels.SelectionKey)>(key);
+
+        goto label10;
+
+     label06:
+        specialinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' doReadingResponseSize()>();
+
+        goto label10;
+
+     label07:
+        specialinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' doReadingResponseBody(java.nio.channels.SelectionKey)>(key);
+
+        goto label10;
+
+     label08:
+        $r2 = new java.lang.IllegalStateException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Method call in state ");
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state>;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" but selector called transition method. Seems like a bug...");
+
+        $r8 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>($r8);
+
+        throw $r2;
+
+     label09:
+        e_2 := @caughtexception;
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: 'void' cancel()>();
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: java.lang.Object attach(java.lang.Object)>(null);
+
+        virtualinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' onError(java.lang.Exception)>(e_2);
+
+     label10:
+        return;
+
+        catch java.lang.Exception from label02 to label09 with label09;
+    }
+
+    protected 'void' onError(java.lang.Exception)
+    {
+        org.apache.thrift.async.TAsyncMethodCall this;
+        org.apache.thrift.async.TAsyncClient $r0;
+        org.apache.thrift.async.AsyncMethodCallback $r1;
+        org.apache.thrift.async.TAsyncMethodCall$State $r2;
+        java.lang.Exception e;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        e := @parameter0: java.lang.Exception;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncClient client>;
+
+        virtualinvoke $r0.<org.apache.thrift.async.TAsyncClient: 'void' onError(java.lang.Exception)>(e);
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.AsyncMethodCallback callback>;
+
+        interfaceinvoke $r1.<org.apache.thrift.async.AsyncMethodCallback: 'void' onError(java.lang.Exception)>(e);
+
+        $r2 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State ERROR>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r2;
+
+        return;
+    }
+
+    private 'void' doReadingResponseBody(java.nio.channels.SelectionKey) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        java.nio.channels.SelectionKey key;
+        org.apache.thrift.transport.TTransportException $r2;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        'int' $i0;
+        java.nio.ByteBuffer $r1;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        key := @parameter0: java.nio.channels.SelectionKey;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer frameBuffer>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'int' read(java.nio.ByteBuffer)>($r1);
+
+        if $i0 >= 0 goto label1;
+
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(4, "Read call frame failed");
+
+        throw $r2;
+
+     label1:
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer frameBuffer>;
+
+        $i0 = virtualinvoke $r1.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if $i0 != 0 goto label2;
+
+        specialinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' cleanUpAndFireCallback(java.nio.channels.SelectionKey)>(key);
+
+     label2:
+        return;
+    }
+
+    private 'void' cleanUpAndFireCallback(java.nio.channels.SelectionKey)
+    {
+        java.nio.channels.SelectionKey key;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        org.apache.thrift.async.TAsyncClient $r1;
+        org.apache.thrift.async.AsyncMethodCallback $r2;
+        java.lang.Object result#1;
+        org.apache.thrift.async.TAsyncMethodCall$State $r0;
+        java.lang.Exception result;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        key := @parameter0: java.nio.channels.SelectionKey;
+
+        $r0 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State RESPONSE_READ>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r0;
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(0);
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: java.lang.Object attach(java.lang.Object)>(null);
+
+     label1:
+        result#1 = virtualinvoke this.<org.apache.thrift.async.TAsyncMethodCall: java.lang.Object getResult()>();
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncClient client>;
+
+        virtualinvoke $r1.<org.apache.thrift.async.TAsyncClient: 'void' onComplete()>();
+
+        $r2 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.AsyncMethodCallback callback>;
+
+        interfaceinvoke $r2.<org.apache.thrift.async.AsyncMethodCallback: 'void' onComplete(java.lang.Object)>(result#1);
+
+     label2:
+        goto label4;
+
+     label3:
+        result := @caughtexception;
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: 'void' cancel()>();
+
+        virtualinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' onError(java.lang.Exception)>(result);
+
+     label4:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    private 'void' doReadingResponseSize() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r4;
+        org.apache.thrift.transport.TTransportException $r2;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        java.nio.ByteBuffer $r1;
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        'int' size, $i2;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r10;
+        org.apache.thrift.async.TAsyncMethodCall$State $r21;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer sizeBuffer>;
+
+        size = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'int' read(java.nio.ByteBuffer)>($r1);
+
+        if size >= 0 goto label1;
+
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(4, "Read call frame size failed");
+
+        throw $r2;
+
+     label1:
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer sizeBuffer>;
+
+        size = virtualinvoke $r1.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if size != 0 goto label4;
+
+        $r4 = this.<org.apache.thrift.async.TAsyncMethodCall: 'byte'[] sizeBufferArray>;
+
+        size = staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'int' decodeFrameSize('byte'[])>($r4);
+
+        if size >= 0 goto label2;
+
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read a negative frame size (");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r10 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(5, $r10);
+
+        throw $r2;
+
+     label2:
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $i2 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'int' getMaxFrameSize()>();
+
+        if size <= $i2 goto label3;
+
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Frame size (");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") larger than max length (");
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        size = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'int' getMaxFrameSize()>();
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r10 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(5, $r10);
+
+        throw $r2;
+
+     label3:
+        $r21 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State READING_RESPONSE_BODY>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r21;
+
+        $r1 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(size);
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer frameBuffer> = $r1;
+
+     label4:
+        return;
+    }
+
+    private 'void' doWritingRequestBody(java.nio.channels.SelectionKey) throws org.apache.thrift.transport.TTransportException
+    {
+        java.nio.channels.SelectionKey key;
+        org.apache.thrift.transport.TTransportException $r2;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        java.nio.ByteBuffer $r1;
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        'int' $i0;
+        org.apache.thrift.async.TAsyncMethodCall$State $r4;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        key := @parameter0: java.nio.channels.SelectionKey;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer frameBuffer>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'int' write(java.nio.ByteBuffer)>($r1);
+
+        if $i0 >= 0 goto label1;
+
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(4, "Write call frame failed");
+
+        throw $r2;
+
+     label1:
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer frameBuffer>;
+
+        $i0 = virtualinvoke $r1.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if $i0 != 0 goto label3;
+
+        $z0 = this.<org.apache.thrift.async.TAsyncMethodCall: 'boolean' isOneway>;
+
+        if $z0 == false goto label2;
+
+        specialinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' cleanUpAndFireCallback(java.nio.channels.SelectionKey)>(key);
+
+        goto label3;
+
+     label2:
+        $r4 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State READING_RESPONSE_SIZE>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r4;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer sizeBuffer>;
+
+        virtualinvoke $r1.<java.nio.ByteBuffer: java.nio.Buffer rewind()>();
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(1);
+
+     label3:
+        return;
+    }
+
+    private 'void' doWritingRequestSize() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        org.apache.thrift.transport.TTransportException $r2;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        'int' $i0;
+        org.apache.thrift.async.TAsyncMethodCall$State $r4;
+        java.nio.ByteBuffer $r1;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer sizeBuffer>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'int' write(java.nio.ByteBuffer)>($r1);
+
+        if $i0 >= 0 goto label1;
+
+        $r2 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r2.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(4, "Write call frame size failed");
+
+        throw $r2;
+
+     label1:
+        $r1 = this.<org.apache.thrift.async.TAsyncMethodCall: java.nio.ByteBuffer sizeBuffer>;
+
+        $i0 = virtualinvoke $r1.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if $i0 != 0 goto label2;
+
+        $r4 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State WRITING_REQUEST_BODY>;
+
+        this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncMethodCall$State state> = $r4;
+
+     label2:
+        return;
+    }
+
+    private 'void' doConnecting(java.nio.channels.SelectionKey) throws java.io.IOException
+    {
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        java.nio.channels.SelectionKey key;
+        org.apache.thrift.async.TAsyncMethodCall this;
+        java.io.IOException $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncMethodCall;
+
+        key := @parameter0: java.nio.channels.SelectionKey;
+
+        $z0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'boolean' isConnectable()>();
+
+        if $z0 == false goto label1;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.transport.TNonblockingTransport transport>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'boolean' finishConnect()>();
+
+        if $z0 != 0 goto label2;
+
+     label1:
+        $r1 = new java.io.IOException;
+
+        specialinvoke $r1.<java.io.IOException: 'void' <init>(java.lang.String)>("not connectable or finishConnect returned false after we got an OP_CONNECT");
+
+        throw $r1;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.async.TAsyncMethodCall: 'void' registerForFirstWrite(java.nio.channels.SelectionKey)>(key);
+
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.util.concurrent.atomic.AtomicLong $r0;
+
+        <org.apache.thrift.async.TAsyncMethodCall: 'int' INITIAL_MEMORY_BUFFER_SIZE> = 128;
+
+        $r0 = new java.util.concurrent.atomic.AtomicLong;
+
+        specialinvoke $r0.<java.util.concurrent.atomic.AtomicLong: 'void' <init>('long')>(0L);
+
+        <org.apache.thrift.async.TAsyncMethodCall: java.util.concurrent.atomic.AtomicLong sequenceIdCounter> = $r0;
+
+        return;
+    }
+}

@@ -1,0 +1,256 @@
+public abstract class org.apache.thrift.server.TExtensibleServlet extends jakarta.servlet.http.HttpServlet
+{
+    private static final 'long' serialVersionUID;
+    private org.apache.thrift.TProcessor processor;
+    private org.apache.thrift.protocol.TProtocolFactory inFactory;
+    private java.util.Collection customHeaders;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.server.TExtensibleServlet this;
+
+        this := @this: org.apache.thrift.server.TExtensibleServlet;
+
+        specialinvoke this.<jakarta.servlet.http.HttpServlet: 'void' <init>()>();
+
+        return;
+    }
+
+    protected abstract org.apache.thrift.TProcessor getProcessor();
+
+    protected abstract org.apache.thrift.protocol.TProtocolFactory getInProtocolFactory();
+
+    protected abstract org.apache.thrift.protocol.TProtocolFactory getOutProtocolFactory();
+
+    public final 'void' init(jakarta.servlet.ServletConfig) throws jakarta.servlet.ServletException
+    {
+        jakarta.servlet.ServletConfig config;
+        org.apache.thrift.server.TExtensibleServlet this;
+        org.apache.thrift.protocol.TProtocolFactory outFactory, $r5;
+        jakarta.servlet.ServletException $r4;
+        org.apache.thrift.TProcessor $r0;
+        java.util.ArrayList $r2;
+
+        this := @this: org.apache.thrift.server.TExtensibleServlet;
+
+        config := @parameter0: jakarta.servlet.ServletConfig;
+
+        specialinvoke this.<jakarta.servlet.http.HttpServlet: 'void' init(jakarta.servlet.ServletConfig)>(config);
+
+        $r0 = virtualinvoke this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.TProcessor getProcessor()>();
+
+        this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.TProcessor processor> = $r0;
+
+        outFactory = virtualinvoke this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.protocol.TProtocolFactory getInProtocolFactory()>();
+
+        this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.protocol.TProtocolFactory inFactory> = outFactory;
+
+        outFactory = virtualinvoke this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.protocol.TProtocolFactory getOutProtocolFactory()>();
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TExtensibleServlet: java.util.Collection customHeaders> = $r2;
+
+        $r0 = this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.TProcessor processor>;
+
+        if $r0 != null goto label1;
+
+        $r4 = new jakarta.servlet.ServletException;
+
+        specialinvoke $r4.<jakarta.servlet.ServletException: 'void' <init>(java.lang.String)>("processor must be set");
+
+        throw $r4;
+
+     label1:
+        $r5 = this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.protocol.TProtocolFactory inFactory>;
+
+        if $r5 != null goto label2;
+
+        $r4 = new jakarta.servlet.ServletException;
+
+        specialinvoke $r4.<jakarta.servlet.ServletException: 'void' <init>(java.lang.String)>("inFactory must be set");
+
+        throw $r4;
+
+     label2:
+        if outFactory != null goto label3;
+
+        $r4 = new jakarta.servlet.ServletException;
+
+        specialinvoke $r4.<jakarta.servlet.ServletException: 'void' <init>(java.lang.String)>("outFactory must be set");
+
+        throw $r4;
+
+     label3:
+        return;
+    }
+
+    protected 'void' doPost(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse) throws jakarta.servlet.ServletException, java.io.IOException
+    {
+        jakarta.servlet.http.HttpServletRequest request;
+        org.apache.thrift.server.TExtensibleServlet this;
+        jakarta.servlet.ServletException $r10;
+        jakarta.servlet.ServletOutputStream header;
+        java.lang.String $r4, $r6;
+        org.apache.thrift.transport.TIOStreamTransport transport;
+        'boolean' $z0;
+        jakarta.servlet.ServletInputStream in_1;
+        java.util.Map$Entry header#2;
+        java.util.Iterator in;
+        java.util.Collection $r0;
+        org.apache.thrift.TException in_2;
+        org.apache.thrift.protocol.TProtocolFactory $r7;
+        org.apache.thrift.protocol.TProtocol inProtocol, outProtocol;
+        java.lang.Object $r2;
+        jakarta.servlet.http.HttpServletResponse response;
+        org.apache.thrift.TProcessor $r9;
+
+        this := @this: org.apache.thrift.server.TExtensibleServlet;
+
+        request := @parameter0: jakarta.servlet.http.HttpServletRequest;
+
+        response := @parameter1: jakarta.servlet.http.HttpServletResponse;
+
+     label1:
+        interfaceinvoke response.<jakarta.servlet.http.HttpServletResponse: 'void' setContentType(java.lang.String)>("application/x-thrift");
+
+        $r0 = this.<org.apache.thrift.server.TExtensibleServlet: java.util.Collection customHeaders>;
+
+        if null == $r0 goto label3;
+
+        $r0 = this.<org.apache.thrift.server.TExtensibleServlet: java.util.Collection customHeaders>;
+
+        in = interfaceinvoke $r0.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke in.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label3;
+
+        $r2 = interfaceinvoke in.<java.util.Iterator: java.lang.Object next()>();
+
+        header#2 = (java.util.Map$Entry) $r2;
+
+        $r2 = interfaceinvoke header#2.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r4 = (java.lang.String) $r2;
+
+        $r2 = interfaceinvoke header#2.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r6 = (java.lang.String) $r2;
+
+        interfaceinvoke response.<jakarta.servlet.http.HttpServletResponse: 'void' addHeader(java.lang.String,java.lang.String)>($r4, $r6);
+
+        goto label2;
+
+     label3:
+        in_1 = interfaceinvoke request.<jakarta.servlet.http.HttpServletRequest: jakarta.servlet.ServletInputStream getInputStream()>();
+
+        header = interfaceinvoke response.<jakarta.servlet.http.HttpServletResponse: jakarta.servlet.ServletOutputStream getOutputStream()>();
+
+        transport = new org.apache.thrift.transport.TIOStreamTransport;
+
+        specialinvoke transport.<org.apache.thrift.transport.TIOStreamTransport: 'void' <init>(java.io.InputStream,java.io.OutputStream)>(in_1, header);
+
+        $r7 = this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.protocol.TProtocolFactory inFactory>;
+
+        inProtocol = interfaceinvoke $r7.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r7 = this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.protocol.TProtocolFactory inFactory>;
+
+        outProtocol = interfaceinvoke $r7.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r9 = this.<org.apache.thrift.server.TExtensibleServlet: org.apache.thrift.TProcessor processor>;
+
+        interfaceinvoke $r9.<org.apache.thrift.TProcessor: 'void' process(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(inProtocol, outProtocol);
+
+        virtualinvoke header.<java.io.OutputStream: 'void' flush()>();
+
+     label4:
+        goto label6;
+
+     label5:
+        in_2 := @caughtexception;
+
+        $r10 = new jakarta.servlet.ServletException;
+
+        specialinvoke $r10.<jakarta.servlet.ServletException: 'void' <init>(java.lang.Throwable)>(in_2);
+
+        throw $r10;
+
+     label6:
+        return;
+
+        catch org.apache.thrift.TException from label1 to label4 with label5;
+    }
+
+    protected 'void' doGet(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse) throws jakarta.servlet.ServletException, java.io.IOException
+    {
+        jakarta.servlet.http.HttpServletResponse resp;
+        org.apache.thrift.server.TExtensibleServlet this;
+        jakarta.servlet.http.HttpServletRequest req;
+
+        this := @this: org.apache.thrift.server.TExtensibleServlet;
+
+        req := @parameter0: jakarta.servlet.http.HttpServletRequest;
+
+        resp := @parameter1: jakarta.servlet.http.HttpServletResponse;
+
+        virtualinvoke this.<org.apache.thrift.server.TExtensibleServlet: 'void' doPost(jakarta.servlet.http.HttpServletRequest,jakarta.servlet.http.HttpServletResponse)>(req, resp);
+
+        return;
+    }
+
+    public 'void' addCustomHeader(java.lang.String, java.lang.String)
+    {
+        org.apache.thrift.server.TExtensibleServlet$1 $r1;
+        java.util.Collection $r0;
+        java.lang.String key, value;
+        org.apache.thrift.server.TExtensibleServlet this;
+
+        this := @this: org.apache.thrift.server.TExtensibleServlet;
+
+        key := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.String;
+
+        $r0 = this.<org.apache.thrift.server.TExtensibleServlet: java.util.Collection customHeaders>;
+
+        $r1 = new org.apache.thrift.server.TExtensibleServlet$1;
+
+        specialinvoke $r1.<org.apache.thrift.server.TExtensibleServlet$1: 'void' <init>(org.apache.thrift.server.TExtensibleServlet,java.lang.String,java.lang.String)>(this, key, value);
+
+        interfaceinvoke $r0.<java.util.Collection: 'boolean' add(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public 'void' setCustomHeaders(java.util.Collection)
+    {
+        org.apache.thrift.server.TExtensibleServlet this;
+        java.util.Collection headers, $r0;
+
+        this := @this: org.apache.thrift.server.TExtensibleServlet;
+
+        headers := @parameter0: java.util.Collection;
+
+        $r0 = this.<org.apache.thrift.server.TExtensibleServlet: java.util.Collection customHeaders>;
+
+        interfaceinvoke $r0.<java.util.Collection: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.server.TExtensibleServlet: java.util.Collection customHeaders>;
+
+        interfaceinvoke $r0.<java.util.Collection: 'boolean' addAll(java.util.Collection)>(headers);
+
+        return;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.server.TExtensibleServlet: 'long' serialVersionUID> = 1L;
+
+        return;
+    }
+}

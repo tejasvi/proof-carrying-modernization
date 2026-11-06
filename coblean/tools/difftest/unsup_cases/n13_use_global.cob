@@ -1,0 +1,22 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U01.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT F1 ASSIGN TO 'U01.DAT'.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  F1.
+       01  R1 PIC X(10).
+       PROCEDURE DIVISION.
+       DECLARATIVES.
+       D1 SECTION.
+           USE GLOBAL AFTER STANDARD ERROR PROCEDURE ON F1.
+       D1P.
+           DISPLAY 'ERROR'.
+       END DECLARATIVES.
+       M1 SECTION.
+       M1P.
+           DISPLAY 'START'.
+           STOP RUN.

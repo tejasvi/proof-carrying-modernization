@@ -1,0 +1,16 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. N22.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  N PIC 9(4)V99 VALUE 1234,56.
+       01  E PIC Z.ZZ9,99.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           MOVE N TO E.
+           DISPLAY '[' E ']'.
+           STOP RUN.

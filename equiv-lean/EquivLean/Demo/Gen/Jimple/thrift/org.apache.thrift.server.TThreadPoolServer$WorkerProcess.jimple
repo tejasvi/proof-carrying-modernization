@@ -1,0 +1,406 @@
+class org.apache.thrift.server.TThreadPoolServer$WorkerProcess extends java.lang.Object implements java.lang.Runnable
+{
+    private final org.apache.thrift.transport.TTransport client_;
+    final org.apache.thrift.server.TThreadPoolServer this$0;
+
+    private 'void' <init>(org.apache.thrift.server.TThreadPoolServer, org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.server.TThreadPoolServer$WorkerProcess this;
+        org.apache.thrift.transport.TTransport client;
+        org.apache.thrift.server.TThreadPoolServer r0;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$WorkerProcess;
+
+        r0 := @parameter0: org.apache.thrift.server.TThreadPoolServer;
+
+        client := @parameter1: org.apache.thrift.transport.TTransport;
+
+        this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0> = r0;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_> = client;
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        java.lang.Throwable $r31;
+        java.net.SocketAddress $r36;
+        org.apache.thrift.transport.SocketAddressProvider $r19;
+        org.apache.thrift.server.ServerContext connectionContext;
+        org.apache.thrift.server.TThreadPoolServer$WorkerProcess this;
+        org.apache.thrift.transport.TTransport $r2, inputTransport, outputTransport;
+        org.apache.thrift.server.TThreadPoolServer $r0;
+        java.lang.Thread $r37;
+        'boolean' $z0;
+        org.slf4j.Logger $r20;
+        org.apache.thrift.protocol.TProtocolFactory $r10;
+        java.lang.Exception remoteAddress;
+        org.apache.thrift.TProcessorFactory $r1;
+        org.apache.thrift.server.TServerEventHandler $r14;
+        org.apache.thrift.protocol.TProtocol inputProtocol, outputProtocol;
+        java.util.Optional eventHandler;
+        java.lang.Object $r21;
+        org.apache.thrift.transport.TTransportFactory $r4;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$WorkerProcess;
+
+        inputTransport = null;
+
+        outputTransport = null;
+
+        inputProtocol = null;
+
+        outputProtocol = null;
+
+        eventHandler = staticinvoke <java.util.Optional: java.util.Optional empty()>();
+
+        connectionContext = null;
+
+     label01:
+        $r0 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0>;
+
+        $r1 = $r0.<org.apache.thrift.server.TThreadPoolServer: org.apache.thrift.TProcessorFactory processorFactory_>;
+
+        $r2 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        processor = virtualinvoke $r1.<org.apache.thrift.TProcessorFactory: org.apache.thrift.TProcessor getProcessor(org.apache.thrift.transport.TTransport)>($r2);
+
+        $r0 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0>;
+
+        $r4 = $r0.<org.apache.thrift.server.TThreadPoolServer: org.apache.thrift.transport.TTransportFactory inputTransportFactory_>;
+
+        $r2 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        inputTransport = virtualinvoke $r4.<org.apache.thrift.transport.TTransportFactory: org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport)>($r2);
+
+        $r0 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0>;
+
+        $r4 = $r0.<org.apache.thrift.server.TThreadPoolServer: org.apache.thrift.transport.TTransportFactory outputTransportFactory_>;
+
+        $r2 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        outputTransport = virtualinvoke $r4.<org.apache.thrift.transport.TTransportFactory: org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport)>($r2);
+
+        $r0 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0>;
+
+        $r10 = $r0.<org.apache.thrift.server.TThreadPoolServer: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_>;
+
+        inputProtocol = interfaceinvoke $r10.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(inputTransport);
+
+        $r0 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0>;
+
+        $r10 = $r0.<org.apache.thrift.server.TThreadPoolServer: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_>;
+
+        outputProtocol = interfaceinvoke $r10.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(outputTransport);
+
+        $r0 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0>;
+
+        $r14 = virtualinvoke $r0.<org.apache.thrift.server.TThreadPoolServer: org.apache.thrift.server.TServerEventHandler getEventHandler()>();
+
+        eventHandler = staticinvoke <java.util.Optional: java.util.Optional ofNullable(java.lang.Object)>($r14);
+
+        $z0 = virtualinvoke eventHandler.<java.util.Optional: 'boolean' isPresent()>();
+
+        if $z0 == false goto label04;
+
+        $r0 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.server.TThreadPoolServer this$0>;
+
+        $r14 = $r0.<org.apache.thrift.server.TThreadPoolServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        connectionContext = interfaceinvoke $r14.<org.apache.thrift.server.TServerEventHandler: org.apache.thrift.server.ServerContext createContext(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(inputProtocol, outputProtocol);
+
+        $r2 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        $z0 = $r2 instanceof org.apache.thrift.transport.SocketAddressProvider;
+
+        if $z0 == false goto label02;
+
+        $r2 = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        $r19 = (org.apache.thrift.transport.SocketAddressProvider) $r2;
+
+        $r36 = interfaceinvoke $r19.<org.apache.thrift.transport.SocketAddressProvider: java.net.SocketAddress getRemoteSocketAddress()>();
+
+        goto label03;
+
+     label02:
+        $r36 = null;
+
+     label03:
+        interfaceinvoke connectionContext.<org.apache.thrift.server.ServerContext: 'void' setRemoteAddress(java.net.SocketAddress)>($r36);
+
+     label04:
+        $r37 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $z0 = virtualinvoke $r37.<java.lang.Thread: 'boolean' isInterrupted()>();
+
+        if $z0 == false goto label05;
+
+        $r20 = staticinvoke <org.apache.thrift.server.TThreadPoolServer: org.slf4j.Logger access$100()>();
+
+        interfaceinvoke $r20.<org.slf4j.Logger: 'void' debug(java.lang.String)>("WorkerProcess requested to shutdown");
+
+        goto label08;
+
+     label05:
+        $z0 = virtualinvoke eventHandler.<java.util.Optional: 'boolean' isPresent()>();
+
+        if $z0 == false goto label06;
+
+        $r21 = virtualinvoke eventHandler.<java.util.Optional: java.lang.Object get()>();
+
+        $r14 = (org.apache.thrift.server.TServerEventHandler) $r21;
+
+        interfaceinvoke $r14.<org.apache.thrift.server.TServerEventHandler: 'void' processContext(org.apache.thrift.server.ServerContext,org.apache.thrift.transport.TTransport,org.apache.thrift.transport.TTransport)>(connectionContext, inputTransport, outputTransport);
+
+     label06:
+        interfaceinvoke processor.<org.apache.thrift.TProcessor: 'void' process(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(inputProtocol, outputProtocol);
+
+     label07:
+        goto label04;
+
+     label08:
+        $z0 = virtualinvoke eventHandler.<java.util.Optional: 'boolean' isPresent()>();
+
+        if $z0 == false goto label09;
+
+        $r21 = virtualinvoke eventHandler.<java.util.Optional: java.lang.Object get()>();
+
+        $r14 = (org.apache.thrift.server.TServerEventHandler) $r21;
+
+        interfaceinvoke $r14.<org.apache.thrift.server.TServerEventHandler: 'void' deleteContext(org.apache.thrift.server.ServerContext,org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(connectionContext, inputProtocol, outputProtocol);
+
+     label09:
+        if inputTransport == null goto label10;
+
+        virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label10:
+        if outputTransport == null goto label11;
+
+        virtualinvoke outputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label11:
+        inputTransport = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        $z0 = virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        if $z0 == false goto label23;
+
+        inputTransport = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        goto label23;
+
+     label12:
+        remoteAddress := @caughtexception;
+
+        specialinvoke this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: 'void' logException(java.lang.Exception)>(remoteAddress);
+
+     label13:
+        $z0 = virtualinvoke eventHandler.<java.util.Optional: 'boolean' isPresent()>();
+
+        if $z0 == false goto label14;
+
+        $r21 = virtualinvoke eventHandler.<java.util.Optional: java.lang.Object get()>();
+
+        $r14 = (org.apache.thrift.server.TServerEventHandler) $r21;
+
+        interfaceinvoke $r14.<org.apache.thrift.server.TServerEventHandler: 'void' deleteContext(org.apache.thrift.server.ServerContext,org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(connectionContext, inputProtocol, outputProtocol);
+
+     label14:
+        if inputTransport == null goto label15;
+
+        virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label15:
+        if outputTransport == null goto label16;
+
+        virtualinvoke outputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label16:
+        inputTransport = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        $z0 = virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        if $z0 == false goto label23;
+
+        inputTransport = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        goto label23;
+
+     label17:
+        $r31 := @caughtexception;
+
+     label18:
+        $z0 = virtualinvoke eventHandler.<java.util.Optional: 'boolean' isPresent()>();
+
+        if $z0 == false goto label19;
+
+        $r21 = virtualinvoke eventHandler.<java.util.Optional: java.lang.Object get()>();
+
+        $r14 = (org.apache.thrift.server.TServerEventHandler) $r21;
+
+        interfaceinvoke $r14.<org.apache.thrift.server.TServerEventHandler: 'void' deleteContext(org.apache.thrift.server.ServerContext,org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(connectionContext, inputProtocol, outputProtocol);
+
+     label19:
+        if inputTransport == null goto label20;
+
+        virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label20:
+        if outputTransport == null goto label21;
+
+        virtualinvoke outputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label21:
+        inputTransport = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        $z0 = virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        if $z0 == false goto label22;
+
+        inputTransport = this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: org.apache.thrift.transport.TTransport client_>;
+
+        virtualinvoke inputTransport.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+     label22:
+        throw $r31;
+
+     label23:
+        return;
+
+        catch java.lang.Exception from label01 to label07 with label12;
+        catch java.lang.Throwable from label01 to label08 with label17;
+        catch java.lang.Throwable from label12 to label13 with label17;
+        catch java.lang.Throwable from label17 to label18 with label17;
+    }
+
+    private 'void' logException(java.lang.Exception)
+    {
+        java.lang.Throwable $r1;
+        org.slf4j.Logger $r0;
+        org.apache.thrift.transport.TTransportException tTransportException;
+        org.apache.thrift.server.TThreadPoolServer$WorkerProcess this;
+        java.lang.Exception x;
+        'int' $i0;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r10;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$WorkerProcess;
+
+        x := @parameter0: java.lang.Exception;
+
+        $r0 = staticinvoke <org.apache.thrift.server.TThreadPoolServer: org.slf4j.Logger access$100()>();
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Throwable)>("Error processing request", x);
+
+        tTransportException = null;
+
+        $z0 = x instanceof org.apache.thrift.transport.TTransportException;
+
+        if $z0 == false goto label1;
+
+        tTransportException = (org.apache.thrift.transport.TTransportException) x;
+
+        goto label2;
+
+     label1:
+        $r1 = virtualinvoke x.<java.lang.Exception: java.lang.Throwable getCause()>();
+
+        $z0 = $r1 instanceof org.apache.thrift.transport.TTransportException;
+
+        if $z0 == false goto label2;
+
+        $r1 = virtualinvoke x.<java.lang.Exception: java.lang.Throwable getCause()>();
+
+        tTransportException = (org.apache.thrift.transport.TTransportException) $r1;
+
+     label2:
+        if tTransportException == null goto label5;
+
+        $i0 = virtualinvoke tTransportException.<org.apache.thrift.transport.TTransportException: 'int' getType()>();
+
+        lookupswitch($i0)
+        {
+            case 3: goto label3;
+            case 4: goto label3;
+            default: goto label4;
+        };
+
+     label3:
+        return;
+
+     label4:
+        $r1 = virtualinvoke tTransportException.<org.apache.thrift.transport.TTransportException: java.lang.Throwable getCause()>();
+
+        $z0 = $r1 instanceof java.net.SocketException;
+
+        if $z0 == false goto label5;
+
+        $r0 = staticinvoke <org.apache.thrift.server.TThreadPoolServer: org.slf4j.Logger access$100()>();
+
+        $r1 = virtualinvoke tTransportException.<org.apache.thrift.transport.TTransportException: java.lang.Throwable getCause()>();
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("SocketException occurred during processing of message.", $r1);
+
+        return;
+
+     label5:
+        $r0 = staticinvoke <org.apache.thrift.server.TThreadPoolServer: org.slf4j.Logger access$100()>();
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $z0 = x instanceof org.apache.thrift.TException;
+
+        if $z0 == false goto label6;
+
+        $r10 = "Thrift ";
+
+        goto label7;
+
+     label6:
+        $r10 = "";
+
+     label7:
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Error occurred during processing of message.");
+
+        $r10 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>($r10, x);
+
+        return;
+    }
+
+    'void' <init>(org.apache.thrift.server.TThreadPoolServer, org.apache.thrift.transport.TTransport, org.apache.thrift.server.TThreadPoolServer$1)
+    {
+        org.apache.thrift.transport.TTransport x1;
+        org.apache.thrift.server.TThreadPoolServer x0;
+        org.apache.thrift.server.TThreadPoolServer$WorkerProcess this;
+        org.apache.thrift.server.TThreadPoolServer$1 x2;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$WorkerProcess;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadPoolServer;
+
+        x1 := @parameter1: org.apache.thrift.transport.TTransport;
+
+        x2 := @parameter2: org.apache.thrift.server.TThreadPoolServer$1;
+
+        specialinvoke this.<org.apache.thrift.server.TThreadPoolServer$WorkerProcess: 'void' <init>(org.apache.thrift.server.TThreadPoolServer,org.apache.thrift.transport.TTransport)>(x0, x1);
+
+        return;
+    }
+}

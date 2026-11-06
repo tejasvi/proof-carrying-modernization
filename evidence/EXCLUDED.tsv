@@ -1,0 +1,9 @@
+pattern	files	note
+sec:ub-owned or R2 path	0	
+HANDOFF*	0	
+PROGRESS*	0	
+NOTES*	0	
+RESUME*	0	
+*.jsonl	0	agent transcripts never ship
+*.log	0	
+binary file with an identifier	0	

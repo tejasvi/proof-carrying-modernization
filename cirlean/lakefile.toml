@@ -1,0 +1,25 @@
+name = "cirlean"
+version = "0.1.0"
+defaultTargets = ["CIR"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[lean_lib]]
+name = "CIR"
+
+[[lean_lib]]
+name = "Examples"
+
+[[lean_exe]]
+name = "cir2lean"
+root = "Cir2Lean"
+
+[[lean_exe]]
+name = "cirrun"
+root = "CirRun"
+
+[[lean_exe]]
+name = "cirscan"
+root = "CirScan"

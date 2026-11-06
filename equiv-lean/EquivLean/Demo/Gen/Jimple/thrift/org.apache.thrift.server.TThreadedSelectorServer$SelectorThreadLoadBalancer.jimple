@@ -1,0 +1,82 @@
+public class org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer extends java.lang.Object
+{
+    private final java.util.Collection threads;
+    private java.util.Iterator nextThreadIterator;
+
+    public 'void' <init>(java.util.Collection)
+    {
+        java.util.List $r2;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer this;
+        java.util.Iterator $r4;
+        java.util.Collection threads;
+        java.lang.IllegalArgumentException $r0;
+        'boolean' $z0;
+        java.util.ArrayList $r1;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer;
+
+        threads := @parameter0: java.util.Collection;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $z0 = interfaceinvoke threads.<java.util.Collection: 'boolean' isEmpty()>();
+
+        if $z0 == false goto label1;
+
+        $r0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r0.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>("At least one selector thread is required");
+
+        throw $r0;
+
+     label1:
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>(java.util.Collection)>(threads);
+
+        $r2 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($r1);
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: java.util.Collection threads> = $r2;
+
+        threads = this.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: java.util.Collection threads>;
+
+        $r4 = interfaceinvoke threads.<java.util.Collection: java.util.Iterator iterator()>();
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: java.util.Iterator nextThreadIterator> = $r4;
+
+        return;
+    }
+
+    public org.apache.thrift.server.TThreadedSelectorServer$SelectorThread nextThread()
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer this;
+        java.util.Iterator $r0;
+        java.util.Collection $r1;
+        java.lang.Object $r4;
+        'boolean' $z0;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThread $r5;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: java.util.Iterator nextThreadIterator>;
+
+        $z0 = interfaceinvoke $r0.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: java.util.Collection threads>;
+
+        $r0 = interfaceinvoke $r1.<java.util.Collection: java.util.Iterator iterator()>();
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: java.util.Iterator nextThreadIterator> = $r0;
+
+     label1:
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: java.util.Iterator nextThreadIterator>;
+
+        $r4 = interfaceinvoke $r0.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (org.apache.thrift.server.TThreadedSelectorServer$SelectorThread) $r4;
+
+        return $r5;
+    }
+}

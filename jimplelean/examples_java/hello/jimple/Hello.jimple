@@ -1,0 +1,210 @@
+public class Hello extends java.lang.Object
+{
+    static 'int' cnt;
+
+    public 'void' <init>()
+    {
+        Hello r0;
+
+        r0 := @this: Hello;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    static 'int' sum('int'[])
+    {
+        'int'[] r0;
+        'int' $i0, i2, i3;
+
+        r0 := @parameter0: 'int'[];
+
+        i2 = 0;
+
+        i3 = 0;
+
+     label1:
+        $i0 = lengthof r0;
+
+        if i3 >= $i0 goto label2;
+
+        $i0 = r0[i3];
+
+        i2 = i2 + $i0;
+
+        i3 = i3 + 1;
+
+        goto label1;
+
+     label2:
+        return i2;
+    }
+
+    static java.math.BigDecimal total(java.util.List)
+    {
+        Priced r3;
+        java.math.BigDecimal $r4, r5;
+        java.util.List r0;
+        java.util.Iterator r1;
+        java.lang.Object $r2;
+        'boolean' $z0;
+
+        r0 := @parameter0: java.util.List;
+
+        r5 = <java.math.BigDecimal: java.math.BigDecimal ZERO>;
+
+        r1 = interfaceinvoke r0.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r2 = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        r3 = (Priced) $r2;
+
+        $r4 = interfaceinvoke r3.<Priced: java.math.BigDecimal price()>();
+
+        r5 = virtualinvoke r5.<java.math.BigDecimal: java.math.BigDecimal add(java.math.BigDecimal)>($r4);
+
+        goto label1;
+
+     label2:
+        return r5;
+    }
+
+    static 'int' safeDiv('int', 'int')
+    {
+        java.lang.Throwable $r1;
+        'int' i0, i1;
+        java.lang.ArithmeticException $r0;
+
+        i0 := @parameter0: 'int';
+
+        i1 := @parameter1: 'int';
+
+     label1:
+        i0 = i0 / i1;
+
+     label2:
+        i1 = <Hello: 'int' cnt>;
+
+        i1 = i1 + 1;
+
+        <Hello: 'int' cnt> = i1;
+
+        return i0;
+
+     label3:
+        $r0 := @caughtexception;
+
+     label4:
+        i0 = <Hello: 'int' cnt>;
+
+        i0 = i0 + 1;
+
+        <Hello: 'int' cnt> = i0;
+
+        i0 = ('int') -1;
+
+        return i0;
+
+     label5:
+        $r1 := @caughtexception;
+
+     label6:
+        i0 = <Hello: 'int' cnt>;
+
+        i0 = i0 + 1;
+
+        <Hello: 'int' cnt> = i0;
+
+        throw $r1;
+
+        catch java.lang.ArithmeticException from label1 to label2 with label3;
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public static 'void' main(java.lang.String[])
+    {
+        java.io.PrintStream $r4;
+        java.lang.String[] r0;
+        java.util.ArrayList $r1;
+        Item $r2;
+        java.math.BigDecimal $r3;
+        'int' $i0;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r11;
+
+        r0 := @parameter0: java.lang.String[];
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        $r2 = new Item;
+
+        $r3 = new java.math.BigDecimal;
+
+        specialinvoke $r3.<java.math.BigDecimal: 'void' <init>(java.lang.String)>("1.25");
+
+        specialinvoke $r2.<Item: 'void' <init>(java.math.BigDecimal,'int')>($r3, 3);
+
+        interfaceinvoke $r1.<java.util.List: 'boolean' add(java.lang.Object)>($r2);
+
+        $r4 = <java.lang.System: java.io.PrintStream out>;
+
+        $r3 = staticinvoke <Hello: java.math.BigDecimal total(java.util.List)>($r1);
+
+        virtualinvoke $r4.<java.io.PrintStream: 'void' println(java.lang.Object)>($r3);
+
+        $r4 = <java.lang.System: java.io.PrintStream out>;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $i0 = staticinvoke <Hello: 'int' safeDiv('int','int')>(7, 0);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $i0 = <Hello: 'int' cnt>;
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r11 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r4.<java.io.PrintStream: 'void' println(java.lang.String)>($r11);
+
+        $i0 = lengthof r0;
+
+        lookupswitch($i0)
+        {
+            case 0: goto label1;
+            case 7: goto label2;
+            default: goto label3;
+        };
+
+     label1:
+        <Hello: 'int' cnt> = 5;
+
+        goto label4;
+
+     label2:
+        <Hello: 'int' cnt> = 9;
+
+        goto label4;
+
+     label3:
+        <Hello: 'int' cnt> = 1;
+
+     label4:
+        return;
+    }
+}

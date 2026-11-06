@@ -1,0 +1,45 @@
+public interface  org.apache.thrift.protocol.TReadProtocol extends java.lang.Object
+{
+
+    public abstract org.apache.thrift.protocol.TMessage readMessageBegin() throws org.apache.thrift.TException;
+
+    public abstract 'void' readMessageEnd() throws org.apache.thrift.TException;
+
+    public abstract org.apache.thrift.protocol.TStruct readStructBegin() throws org.apache.thrift.TException;
+
+    public abstract 'void' readStructEnd() throws org.apache.thrift.TException;
+
+    public abstract org.apache.thrift.protocol.TField readFieldBegin() throws org.apache.thrift.TException;
+
+    public abstract 'void' readFieldEnd() throws org.apache.thrift.TException;
+
+    public abstract org.apache.thrift.protocol.TMap readMapBegin() throws org.apache.thrift.TException;
+
+    public abstract 'void' readMapEnd() throws org.apache.thrift.TException;
+
+    public abstract org.apache.thrift.protocol.TList readListBegin() throws org.apache.thrift.TException;
+
+    public abstract 'void' readListEnd() throws org.apache.thrift.TException;
+
+    public abstract org.apache.thrift.protocol.TSet readSetBegin() throws org.apache.thrift.TException;
+
+    public abstract 'void' readSetEnd() throws org.apache.thrift.TException;
+
+    public abstract 'boolean' readBool() throws org.apache.thrift.TException;
+
+    public abstract 'byte' readByte() throws org.apache.thrift.TException;
+
+    public abstract 'short' readI16() throws org.apache.thrift.TException;
+
+    public abstract 'int' readI32() throws org.apache.thrift.TException;
+
+    public abstract 'long' readI64() throws org.apache.thrift.TException;
+
+    public abstract java.util.UUID readUuid() throws org.apache.thrift.TException;
+
+    public abstract 'double' readDouble() throws org.apache.thrift.TException;
+
+    public abstract java.lang.String readString() throws org.apache.thrift.TException;
+
+    public abstract java.nio.ByteBuffer readBinary() throws org.apache.thrift.TException;
+}

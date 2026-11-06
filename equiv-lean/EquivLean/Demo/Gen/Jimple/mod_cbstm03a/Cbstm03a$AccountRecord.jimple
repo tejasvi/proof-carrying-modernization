@@ -1,0 +1,81 @@
+public final class Cbstm03a$AccountRecord extends java.lang.Object
+{
+    public 'long' acctId;
+    public java.lang.String acctActiveStatus;
+    public 'long' acctCurrBal;
+    public 'long' acctCreditLimit;
+    public 'long' acctCashCreditLimit;
+    public java.lang.String acctOpenDate;
+    public java.lang.String acctExpiraionDate;
+    public java.lang.String acctReissueDate;
+    public 'long' acctCurrCycCredit;
+    public 'long' acctCurrCycDebit;
+    public java.lang.String acctAddrZip;
+    public java.lang.String acctGroupId;
+    public java.lang.String filler1;
+
+    public 'void' <init>('long', java.lang.String, 'long', 'long', 'long', java.lang.String, java.lang.String, java.lang.String, 'long', 'long', java.lang.String, java.lang.String, java.lang.String)
+    {
+        'long' acctId, acctCurrBal, acctCreditLimit, acctCashCreditLimit, acctCurrCycCredit, acctCurrCycDebit;
+        java.lang.String acctActiveStatus, acctOpenDate, acctExpiraionDate, acctReissueDate, acctAddrZip, acctGroupId, filler1;
+        Cbstm03a$AccountRecord this;
+
+        this := @this: Cbstm03a$AccountRecord;
+
+        acctId := @parameter0: 'long';
+
+        acctActiveStatus := @parameter1: java.lang.String;
+
+        acctCurrBal := @parameter2: 'long';
+
+        acctCreditLimit := @parameter3: 'long';
+
+        acctCashCreditLimit := @parameter4: 'long';
+
+        acctOpenDate := @parameter5: java.lang.String;
+
+        acctExpiraionDate := @parameter6: java.lang.String;
+
+        acctReissueDate := @parameter7: java.lang.String;
+
+        acctCurrCycCredit := @parameter8: 'long';
+
+        acctCurrCycDebit := @parameter9: 'long';
+
+        acctAddrZip := @parameter10: java.lang.String;
+
+        acctGroupId := @parameter11: java.lang.String;
+
+        filler1 := @parameter12: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<Cbstm03a$AccountRecord: 'long' acctId> = acctId;
+
+        this.<Cbstm03a$AccountRecord: java.lang.String acctActiveStatus> = acctActiveStatus;
+
+        this.<Cbstm03a$AccountRecord: 'long' acctCurrBal> = acctCurrBal;
+
+        this.<Cbstm03a$AccountRecord: 'long' acctCreditLimit> = acctCreditLimit;
+
+        this.<Cbstm03a$AccountRecord: 'long' acctCashCreditLimit> = acctCashCreditLimit;
+
+        this.<Cbstm03a$AccountRecord: java.lang.String acctOpenDate> = acctOpenDate;
+
+        this.<Cbstm03a$AccountRecord: java.lang.String acctExpiraionDate> = acctExpiraionDate;
+
+        this.<Cbstm03a$AccountRecord: java.lang.String acctReissueDate> = acctReissueDate;
+
+        this.<Cbstm03a$AccountRecord: 'long' acctCurrCycCredit> = acctCurrCycCredit;
+
+        this.<Cbstm03a$AccountRecord: 'long' acctCurrCycDebit> = acctCurrCycDebit;
+
+        this.<Cbstm03a$AccountRecord: java.lang.String acctAddrZip> = acctAddrZip;
+
+        this.<Cbstm03a$AccountRecord: java.lang.String acctGroupId> = acctGroupId;
+
+        this.<Cbstm03a$AccountRecord: java.lang.String filler1> = filler1;
+
+        return;
+    }
+}

@@ -1,0 +1,10 @@
+# __builtin_setjmp's five-word buffer and __builtin_longjmp's limits (gaps6.c, a C source). Each case is labelled
+# with its expected outcome on the line above it: MATCH, or UB from cirrun on u_bsj_short (a two-word buffer: CIR's
+# code for the builtin stores words 0 and 2) and on the gap g_bsj_reraise (a re-raise to a caller's buffer from a
+# function that calls __builtin_setjmp too, which GCC allows and is not modelled).
+# expect MATCH: an intptr_t buffer of five words
+gaps6 t_bsj_five 0
+# expect UB: a buffer of two words
+gaps6 u_bsj_short 0
+# expect UB: gap: a handler re-raising to its caller's buffer
+gaps6 g_bsj_reraise 0

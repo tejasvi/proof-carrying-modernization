@@ -1,0 +1,12 @@
+# Prereg D (frozen v2): tinyxml2 10.0.0 (321ea883b719), the frozen source tree of the prereg package (archive sha256 in
+# ~/fv_paper/prereg/D/downloads.sha256): tinyxml2.cpp (with tinyxml2.h), -std=c++17, through ClangIR. No project
+# build script runs.
+name = "prereg_d_tinyxml2"
+lang = "cir"
+root = "/home/user/fv_paper/prereg/D/src_tinyxml2/tinyxml2-10.0.0"
+sources = ["tinyxml2.cpp"]
+cxxflags = ["-std=c++17"]
+
+[[variants]]
+name = "lib"
+flags = []

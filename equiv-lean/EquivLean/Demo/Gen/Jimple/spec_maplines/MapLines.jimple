@@ -1,0 +1,59 @@
+public final class MapLines extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        MapLines r0;
+
+        r0 := @this: MapLines;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static MapLines$Result run(MapLines$Rec[])
+    {
+        'long' $l1;
+        MapLines$Rec[] r0;
+        java.util.ArrayList $r1;
+        MapLines$Result $r5;
+        'int' $i0, i2;
+        java.lang.String $r3;
+        MapLines$Rec r2;
+
+        r0 := @parameter0: MapLines$Rec[];
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: 'void' <init>()>();
+
+        i2 = 0;
+
+     label1:
+        $i0 = lengthof r0;
+
+        if i2 >= $i0 goto label2;
+
+        r2 = r0[i2];
+
+        $l1 = r2.<MapLines$Rec: 'long' id>;
+
+        $r3 = r2.<MapLines$Rec: java.lang.String name>;
+
+        $r3 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (long,java.lang.String)>($l1, $r3) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("REC \u0001 \u0001");
+
+        virtualinvoke $r1.<java.util.ArrayList: 'boolean' add(java.lang.Object)>($r3);
+
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label2:
+        $r5 = new MapLines$Result;
+
+        specialinvoke $r5.<MapLines$Result: 'void' <init>(java.util.ArrayList,'int')>($r1, 0);
+
+        return $r5;
+    }
+}

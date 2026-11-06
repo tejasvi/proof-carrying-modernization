@@ -1,0 +1,892 @@
+class org.apache.thrift.protocol.TBase64Utils extends java.lang.Object
+{
+    private static final java.lang.String ENCODE_TABLE;
+    private static final 'byte'[] DECODE_TABLE;
+
+    'void' <init>()
+    {
+        org.apache.thrift.protocol.TBase64Utils this;
+
+        this := @this: org.apache.thrift.protocol.TBase64Utils;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    static 'void' encode('byte'[], 'int', 'int', 'byte'[], 'int')
+    {
+        'byte'[] src, dst;
+        'char' $c3;
+        'byte' $b0;
+        'int' srcOff, len, dstOff, $i1, $i9;
+        java.lang.String $r0;
+
+        src := @parameter0: 'byte'[];
+
+        srcOff := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        dst := @parameter3: 'byte'[];
+
+        dstOff := @parameter4: 'int';
+
+        $r0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        $b0 = src[srcOff];
+
+        $i1 = ('int') $b0;
+
+        $i1 = $i1 >> 2;
+
+        $i1 = $i1 & 63;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>($i1);
+
+        $b0 = ('byte') $c3;
+
+        dst[dstOff] = $b0;
+
+        if len != 3 goto label1;
+
+        len = dstOff + 1;
+
+        $r0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        $b0 = src[srcOff];
+
+        $i1 = ('int') $b0;
+
+        $i1 = $i1 << 4;
+
+        $i1 = $i1 & 48;
+
+        $i9 = srcOff + 1;
+
+        $b0 = src[$i9];
+
+        $i9 = ('int') $b0;
+
+        $i9 = $i9 >> 4;
+
+        $i9 = $i9 & 15;
+
+        $i1 = $i1 | $i9;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>($i1);
+
+        $b0 = ('byte') $c3;
+
+        dst[len] = $b0;
+
+        len = dstOff + 2;
+
+        $r0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        $i1 = srcOff + 1;
+
+        $b0 = src[$i1];
+
+        $i1 = ('int') $b0;
+
+        $i1 = $i1 << 2;
+
+        $i1 = $i1 & 60;
+
+        $i9 = srcOff + 2;
+
+        $b0 = src[$i9];
+
+        $i9 = ('int') $b0;
+
+        $i9 = $i9 >> 6;
+
+        $i9 = $i9 & 3;
+
+        $i1 = $i1 | $i9;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>($i1);
+
+        $b0 = ('byte') $c3;
+
+        dst[len] = $b0;
+
+        len = dstOff + 3;
+
+        $r0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        srcOff = srcOff + 2;
+
+        $b0 = src[srcOff];
+
+        $b0 = $b0 & 63;
+
+        srcOff = ('int') $b0;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>(srcOff);
+
+        $b0 = ('byte') $c3;
+
+        dst[len] = $b0;
+
+        goto label3;
+
+     label1:
+        if len != 2 goto label2;
+
+        len = dstOff + 1;
+
+        $r0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        $b0 = src[srcOff];
+
+        $i1 = ('int') $b0;
+
+        $i1 = $i1 << 4;
+
+        $i1 = $i1 & 48;
+
+        $i9 = srcOff + 1;
+
+        $b0 = src[$i9];
+
+        $i9 = ('int') $b0;
+
+        $i9 = $i9 >> 4;
+
+        $i9 = $i9 & 15;
+
+        $i1 = $i1 | $i9;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>($i1);
+
+        $b0 = ('byte') $c3;
+
+        dst[len] = $b0;
+
+        len = dstOff + 2;
+
+        $r0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        srcOff = srcOff + 1;
+
+        $b0 = src[srcOff];
+
+        srcOff = ('int') $b0;
+
+        srcOff = srcOff << 2;
+
+        srcOff = srcOff & 60;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>(srcOff);
+
+        $b0 = ('byte') $c3;
+
+        dst[len] = $b0;
+
+        goto label3;
+
+     label2:
+        len = dstOff + 1;
+
+        $r0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        $b0 = src[srcOff];
+
+        srcOff = ('int') $b0;
+
+        srcOff = srcOff << 4;
+
+        srcOff = srcOff & 48;
+
+        $c3 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>(srcOff);
+
+        $b0 = ('byte') $c3;
+
+        dst[len] = $b0;
+
+     label3:
+        return;
+    }
+
+    static 'void' decode('byte'[], 'int', 'int', 'byte'[], 'int')
+    {
+        'byte'[] src, dst, $r0;
+        'short' $s1;
+        'byte' $b0;
+        'int' srcOff, len, dstOff, $i3, $i4, $i18;
+
+        src := @parameter0: 'byte'[];
+
+        srcOff := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        dst := @parameter3: 'byte'[];
+
+        dstOff := @parameter4: 'int';
+
+        $r0 = <org.apache.thrift.protocol.TBase64Utils: 'byte'[] DECODE_TABLE>;
+
+        $b0 = src[srcOff];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i3 = ('int') $s1;
+
+        $b0 = $r0[$i3];
+
+        $i3 = ('int') $b0;
+
+        $i3 = $i3 << 2;
+
+        $r0 = <org.apache.thrift.protocol.TBase64Utils: 'byte'[] DECODE_TABLE>;
+
+        $i4 = srcOff + 1;
+
+        $b0 = src[$i4];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i4 = ('int') $s1;
+
+        $b0 = $r0[$i4];
+
+        $i4 = ('int') $b0;
+
+        $i4 = $i4 >> 4;
+
+        $i3 = $i3 | $i4;
+
+        $b0 = ('byte') $i3;
+
+        dst[dstOff] = $b0;
+
+        if len <= 2 goto label1;
+
+        $i3 = dstOff + 1;
+
+        $r0 = <org.apache.thrift.protocol.TBase64Utils: 'byte'[] DECODE_TABLE>;
+
+        $i4 = srcOff + 1;
+
+        $b0 = src[$i4];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i4 = ('int') $s1;
+
+        $b0 = $r0[$i4];
+
+        $i4 = ('int') $b0;
+
+        $i4 = $i4 << 4;
+
+        $i4 = $i4 & 240;
+
+        $r0 = <org.apache.thrift.protocol.TBase64Utils: 'byte'[] DECODE_TABLE>;
+
+        $i18 = srcOff + 2;
+
+        $b0 = src[$i18];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i18 = ('int') $s1;
+
+        $b0 = $r0[$i18];
+
+        $i18 = ('int') $b0;
+
+        $i18 = $i18 >> 2;
+
+        $i4 = $i4 | $i18;
+
+        $b0 = ('byte') $i4;
+
+        dst[$i3] = $b0;
+
+        if len <= 3 goto label1;
+
+        len = dstOff + 2;
+
+        $r0 = <org.apache.thrift.protocol.TBase64Utils: 'byte'[] DECODE_TABLE>;
+
+        dstOff = srcOff + 2;
+
+        $b0 = src[dstOff];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        dstOff = ('int') $s1;
+
+        $b0 = $r0[dstOff];
+
+        dstOff = ('int') $b0;
+
+        dstOff = dstOff << 6;
+
+        dstOff = dstOff & 192;
+
+        $r0 = <org.apache.thrift.protocol.TBase64Utils: 'byte'[] DECODE_TABLE>;
+
+        srcOff = srcOff + 3;
+
+        $b0 = src[srcOff];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        srcOff = ('int') $s1;
+
+        $b0 = $r0[srcOff];
+
+        srcOff = ('int') $b0;
+
+        srcOff = dstOff | srcOff;
+
+        $b0 = ('byte') srcOff;
+
+        dst[len] = $b0;
+
+     label1:
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        'byte'[] $r0;
+
+        <org.apache.thrift.protocol.TBase64Utils: java.lang.String ENCODE_TABLE> = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+        $r0 = newarray ('byte')[256];
+
+        $r0[0] = -1;
+
+        $r0[1] = -1;
+
+        $r0[2] = -1;
+
+        $r0[3] = -1;
+
+        $r0[4] = -1;
+
+        $r0[5] = -1;
+
+        $r0[6] = -1;
+
+        $r0[7] = -1;
+
+        $r0[8] = -1;
+
+        $r0[9] = -1;
+
+        $r0[10] = -1;
+
+        $r0[11] = -1;
+
+        $r0[12] = -1;
+
+        $r0[13] = -1;
+
+        $r0[14] = -1;
+
+        $r0[15] = -1;
+
+        $r0[16] = -1;
+
+        $r0[17] = -1;
+
+        $r0[18] = -1;
+
+        $r0[19] = -1;
+
+        $r0[20] = -1;
+
+        $r0[21] = -1;
+
+        $r0[22] = -1;
+
+        $r0[23] = -1;
+
+        $r0[24] = -1;
+
+        $r0[25] = -1;
+
+        $r0[26] = -1;
+
+        $r0[27] = -1;
+
+        $r0[28] = -1;
+
+        $r0[29] = -1;
+
+        $r0[30] = -1;
+
+        $r0[31] = -1;
+
+        $r0[32] = -1;
+
+        $r0[33] = -1;
+
+        $r0[34] = -1;
+
+        $r0[35] = -1;
+
+        $r0[36] = -1;
+
+        $r0[37] = -1;
+
+        $r0[38] = -1;
+
+        $r0[39] = -1;
+
+        $r0[40] = -1;
+
+        $r0[41] = -1;
+
+        $r0[42] = -1;
+
+        $r0[43] = 62;
+
+        $r0[44] = -1;
+
+        $r0[45] = -1;
+
+        $r0[46] = -1;
+
+        $r0[47] = 63;
+
+        $r0[48] = 52;
+
+        $r0[49] = 53;
+
+        $r0[50] = 54;
+
+        $r0[51] = 55;
+
+        $r0[52] = 56;
+
+        $r0[53] = 57;
+
+        $r0[54] = 58;
+
+        $r0[55] = 59;
+
+        $r0[56] = 60;
+
+        $r0[57] = 61;
+
+        $r0[58] = -1;
+
+        $r0[59] = -1;
+
+        $r0[60] = -1;
+
+        $r0[61] = -1;
+
+        $r0[62] = -1;
+
+        $r0[63] = -1;
+
+        $r0[64] = -1;
+
+        $r0[65] = 0;
+
+        $r0[66] = 1;
+
+        $r0[67] = 2;
+
+        $r0[68] = 3;
+
+        $r0[69] = 4;
+
+        $r0[70] = 5;
+
+        $r0[71] = 6;
+
+        $r0[72] = 7;
+
+        $r0[73] = 8;
+
+        $r0[74] = 9;
+
+        $r0[75] = 10;
+
+        $r0[76] = 11;
+
+        $r0[77] = 12;
+
+        $r0[78] = 13;
+
+        $r0[79] = 14;
+
+        $r0[80] = 15;
+
+        $r0[81] = 16;
+
+        $r0[82] = 17;
+
+        $r0[83] = 18;
+
+        $r0[84] = 19;
+
+        $r0[85] = 20;
+
+        $r0[86] = 21;
+
+        $r0[87] = 22;
+
+        $r0[88] = 23;
+
+        $r0[89] = 24;
+
+        $r0[90] = 25;
+
+        $r0[91] = -1;
+
+        $r0[92] = -1;
+
+        $r0[93] = -1;
+
+        $r0[94] = -1;
+
+        $r0[95] = -1;
+
+        $r0[96] = -1;
+
+        $r0[97] = 26;
+
+        $r0[98] = 27;
+
+        $r0[99] = 28;
+
+        $r0[100] = 29;
+
+        $r0[101] = 30;
+
+        $r0[102] = 31;
+
+        $r0[103] = 32;
+
+        $r0[104] = 33;
+
+        $r0[105] = 34;
+
+        $r0[106] = 35;
+
+        $r0[107] = 36;
+
+        $r0[108] = 37;
+
+        $r0[109] = 38;
+
+        $r0[110] = 39;
+
+        $r0[111] = 40;
+
+        $r0[112] = 41;
+
+        $r0[113] = 42;
+
+        $r0[114] = 43;
+
+        $r0[115] = 44;
+
+        $r0[116] = 45;
+
+        $r0[117] = 46;
+
+        $r0[118] = 47;
+
+        $r0[119] = 48;
+
+        $r0[120] = 49;
+
+        $r0[121] = 50;
+
+        $r0[122] = 51;
+
+        $r0[123] = -1;
+
+        $r0[124] = -1;
+
+        $r0[125] = -1;
+
+        $r0[126] = -1;
+
+        $r0[127] = -1;
+
+        $r0[128] = -1;
+
+        $r0[129] = -1;
+
+        $r0[130] = -1;
+
+        $r0[131] = -1;
+
+        $r0[132] = -1;
+
+        $r0[133] = -1;
+
+        $r0[134] = -1;
+
+        $r0[135] = -1;
+
+        $r0[136] = -1;
+
+        $r0[137] = -1;
+
+        $r0[138] = -1;
+
+        $r0[139] = -1;
+
+        $r0[140] = -1;
+
+        $r0[141] = -1;
+
+        $r0[142] = -1;
+
+        $r0[143] = -1;
+
+        $r0[144] = -1;
+
+        $r0[145] = -1;
+
+        $r0[146] = -1;
+
+        $r0[147] = -1;
+
+        $r0[148] = -1;
+
+        $r0[149] = -1;
+
+        $r0[150] = -1;
+
+        $r0[151] = -1;
+
+        $r0[152] = -1;
+
+        $r0[153] = -1;
+
+        $r0[154] = -1;
+
+        $r0[155] = -1;
+
+        $r0[156] = -1;
+
+        $r0[157] = -1;
+
+        $r0[158] = -1;
+
+        $r0[159] = -1;
+
+        $r0[160] = -1;
+
+        $r0[161] = -1;
+
+        $r0[162] = -1;
+
+        $r0[163] = -1;
+
+        $r0[164] = -1;
+
+        $r0[165] = -1;
+
+        $r0[166] = -1;
+
+        $r0[167] = -1;
+
+        $r0[168] = -1;
+
+        $r0[169] = -1;
+
+        $r0[170] = -1;
+
+        $r0[171] = -1;
+
+        $r0[172] = -1;
+
+        $r0[173] = -1;
+
+        $r0[174] = -1;
+
+        $r0[175] = -1;
+
+        $r0[176] = -1;
+
+        $r0[177] = -1;
+
+        $r0[178] = -1;
+
+        $r0[179] = -1;
+
+        $r0[180] = -1;
+
+        $r0[181] = -1;
+
+        $r0[182] = -1;
+
+        $r0[183] = -1;
+
+        $r0[184] = -1;
+
+        $r0[185] = -1;
+
+        $r0[186] = -1;
+
+        $r0[187] = -1;
+
+        $r0[188] = -1;
+
+        $r0[189] = -1;
+
+        $r0[190] = -1;
+
+        $r0[191] = -1;
+
+        $r0[192] = -1;
+
+        $r0[193] = -1;
+
+        $r0[194] = -1;
+
+        $r0[195] = -1;
+
+        $r0[196] = -1;
+
+        $r0[197] = -1;
+
+        $r0[198] = -1;
+
+        $r0[199] = -1;
+
+        $r0[200] = -1;
+
+        $r0[201] = -1;
+
+        $r0[202] = -1;
+
+        $r0[203] = -1;
+
+        $r0[204] = -1;
+
+        $r0[205] = -1;
+
+        $r0[206] = -1;
+
+        $r0[207] = -1;
+
+        $r0[208] = -1;
+
+        $r0[209] = -1;
+
+        $r0[210] = -1;
+
+        $r0[211] = -1;
+
+        $r0[212] = -1;
+
+        $r0[213] = -1;
+
+        $r0[214] = -1;
+
+        $r0[215] = -1;
+
+        $r0[216] = -1;
+
+        $r0[217] = -1;
+
+        $r0[218] = -1;
+
+        $r0[219] = -1;
+
+        $r0[220] = -1;
+
+        $r0[221] = -1;
+
+        $r0[222] = -1;
+
+        $r0[223] = -1;
+
+        $r0[224] = -1;
+
+        $r0[225] = -1;
+
+        $r0[226] = -1;
+
+        $r0[227] = -1;
+
+        $r0[228] = -1;
+
+        $r0[229] = -1;
+
+        $r0[230] = -1;
+
+        $r0[231] = -1;
+
+        $r0[232] = -1;
+
+        $r0[233] = -1;
+
+        $r0[234] = -1;
+
+        $r0[235] = -1;
+
+        $r0[236] = -1;
+
+        $r0[237] = -1;
+
+        $r0[238] = -1;
+
+        $r0[239] = -1;
+
+        $r0[240] = -1;
+
+        $r0[241] = -1;
+
+        $r0[242] = -1;
+
+        $r0[243] = -1;
+
+        $r0[244] = -1;
+
+        $r0[245] = -1;
+
+        $r0[246] = -1;
+
+        $r0[247] = -1;
+
+        $r0[248] = -1;
+
+        $r0[249] = -1;
+
+        $r0[250] = -1;
+
+        $r0[251] = -1;
+
+        $r0[252] = -1;
+
+        $r0[253] = -1;
+
+        $r0[254] = -1;
+
+        $r0[255] = -1;
+
+        <org.apache.thrift.protocol.TBase64Utils: 'byte'[] DECODE_TABLE> = $r0;
+
+        return;
+    }
+}

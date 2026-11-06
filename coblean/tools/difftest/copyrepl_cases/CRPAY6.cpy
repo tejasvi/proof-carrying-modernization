@@ -1,0 +1,3 @@
+       01 PAY6.
+           02 PAY6-WEEK PIC 99 VALUE 6.
+           02 PAY6-GROSS-PAY PIC 9(5)V99 VALUE 3.75.

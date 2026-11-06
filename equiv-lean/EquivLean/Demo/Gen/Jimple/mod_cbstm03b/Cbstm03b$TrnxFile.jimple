@@ -1,0 +1,37 @@
+public final class Cbstm03b$TrnxFile extends java.lang.Object
+{
+    public 'boolean' open;
+    public Cbstm03b$FdTrnxfileRec[] recs;
+    public 'int' pos;
+    public 'boolean' eof;
+
+    public 'void' <init>('boolean', Cbstm03b$FdTrnxfileRec[], 'int', 'boolean')
+    {
+        Cbstm03b$FdTrnxfileRec[] r1;
+        'int' i0;
+        Cbstm03b$TrnxFile r0;
+        'boolean' z0, z1;
+
+        r0 := @this: Cbstm03b$TrnxFile;
+
+        z0 := @parameter0: 'boolean';
+
+        r1 := @parameter1: Cbstm03b$FdTrnxfileRec[];
+
+        i0 := @parameter2: 'int';
+
+        z1 := @parameter3: 'boolean';
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbstm03b$TrnxFile: 'boolean' open> = z0;
+
+        r0.<Cbstm03b$TrnxFile: Cbstm03b$FdTrnxfileRec[] recs> = r1;
+
+        r0.<Cbstm03b$TrnxFile: 'int' pos> = i0;
+
+        r0.<Cbstm03b$TrnxFile: 'boolean' eof> = z1;
+
+        return;
+    }
+}

@@ -1,0 +1,212 @@
+public class org.apache.thrift.server.THsHaServer extends org.apache.thrift.server.TNonblockingServer
+{
+    private final java.util.concurrent.ExecutorService invoker;
+    private final org.apache.thrift.server.THsHaServer$Args args;
+
+    public 'void' <init>(org.apache.thrift.server.THsHaServer$Args)
+    {
+        org.apache.thrift.server.THsHaServer this;
+        org.apache.thrift.server.THsHaServer$Args args;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.server.THsHaServer;
+
+        args := @parameter0: org.apache.thrift.server.THsHaServer$Args;
+
+        specialinvoke this.<org.apache.thrift.server.TNonblockingServer: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs)>(args);
+
+        $r0 = staticinvoke <org.apache.thrift.server.THsHaServer$Args: java.util.concurrent.ExecutorService access$000(org.apache.thrift.server.THsHaServer$Args)>(args);
+
+        if $r0 != null goto label1;
+
+        $r0 = staticinvoke <org.apache.thrift.server.THsHaServer: java.util.concurrent.ExecutorService createInvokerPool(org.apache.thrift.server.THsHaServer$Args)>(args);
+
+        goto label2;
+
+     label1:
+        $r0 = staticinvoke <org.apache.thrift.server.THsHaServer$Args: java.util.concurrent.ExecutorService access$000(org.apache.thrift.server.THsHaServer$Args)>(args);
+
+     label2:
+        this.<org.apache.thrift.server.THsHaServer: java.util.concurrent.ExecutorService invoker> = $r0;
+
+        this.<org.apache.thrift.server.THsHaServer: org.apache.thrift.server.THsHaServer$Args args> = args;
+
+        return;
+    }
+
+    protected 'void' waitForShutdown()
+    {
+        org.apache.thrift.server.THsHaServer this;
+
+        this := @this: org.apache.thrift.server.THsHaServer;
+
+        virtualinvoke this.<org.apache.thrift.server.THsHaServer: 'void' joinSelector()>();
+
+        virtualinvoke this.<org.apache.thrift.server.THsHaServer: 'void' gracefullyShutdownInvokerPool()>();
+
+        return;
+    }
+
+    protected static java.util.concurrent.ExecutorService createInvokerPool(org.apache.thrift.server.THsHaServer$Args)
+    {
+        java.util.concurrent.ThreadPoolExecutor invoker;
+        'long' $l0;
+        java.util.concurrent.LinkedBlockingQueue queue;
+        java.util.concurrent.TimeUnit stopTimeoutUnit;
+        org.apache.thrift.server.THsHaServer$Args options;
+        'int' minWorkerThreads, maxWorkerThreads, stopTimeoutVal;
+
+        options := @parameter0: org.apache.thrift.server.THsHaServer$Args;
+
+        minWorkerThreads = options.<org.apache.thrift.server.THsHaServer$Args: 'int' minWorkerThreads>;
+
+        maxWorkerThreads = options.<org.apache.thrift.server.THsHaServer$Args: 'int' maxWorkerThreads>;
+
+        stopTimeoutVal = staticinvoke <org.apache.thrift.server.THsHaServer$Args: 'int' access$100(org.apache.thrift.server.THsHaServer$Args)>(options);
+
+        stopTimeoutUnit = staticinvoke <org.apache.thrift.server.THsHaServer$Args: java.util.concurrent.TimeUnit access$200(org.apache.thrift.server.THsHaServer$Args)>(options);
+
+        queue = new java.util.concurrent.LinkedBlockingQueue;
+
+        specialinvoke queue.<java.util.concurrent.LinkedBlockingQueue: 'void' <init>()>();
+
+        invoker = new java.util.concurrent.ThreadPoolExecutor;
+
+        $l0 = ('long') stopTimeoutVal;
+
+        specialinvoke invoker.<java.util.concurrent.ThreadPoolExecutor: 'void' <init>('int','int','long',java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue)>(minWorkerThreads, maxWorkerThreads, $l0, stopTimeoutUnit, queue);
+
+        return invoker;
+    }
+
+    protected java.util.concurrent.ExecutorService getInvoker()
+    {
+        org.apache.thrift.server.THsHaServer this;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.server.THsHaServer;
+
+        $r0 = this.<org.apache.thrift.server.THsHaServer: java.util.concurrent.ExecutorService invoker>;
+
+        return $r0;
+    }
+
+    protected 'void' gracefullyShutdownInvokerPool()
+    {
+        org.apache.thrift.server.THsHaServer this;
+        'long' newnow, now, timeoutMS;
+        java.util.concurrent.TimeUnit $r2;
+        'byte' $b2;
+        org.apache.thrift.server.THsHaServer$Args $r1;
+        java.lang.InterruptedException $r6;
+        'int' $i0;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.server.THsHaServer;
+
+        $r0 = this.<org.apache.thrift.server.THsHaServer: java.util.concurrent.ExecutorService invoker>;
+
+        interfaceinvoke $r0.<java.util.concurrent.ExecutorService: 'void' shutdown()>();
+
+        $r1 = this.<org.apache.thrift.server.THsHaServer: org.apache.thrift.server.THsHaServer$Args args>;
+
+        $r2 = staticinvoke <org.apache.thrift.server.THsHaServer$Args: java.util.concurrent.TimeUnit access$200(org.apache.thrift.server.THsHaServer$Args)>($r1);
+
+        $r1 = this.<org.apache.thrift.server.THsHaServer: org.apache.thrift.server.THsHaServer$Args args>;
+
+        $i0 = staticinvoke <org.apache.thrift.server.THsHaServer$Args: 'int' access$100(org.apache.thrift.server.THsHaServer$Args)>($r1);
+
+        newnow = ('long') $i0;
+
+        timeoutMS = virtualinvoke $r2.<java.util.concurrent.TimeUnit: 'long' toMillis('long')>(newnow);
+
+        now = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+     label1:
+        $b2 = timeoutMS cmp 0L;
+
+        $i0 = ('int') $b2;
+
+        if $i0 < 0 goto label5;
+
+        $r0 = this.<org.apache.thrift.server.THsHaServer: java.util.concurrent.ExecutorService invoker>;
+
+        $r2 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit MILLISECONDS>;
+
+     label2:
+        interfaceinvoke $r0.<java.util.concurrent.ExecutorService: 'boolean' awaitTermination('long',java.util.concurrent.TimeUnit)>(timeoutMS, $r2);
+
+     label3:
+        goto label5;
+
+     label4:
+        $r6 := @caughtexception;
+
+        newnow = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+        now = newnow - now;
+
+        timeoutMS = timeoutMS - now;
+
+        now = newnow;
+
+        goto label1;
+
+     label5:
+        return;
+
+        catch java.lang.InterruptedException from label2 to label3 with label4;
+    }
+
+    protected 'boolean' requestInvoke(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)
+    {
+        java.util.concurrent.RejectedExecutionException invocation;
+        org.apache.thrift.server.THsHaServer this;
+        org.slf4j.Logger $r1;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+        java.lang.Runnable invocation#1;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.server.THsHaServer;
+
+        frameBuffer := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+     label1:
+        invocation#1 = virtualinvoke this.<org.apache.thrift.server.THsHaServer: java.lang.Runnable getRunnable(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)>(frameBuffer);
+
+        $r0 = this.<org.apache.thrift.server.THsHaServer: java.util.concurrent.ExecutorService invoker>;
+
+        interfaceinvoke $r0.<java.util.concurrent.ExecutorService: 'void' execute(java.lang.Runnable)>(invocation#1);
+
+     label2:
+        return 1;
+
+     label3:
+        invocation := @caughtexception;
+
+        $r1 = this.<org.apache.thrift.server.THsHaServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r1.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("ExecutorService rejected execution!", invocation);
+
+        return 0;
+
+        catch java.util.concurrent.RejectedExecutionException from label1 to label2 with label3;
+    }
+
+    protected java.lang.Runnable getRunnable(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)
+    {
+        org.apache.thrift.server.Invocation $r0;
+        org.apache.thrift.server.THsHaServer this;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+
+        this := @this: org.apache.thrift.server.THsHaServer;
+
+        frameBuffer := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = new org.apache.thrift.server.Invocation;
+
+        specialinvoke $r0.<org.apache.thrift.server.Invocation: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)>(frameBuffer);
+
+        return $r0;
+    }
+}

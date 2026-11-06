@@ -1,0 +1,662 @@
+{
+ "name": "ACCTINT2",
+ "config": {
+  "charset": "ebcdic",
+  "zonedSign": "ebcdic",
+  "trunc": "std",
+  "numprocPfd": false,
+  "binaryLE": false,
+  "comp5LE": false,
+  "binary1Byte": false,
+  "sizeErrorTruncates": true
+ },
+ "dialect": {
+  "divExtraForRounded": true
+ },
+ "data": [
+  {
+   "id": 1,
+   "level": 1,
+   "name": "ACCT-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 2,
+     "level": 5,
+     "name": "ACCT-ID",
+     "pic": {
+      "alnum": {
+       "len": 8
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 3,
+     "level": 5,
+     "name": "ACCT-TYPE",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 4,
+     "level": 5,
+     "name": "ACCT-BALANCE",
+     "pic": {
+      "num": {
+       "digits": 13,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "packed",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 5,
+     "level": 5,
+     "name": "ACCT-BAL-RAW",
+     "pic": {
+      "alnum": {
+       "len": 7
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": 4,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 6,
+     "level": 5,
+     "name": "ACCT-RATE",
+     "pic": {
+      "num": {
+       "digits": 5,
+       "scale": 5,
+       "signed": true
+      }
+     },
+     "usage": "packed",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 7,
+     "level": 5,
+     "name": "ACCT-DAYS",
+     "pic": {
+      "num": {
+       "digits": 3,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "binary",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "level": 1,
+   "name": "WS-WORK",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 11,
+     "level": 5,
+     "name": "WS-INTEREST",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 2,
+       "signed": true
+      }
+     },
+     "usage": "packed",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "zero"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 12,
+     "level": 5,
+     "name": "WS-DAILY-RATE",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 8,
+       "signed": true
+      }
+     },
+     "usage": "packed",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "zero"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 13,
+     "level": 5,
+     "name": "WS-STATUS",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "fig": {
+       "f": "space"
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [
+      [
+       14,
+       [
+        "WS-OK",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             210
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ],
+      [
+       15,
+       [
+        "WS-OVERFLOW",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             197
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ],
+      [
+       16,
+       [
+        "WS-SKIPPED",
+        [
+         {
+          "lo": {
+           "alnum": {
+            "bs": [
+             233
+            ]
+           }
+          },
+          "hi": null
+         }
+        ]
+       ]
+      ]
+     ],
+     "children": []
+    }
+   ]
+  }
+ ],
+ "paras": [
+  {
+   "name": "0000-MAIN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "perform": {
+       "first": "1000-CALC",
+       "last": "1000-EXIT",
+       "loop": "once"
+      }
+     },
+     "goback"
+    ]
+   ]
+  },
+  {
+   "name": "1000-CALC",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 5,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "fig": {
+             "name": "LOW-VALUES"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "fig": {
+              "name": "ZERO"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 4,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "or": {
+         "a": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 7,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "num": {
+               "v": 0,
+               "scale": 0,
+               "digits": 0
+              }
+             }
+            }
+           }
+          }
+         },
+         "b": {
+          "and": {
+           "a": {
+            "rel": {
+             "op": "<>",
+             "a": {
+              "ref": {
+               "r": {
+                "item": 3,
+                "subs": [],
+                "refStart": null,
+                "refLen": null
+               }
+              }
+             },
+             "b": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "S"
+                }
+               }
+              }
+             }
+            }
+           },
+           "b": {
+            "rel": {
+             "op": "<>",
+             "a": {
+              "ref": {
+               "r": {
+                "item": 3,
+                "subs": [],
+                "refStart": null,
+                "refLen": null
+               }
+              }
+             },
+             "b": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "C"
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "setTrue": {
+          "id": 16,
+          "subs": []
+         }
+        },
+        {
+         "goTo": {
+          "target": "1000-EXIT"
+         }
+        }
+       ],
+       "e": []
+      }
+     }
+    ],
+    [
+     {
+      "divide": {
+       "dividend": {
+        "ref": {
+         "r": {
+          "item": 6,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       },
+       "divisor": {
+        "lit": {
+         "v": 365,
+         "scale": 0
+        }
+       },
+       "rcv": [
+        {
+         "ref": {
+          "item": 12,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": "NEAREST-AWAY-FROM-ZERO"
+        }
+       ],
+       "giving": true,
+       "remainder": null,
+       "onSize": null,
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "compute": {
+       "rcv": [
+        {
+         "ref": {
+          "item": 11,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": "NEAREST-AWAY-FROM-ZERO"
+        }
+       ],
+       "e": {
+        "mul": {
+         "a": {
+          "mul": {
+           "a": {
+            "ref": {
+             "r": {
+              "item": 4,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "ref": {
+             "r": {
+              "item": 12,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          }
+         },
+         "b": {
+          "ref": {
+           "r": {
+            "item": 7,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         }
+        }
+       },
+       "onSize": [
+        {
+         "setTrue": {
+          "id": 15,
+          "subs": []
+         }
+        },
+        {
+         "goTo": {
+          "target": "1000-EXIT"
+         }
+        }
+       ],
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "ref": {
+          "r": {
+           "item": 11,
+           "subs": [],
+           "refStart": null,
+           "refLen": null
+          }
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 4,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": false,
+       "onSize": [
+        {
+         "setTrue": {
+          "id": 15,
+          "subs": []
+         }
+        }
+       ],
+       "notOnSize": [
+        {
+         "setTrue": {
+          "id": 14,
+          "subs": []
+         }
+        }
+       ]
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "1000-EXIT",
+   "sect": null,
+   "sentences": [
+    [
+     "cont"
+    ]
+   ]
+  }
+ ],
+ "isMain": false
+}

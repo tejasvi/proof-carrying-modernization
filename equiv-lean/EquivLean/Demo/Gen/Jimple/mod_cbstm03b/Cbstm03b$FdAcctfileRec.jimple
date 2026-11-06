@@ -1,0 +1,26 @@
+public final class Cbstm03b$FdAcctfileRec extends java.lang.Object
+{
+    public 'long' fdAcctId;
+    public java.lang.String fdAcctData;
+
+    public 'void' <init>('long', java.lang.String)
+    {
+        Cbstm03b$FdAcctfileRec r0;
+        'long' l0;
+        java.lang.String r1;
+
+        r0 := @this: Cbstm03b$FdAcctfileRec;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbstm03b$FdAcctfileRec: 'long' fdAcctId> = l0;
+
+        r0.<Cbstm03b$FdAcctfileRec: java.lang.String fdAcctData> = r1;
+
+        return;
+    }
+}

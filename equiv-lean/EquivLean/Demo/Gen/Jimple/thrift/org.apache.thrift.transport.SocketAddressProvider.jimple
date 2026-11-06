@@ -1,0 +1,7 @@
+public interface  org.apache.thrift.transport.SocketAddressProvider extends java.lang.Object
+{
+
+    public abstract java.net.SocketAddress getRemoteSocketAddress();
+
+    public abstract java.net.SocketAddress getLocalSocketAddress();
+}

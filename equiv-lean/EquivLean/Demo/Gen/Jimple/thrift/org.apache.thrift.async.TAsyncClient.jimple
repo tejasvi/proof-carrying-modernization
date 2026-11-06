@@ -1,0 +1,249 @@
+public abstract class org.apache.thrift.async.TAsyncClient extends java.lang.Object
+{
+    protected final org.apache.thrift.protocol.TProtocolFactory ___protocolFactory;
+    protected final org.apache.thrift.transport.TNonblockingTransport ___transport;
+    protected final org.apache.thrift.async.TAsyncClientManager ___manager;
+    protected org.apache.thrift.async.TAsyncMethodCall ___currentMethod;
+    private java.lang.Exception ___error;
+    private 'long' ___timeout;
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocolFactory, org.apache.thrift.async.TAsyncClientManager, org.apache.thrift.transport.TNonblockingTransport)
+    {
+        org.apache.thrift.async.TAsyncClientManager manager;
+        org.apache.thrift.transport.TNonblockingTransport transport;
+        org.apache.thrift.async.TAsyncClient this;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        protocolFactory := @parameter0: org.apache.thrift.protocol.TProtocolFactory;
+
+        manager := @parameter1: org.apache.thrift.async.TAsyncClientManager;
+
+        transport := @parameter2: org.apache.thrift.transport.TNonblockingTransport;
+
+        specialinvoke this.<org.apache.thrift.async.TAsyncClient: 'void' <init>(org.apache.thrift.protocol.TProtocolFactory,org.apache.thrift.async.TAsyncClientManager,org.apache.thrift.transport.TNonblockingTransport,'long')>(protocolFactory, manager, transport, 0L);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocolFactory, org.apache.thrift.async.TAsyncClientManager, org.apache.thrift.transport.TNonblockingTransport, 'long')
+    {
+        org.apache.thrift.async.TAsyncClientManager manager;
+        org.apache.thrift.transport.TNonblockingTransport transport;
+        org.apache.thrift.async.TAsyncClient this;
+        'long' timeout;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        protocolFactory := @parameter0: org.apache.thrift.protocol.TProtocolFactory;
+
+        manager := @parameter1: org.apache.thrift.async.TAsyncClientManager;
+
+        transport := @parameter2: org.apache.thrift.transport.TNonblockingTransport;
+
+        timeout := @parameter3: 'long';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.protocol.TProtocolFactory ___protocolFactory> = protocolFactory;
+
+        this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.async.TAsyncClientManager ___manager> = manager;
+
+        this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.transport.TNonblockingTransport ___transport> = transport;
+
+        this.<org.apache.thrift.async.TAsyncClient: 'long' ___timeout> = timeout;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TProtocolFactory getProtocolFactory()
+    {
+        org.apache.thrift.async.TAsyncClient this;
+        org.apache.thrift.protocol.TProtocolFactory $r0;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.protocol.TProtocolFactory ___protocolFactory>;
+
+        return $r0;
+    }
+
+    public 'long' getTimeout()
+    {
+        org.apache.thrift.async.TAsyncClient this;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        $l0 = this.<org.apache.thrift.async.TAsyncClient: 'long' ___timeout>;
+
+        return $l0;
+    }
+
+    public 'boolean' hasTimeout()
+    {
+        'byte' $b1;
+        org.apache.thrift.async.TAsyncClient this;
+        'int' $i2;
+        'long' $l0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        $l0 = this.<org.apache.thrift.async.TAsyncClient: 'long' ___timeout>;
+
+        $b1 = $l0 cmp 0L;
+
+        $i2 = ('int') $b1;
+
+        if $i2 <= 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'void' setTimeout('long')
+    {
+        org.apache.thrift.async.TAsyncClient this;
+        'long' timeout;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        timeout := @parameter0: 'long';
+
+        this.<org.apache.thrift.async.TAsyncClient: 'long' ___timeout> = timeout;
+
+        return;
+    }
+
+    public 'boolean' hasError()
+    {
+        org.apache.thrift.async.TAsyncClient this;
+        java.lang.Exception $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClient: java.lang.Exception ___error>;
+
+        if $r0 == null goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public java.lang.Exception getError()
+    {
+        org.apache.thrift.async.TAsyncClient this;
+        java.lang.Exception $r0;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClient: java.lang.Exception ___error>;
+
+        return $r0;
+    }
+
+    protected 'void' checkReady()
+    {
+        java.lang.IllegalStateException $r1;
+        org.apache.thrift.async.TAsyncMethodCall $r0;
+        org.apache.thrift.async.TAsyncClient this;
+        java.lang.StringBuilder $r2;
+        java.lang.Class $r5;
+        java.lang.String $r6;
+        java.lang.Exception $r9;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.async.TAsyncMethodCall ___currentMethod>;
+
+        if $r0 == null goto label1;
+
+        $r1 = new java.lang.IllegalStateException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Client is currently executing another method: ");
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.async.TAsyncMethodCall ___currentMethod>;
+
+        $r5 = virtualinvoke $r0.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r6 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>($r6);
+
+        throw $r1;
+
+     label1:
+        $r9 = this.<org.apache.thrift.async.TAsyncClient: java.lang.Exception ___error>;
+
+        if $r9 == null goto label2;
+
+        $r1 = new java.lang.IllegalStateException;
+
+        $r9 = this.<org.apache.thrift.async.TAsyncClient: java.lang.Exception ___error>;
+
+        specialinvoke $r1.<java.lang.IllegalStateException: 'void' <init>(java.lang.String,java.lang.Throwable)>("Client has an error!", $r9);
+
+        throw $r1;
+
+     label2:
+        return;
+    }
+
+    protected 'void' onComplete()
+    {
+        org.apache.thrift.async.TAsyncClient this;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.async.TAsyncMethodCall ___currentMethod> = null;
+
+        return;
+    }
+
+    protected 'void' onError(java.lang.Exception)
+    {
+        org.apache.thrift.async.TAsyncClient this;
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        java.lang.Exception exception;
+
+        this := @this: org.apache.thrift.async.TAsyncClient;
+
+        exception := @parameter0: java.lang.Exception;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.transport.TNonblockingTransport ___transport>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'void' close()>();
+
+        this.<org.apache.thrift.async.TAsyncClient: org.apache.thrift.async.TAsyncMethodCall ___currentMethod> = null;
+
+        this.<org.apache.thrift.async.TAsyncClient: java.lang.Exception ___error> = exception;
+
+        return;
+    }
+}

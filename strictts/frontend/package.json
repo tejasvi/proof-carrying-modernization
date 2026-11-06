@@ -1,0 +1,17 @@
+{
+  "name": "strictts-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TypeScript to StrictTS IR (Lean 4) translator",
+  "main": "dist/cli.js",
+  "bin": { "strictts": "dist/cli.js" },
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "typescript": "5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  }
+}

@@ -1,0 +1,46 @@
+public class org.apache.thrift.Option$None extends org.apache.thrift.Option
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.Option$None this;
+
+        this := @this: org.apache.thrift.Option$None;
+
+        specialinvoke this.<org.apache.thrift.Option: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'boolean' isDefined()
+    {
+        org.apache.thrift.Option$None this;
+
+        this := @this: org.apache.thrift.Option$None;
+
+        return 0;
+    }
+
+    public java.lang.Object get()
+    {
+        org.apache.thrift.Option$None this;
+        java.lang.IllegalStateException $r0;
+
+        this := @this: org.apache.thrift.Option$None;
+
+        $r0 = new java.lang.IllegalStateException;
+
+        specialinvoke $r0.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>("Cannot call get() on None");
+
+        throw $r0;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.thrift.Option$None this;
+
+        this := @this: org.apache.thrift.Option$None;
+
+        return "None";
+    }
+}

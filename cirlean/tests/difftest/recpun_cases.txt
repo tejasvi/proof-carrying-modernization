@@ -1,0 +1,54 @@
+# Type punning on record members (recpun.cpp): a scalar access whose type does not match the declared type of the
+# struct member it reaches is UB "type-punned access", as for array elements; a character access is not punned, it
+# reads or writes a byte of the member (bytes.cpp). Each case is labelled with its expected outcome on the line
+# above it: UB from cirrun (native runs print the GCC result), or MATCH (controls, character accesses).
+# expect MATCH: char store into an int member (its byte 0)
+recpun r_pun_char_into_int 0
+# expect MATCH: char store into an int member (its byte 0)
+recpun r_pun_char_into_int 1000
+# expect UB: long long read over two int members (shared_ptr counters)
+recpun r_pun_ll_over_ints 1 2
+# expect UB: long long read over two int members
+recpun r_pun_ll_over_ints 5 0
+# expect UB: atomic long long load over two int members (libstdc++ shared_ptr _M_release)
+recpun r_pun_atomic_ll_over_ints 1 2
+# expect UB: atomic long long load over two int members
+recpun r_pun_atomic_ll_over_ints 7 0
+# expect UB: volatile long long read over two int members
+recpun r_pun_volatile_ll_over_ints 3 4
+# expect UB: atomic long long store over two int members
+recpun r_pun_atomic_store_ll 5 6
+# expect UB: atomic long long fetch_add over two int members
+recpun r_pun_atomic_fetch_add_ll 8 9
+# expect UB: unsigned read of a float member
+recpun r_pun_unsigned_of_float 1
+# expect UB: unsigned read of a float member
+recpun r_pun_unsigned_of_float 3
+# expect MATCH: char store into an int element of an array member of a nested struct (its byte 0)
+recpun r_pun_char_into_nested 512
+# expect MATCH: unsigned read of an int member
+recpun r_ok_unsigned_of_int 5
+# expect MATCH: unsigned read of an int member, negative value
+recpun r_ok_unsigned_of_int -3
+# expect MATCH: atomic load of an int member with its own type
+recpun r_ok_atomic_int_member 1 2
+# expect MATCH: atomic load of an int member with its own type
+recpun r_ok_atomic_int_member -4 9
+# expect MATCH: atomic fetch_add on an int member with its own type
+recpun r_ok_atomic_fetch_add_int 3 2
+# expect MATCH: char member through unsigned char *
+recpun r_ok_char_member_uchar 65
+# expect MATCH: char member through unsigned char *, negative char
+recpun r_ok_char_member_uchar -2
+# expect MATCH: pointer member through another pointer type
+recpun r_ok_ptr_member_other 4
+# expect MATCH: pointer member through another pointer type
+recpun r_ok_ptr_member_other -9
+# expect MATCH: whole-struct copy
+recpun r_ok_struct_copy 2 3
+# expect MATCH: member of an array of structs
+recpun r_ok_array_of_structs 7
+# expect MATCH: union read of another member of the same size
+recpun r_ok_union_member 1
+# expect MATCH: union read of another member of the same size
+recpun r_ok_union_member 2

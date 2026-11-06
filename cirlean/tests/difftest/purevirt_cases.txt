@@ -1,0 +1,10 @@
+# __cxa_pure_virtual (purevirt.cpp): a library model whose call is undefined. Each case is labelled with
+# its expected outcome on the line above it: MATCH, or UB "pure virtual call" (before the change: UB "call to
+# an external function without a model: __cxa_pure_virtual"; native: abort).
+# expect MATCH: an abstract class through its override
+purevirt t_pure_override 3
+purevirt t_pure_override -4
+# expect MATCH: new, a virtual call, delete through the abstract base
+purevirt t_pure_heap 6
+# expect UB: the pure virtual function called from the base constructor
+purevirt u_pure_call 2

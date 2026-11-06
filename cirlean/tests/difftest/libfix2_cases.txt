@@ -1,0 +1,52 @@
+# Library audit items G29, M2, F4, F6, F8 (libfix2.c, a C source), run with MODE=status. Each case is labelled with
+# its expected outcome on the line above it: MATCH, or UB from cirrun.
+# expect UB: t89, the failure order seq_cst stronger than the success order relaxed (C11 7.17.7.4p2; not in C23)
+libfix2 t_cx_fail_stronger 0
+# expect MATCH: control, success acq_rel and failure acquire (109)
+libfix2 t_cx_orders_ok 0
+# expect MATCH: control, the default orders seq_cst, a failing compare (55)
+libfix2 t_cx_default 0
+# expect UB: the failure order a variable, seq_cst with success relaxed (clang's switch reaches it)
+libfix2 t_cx_var_failure 5
+# expect MATCH: the failure order a variable, relaxed (109)
+libfix2 t_cx_var_failure 0
+# expect MATCH: gap, a release failure order (C11: undefined) arrives as relaxed: clang rewrites it before the CIR
+libfix2 t_cx_fail_release 0
+# expect MATCH: t109, %lc of U+263A in the C locale: an encoding error, sprintf returns -1 (255)
+libfix2 t_lc_wide 0
+# expect MATCH: control, %lc of an ASCII character (165)
+libfix2 t_lc_ascii 0
+# expect MATCH: an encoding error after "ab": the text before it and a terminator are written (111)
+libfix2 t_lc_prefix 0
+# expect MATCH: snprintf %lc of 0xff: -1 (255)
+libfix2 t_lc_snprintf 0
+# expect MATCH: printf %lc of U+263A: -1 (77)
+libfix2 t_lc_printf 0
+# expect MATCH: t37, sscanf %lu of "-1" is ULONG_MAX (1)
+libfix2 t_sscanf_lu_neg 0
+# expect MATCH: sscanf %lx of "-ff" is ULONG_MAX - 254 (1)
+libfix2 t_sscanf_lx_neg 0
+# expect MATCH: control, sscanf %lu of "-0" is 0 (5)
+libfix2 t_sscanf_lu_neg0 0
+# expect UB: control, sscanf %u of "-1": ULONG_MAX does not fit an unsigned int (C11 7.21.6.2p10; glibc stores UINT_MAX)
+libfix2 t_sscanf_u_neg 0
+# expect MATCH: t69, quick_exit runs the at_quick_exit handler, which calls _Exit(7)
+libfix2 t_qe_handler 0
+# expect MATCH: the last registered handler first (42)
+libfix2 t_qe_order 0
+# expect MATCH: control, quick_exit runs no atexit handler (5)
+libfix2 t_qe_no_atexit 0
+# expect MATCH: a handler that returns, then the status of quick_exit (6)
+libfix2 t_qe_returns 0
+# expect MATCH: a handler registered by a handler runs (33)
+libfix2 t_qe_registered_during 0
+# expect UB: control, exit in an at_quick_exit handler (C11 7.22.4.7p2)
+libfix2 t_qe_exit_in_handler 0
+# expect MATCH: t108, %.1s of a char object, an array of one (111)
+libfix2 t_s_singlechar 0
+# expect MATCH: %s of a char object holding 0 (10)
+libfix2 t_s_singlechar_nul 0
+# expect UB: control, %.2s of a char object holding 'x' reads past the array of one
+libfix2 t_s_singlechar_prec2 0
+# expect UB: control, %s of a char object holding 'x' (no terminator)
+libfix2 t_s_singlechar_unterminated 0

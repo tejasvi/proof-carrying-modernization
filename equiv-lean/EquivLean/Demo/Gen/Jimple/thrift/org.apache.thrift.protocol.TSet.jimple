@@ -1,0 +1,81 @@
+public final class org.apache.thrift.protocol.TSet extends java.lang.Object
+{
+    public final 'byte' elemType;
+    public final 'int' size;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TSet this;
+
+        this := @this: org.apache.thrift.protocol.TSet;
+
+        specialinvoke this.<org.apache.thrift.protocol.TSet: 'void' <init>('byte','int')>(0, 0);
+
+        return;
+    }
+
+    public 'void' <init>('byte', 'int')
+    {
+        'int' s;
+        'byte' t;
+        org.apache.thrift.protocol.TSet this;
+
+        this := @this: org.apache.thrift.protocol.TSet;
+
+        t := @parameter0: 'byte';
+
+        s := @parameter1: 'int';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TSet: 'byte' elemType> = t;
+
+        this.<org.apache.thrift.protocol.TSet: 'int' size> = s;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.protocol.TList)
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte' $b0;
+        org.apache.thrift.protocol.TSet this;
+        'int' $i1;
+
+        this := @this: org.apache.thrift.protocol.TSet;
+
+        list := @parameter0: org.apache.thrift.protocol.TList;
+
+        $b0 = list.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        $i1 = list.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        specialinvoke this.<org.apache.thrift.protocol.TSet: 'void' <init>('byte','int')>($b0, $i1);
+
+        return;
+    }
+
+    public 'byte' getElemType()
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TSet this;
+
+        this := @this: org.apache.thrift.protocol.TSet;
+
+        $b0 = this.<org.apache.thrift.protocol.TSet: 'byte' elemType>;
+
+        return $b0;
+    }
+
+    public 'int' getSize()
+    {
+        'int' $i0;
+        org.apache.thrift.protocol.TSet this;
+
+        this := @this: org.apache.thrift.protocol.TSet;
+
+        $i0 = this.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        return $i0;
+    }
+}

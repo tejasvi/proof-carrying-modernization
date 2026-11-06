@@ -1,0 +1,106 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. P1.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           CLASS C-A IS "A"
+           CLASS C-AD IS "A" THRU "D"
+           CLASS C-DA IS "D" THROUGH "A"
+           CLASS C-STR IS "XYZ" "0" THRU "3"
+           CLASS C-ORD IS 66 THRU 69
+           CLASS C-HEX IS X"41" X"20"
+           CLASS C-SP IS SPACE "Q"
+           CLASS C-ZQ IS ZERO QUOTE
+           CLASS C-HL IS HIGH-VALUE LOW-VALUE
+           CLASS C-DIG IS "0" THRU "9"
+           CLASS C-SGN IS "0" THRU "9" "+" "-"
+           CLASS C-DSP IS "0" THRU "9" " "
+           CLASS C-AN IS "A" THRU "Z" "0" THRU "9".
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 W1 PIC X(5).
+       01 W2 PIC A(3).
+       01 N1 PIC 9(3).
+       01 N2 PIC S9(3).
+       01 N3 PIC S9(3) SIGN LEADING SEPARATE.
+       01 E1 PIC ZZ9.
+       01 G1.
+          05 G1A PIC X(2).
+          05 G1B PIC 9(2).
+       01 T1.
+          05 T1E PIC X(2) OCCURS 3.
+       01 I1 PIC 9 VALUE 1.
+       01 K1 PIC 9 VALUE 0.
+       PROCEDURE DIVISION.
+           MOVE "ABDCA" TO W1
+           IF W1 C-AD DISPLAY "T01 Y" ELSE DISPLAY "T01 N" END-IF
+           IF W1 C-DA DISPLAY "T02 Y" ELSE DISPLAY "T02 N" END-IF
+           IF W1 C-A DISPLAY "T03 Y" ELSE DISPLAY "T03 N" END-IF
+           IF W1 IS NOT C-AD DISPLAY "T04 Y" ELSE DISPLAY "T04 N"
+           END-IF
+           IF W1 C-ORD DISPLAY "T05 Y" ELSE DISPLAY "T05 N" END-IF
+           MOVE "ABDCE" TO W1
+           IF W1 C-AD DISPLAY "T06 Y" ELSE DISPLAY "T06 N" END-IF
+           IF W1 NOT C-DA DISPLAY "T07 Y" ELSE DISPLAY "T07 N" END-IF
+           MOVE "AAAA " TO W1
+           IF W1 C-A DISPLAY "T08 Y" ELSE DISPLAY "T08 N" END-IF
+           IF W1 C-HEX DISPLAY "T09 Y" ELSE DISPLAY "T09 N" END-IF
+           MOVE "XY0Z3" TO W1
+           IF W1 C-STR DISPLAY "T10 Y" ELSE DISPLAY "T10 N" END-IF
+           MOVE "XY4Z3" TO W1
+           IF W1 C-STR DISPLAY "T11 Y" ELSE DISPLAY "T11 N" END-IF
+           MOVE "Q Q Q" TO W1
+           IF W1 C-SP DISPLAY "T12 Y" ELSE DISPLAY "T12 N" END-IF
+           MOVE '0"0"0' TO W1
+           IF W1 C-ZQ DISPLAY "T13 Y" ELSE DISPLAY "T13 N" END-IF
+           MOVE HIGH-VALUES TO W1
+           IF W1 C-HL DISPLAY "T14 Y" ELSE DISPLAY "T14 N" END-IF
+           MOVE LOW-VALUES TO W1(2:2)
+           IF W1 C-HL DISPLAY "T15 Y" ELSE DISPLAY "T15 N" END-IF
+           MOVE "A" TO W1(5:1)
+           IF W1 C-HL DISPLAY "T16 Y" ELSE DISPLAY "T16 N" END-IF
+           MOVE 123 TO N1
+           IF N1 C-DIG DISPLAY "T17 Y" ELSE DISPLAY "T17 N" END-IF
+           MOVE -123 TO N2
+           IF N2 C-DIG DISPLAY "T18 Y" ELSE DISPLAY "T18 N" END-IF
+           MOVE 123 TO N2
+           IF N2 C-DIG DISPLAY "T19 Y" ELSE DISPLAY "T19 N" END-IF
+           MOVE -5 TO N3
+           IF N3 C-DIG DISPLAY "T20 Y" ELSE DISPLAY "T20 N" END-IF
+           IF N3 C-SGN DISPLAY "T21 Y" ELSE DISPLAY "T21 N" END-IF
+           MOVE 5 TO E1
+           IF E1 C-DIG DISPLAY "T22 Y" ELSE DISPLAY "T22 N" END-IF
+           IF E1 C-DSP DISPLAY "T23 Y" ELSE DISPLAY "T23 N" END-IF
+           MOVE "AB" TO G1A MOVE 12 TO G1B
+           IF G1 C-AN DISPLAY "T24 Y" ELSE DISPLAY "T24 N" END-IF
+           MOVE "a" TO G1A(2:1)
+           IF G1 C-AN DISPLAY "T25 Y" ELSE DISPLAY "T25 N" END-IF
+           MOVE "AAADXA" TO T1
+           MOVE 2 TO I1
+           IF T1E(I1) C-AD DISPLAY "T26 Y" ELSE DISPLAY "T26 N"
+           END-IF
+           MOVE 3 TO I1
+           IF T1E(I1) C-AD DISPLAY "T27 Y" ELSE DISPLAY "T27 N"
+           END-IF
+           IF T1(2:3) C-AD DISPLAY "T28 Y" ELSE DISPLAY "T28 N"
+           END-IF
+           IF T1(3:3) C-AD DISPLAY "T29 Y" ELSE DISPLAY "T29 N"
+           END-IF
+           MOVE "ABC" TO W2
+           IF W2 C-AD DISPLAY "T30 Y" ELSE DISPLAY "T30 N" END-IF
+           EVALUATE TRUE
+             WHEN W2 C-A DISPLAY "T31 A"
+             WHEN W2 C-AD DISPLAY "T31 AD"
+             WHEN OTHER DISPLAY "T31 O"
+           END-EVALUATE
+           MOVE "AAAAA" TO W1
+           PERFORM UNTIL W1 NOT C-A
+             ADD 1 TO K1
+             MOVE "B" TO W1(K1:1)
+           END-PERFORM
+           DISPLAY "T32 " K1
+           IF W2 C-AD AND N1 C-DIG DISPLAY "T33 Y"
+           ELSE DISPLAY "T33 N" END-IF
+           IF NOT (W2 C-A OR N1 C-A) DISPLAY "T34 Y"
+           ELSE DISPLAY "T34 N" END-IF
+           STOP RUN.

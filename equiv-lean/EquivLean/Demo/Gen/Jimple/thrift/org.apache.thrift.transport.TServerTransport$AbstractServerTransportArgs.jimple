@@ -1,0 +1,116 @@
+public abstract class org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs extends java.lang.Object
+{
+    'int' backlog;
+    'int' clientTimeout;
+    java.net.InetSocketAddress bindAddr;
+    'int' maxFrameSize;
+    'int' maxMessageSize;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs this;
+
+        this := @this: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' backlog> = 0;
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' clientTimeout> = 0;
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' maxFrameSize> = 16384000;
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' maxMessageSize> = 104857600;
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs backlog('int')
+    {
+        'int' backlog;
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs this;
+
+        this := @this: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs;
+
+        backlog := @parameter0: 'int';
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' backlog> = backlog;
+
+        return this;
+    }
+
+    public org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs clientTimeout('int')
+    {
+        'int' clientTimeout;
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs this;
+
+        this := @this: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs;
+
+        clientTimeout := @parameter0: 'int';
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' clientTimeout> = clientTimeout;
+
+        return this;
+    }
+
+    public org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs port('int')
+    {
+        'int' port;
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs this;
+        java.net.InetSocketAddress $r0;
+
+        this := @this: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs;
+
+        port := @parameter0: 'int';
+
+        $r0 = new java.net.InetSocketAddress;
+
+        specialinvoke $r0.<java.net.InetSocketAddress: 'void' <init>('int')>(port);
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: java.net.InetSocketAddress bindAddr> = $r0;
+
+        return this;
+    }
+
+    public org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs bindAddr(java.net.InetSocketAddress)
+    {
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs this;
+        java.net.InetSocketAddress bindAddr;
+
+        this := @this: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs;
+
+        bindAddr := @parameter0: java.net.InetSocketAddress;
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: java.net.InetSocketAddress bindAddr> = bindAddr;
+
+        return this;
+    }
+
+    public org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs maxFrameSize('int')
+    {
+        'int' maxFrameSize;
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs this;
+
+        this := @this: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs;
+
+        maxFrameSize := @parameter0: 'int';
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' maxFrameSize> = maxFrameSize;
+
+        return this;
+    }
+
+    public org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs maxMessageSize('int')
+    {
+        'int' maxMessageSize;
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs this;
+
+        this := @this: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs;
+
+        maxMessageSize := @parameter0: 'int';
+
+        this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'int' maxMessageSize> = maxMessageSize;
+
+        return this;
+    }
+}

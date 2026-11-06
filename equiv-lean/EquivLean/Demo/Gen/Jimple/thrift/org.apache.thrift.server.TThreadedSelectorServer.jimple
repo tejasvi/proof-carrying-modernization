@@ -1,0 +1,515 @@
+public class org.apache.thrift.server.TThreadedSelectorServer extends org.apache.thrift.server.AbstractNonblockingServer
+{
+    private static final org.slf4j.Logger LOGGER;
+    private org.apache.thrift.server.TThreadedSelectorServer$AcceptThread acceptThread;
+    private final java.util.Set selectorThreads;
+    private final java.util.concurrent.ExecutorService invoker;
+    private final org.apache.thrift.server.TThreadedSelectorServer$Args args;
+
+    public 'void' <init>(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        java.util.HashSet $r0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args args;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        java.util.concurrent.ExecutorService $r1;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        args := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$AbstractNonblockingServerArgs)>(args);
+
+        $r0 = new java.util.HashSet;
+
+        specialinvoke $r0.<java.util.HashSet: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.Set selectorThreads> = $r0;
+
+        virtualinvoke args.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'void' validate()>();
+
+        $r1 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.ExecutorService access$000(org.apache.thrift.server.TThreadedSelectorServer$Args)>(args);
+
+        if $r1 != null goto label1;
+
+        $r1 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.ExecutorService createDefaultExecutor(org.apache.thrift.server.TThreadedSelectorServer$Args)>(args);
+
+        goto label2;
+
+     label1:
+        $r1 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.ExecutorService access$000(org.apache.thrift.server.TThreadedSelectorServer$Args)>(args);
+
+     label2:
+        this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.ExecutorService invoker> = $r1;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$Args args> = args;
+
+        return;
+    }
+
+    protected 'boolean' startThreads()
+    {
+        org.slf4j.Logger $r12;
+        java.util.Iterator i#2;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        org.apache.thrift.server.TThreadedSelectorServer$AcceptThread $r4;
+        org.apache.thrift.transport.TNonblockingServerTransport $r6;
+        java.util.Set $r1;
+        java.io.IOException i;
+        org.apache.thrift.transport.TServerTransport $r5;
+        org.apache.thrift.server.TThreadedSelectorServer$Args $r0;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer $r8;
+        'int' $i0, i#1;
+        java.lang.Object $r10;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThread thread;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        i#1 = 0;
+
+     label1:
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$Args args>;
+
+        $i0 = $r0.<org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' selectorThreads>;
+
+        if i#1 >= $i0 goto label3;
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.Set selectorThreads>;
+
+        thread = new org.apache.thrift.server.TThreadedSelectorServer$SelectorThread;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$Args args>;
+
+     label2:
+        $i0 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' access$100(org.apache.thrift.server.TThreadedSelectorServer$Args)>($r0);
+
+        specialinvoke thread.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThread: 'void' <init>(org.apache.thrift.server.TThreadedSelectorServer,'int')>(this, $i0);
+
+        interfaceinvoke $r1.<java.util.Set: 'boolean' add(java.lang.Object)>(thread);
+
+        i#1 = i#1 + 1;
+
+        goto label1;
+
+     label3:
+        $r4 = new org.apache.thrift.server.TThreadedSelectorServer$AcceptThread;
+
+        $r5 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.transport.TServerTransport serverTransport_>;
+
+        $r6 = (org.apache.thrift.transport.TNonblockingServerTransport) $r5;
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.Set selectorThreads>;
+
+        $r8 = virtualinvoke this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer createSelectorThreadLoadBalancer(java.util.Collection)>($r1);
+
+        specialinvoke $r4.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread: 'void' <init>(org.apache.thrift.server.TThreadedSelectorServer,org.apache.thrift.transport.TNonblockingServerTransport,org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer)>(this, $r6, $r8);
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread acceptThread> = $r4;
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.Set selectorThreads>;
+
+        i#2 = interfaceinvoke $r1.<java.util.Set: java.util.Iterator iterator()>();
+
+     label4:
+        $z0 = interfaceinvoke i#2.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label5;
+
+        $r10 = interfaceinvoke i#2.<java.util.Iterator: java.lang.Object next()>();
+
+        thread = (org.apache.thrift.server.TThreadedSelectorServer$SelectorThread) $r10;
+
+        virtualinvoke thread.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThread: 'void' start()>();
+
+        goto label4;
+
+     label5:
+        $r4 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread acceptThread>;
+
+        virtualinvoke $r4.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread: 'void' start()>();
+
+     label6:
+        return 1;
+
+     label7:
+        i := @caughtexception;
+
+        $r12 = <org.apache.thrift.server.TThreadedSelectorServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r12.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Failed to start threads!", i);
+
+        return 0;
+
+        catch java.io.IOException from label2 to label6 with label7;
+    }
+
+    protected 'void' waitForShutdown()
+    {
+        org.slf4j.Logger $r0;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        java.lang.InterruptedException e;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+     label1:
+        virtualinvoke this.<org.apache.thrift.server.TThreadedSelectorServer: 'void' joinThreads()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        e := @caughtexception;
+
+        $r0 = <org.apache.thrift.server.TThreadedSelectorServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Interrupted while joining threads!", e);
+
+     label4:
+        virtualinvoke this.<org.apache.thrift.server.TThreadedSelectorServer: 'void' gracefullyShutdownInvokerPool()>();
+
+        return;
+
+        catch java.lang.InterruptedException from label1 to label2 with label3;
+    }
+
+    protected 'void' joinThreads() throws java.lang.InterruptedException
+    {
+        java.util.Iterator r2;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        org.apache.thrift.server.TThreadedSelectorServer$AcceptThread $r0;
+        java.util.Set $r1;
+        java.lang.Object $r3;
+        'boolean' $z0;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThread thread;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread acceptThread>;
+
+        virtualinvoke $r0.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread: 'void' join()>();
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.Set selectorThreads>;
+
+        r2 = interfaceinvoke $r1.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r2.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r3 = interfaceinvoke r2.<java.util.Iterator: java.lang.Object next()>();
+
+        thread = (org.apache.thrift.server.TThreadedSelectorServer$SelectorThread) $r3;
+
+        virtualinvoke thread.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThread: 'void' join()>();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public 'void' stop()
+    {
+        java.util.Iterator $r3;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        org.apache.thrift.server.TThreadedSelectorServer$AcceptThread $r0;
+        java.util.Set $r2;
+        java.lang.Object $r4;
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThread thread;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        this.<org.apache.thrift.server.TThreadedSelectorServer: 'boolean' stopped_> = 1;
+
+        virtualinvoke this.<org.apache.thrift.server.TThreadedSelectorServer: 'void' stopListening()>();
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread acceptThread>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$AcceptThread acceptThread>;
+
+        virtualinvoke $r0.<org.apache.thrift.server.TThreadedSelectorServer$AcceptThread: 'void' wakeupSelector()>();
+
+     label1:
+        $r2 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.Set selectorThreads>;
+
+        $r3 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label3;
+
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        thread = (org.apache.thrift.server.TThreadedSelectorServer$SelectorThread) $r4;
+
+        if thread == null goto label2;
+
+        virtualinvoke thread.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThread: 'void' wakeupSelector()>();
+
+        goto label2;
+
+     label3:
+        return;
+    }
+
+    protected 'void' gracefullyShutdownInvokerPool()
+    {
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        'long' newnow, now, timeoutMS;
+        java.util.concurrent.TimeUnit $r2;
+        org.apache.thrift.server.TThreadedSelectorServer$Args $r1;
+        'byte' $b2;
+        java.lang.InterruptedException $r6;
+        'int' $i0;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.ExecutorService invoker>;
+
+        interfaceinvoke $r0.<java.util.concurrent.ExecutorService: 'void' shutdown()>();
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$Args args>;
+
+        $r2 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$Args: java.util.concurrent.TimeUnit access$300(org.apache.thrift.server.TThreadedSelectorServer$Args)>($r1);
+
+        $r1 = this.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$Args args>;
+
+        $i0 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' access$200(org.apache.thrift.server.TThreadedSelectorServer$Args)>($r1);
+
+        newnow = ('long') $i0;
+
+        timeoutMS = virtualinvoke $r2.<java.util.concurrent.TimeUnit: 'long' toMillis('long')>(newnow);
+
+        now = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+     label1:
+        $b2 = timeoutMS cmp 0L;
+
+        $i0 = ('int') $b2;
+
+        if $i0 < 0 goto label5;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.ExecutorService invoker>;
+
+        $r2 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit MILLISECONDS>;
+
+     label2:
+        interfaceinvoke $r0.<java.util.concurrent.ExecutorService: 'boolean' awaitTermination('long',java.util.concurrent.TimeUnit)>(timeoutMS, $r2);
+
+     label3:
+        goto label5;
+
+     label4:
+        $r6 := @caughtexception;
+
+        newnow = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+        now = newnow - now;
+
+        timeoutMS = timeoutMS - now;
+
+        now = newnow;
+
+        goto label1;
+
+     label5:
+        return;
+
+        catch java.lang.InterruptedException from label2 to label3 with label4;
+    }
+
+    protected 'boolean' requestInvoke(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)
+    {
+        java.util.concurrent.RejectedExecutionException rx;
+        org.slf4j.Logger $r2;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+        java.lang.Runnable invocation;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        frameBuffer := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        invocation = virtualinvoke this.<org.apache.thrift.server.TThreadedSelectorServer: java.lang.Runnable getRunnable(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)>(frameBuffer);
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.ExecutorService invoker>;
+
+        if $r0 == null goto label4;
+
+        $r0 = this.<org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.ExecutorService invoker>;
+
+     label1:
+        interfaceinvoke $r0.<java.util.concurrent.ExecutorService: 'void' execute(java.lang.Runnable)>(invocation);
+
+     label2:
+        return 1;
+
+     label3:
+        rx := @caughtexception;
+
+        $r2 = <org.apache.thrift.server.TThreadedSelectorServer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("ExecutorService rejected execution!", rx);
+
+        return 0;
+
+     label4:
+        interfaceinvoke invocation.<java.lang.Runnable: 'void' run()>();
+
+        return 1;
+
+        catch java.util.concurrent.RejectedExecutionException from label1 to label2 with label3;
+    }
+
+    protected java.lang.Runnable getRunnable(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)
+    {
+        org.apache.thrift.server.Invocation $r0;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer frameBuffer;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        frameBuffer := @parameter0: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = new org.apache.thrift.server.Invocation;
+
+        specialinvoke $r0.<org.apache.thrift.server.Invocation: 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)>(frameBuffer);
+
+        return $r0;
+    }
+
+    protected static java.util.concurrent.ExecutorService createDefaultExecutor(org.apache.thrift.server.TThreadedSelectorServer$Args)
+    {
+        'int' $i0;
+        org.apache.thrift.server.TThreadedSelectorServer$Args options;
+        java.util.concurrent.ExecutorService $r0;
+
+        options := @parameter0: org.apache.thrift.server.TThreadedSelectorServer$Args;
+
+        $i0 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' access$400(org.apache.thrift.server.TThreadedSelectorServer$Args)>(options);
+
+        if $i0 <= 0 goto label1;
+
+        $i0 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer$Args: 'int' access$400(org.apache.thrift.server.TThreadedSelectorServer$Args)>(options);
+
+        $r0 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newFixedThreadPool('int')>($i0);
+
+        goto label2;
+
+     label1:
+        $r0 = null;
+
+     label2:
+        return $r0;
+    }
+
+    private static java.util.concurrent.BlockingQueue createDefaultAcceptQueue('int')
+    {
+        'int' queueSize;
+        java.util.concurrent.ArrayBlockingQueue $r1;
+        java.util.concurrent.LinkedBlockingQueue $r0;
+
+        queueSize := @parameter0: 'int';
+
+        if queueSize != 0 goto label1;
+
+        $r0 = new java.util.concurrent.LinkedBlockingQueue;
+
+        specialinvoke $r0.<java.util.concurrent.LinkedBlockingQueue: 'void' <init>()>();
+
+        return $r0;
+
+     label1:
+        $r1 = new java.util.concurrent.ArrayBlockingQueue;
+
+        specialinvoke $r1.<java.util.concurrent.ArrayBlockingQueue: 'void' <init>('int')>(queueSize);
+
+        return $r1;
+    }
+
+    protected org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer createSelectorThreadLoadBalancer(java.util.Collection)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer $r0;
+        org.apache.thrift.server.TThreadedSelectorServer this;
+        java.util.Collection threads;
+
+        this := @this: org.apache.thrift.server.TThreadedSelectorServer;
+
+        threads := @parameter0: java.util.Collection;
+
+        $r0 = new org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer;
+
+        specialinvoke $r0.<org.apache.thrift.server.TThreadedSelectorServer$SelectorThreadLoadBalancer: 'void' <init>(java.util.Collection)>(threads);
+
+        return $r0;
+    }
+
+    static org.slf4j.Logger access$500()
+    {
+        org.slf4j.Logger $r0;
+
+        $r0 = <org.apache.thrift.server.TThreadedSelectorServer: org.slf4j.Logger LOGGER>;
+
+        return $r0;
+    }
+
+    static org.apache.thrift.server.TThreadedSelectorServer$Args access$600(org.apache.thrift.server.TThreadedSelectorServer)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer$Args $r0;
+        org.apache.thrift.server.TThreadedSelectorServer x0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer;
+
+        $r0 = x0.<org.apache.thrift.server.TThreadedSelectorServer: org.apache.thrift.server.TThreadedSelectorServer$Args args>;
+
+        return $r0;
+    }
+
+    static java.util.concurrent.ExecutorService access$800(org.apache.thrift.server.TThreadedSelectorServer)
+    {
+        org.apache.thrift.server.TThreadedSelectorServer x0;
+        java.util.concurrent.ExecutorService $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TThreadedSelectorServer;
+
+        $r0 = x0.<org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.ExecutorService invoker>;
+
+        return $r0;
+    }
+
+    static java.util.concurrent.BlockingQueue access$1000('int')
+    {
+        'int' x0;
+        java.util.concurrent.BlockingQueue $r0;
+
+        x0 := @parameter0: 'int';
+
+        $r0 = staticinvoke <org.apache.thrift.server.TThreadedSelectorServer: java.util.concurrent.BlockingQueue createDefaultAcceptQueue('int')>(x0);
+
+        return $r0;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        org.slf4j.Logger $r2;
+
+        $r0 = class "Lorg/apache/thrift/server/TThreadedSelectorServer;";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        <org.apache.thrift.server.TThreadedSelectorServer: org.slf4j.Logger LOGGER> = $r2;
+
+        return;
+    }
+}

@@ -1,0 +1,10 @@
+# fflush (fflush.cpp): returns 0, the output having no buffers. Each case is labelled with its expected
+# outcome on the line above it (before the change: UB "call to an external function without a model").
+# expect MATCH: fflush(stdout)
+fflush t_fflush_stdout 0
+fflush t_fflush_stdout 7
+# expect MATCH: stdout, stderr and a null pointer
+fflush t_fflush_streams 3
+# expect MATCH: in a loop
+fflush t_fflush_loop 0
+fflush t_fflush_loop 5

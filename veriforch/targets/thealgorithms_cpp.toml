@@ -1,0 +1,169 @@
+# TheAlgorithms/C-Plus-Plus @ fdcc29b (copied from the cirlean coverage corpus); one TU per file.
+name = "thealgorithms_cpp"
+lang = "cir"
+root = "/home/user/veriforch/targets/thealgorithms_cpp"
+sources = []
+entry = ["main"]
+
+[extra]
+cxxflags = ["-nostdinc++", "-isystem", "/home/user/cirlean_work/dl_cir2c_eb2a332/cir2c-eb2a332/libcxx/include/c++/v1", "-w"]
+
+[[variants]]
+name = "backtracking_generate_parentheses"
+sources = ["backtracking/generate_parentheses.cpp"]
+
+[[variants]]
+name = "backtracking_graph_coloring"
+sources = ["backtracking/graph_coloring.cpp"]
+
+[[variants]]
+name = "backtracking_knight_tour"
+sources = ["backtracking/knight_tour.cpp"]
+
+[[variants]]
+name = "backtracking_magic_sequence"
+sources = ["backtracking/magic_sequence.cpp"]
+
+[[variants]]
+name = "backtracking_minimax"
+sources = ["backtracking/minimax.cpp"]
+
+[[variants]]
+name = "backtracking_n_queens"
+sources = ["backtracking/n_queens.cpp"]
+
+[[variants]]
+name = "backtracking_n_queens_all_solution_optimised"
+sources = ["backtracking/n_queens_all_solution_optimised.cpp"]
+
+[[variants]]
+name = "backtracking_nqueen_print_all_solutions"
+sources = ["backtracking/nqueen_print_all_solutions.cpp"]
+
+[[variants]]
+name = "backtracking_subset_sum"
+sources = ["backtracking/subset_sum.cpp"]
+
+[[variants]]
+name = "backtracking_sudoku_solver"
+sources = ["backtracking/sudoku_solver.cpp"]
+
+[[variants]]
+name = "backtracking_wildcard_matching"
+sources = ["backtracking/wildcard_matching.cpp"]
+
+[[variants]]
+name = "bit_manipulation_check_even_odd"
+sources = ["bit_manipulation/check_even_odd.cpp"]
+
+[[variants]]
+name = "bit_manipulation_count_bits_flip"
+sources = ["bit_manipulation/count_bits_flip.cpp"]
+
+[[variants]]
+name = "bit_manipulation_count_of_set_bits"
+sources = ["bit_manipulation/count_of_set_bits.cpp"]
+
+[[variants]]
+name = "bit_manipulation_count_of_trailing_ciphers_in_factorial_n"
+sources = ["bit_manipulation/count_of_trailing_ciphers_in_factorial_n.cpp"]
+
+[[variants]]
+name = "bit_manipulation_find_non_repeating_number"
+sources = ["bit_manipulation/find_non_repeating_number.cpp"]
+
+[[variants]]
+name = "bit_manipulation_hamming_distance"
+sources = ["bit_manipulation/hamming_distance.cpp"]
+
+[[variants]]
+name = "bit_manipulation_next_higher_number_with_same_number_of_set_bits"
+sources = ["bit_manipulation/next_higher_number_with_same_number_of_set_bits.cpp"]
+
+[[variants]]
+name = "bit_manipulation_power_of_2"
+sources = ["bit_manipulation/power_of_2.cpp"]
+
+[[variants]]
+name = "bit_manipulation_set_kth_bit"
+sources = ["bit_manipulation/set_kth_bit.cpp"]
+
+[[variants]]
+name = "ciphers_base64_encoding"
+sources = ["ciphers/base64_encoding.cpp"]
+
+[[variants]]
+name = "ciphers_caesar_cipher"
+sources = ["ciphers/caesar_cipher.cpp"]
+
+[[variants]]
+name = "ciphers_elliptic_curve_key_exchange"
+sources = ["ciphers/elliptic_curve_key_exchange.cpp"]
+
+[[variants]]
+name = "ciphers_hill_cipher"
+sources = ["ciphers/hill_cipher.cpp"]
+
+[[variants]]
+name = "ciphers_vigenere_cipher"
+sources = ["ciphers/vigenere_cipher.cpp"]
+
+[[variants]]
+name = "ciphers_xor_cipher"
+sources = ["ciphers/xor_cipher.cpp"]
+
+[[variants]]
+name = "cpu_scheduling_algorithms_fcfs_scheduling"
+sources = ["cpu_scheduling_algorithms/fcfs_scheduling.cpp"]
+
+[[variants]]
+name = "cpu_scheduling_algorithms_non_preemptive_sjf_scheduling"
+sources = ["cpu_scheduling_algorithms/non_preemptive_sjf_scheduling.cpp"]
+
+[[variants]]
+name = "data_structures_avltree"
+sources = ["data_structures/avltree.cpp"]
+
+[[variants]]
+name = "data_structures_binary_search_tree"
+sources = ["data_structures/binary_search_tree.cpp"]
+
+[[variants]]
+name = "data_structures_binary_search_tree2"
+sources = ["data_structures/binary_search_tree2.cpp"]
+
+[[variants]]
+name = "data_structures_binaryheap"
+sources = ["data_structures/binaryheap.cpp"]
+
+[[variants]]
+name = "data_structures_bloom_filter"
+sources = ["data_structures/bloom_filter.cpp"]
+
+[[variants]]
+name = "data_structures_circular_queue_using_linked_list"
+sources = ["data_structures/circular_queue_using_linked_list.cpp"]
+
+[[variants]]
+name = "data_structures_cll_cll"
+sources = ["data_structures/cll/cll.cpp"]
+
+[[variants]]
+name = "data_structures_disjoint_set"
+sources = ["data_structures/disjoint_set.cpp"]
+
+[[variants]]
+name = "data_structures_doubly_linked_list"
+sources = ["data_structures/doubly_linked_list.cpp"]
+
+[[variants]]
+name = "data_structures_dsu_path_compression"
+sources = ["data_structures/dsu_path_compression.cpp"]
+
+[[variants]]
+name = "data_structures_dsu_union_rank"
+sources = ["data_structures/dsu_union_rank.cpp"]
+
+[[variants]]
+name = "data_structures_linked_list"
+sources = ["data_structures/linked_list.cpp"]

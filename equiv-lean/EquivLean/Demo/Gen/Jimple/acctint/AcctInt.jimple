@@ -1,0 +1,113 @@
+public final class AcctInt extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        AcctInt r0;
+
+        r0 := @this: AcctInt;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static AcctInt$Result accrue('char', java.math.BigDecimal, java.math.BigDecimal, 'int')
+    {
+        AcctInt$Result $r3;
+        'char' c0;
+        'long' $l2;
+        java.math.BigDecimal r0, r1, r2, $r4, $r13;
+        'int' i1, $i5;
+        java.math.RoundingMode $r5;
+
+        c0 := @parameter0: 'char';
+
+        r0 := @parameter1: java.math.BigDecimal;
+
+        r1 := @parameter2: java.math.BigDecimal;
+
+        i1 := @parameter3: 'int';
+
+        r2 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long','int')>(0L, 2);
+
+        if r0 != null goto label1;
+
+        r0 = r2;
+
+     label1:
+        if i1 == false goto label2;
+
+        $i5 = ('int') c0;
+
+        if $i5 == 83 goto label3;
+
+        $i5 = ('int') c0;
+
+        if $i5 == 67 goto label3;
+
+     label2:
+        $r3 = new AcctInt$Result;
+
+        specialinvoke $r3.<AcctInt$Result: 'void' <init>(java.math.BigDecimal,java.math.BigDecimal,'char')>(r0, r2, 90);
+
+        return $r3;
+
+     label3:
+        $r4 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(365L);
+
+        $r5 = <java.math.RoundingMode: java.math.RoundingMode HALF_UP>;
+
+        r1 = virtualinvoke r1.<java.math.BigDecimal: java.math.BigDecimal divide(java.math.BigDecimal,'int',java.math.RoundingMode)>($r4, 8, $r5);
+
+        r1 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal multiply(java.math.BigDecimal)>(r1);
+
+        $l2 = ('long') i1;
+
+        $r4 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>($l2);
+
+        r1 = virtualinvoke r1.<java.math.BigDecimal: java.math.BigDecimal multiply(java.math.BigDecimal)>($r4);
+
+        $r5 = <java.math.RoundingMode: java.math.RoundingMode HALF_UP>;
+
+        r1 = virtualinvoke r1.<java.math.BigDecimal: java.math.BigDecimal setScale('int',java.math.RoundingMode)>(2, $r5);
+
+        $r4 = virtualinvoke r1.<java.math.BigDecimal: java.math.BigDecimal abs()>();
+
+        $r13 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(1000000000L);
+
+        i1 = virtualinvoke $r4.<java.math.BigDecimal: 'int' compareTo(java.math.BigDecimal)>($r13);
+
+        if i1 < 0 goto label4;
+
+        $r3 = new AcctInt$Result;
+
+        specialinvoke $r3.<AcctInt$Result: 'void' <init>(java.math.BigDecimal,java.math.BigDecimal,'char')>(r0, r2, 69);
+
+        return $r3;
+
+     label4:
+        r2 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal add(java.math.BigDecimal)>(r1);
+
+        $r4 = virtualinvoke r2.<java.math.BigDecimal: java.math.BigDecimal abs()>();
+
+        $r13 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(100000000000L);
+
+        i1 = virtualinvoke $r4.<java.math.BigDecimal: 'int' compareTo(java.math.BigDecimal)>($r13);
+
+        if i1 < 0 goto label5;
+
+        $r3 = new AcctInt$Result;
+
+        specialinvoke $r3.<AcctInt$Result: 'void' <init>(java.math.BigDecimal,java.math.BigDecimal,'char')>(r0, r1, 69);
+
+        return $r3;
+
+     label5:
+        $r3 = new AcctInt$Result;
+
+        specialinvoke $r3.<AcctInt$Result: 'void' <init>(java.math.BigDecimal,java.math.BigDecimal,'char')>(r2, r1, 75);
+
+        return $r3;
+    }
+}

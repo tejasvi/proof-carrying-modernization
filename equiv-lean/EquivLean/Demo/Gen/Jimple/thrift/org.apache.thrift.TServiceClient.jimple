@@ -1,0 +1,234 @@
+public abstract class org.apache.thrift.TServiceClient extends java.lang.Object
+{
+    protected org.apache.thrift.protocol.TProtocol iprot_;
+    protected org.apache.thrift.protocol.TProtocol oprot_;
+    protected 'int' seqid_;
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocol)
+    {
+        org.apache.thrift.TServiceClient this;
+        org.apache.thrift.protocol.TProtocol prot;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        prot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        specialinvoke this.<org.apache.thrift.TServiceClient: 'void' <init>(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(prot, prot);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocol, org.apache.thrift.protocol.TProtocol)
+    {
+        org.apache.thrift.TServiceClient this;
+        org.apache.thrift.protocol.TProtocol iprot, oprot;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        iprot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        oprot := @parameter1: org.apache.thrift.protocol.TProtocol;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol iprot_> = iprot;
+
+        this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol oprot_> = oprot;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TProtocol getInputProtocol()
+    {
+        org.apache.thrift.TServiceClient this;
+        org.apache.thrift.protocol.TProtocol $r0;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol iprot_>;
+
+        return $r0;
+    }
+
+    public org.apache.thrift.protocol.TProtocol getOutputProtocol()
+    {
+        org.apache.thrift.TServiceClient this;
+        org.apache.thrift.protocol.TProtocol $r0;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol oprot_>;
+
+        return $r0;
+    }
+
+    protected 'void' sendBase(java.lang.String, org.apache.thrift.TBase) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TServiceClient this;
+        java.lang.String methodName;
+        org.apache.thrift.TBase args;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        methodName := @parameter0: java.lang.String;
+
+        args := @parameter1: org.apache.thrift.TBase;
+
+        specialinvoke this.<org.apache.thrift.TServiceClient: 'void' sendBase(java.lang.String,org.apache.thrift.TBase,'byte')>(methodName, args, 1);
+
+        return;
+    }
+
+    protected 'void' sendBaseOneway(java.lang.String, org.apache.thrift.TBase) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TServiceClient this;
+        java.lang.String methodName;
+        org.apache.thrift.TBase args;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        methodName := @parameter0: java.lang.String;
+
+        args := @parameter1: org.apache.thrift.TBase;
+
+        specialinvoke this.<org.apache.thrift.TServiceClient: 'void' sendBase(java.lang.String,org.apache.thrift.TBase,'byte')>(methodName, args, 4);
+
+        return;
+    }
+
+    private 'void' sendBase(java.lang.String, org.apache.thrift.TBase, 'byte') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TServiceClient this;
+        org.apache.thrift.protocol.TMessage $r1;
+        'byte' type;
+        org.apache.thrift.transport.TTransport $r5;
+        org.apache.thrift.protocol.TProtocol $r0;
+        'int' $i0;
+        java.lang.String methodName;
+        org.apache.thrift.TBase args;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        methodName := @parameter0: java.lang.String;
+
+        args := @parameter1: org.apache.thrift.TBase;
+
+        type := @parameter2: 'byte';
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol oprot_>;
+
+        $r1 = new org.apache.thrift.protocol.TMessage;
+
+        $i0 = this.<org.apache.thrift.TServiceClient: 'int' seqid_>;
+
+        $i0 = $i0 + 1;
+
+        this.<org.apache.thrift.TServiceClient: 'int' seqid_> = $i0;
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TMessage: 'void' <init>(java.lang.String,'byte','int')>(methodName, type, $i0);
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage)>($r1);
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol oprot_>;
+
+        interfaceinvoke args.<org.apache.thrift.TBase: 'void' write(org.apache.thrift.protocol.TProtocol)>($r0);
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol oprot_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageEnd()>();
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol oprot_>;
+
+        $r5 = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        virtualinvoke $r5.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        return;
+    }
+
+    protected 'void' receiveBase(org.apache.thrift.TBase, java.lang.String) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TServiceClient this;
+        java.lang.Object[] $r4;
+        java.lang.Integer $r5;
+        org.apache.thrift.protocol.TMessage msg;
+        'byte' $b0;
+        org.apache.thrift.protocol.TProtocol $r0;
+        'int' $i1, $i2;
+        java.lang.String methodName;
+        org.apache.thrift.TBase result;
+        org.apache.thrift.TApplicationException x;
+
+        this := @this: org.apache.thrift.TServiceClient;
+
+        result := @parameter0: org.apache.thrift.TBase;
+
+        methodName := @parameter1: java.lang.String;
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol iprot_>;
+
+        msg = virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMessage readMessageBegin()>();
+
+        $b0 = msg.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        $i1 = ('int') $b0;
+
+        if $i1 != 3 goto label1;
+
+        x = new org.apache.thrift.TApplicationException;
+
+        specialinvoke x.<org.apache.thrift.TApplicationException: 'void' <init>()>();
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol iprot_>;
+
+        virtualinvoke x.<org.apache.thrift.TApplicationException: 'void' read(org.apache.thrift.protocol.TProtocol)>($r0);
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol iprot_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' readMessageEnd()>();
+
+        throw x;
+
+     label1:
+        $i1 = msg.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        $i2 = this.<org.apache.thrift.TServiceClient: 'int' seqid_>;
+
+        if $i1 == $i2 goto label2;
+
+        x = new org.apache.thrift.TApplicationException;
+
+        $r4 = newarray (java.lang.Object)[3];
+
+        $r4[0] = methodName;
+
+        $i1 = this.<org.apache.thrift.TServiceClient: 'int' seqid_>;
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i1);
+
+        $r4[1] = $r5;
+
+        $i1 = msg.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i1);
+
+        $r4[2] = $r5;
+
+        methodName = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%s failed: out of sequence response: expected %d but got %d", $r4);
+
+        specialinvoke x.<org.apache.thrift.TApplicationException: 'void' <init>('int',java.lang.String)>(4, methodName);
+
+        throw x;
+
+     label2:
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol iprot_>;
+
+        interfaceinvoke result.<org.apache.thrift.TBase: 'void' read(org.apache.thrift.protocol.TProtocol)>($r0);
+
+        $r0 = this.<org.apache.thrift.TServiceClient: org.apache.thrift.protocol.TProtocol iprot_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TProtocol: 'void' readMessageEnd()>();
+
+        return;
+    }
+}

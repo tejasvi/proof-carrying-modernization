@@ -1,0 +1,187 @@
+class org.apache.thrift.TUnion$TUnionTupleScheme extends org.apache.thrift.scheme.TupleScheme
+{
+
+    private 'void' <init>()
+    {
+        org.apache.thrift.TUnion$TUnionTupleScheme this;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleScheme;
+
+        specialinvoke this.<org.apache.thrift.scheme.TupleScheme: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'void' read(org.apache.thrift.protocol.TProtocol, org.apache.thrift.TUnion) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r3;
+        'short' fieldID;
+        org.apache.thrift.TUnion$TUnionTupleScheme this;
+        org.apache.thrift.protocol.TProtocol iprot;
+        java.lang.Object $r0;
+        org.apache.thrift.TFieldIdEnum $r2;
+        org.apache.thrift.TUnion struct;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleScheme;
+
+        iprot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        struct := @parameter1: org.apache.thrift.TUnion;
+
+        struct.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_> = null;
+
+        struct.<org.apache.thrift.TUnion: java.lang.Object value_> = null;
+
+        virtualinvoke iprot.<org.apache.thrift.protocol.TProtocol: 'void' incrementRecursionDepth()>();
+
+     label1:
+        fieldID = virtualinvoke iprot.<org.apache.thrift.protocol.TProtocol: 'short' readI16()>();
+
+        $r0 = virtualinvoke struct.<org.apache.thrift.TUnion: java.lang.Object tupleSchemeReadValue(org.apache.thrift.protocol.TProtocol,'short')>(iprot, fieldID);
+
+        struct.<org.apache.thrift.TUnion: java.lang.Object value_> = $r0;
+
+        $r0 = struct.<org.apache.thrift.TUnion: java.lang.Object value_>;
+
+        if $r0 == null goto label2;
+
+        $r2 = virtualinvoke struct.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum enumForId('short')>(fieldID);
+
+        struct.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_> = $r2;
+
+     label2:
+        virtualinvoke iprot.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        goto label5;
+
+     label3:
+        $r3 := @caughtexception;
+
+     label4:
+        virtualinvoke iprot.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        throw $r3;
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public 'void' write(org.apache.thrift.protocol.TProtocol, org.apache.thrift.TUnion) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r4;
+        org.apache.thrift.TUnion$TUnionTupleScheme this;
+        org.apache.thrift.TUnion struct;
+        'short' $s0;
+        org.apache.thrift.protocol.TProtocol oprot;
+        java.lang.Object $r1;
+        org.apache.thrift.TFieldIdEnum $r0;
+        org.apache.thrift.protocol.TProtocolException $r2;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleScheme;
+
+        oprot := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        struct := @parameter1: org.apache.thrift.TUnion;
+
+        $r0 = virtualinvoke struct.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum getSetField()>();
+
+        if $r0 == null goto label1;
+
+        $r1 = virtualinvoke struct.<org.apache.thrift.TUnion: java.lang.Object getFieldValue()>();
+
+        if $r1 != null goto label2;
+
+     label1:
+        $r2 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TProtocolException: 'void' <init>(java.lang.String)>("Cannot write a TUnion with no set value!");
+
+        throw $r2;
+
+     label2:
+        virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: 'void' incrementRecursionDepth()>();
+
+     label3:
+        $r0 = struct.<org.apache.thrift.TUnion: org.apache.thrift.TFieldIdEnum setField_>;
+
+        $s0 = interfaceinvoke $r0.<org.apache.thrift.TFieldIdEnum: 'short' getThriftFieldId()>();
+
+        virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: 'void' writeI16('short')>($s0);
+
+        virtualinvoke struct.<org.apache.thrift.TUnion: 'void' tupleSchemeWriteValue(org.apache.thrift.protocol.TProtocol)>(oprot);
+
+     label4:
+        virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        goto label6;
+
+     label5:
+        $r4 := @caughtexception;
+
+        virtualinvoke oprot.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        throw $r4;
+
+     label6:
+        return;
+
+        catch java.lang.Throwable from label3 to label4 with label5;
+    }
+
+    public volatile 'void' write(org.apache.thrift.protocol.TProtocol, org.apache.thrift.TBase) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TUnion$TUnionTupleScheme this;
+        org.apache.thrift.protocol.TProtocol r0;
+        org.apache.thrift.TBase r1;
+        org.apache.thrift.TUnion $r2;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleScheme;
+
+        r0 := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        r1 := @parameter1: org.apache.thrift.TBase;
+
+        $r2 = (org.apache.thrift.TUnion) r1;
+
+        virtualinvoke this.<org.apache.thrift.TUnion$TUnionTupleScheme: 'void' write(org.apache.thrift.protocol.TProtocol,org.apache.thrift.TUnion)>(r0, $r2);
+
+        return;
+    }
+
+    public volatile 'void' read(org.apache.thrift.protocol.TProtocol, org.apache.thrift.TBase) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TUnion$TUnionTupleScheme this;
+        org.apache.thrift.protocol.TProtocol r0;
+        org.apache.thrift.TBase r1;
+        org.apache.thrift.TUnion $r2;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleScheme;
+
+        r0 := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        r1 := @parameter1: org.apache.thrift.TBase;
+
+        $r2 = (org.apache.thrift.TUnion) r1;
+
+        virtualinvoke this.<org.apache.thrift.TUnion$TUnionTupleScheme: 'void' read(org.apache.thrift.protocol.TProtocol,org.apache.thrift.TUnion)>(r0, $r2);
+
+        return;
+    }
+
+    'void' <init>(org.apache.thrift.TUnion$1)
+    {
+        org.apache.thrift.TUnion$1 x0;
+        org.apache.thrift.TUnion$TUnionTupleScheme this;
+
+        this := @this: org.apache.thrift.TUnion$TUnionTupleScheme;
+
+        x0 := @parameter0: org.apache.thrift.TUnion$1;
+
+        specialinvoke this.<org.apache.thrift.TUnion$TUnionTupleScheme: 'void' <init>()>();
+
+        return;
+    }
+}

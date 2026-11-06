@@ -1,0 +1,1167 @@
+public class org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer extends java.lang.Object
+{
+    private final org.slf4j.Logger LOGGER;
+    protected final org.apache.thrift.transport.TNonblockingTransport trans_;
+    protected java.nio.channels.SelectionKey selectionKey_;
+    protected final org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread selectThread_;
+    protected org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_;
+    protected java.nio.ByteBuffer buffer_;
+    protected final org.apache.thrift.TByteArrayOutputStream response_;
+    protected final org.apache.thrift.transport.TMemoryInputTransport frameTrans_;
+    protected final org.apache.thrift.transport.TTransport inTrans_;
+    protected final org.apache.thrift.transport.TTransport outTrans_;
+    protected final org.apache.thrift.protocol.TProtocol inProt_;
+    protected final org.apache.thrift.protocol.TProtocol outProt_;
+    protected final org.apache.thrift.server.ServerContext context_;
+    final org.apache.thrift.server.AbstractNonblockingServer this$0;
+
+    public 'void' <init>(org.apache.thrift.server.AbstractNonblockingServer, org.apache.thrift.transport.TNonblockingTransport, java.nio.channels.SelectionKey, org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread) throws org.apache.thrift.transport.TTransportException
+    {
+        java.net.SocketAddress $r33;
+        org.apache.thrift.transport.SocketAddressProvider $r31;
+        org.apache.thrift.server.ServerContext $r28;
+        org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread selectThread;
+        java.nio.ByteBuffer $r4;
+        org.apache.thrift.transport.TMemoryInputTransport $r5;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r3;
+        org.apache.thrift.transport.TTransport $r11;
+        java.lang.String $r1;
+        org.apache.thrift.transport.TIOStreamTransport $r13;
+        'boolean' $z0;
+        org.slf4j.Logger $r2;
+        org.apache.thrift.TConfiguration $r7;
+        org.apache.thrift.server.AbstractNonblockingServer this$0;
+        org.apache.thrift.TByteArrayOutputStream $r8;
+        java.nio.channels.SelectionKey selectionKey;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        org.apache.thrift.protocol.TProtocolFactory $r18;
+        org.apache.thrift.transport.TNonblockingTransport trans;
+        org.apache.thrift.protocol.TProtocol $r20, $r27;
+        org.apache.thrift.server.TServerEventHandler $r24;
+        java.lang.Class $r0;
+        org.apache.thrift.transport.TTransportFactory $r9;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        this$0 := @parameter0: org.apache.thrift.server.AbstractNonblockingServer;
+
+        trans := @parameter1: org.apache.thrift.transport.TNonblockingTransport;
+
+        selectionKey := @parameter2: java.nio.channels.SelectionKey;
+
+        selectThread := @parameter3: org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0> = this$0;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER> = $r2;
+
+        $r3 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READING_FRAME_SIZE>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r3;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_> = trans;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_> = selectionKey;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread selectThread_> = selectThread;
+
+        $r4 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(4);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_> = $r4;
+
+        $r5 = new org.apache.thrift.transport.TMemoryInputTransport;
+
+        trans = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        $r7 = virtualinvoke trans.<org.apache.thrift.transport.TNonblockingTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        specialinvoke $r5.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r7);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TMemoryInputTransport frameTrans_> = $r5;
+
+        $r8 = new org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke $r8.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.TByteArrayOutputStream response_> = $r8;
+
+        $r9 = this$0.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.transport.TTransportFactory inputTransportFactory_>;
+
+        $r5 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TMemoryInputTransport frameTrans_>;
+
+        $r11 = virtualinvoke $r9.<org.apache.thrift.transport.TTransportFactory: org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport)>($r5);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TTransport inTrans_> = $r11;
+
+        $r9 = this$0.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.transport.TTransportFactory outputTransportFactory_>;
+
+        $r13 = new org.apache.thrift.transport.TIOStreamTransport;
+
+        trans = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        $r7 = virtualinvoke trans.<org.apache.thrift.transport.TNonblockingTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $r8 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.TByteArrayOutputStream response_>;
+
+        specialinvoke $r13.<org.apache.thrift.transport.TIOStreamTransport: 'void' <init>(org.apache.thrift.TConfiguration,java.io.OutputStream)>($r7, $r8);
+
+        $r11 = virtualinvoke $r9.<org.apache.thrift.transport.TTransportFactory: org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport)>($r13);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TTransport outTrans_> = $r11;
+
+        $r18 = this$0.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_>;
+
+        $r11 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TTransport inTrans_>;
+
+        $r20 = interfaceinvoke $r18.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>($r11);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol inProt_> = $r20;
+
+        $r18 = this$0.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_>;
+
+        $r11 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TTransport outTrans_>;
+
+        $r20 = interfaceinvoke $r18.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>($r11);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol outProt_> = $r20;
+
+        $r24 = this$0.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        if $r24 == null goto label3;
+
+        $r24 = this$0.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        $r20 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol inProt_>;
+
+        $r27 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol outProt_>;
+
+        $r28 = interfaceinvoke $r24.<org.apache.thrift.server.TServerEventHandler: org.apache.thrift.server.ServerContext createContext(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>($r20, $r27);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.ServerContext context_> = $r28;
+
+        trans = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        $z0 = trans instanceof org.apache.thrift.transport.SocketAddressProvider;
+
+        if $z0 == false goto label1;
+
+        trans = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        $r31 = (org.apache.thrift.transport.SocketAddressProvider) trans;
+
+        $r33 = interfaceinvoke $r31.<org.apache.thrift.transport.SocketAddressProvider: java.net.SocketAddress getRemoteSocketAddress()>();
+
+        goto label2;
+
+     label1:
+        $r33 = null;
+
+     label2:
+        $r28 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.ServerContext context_>;
+
+        interfaceinvoke $r28.<org.apache.thrift.server.ServerContext: 'void' setRemoteAddress(java.net.SocketAddress)>($r33);
+
+        goto label4;
+
+     label3:
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.ServerContext context_> = null;
+
+     label4:
+        return;
+    }
+
+    public 'void' setSelectionKey(java.nio.channels.SelectionKey)
+    {
+        java.nio.channels.SelectionKey selectionKey;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        selectionKey := @parameter0: java.nio.channels.SelectionKey;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_> = selectionKey;
+
+        return;
+    }
+
+    public final 'long' getReadBufferBytesAllocated()
+    {
+        java.util.concurrent.atomic.AtomicLong $r1;
+        org.apache.thrift.server.AbstractNonblockingServer $r0;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        'long' $l0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r1 = $r0.<org.apache.thrift.server.AbstractNonblockingServer: java.util.concurrent.atomic.AtomicLong readBufferBytesAllocated>;
+
+        $l0 = virtualinvoke $r1.<java.util.concurrent.atomic.AtomicLong: 'long' get()>();
+
+        return $l0;
+    }
+
+    public 'boolean' read()
+    {
+        java.lang.Object[] $r32;
+        'long' currentAllocated, $l4, $l9;
+        java.lang.Integer $r33;
+        java.nio.ByteBuffer $r2;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r0, $r1;
+        'byte' $b5;
+        java.lang.Long $r34;
+        'int' frameSize, $i1;
+        java.lang.String $r9;
+        'boolean' $z0;
+        org.slf4j.Logger $r4;
+        org.apache.thrift.server.AbstractNonblockingServer $r20;
+        java.nio.channels.SelectionKey $r45;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        java.util.concurrent.atomic.AtomicLong $r38;
+        org.apache.thrift.transport.TNonblockingTransport $r10;
+        java.lang.StringBuilder $r5;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READING_FRAME_SIZE>;
+
+        if $r0 != $r1 goto label07;
+
+        $z0 = specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'boolean' internalRead()>();
+
+        if $z0 != 0 goto label01;
+
+        return 0;
+
+     label01:
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        frameSize = virtualinvoke $r2.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if frameSize != 0 goto label06;
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        frameSize = virtualinvoke $r2.<java.nio.ByteBuffer: 'int' getInt('int')>(0);
+
+        if frameSize > 0 goto label02;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read an invalid frame size of ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(frameSize);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(". Are you using TFramedTransport on the client side?");
+
+        $r9 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' error(java.lang.String)>($r9);
+
+        return 0;
+
+     label02:
+        $r10 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        $i1 = virtualinvoke $r10.<org.apache.thrift.transport.TNonblockingTransport: 'int' getMaxFrameSize()>();
+
+        if frameSize <= $i1 goto label03;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read a frame size of ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(frameSize);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", which is bigger than the maximum allowable frame size ");
+
+        $r10 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        frameSize = virtualinvoke $r10.<org.apache.thrift.transport.TNonblockingTransport: 'int' getMaxFrameSize()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(frameSize);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" for ALL connections.");
+
+        $r9 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' error(java.lang.String)>($r9);
+
+        return 0;
+
+     label03:
+        currentAllocated = ('long') frameSize;
+
+        $r20 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $l4 = $r20.<org.apache.thrift.server.AbstractNonblockingServer: 'long' MAX_READ_BUFFER_BYTES>;
+
+        $b5 = currentAllocated cmp $l4;
+
+        $i1 = ('int') $b5;
+
+        if $i1 <= 0 goto label04;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read a frame size of ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(frameSize);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", which is bigger than the maximum read buffer memory ");
+
+        $r20 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        currentAllocated = $r20.<org.apache.thrift.server.AbstractNonblockingServer: 'long' MAX_READ_BUFFER_BYTES>;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>(currentAllocated);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" for ALL connections.");
+
+        $r9 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' error(java.lang.String)>($r9);
+
+        return 0;
+
+     label04:
+        currentAllocated = virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'long' getReadBufferBytesAllocated()>();
+
+        $l4 = ('long') frameSize;
+
+        $l4 = currentAllocated + $l4;
+
+        $r20 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $l9 = $r20.<org.apache.thrift.server.AbstractNonblockingServer: 'long' MAX_READ_BUFFER_BYTES>;
+
+        $b5 = $l4 cmp $l9;
+
+        $i1 = ('int') $b5;
+
+        if $i1 <= 0 goto label05;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        $r32 = newarray (java.lang.Object)[3];
+
+        $r33 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(frameSize);
+
+        $r32[0] = $r33;
+
+        $r34 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(currentAllocated);
+
+        $r32[1] = $r34;
+
+        $r20 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        currentAllocated = $r20.<org.apache.thrift.server.AbstractNonblockingServer: 'long' MAX_READ_BUFFER_BYTES>;
+
+        $r34 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(currentAllocated);
+
+        $r32[2] = $r34;
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' trace(java.lang.String,java.lang.Object[])>("Deferring reading frame of size {} because {} is already buffered and {} is the limit.", $r32);
+
+        specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' awaitReadBuffer('int')>(frameSize);
+
+        return 1;
+
+     label05:
+        $r20 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r38 = $r20.<org.apache.thrift.server.AbstractNonblockingServer: java.util.concurrent.atomic.AtomicLong readBufferBytesAllocated>;
+
+        $i1 = frameSize + 4;
+
+        currentAllocated = ('long') $i1;
+
+        virtualinvoke $r38.<java.util.concurrent.atomic.AtomicLong: 'long' addAndGet('long')>(currentAllocated);
+
+        $i1 = frameSize + 4;
+
+        $r2 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>($i1);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_> = $r2;
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        virtualinvoke $r2.<java.nio.ByteBuffer: java.nio.ByteBuffer putInt('int')>(frameSize);
+
+        $r0 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READING_FRAME>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r0;
+
+        goto label07;
+
+     label06:
+        return 1;
+
+     label07:
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READING_FRAME>;
+
+        if $r0 != $r1 goto label12;
+
+        $z0 = specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'boolean' internalRead()>();
+
+        if $z0 != 0 goto label08;
+
+        return 0;
+
+     label08:
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        frameSize = virtualinvoke $r2.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if frameSize != 0 goto label11;
+
+        $r45 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        $z0 = virtualinvoke $r45.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label09;
+
+        $r45 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        virtualinvoke $r45.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(0);
+
+        goto label10;
+
+     label09:
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' warn(java.lang.String)>("SelectionKey was invalidated during read");
+
+     label10:
+        $r0 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READ_FRAME_COMPLETE>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r0;
+
+     label11:
+        return 1;
+
+     label12:
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read was called but state is invalid (");
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r0);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r9 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' error(java.lang.String)>($r9);
+
+        return 0;
+    }
+
+    private 'void' awaitReadBuffer('int')
+    {
+        org.slf4j.Logger $r3;
+        org.apache.thrift.server.AbstractNonblockingServer $r4;
+        java.nio.channels.SelectionKey $r1;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        java.util.Set $r5;
+        'long' $l0, $l1;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r0;
+        'byte' $b4;
+        'int' frameSize;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        frameSize := @parameter0: 'int';
+
+        $r0 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState AWAITING_READ_BUFFER>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r0;
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        $z0 = virtualinvoke $r1.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label1;
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        virtualinvoke $r1.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(0);
+
+        goto label2;
+
+     label1:
+        $r3 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' warn(java.lang.String)>("SelectionKey was invalidated during read");
+
+     label2:
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r5 = staticinvoke <org.apache.thrift.server.AbstractNonblockingServer: java.util.Set access$000(org.apache.thrift.server.AbstractNonblockingServer)>($r4);
+
+        interfaceinvoke $r5.<java.util.Set: 'boolean' add(java.lang.Object)>(this);
+
+        $l0 = virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'long' getReadBufferBytesAllocated()>();
+
+        $l1 = ('long') frameSize;
+
+        $l0 = $l0 + $l1;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $l1 = $r4.<org.apache.thrift.server.AbstractNonblockingServer: 'long' MAX_READ_BUFFER_BYTES>;
+
+        $b4 = $l0 cmp $l1;
+
+        frameSize = ('int') $b4;
+
+        if frameSize > 0 goto label3;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r5 = staticinvoke <org.apache.thrift.server.AbstractNonblockingServer: java.util.Set access$000(org.apache.thrift.server.AbstractNonblockingServer)>($r4);
+
+        $z0 = interfaceinvoke $r5.<java.util.Set: 'boolean' remove(java.lang.Object)>(this);
+
+        if $z0 == false goto label3;
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' changeSelectInterests()>();
+
+     label3:
+        return;
+    }
+
+    public 'boolean' write()
+    {
+        org.slf4j.Logger $r4;
+        org.apache.thrift.transport.TTransportException e;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        java.nio.ByteBuffer $r3;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r0, $r1;
+        org.apache.thrift.transport.TNonblockingTransport $r2;
+        'int' $i0;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r12;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState WRITING>;
+
+        if $r0 != $r1 goto label6;
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        $r3 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+     label1:
+        $i0 = virtualinvoke $r2.<org.apache.thrift.transport.TNonblockingTransport: 'int' write(java.nio.ByteBuffer)>($r3);
+
+     label2:
+        if $i0 >= 0 goto label4;
+
+        return 0;
+
+     label3:
+        e := @caughtexception;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Got an Exception during write", e);
+
+        return 0;
+
+     label4:
+        $r3 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        $i0 = virtualinvoke $r3.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if $i0 != 0 goto label5;
+
+        specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' prepareRead()>();
+
+     label5:
+        return 1;
+
+     label6:
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Write was called, but state is invalid (");
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r0);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r12 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r4.<org.slf4j.Logger: 'void' error(java.lang.String)>($r12);
+
+        return 0;
+
+        catch org.apache.thrift.transport.TTransportException from label1 to label2 with label3;
+    }
+
+    public 'void' changeSelectInterests()
+    {
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r1;
+        org.slf4j.Logger $r5;
+        'int'[] $r0;
+        java.nio.channels.SelectionKey $r2;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        'int' $i0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = <org.apache.thrift.server.AbstractNonblockingServer$1: 'int'[] $SwitchMap$org$apache$thrift$server$AbstractNonblockingServer$FrameBufferState>;
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: 'int' ordinal()>();
+
+        $i0 = $r0[$i0];
+
+        tableswitch($i0)
+        {
+            case 1: goto label1;
+            case 2: goto label3;
+            case 3: goto label4;
+            case 4: goto label7;
+            default: goto label8;
+        };
+
+     label1:
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        $z0 = virtualinvoke $r2.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label2;
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        virtualinvoke $r2.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(4);
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState WRITING>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r1;
+
+        goto label9;
+
+     label2:
+        $r5 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' warn(java.lang.String)>("SelectionKey was invalidated before write");
+
+        goto label9;
+
+     label3:
+        specialinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' prepareRead()>();
+
+        goto label9;
+
+     label4:
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        $z0 = virtualinvoke $r2.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label5;
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        virtualinvoke $r2.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(1);
+
+        goto label6;
+
+     label5:
+        $r5 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' warn(java.lang.String)>("SelectionKey was invalidated before read");
+
+     label6:
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READING_FRAME_SIZE>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r1;
+
+        goto label9;
+
+     label7:
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' close()>();
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        virtualinvoke $r2.<java.nio.channels.SelectionKey: 'void' cancel()>();
+
+        goto label9;
+
+     label8:
+        $r5 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Object)>("changeSelectInterest was called, but state is invalid ({})", $r1);
+
+     label9:
+        return;
+    }
+
+    public 'void' close()
+    {
+        java.lang.Throwable $r16;
+        'byte'[] $r21;
+        org.apache.thrift.server.ServerContext $r12;
+        'long' $l2;
+        java.nio.ByteBuffer $r20;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r0, $r1;
+        'int' $i0;
+        org.apache.thrift.server.AbstractNonblockingServer $r8;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        java.util.Set $r9;
+        java.util.concurrent.atomic.AtomicLong $r19;
+        org.apache.thrift.server.TServerEventHandler $r11;
+        org.apache.thrift.protocol.TProtocol $r13, $r14;
+        org.apache.thrift.transport.TNonblockingTransport $r15;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READING_FRAME>;
+
+        if $r0 == $r1 goto label1;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READ_FRAME_COMPLETE>;
+
+        if $r0 == $r1 goto label1;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState AWAITING_CLOSE>;
+
+        if $r0 != $r1 goto label2;
+
+     label1:
+        $r8 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r19 = $r8.<org.apache.thrift.server.AbstractNonblockingServer: java.util.concurrent.atomic.AtomicLong readBufferBytesAllocated>;
+
+        $r20 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        $r21 = virtualinvoke $r20.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        $i0 = lengthof $r21;
+
+        $i0 = neg $i0;
+
+        $l2 = ('long') $i0;
+
+        virtualinvoke $r19.<java.util.concurrent.atomic.AtomicLong: 'long' addAndGet('long')>($l2);
+
+        $r8 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        staticinvoke <org.apache.thrift.server.AbstractNonblockingServer: 'void' access$100(org.apache.thrift.server.AbstractNonblockingServer)>($r8);
+
+        goto label3;
+
+     label2:
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState AWAITING_READ_BUFFER>;
+
+        if $r0 != $r1 goto label3;
+
+        $r8 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r9 = staticinvoke <org.apache.thrift.server.AbstractNonblockingServer: java.util.Set access$000(org.apache.thrift.server.AbstractNonblockingServer)>($r8);
+
+        interfaceinvoke $r9.<java.util.Set: 'boolean' remove(java.lang.Object)>(this);
+
+     label3:
+        $r8 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r11 = $r8.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        if $r11 == null goto label4;
+
+        $r8 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r11 = $r8.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        $r12 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.ServerContext context_>;
+
+        $r13 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol inProt_>;
+
+        $r14 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol outProt_>;
+
+        interfaceinvoke $r11.<org.apache.thrift.server.TServerEventHandler: 'void' deleteContext(org.apache.thrift.server.ServerContext,org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>($r12, $r13, $r14);
+
+     label4:
+        $r15 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        virtualinvoke $r15.<org.apache.thrift.transport.TNonblockingTransport: 'void' close()>();
+
+        goto label6;
+
+     label5:
+        $r16 := @caughtexception;
+
+        $r15 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        virtualinvoke $r15.<org.apache.thrift.transport.TNonblockingTransport: 'void' close()>();
+
+        throw $r16;
+
+     label6:
+        return;
+
+        catch java.lang.Throwable from label3 to label4 with label5;
+    }
+
+    public 'boolean' isFrameFullyRead()
+    {
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r0, $r1;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_>;
+
+        $r1 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READ_FRAME_COMPLETE>;
+
+        if $r0 != $r1 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'void' responseReady()
+    {
+        'byte'[] $r3;
+        org.apache.thrift.server.AbstractNonblockingServer $r0;
+        org.apache.thrift.TByteArrayOutputStream $r5;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        'long' $l2;
+        java.nio.ByteBuffer $r2;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r6;
+        java.util.concurrent.atomic.AtomicLong $r1;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r1 = $r0.<org.apache.thrift.server.AbstractNonblockingServer: java.util.concurrent.atomic.AtomicLong readBufferBytesAllocated>;
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        $r3 = virtualinvoke $r2.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        $i0 = lengthof $r3;
+
+        $i0 = neg $i0;
+
+        $l2 = ('long') $i0;
+
+        virtualinvoke $r1.<java.util.concurrent.atomic.AtomicLong: 'long' addAndGet('long')>($l2);
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        staticinvoke <org.apache.thrift.server.AbstractNonblockingServer: 'void' access$100(org.apache.thrift.server.AbstractNonblockingServer)>($r0);
+
+        $r5 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.TByteArrayOutputStream response_>;
+
+        $i0 = virtualinvoke $r5.<org.apache.thrift.TByteArrayOutputStream: 'int' len()>();
+
+        if $i0 != 0 goto label1;
+
+        $r6 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState AWAITING_REGISTER_READ>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r6;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_> = null;
+
+        goto label2;
+
+     label1:
+        $r5 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.TByteArrayOutputStream response_>;
+
+        $r3 = virtualinvoke $r5.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        $r5 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.TByteArrayOutputStream response_>;
+
+        $i0 = virtualinvoke $r5.<org.apache.thrift.TByteArrayOutputStream: 'int' len()>();
+
+        $r2 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>($r3, 0, $i0);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_> = $r2;
+
+        $r6 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState AWAITING_REGISTER_WRITE>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r6;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' requestSelectInterestChange()>();
+
+        return;
+    }
+
+    public 'void' invoke()
+    {
+        java.lang.Throwable te_2;
+        'byte'[] $r2;
+        org.apache.thrift.server.ServerContext $r8;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+        java.nio.ByteBuffer $r1;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r19;
+        org.apache.thrift.transport.TTransport $r9, $r10;
+        org.slf4j.Logger $r17;
+        org.apache.thrift.TByteArrayOutputStream $r3;
+        org.apache.thrift.server.AbstractNonblockingServer $r4;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        org.apache.thrift.TException te_1;
+        org.apache.thrift.TProcessorFactory $r12;
+        org.apache.thrift.server.TServerEventHandler $r5;
+        org.apache.thrift.protocol.TProtocol $r15, $r16;
+        org.apache.thrift.TProcessor $r14;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TMemoryInputTransport frameTrans_>;
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+        $r2 = virtualinvoke $r1.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[])>($r2);
+
+        $r3 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.TByteArrayOutputStream response_>;
+
+        virtualinvoke $r3.<org.apache.thrift.TByteArrayOutputStream: 'void' reset()>();
+
+     label1:
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r5 = $r4.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        if $r5 == null goto label3;
+
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r5 = $r4.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        $r8 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.ServerContext context_>;
+
+        $r9 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TTransport inTrans_>;
+
+        $r10 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TTransport outTrans_>;
+
+     label2:
+        interfaceinvoke $r5.<org.apache.thrift.server.TServerEventHandler: 'void' processContext(org.apache.thrift.server.ServerContext,org.apache.thrift.transport.TTransport,org.apache.thrift.transport.TTransport)>($r8, $r9, $r10);
+
+     label3:
+        $r4 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer this$0>;
+
+        $r12 = $r4.<org.apache.thrift.server.AbstractNonblockingServer: org.apache.thrift.TProcessorFactory processorFactory_>;
+
+        $r9 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TTransport inTrans_>;
+
+        $r14 = virtualinvoke $r12.<org.apache.thrift.TProcessorFactory: org.apache.thrift.TProcessor getProcessor(org.apache.thrift.transport.TTransport)>($r9);
+
+        $r15 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol inProt_>;
+
+        $r16 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.protocol.TProtocol outProt_>;
+
+        interfaceinvoke $r14.<org.apache.thrift.TProcessor: 'void' process(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>($r15, $r16);
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' responseReady()>();
+
+     label4:
+        return;
+
+     label5:
+        te_1 := @caughtexception;
+
+        $r17 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r17.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Exception while invoking!", te_1);
+
+        goto label7;
+
+     label6:
+        te_2 := @caughtexception;
+
+        $r17 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r17.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Unexpected throwable while invoking!", te_2);
+
+     label7:
+        $r19 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState AWAITING_CLOSE>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r19;
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' requestSelectInterestChange()>();
+
+        return;
+
+        catch org.apache.thrift.TException from label2 to label4 with label5;
+        catch java.lang.Throwable from label1 to label4 with label6;
+    }
+
+    private 'boolean' internalRead()
+    {
+        org.slf4j.Logger $r2;
+        org.apache.thrift.transport.TNonblockingTransport $r0;
+        org.apache.thrift.transport.TTransportException e;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        'int' $i0;
+        java.nio.ByteBuffer $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.transport.TNonblockingTransport trans_>;
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_>;
+
+     label1:
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TNonblockingTransport: 'int' read(java.nio.ByteBuffer)>($r1);
+
+     label2:
+        if $i0 < 0 goto label3;
+
+        $z0 = 1;
+
+        goto label4;
+
+     label3:
+        $z0 = 0;
+
+     label4:
+        return $z0;
+
+     label5:
+        e := @caughtexception;
+
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Got an Exception in internalRead", e);
+
+        return 0;
+
+        catch org.apache.thrift.transport.TTransportException from label1 to label2 with label5;
+    }
+
+    private 'void' prepareRead()
+    {
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState $r4;
+        org.slf4j.Logger $r2;
+        java.nio.channels.SelectionKey $r0;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        java.nio.ByteBuffer $r3;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        $z0 = virtualinvoke $r0.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label1;
+
+        $r0 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.channels.SelectionKey selectionKey_>;
+
+        virtualinvoke $r0.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(1);
+
+        goto label2;
+
+     label1:
+        $r2 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String)>("SelectionKey was invalidated before read");
+
+     label2:
+        $r3 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(4);
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: java.nio.ByteBuffer buffer_> = $r3;
+
+        $r4 = <org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState READING_FRAME_SIZE>;
+
+        this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$FrameBufferState state_> = $r4;
+
+        return;
+    }
+
+    protected 'void' requestSelectInterestChange()
+    {
+        org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread $r1;
+        org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer this;
+        java.lang.Thread $r0;
+
+        this := @this: org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer;
+
+        $r0 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread selectThread_>;
+
+        if $r0 != $r1 goto label1;
+
+        virtualinvoke this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: 'void' changeSelectInterests()>();
+
+        goto label2;
+
+     label1:
+        $r1 = this.<org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer: org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread selectThread_>;
+
+        virtualinvoke $r1.<org.apache.thrift.server.AbstractNonblockingServer$AbstractSelectThread: 'void' requestSelectInterestChange(org.apache.thrift.server.AbstractNonblockingServer$FrameBuffer)>(this);
+
+     label2:
+        return;
+    }
+}

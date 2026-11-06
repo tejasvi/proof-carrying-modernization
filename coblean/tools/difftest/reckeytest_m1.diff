@@ -1,0 +1,20 @@
+--- parser.py
++++ parser.py
+@@ -306,7 +306,7 @@
+                 f.access = ts.expect_word("SEQUENTIAL", "RANDOM", "DYNAMIC").val
+             elif t.is_word("RECORD") and not ts.at_word("DELIMITER"):
+                 # RECORD [KEY] [IS] data-name (IBM: KEY and IS are optional words)
+-                ts.accept_word("KEY")
++                f.mut_nokey = ts.accept_word("KEY") is None
+                 ts.accept_word("IS")
+                 f.key = self.qualname()
+             elif t.is_word("ALTERNATE"):
+@@ -332,6 +332,8 @@
+             # other clauses (RESERVE, PADDING CHARACTER, RECORD DELIMITER, LOCK MODE, SHARING) only
+             # concern media and concurrent access, which the model does not observe
+         ts.expect_kind("PERIOD")
++        if getattr(f, "mut_nokey", False) and f.alt_keys:
++            f.key = f.alt_keys[0][0]
+         self.files[f.name] = f
+ 
+     def qualname(self):

@@ -1,0 +1,14 @@
+interface  Shape extends java.lang.Object
+{
+
+    public abstract 'double' area();
+
+    public java.lang.String kind()
+    {
+        Shape r0;
+
+        r0 := @this: Shape;
+
+        return "shape";
+    }
+}

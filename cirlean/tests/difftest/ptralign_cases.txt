@@ -1,0 +1,31 @@
+# Pointer conversions and alignment (ptralign.c, ptralignx.cpp). In C a pointer converted to a pointer to an object
+# type it is not correctly aligned for is undefined, used or not (C11 6.3.2.3p7); cirlean takes a complete object to
+# be aligned for every type, as malloc's storage is, and checks the converted pointer's byte position in it. In C++
+# the value of such a pointer is unspecified ([expr.static.cast]p13), and cirlean keeps the pointer. Each case is
+# labelled with its expected outcome on the line above it: MATCH, or UB from cirrun.
+# expect UB: C, an int pointer one byte into an int array, not used (soundness audit M11)
+ptralign a_misaligned_int 0
+# expect MATCH: C, an int pointer at byte 4 of an int array, read
+ptralign a_aligned_int 0
+# expect MATCH: C, a char pointer one byte in, through void * and back
+ptralign a_char_roundtrip 0
+# expect MATCH: C, a short pointer at byte 2 of a char array
+ptralign a_short_even 0
+# expect UB: C, an int pointer one byte into malloc's storage of ints
+ptralign a_malloc_plus1 0
+# expect MATCH: C, an int pointer four bytes into malloc's storage of ints, written, read as element 1
+ptralign a_malloc_plus4 0
+# expect UB: C, a pointer to a structure of alignment 4 at byte 2 of an array of them
+ptralign a_struct_odd 0
+# expect MATCH: C, a double pointer at a structure's double member, written through
+ptralign a_double_member 0
+# expect UB: C, a double pointer four bytes into a double array
+ptralign a_misaligned_double 0
+# expect MATCH: C, an int pointer one past the end of an int array, from a char pointer
+ptralign a_one_past 0
+# expect MATCH: C++, an int pointer one byte into an int array by reinterpret_cast, not used (unspecified value)
+ptralignx x_misaligned_int 0
+# expect MATCH: C++, the same through void * and static_cast
+ptralignx x_misaligned_static 0
+# expect MATCH: C++, an aligned conversion, read
+ptralignx x_aligned_int 0

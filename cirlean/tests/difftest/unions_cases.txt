@@ -1,0 +1,103 @@
+# Union type punning (unions.cpp): a read of another member reinterprets the stored bytes (C11 6.5.2.3, footnote 95):
+# a scalar of the same size directly, others composed from the bytes (6.5p7), aggregates member by member. Each case
+# is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun (pointer members, whose bytes
+# are not modelled; a member larger than the one stored, whose other bytes are unspecified; NaN bit patterns: `Float`
+# has a single NaN, without sign or payload).
+# expect MATCH: double -> uint64 (gdouble -> guint64, Thrift's bitwise cast)
+unions t_d2u64 0
+# expect MATCH: double -> uint64 (gdouble -> guint64)
+unions t_d2u64 13
+# expect MATCH: double -> uint64 (gdouble -> guint64), negative value
+unions t_d2u64 -7
+# expect MATCH: uint64 -> double (guint64 -> gdouble, Thrift's bitwise cast)
+unions t_u642d 0
+# expect MATCH: uint64 -> double (guint64 -> gdouble)
+unions t_u642d 5
+# expect MATCH: uint64 -> double (guint64 -> gdouble)
+unions t_u642d 4095
+# expect MATCH: double -> uint64 -> double round trip
+unions t_d_rt 1
+# expect MATCH: double -> uint64 -> double round trip
+unions t_d_rt 10
+# expect MATCH: double -> uint64 -> double round trip, -0.0
+unions t_d_rt 0
+# expect MATCH: uint64 -> double -> uint64, subnormal
+unions t_d_bits 5 0
+# expect MATCH: uint64 -> double -> uint64, +0.0
+unions t_d_bits 0 0
+# expect MATCH: uint64 -> double -> uint64, +infinity
+unions t_d_bits 0 2047
+# expect MATCH: uint64 -> double -> uint64, normal
+unions t_d_bits 77 1023
+# expect MATCH: uint64 -> double -> uint64, negative normal
+unions t_d_bits 3 3071
+# expect MATCH: float -> uint32
+unions t_f2u32 0
+# expect MATCH: float -> uint32
+unions t_f2u32 6
+# expect MATCH: float -> uint32, negative value
+unions t_f2u32 -9
+# expect MATCH: uint32 -> float
+unions t_u322f 0
+# expect MATCH: uint32 -> float
+unions t_u322f 3
+# expect MATCH: uint32 -> float
+unions t_u322f 2047
+# expect MATCH: uint32 -> float -> uint32, subnormal
+unions t_f_bits 5 0
+# expect MATCH: uint32 -> float -> uint32, -0.0f
+unions t_f_bits 0 256
+# expect MATCH: uint32 -> float -> uint32, +infinity
+unions t_f_bits 0 255
+# expect MATCH: uint32 -> float -> uint32, normal
+unions t_f_bits 77 130
+# expect MATCH: uint32 -> float -> uint32, negative normal
+unions t_f_bits 9 384
+# expect MATCH: int32 -> float
+unions t_i2f 0
+# expect MATCH: int32 -> float
+unions t_i2f 3
+# expect MATCH: int32 -> float, negative int (sign bit)
+unions t_i2f 524288
+# expect MATCH: float -> int32, negative float
+unions t_f2i 0
+# expect MATCH: float -> int32
+unions t_f2i 7
+# expect MATCH: float -> int32, negative float
+unions t_f2i -9
+# expect MATCH: int32 -> uint32
+unions t_i2u32 5
+# expect MATCH: int32 -> uint32, -1
+unions t_i2u32 -1
+# expect MATCH: int32 -> uint32, INT_MIN
+unions t_i2u32 -2147483648
+# expect MATCH: uint32 -> int32
+unions t_u2i32 1
+# expect MATCH: uint32 -> int32, above INT_MAX
+unions t_u2i32 1000000000
+# expect MATCH: 1-byte union, signed char -> unsigned char
+unions t_byte 65
+# expect MATCH: 1-byte union, signed char -> unsigned char, -1
+unions t_byte -1
+# expect MATCH: 1-byte union, signed char -> unsigned char, 200 (-56)
+unions t_byte 200
+# expect UB (as before): pointer member, int* written, uintptr_t read
+unions u_ptr_uintptr 1
+# expect UB (as before): pointer member, uintptr_t written, int* read
+unions u_uintptr_ptr 0
+# expect UB (as before): a larger member, int written, long long read (its other bytes unspecified)
+unions u_int_ll 7
+# expect UB (as before): a larger member, float written, double read (its other bytes unspecified)
+unions u_float_double 3
+# expect MATCH: aggregate, struct member written, long long member read (composed from the two ints)
+unions u_struct_ll 5
+# expect MATCH: aggregate, long long written, struct member's int read (the low half)
+unions u_ll_struct 5
+# expect UB: NaN bits, uint64 -> double -> uint64 of a NaN pattern
+unions t_d_bits 1 2047
+# expect UB: NaN bits, uint64 -> double -> uint64 of a negative NaN pattern
+unions t_d_bits 12345 4095
+# expect UB: NaN bits, uint32 -> float -> uint32 of a NaN pattern
+unions t_f_bits 1 255
+# expect UB: NaN bits, uint32 -> float -> uint32 of a negative quiet NaN pattern
+unions t_f_bits 4194305 511

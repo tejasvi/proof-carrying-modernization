@@ -1,0 +1,330 @@
+public abstract class org.apache.thrift.transport.TEndpointTransport extends org.apache.thrift.transport.TTransport
+{
+    protected 'long' knownMessageSize;
+    protected 'long' remainingMessageSize;
+    private org.apache.thrift.TConfiguration _configuration;
+
+    protected 'long' getMaxMessageSize()
+    {
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TEndpointTransport this;
+        'int' $i0;
+        'long' $l1;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.TConfiguration: 'int' getMaxMessageSize()>();
+
+        $l1 = ('long') $i0;
+
+        return $l1;
+    }
+
+    public 'int' getMaxFrameSize()
+    {
+        'int' $i0;
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TEndpointTransport this;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+        return $i0;
+    }
+
+    public 'void' setMaxFrameSize('int')
+    {
+        'int' maxFrameSize;
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TEndpointTransport this;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        maxFrameSize := @parameter0: 'int';
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        virtualinvoke $r0.<org.apache.thrift.TConfiguration: 'void' setMaxFrameSize('int')>(maxFrameSize);
+
+        return;
+    }
+
+    public 'void' setMaxMessageSize('int')
+    {
+        'int' maxMessageSize;
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TEndpointTransport this;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        maxMessageSize := @parameter0: 'int';
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        virtualinvoke $r0.<org.apache.thrift.TConfiguration: 'void' setMaxMessageSize('int')>(maxMessageSize);
+
+        return;
+    }
+
+    public org.apache.thrift.TConfiguration getConfiguration()
+    {
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TEndpointTransport this;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TEndpointTransport: org.apache.thrift.TConfiguration _configuration>;
+
+        return $r0;
+    }
+
+    public 'void' <init>(org.apache.thrift.TConfiguration) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.TConfiguration config, $r1;
+        org.apache.thrift.transport.TEndpointTransport this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransport: 'void' <init>()>();
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>(config);
+
+        if $z0 == false goto label1;
+
+        $r1 = new org.apache.thrift.TConfiguration;
+
+        config = $r1;
+
+        specialinvoke $r1.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+     label1:
+        this.<org.apache.thrift.transport.TEndpointTransport: org.apache.thrift.TConfiguration _configuration> = config;
+
+        virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' resetConsumedMessageSize('long')>(-1L);
+
+        return;
+    }
+
+    protected 'void' resetConsumedMessageSize('long') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TEndpointTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+        'long' newSize, $l3;
+        'byte' $b0;
+        'int' $i6;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        newSize := @parameter0: 'long';
+
+        $b0 = newSize cmp 0L;
+
+        $i6 = ('int') $b0;
+
+        if $i6 >= 0 goto label1;
+
+        newSize = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'long' getMaxMessageSize()>();
+
+        this.<org.apache.thrift.transport.TEndpointTransport: 'long' knownMessageSize> = newSize;
+
+        newSize = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'long' getMaxMessageSize()>();
+
+        this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize> = newSize;
+
+        return;
+
+     label1:
+        $l3 = this.<org.apache.thrift.transport.TEndpointTransport: 'long' knownMessageSize>;
+
+        $b0 = newSize cmp $l3;
+
+        $i6 = ('int') $b0;
+
+        if $i6 <= 0 goto label2;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Message size exceeds limit: ");
+
+        newSize = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'long' getMaxMessageSize()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>(newSize);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(6, $r4);
+
+        throw $r0;
+
+     label2:
+        this.<org.apache.thrift.transport.TEndpointTransport: 'long' knownMessageSize> = newSize;
+
+        this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize> = newSize;
+
+        return;
+    }
+
+    public 'void' resetMessageSizeAndConsumedBytes('long') throws org.apache.thrift.transport.TTransportException
+    {
+        'long' newSize;
+        org.apache.thrift.transport.TEndpointTransport this;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        newSize := @parameter0: 'long';
+
+        virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' resetConsumedMessageSize('long')>(newSize);
+
+        return;
+    }
+
+    public 'void' updateKnownMessageSize('long') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte' $b2;
+        org.apache.thrift.transport.TEndpointTransport this;
+        'long' size, consumed, $l1;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        size := @parameter0: 'long';
+
+        consumed = this.<org.apache.thrift.transport.TEndpointTransport: 'long' knownMessageSize>;
+
+        $l1 = this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize>;
+
+        consumed = consumed - $l1;
+
+        $b2 = size cmp 0L;
+
+        if $b2 != 0 goto label1;
+
+        size = -1L;
+
+     label1:
+        virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' resetConsumedMessageSize('long')>(size);
+
+        virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' countConsumedMessageBytes('long')>(consumed);
+
+        return;
+    }
+
+    public 'void' checkReadBytesAvailable('long') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TEndpointTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+        'long' numBytes, $l0;
+        'byte' $b1;
+        'int' $i4;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        numBytes := @parameter0: 'long';
+
+        $l0 = this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize>;
+
+        $b1 = $l0 cmp numBytes;
+
+        $i4 = ('int') $b1;
+
+        if $i4 < 0 goto label1;
+
+        $b1 = numBytes cmp 0L;
+
+        $i4 = ('int') $b1;
+
+        if $i4 >= 0 goto label2;
+
+     label1:
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Message size exceeds limit: ");
+
+        numBytes = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'long' getMaxMessageSize()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>(numBytes);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(6, $r4);
+
+        throw $r0;
+
+     label2:
+        return;
+    }
+
+    protected 'void' countConsumedMessageBytes('long') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TEndpointTransport this;
+        org.apache.thrift.transport.TTransportException $r0;
+        'long' numBytes, $l0;
+        'byte' $b1;
+        'int' $i5;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r4;
+
+        this := @this: org.apache.thrift.transport.TEndpointTransport;
+
+        numBytes := @parameter0: 'long';
+
+        $l0 = this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize>;
+
+        $b1 = $l0 cmp numBytes;
+
+        $i5 = ('int') $b1;
+
+        if $i5 < 0 goto label1;
+
+        $l0 = this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize>;
+
+        numBytes = $l0 - numBytes;
+
+        this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize> = numBytes;
+
+        goto label2;
+
+     label1:
+        this.<org.apache.thrift.transport.TEndpointTransport: 'long' remainingMessageSize> = 0L;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Message size exceeds limit: ");
+
+        numBytes = virtualinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'long' getMaxMessageSize()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>(numBytes);
+
+        $r4 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(6, $r4);
+
+        throw $r0;
+
+     label2:
+        return;
+    }
+}

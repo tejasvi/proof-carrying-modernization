@@ -1,0 +1,13 @@
+public interface  org.apache.thrift.transport.sasl.FrameHeaderReader extends java.lang.Object
+{
+
+    public abstract 'int' payloadSize();
+
+    public abstract 'byte'[] toBytes();
+
+    public abstract 'boolean' isComplete();
+
+    public abstract 'void' clear();
+
+    public abstract 'boolean' read(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.sasl.TSaslNegotiationException, org.apache.thrift.transport.TTransportException;
+}

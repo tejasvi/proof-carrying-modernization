@@ -1,0 +1,1 @@
+RESULT: 0 JUSTIFIED items in the 11 IR files of the twelve theorem programs (8 standalone migration programs, CBSTM03A+CBSTM03B linked in cbstm03ab, CSUTLDTC pin, COBSWAIT pin); every item carries the just field. Independently reproduced with jq by claims audit v30 (item 12).

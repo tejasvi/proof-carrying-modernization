@@ -1,0 +1,1509 @@
+{"tally": {"mismatch:G-dup21": 25, "mismatch:G-extend": 4, "mismatch:G-open41": 1, "mismatch:G-rw21": 8, "mismatch:G-rwalt": 2, "ok": 156, "ok-abend": 4}, "exclude": []}
+--- F00005 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/random",
+  "XF2 indexed/sequential",
+  "XF3 indexed/sequential+alt"
+ ],
+ "statement": 23,
+ "line": 142,
+ "cobol": [
+  "MOVE 'K085DM' TO XF2-R",
+  "WRITE XF2-R",
+  "END-WRITE",
+  "MOVE XF2-S TO TRC(76:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#2 L66: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#5 L72: DELETE XF2 RECORD  [model 49 gnu 49]",
+  "#8 L85: MOVE 'K06HR1' TO XF2-R / REWRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(27:1)  [model 49 gnu 49]",
+  "#9 L89: OPEN EXTEND XF2  [model 41 gnu 41]",
+  "#20 L127: MOVE 'K08793' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(63:1) / NOT INVALID KEY MOVE 'N' TO TRC(63:1)  [model 00N gnu 00N]",
+  "#23 L142: MOVE 'K085DM' TO XF2-R / WRITE XF2-R  [model 22 gnu 21]"
+ ]
+}
+--- F00010 mismatch:G-rw21
+{
+ "files": [
+  "XF1 indexed/random"
+ ],
+ "statement": 12,
+ "line": 76,
+ "cobol": [
+  "MOVE 'K023XE' TO XF1-R",
+  "REWRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(45:1)",
+  "END-REWRITE",
+  "MOVE XF1-S TO TRC(43:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "23",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "23E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L30: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L33: MOVE 'K04JA7' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(6:1)  [model 00 gnu 00]",
+  "#2 L38: MOVE 'K04GSO' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(9:1)  [model 22E gnu 22E]",
+  "#3 L43: MOVE 'K07RQT' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(12:1)  [model 00 gnu 00]",
+  "#4 L48: MOVE 'K07CCK' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(15:1)  [model 22E gnu 22E]",
+  "#5 L53: MOVE 'K05ABP' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 00 gnu 00]",
+  "#6 L57: MOVE 'K06SFH' TO XF1-R / REWRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(21:1)  [model 49 gnu 49]",
+  "#7 L61: CLOSE XF1  [model 00 gnu 00]",
+  "#8 L63: OPEN I-O XF1  [model 00 gnu 00]",
+  "#9 L65: CLOSE XF1  [model 00 gnu 00]",
+  "#10 L67: OPEN I-O XF1  [model 00 gnu 00]",
+  "#11 L70: MOVE 'K05' TO XF1-K / READ XF1 KEY IS XF1-K / INVALID KEY MOVE 'E' TO TRC(36:1)  [model 00 gnu 00]",
+  "#12 L76: MOVE 'K023XE' TO XF1-R / REWRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(45:1)  [model 23E gnu 21E]"
+ ]
+}
+--- F00013 mismatch:G-rw21
+{
+ "files": [
+  "XF1 sequential",
+  "XF2 indexed/random",
+  "XF3 sequential"
+ ],
+ "statement": 17,
+ "line": 112,
+ "cobol": [
+  "MOVE 'K03MH0' TO XF2-R",
+  "REWRITE XF2-R",
+  "INVALID KEY MOVE 'E' TO TRC(78:1)",
+  "END-REWRITE",
+  "MOVE XF2-S TO TRC(76:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "23",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "23E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#1 L54: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#2 L57: MOVE 'K06EM0' TO XF2-R / WRITE XF2-R / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#3 L62: MOVE 'K05G6Y' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(12:1)  [model 00 gnu 00]",
+  "#5 L69: MOVE 'K06' TO XF2-K / DELETE XF2 RECORD  [model 49 gnu 49]",
+  "#6 L72: CLOSE XF2  [model 00 gnu 00]",
+  "#7 L74: CLOSE XF2  [model 42 gnu 42]",
+  "#13 L96: OPEN I-O XF2  [model 00 gnu 00]",
+  "#16 L107: MOVE 'K06' TO XF2-K / READ XF2 KEY IS XF2-K  [model 00 gnu 00]",
+  "#17 L112: MOVE 'K03MH0' TO XF2-R / REWRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(78:1)  [model 23E gnu 21E]"
+ ]
+}
+--- F00023 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/sequential+alt"
+ ],
+ "statement": 5,
+ "line": 63,
+ "cobol": [
+  "MOVE 'K08A12VC' TO XF2-W",
+  "WRITE XF2-R FROM XF2-W",
+  "END-WRITE",
+  "MOVE XF2-S TO TRC(22:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L45: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#1 L48: MOVE 'K08A2XQS' TO XF2-R / WRITE XF2-R  [model 00 gnu 00]",
+  "#4 L59: MOVE 'K03A3Q1R' TO XF2-R / WRITE XF2-R  [model 21 gnu 21]",
+  "#5 L63: MOVE 'K08A12VC' TO XF2-W / WRITE XF2-R FROM XF2-W  [model 22 gnu 21]"
+ ]
+}
+--- F00033 mismatch:G-extend
+{
+ "files": [
+  "XF1 indexed/sequential"
+ ],
+ "statement": 20,
+ "line": 113,
+ "cobol": [
+  "MOVE 'K078EP' TO XF1-W",
+  "WRITE XF1-R FROM XF1-W",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(91:2)"
+ ],
+ "gnucobol": {
+  "status": "00",
+  "marker": " "
+ },
+ "lean": {
+  "status": "21",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "21",
+  "gnucobol": "00"
+ },
+ "file history": [
+  "#0 L30: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L33: MOVE 'K07M01' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(6:1) / NOT INVALID KEY MOVE 'N' TO TRC(6:1)  [model 00N gnu 00N]",
+  "#2 L38: CLOSE XF1  [model 00 gnu 00]",
+  "#3 L40: OPEN I-O XF1  [model 00 gnu 00]",
+  "#4 L42: DELETE XF1 RECORD  [model 43 gnu 43]",
+  "#5 L45: READ XF1 NEXT RECORD INTO XF1-I / NOT AT END MOVE 'N' TO TRC(18:1)  [model 00N gnu 00N]",
+  "#6 L52: MOVE 'K078SY' TO XF1-W / REWRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(33:1) / NOT INVALID KEY MOVE 'N' TO TRC(33:1)  [model 00N gnu 00N]",
+  "#7 L58: MOVE 'K05UHG' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(36:1) / NOT INVALID KEY MOVE 'N' TO TRC(36:1)  [model 48 gnu 48]",
+  "#8 L63: READ XF1 INTO XF1-I  [model 10 gnu 10]",
+  "#9 L68: CLOSE XF1  [model 00 gnu 00]",
+  "#10 L70: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#11 L73: MOVE 'K03M3R' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(60:1) / NOT INVALID KEY MOVE 'N' TO TRC(60:1)  [model 00N gnu 00N]",
+  "#12 L79: MOVE 'K08DQP' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(63:1)  [model 00N gnu 00N]",
+  "#13 L84: MOVE 'K04BN5' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(66:1)  [model 21 gnu 21]",
+  "#14 L89: MOVE 'K03FN3' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(69:1)  [model 21E gnu 21E]",
+  "#15 L93: CLOSE XF1  [model 00 gnu 00]",
+  "#16 L96: MOVE 'K01ZMW' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(75:1)  [model 48 gnu 48]",
+  "#17 L101: MOVE 'K03ELP' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 48 gnu 48]",
+  "#18 L104: READ XF1 NEXT RECORD / AT END MOVE 'E' TO TRC(81:1) / NOT AT END MOVE 'N' TO TRC(81:1)  [model 47 gnu 47]",
+  "#19 L110: OPEN EXTEND XF1  [model 00 gnu 00]",
+  "#20 L113: MOVE 'K078EP' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 21 gnu 00]"
+ ]
+}
+--- F00038 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt"
+ ],
+ "statement": 5,
+ "line": 53,
+ "cobol": [
+  "MOVE 'K08A57JR' TO XF1-R",
+  "WRITE XF1-R",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(24:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L32: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L34: OPEN I-O XF1  [model 41 gnu 41]",
+  "#2 L37: MOVE 'K08A3R9C' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(9:1) / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#3 L43: MOVE 'K05A55OQ' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(12:1)  [model 21E gnu 21E]",
+  "#4 L47: READ XF1 / AT END MOVE 'E' TO TRC(15:1)  [model 47 gnu 47]",
+  "#5 L53: MOVE 'K08A57JR' TO XF1-R / WRITE XF1-R  [model 22 gnu 21]"
+ ]
+}
+--- F00041 mismatch:G-rw21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 sequential",
+  "XF3 indexed/random"
+ ],
+ "statement": 8,
+ "line": 77,
+ "cobol": [
+  "MOVE 'K08CZZ' TO XF3-R",
+  "REWRITE XF3-R",
+  "END-REWRITE",
+  "MOVE XF3-S TO TRC(37:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "23",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "23",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#4 L64: OPEN OUTPUT XF3  [model 00 gnu 00]",
+  "#6 L72: CLOSE XF3  [model 00 gnu 00]",
+  "#7 L74: OPEN I-O XF3  [model 00 gnu 00]",
+  "#8 L77: MOVE 'K08CZZ' TO XF3-R / REWRITE XF3-R  [model 23 gnu 21]"
+ ]
+}
+--- F00047 mismatch:G-rw21
+{
+ "files": [
+  "XF1 indexed/random"
+ ],
+ "statement": 17,
+ "line": 98,
+ "cobol": [
+  "MOVE 'K02X47' TO XF1-R",
+  "REWRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(60:1)",
+  "END-REWRITE",
+  "MOVE XF1-S TO TRC(58:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "23",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "23E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L30: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L33: MOVE 'K08Z8I' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 00 gnu 00]",
+  "#2 L37: MOVE 'K08D6I' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(9:1)  [model 22E gnu 22E]",
+  "#3 L42: MOVE 'K08M7R' TO XF1-R / WRITE XF1-R  [model 22 gnu 22]",
+  "#4 L46: MOVE 'K08' TO XF1-K / READ XF1 KEY IS XF1-K  [model 47 gnu 47]",
+  "#5 L50: CLOSE XF1  [model 00 gnu 00]",
+  "#6 L52: OPEN EXTEND XF1  [model 00 gnu 00]",
+  "#7 L55: MOVE 'K07NK1' TO XF1-R / WRITE XF1-R  [model 48 gnu 48]",
+  "#8 L59: MOVE 'K08GMV' TO XF1-R / WRITE XF1-R  [model 48 gnu 48]",
+  "#9 L63: MOVE 'K08EXP' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(36:1)  [model 48 gnu 48]",
+  "#10 L68: MOVE 'K08P0T' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(39:1) / NOT INVALID KEY MOVE 'N' TO TRC(39:1)  [model 48 gnu 48]",
+  "#11 L74: MOVE 'K04MCM' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(42:1)  [model 48 gnu 48]",
+  "#12 L79: MOVE 'K0492I' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 48 gnu 48]",
+  "#13 L83: MOVE 'K08OSS' TO XF1-W / REWRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(48:1) / NOT INVALID KEY MOVE 'N' TO TRC(48:1)  [model 49 gnu 49]",
+  "#14 L89: MOVE 'K05RCU' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(51:1)  [model 48 gnu 48]",
+  "#15 L93: CLOSE XF1  [model 00 gnu 00]",
+  "#16 L95: OPEN I-O XF1  [model 00 gnu 00]",
+  "#17 L98: MOVE 'K02X47' TO XF1-R / REWRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(60:1)  [model 23E gnu 21E]"
+ ]
+}
+--- F00053 mismatch:G-rw21
+{
+ "files": [
+  "XF1 indexed/sequential+alt",
+  "XF2 indexed/random"
+ ],
+ "statement": 17,
+ "line": 101,
+ "cobol": [
+  "MOVE 'K04LG5' TO XF2-R",
+  "REWRITE XF2-R",
+  "NOT INVALID KEY MOVE 'N' TO TRC(54:1)",
+  "END-REWRITE",
+  "MOVE XF2-S TO TRC(52:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "23",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "23",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#3 L55: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#7 L74: CLOSE XF2  [model 00 gnu 00]",
+  "#10 L83: CLOSE XF2  [model 42 gnu 42]",
+  "#16 L98: OPEN I-O XF2  [model 00 gnu 00]",
+  "#17 L101: MOVE 'K04LG5' TO XF2-R / REWRITE XF2-R / NOT INVALID KEY MOVE 'N' TO TRC(54:1)  [model 23 gnu 21]"
+ ]
+}
+--- F00060 mismatch:G-rw21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/random",
+  "XF3 indexed/random+alt"
+ ],
+ "statement": 4,
+ "line": 67,
+ "cobol": [
+  "MOVE 'K06WWC' TO XF2-W",
+  "REWRITE XF2-R FROM XF2-W",
+  "INVALID KEY MOVE 'E' TO TRC(15:1)",
+  "END-REWRITE",
+  "MOVE XF2-S TO TRC(13:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "23",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "23E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L58: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#1 L60: CLOSE XF2  [model 00 gnu 00]",
+  "#3 L64: OPEN I-O XF2  [model 00 gnu 00]",
+  "#4 L67: MOVE 'K06WWC' TO XF2-W / REWRITE XF2-R FROM XF2-W / INVALID KEY MOVE 'E' TO TRC(15:1)  [model 23E gnu 21E]"
+ ]
+}
+--- F00074 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/sequential",
+  "XF3 sequential"
+ ],
+ "statement": 13,
+ "line": 106,
+ "cobol": [
+  "MOVE 'K07WI8' TO XF1-R",
+  "WRITE XF1-R",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(46:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#4 L68: MOVE 'K06AUG' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 48 gnu 48]",
+  "#5 L71: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#8 L83: READ XF1  [model 47 gnu 47]",
+  "#10 L94: MOVE 'K07ZTA' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(39:1) / NOT INVALID KEY MOVE 'N' TO TRC(39:1)  [model 00N gnu 00N]",
+  "#13 L106: MOVE 'K07WI8' TO XF1-R / WRITE XF1-R  [model 22 gnu 21]"
+ ]
+}
+--- F00076 mismatch:G-dup21
+{
+ "files": [
+  "XF1 sequential",
+  "XF2 indexed/sequential+alt"
+ ],
+ "statement": 3,
+ "line": 53,
+ "cobol": [
+  "MOVE 'K08A4U4I' TO XF2-R",
+  "WRITE XF2-R",
+  "INVALID KEY MOVE 'E' TO TRC(12:1)",
+  "END-WRITE",
+  "MOVE XF2-S TO TRC(10:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#1 L45: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#2 L48: MOVE 'K08A4FJF' TO XF2-R / WRITE XF2-R / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#3 L53: MOVE 'K08A4U4I' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(12:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00077 mismatch:G-rwalt
+{
+ "files": [
+  "XF1 indexed/random",
+  "XF2 sequential",
+  "XF3 indexed/sequential+alt (no FILE STATUS)"
+ ],
+ "statement": 17,
+ "line": 115,
+ "cobol": [
+  "MOVE 'K03A3QFC' TO XF3-R",
+  "REWRITE XF3-R",
+  "INVALID KEY MOVE 'E' TO TRC(68:1)",
+  "END-REWRITE",
+  "MOVE '--' TO TRC(66:2)"
+ ],
+ "gnucobol": {
+  "status": "--",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "--",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "00",
+  "gnucobol": "22E"
+ },
+ "file history": [
+  "#1 L56: OPEN OUTPUT XF3  [model 00 gnu 00]",
+  "#6 L73: MOVE 'K03A3DTN' TO XF3-R / WRITE XF3-R / NOT INVALID KEY MOVE 'N' TO TRC(21:1)  [model 00N gnu 00N]",
+  "#8 L81: CLOSE XF3  [model 00 gnu 00]",
+  "#10 L87: OPEN I-O XF3  [model 00 gnu 00]",
+  "#16 L109: READ XF3 / AT END MOVE 'E' TO TRC(57:1)  [model 00 gnu 00]",
+  "#17 L115: MOVE 'K03A3QFC' TO XF3-R / REWRITE XF3-R / INVALID KEY MOVE 'E' TO TRC(68:1)  [model 00 gnu 22E]"
+ ]
+}
+--- F00078 mismatch:G-rw21
+{
+ "files": [
+  "XF1 sequential",
+  "XF2 indexed/random+alt"
+ ],
+ "statement": 22,
+ "line": 130,
+ "cobol": [
+  "MOVE 'K05A2YGD' TO XF2-W",
+  "REWRITE XF2-R FROM XF2-W",
+  "NOT INVALID KEY MOVE 'N' TO TRC(111:1)",
+  "END-REWRITE",
+  "MOVE XF2-S TO TRC(109:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "23",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "23",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L43: CLOSE XF2  [model 42 gnu 42]",
+  "#2 L47: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#4 L52: MOVE 'K02' TO XF2-K / READ XF2 KEY IS XF2-K / INVALID KEY MOVE 'E' TO TRC(15:1) / NOT INVALID KEY MOVE 'N' TO TRC(15:1)  [model 47 gnu 47]",
+  "#5 L59: MOVE 'K03A3XRC' TO XF2-R / WRITE XF2-R  [model 00 gnu 00]",
+  "#6 L63: MOVE 'K02A48CU' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(29:1) / NOT INVALID KEY MOVE 'N' TO TRC(29:1)  [model 00N gnu 00N]",
+  "#7 L69: MOVE 'K03' TO XF2-K / READ XF2 KEY IS XF2-K / INVALID KEY MOVE 'E' TO TRC(32:1) / NOT INVALID KEY MOVE 'N' TO TRC(32:1)  [model 47 gnu 47]",
+  "#8 L76: MOVE 'K07A5PTL' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(43:1) / NOT INVALID KEY MOVE 'N' TO TRC(43:1)  [model 00N gnu 00N]",
+  "#10 L84: MOVE 'K02A57TR' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(49:1)  [model 22E gnu 22E]",
+  "#14 L100: CLOSE XF2  [model 00 gnu 00]",
+  "#16 L107: MOVE 'K03A6OKF' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(79:1)  [model 48 gnu 48]",
+  "#18 L115: OPEN I-O XF2  [model 00 gnu 00]",
+  "#20 L123: MOVE 'K03' TO XF2-K / READ XF2  [model 00 gnu 00]",
+  "#22 L130: MOVE 'K05A2YGD' TO XF2-W / REWRITE XF2-R FROM XF2-W / NOT INVALID KEY MOVE 'N' TO TRC(111:1)  [model 23 gnu 21]"
+ ]
+}
+--- F00081 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt",
+  "XF2 indexed/sequential+alt",
+  "XF3 sequential (no FILE STATUS)"
+ ],
+ "statement": 11,
+ "line": 95,
+ "cobol": [
+  "MOVE 'K08A6CXE' TO XF1-W",
+  "WRITE XF1-R FROM XF1-W",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(34:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#3 L65: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#4 L68: MOVE 'K08A243F' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(15:1) / NOT INVALID KEY MOVE 'N' TO TRC(15:1)  [model 00N gnu 00N]",
+  "#5 L74: MOVE 'K02A2NKK' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(18:1)  [model 21E gnu 21E]",
+  "#7 L81: MOVE 'K03A2YPI' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(24:1) / NOT INVALID KEY MOVE 'N' TO TRC(24:1)  [model 21E gnu 21E]",
+  "#9 L89: MOVE 'K07A6K97' TO XF1-R / WRITE XF1-R  [model 21 gnu 21]",
+  "#11 L95: MOVE 'K08A6CXE' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 22 gnu 21]"
+ ]
+}
+--- F00084 mismatch:G-rwalt
+{
+ "files": [
+  "XF1 indexed/random",
+  "XF2 indexed/sequential+alt"
+ ],
+ "statement": 26,
+ "line": 142,
+ "cobol": [
+  "MOVE 'K08A5QEF' TO XF2-R",
+  "REWRITE XF2-R",
+  "INVALID KEY MOVE 'E' TO TRC(129:1)",
+  "NOT INVALID KEY MOVE 'N' TO TRC(129:1)",
+  "END-REWRITE",
+  "MOVE XF2-S TO TRC(127:2)"
+ ],
+ "gnucobol": {
+  "status": "22",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "00",
+  "marker": "N"
+ },
+ "mirror": {
+  "model": "00N",
+  "gnucobol": "22E"
+ },
+ "file history": [
+  "#0 L45: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#2 L52: MOVE 'K08A5J1Q' TO XF2-W / WRITE XF2-R FROM XF2-W / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#3 L57: MOVE 'K02A50OL' TO XF2-R / WRITE XF2-R  [model 21 gnu 21]",
+  "#5 L66: MOVE 'K07A4XZT' TO XF2-W / WRITE XF2-R FROM XF2-W / INVALID KEY MOVE 'E' TO TRC(18:1) / NOT INVALID KEY MOVE 'N' TO TRC(18:1)  [model 21E gnu 21E]",
+  "#6 L71: CLOSE XF2  [model 00 gnu 00]",
+  "#8 L75: OPEN INPUT XF2  [model 00 gnu 00]",
+  "#11 L83: CLOSE XF2  [model 00 gnu 00]",
+  "#13 L90: OPEN INPUT XF2  [model 00 gnu 00]",
+  "#14 L92: READ XF2  [model 00 gnu 00]",
+  "#16 L102: READ XF2 INTO XF2-I / AT END MOVE 'E' TO TRC(59:1) / NOT AT END MOVE 'N' TO TRC(59:1)  [model 10E gnu 10E]",
+  "#17 L109: READ XF2 NEXT RECORD / AT END MOVE 'E' TO TRC(78:1)  [model 46 gnu 46]",
+  "#20 L118: READ XF2 / NOT AT END MOVE 'N' TO TRC(95:1)  [model 46 gnu 46]",
+  "#22 L127: CLOSE XF2  [model 00 gnu 00]",
+  "#23 L129: OPEN I-O XF2  [model 00 gnu 00]",
+  "#24 L131: READ XF2 / NOT AT END MOVE 'N' TO TRC(115:1)  [model 00N gnu 00N]",
+  "#26 L142: MOVE 'K08A5QEF' TO XF2-R / REWRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(129:1) / NOT INVALID KEY MOVE 'N' TO TRC(129:1)  [model 00N gnu 22E]"
+ ]
+}
+--- F00087 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/sequential+alt"
+ ],
+ "statement": 7,
+ "line": 75,
+ "cobol": [
+  "MOVE 'K084EB' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(32:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(30:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L45: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#3 L56: MOVE 'K012YU' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 00 gnu 00]",
+  "#4 L60: MOVE 'K07UQW' TO XF1-W / REWRITE XF1-R FROM XF1-W  [model 49 gnu 49]",
+  "#5 L64: MOVE 'K0577X' TO XF1-W / WRITE XF1-R FROM XF1-W / NOT INVALID KEY MOVE 'N' TO TRC(26:1)  [model 00N gnu 00N]",
+  "#6 L69: MOVE 'K08XHI' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(29:1) / NOT INVALID KEY MOVE 'N' TO TRC(29:1)  [model 00N gnu 00N]",
+  "#7 L75: MOVE 'K084EB' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(32:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00090 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt",
+  "XF2 sequential",
+  "XF3 indexed/sequential+alt"
+ ],
+ "statement": 9,
+ "line": 91,
+ "cobol": [
+  "MOVE 'K08A3X8Q' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(30:1)",
+  "NOT INVALID KEY MOVE 'N' TO TRC(30:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(28:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L58: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#2 L63: MOVE 'K07A1OHG' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(9:1) / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#8 L87: MOVE 'K08A6V9A' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#9 L91: MOVE 'K08A3X8Q' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(30:1) / NOT INVALID KEY MOVE 'N' TO TRC(30:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00091 mismatch:G-open41
+{
+ "files": [
+  "XF1 sequential"
+ ],
+ "statement": 24,
+ "line": 118,
+ "cobol": [
+  "MOVE 'NWDXIY' TO XF1-W",
+  "REWRITE XF1-R FROM XF1-W",
+  "END-REWRITE",
+  "MOVE XF1-S TO TRC(103:2)"
+ ],
+ "gnucobol": {
+  "status": "00",
+  "marker": " "
+ },
+ "lean": {
+  "status": "43",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "43",
+  "gnucobol": "00"
+ },
+ "file history": [
+  "#0 L28: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L31: MOVE '644YCU' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#2 L35: MOVE '4WDD3O' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#3 L39: MOVE '4YBPOP' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#4 L43: MOVE 'XVDJM2' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#5 L47: MOVE 'BO1U2J' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#6 L51: MOVE 'G2UX7B' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#7 L55: MOVE 'RWYCRF' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#8 L58: READ XF1  [model 47 gnu 47]",
+  "#9 L63: MOVE 'MU8ELH' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#10 L67: MOVE '2QXN80' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#11 L71: MOVE '9XDEX1' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#12 L75: MOVE 'K948UL' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#13 L79: MOVE '6S883X' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#14 L83: MOVE '8C967V' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#15 L86: CLOSE XF1  [model 00 gnu 00]",
+  "#16 L88: OPEN INPUT XF1  [model 00 gnu 00]",
+  "#17 L90: CLOSE XF1  [model 00 gnu 00]",
+  "#18 L93: MOVE 'D0LBZK' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 48 gnu 48]",
+  "#19 L96: OPEN I-O XF1  [model 00 gnu 00]",
+  "#20 L99: MOVE 'GU3TTF' TO XF1-W / REWRITE XF1-R FROM XF1-W  [model 43 gnu 43]",
+  "#21 L102: READ XF1 INTO XF1-I / AT END MOVE 'E' TO TRC(72:1)  [model 00 gnu 00]",
+  "#22 L108: READ XF1 NEXT RECORD INTO XF1-I / AT END MOVE 'E' TO TRC(87:1) / NOT AT END MOVE 'N' TO TRC(87:1)  [model 00N gnu 00N]",
+  "#23 L115: OPEN INPUT XF1  [model 41 gnu 41]",
+  "#24 L118: MOVE 'NWDXIY' TO XF1-W / REWRITE XF1-R FROM XF1-W  [model 43 gnu 00]"
+ ]
+}
+--- F00093 mismatch:G-dup21
+{
+ "files": [
+  "XF1 sequential",
+  "XF2 indexed/sequential"
+ ],
+ "statement": 10,
+ "line": 77,
+ "cobol": [
+  "MOVE 'K08L3H' TO XF2-R",
+  "WRITE XF2-R",
+  "END-WRITE",
+  "MOVE XF2-S TO TRC(31:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L41: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#2 L46: MOVE 'K02LZG' TO XF2-R / WRITE XF2-R / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#3 L51: MOVE 'K082EZ' TO XF2-W / WRITE XF2-R FROM XF2-W / INVALID KEY MOVE 'E' TO TRC(12:1)  [model 00 gnu 00]",
+  "#4 L56: MOVE 'K060LZ' TO XF2-W / WRITE XF2-R FROM XF2-W / INVALID KEY MOVE 'E' TO TRC(15:1)  [model 21E gnu 21E]",
+  "#10 L77: MOVE 'K08L3H' TO XF2-R / WRITE XF2-R  [model 22 gnu 21]"
+ ]
+}
+--- F00095 mismatch:G-extend
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/sequential+alt"
+ ],
+ "statement": 13,
+ "line": 89,
+ "cobol": [
+  "MOVE 'K06LIP' TO XF1-R",
+  "WRITE XF1-R",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(48:2)"
+ ],
+ "gnucobol": {
+  "status": "00",
+  "marker": " "
+ },
+ "lean": {
+  "status": "21",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "21",
+  "gnucobol": "00"
+ },
+ "file history": [
+  "#1 L47: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#2 L50: MOVE 'K0786U' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(9:1)  [model 00 gnu 00]",
+  "#3 L55: MOVE 'K08M1O' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(12:1) / NOT INVALID KEY MOVE 'N' TO TRC(12:1)  [model 00N gnu 00N]",
+  "#5 L63: MOVE 'K01WPC' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 21 gnu 21]",
+  "#6 L66: OPEN I-O XF1  [model 41 gnu 41]",
+  "#9 L75: MOVE 'K03S45' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(38:1)  [model 21E gnu 21E]",
+  "#10 L80: MOVE 'K02YHR' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(41:1)  [model 21E gnu 21E]",
+  "#11 L84: CLOSE XF1  [model 00 gnu 00]",
+  "#12 L86: OPEN EXTEND XF1  [model 00 gnu 00]",
+  "#13 L89: MOVE 'K06LIP' TO XF1-R / WRITE XF1-R  [model 21 gnu 00]"
+ ]
+}
+--- F00098 mismatch:G-dup21
+{
+ "files": [
+  "XF1 sequential",
+  "XF2 indexed/sequential+alt",
+  "XF3 indexed/sequential+alt"
+ ],
+ "statement": 7,
+ "line": 83,
+ "cobol": [
+  "MOVE 'K08A3RWQ' TO XF3-W",
+  "WRITE XF3-R FROM XF3-W",
+  "END-WRITE",
+  "MOVE XF3-S TO TRC(30:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#1 L60: OPEN OUTPUT XF3  [model 00 gnu 00]",
+  "#2 L63: MOVE 'K08A3WLS' TO XF3-W / WRITE XF3-R FROM XF3-W / INVALID KEY MOVE 'E' TO TRC(9:1) / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#6 L77: READ XF3 NEXT RECORD / AT END MOVE 'E' TO TRC(21:1)  [model 47 gnu 47]",
+  "#7 L83: MOVE 'K08A3RWQ' TO XF3-W / WRITE XF3-R FROM XF3-W  [model 22 gnu 21]"
+ ]
+}
+--- F00100 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/random"
+ ],
+ "statement": 7,
+ "line": 72,
+ "cobol": [
+  "MOVE 'K08HA4' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(24:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(22:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#2 L51: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#3 L54: MOVE 'K08OJU' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(12:1) / NOT INVALID KEY MOVE 'N' TO TRC(12:1)  [model 00N gnu 00N]",
+  "#4 L60: MOVE 'K076NX' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(15:1)  [model 21 gnu 21]",
+  "#7 L72: MOVE 'K08HA4' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(24:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00102 mismatch:G-dup21
+{
+ "files": [
+  "XF1 sequential (no FILE STATUS)",
+  "XF2 indexed/sequential+alt",
+  "XF3 sequential"
+ ],
+ "statement": 9,
+ "line": 86,
+ "cobol": [
+  "MOVE 'K08A6N2K' TO XF2-R",
+  "WRITE XF2-R",
+  "NOT INVALID KEY MOVE 'N' TO TRC(30:1)",
+  "END-WRITE",
+  "MOVE XF2-S TO TRC(28:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L52: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#3 L59: MOVE 'K03A48X5' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(12:1) / NOT INVALID KEY MOVE 'N' TO TRC(12:1)  [model 00N gnu 00N]",
+  "#6 L73: MOVE 'K07A6ZF6' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(21:1)  [model 00 gnu 00]",
+  "#9 L86: MOVE 'K08A6N2K' TO XF2-R / WRITE XF2-R / NOT INVALID KEY MOVE 'N' TO TRC(30:1)  [model 22 gnu 21]"
+ ]
+}
+--- F00116 mismatch:G-rw21
+{
+ "files": [
+  "XF1 indexed/random+alt"
+ ],
+ "statement": 14,
+ "line": 85,
+ "cobol": [
+  "MOVE 'K01A5U1E' TO XF1-R",
+  "REWRITE XF1-R",
+  "END-REWRITE",
+  "MOVE XF1-S TO TRC(59:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "23",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "23",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L32: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L35: MOVE 'K04' TO XF1-K / READ XF1 INTO XF1-I KEY IS XF1-K / INVALID KEY MOVE 'E' TO TRC(6:1)  [model 47 gnu 47]",
+  "#2 L42: MOVE 'K06A5MIO' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(25:1)  [model 00N gnu 00N]",
+  "#3 L47: MOVE 'K08A44PA' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(28:1)  [model 00 gnu 00]",
+  "#4 L51: CLOSE XF1  [model 00 gnu 00]",
+  "#5 L53: OPEN I-O XF1  [model 00 gnu 00]",
+  "#6 L55: CLOSE XF1  [model 00 gnu 00]",
+  "#7 L57: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#8 L60: MOVE 'K07A1GO4' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(43:1)  [model 00 gnu 00]",
+  "#9 L65: MOVE 'K07A2D20' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(46:1)  [model 22E gnu 22E]",
+  "#10 L70: MOVE 'K06A48KN' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(49:1) / NOT INVALID KEY MOVE 'N' TO TRC(49:1)  [model 00N gnu 00N]",
+  "#11 L75: CLOSE XF1  [model 00 gnu 00]",
+  "#12 L77: OPEN I-O XF1  [model 00 gnu 00]",
+  "#13 L80: MOVE 'K06' TO XF1-K / DELETE XF1 RECORD / INVALID KEY MOVE 'E' TO TRC(58:1)  [model 00 gnu 00]",
+  "#14 L85: MOVE 'K01A5U1E' TO XF1-R / REWRITE XF1-R  [model 23 gnu 21]"
+ ]
+}
+--- F00119 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/random+alt",
+  "XF2 indexed/random (no FILE STATUS)",
+  "XF3 indexed/sequential"
+ ],
+ "statement": 8,
+ "line": 89,
+ "cobol": [
+  "MOVE 'K08G2X' TO XF3-R",
+  "WRITE XF3-R",
+  "END-WRITE",
+  "MOVE XF3-S TO TRC(25:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#3 L70: MOVE 'K06EKY' TO XF3-R / WRITE XF3-R  [model 48 gnu 48]",
+  "#4 L74: MOVE 'K08J9O' TO XF3-R / REWRITE XF3-R / INVALID KEY MOVE 'E' TO TRC(15:1)  [model 49 gnu 49]",
+  "#5 L78: DELETE XF3 RECORD  [model 49 gnu 49]",
+  "#6 L81: OPEN OUTPUT XF3  [model 00 gnu 00]",
+  "#7 L84: MOVE 'K08E4R' TO XF3-R / WRITE XF3-R / INVALID KEY MOVE 'E' TO TRC(24:1)  [model 00 gnu 00]",
+  "#8 L89: MOVE 'K08G2X' TO XF3-R / WRITE XF3-R  [model 22 gnu 21]"
+ ]
+}
+--- F00122 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt",
+  "XF2 sequential"
+ ],
+ "statement": 2,
+ "line": 50,
+ "cobol": [
+  "MOVE 'K04A638R' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(9:1)",
+  "NOT INVALID KEY MOVE 'N' TO TRC(9:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(7:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L43: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L46: MOVE 'K04A3XY4' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#2 L50: MOVE 'K04A638R' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(9:1) / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00123 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 sequential",
+  "XF3 sequential"
+ ],
+ "statement": 7,
+ "line": 76,
+ "cobol": [
+  "MOVE 'K06NN7' TO XF1-W",
+  "WRITE XF1-R FROM XF1-W",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(22:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#2 L58: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#3 L61: MOVE 'K062QJ' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(12:1)  [model 00N gnu 00N]",
+  "#7 L76: MOVE 'K06NN7' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 22 gnu 21]"
+ ]
+}
+--- F00132 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/sequential (no FILE STATUS)",
+  "XF3 indexed/random+alt"
+ ],
+ "statement": 15,
+ "line": 120,
+ "cobol": [
+  "MOVE 'K082EQ' TO XF1-R",
+  "WRITE XF1-R",
+  "NOT INVALID KEY MOVE 'N' TO TRC(56:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(54:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L56: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#2 L65: MOVE 'K04ECW' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(17:1) / NOT INVALID KEY MOVE 'N' TO TRC(17:1)  [model 00N gnu 00N]",
+  "#4 L72: OPEN INPUT XF1  [model 41 gnu 41]",
+  "#5 L75: MOVE 'K068H1' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(26:1)  [model 00 gnu 00]",
+  "#6 L80: MOVE 'K07GG0' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(29:1)  [model 00 gnu 00]",
+  "#9 L92: MOVE 'K07Z69' TO XF1-R / REWRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(38:1) / NOT INVALID KEY MOVE 'N' TO TRC(38:1)  [model 49 gnu 49]",
+  "#10 L98: MOVE 'K08TS4' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(41:1) / NOT INVALID KEY MOVE 'N' TO TRC(41:1)  [model 00N gnu 00N]",
+  "#11 L104: MOVE 'K02EN8' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 21 gnu 21]",
+  "#12 L107: OPEN INPUT XF1  [model 41 gnu 41]",
+  "#13 L110: MOVE 'K01I2Z' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(50:1)  [model 21E gnu 21E]",
+  "#15 L120: MOVE 'K082EQ' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(56:1)  [model 22 gnu 21]"
+ ]
+}
+--- F00137 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt",
+  "XF2 sequential",
+  "XF3 indexed/random+alt"
+ ],
+ "statement": 11,
+ "line": 86,
+ "cobol": [
+  "MOVE 'K04A5YWQ' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(36:1)",
+  "NOT INVALID KEY MOVE 'N' TO TRC(36:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(34:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L58: CLOSE XF1  [model 42 gnu 42]",
+  "#1 L60: CLOSE XF1  [model 42 gnu 42]",
+  "#2 L62: CLOSE XF1  [model 42 gnu 42]",
+  "#3 L64: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#5 L69: MOVE 'K04A6EP8' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 00 gnu 00]",
+  "#6 L72: DELETE XF1 RECORD  [model 49 gnu 49]",
+  "#11 L86: MOVE 'K04A5YWQ' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(36:1) / NOT INVALID KEY MOVE 'N' TO TRC(36:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00138 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 sequential (no FILE STATUS)",
+  "XF3 sequential"
+ ],
+ "statement": 9,
+ "line": 78,
+ "cobol": [
+  "MOVE 'K07LI6' TO XF1-R",
+  "WRITE XF1-R",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(28:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L50: CLOSE XF1  [model 42 gnu 42]",
+  "#2 L54: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#4 L59: MOVE 'K07DE3' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(15:1)  [model 00N gnu 00N]",
+  "#9 L78: MOVE 'K07LI6' TO XF1-R / WRITE XF1-R  [model 22 gnu 21]"
+ ]
+}
+--- F00148 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 sequential (no FILE STATUS)"
+ ],
+ "statement": 10,
+ "line": 77,
+ "cobol": [
+  "MOVE 'K08BJ5' TO XF1-W",
+  "WRITE XF1-R FROM XF1-W",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(31:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#1 L41: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#2 L44: MOVE 'K069RJ' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 00 gnu 00]",
+  "#3 L47: DELETE XF1 RECORD  [model 49 gnu 49]",
+  "#8 L67: MOVE 'K084BV' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(27:1) / NOT INVALID KEY MOVE 'N' TO TRC(27:1)  [model 00N gnu 00N]",
+  "#10 L77: MOVE 'K08BJ5' TO XF1-W / WRITE XF1-R FROM XF1-W  [model 22 gnu 21]"
+ ]
+}
+--- F00156 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt",
+  "XF2 sequential",
+  "XF3 sequential"
+ ],
+ "statement": 13,
+ "line": 98,
+ "cobol": [
+  "MOVE 'K07A3H5B' TO XF1-R",
+  "WRITE XF1-R",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(52:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#3 L63: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#7 L77: OPEN INPUT XF1  [model 41 gnu 41]",
+  "#8 L80: MOVE 'K04A3TW6' TO XF1-R / WRITE XF1-R  [model 00 gnu 00]",
+  "#9 L84: MOVE 'K05A4HCR' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(42:1) / NOT INVALID KEY MOVE 'N' TO TRC(42:1)  [model 00N gnu 00N]",
+  "#13 L98: MOVE 'K07A3H5B' TO XF1-R / WRITE XF1-R  [model 22 gnu 21]"
+ ]
+}
+--- F00159 mismatch:G-extend
+{
+ "files": [
+  "XF1 indexed/sequential"
+ ],
+ "statement": 10,
+ "line": 66,
+ "cobol": [
+  "MOVE 'K0675I' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(33:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(31:2)"
+ ],
+ "gnucobol": {
+  "status": "00",
+  "marker": " "
+ },
+ "lean": {
+  "status": "21",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "21E",
+  "gnucobol": "00"
+ },
+ "file history": [
+  "#0 L30: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L33: MOVE 'K04W91' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(6:1) / NOT INVALID KEY MOVE 'N' TO TRC(6:1)  [model 00N gnu 00N]",
+  "#2 L39: MOVE 'K081MN' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(9:1) / NOT INVALID KEY MOVE 'N' TO TRC(9:1)  [model 00N gnu 00N]",
+  "#3 L44: CLOSE XF1  [model 00 gnu 00]",
+  "#4 L46: OPEN I-O XF1  [model 00 gnu 00]",
+  "#5 L48: CLOSE XF1  [model 00 gnu 00]",
+  "#6 L51: MOVE 'K045QJ' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(21:1)  [model 48 gnu 48]",
+  "#7 L56: MOVE 'K020T5' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(24:1) / NOT INVALID KEY MOVE 'N' TO TRC(24:1)  [model 48 gnu 48]",
+  "#8 L61: OPEN EXTEND XF1  [model 00 gnu 00]",
+  "#9 L63: OPEN I-O XF1  [model 41 gnu 41]",
+  "#10 L66: MOVE 'K0675I' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(33:1)  [model 21E gnu 00]"
+ ]
+}
+--- F00175 mismatch:G-extend
+{
+ "files": [
+  "XF1 indexed/sequential",
+  "XF2 indexed/random+alt"
+ ],
+ "statement": 19,
+ "line": 116,
+ "cobol": [
+  "MOVE 'K07GIP' TO XF1-W",
+  "WRITE XF1-R FROM XF1-W",
+  "INVALID KEY MOVE 'E' TO TRC(74:1)",
+  "NOT INVALID KEY MOVE 'N' TO TRC(74:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(72:2)"
+ ],
+ "gnucobol": {
+  "status": "22",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "21",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "21E",
+  "gnucobol": "22E"
+ },
+ "file history": [
+  "#0 L45: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#5 L62: MOVE 'K07QXT' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(18:1)  [model 00 gnu 00]",
+  "#7 L69: MOVE 'K0156K' TO XF1-R / WRITE XF1-R  [model 21 gnu 21]",
+  "#10 L84: MOVE 'K083LK' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(41:1)  [model 00 gnu 00]",
+  "#12 L91: MOVE 'K02BZU' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(47:1) / NOT INVALID KEY MOVE 'N' TO TRC(47:1)  [model 21E gnu 21E]",
+  "#13 L96: CLOSE XF1  [model 00 gnu 00]",
+  "#14 L98: DELETE XF1 RECORD  [model 49 gnu 49]",
+  "#15 L101: OPEN EXTEND XF1  [model 00 gnu 00]",
+  "#16 L104: MOVE 'K082YG' TO XF1-R / REWRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(59:1)  [model 49 gnu 49]",
+  "#18 L110: READ XF1 / NOT AT END MOVE 'N' TO TRC(65:1)  [model 47 gnu 47]",
+  "#19 L116: MOVE 'K07GIP' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(74:1) / NOT INVALID KEY MOVE 'N' TO TRC(74:1)  [model 21E gnu 22E]"
+ ]
+}
+--- F00178 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt",
+  "XF2 indexed/sequential"
+ ],
+ "statement": 9,
+ "line": 76,
+ "cobol": [
+  "MOVE 'K06A2PND' TO XF1-R",
+  "WRITE XF1-R",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(40:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#4 L56: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#6 L64: MOVE 'K04A1PCA' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(33:1)  [model 00N gnu 00N]",
+  "#7 L68: OPEN EXTEND XF1  [model 41 gnu 41]",
+  "#8 L71: MOVE 'K05A25E1' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(39:1)  [model 00N gnu 00N]",
+  "#9 L76: MOVE 'K06A2PND' TO XF1-R / WRITE XF1-R  [model 22 gnu 21]"
+ ]
+}
+--- F00185 mismatch:G-dup21
+{
+ "files": [
+  "XF1 sequential",
+  "XF2 indexed/random+alt",
+  "XF3 indexed/sequential+alt"
+ ],
+ "statement": 3,
+ "line": 71,
+ "cobol": [
+  "MOVE 'K05A4PF3' TO XF3-R",
+  "WRITE XF3-R",
+  "END-WRITE",
+  "MOVE XF3-S TO TRC(18:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": " "
+ },
+ "lean": {
+  "status": "22",
+  "marker": " "
+ },
+ "mirror": {
+  "model": "22",
+  "gnucobol": "21"
+ },
+ "file history": [
+  "#0 L58: OPEN OUTPUT XF3  [model 00 gnu 00]",
+  "#1 L61: MOVE 'K01A4CYM' TO XF3-R / WRITE XF3-R / NOT INVALID KEY MOVE 'N' TO TRC(6:1)  [model 00N gnu 00N]",
+  "#3 L71: MOVE 'K05A4PF3' TO XF3-R / WRITE XF3-R  [model 22 gnu 21]"
+ ]
+}
+--- F00186 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/random+alt",
+  "XF2 indexed/sequential+alt"
+ ],
+ "statement": 14,
+ "line": 101,
+ "cobol": [
+  "MOVE 'K06A2TXK' TO XF2-R",
+  "WRITE XF2-R",
+  "INVALID KEY MOVE 'E' TO TRC(61:1)",
+  "NOT INVALID KEY MOVE 'N' TO TRC(61:1)",
+  "END-WRITE",
+  "MOVE XF2-S TO TRC(59:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#3 L62: READ XF2 / AT END MOVE 'E' TO TRC(20:1)  [model 47 gnu 47]",
+  "#4 L67: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#6 L72: MOVE 'K04A2QVU' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(37:1) / NOT INVALID KEY MOVE 'N' TO TRC(37:1)  [model 00N gnu 00N]",
+  "#9 L83: CLOSE XF2  [model 00 gnu 00]",
+  "#10 L86: MOVE 'K04A1EFQ' TO XF2-W / REWRITE XF2-R FROM XF2-W / INVALID KEY MOVE 'E' TO TRC(49:1) / NOT INVALID KEY MOVE 'N' TO TRC(49:1)  [model 49 gnu 49]",
+  "#11 L91: OPEN OUTPUT XF2  [model 00 gnu 00]",
+  "#13 L96: MOVE 'K02A2X9Q' TO XF2-W / WRITE XF2-R FROM XF2-W / INVALID KEY MOVE 'E' TO TRC(58:1)  [model 00 gnu 00]",
+  "#14 L101: MOVE 'K06A2TXK' TO XF2-R / WRITE XF2-R / INVALID KEY MOVE 'E' TO TRC(61:1) / NOT INVALID KEY MOVE 'N' TO TRC(61:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00191 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt"
+ ],
+ "statement": 7,
+ "line": 58,
+ "cobol": [
+  "MOVE 'K08A3SPG' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(32:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(30:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L32: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L34: DELETE XF1 RECORD  [model 49 gnu 49]",
+  "#2 L37: DELETE XF1 RECORD  [model 49 gnu 49]",
+  "#3 L40: READ XF1 / NOT AT END MOVE 'N' TO TRC(12:1)  [model 47 gnu 47]",
+  "#4 L46: MOVE 'K08A69LE' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(23:1)  [model 00 gnu 00]",
+  "#5 L51: MOVE 'K06A5N49' TO XF1-R / WRITE XF1-R / NOT INVALID KEY MOVE 'N' TO TRC(26:1)  [model 21 gnu 21]",
+  "#6 L55: OPEN I-O XF1  [model 41 gnu 41]",
+  "#7 L58: MOVE 'K08A3SPG' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(32:1)  [model 22E gnu 21E]"
+ ]
+}
+--- F00197 mismatch:G-dup21
+{
+ "files": [
+  "XF1 indexed/sequential+alt"
+ ],
+ "statement": 5,
+ "line": 56,
+ "cobol": [
+  "MOVE 'K08A5C44' TO XF1-R",
+  "WRITE XF1-R",
+  "INVALID KEY MOVE 'E' TO TRC(26:1)",
+  "NOT INVALID KEY MOVE 'N' TO TRC(26:1)",
+  "END-WRITE",
+  "MOVE XF1-S TO TRC(24:2)"
+ ],
+ "gnucobol": {
+  "status": "21",
+  "marker": "E"
+ },
+ "lean": {
+  "status": "22",
+  "marker": "E"
+ },
+ "mirror": {
+  "model": "22E",
+  "gnucobol": "21E"
+ },
+ "file history": [
+  "#0 L32: OPEN OUTPUT XF1  [model 00 gnu 00]",
+  "#1 L34: READ XF1 / NOT AT END MOVE 'N' TO TRC(6:1)  [model 47 gnu 47]",
+  "#2 L40: MOVE 'K06A5PI2' TO XF1-W / WRITE XF1-R FROM XF1-W / INVALID KEY MOVE 'E' TO TRC(17:1) / NOT INVALID KEY MOVE 'N' TO TRC(17:1)  [model 00N gnu 00N]",
+  "#3 L46: MOVE 'K02A3V3W' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(20:1)  [model 21E gnu 21E]",
+  "#4 L51: MOVE 'K07A3272' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(23:1)  [model 00 gnu 00]",
+  "#5 L56: MOVE 'K08A5C44' TO XF1-R / WRITE XF1-R / INVALID KEY MOVE 'E' TO TRC(26:1) / NOT INVALID KEY MOVE 'N' TO TRC(26:1)  [model 22E gnu 21E]"
+ ]
+}

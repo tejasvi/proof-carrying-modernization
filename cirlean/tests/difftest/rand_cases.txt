@@ -1,0 +1,23 @@
+# rand / srand (rand.cpp): glibc's TYPE_3 generator. Each case is labelled with its expected outcome on
+# the line above it (before the change: UB "call to an external function without a model").
+# expect MATCH: the first, second and 51st outputs without srand (as after srand(1))
+rand t_rand_nth 0
+rand t_rand_nth 1
+rand t_rand_nth 50
+# expect MATCH: the first output after srand(0), srand(1), srand(2), srand(2147483647)
+rand t_srand 0
+rand t_srand 1
+rand t_srand 2
+rand t_srand 2147483647
+# expect MATCH: the first and the 101st output after srand(12345)
+rand t_srand_nth 0
+rand t_srand_nth 100
+# expect MATCH: seeds above 2^31 - 1 (4000000000 and 4000000007)
+rand t_srand_big 0
+rand t_srand_big 7
+# expect MATCH: the sum of 1000 outputs modulo 1000
+rand t_rand_sum 9
+# expect MATCH: RAND_MAX
+rand t_rand_max 0
+# expect MATCH: srand(7) twice gives the same sequence
+rand t_srand_reseed 4

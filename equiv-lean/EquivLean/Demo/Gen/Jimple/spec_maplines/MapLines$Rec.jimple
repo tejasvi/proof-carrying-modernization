@@ -1,0 +1,26 @@
+public final class MapLines$Rec extends java.lang.Object
+{
+    public final 'long' id;
+    public final java.lang.String name;
+
+    public 'void' <init>('long', java.lang.String)
+    {
+        'long' l0;
+        java.lang.String r1;
+        MapLines$Rec r0;
+
+        r0 := @this: MapLines$Rec;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<MapLines$Rec: 'long' id> = l0;
+
+        r0.<MapLines$Rec: java.lang.String name> = r1;
+
+        return;
+    }
+}

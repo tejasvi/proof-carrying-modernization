@@ -1,0 +1,5 @@
+public interface  org.apache.thrift.TProcessor extends java.lang.Object
+{
+
+    public abstract 'void' process(org.apache.thrift.protocol.TProtocol, org.apache.thrift.protocol.TProtocol) throws org.apache.thrift.TException;
+}

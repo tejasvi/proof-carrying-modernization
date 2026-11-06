@@ -1,0 +1,26 @@
+final class Cbact03c$State extends java.lang.Object
+{
+    Cbact03c$Result result;
+    Cbact03c$CardXrefRecord[] file;
+    'int' pos;
+    'boolean' atEof;
+    java.lang.String xreffileStatus;
+    'long' applResult;
+    java.lang.String endOfFile;
+    java.lang.String recCardNum;
+    'long' recCustId;
+    'long' recAcctId;
+    java.lang.String recFiller;
+    'boolean' abended;
+
+    private 'void' <init>()
+    {
+        Cbact03c$State r0;
+
+        r0 := @this: Cbact03c$State;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+}

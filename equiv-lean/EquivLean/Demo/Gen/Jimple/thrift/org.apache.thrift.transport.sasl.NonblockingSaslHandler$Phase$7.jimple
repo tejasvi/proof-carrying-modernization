@@ -1,0 +1,36 @@
+final enum class org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7 extends org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase
+{
+
+    'void' <init>(java.lang.String, 'int', 'int')
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7 this;
+        'int' i0, selectionInterest;
+        java.lang.String r0;
+
+        this := @this: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7;
+
+        r0 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: 'int';
+
+        selectionInterest := @parameter2: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: 'void' <init>(java.lang.String,'int','int',org.apache.thrift.transport.sasl.NonblockingSaslHandler$1)>(r0, i0, selectionInterest, null);
+
+        return;
+    }
+
+    'void' unsafeRun(org.apache.thrift.transport.sasl.NonblockingSaslHandler)
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7 this;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine;
+
+        this := @this: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7;
+
+        statemachine := @parameter0: org.apache.thrift.transport.sasl.NonblockingSaslHandler;
+
+        staticinvoke <org.apache.thrift.transport.sasl.NonblockingSaslHandler: 'void' access$800(org.apache.thrift.transport.sasl.NonblockingSaslHandler)>(statemachine);
+
+        return;
+    }
+}

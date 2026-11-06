@@ -1,0 +1,5 @@
+# Type-punning regressions (punning.cpp): expected UB "type-punned access" from cirrun on every line.
+punning t_word_strlen 0
+punning t_word_strlen 5
+punning t_word_strlen 13
+punning t_word_memcpy 3

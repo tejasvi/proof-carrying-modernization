@@ -1,0 +1,317 @@
+public class org.apache.thrift.server.TSaslNonblockingServer extends org.apache.thrift.server.TServer
+{
+    private static final org.slf4j.Logger LOGGER;
+    private static final 'int' DEFAULT_NETWORK_THREADS;
+    private static final 'int' DEFAULT_AUTHENTICATION_THREADS;
+    private static final 'int' DEFAULT_PROCESSING_THREADS;
+    private final org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread acceptor;
+    private final org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool networkThreadPool;
+    private final java.util.concurrent.ExecutorService authenticationExecutor;
+    private final java.util.concurrent.ExecutorService processingExecutor;
+    private final org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory;
+    private final org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory;
+
+    public 'void' <init>(org.apache.thrift.server.TSaslNonblockingServer$Args) throws java.io.IOException
+    {
+        org.apache.thrift.transport.sasl.TSaslProcessorFactory $r7;
+        org.apache.thrift.server.TSaslNonblockingServer$Args args;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool $r3;
+        org.apache.thrift.transport.TServerTransport $r1;
+        org.apache.thrift.transport.TNonblockingServerSocket $r2;
+        org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread $r0;
+        'int' $i0;
+        org.apache.thrift.server.TSaslNonblockingServer this;
+        java.util.concurrent.ExecutorService $r4;
+        org.apache.thrift.transport.sasl.TSaslServerFactory $r6;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer;
+
+        args := @parameter0: org.apache.thrift.server.TSaslNonblockingServer$Args;
+
+        specialinvoke this.<org.apache.thrift.server.TServer: 'void' <init>(org.apache.thrift.server.TServer$AbstractServerArgs)>(args);
+
+        $r0 = new org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread;
+
+        $r1 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.transport.TServerTransport serverTransport_>;
+
+        $r2 = (org.apache.thrift.transport.TNonblockingServerSocket) $r1;
+
+        specialinvoke $r0.<org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread: 'void' <init>(org.apache.thrift.server.TSaslNonblockingServer,org.apache.thrift.transport.TNonblockingServerSocket,org.apache.thrift.server.TSaslNonblockingServer$1)>(this, $r2, null);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread acceptor> = $r0;
+
+        $r3 = new org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool;
+
+        $i0 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' access$100(org.apache.thrift.server.TSaslNonblockingServer$Args)>(args);
+
+        specialinvoke $r3.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: 'void' <init>(org.apache.thrift.server.TSaslNonblockingServer,'int')>(this, $i0);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool networkThreadPool> = $r3;
+
+        $i0 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' access$200(org.apache.thrift.server.TSaslNonblockingServer$Args)>(args);
+
+        $r4 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newFixedThreadPool('int')>($i0);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService authenticationExecutor> = $r4;
+
+        $i0 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$Args: 'int' access$300(org.apache.thrift.server.TSaslNonblockingServer$Args)>(args);
+
+        $r4 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newFixedThreadPool('int')>($i0);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService processingExecutor> = $r4;
+
+        $r6 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslServerFactory access$400(org.apache.thrift.server.TSaslNonblockingServer$Args)>(args);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory> = $r6;
+
+        $r7 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$Args: org.apache.thrift.transport.sasl.TSaslProcessorFactory access$500(org.apache.thrift.server.TSaslNonblockingServer$Args)>(args);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory> = $r7;
+
+        return;
+    }
+
+    public 'void' serve()
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread $r3;
+        org.apache.thrift.server.TServerEventHandler $r0;
+        org.apache.thrift.server.TSaslNonblockingServer this;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool $r2;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TServerEventHandler eventHandler_>;
+
+        interfaceinvoke $r0.<org.apache.thrift.server.TServerEventHandler: 'void' preServe()>();
+
+     label1:
+        $r2 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool networkThreadPool>;
+
+        virtualinvoke $r2.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: 'void' start()>();
+
+        $r3 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread acceptor>;
+
+        virtualinvoke $r3.<org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread: 'void' start()>();
+
+        virtualinvoke this.<org.apache.thrift.server.TSaslNonblockingServer: 'void' setServing('boolean')>(1);
+
+        return;
+    }
+
+    public 'void' stop()
+    {
+        org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread $r0;
+        org.apache.thrift.server.TSaslNonblockingServer this;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool $r1;
+        java.util.concurrent.ExecutorService $r2;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer;
+
+        $z0 = this.<org.apache.thrift.server.TSaslNonblockingServer: 'boolean' stopped_>;
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke this.<org.apache.thrift.server.TSaslNonblockingServer: 'void' setServing('boolean')>(0);
+
+        this.<org.apache.thrift.server.TSaslNonblockingServer: 'boolean' stopped_> = 1;
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread acceptor>;
+
+        virtualinvoke $r0.<org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread: 'void' wakeup()>();
+
+        $r1 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool networkThreadPool>;
+
+        virtualinvoke $r1.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: 'void' wakeupAll()>();
+
+        $r2 = this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService authenticationExecutor>;
+
+        interfaceinvoke $r2.<java.util.concurrent.ExecutorService: java.util.List shutdownNow()>();
+
+        $r2 = this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService processingExecutor>;
+
+        interfaceinvoke $r2.<java.util.concurrent.ExecutorService: java.util.List shutdownNow()>();
+
+     label1:
+        return;
+    }
+
+    public 'void' shutdown() throws java.lang.InterruptedException
+    {
+        java.util.Iterator r3;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool $r1;
+        java.util.concurrent.TimeUnit $r7;
+        java.util.List $r2;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThread networkThread;
+        org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread $r0;
+        org.apache.thrift.server.TSaslNonblockingServer this;
+        java.lang.Object $r4;
+        java.util.concurrent.ExecutorService $r5;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.server.TSaslNonblockingServer;
+
+        virtualinvoke this.<org.apache.thrift.server.TSaslNonblockingServer: 'void' stop()>();
+
+        $r0 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread acceptor>;
+
+        virtualinvoke $r0.<org.apache.thrift.server.TSaslNonblockingServer$AcceptorThread: 'void' join()>();
+
+        $r1 = this.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool networkThreadPool>;
+
+        $r2 = staticinvoke <org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool: java.util.List access$600(org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool)>($r1);
+
+        r3 = interfaceinvoke $r2.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r3.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r4 = interfaceinvoke r3.<java.util.Iterator: java.lang.Object next()>();
+
+        networkThread = (org.apache.thrift.server.TSaslNonblockingServer$NetworkThread) $r4;
+
+        virtualinvoke networkThread.<org.apache.thrift.server.TSaslNonblockingServer$NetworkThread: 'void' join()>();
+
+        goto label1;
+
+     label2:
+        $r5 = this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService authenticationExecutor>;
+
+        $z0 = interfaceinvoke $r5.<java.util.concurrent.ExecutorService: 'boolean' isTerminated()>();
+
+        if $z0 != 0 goto label3;
+
+        $r5 = this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService authenticationExecutor>;
+
+        $r7 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+        interfaceinvoke $r5.<java.util.concurrent.ExecutorService: 'boolean' awaitTermination('long',java.util.concurrent.TimeUnit)>(10L, $r7);
+
+        goto label2;
+
+     label3:
+        $r5 = this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService processingExecutor>;
+
+        $z0 = interfaceinvoke $r5.<java.util.concurrent.ExecutorService: 'boolean' isTerminated()>();
+
+        if $z0 != 0 goto label4;
+
+        $r5 = this.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService processingExecutor>;
+
+        $r7 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+        interfaceinvoke $r5.<java.util.concurrent.ExecutorService: 'boolean' awaitTermination('long',java.util.concurrent.TimeUnit)>(10L, $r7);
+
+        goto label3;
+
+     label4:
+        return;
+    }
+
+    static org.slf4j.Logger access$700()
+    {
+        org.slf4j.Logger $r0;
+
+        $r0 = <org.apache.thrift.server.TSaslNonblockingServer: org.slf4j.Logger LOGGER>;
+
+        return $r0;
+    }
+
+    static org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool access$800(org.apache.thrift.server.TSaslNonblockingServer)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer x0;
+        org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.server.TSaslNonblockingServer$NetworkThreadPool networkThreadPool>;
+
+        return $r0;
+    }
+
+    static org.apache.thrift.transport.sasl.TSaslServerFactory access$900(org.apache.thrift.server.TSaslNonblockingServer)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer x0;
+        org.apache.thrift.transport.sasl.TSaslServerFactory $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.transport.sasl.TSaslServerFactory saslServerFactory>;
+
+        return $r0;
+    }
+
+    static org.apache.thrift.transport.sasl.TSaslProcessorFactory access$1000(org.apache.thrift.server.TSaslNonblockingServer)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer x0;
+        org.apache.thrift.transport.sasl.TSaslProcessorFactory $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer: org.apache.thrift.transport.sasl.TSaslProcessorFactory saslProcessorFactory>;
+
+        return $r0;
+    }
+
+    static java.util.concurrent.ExecutorService access$1200(org.apache.thrift.server.TSaslNonblockingServer)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer x0;
+        java.util.concurrent.ExecutorService $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService authenticationExecutor>;
+
+        return $r0;
+    }
+
+    static java.util.concurrent.ExecutorService access$1300(org.apache.thrift.server.TSaslNonblockingServer)
+    {
+        org.apache.thrift.server.TSaslNonblockingServer x0;
+        java.util.concurrent.ExecutorService $r0;
+
+        x0 := @parameter0: org.apache.thrift.server.TSaslNonblockingServer;
+
+        $r0 = x0.<org.apache.thrift.server.TSaslNonblockingServer: java.util.concurrent.ExecutorService processingExecutor>;
+
+        return $r0;
+    }
+
+    static 'int' access$1600()
+    {
+        'int' $i0;
+
+        $i0 = <org.apache.thrift.server.TSaslNonblockingServer: 'int' DEFAULT_PROCESSING_THREADS>;
+
+        return $i0;
+    }
+
+    static 'void' <clinit>()
+    {
+        'int' $i0;
+        org.slf4j.Logger $r0;
+        java.lang.Runtime $r1;
+
+        <org.apache.thrift.server.TSaslNonblockingServer: 'int' DEFAULT_AUTHENTICATION_THREADS> = 1;
+
+        <org.apache.thrift.server.TSaslNonblockingServer: 'int' DEFAULT_NETWORK_THREADS> = 1;
+
+        $r0 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.Class)>(class "Lorg/apache/thrift/server/TSaslNonblockingServer;");
+
+        <org.apache.thrift.server.TSaslNonblockingServer: org.slf4j.Logger LOGGER> = $r0;
+
+        $r1 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $i0 = virtualinvoke $r1.<java.lang.Runtime: 'int' availableProcessors()>();
+
+        <org.apache.thrift.server.TSaslNonblockingServer: 'int' DEFAULT_PROCESSING_THREADS> = $i0;
+
+        return;
+    }
+}

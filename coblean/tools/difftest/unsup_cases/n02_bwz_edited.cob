@@ -1,0 +1,10 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. N02.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  N PIC ZZZ9 BLANK WHEN ZERO VALUE 0.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           DISPLAY '[' N ']'.
+           STOP RUN.

@@ -1,0 +1,64 @@
+# Builtins and C library functions (builtins.cpp): run with CASES=builtins_cases.txt; every case is expected to MATCH.
+# GCC's popcount/parity/ffs/clrsb/bswap/copysign/fmax/fmin/prefetch, Clang's rotate and bitreverse (the native side, GCC,
+# computes them with shifts), clz/ctz of 0 behind a fallback, VLAs, va_copy, strdup, getchar (standard input empty).
+builtins t_popcount 255
+builtins t_popcount -1
+builtins t_popcount 0
+builtins t_popcountll -1 5
+builtins t_popcountll 1 0
+builtins t_popcount16 -1
+builtins t_popcount16 65537
+builtins t_parity 7
+builtins t_parity 6
+builtins t_parity -3
+builtins t_ffs 40
+builtins t_ffs 0
+builtins t_ffs -2147483648
+builtins t_clrsb 0
+builtins t_clrsb -1
+builtins t_clrsb 5
+builtins t_clrsb -2147483648
+builtins t_bswap 16909060
+builtins t_bswap -1
+builtins t_bswap 258
+builtins t_bswap_signed 16909060
+builtins t_bswap_signed 255
+builtins t_copysign 5 -2
+builtins t_copysign -7 3
+builtins t_copysign 4 0
+builtins t_copysign_zero -3
+builtins t_copysign_zero 2
+builtins t_copysign_nan -1
+builtins t_copysign_nan 1
+builtins t_vla_loop 5
+builtins t_vla_loop 1
+builtins t_vla_loop 0
+builtins t_vla_2d 3 4
+builtins t_vla_2d 2 2
+builtins t_vla_break 10
+builtins t_vla_break 1000
+builtins t_vla_calls 6
+builtins t_va_copy 1 2
+builtins t_va_copy_midway 3 4
+builtins t_strdup 1
+builtins t_strdup 4
+builtins t_strdup_empty 7
+builtins t_getchar 3
+builtins t_getchar_eof 5
+builtins t_rotate 305419896 4
+builtins t_rotate -1 31
+builtins t_rotate 1 0
+builtins t_rotate 129 -3
+builtins t_rotate 7 33
+builtins t_bitreverse 1
+builtins t_bitreverse 305419896
+builtins t_bitreverse -1
+builtins t_fmax 3 -5
+builtins t_fmax -2 -2
+builtins t_fmax_nan 7
+builtins t_fmax_zero 0
+builtins t_prefetch 5
+builtins t_clz_fallback 0
+builtins t_clz_fallback 1
+builtins t_clz_fallback -1
+builtins t_clz_fallback 40

@@ -1,0 +1,11 @@
+      * EXPECT-FAULT: SPECIAL-NAMES CLASS
+      * (THROUGH needs one character on each side)
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U63.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           CLASS BAD IS 'AB' THRU 'C'.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

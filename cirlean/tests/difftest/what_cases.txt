@@ -1,0 +1,11 @@
+# what() of std::exception and std::bad_alloc (what.cpp): fixed strings. Each case is labelled with its expected
+# outcome on the line above it (before the change: UB "call to an external function without a model").
+# expect MATCH: the length and the text of std::exception().what()
+what t_what_exception 2
+what t_what_text 3
+# expect MATCH: virtual what() of a class derived in the program
+what t_what_derived 4
+# expect MATCH: std::bad_alloc().what()
+what t_what_bad_alloc 5
+# expect MATCH: what() of a thrown and caught derived exception
+what t_what_thrown 6

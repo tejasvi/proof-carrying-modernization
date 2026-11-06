@@ -1,0 +1,18 @@
+# Which <string.h> calls with length 0 are the C++ library's own (stdloc.cpp; rog's audit finding X1, n3c3.cpp): those
+# in the bodies of the library's functions, by namespace and by the location of the definition in its headers. The
+# program's code in namespace std keeps C11 7.24.1p2. Each case is labelled with its expected outcome on the line above
+# it: UB from cirrun for the program's calls with length 0 and a null pointer, MATCH for the library's empty copy.
+# expect UB: memcpy(buf, NULL, 0) in the program's template<> struct std::hash<K> ([namespace.std]p2)
+stdloc c3_hash_specialization 0
+# expect UB: memcmp(NULL, NULL, 0) in the program's template<> struct std::less<K>
+stdloc c3_less_specialization 0
+# expect UB: memset(NULL, 0, 0) in a function the program adds to namespace std ([namespace.std]p1)
+stdloc c3_added_to_std 0
+# expect UB: control, memcpy(buf, NULL, 0) in the program's template returning std::vector
+stdloc c3_template_returning_std 0
+# expect UB: control, the same in the program's functor called by std::for_each
+stdloc c3_functor_in_for_each 0
+# expect UB: control, the same in the program's lambda called by std::for_each
+stdloc c3_lambda_in_for_each 0
+# expect MATCH: control, the library's std::copy of an empty range of null pointers
+stdloc c3_library_empty_copy 0

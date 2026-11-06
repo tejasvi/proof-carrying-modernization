@@ -1,0 +1,8 @@
+{"namespace": "Examples.GenM.Calls", "source": "Examples/cpp/calls.cir", "types": "Examples.GenM.Calls.Types", "functions": [
+  {"sym": "_Z5twicei", "name": "twice(int)", "lean": "Examples.GenM.Calls.fn_twice", "module": "Examples.GenM.Calls.F.fn_twice", "hash": "7529094754698646468", "callees": [], "body": true, "model": false},
+  {"sym": "_Z4quadi", "name": "quad(int)", "lean": "Examples.GenM.Calls.fn_quad", "module": "Examples.GenM.Calls.F.fn_quad", "hash": "4206082205719614094", "callees": ["_Z5twicei"], "body": true, "model": false},
+  {"sym": "_Z8count_toi", "name": "count_to(int)", "lean": "Examples.GenM.Calls.fn_count_to", "module": "Examples.GenM.Calls.F.fn_count_to", "hash": "4402970432765747618", "callees": [], "body": true, "model": false},
+  {"sym": "_Z14count_plus_onei", "name": "count_plus_one(int)", "lean": "Examples.GenM.Calls.fn_count_plus_one", "module": "Examples.GenM.Calls.F.fn_count_plus_one", "hash": "15407061053906277225", "callees": ["_Z8count_toi"], "body": true, "model": false},
+  {"sym": "_Z4incrPi", "name": "incr(int*)", "lean": "Examples.GenM.Calls.fn_incr", "module": "Examples.GenM.Calls.F.fn_incr", "hash": "7509688821963618861", "callees": [], "body": true, "model": false},
+  {"sym": "_Z10incr_twicei", "name": "incr_twice(int)", "lean": "Examples.GenM.Calls.fn_incr_twice", "module": "Examples.GenM.Calls.F.fn_incr_twice", "hash": "9598796168006106243", "callees": ["_Z4incrPi"], "body": true, "model": false}
+]}

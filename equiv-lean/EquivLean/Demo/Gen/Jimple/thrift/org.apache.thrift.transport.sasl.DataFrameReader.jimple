@@ -1,0 +1,19 @@
+public class org.apache.thrift.transport.sasl.DataFrameReader extends org.apache.thrift.transport.sasl.FrameReader
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.sasl.DataFrameHeaderReader $r0;
+        org.apache.thrift.transport.sasl.DataFrameReader this;
+
+        this := @this: org.apache.thrift.transport.sasl.DataFrameReader;
+
+        $r0 = new org.apache.thrift.transport.sasl.DataFrameHeaderReader;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.DataFrameHeaderReader: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.sasl.FrameReader: 'void' <init>(org.apache.thrift.transport.sasl.FrameHeaderReader)>($r0);
+
+        return;
+    }
+}

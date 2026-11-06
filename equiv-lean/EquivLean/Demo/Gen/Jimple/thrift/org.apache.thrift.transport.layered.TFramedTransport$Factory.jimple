@@ -1,0 +1,78 @@
+public class org.apache.thrift.transport.layered.TFramedTransport$Factory extends org.apache.thrift.transport.TTransportFactory
+{
+    private final java.lang.Integer maxLength_;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.layered.TFramedTransport$Factory this;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport$Factory;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.layered.TFramedTransport$Factory: java.lang.Integer maxLength_> = null;
+
+        return;
+    }
+
+    public 'void' <init>('int')
+    {
+        'int' maxLength;
+        org.apache.thrift.transport.layered.TFramedTransport$Factory this;
+        java.lang.Integer $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport$Factory;
+
+        maxLength := @parameter0: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(maxLength);
+
+        this.<org.apache.thrift.transport.layered.TFramedTransport$Factory: java.lang.Integer maxLength_> = $r0;
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransport base;
+        org.apache.thrift.transport.layered.TFramedTransport$Factory this;
+        'int' $i0;
+        org.apache.thrift.transport.layered.TFramedTransport $r2, $r3;
+        java.lang.Integer $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport$Factory;
+
+        base := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport$Factory: java.lang.Integer maxLength_>;
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>($r0);
+
+        if $z0 == false goto label1;
+
+        $r3 = new org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r2 = $r3;
+
+        specialinvoke $r3.<org.apache.thrift.transport.layered.TFramedTransport: 'void' <init>(org.apache.thrift.transport.TTransport)>(base);
+
+        goto label2;
+
+     label1:
+        $r3 = new org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r2 = $r3;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport$Factory: java.lang.Integer maxLength_>;
+
+        $i0 = virtualinvoke $r0.<java.lang.Integer: 'int' intValue()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.layered.TFramedTransport: 'void' <init>(org.apache.thrift.transport.TTransport,'int')>(base, $i0);
+
+     label2:
+        return $r2;
+    }
+}

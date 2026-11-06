@@ -1,0 +1,109 @@
+# strconv.cpp: strtod strtof strtold strtol strtoul strtoll strtoull atof atoi
+# atol atoll (C11 7.22.1) against glibc; ub_* lines are undefined behaviour
+# (reasons in strconv.cpp), not expected to match
+# strtod: hex rounding, subject sequences, inf/nan spellings, endptr, ties
+strconv t_strtod 0
+strconv t_strtod 1
+strconv t_strtod 2
+strconv t_strtod 3
+strconv t_strtod 4
+strconv t_strtod 5
+strconv t_strtod 6
+strconv t_strtod 7
+strconv t_strtod 8
+strconv t_strtod 9
+strconv t_strtod 10
+strconv t_strtod 11
+strconv t_strtod 12
+strconv t_strtod 13
+strconv t_strtod 14
+strconv t_strtod 15
+strconv t_strtod 16
+strconv t_strtod 17
+strconv t_strtod 18
+strconv t_strtod 19
+strconv t_strtod 20
+strconv t_strtod 21
+strconv t_strtod 22
+strconv t_strtod 23
+strconv t_strtod 24
+strconv t_strtod 25
+strconv t_strtod 26
+strconv t_strtod 27
+strconv t_strtod 28
+strconv t_strtod 29
+strconv t_strtod 30
+strconv t_strtod 31
+strconv t_strtod 32
+# strtod: the 752-digit tie at the least subnormal, the same above the tie,
+# 1 followed by 400 zeros e-400
+strconv t_strtod_long 0
+strconv t_strtod_long 1
+strconv t_strtod_long 2
+# strtof: one rounding, to binary32
+strconv t_strtof 0
+strconv t_strtof 1
+strconv t_strtof 2
+strconv t_strtof 3
+strconv t_strtof 4
+strconv t_strtof 5
+strconv t_strtof 6
+strconv t_strtof 7
+strconv t_strtof 8
+# strtol: bases, prefixes, no subject sequence, saturation, 0b (C23 in glibc)
+strconv t_strtol 0
+strconv t_strtol 1
+strconv t_strtol 2
+strconv t_strtol 3
+strconv t_strtol 4
+strconv t_strtol 5
+strconv t_strtol 6
+strconv t_strtol 7
+strconv t_strtol 8
+strconv t_strtol 9
+strconv t_strtol 10
+strconv t_strtol 11
+strconv t_strtol 12
+strconv t_strtol 13
+strconv t_strtol 14
+strconv t_strtol 15
+strconv t_strtol 16
+strconv t_strtol 17
+strconv t_strtol 18
+# strtoul: negation in the unsigned type, saturation
+strconv t_strtoul 0
+strconv t_strtoul 1
+strconv t_strtoul 2
+strconv t_strtoul 3
+strconv t_strtoul 4
+# strtoll, strtoull, atoi, atol, atoll
+strconv t_ll 0
+strconv t_ll 1
+strconv t_ll 2
+strconv t_ll 3
+strconv t_ll 4
+strconv t_ll 5
+# strtold (x86-64 long double)
+strconv t_strtold 0
+strconv t_strtold 1
+# null endptr; atof
+strconv t_nullend 0
+strconv t_nullend 1
+strconv t_nullend 2
+# the sign of strtod("-nan") and strtof("-nan")
+strconv t_nansign 0
+strconv t_nansign 1
+# errno: ERANGE on overflow (and underflow, glibc), untouched otherwise
+strconv t_errno 0
+strconv t_errno 1
+strconv t_errno 2
+strconv t_errno 3
+strconv t_errno 4
+strconv t_errno 5
+strconv t_errno 6
+strconv t_errno 7
+# undefined behaviour
+strconv ub_strconv 0
+strconv ub_strconv 1
+strconv ub_strconv 2
+strconv ub_strconv 3

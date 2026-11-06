@@ -1,0 +1,3 @@
+pair	commit	type	fn	old declared return	new declared return	translated (note)
+2020-02-20_dbeea0a3_last	dbeea0a3f3	other	last	(none)	T | undefined	[(.arr .num)] .num -> [(.arr .num)] (.opt .num)
+2024-03-06_b08a667d__last	b08a667d53	feat	_last	(none)	T | undefined	[(.arr .num)] .num -> [(.arr .num)] (.opt .num)

@@ -1,0 +1,438 @@
+public class org.apache.thrift.transport.layered.TFastFramedTransport extends org.apache.thrift.transport.layered.TLayeredTransport
+{
+    public static final 'int' DEFAULT_BUF_CAPACITY;
+    private final org.apache.thrift.transport.AutoExpandingBufferWriteTransport writeBuffer;
+    private org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer;
+    private final 'int' initialBufferCapacity;
+    private final 'byte'[] i32buf;
+    private final 'int' maxLength;
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        'int' $i0;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.TTransport underlying;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        underlying := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $i0 = staticinvoke <org.apache.thrift.transport.layered.TFastFramedTransport: 'int' configuredMaxFrameSize(org.apache.thrift.transport.TTransport)>(underlying);
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' <init>(org.apache.thrift.transport.TTransport,'int','int')>(underlying, 1024, $i0);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.TTransport underlying;
+        'int' initialBufferCapacity, $i0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        underlying := @parameter0: org.apache.thrift.transport.TTransport;
+
+        initialBufferCapacity := @parameter1: 'int';
+
+        $i0 = staticinvoke <org.apache.thrift.transport.layered.TFastFramedTransport: 'int' configuredMaxFrameSize(org.apache.thrift.transport.TTransport)>(underlying);
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' <init>(org.apache.thrift.transport.TTransport,'int','int')>(underlying, initialBufferCapacity, $i0);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.TConfiguration $r1, $r5;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r2;
+        org.apache.thrift.transport.AutoExpandingBufferWriteTransport $r3;
+        org.apache.thrift.transport.TTransport underlying;
+        'int' initialBufferCapacity, maxLength;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        underlying := @parameter0: org.apache.thrift.transport.TTransport;
+
+        initialBufferCapacity := @parameter1: 'int';
+
+        maxLength := @parameter2: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TLayeredTransport: 'void' <init>(org.apache.thrift.transport.TTransport)>(underlying);
+
+        $r0 = newarray ('byte')[4];
+
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'byte'[] i32buf> = $r0;
+
+        $r1 = virtualinvoke underlying.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>($r1);
+
+        if $z0 == false goto label1;
+
+        $r5 = new org.apache.thrift.TConfiguration;
+
+        $r1 = $r5;
+
+        specialinvoke $r5.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        goto label2;
+
+     label1:
+        $r1 = virtualinvoke underlying.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+     label2:
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'int' maxLength> = maxLength;
+
+        virtualinvoke $r1.<org.apache.thrift.TConfiguration: 'void' setMaxFrameSize('int')>(maxLength);
+
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'int' initialBufferCapacity> = initialBufferCapacity;
+
+        $r2 = new org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        specialinvoke $r2.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'void' <init>(org.apache.thrift.TConfiguration,'int')>($r1, initialBufferCapacity);
+
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer> = $r2;
+
+        $r3 = new org.apache.thrift.transport.AutoExpandingBufferWriteTransport;
+
+        specialinvoke $r3.<org.apache.thrift.transport.AutoExpandingBufferWriteTransport: 'void' <init>(org.apache.thrift.TConfiguration,'int','int')>($r1, initialBufferCapacity, 4);
+
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferWriteTransport writeBuffer> = $r3;
+
+        return;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        return;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        return $z0;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' open()>();
+
+        return;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r0;
+        'int' off, len, got;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer>;
+
+        got = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        if got <= 0 goto label1;
+
+        return got;
+
+     label1:
+        specialinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' readFrame()>();
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        return off;
+    }
+
+    private 'void' readFrame() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.TConfiguration $r10;
+        org.apache.thrift.transport.TTransportException $r3;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r19;
+        'long' $l2;
+        org.apache.thrift.transport.TTransport $r0;
+        'int' size, $i0;
+        java.lang.StringBuilder $r4;
+        java.lang.String $r8;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' resetMessageSizeAndConsumedBytes()>();
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        $r1 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'byte'[] i32buf>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>($r1, 0, 4);
+
+        $r1 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'byte'[] i32buf>;
+
+        size = staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'int' decodeFrameSize('byte'[])>($r1);
+
+        if size >= 0 goto label1;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' close()>();
+
+        $r3 = new org.apache.thrift.transport.TTransportException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read a negative frame size (");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r8 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(5, $r8);
+
+        throw $r3;
+
+     label1:
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        $r10 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = virtualinvoke $r10.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+        if size <= $i0 goto label2;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' close()>();
+
+        $r3 = new org.apache.thrift.transport.TTransportException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Frame size (");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") larger than max length (");
+
+        size = this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'int' maxLength>;
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r8 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(5, $r8);
+
+        throw $r3;
+
+     label2:
+        $r19 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer>;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r19.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'void' fill(org.apache.thrift.transport.TTransport,'int')>($r0, size);
+
+        $l2 = ('long') size;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'void' resetMessageSizeAndConsumedBytes('long')>($l2);
+
+        return;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        'int' off, len;
+        org.apache.thrift.transport.AutoExpandingBufferWriteTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferWriteTransport writeBuffer>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferWriteTransport: 'void' write('byte'[],'int','int')>(buf, off, len);
+
+        return;
+    }
+
+    public 'void' consumeBuffer('int')
+    {
+        'int' len;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        len := @parameter0: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'void' consumeBuffer('int')>(len);
+
+        return;
+    }
+
+    public 'void' clear() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.TConfiguration $r1;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r0;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = new org.apache.thrift.transport.AutoExpandingBufferReadTransport;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: 'int' initialBufferCapacity>;
+
+        specialinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'void' <init>(org.apache.thrift.TConfiguration,'int')>($r1, $i0);
+
+        this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer> = $r0;
+
+        return;
+    }
+
+    public 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] data;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.TTransport $r3;
+        'int' payloadLength;
+        org.apache.thrift.transport.AutoExpandingBufferWriteTransport $r0;
+        org.apache.thrift.transport.AutoExpandingBuffer $r2;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferWriteTransport writeBuffer>;
+
+        payloadLength = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferWriteTransport: 'int' getLength()>();
+
+        payloadLength = payloadLength - 4;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferWriteTransport writeBuffer>;
+
+        $r2 = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferWriteTransport: org.apache.thrift.transport.AutoExpandingBuffer getBuf()>();
+
+        data = virtualinvoke $r2.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array()>();
+
+        staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'void' encodeFrameSize('int','byte'[])>(payloadLength, data);
+
+        $r3 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        payloadLength = payloadLength + 4;
+
+        virtualinvoke $r3.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(data, 0, payloadLength);
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferWriteTransport writeBuffer>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferWriteTransport: 'void' reset()>();
+
+        $r3 = virtualinvoke this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r3.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        return;
+    }
+
+    public 'byte'[] getBuffer()
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'byte'[] getBuffer()>();
+
+        return $r1;
+    }
+
+    public 'int' getBufferPosition()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' getBufferPosition()>();
+
+        return $i0;
+    }
+
+    public 'int' getBytesRemainingInBuffer()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.layered.TFastFramedTransport this;
+        org.apache.thrift.transport.AutoExpandingBufferReadTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFastFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFastFramedTransport: org.apache.thrift.transport.AutoExpandingBufferReadTransport readBuffer>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.AutoExpandingBufferReadTransport: 'int' getBytesRemainingInBuffer()>();
+
+        return $i0;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.transport.layered.TFastFramedTransport: 'int' DEFAULT_BUF_CAPACITY> = 1024;
+
+        return;
+    }
+}

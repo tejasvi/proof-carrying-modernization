@@ -1,0 +1,149 @@
+# memcpy, memmove and memset over bytes (memb.cpp): between objects of different types, or over part of an
+# object, they copy and set the bytes of the objects' representations (C11 7.24.2.1p2, 7.24.2.2p2, 7.24.6.1p2;
+# 6.2.6.1p4; little-endian). Each case is labelled with its expected outcome on the line above it: MATCH, or UB
+# from cirrun: memcpy between overlapping bytes, indeterminate source bytes, a partly initialized scalar, a
+# pointer not rebuilt from all its bytes in order, a bool trap representation, a NaN, a padding byte outside the
+# members, a union. u_ptr_via_bytes, u_ptr_to_long, u_uninit_partial, u_memset_nan, u_padding_byte and
+# u_union_bytes are defined (or unspecified) in C: gaps labelled UB (memb.cpp).
+# expect MATCH: audit r_memcpy_struct_other, a struct from a struct of another type
+memb r_memcpy_struct_other 0
+# expect MATCH: audit y_memcpy_into_member, two members from the first member's address
+memb y_memcpy_into_member 0
+# expect MATCH: audit y_memcpy_into_struct, an int array into a struct
+memb y_memcpy_into_struct 0
+# expect MATCH: audit y_memset_member_span, memset of two members from the first member's address
+memb y_memset_member_span 0
+# expect MATCH: audit b_memset_ones, a bit-field struct set to all ones
+memb b_memset_ones 0
+# expect MATCH: the low half of an int from a short
+memb m_low_half 21862
+# expect MATCH: the low half of an int from a negative short
+memb m_low_half -2
+# expect MATCH: the high half of an int into a short
+memb m_high_half 287454020
+# expect MATCH: the high half of -2 into a short
+memb m_high_half -2
+# expect MATCH: four bytes across two ints, the first
+memb m_span_elems 0 0
+# expect MATCH: four bytes across two ints, the second
+memb m_span_elems 0 1
+# expect MATCH: four bytes across two ints of -1, the second
+memb m_span_elems -1 1
+# expect MATCH: bytes 2 to 7 of an int array zeroed, a[0]
+memb m_memset_middle 0
+# expect MATCH: bytes 2 to 7 of an int array zeroed, a[1]
+memb m_memset_middle 1
+# expect MATCH: bytes 2 to 7 of an int array zeroed, a[2] unchanged
+memb m_memset_middle 2
+# expect MATCH: eight bytes from a nested member's address
+memb m_struct_tail 0
+# expect MATCH: two bytes into the low half of a member
+memb m_member_low_bytes 0
+# expect MATCH: twelve bytes into an array of structs, arr[0]
+memb m_array_of_structs 0
+# expect MATCH: twelve bytes into an array of structs, arr[1]
+memb m_array_of_structs 1
+# expect MATCH: twelve bytes into an array of structs, arr[2] unchanged
+memb m_array_of_structs 2
+# expect MATCH: the first half of a struct into its second half
+memb m_within_struct 0
+# expect MATCH: memmove between overlapping bytes, a[0]
+memb m_overlap_memmove 0
+# expect MATCH: memmove between overlapping bytes, a[1]
+memb m_overlap_memmove 1
+# expect MATCH: memmove between overlapping bytes, a[2]
+memb m_overlap_memmove 2
+# expect MATCH: byte 0 of a struct in a char array
+memb m_struct_to_bytes 0
+# expect MATCH: byte 1 of a struct in a char array
+memb m_struct_to_bytes 1
+# expect MATCH: byte 4 of a struct in a char array
+memb m_struct_to_bytes 4
+# expect MATCH: byte 7 of a struct in a char array
+memb m_struct_to_bytes 7
+# expect MATCH: a char array into an uninitialized struct
+memb m_bytes_to_struct 0
+# expect MATCH: a struct into a struct of another layout
+memb m_struct_layout 0
+# expect MATCH: chars into shorts, s[0]
+memb m_chars_to_shorts 0
+# expect MATCH: chars into shorts, s[1]
+memb m_chars_to_shorts 1
+# expect MATCH: a long long into ints, a[0]
+memb m_ll_to_ints 0
+# expect MATCH: a long long into ints, a[1]
+memb m_ll_to_ints 1
+# expect MATCH: the exponent bits of 1.0
+memb m_double_bits 1
+# expect MATCH: the sign and exponent bits of -1.0
+memb m_double_bits -1
+# expect MATCH: a double from bits (1.5)
+memb m_bits_double 0
+# expect MATCH: a double from bits (1.5 and a few ulps)
+memb m_bits_double 12345
+# expect MATCH: the bits of 1.0f
+memb m_float_bits 1
+# expect MATCH: the bits of -3.0f
+memb m_float_bits -3
+# expect MATCH: a float from bits (pi)
+memb m_bits_float 0
+# expect MATCH: a bool from the byte 0
+memb m_bool_from_byte 0
+# expect MATCH: a bool from the byte 1
+memb m_bool_from_byte 1
+# expect MATCH: an int from the bytes of a string literal
+memb m_literal_to_int 0
+# expect MATCH: an int from the last bytes of a string literal, its terminator included
+memb m_literal_to_int 1
+# expect MATCH: a malloc'd struct from an int array
+memb m_heap_struct 0
+# expect MATCH: memset of an int array to 1, a[0]
+memb m_memset_ints 0
+# expect MATCH: memset of an int array to 1, a[1]
+memb m_memset_ints 1
+# expect MATCH: memset of a 4096-int array to all ones
+memb m_memset_big 7
+# expect MATCH: memset of a float to 0x40
+memb m_memset_float 0
+# expect MATCH: a pointer member into a struct of another type
+memb m_ptr_member 0
+# expect MATCH: two pointer members into a pointer array, the first
+memb m_ptrs_to_array 0
+# expect MATCH: two pointer members into a pointer array, the second
+memb m_ptrs_to_array 1
+# expect MATCH: zero bytes over a pointer member make it null
+memb m_null_by_bytes 0
+# expect MATCH: a struct with padding into another struct type
+memb m_padding_copy 0
+# expect MATCH: byte 0 of a struct with padding
+memb m_padding_bytes 0
+# expect MATCH: byte 4 of a struct with padding
+memb m_padding_bytes 4
+# expect MATCH: byte 5 of a struct with padding
+memb m_padding_bytes 5
+# expect MATCH: byte 0 of a bit-field struct (the storage unit)
+memb m_bf_padding_bytes 0
+# expect MATCH: byte 2 of a bit-field struct (its padding member)
+memb m_bf_padding_bytes 2
+# expect MATCH: byte 3 of a bit-field struct (its padding member)
+memb m_bf_padding_bytes 3
+# expect UB: memcpy between overlapping bytes (C11 7.24.2.1p2)
+memb u_overlap_memcpy 0
+# expect UB: indeterminate source bytes make the int indeterminate
+memb u_indeterminate_src 0
+# expect UB: gap, half of an uninitialized int written (C: the other half unspecified)
+memb u_uninit_partial 0
+# expect UB: half of a pointer copied (a pointer is rebuilt only from all its bytes, in order)
+memb u_ptr_half 0
+# expect UB: gap, a pointer through a char buffer (defined in C)
+memb u_ptr_via_bytes 0
+# expect UB: gap, a pointer's bytes into a long (defined in C)
+memb u_ptr_to_long 0
+# expect UB: a bool trap representation (the byte 2)
+memb u_bool_trap 0
+# expect UB: gap, a NaN from memset (defined in C; a NaN's bytes are not modelled)
+memb u_memset_nan 0
+# expect UB: gap, a padding byte after memset and member stores (C: unspecified)
+memb u_padding_byte 0
+# expect UB: gap, a union's bytes (defined in C; unions are not covered)
+memb u_union_bytes 0

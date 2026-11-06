@@ -1,0 +1,1 @@
+equivalent if (c) return true; else return false vs return c

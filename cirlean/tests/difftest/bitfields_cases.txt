@@ -1,0 +1,108 @@
+# Bit-fields whose storage unit is an array (bitfields.cpp): !cir.array<!u8i x N> units, bits numbered
+# little-endian across the bytes; reads sign- or zero-extend, writes keep the other bits. Also bool bit-fields and
+# unions with tail padding (bitfields.cpp), volatile accesses and a zero-width bit-field (bitfforms.cpp). Each case
+# is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun where the standard leaves the
+# value undefined (a field whose unit was never written), and where a union member reads bytes that the active member
+# does not hold.
+# expect MATCH: packed struct, a 2-byte unit then a 3-byte unit
+bitfields t_packed 5
+# expect MATCH: packed struct, values wider than the fields (reduced modulo 2^width)
+bitfields t_packed 100000
+# expect MATCH: packed struct, a negative value written to unsigned fields
+bitfields t_packed -3
+# expect MATCH: fields at bit offsets 0, 5 and 22 of one 3-byte unit
+bitfields t_offsets 3
+# expect MATCH: fields at bit offsets 0, 5 and 22, values wider than the fields
+bitfields t_offsets 77
+# expect MATCH: a 3-byte unit after a char, then a 4-byte unit
+bitfields t_after_char 9
+# expect MATCH: a 3-byte unit after a char, a value wider than the field
+bitfields t_after_char 300
+# expect MATCH: two 40-bit fields in 5-byte units
+bitfields t_wide40 1
+# expect MATCH: two 40-bit fields in 5-byte units, the product needs all 40 bits
+bitfields t_wide40 999999
+# expect MATCH: a 48-bit field in a 6-byte unit before a short
+bitfields t_wide48 12
+# expect MATCH: a 48-bit field, a value above 2^48 reduced
+bitfields t_wide48 70000
+# expect MATCH: 7, 50 and 63-bit fields in one 15-byte unit
+bitfields t_wide120 3
+# expect MATCH: 7, 50 and 63-bit fields in one 15-byte unit, larger values
+bitfields t_wide120 123456
+# expect MATCH: signed 5 and 19-bit fields in a 3-byte unit, a 41-bit field in a 6-byte unit
+bitfields t_signed 5
+# expect MATCH: signed fields, negative values
+bitfields t_signed -7
+# expect MATCH: signed fields, 40 does not fit in 5 bits (reduced modulo 2^5)
+bitfields t_signed 40
+# expect MATCH: a signed 18-bit field at bit 3 of a 3-byte unit
+bitfields t_signed_mid 1
+# expect MATCH: a signed 18-bit field at bit 3, values wider than the field
+bitfields t_signed_mid 99
+# expect MATCH: a bool bit-field in a 3-byte unit, odd value
+bitfields t_bool_packed 7
+# expect MATCH: a bool bit-field in a 3-byte unit, even value
+bitfields t_bool_packed 4096
+# expect MATCH: bool bit-fields in a 1-byte unit
+bitfields t_bool_unit 5
+# expect MATCH: bool bit-fields in a 1-byte unit, negative value
+bitfields t_bool_unit -2
+# expect MATCH: an enum bit-field in a 3-byte unit
+bitfields t_enum 6
+# expect MATCH: an enum bit-field, a value wider than the other field
+bitfields t_enum 5000000
+# expect MATCH: a 100-bit field in a 13-byte unit
+bitfields t_int128 3
+# expect MATCH: a 100-bit field in a 13-byte unit, the high bits cut at 2^100
+bitfields t_int128 4097
+# expect MATCH: a class with two 12-bit fields in a 3-byte unit before a char
+bitfields t_class 100
+# expect MATCH: a class with two 12-bit fields, values wider than the fields
+bitfields t_class 5000
+# expect MATCH: a packed struct as a member of another struct
+bitfields t_nested 8
+# expect MATCH: union members with the same 3-byte unit, a signed field written, the unsigned one read
+bitfields t_union_same 5
+# expect MATCH: union members with the same 3-byte unit, a positive value
+bitfields t_union_same -1000
+# expect MATCH: union members read back without a reinterpretation
+bitfields t_union_member 77
+# expect MATCH: a 3-byte unit written, a 1-byte unit read: the first byte of the 3-byte unit (C11 6.5.2.3p3)
+bitfields u_union_size 5
+# expect MATCH: an int written, a 3-byte unit read: the unit composed from the int's first three bytes (C11 6.5.2.3p3)
+bitfields u_union_int 5
+# expect MATCH: a union with tail padding inside a struct, in a heap array (the union's size)
+bitfields t_union_heap 4
+# expect MATCH: a union of 1-byte units with tail padding inside a struct, in a heap array (the union's size)
+bitfields t_union_unit 9
+# expect MATCH: a malloc'd array of packed structs
+bitfields t_heap_packed 11
+# expect MATCH: return by value, assignment and pass by value of a packed struct
+bitfields t_copy 6
+# expect MATCH: a constant initializer, a zero-initialized local and a global
+bitfields t_init 2
+# expect MATCH: compound assignments and increments, unsigned wrap-around
+bitfields t_compound 1000
+# expect MATCH: compound assignments and increments, larger value
+bitfields t_compound 524287
+# expect MATCH: an array of structs and pointers to its elements
+bitfields t_array 21
+# expect MATCH: memset and memcpy of a struct with a 3-byte unit
+bitfields t_memfns 12345
+# expect MATCH: a 3-byte unit and a byte array of the same type in a union, both read
+bitfields t_union_bytes 5
+# expect MATCH: a 3-byte unit and a byte array of the same type in a union, a 20-bit value
+bitfields t_union_bytes 74565
+# expect MATCH: a zero-initialized global read before any write
+bitfields t_global_zero 9
+# expect MATCH: fields updated through a pointer in another function
+bitfields t_ptr_arg 5
+# expect UB: a field whose storage unit was never written (an indeterminate value)
+bitfields u_uninit 3
+# expect MATCH: volatile accesses to a 3-byte unit and a 2-byte unit
+bitfforms t_volatile 31
+# expect MATCH: volatile accesses to a 1-byte unit
+bitfforms t_volatile_unit 5
+# expect MATCH: a zero-width bit-field, constant and zero initializers
+bitfforms t_zero_width 4

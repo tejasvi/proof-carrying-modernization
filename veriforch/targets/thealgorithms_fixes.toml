@@ -1,0 +1,22 @@
+# Defects in TheAlgorithms/C-Plus-Plus @ fdcc29b reported by the cirlean session's sweeps (routed to the
+# certified patch loop); same source copy as thealgorithms_cpp.
+name = "thealgorithms_fixes"
+lang = "cir"
+root = "/home/user/veriforch/targets/thealgorithms_cpp"
+sources = []
+entry = ["main"]
+
+[extra]
+cxxflags = ["-nostdinc++", "-isystem", "/home/user/cirlean_work/dl_cir2c_eb2a332/cir2c-eb2a332/libcxx/include/c++/v1", "-w"]
+
+[[variants]]
+name = "math_power_of_two"
+sources = ["math/power_of_two.cpp"]
+
+[[variants]]
+name = "hashing_md5"
+sources = ["hashing/md5.cpp"]
+
+[[variants]]
+name = "hashing_sha1"
+sources = ["hashing/sha1.cpp"]

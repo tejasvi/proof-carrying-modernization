@@ -1,0 +1,7 @@
+public interface  org.apache.thrift.TFieldIdEnum extends java.lang.Object
+{
+
+    public abstract 'short' getThriftFieldId();
+
+    public abstract java.lang.String getFieldName();
+}

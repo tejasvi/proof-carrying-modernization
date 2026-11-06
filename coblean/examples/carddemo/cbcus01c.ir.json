@@ -1,0 +1,2121 @@
+{
+ "name": "CBCUS01C",
+ "config": {
+  "charset": "ebcdic",
+  "zonedSign": "ebcdic",
+  "trunc": "std",
+  "numprocPfd": false,
+  "binaryLE": false,
+  "comp5LE": false,
+  "binary1Byte": false,
+  "sizeErrorTruncates": true
+ },
+ "dialect": {
+  "divExtraForRounded": true
+ },
+ "data": [
+  {
+   "id": 1,
+   "level": 1,
+   "name": "FD-CUSTFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 2,
+     "level": 5,
+     "name": "FD-CUST-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 3,
+     "level": 5,
+     "name": "FD-CUST-DATA",
+     "pic": {
+      "alnum": {
+       "len": 491
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "level": 1,
+   "name": "CUSTOMER-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 5,
+     "level": 5,
+     "name": "CUST-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 6,
+     "level": 5,
+     "name": "CUST-FIRST-NAME",
+     "pic": {
+      "alnum": {
+       "len": 25
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 7,
+     "level": 5,
+     "name": "CUST-MIDDLE-NAME",
+     "pic": {
+      "alnum": {
+       "len": 25
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 8,
+     "level": 5,
+     "name": "CUST-LAST-NAME",
+     "pic": {
+      "alnum": {
+       "len": 25
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 9,
+     "level": 5,
+     "name": "CUST-ADDR-LINE-1",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 10,
+     "level": 5,
+     "name": "CUST-ADDR-LINE-2",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 11,
+     "level": 5,
+     "name": "CUST-ADDR-LINE-3",
+     "pic": {
+      "alnum": {
+       "len": 50
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 12,
+     "level": 5,
+     "name": "CUST-ADDR-STATE-CD",
+     "pic": {
+      "alnum": {
+       "len": 2
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 13,
+     "level": 5,
+     "name": "CUST-ADDR-COUNTRY-CD",
+     "pic": {
+      "alnum": {
+       "len": 3
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 14,
+     "level": 5,
+     "name": "CUST-ADDR-ZIP",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 15,
+     "level": 5,
+     "name": "CUST-PHONE-NUM-1",
+     "pic": {
+      "alnum": {
+       "len": 15
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 16,
+     "level": 5,
+     "name": "CUST-PHONE-NUM-2",
+     "pic": {
+      "alnum": {
+       "len": 15
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 17,
+     "level": 5,
+     "name": "CUST-SSN",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 18,
+     "level": 5,
+     "name": "CUST-GOVT-ISSUED-ID",
+     "pic": {
+      "alnum": {
+       "len": 20
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 19,
+     "level": 5,
+     "name": "CUST-DOB-YYYY-MM-DD",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 20,
+     "level": 5,
+     "name": "CUST-EFT-ACCOUNT-ID",
+     "pic": {
+      "alnum": {
+       "len": 10
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 21,
+     "level": 5,
+     "name": "CUST-PRI-CARD-HOLDER-IND",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 22,
+     "level": 5,
+     "name": "CUST-FICO-CREDIT-SCORE",
+     "pic": {
+      "num": {
+       "digits": 3,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 23,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 168
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "level": 1,
+   "name": "CUSTFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 25,
+     "level": 5,
+     "name": "CUSTFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 26,
+     "level": 5,
+     "name": "CUSTFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "level": 1,
+   "name": "IO-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 28,
+     "level": 5,
+     "name": "IO-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 29,
+     "level": 5,
+     "name": "IO-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "level": 1,
+   "name": "TWO-BYTES-BINARY",
+   "pic": {
+    "num": {
+     "digits": 4,
+     "scale": 0,
+     "signed": false
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 31,
+   "level": 1,
+   "name": "TWO-BYTES-ALPHA",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": 30,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 32,
+     "level": 5,
+     "name": "TWO-BYTES-LEFT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 33,
+     "level": 5,
+     "name": "TWO-BYTES-RIGHT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 34,
+   "level": 1,
+   "name": "IO-STATUS-04",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 35,
+     "level": 5,
+     "name": "IO-STATUS-0401",
+     "pic": {
+      "num": {
+       "digits": 1,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 36,
+     "level": 5,
+     "name": "IO-STATUS-0403",
+     "pic": {
+      "num": {
+       "digits": 3,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 37,
+   "level": 1,
+   "name": "APPL-RESULT",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [
+    [
+     38,
+     [
+      "APPL-AOK",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 0,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ],
+    [
+     39,
+     [
+      "APPL-EOF",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 16,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": 40,
+   "level": 1,
+   "name": "END-OF-FILE",
+   "pic": {
+    "alnum": {
+     "len": 1
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": {
+    "alnum": {
+     "bs": [
+      213
+     ]
+    }
+   },
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 41,
+   "level": 1,
+   "name": "ABCODE",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 42,
+   "level": 1,
+   "name": "TIMING",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  }
+ ],
+ "paras": [
+  {
+   "name": "",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "START OF EXECUTION OF PROGRAM CBCUS01C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0000-CUSTFILE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "performInline": {
+       "body": [
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": "=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 40,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "lit": {
+              "l": {
+               "str": {
+                "s": "N"
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           {
+            "perform": {
+             "first": "1000-CUSTFILE-GET-NEXT",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "ite": {
+             "c": {
+              "rel": {
+               "op": "=",
+               "a": {
+                "ref": {
+                 "r": {
+                  "item": 40,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                }
+               },
+               "b": {
+                "lit": {
+                 "l": {
+                  "str": {
+                   "s": "N"
+                  }
+                 }
+                }
+               }
+              }
+             },
+             "t": [
+              {
+               "display": {
+                "ops": [
+                 {
+                  "ref": {
+                   "r": {
+                    "item": 4,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                ]
+               }
+              }
+             ],
+             "e": []
+            }
+           }
+          ],
+          "e": []
+         }
+        }
+       ],
+       "loop": {
+        "until": {
+         "testAfter": false,
+         "c": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 40,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "Y"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9000-CUSTFILE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "END OF EXECUTION OF PROGRAM CBCUS01C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     "goback"
+    ]
+   ]
+  },
+  {
+   "name": "1000-CUSTFILE-GET-NEXT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 1,
+       "key": null,
+       "into": {
+        "item": 4,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 24,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 37,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 4,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": "=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 24,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "lit": {
+              "l": {
+               "str": {
+                "s": "10"
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 16,
+                 "scale": 0,
+                 "digits": 2
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 37,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 12,
+                 "scale": 0,
+                 "digits": 2
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 37,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 38,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "cond88": {
+            "id": 39,
+            "subs": []
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "Y"
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 40,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "display": {
+             "ops": [
+              {
+               "lit": {
+                "l": {
+                 "str": {
+                  "s": "ERROR READING CUSTOMER FILE"
+                 }
+                }
+               }
+              }
+             ]
+            }
+           },
+           {
+            "move": {
+             "src": {
+              "ref": {
+               "r": {
+                "item": 24,
+                "subs": [],
+                "refStart": null,
+                "refLen": null
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 27,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           },
+           {
+            "perform": {
+             "first": "Z-DISPLAY-IO-STATUS",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "perform": {
+             "first": "Z-ABEND-PROGRAM",
+             "last": null,
+             "loop": "once"
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0000-CUSTFILE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 37,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 1,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 24,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 37,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 37,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 38,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING CUSTFILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 24,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 27,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "Z-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "Z-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9000-CUSTFILE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 8,
+          "scale": 0
+         }
+        },
+        {
+         "lit": {
+          "v": 0,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 37,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": true,
+       "onSize": null,
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 1
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 24,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "subtract": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 37,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 37,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": null,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ],
+       "e": [
+        {
+         "add": {
+          "ops": [
+           {
+            "lit": {
+             "v": 12,
+             "scale": 0
+            }
+           },
+           {
+            "lit": {
+             "v": 0,
+             "scale": 0
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 37,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": true,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 38,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING CUSTOMER FILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 24,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 27,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "Z-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "Z-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "Z-ABEND-PROGRAM",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "ABENDING PROGRAM"
+           }
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 0,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 42,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 999,
+           "scale": 0,
+           "digits": 3
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 41,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "abend": {
+       "code": {
+        "ref": {
+         "r": {
+          "item": 41,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       }
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "Z-DISPLAY-IO-STATUS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "or": {
+         "a": {
+          "not": {
+           "c": {
+            "cls": {
+             "test": "NUMERIC",
+             "r": {
+              "item": 27,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          }
+         },
+         "b": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 28,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "9"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 28,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 34,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 1
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 1
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 30,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 29,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 33,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 30,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 36,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 34,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "0000"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 34,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 27,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 34,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 3
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 2
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 34,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  }
+ ],
+ "isMain": true,
+ "using": [],
+ "files": [
+  {
+   "id": 1,
+   "org": "indexed",
+   "access": "sequential",
+   "record": 1,
+   "key": 2,
+   "alt": [],
+   "status": 24,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  }
+ ]
+}

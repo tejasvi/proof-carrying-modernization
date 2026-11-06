@@ -1,0 +1,238 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. F00005.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT XF1 ASSIGN TO 'F00005_1.dat'
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS RANDOM
+               RECORD KEY IS XF1-K
+               FILE STATUS IS XF1-S.
+           SELECT XF2 ASSIGN TO 'F00005_2.dat'
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS SEQUENTIAL
+               RECORD KEY IS XF2-K
+               FILE STATUS IS XF2-S.
+           SELECT XF3 ASSIGN TO 'F00005_3.dat'
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS SEQUENTIAL
+               RECORD KEY IS XF3-K
+               ALTERNATE RECORD KEY IS XF3-A
+               FILE STATUS IS XF3-S.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  XF1.
+       01  XF1-R.
+           05  XF1-K PIC X(3).
+           05  XF1-D PIC X(3).
+       FD  XF2.
+       01  XF2-R.
+           05  XF2-K PIC X(3).
+           05  XF2-D PIC X(3).
+       FD  XF3.
+       01  XF3-R.
+           05  XF3-K PIC X(3).
+           05  XF3-A PIC X(2).
+           05  XF3-D PIC X(3).
+       WORKING-STORAGE SECTION.
+       01  R.
+           05  SENT PIC X(8) VALUE 'FTRACE01'.
+           05  TRC PIC X(225) VALUE SPACES.
+           05  XF1-S PIC XX VALUE SPACES.
+           05  XF1-I PIC X(6) VALUE SPACES.
+           05  XF1-W PIC X(6) VALUE SPACES.
+           05  XF2-S PIC XX VALUE SPACES.
+           05  XF2-I PIC X(6) VALUE SPACES.
+           05  XF2-W PIC X(6) VALUE SPACES.
+           05  XF3-S PIC XX VALUE SPACES.
+           05  XF3-I PIC X(8) VALUE SPACES.
+           05  XF3-W PIC X(8) VALUE SPACES.
+       01  RX REDEFINES R.
+           05  BYTE PIC X OCCURS 279.
+       01  IDX PIC 9(4) COMP.
+       PROCEDURE DIVISION.
+       MAIN-PARA.
+           MOVE SPACES TO XF1-R
+           MOVE SPACES TO XF2-R
+           MOVE SPACES TO XF3-R
+           MOVE 'K02A1305' TO XF3-R
+           REWRITE XF3-R
+               INVALID KEY MOVE 'E' TO TRC(3:1)
+               NOT INVALID KEY MOVE 'N' TO TRC(3:1)
+           END-REWRITE
+           MOVE XF3-S TO TRC(1:2)
+           OPEN OUTPUT XF3
+           MOVE XF3-S TO TRC(4:2)
+           OPEN OUTPUT XF2
+           MOVE XF2-S TO TRC(7:2)
+           OPEN OUTPUT XF1
+           MOVE XF1-S TO TRC(10:2)
+           CLOSE XF1
+           MOVE XF1-S TO TRC(13:2)
+           DELETE XF2 RECORD
+           END-DELETE
+           MOVE XF2-S TO TRC(16:2)
+           MOVE 'K02A6R9H' TO XF3-W
+           WRITE XF3-R FROM XF3-W
+           END-WRITE
+           MOVE XF3-S TO TRC(19:2)
+           MOVE 'K05SGL' TO XF1-R
+           WRITE XF1-R
+               NOT INVALID KEY MOVE 'N' TO TRC(24:1)
+           END-WRITE
+           MOVE XF1-S TO TRC(22:2)
+           MOVE 'K06HR1' TO XF2-R
+           REWRITE XF2-R
+               INVALID KEY MOVE 'E' TO TRC(27:1)
+           END-REWRITE
+           MOVE XF2-S TO TRC(25:2)
+           OPEN EXTEND XF2
+           MOVE XF2-S TO TRC(28:2)
+           OPEN OUTPUT XF1
+           MOVE XF1-S TO TRC(31:2)
+           MOVE 'K04KAM' TO XF1-R
+           WRITE XF1-R
+               NOT INVALID KEY MOVE 'N' TO TRC(36:1)
+           END-WRITE
+           MOVE XF1-S TO TRC(34:2)
+           MOVE 'K06A4NPV' TO XF3-R
+           WRITE XF3-R
+           END-WRITE
+           MOVE XF3-S TO TRC(37:2)
+           CLOSE XF3
+           MOVE XF3-S TO TRC(40:2)
+           OPEN EXTEND XF3
+           MOVE XF3-S TO TRC(43:2)
+           MOVE 'K01OW4' TO XF1-R
+           WRITE XF1-R
+           END-WRITE
+           MOVE XF1-S TO TRC(46:2)
+           MOVE 'K07A4BO0' TO XF3-R
+           WRITE XF3-R
+               INVALID KEY MOVE 'E' TO TRC(51:1)
+           END-WRITE
+           MOVE XF3-S TO TRC(49:2)
+           MOVE 'K07A4X4A' TO XF3-W
+           WRITE XF3-R FROM XF3-W
+           END-WRITE
+           MOVE XF3-S TO TRC(52:2)
+           CLOSE XF3
+           MOVE XF3-S TO TRC(55:2)
+           MOVE 'K019MI' TO XF1-R
+           WRITE XF1-R
+               NOT INVALID KEY MOVE 'N' TO TRC(60:1)
+           END-WRITE
+           MOVE XF1-S TO TRC(58:2)
+           MOVE 'K08793' TO XF2-R
+           WRITE XF2-R
+               INVALID KEY MOVE 'E' TO TRC(63:1)
+               NOT INVALID KEY MOVE 'N' TO TRC(63:1)
+           END-WRITE
+           MOVE XF2-S TO TRC(61:2)
+           MOVE 'K01' TO XF1-K
+           READ XF1 KEY IS XF1-K
+           END-READ
+           MOVE XF1-S TO TRC(64:2)
+           MOVE XF1-R TO TRC(67:6)
+           MOVE 'K077WY' TO XF1-W
+           WRITE XF1-R FROM XF1-W
+           END-WRITE
+           MOVE XF1-S TO TRC(73:2)
+           MOVE 'K085DM' TO XF2-R
+           WRITE XF2-R
+           END-WRITE
+           MOVE XF2-S TO TRC(76:2)
+           CLOSE XF1
+           MOVE XF1-S TO TRC(79:2)
+           OPEN INPUT XF1
+           MOVE XF1-S TO TRC(82:2)
+           MOVE 'K01' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(87:1)
+           END-READ
+           MOVE XF1-S TO TRC(85:2)
+           MOVE XF1-R TO TRC(88:6)
+           MOVE 'K02' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(96:1)
+           END-READ
+           MOVE XF1-S TO TRC(94:2)
+           MOVE XF1-R TO TRC(97:6)
+           MOVE 'K03' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(105:1)
+           END-READ
+           MOVE XF1-S TO TRC(103:2)
+           MOVE XF1-R TO TRC(106:6)
+           MOVE 'K04' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(114:1)
+           END-READ
+           MOVE XF1-S TO TRC(112:2)
+           MOVE XF1-R TO TRC(115:6)
+           MOVE 'K05' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(123:1)
+           END-READ
+           MOVE XF1-S TO TRC(121:2)
+           MOVE XF1-R TO TRC(124:6)
+           MOVE 'K06' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(132:1)
+           END-READ
+           MOVE XF1-S TO TRC(130:2)
+           MOVE XF1-R TO TRC(133:6)
+           MOVE 'K07' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(141:1)
+           END-READ
+           MOVE XF1-S TO TRC(139:2)
+           MOVE XF1-R TO TRC(142:6)
+           MOVE 'K08' TO XF1-K
+           READ XF1
+               INVALID KEY MOVE 'E' TO TRC(150:1)
+           END-READ
+           MOVE XF1-S TO TRC(148:2)
+           MOVE XF1-R TO TRC(151:6)
+           CLOSE XF1
+           MOVE XF1-S TO TRC(157:2)
+           CLOSE XF2
+           MOVE XF2-S TO TRC(160:2)
+           OPEN INPUT XF2
+           MOVE XF2-S TO TRC(163:2)
+           READ XF2
+               AT END MOVE 'E' TO TRC(168:1)
+           END-READ
+           MOVE XF2-S TO TRC(166:2)
+           MOVE XF2-R TO TRC(169:6)
+           READ XF2
+               AT END MOVE 'E' TO TRC(177:1)
+           END-READ
+           MOVE XF2-S TO TRC(175:2)
+           MOVE XF2-R TO TRC(178:6)
+           CLOSE XF2
+           MOVE XF2-S TO TRC(184:2)
+           OPEN INPUT XF3
+           MOVE XF3-S TO TRC(187:2)
+           READ XF3
+               AT END MOVE 'E' TO TRC(192:1)
+           END-READ
+           MOVE XF3-S TO TRC(190:2)
+           MOVE XF3-R TO TRC(193:8)
+           READ XF3
+               AT END MOVE 'E' TO TRC(203:1)
+           END-READ
+           MOVE XF3-S TO TRC(201:2)
+           MOVE XF3-R TO TRC(204:8)
+           READ XF3
+               AT END MOVE 'E' TO TRC(214:1)
+           END-READ
+           MOVE XF3-S TO TRC(212:2)
+           MOVE XF3-R TO TRC(215:8)
+           CLOSE XF3
+           MOVE XF3-S TO TRC(223:2)
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 279
+              DISPLAY FUNCTION ORD(BYTE(IDX)) ' ' WITH NO ADVANCING
+           END-PERFORM
+           DISPLAY ' '
+           STOP RUN.

@@ -1,0 +1,10 @@
+      * EXPECT-REJECT: OCCURS ... TO without DEPENDING ON
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. R11.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  R.
+           05  T OCCURS 1 TO 5 PIC X.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

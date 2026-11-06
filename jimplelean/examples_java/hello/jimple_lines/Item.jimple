@@ -1,0 +1,61 @@
+class Item extends java.lang.Object implements Priced
+{
+/*Hello.java*/
+    final java.math.BigDecimal unit;
+    final 'int' qty;
+
+/*7*/
+    'void' <init>(java.math.BigDecimal, 'int')
+    {
+        'int' i0;
+        Item r0;
+        java.math.BigDecimal r1;
+
+        r0 := @this: Item;
+
+        r1 := @parameter0: java.math.BigDecimal;
+
+        i0 := @parameter1: 'int';
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+/*8*/
+
+        r0.<Item: java.math.BigDecimal unit> = r1;
+/*8*/
+
+        r0.<Item: 'int' qty> = i0;
+/*8*/
+
+        return;
+/*8*/
+    }
+
+/*9*/
+    public java.math.BigDecimal price()
+    {
+        Item r0;
+        java.math.BigDecimal $r1, $r2;
+        'int' $i0;
+        'long' $l1;
+
+        r0 := @this: Item;
+
+        $r1 = r0.<Item: java.math.BigDecimal unit>;
+/*9*/
+
+        $i0 = r0.<Item: 'int' qty>;
+/*9*/
+
+        $l1 = ('long') $i0;
+/*9*/
+
+        $r2 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>($l1);
+/*9*/
+
+        $r1 = virtualinvoke $r1.<java.math.BigDecimal: java.math.BigDecimal multiply(java.math.BigDecimal)>($r2);
+/*9*/
+
+        return $r1;
+/*9*/
+    }
+}

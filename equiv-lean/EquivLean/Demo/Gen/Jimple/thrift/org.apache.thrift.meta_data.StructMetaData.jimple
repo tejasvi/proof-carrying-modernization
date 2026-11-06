@@ -1,0 +1,23 @@
+public class org.apache.thrift.meta_data.StructMetaData extends org.apache.thrift.meta_data.FieldValueMetaData
+{
+    public final java.lang.Class structClass;
+
+    public 'void' <init>('byte', java.lang.Class)
+    {
+        org.apache.thrift.meta_data.StructMetaData this;
+        java.lang.Class sClass;
+        'byte' type;
+
+        this := @this: org.apache.thrift.meta_data.StructMetaData;
+
+        type := @parameter0: 'byte';
+
+        sClass := @parameter1: java.lang.Class;
+
+        specialinvoke this.<org.apache.thrift.meta_data.FieldValueMetaData: 'void' <init>('byte')>(type);
+
+        this.<org.apache.thrift.meta_data.StructMetaData: java.lang.Class structClass> = sClass;
+
+        return;
+    }
+}

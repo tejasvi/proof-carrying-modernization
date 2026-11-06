@@ -1,0 +1,135 @@
+# sscanf's %i (sscanfi.c, a C source: glibc's __isoc99_sscanf) and the objects sscanf stores into: the one a store
+# of the program through the pointer reaches (C11 6.7.2.1p15: a structure's first member through a pointer to the
+# structure converted to the conversion's type; 6.5p7: a byte of an int for %hhu). %i reads the subject sequence of
+# strtol in base 0 (7.21.6.2p12): 0x and hexadecimal digits, a leading 0 and octal digits, else decimal digits.
+# Each case is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun (a value that does
+# not fit the object, 7.21.6.2p10; an object of another type than the conversion's; the labelled gap: a 0b prefix,
+# binary for glibc's C23 __isoc23_sscanf, the end of the number for __isoc99_sscanf, is not modelled).
+# expect MATCH: %i of 0x1F: 31
+sscanfi i_value 0
+# expect MATCH: %i of 0x1F: 31 (result and characters consumed)
+sscanfi i_count 0
+# expect MATCH: %i of -0x10: -16
+sscanfi i_value 1
+# expect MATCH: %i of -0x10: -16 (result and characters consumed)
+sscanfi i_count 1
+# expect MATCH: %i of +017: octal 15
+sscanfi i_value 2
+# expect MATCH: %i of +017: octal 15 (result and characters consumed)
+sscanfi i_count 2
+# expect MATCH: %i of 08: 0, the 8 not read
+sscanfi i_value 3
+# expect MATCH: %i of 08: 0, the 8 not read (result and characters consumed)
+sscanfi i_count 3
+# expect MATCH: %i of 0x without a hex digit: a matching failure
+sscanfi i_value 4
+# expect MATCH: %i of 0x without a hex digit: a matching failure (result and characters consumed)
+sscanfi i_count 4
+# expect MATCH: %i of 0xg: a matching failure
+sscanfi i_value 5
+# expect MATCH: %i of 0xg: a matching failure (result and characters consumed)
+sscanfi i_count 5
+# expect MATCH: %i of 0X1f: 31
+sscanfi i_value 6
+# expect MATCH: %i of 0X1f: 31 (result and characters consumed)
+sscanfi i_count 6
+# expect MATCH: %i of leading white space
+sscanfi i_value 7
+# expect MATCH: %i of leading white space (result and characters consumed)
+sscanfi i_count 7
+# expect MATCH: %i of a lone sign: a matching failure
+sscanfi i_value 8
+# expect MATCH: %i of a lone sign: a matching failure (result and characters consumed)
+sscanfi i_count 8
+# expect MATCH: %i of 0
+sscanfi i_value 9
+# expect MATCH: %i of 0 (result and characters consumed)
+sscanfi i_count 9
+# expect MATCH: %i of -0
+sscanfi i_value 10
+# expect MATCH: %i of -0 (result and characters consumed)
+sscanfi i_count 10
+# expect MATCH: %i of 00
+sscanfi i_value 11
+# expect MATCH: %i of 00 (result and characters consumed)
+sscanfi i_count 11
+# expect MATCH: %i of 0x7fffffff: INT_MAX
+sscanfi i_value 12
+# expect MATCH: %i of 0x7fffffff: INT_MAX (result and characters consumed)
+sscanfi i_count 12
+# expect MATCH: %i of 017777777777: INT_MAX in octal
+sscanfi i_value 13
+# expect MATCH: %i of 017777777777: INT_MAX in octal (result and characters consumed)
+sscanfi i_count 13
+# expect MATCH: %i of -2147483648: INT_MIN
+sscanfi i_value 14
+# expect MATCH: %i of -2147483648: INT_MIN (result and characters consumed)
+sscanfi i_count 14
+# expect MATCH: %i of 0x1Fz: 31, the z not read
+sscanfi i_value 15
+# expect MATCH: %i of 0x1Fz: 31, the z not read (result and characters consumed)
+sscanfi i_count 15
+# expect MATCH: %i of 0x-1: a matching failure
+sscanfi i_value 16
+# expect MATCH: %i of 0x-1: a matching failure (result and characters consumed)
+sscanfi i_count 16
+# expect MATCH: %i of - 5: a matching failure
+sscanfi i_value 17
+# expect MATCH: %i of - 5: a matching failure (result and characters consumed)
+sscanfi i_count 17
+# expect MATCH: %i of 1e5: 1
+sscanfi i_value 18
+# expect MATCH: %i of 1e5: 1 (result and characters consumed)
+sscanfi i_count 18
+# expect MATCH: %i of 0099: octal 00, the 9 not read
+sscanfi i_value 19
+# expect MATCH: %i of 0099: octal 00, the 9 not read (result and characters consumed)
+sscanfi i_count 19
+# expect UB: %i of 0x80000000, which does not fit an int (7.21.6.2p10)
+sscanfi i_value 20
+# expect UB: %i of 2147483648, which does not fit an int
+sscanfi i_value 21
+# expect UB: (gap) %i of 0b101: binary in C23, 0 in C17, not modelled
+sscanfi i_value 22
+# expect UB: (gap) %i of 0b: not modelled
+sscanfi i_count 23
+# expect MATCH: %2i of 0x1F: the item 0x, a matching failure
+sscanfi i_width2 0
+# expect MATCH: %2i of -0x10: the item -0
+sscanfi i_width2 1
+# expect MATCH: %2i of +017: the item +0
+sscanfi i_width2 2
+# expect MATCH: %2i of 017777777777: the item 01
+sscanfi i_width2 13
+# expect MATCH: %2i of -2147483648: the item -2
+sscanfi i_width2 14
+# expect MATCH: %hhi of 0x7f into a signed char
+sscanfi i_hh 0
+# expect UB: %hhi of 0x80, which does not fit a signed char
+sscanfi i_hh 1
+# expect MATCH: %hi of -0x8000 into a short
+sscanfi i_h 0
+# expect UB: %hi of -0x8001, which does not fit a short
+sscanfi i_h 1
+# expect MATCH: %li of 0x7fffffffffffffff into a long
+sscanfi i_l 0
+# expect UB: %i into an unsigned int (a pointer to a signed integer is needed, 7.21.6.2p12)
+sscanfi i_into_unsigned 0
+# expect MATCH: %d through a pointer to a structure converted to int *: its first member (was UB)
+sscanfi s_struct_root_d 0
+# expect MATCH: %i through a pointer to a structure converted to int *
+sscanfi s_struct_root_i 0
+# expect MATCH: %d through a pointer to a structure whose first member is a structure
+sscanfi s_nested_root 0
+# expect MATCH: %lf through a pointer to a structure whose first member is a double
+sscanfi s_struct_root_lf 0
+# expect MATCH: %d through a two-dimensional array converted to int *: element [0][0]
+sscanfi s_array_root 0
+# expect UB: %d into a structure whose first member is unsigned (the conversion's exact type)
+sscanfi s_struct_root_unsigned 0
+# expect MATCH: %hhu into byte 0 of an int (a character store, 6.5p7)
+sscanfi s_hhu_int_byte0 0
+# expect MATCH: %hhu into byte 1 of an int
+sscanfi s_hhu_int_byte1 0
+# expect MATCH: %d through a pointer to a union whose active member is the int
+sscanfi s_union_root 0

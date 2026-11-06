@@ -1,0 +1,15 @@
+[package]
+name = "adler32_drv"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+adler32_rs = { path = "../adler32_rs" }
+
+# release build with overflow checks on: an overflow in the translation would panic (and fail the
+# comparison) instead of wrapping
+[profile.release]
+overflow-checks = true
+
+[workspace]

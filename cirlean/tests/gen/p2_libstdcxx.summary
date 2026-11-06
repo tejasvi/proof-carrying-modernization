@@ -1,0 +1,2 @@
+/home/user/cirlean_work/probe/p2_libstdcxx.cir: 79 funcs (72 with body, 0 modelled), 23 records, 11 globals, 1479 ops
+  unknown ops: cir.libc.memcpy×1

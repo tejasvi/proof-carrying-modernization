@@ -1,0 +1,313 @@
+public abstract enum class org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase extends java.lang.Enum
+{
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase INITIIALIIZING;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase READING_SASL_RESPONSE;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase EVALUATING_SASL_RESPONSE;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_SASL_CHALLENGE;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_SUCCESS_MESSAGE;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_FAILURE_MESSAGE;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase READING_REQUEST;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase PROCESSING;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_RESPONSE;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase CLOSING;
+    public static final enum org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase CLOSED;
+    private final 'int' selectionInterest;
+    private static final org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $VALUES;
+
+    public static org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] values()
+    {
+        java.lang.Object $r1;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $r0;
+
+        $r0 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $VALUES>;
+
+        $r1 = virtualinvoke $r0.<java.lang.Object: java.lang.Object clone()>();
+
+        $r0 = (org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[]) $r1;
+
+        return $r0;
+    }
+
+    public static org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase valueOf(java.lang.String)
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase $r1;
+        java.lang.String name;
+        java.lang.Enum $r0;
+
+        name := @parameter0: java.lang.String;
+
+        $r0 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "Lorg/apache/thrift/transport/sasl/NonblockingSaslHandler$Phase;", name);
+
+        $r1 = (org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase) $r0;
+
+        return $r1;
+    }
+
+    private 'void' <init>(java.lang.String, 'int', 'int')
+    {
+        'int' i0, selectionInterest;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase this;
+        java.lang.String r0;
+
+        this := @this: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase;
+
+        r0 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: 'int';
+
+        selectionInterest := @parameter2: 'int';
+
+        specialinvoke this.<java.lang.Enum: 'void' <init>(java.lang.String,'int')>(r0, i0);
+
+        this.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: 'int' selectionInterest> = selectionInterest;
+
+        return;
+    }
+
+    'void' runStateMachine(org.apache.thrift.transport.sasl.NonblockingSaslHandler)
+    {
+        java.lang.IllegalStateException $r9;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase this, $r0;
+        java.lang.IllegalArgumentException $r1;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler statemachine;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r8;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase;
+
+        statemachine := @parameter0: org.apache.thrift.transport.sasl.NonblockingSaslHandler;
+
+        $r0 = staticinvoke <org.apache.thrift.transport.sasl.NonblockingSaslHandler: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase access$1100(org.apache.thrift.transport.sasl.NonblockingSaslHandler)>(statemachine);
+
+        if $r0 == this goto label1;
+
+        $r1 = new java.lang.IllegalArgumentException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("State machine is ");
+
+        $r0 = staticinvoke <org.apache.thrift.transport.sasl.NonblockingSaslHandler: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase access$1100(org.apache.thrift.transport.sasl.NonblockingSaslHandler)>(statemachine);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r0);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" but is expected to be ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(this);
+
+        $r8 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<java.lang.IllegalArgumentException: 'void' <init>(java.lang.String)>($r8);
+
+        throw $r1;
+
+     label1:
+        $z0 = virtualinvoke statemachine.<org.apache.thrift.transport.sasl.NonblockingSaslHandler: 'boolean' isCurrentPhaseDone()>();
+
+        if $z0 == false goto label2;
+
+        $r9 = new java.lang.IllegalStateException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("State machine should step into ");
+
+        this = staticinvoke <org.apache.thrift.transport.sasl.NonblockingSaslHandler: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase access$1200(org.apache.thrift.transport.sasl.NonblockingSaslHandler)>(statemachine);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(this);
+
+        $r8 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>($r8);
+
+        throw $r9;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: 'void' unsafeRun(org.apache.thrift.transport.sasl.NonblockingSaslHandler)>(statemachine);
+
+        return;
+    }
+
+    abstract 'void' unsafeRun(org.apache.thrift.transport.sasl.NonblockingSaslHandler);
+
+    static 'int' access$000(org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase)
+    {
+        'int' $i0;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase x0;
+
+        x0 := @parameter0: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase;
+
+        $i0 = x0.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: 'int' selectionInterest>;
+
+        return $i0;
+    }
+
+    private static org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $values()
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase $r1;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $r0;
+
+        $r0 = newarray (org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase)[11];
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase INITIIALIIZING>;
+
+        $r0[0] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase READING_SASL_RESPONSE>;
+
+        $r0[1] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase EVALUATING_SASL_RESPONSE>;
+
+        $r0[2] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_SASL_CHALLENGE>;
+
+        $r0[3] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_SUCCESS_MESSAGE>;
+
+        $r0[4] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_FAILURE_MESSAGE>;
+
+        $r0[5] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase READING_REQUEST>;
+
+        $r0[6] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase PROCESSING>;
+
+        $r0[7] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_RESPONSE>;
+
+        $r0[8] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase CLOSING>;
+
+        $r0[9] = $r1;
+
+        $r1 = <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase CLOSED>;
+
+        $r0[10] = $r1;
+
+        return $r0;
+    }
+
+    'void' <init>(java.lang.String, 'int', 'int', org.apache.thrift.transport.sasl.NonblockingSaslHandler$1)
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$1 x3;
+        'int' x1, x2;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase this;
+        java.lang.String x0;
+
+        this := @this: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase;
+
+        x0 := @parameter0: java.lang.String;
+
+        x1 := @parameter1: 'int';
+
+        x2 := @parameter2: 'int';
+
+        x3 := @parameter3: org.apache.thrift.transport.sasl.NonblockingSaslHandler$1;
+
+        specialinvoke this.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: 'void' <init>(java.lang.String,'int','int')>(x0, x1, x2);
+
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$5 $r4;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$6 $r5;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7 $r6;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$8 $r7;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $r11;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$1 $r0;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$2 $r1;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$3 $r2;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$4 $r3;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$10 $r9;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$11 $r10;
+        org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$9 $r8;
+
+        $r0 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$1;
+
+        specialinvoke $r0.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$1: 'void' <init>(java.lang.String,'int','int')>("INITIIALIIZING", 0, 1);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase INITIIALIIZING> = $r0;
+
+        $r1 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$2;
+
+        specialinvoke $r1.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$2: 'void' <init>(java.lang.String,'int','int')>("READING_SASL_RESPONSE", 1, 1);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase READING_SASL_RESPONSE> = $r1;
+
+        $r2 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$3;
+
+        specialinvoke $r2.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$3: 'void' <init>(java.lang.String,'int','int')>("EVALUATING_SASL_RESPONSE", 2, 0);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase EVALUATING_SASL_RESPONSE> = $r2;
+
+        $r3 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$4;
+
+        specialinvoke $r3.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$4: 'void' <init>(java.lang.String,'int','int')>("WRITING_SASL_CHALLENGE", 3, 4);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_SASL_CHALLENGE> = $r3;
+
+        $r4 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$5;
+
+        specialinvoke $r4.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$5: 'void' <init>(java.lang.String,'int','int')>("WRITING_SUCCESS_MESSAGE", 4, 4);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_SUCCESS_MESSAGE> = $r4;
+
+        $r5 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$6;
+
+        specialinvoke $r5.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$6: 'void' <init>(java.lang.String,'int','int')>("WRITING_FAILURE_MESSAGE", 5, 4);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_FAILURE_MESSAGE> = $r5;
+
+        $r6 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7;
+
+        specialinvoke $r6.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$7: 'void' <init>(java.lang.String,'int','int')>("READING_REQUEST", 6, 1);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase READING_REQUEST> = $r6;
+
+        $r7 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$8;
+
+        specialinvoke $r7.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$8: 'void' <init>(java.lang.String,'int','int')>("PROCESSING", 7, 0);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase PROCESSING> = $r7;
+
+        $r8 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$9;
+
+        specialinvoke $r8.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$9: 'void' <init>(java.lang.String,'int','int')>("WRITING_RESPONSE", 8, 4);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase WRITING_RESPONSE> = $r8;
+
+        $r9 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$10;
+
+        specialinvoke $r9.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$10: 'void' <init>(java.lang.String,'int','int')>("CLOSING", 9, 0);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase CLOSING> = $r9;
+
+        $r10 = new org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$11;
+
+        specialinvoke $r10.<org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase$11: 'void' <init>(java.lang.String,'int','int')>("CLOSED", 10, 0);
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase CLOSED> = $r10;
+
+        $r11 = staticinvoke <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $values()>();
+
+        <org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase: org.apache.thrift.transport.sasl.NonblockingSaslHandler$Phase[] $VALUES> = $r11;
+
+        return;
+    }
+}

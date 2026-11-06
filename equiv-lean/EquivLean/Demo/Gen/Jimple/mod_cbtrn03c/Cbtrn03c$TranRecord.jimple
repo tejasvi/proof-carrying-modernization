@@ -1,0 +1,86 @@
+public final class Cbtrn03c$TranRecord extends java.lang.Object
+{
+    public java.lang.String tranId;
+    public java.lang.String tranTypeCd;
+    public 'long' tranCatCd;
+    public java.lang.String tranSource;
+    public java.lang.String tranDesc;
+    public 'long' tranAmt;
+    public 'long' tranMerchantId;
+    public java.lang.String tranMerchantName;
+    public java.lang.String tranMerchantCity;
+    public java.lang.String tranMerchantZip;
+    public java.lang.String tranCardNum;
+    public java.lang.String tranOrigTs;
+    public java.lang.String tranProcTs;
+    public java.lang.String filler1;
+
+    public 'void' <init>(java.lang.String, java.lang.String, 'long', java.lang.String, java.lang.String, 'long', 'long', java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        'long' l0, l1, l2;
+        java.lang.String r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11;
+        Cbtrn03c$TranRecord r0;
+
+        r0 := @this: Cbtrn03c$TranRecord;
+
+        r1 := @parameter0: java.lang.String;
+
+        r2 := @parameter1: java.lang.String;
+
+        l0 := @parameter2: 'long';
+
+        r3 := @parameter3: java.lang.String;
+
+        r4 := @parameter4: java.lang.String;
+
+        l1 := @parameter5: 'long';
+
+        l2 := @parameter6: 'long';
+
+        r5 := @parameter7: java.lang.String;
+
+        r6 := @parameter8: java.lang.String;
+
+        r7 := @parameter9: java.lang.String;
+
+        r8 := @parameter10: java.lang.String;
+
+        r9 := @parameter11: java.lang.String;
+
+        r10 := @parameter12: java.lang.String;
+
+        r11 := @parameter13: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranId> = r1;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranTypeCd> = r2;
+
+        r0.<Cbtrn03c$TranRecord: 'long' tranCatCd> = l0;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranSource> = r3;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranDesc> = r4;
+
+        r0.<Cbtrn03c$TranRecord: 'long' tranAmt> = l1;
+
+        r0.<Cbtrn03c$TranRecord: 'long' tranMerchantId> = l2;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranMerchantName> = r5;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranMerchantCity> = r6;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranMerchantZip> = r7;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranCardNum> = r8;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranOrigTs> = r9;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String tranProcTs> = r10;
+
+        r0.<Cbtrn03c$TranRecord: java.lang.String filler1> = r11;
+
+        return;
+    }
+}

@@ -1,0 +1,79 @@
+# fpx.cpp: IEC 60559 arithmetic, conversions and <math.h> (C11 5.2.4.2.2,
+# 6.3.1.4-5, 7.12, Annex F) against native x86-64; ub_* lines are undefined
+# behaviour (reasons in fpx.cpp), not expected to match
+# rounding at the edges of binary64/binary32, subnormals, FLT_EVAL_METHOD 0
+fpx t_lim 0
+fpx t_lim 1
+fpx t_lim 2
+fpx t_lim 3
+fpx t_lim 4
+fpx t_lim 5
+fpx t_lim 6
+fpx t_lim 7
+fpx t_lim 8
+fpx t_lim 9
+fpx t_lim 10
+fpx t_lim 11
+# long double (x87 extended)
+fpx t_ld 0
+fpx t_ld 1
+fpx t_ld 2
+# signed zero
+fpx t_zero 0
+fpx t_zero 1
+fpx t_zero 2
+fpx t_zero 3
+fpx t_zero 4
+# conversions between integer and floating types, double to float
+fpx t_conv 0
+fpx t_conv 1
+fpx t_conv 2
+fpx t_conv 3
+fpx t_conv 4
+fpx t_conv 5
+fpx t_conv 6
+fpx t_conv 7
+fpx t_conv 8
+fpx t_conv 9
+fpx t_conv 10
+fpx t_conv 11
+fpx t_conv 12
+fpx t_conv 13
+# sqrt fabs round floor ceil trunc fmod fmin fmax (exact in cirlean)
+fpx t_mx 0
+fpx t_mx 1
+fpx t_mx 2
+fpx t_mx 3
+fpx t_mx 4
+fpx t_mx 5
+fpx t_mx 6
+fpx t_mx 7
+fpx t_mx 8
+fpx t_mx 9
+fpx t_mx 10
+fpx t_mx 11
+fpx t_mx 12
+# exp log log2 log10 pow sin cos tan atan atan2 cbrt and float versions
+fpx t_tx 0
+fpx t_tx 1
+fpx t_tx 2
+fpx t_tx 3
+fpx t_tx 4
+fpx t_tx 5
+fpx t_tx 6
+fpx t_tx 7
+fpx t_tx 8
+fpx t_tx 9
+fpx t_tx 10
+fpx t_tx 11
+fpx t_tx 12
+# fpclassify, isnormal, isfinite, isinf, isnan, signbit
+fpx t_cls 0
+fpx t_cls 1
+# the sign of a NaN under negation and fabs
+fpx t_nan 0
+# undefined behaviour
+fpx ub_fpx 0
+fpx ub_fpx 1
+fpx ub_fpx 2
+fpx ub_fpx 3

@@ -1,0 +1,276 @@
+public class org.apache.thrift.transport.TSaslClientTransport extends org.apache.thrift.transport.TSaslTransport
+{
+    private static final org.slf4j.Logger LOGGER;
+    private final java.lang.String mechanism;
+
+    public 'void' <init>(javax.security.sasl.SaslClient, org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        javax.security.sasl.SaslClient saslClient;
+        org.apache.thrift.transport.TTransport transport;
+        java.lang.String $r0;
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        saslClient := @parameter0: javax.security.sasl.SaslClient;
+
+        transport := @parameter1: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' <init>(javax.security.sasl.SaslClient,org.apache.thrift.transport.TTransport)>(saslClient, transport);
+
+        $r0 = interfaceinvoke saslClient.<javax.security.sasl.SaslClient: java.lang.String getMechanismName()>();
+
+        this.<org.apache.thrift.transport.TSaslClientTransport: java.lang.String mechanism> = $r0;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Map, javax.security.auth.callback.CallbackHandler, org.apache.thrift.transport.TTransport) throws javax.security.sasl.SaslException, org.apache.thrift.transport.TTransportException
+    {
+        java.lang.String[] $r0;
+        org.apache.thrift.transport.TSaslClientTransport this;
+        javax.security.sasl.SaslClient $r1;
+        javax.security.auth.callback.CallbackHandler cbh;
+        org.apache.thrift.transport.TTransport transport;
+        java.util.Map props;
+        java.lang.String mechanism, authorizationId, protocol, serverName;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        mechanism := @parameter0: java.lang.String;
+
+        authorizationId := @parameter1: java.lang.String;
+
+        protocol := @parameter2: java.lang.String;
+
+        serverName := @parameter3: java.lang.String;
+
+        props := @parameter4: java.util.Map;
+
+        cbh := @parameter5: javax.security.auth.callback.CallbackHandler;
+
+        transport := @parameter6: org.apache.thrift.transport.TTransport;
+
+        $r0 = newarray (java.lang.String)[1];
+
+        $r0[0] = mechanism;
+
+        $r1 = staticinvoke <javax.security.sasl.Sasl: javax.security.sasl.SaslClient createSaslClient(java.lang.String[],java.lang.String,java.lang.String,java.lang.String,java.util.Map,javax.security.auth.callback.CallbackHandler)>($r0, authorizationId, protocol, serverName, props, cbh);
+
+        specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' <init>(javax.security.sasl.SaslClient,org.apache.thrift.transport.TTransport)>($r1, transport);
+
+        this.<org.apache.thrift.transport.TSaslClientTransport: java.lang.String mechanism> = mechanism;
+
+        return;
+    }
+
+    protected org.apache.thrift.transport.TSaslTransport$SaslRole getRole()
+    {
+        org.apache.thrift.transport.TSaslClientTransport this;
+        org.apache.thrift.transport.TSaslTransport$SaslRole $r0;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        $r0 = <org.apache.thrift.transport.TSaslTransport$SaslRole: org.apache.thrift.transport.TSaslTransport$SaslRole CLIENT>;
+
+        return $r0;
+    }
+
+    protected 'void' handleSaslStartMessage() throws org.apache.thrift.transport.TTransportException, javax.security.sasl.SaslException
+    {
+        'byte'[] mechanismBytes, initialResponse;
+        org.slf4j.Logger $r0;
+        org.apache.thrift.transport.TSaslClientTransport this;
+        java.lang.Integer $r2;
+        javax.security.sasl.SaslClient saslClient;
+        java.nio.charset.Charset $r4;
+        org.apache.thrift.transport.sasl.NegotiationStatus $r5;
+        org.apache.thrift.transport.TTransport $r6;
+        'int' $i0;
+        java.lang.String $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        saslClient = virtualinvoke this.<org.apache.thrift.transport.TSaslClientTransport: javax.security.sasl.SaslClient getSaslClient()>();
+
+        initialResponse = newarray ('byte')[0];
+
+        $z0 = interfaceinvoke saslClient.<javax.security.sasl.SaslClient: 'boolean' hasInitialResponse()>();
+
+        if $z0 == false goto label1;
+
+        initialResponse = interfaceinvoke saslClient.<javax.security.sasl.SaslClient: 'byte'[] evaluateChallenge('byte'[])>(initialResponse);
+
+     label1:
+        $r0 = <org.apache.thrift.transport.TSaslClientTransport: org.slf4j.Logger LOGGER>;
+
+        $r1 = this.<org.apache.thrift.transport.TSaslClientTransport: java.lang.String mechanism>;
+
+        $i0 = lengthof initialResponse;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object,java.lang.Object)>("Sending mechanism name {} and initial response of length {}", $r1, $r2);
+
+        $r1 = this.<org.apache.thrift.transport.TSaslClientTransport: java.lang.String mechanism>;
+
+        $r4 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        mechanismBytes = virtualinvoke $r1.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r4);
+
+        $r5 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus START>;
+
+        virtualinvoke this.<org.apache.thrift.transport.TSaslClientTransport: 'void' sendSaslMessage(org.apache.thrift.transport.sasl.NegotiationStatus,'byte'[])>($r5, mechanismBytes);
+
+        $z0 = interfaceinvoke saslClient.<javax.security.sasl.SaslClient: 'boolean' isComplete()>();
+
+        if $z0 == false goto label2;
+
+        $r5 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE>;
+
+        goto label3;
+
+     label2:
+        $r5 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus OK>;
+
+     label3:
+        virtualinvoke this.<org.apache.thrift.transport.TSaslClientTransport: 'void' sendSaslMessage(org.apache.thrift.transport.sasl.NegotiationStatus,'byte'[])>($r5, initialResponse);
+
+        $r6 = this.<org.apache.thrift.transport.TSaslClientTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r6.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        return;
+    }
+
+    public volatile 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' flush()>();
+
+        return;
+    }
+
+    public volatile 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] r0;
+        'int' i0, i1;
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        r0 := @parameter0: 'byte'[];
+
+        i0 := @parameter1: 'int';
+
+        i1 := @parameter2: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' write('byte'[],'int','int')>(r0, i0, i1);
+
+        return;
+    }
+
+    public volatile 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] r0;
+        'int' i0, i1;
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        r0 := @parameter0: 'byte'[];
+
+        i0 := @parameter1: 'int';
+
+        i1 := @parameter2: 'int';
+
+        i0 = specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'int' read('byte'[],'int','int')>(r0, i0, i1);
+
+        return i0;
+    }
+
+    public volatile 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.TSaslClientTransport this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'boolean' isOpen()>();
+
+        return $z0;
+    }
+
+    public volatile 'void' close()
+    {
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' close()>();
+
+        return;
+    }
+
+    public volatile javax.security.sasl.SaslServer getSaslServer()
+    {
+        javax.security.sasl.SaslServer $r0;
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        $r0 = specialinvoke this.<org.apache.thrift.transport.TSaslTransport: javax.security.sasl.SaslServer getSaslServer()>();
+
+        return $r0;
+    }
+
+    public volatile org.apache.thrift.transport.TTransport getUnderlyingTransport()
+    {
+        org.apache.thrift.transport.TSaslClientTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        $r0 = specialinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport getUnderlyingTransport()>();
+
+        return $r0;
+    }
+
+    public volatile javax.security.sasl.SaslClient getSaslClient()
+    {
+        javax.security.sasl.SaslClient $r0;
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        $r0 = specialinvoke this.<org.apache.thrift.transport.TSaslTransport: javax.security.sasl.SaslClient getSaslClient()>();
+
+        return $r0;
+    }
+
+    public volatile 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TSaslClientTransport this;
+
+        this := @this: org.apache.thrift.transport.TSaslClientTransport;
+
+        specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' open()>();
+
+        return;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.slf4j.Logger $r0;
+
+        $r0 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.Class)>(class "Lorg/apache/thrift/transport/TSaslClientTransport;");
+
+        <org.apache.thrift.transport.TSaslClientTransport: org.slf4j.Logger LOGGER> = $r0;
+
+        return;
+    }
+}

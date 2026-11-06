@@ -1,0 +1,28 @@
+/-
+  Examples/CardDemo/Cbact03cRunLoopExit.lean
+
+  `Cbact03c.run`, from the head of the read loop (statement 29) when the end-of-file flag is set: the end line, and the result.
+-/
+import Examples.CardDemo.Cbact03cRun
+
+open Jimple
+
+namespace Examples.CardDemo
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 0 in
+theorem c3_run_loop_exit (args : List Value) (σ0 : State) (hpre : c3RunSpecJ.pre args σ0)
+    (fr : Frame) (σ : State) (a : Addr) (et : JType) (xs : List Value) (ha : args = [.ref a])
+    (harr : σ0.heap a = some (.array et xs)) (st : Addr) (sfs : List (FieldKey × Value)) (res : Addr)
+    (fs : List (FieldKey × Value)) (l : Addr) (ys : List Value) (m : Nat) (i z : I32) (e : Addr)
+    (sv ap rc rcu rac rf : Value)
+    (h : C3RunAt σ0 fr σ a xs st sfs res fs l ys m i z e sv ap rc rcu rac rf) (hz : z ≠ 0) :
+    c3RunWP args σ0 29 fr σ := by
+  jvc [ite_nat_ne, c3RunWP, c3RunSpecJ, c3RunInv, c3RunInv29, C3RunAt, c3RunCallees, c3SpacesSig, c3FixLenSig,
+    c3RecordTextSig, c3StartText, c3EndText, xrefLines, xrecLineV, xrefLine, xfieldOf, xfieldLong,
+    XrefOk, XStrField, XLongField, xrefCls, StateRecOk, stateLine, sfieldOf, sfieldLong, stCls,
+    StrOk, argText, textN, textY, Grows]
+
+end Examples.CardDemo
+
+#print axioms Examples.CardDemo.c3_run_loop_exit

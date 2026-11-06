@@ -1,0 +1,8 @@
+2024-07-21_35fbc4ca_isArray	UNKNOWN	PROVED (all-worlds)	translated signatures differ ([.num] .bool vs [(.opt .num)] .bool)	
+2024-08-09_4bb457ad_isArray	UNKNOWN	PROVED (all-worlds)	generic instances differ (T := number vs )	
+2026-03-02_fa2afcd6_sample	UNKNOWN	PROVED (old-no-panic)	translated signatures differ ([(.arr .num)] .num vs [(.arr .num)] (.opt .num))	
+2024-08-31_9089b3b4_initial	UNKNOWN	PROVED (allocated-arguments)	no proof: allocation differs (equivalence modulo fresh allocation); allocated-arguments statement: allocation differs (equivalence modulo fresh allocation); obs	
+2025-03-27_b99176b2_stubObject	UNKNOWN	PROVED (all-worlds)	translated signatures differ ([] (.record flds[]) vs [] .dyn)	
+#	3	UNKNOWN -> PROVED (all-worlds)
+#	1	UNKNOWN -> PROVED (old-no-panic)
+#	1	UNKNOWN -> PROVED (allocated-arguments)

@@ -1,0 +1,33 @@
+# Zero-width bit-fields (zwbitfields.cpp): members without storage; #cir.const_record initializers leave them out.
+# Each case is labelled with its expected outcome on the line above it (before the change: a parse error,
+# "expected type", on every case).
+# expect MATCH: stores and loads of the bit-fields around `int : 0`
+zwbitfields t_zw_fields 0
+# expect MATCH: stores and loads of the bit-fields around `int : 0`
+zwbitfields t_zw_fields 3
+# expect MATCH: stores and loads of the bit-fields around `int : 0`
+zwbitfields t_zw_fields 6
+# expect MATCH: a constant initializer (#cir.const_record without the zero-width member), returned by value
+zwbitfields t_zw_init 0
+# expect MATCH: a constant initializer (#cir.const_record without the zero-width member), returned by value
+zwbitfields t_zw_init 9
+# expect MATCH: initialized globals
+zwbitfields t_zw_global 0
+# expect MATCH: initialized globals
+zwbitfields t_zw_global 1
+# expect MATCH: zero-width bit-fields first, between and last (initialized global)
+zwbitfields t_zw_global3 0
+# expect MATCH: zero-width bit-fields first, between and last (initialized global)
+zwbitfields t_zw_global3 20
+# expect MATCH: malloc(n * sizeof) array
+zwbitfields t_zw_heap 1
+# expect MATCH: malloc(n * sizeof) array
+zwbitfields t_zw_heap 5
+# expect MATCH: memcpy of sizeof bytes
+zwbitfields t_zw_memcpy 4
+# expect MATCH: passed and returned by value
+zwbitfields t_zw_byvalue 0
+# expect MATCH: passed and returned by value
+zwbitfields t_zw_byvalue 2
+# expect MATCH: sizeof
+zwbitfields t_zw_sizes 0

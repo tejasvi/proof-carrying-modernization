@@ -1,0 +1,882 @@
+public class org.apache.thrift.partial.ThriftStructProcessor extends java.lang.Object implements org.apache.thrift.partial.ThriftFieldValueProcessor
+{
+    private static final org.apache.thrift.partial.EnumCache enums;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public java.lang.Object createNewStruct(org.apache.thrift.partial.ThriftMetadata$ThriftStruct)
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftStruct metadata;
+        org.apache.thrift.TBase $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        metadata := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftStruct;
+
+        $r0 = virtualinvoke metadata.<org.apache.thrift.partial.ThriftMetadata$ThriftStruct: org.apache.thrift.TBase createNewStruct()>();
+
+        return $r0;
+    }
+
+    public org.apache.thrift.TBase prepareStruct(java.lang.Object)
+    {
+        java.lang.Object instance;
+        org.apache.thrift.TBase $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        instance := @parameter0: java.lang.Object;
+
+        $r0 = (org.apache.thrift.TBase) instance;
+
+        return $r0;
+    }
+
+    public java.lang.Object createNewList('int')
+    {
+        'int' expectedSize;
+        java.lang.Object[] $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        expectedSize := @parameter0: 'int';
+
+        $r0 = newarray (java.lang.Object)[expectedSize];
+
+        return $r0;
+    }
+
+    public 'void' setListElement(java.lang.Object, 'int', java.lang.Object)
+    {
+        java.lang.Object[] $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        'int' index;
+        java.lang.Object instance, value;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        instance := @parameter0: java.lang.Object;
+
+        index := @parameter1: 'int';
+
+        value := @parameter2: java.lang.Object;
+
+        $r0 = (java.lang.Object[]) instance;
+
+        $r0[index] = value;
+
+        return;
+    }
+
+    public java.lang.Object prepareList(java.lang.Object)
+    {
+        java.util.List $r1;
+        java.lang.Object[] $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object instance;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        instance := @parameter0: java.lang.Object;
+
+        $r0 = (java.lang.Object[]) instance;
+
+        $r1 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.Object createNewMap('int')
+    {
+        'int' expectedSize;
+        java.util.HashMap $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        expectedSize := @parameter0: 'int';
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>('int')>(expectedSize);
+
+        return $r0;
+    }
+
+    public 'void' setMapElement(java.lang.Object, 'int', java.lang.Object, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        'int' index;
+        java.lang.Object instance, key, value;
+        java.util.HashMap $r0;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        instance := @parameter0: java.lang.Object;
+
+        index := @parameter1: 'int';
+
+        key := @parameter2: java.lang.Object;
+
+        value := @parameter3: java.lang.Object;
+
+        $r0 = (java.util.HashMap) instance;
+
+        virtualinvoke $r0.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(key, value);
+
+        return;
+    }
+
+    public java.lang.Object prepareMap(java.lang.Object)
+    {
+        java.lang.Object instance;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        instance := @parameter0: java.lang.Object;
+
+        return instance;
+    }
+
+    public java.lang.Object createNewSet('int')
+    {
+        'int' expectedSize;
+        java.util.HashSet $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        expectedSize := @parameter0: 'int';
+
+        $r0 = new java.util.HashSet;
+
+        specialinvoke $r0.<java.util.HashSet: 'void' <init>('int')>(expectedSize);
+
+        return $r0;
+    }
+
+    public 'void' setSetElement(java.lang.Object, 'int', java.lang.Object)
+    {
+        java.util.HashSet $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        'int' index;
+        java.lang.Object instance, value;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        instance := @parameter0: java.lang.Object;
+
+        index := @parameter1: 'int';
+
+        value := @parameter2: java.lang.Object;
+
+        $r0 = (java.util.HashSet) instance;
+
+        virtualinvoke $r0.<java.util.HashSet: 'boolean' add(java.lang.Object)>(value);
+
+        return;
+    }
+
+    public java.lang.Object prepareSet(java.lang.Object)
+    {
+        java.lang.Object instance;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        instance := @parameter0: java.lang.Object;
+
+        return instance;
+    }
+
+    public java.lang.Object prepareEnum(java.lang.Class, 'int')
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        'int' ordinal;
+        java.lang.Class enumClass;
+        org.apache.thrift.TEnum $r1;
+        org.apache.thrift.partial.EnumCache $r0;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        ordinal := @parameter1: 'int';
+
+        $r0 = <org.apache.thrift.partial.ThriftStructProcessor: org.apache.thrift.partial.EnumCache enums>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.partial.EnumCache: org.apache.thrift.TEnum get(java.lang.Class,'int')>(enumClass, ordinal);
+
+        return $r1;
+    }
+
+    public java.lang.Object prepareString(java.nio.ByteBuffer)
+    {
+        java.lang.String $r0;
+        java.nio.ByteBuffer buffer;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        buffer := @parameter0: java.nio.ByteBuffer;
+
+        $r0 = staticinvoke <org.apache.thrift.partial.ThriftStructProcessor: java.lang.String byteBufferToString(java.nio.ByteBuffer)>(buffer);
+
+        return $r0;
+    }
+
+    public java.lang.Object prepareBinary(java.nio.ByteBuffer)
+    {
+        java.nio.ByteBuffer buffer;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        buffer := @parameter0: java.nio.ByteBuffer;
+
+        return buffer;
+    }
+
+    public 'void' setBool(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, 'boolean')
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Boolean $r0;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+        'boolean' value;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: 'boolean';
+
+        $r0 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf('boolean')>(value);
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, $r0);
+
+        return;
+    }
+
+    public 'void' setByte(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, 'byte')
+    {
+        'byte' value;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+        java.lang.Byte $r0;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: 'byte';
+
+        $r0 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf('byte')>(value);
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, $r0);
+
+        return;
+    }
+
+    public 'void' setInt16(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, 'short')
+    {
+        'short' value;
+        java.lang.Short $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: 'short';
+
+        $r0 = staticinvoke <java.lang.Short: java.lang.Short valueOf('short')>(value);
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, $r0);
+
+        return;
+    }
+
+    public 'void' setInt32(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, 'int')
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        'int' value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+        java.lang.Integer $r0;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: 'int';
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(value);
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, $r0);
+
+        return;
+    }
+
+    public 'void' setInt64(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, 'long')
+    {
+        java.lang.Long $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        'long' value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: 'long';
+
+        $r0 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value);
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, $r0);
+
+        return;
+    }
+
+    public 'void' setDouble(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, 'double')
+    {
+        java.lang.Double $r0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+        'double' value;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: 'double';
+
+        $r0 = staticinvoke <java.lang.Double: java.lang.Double valueOf('double')>(value);
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, $r0);
+
+        return;
+    }
+
+    public 'void' setBinary(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, java.nio.ByteBuffer)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+        java.nio.ByteBuffer value;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: java.nio.ByteBuffer;
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        return;
+    }
+
+    public 'void' setString(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, java.nio.ByteBuffer)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        java.lang.String value;
+        org.apache.thrift.TBase valueCollection;
+        java.nio.ByteBuffer buffer;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        buffer := @parameter2: java.nio.ByteBuffer;
+
+        value = staticinvoke <org.apache.thrift.partial.ThriftStructProcessor: java.lang.String byteBufferToString(java.nio.ByteBuffer)>(buffer);
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        return;
+    }
+
+    public 'void' setEnumField(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: java.lang.Object;
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        return;
+    }
+
+    public 'void' setListField(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: java.lang.Object;
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        return;
+    }
+
+    public 'void' setMapField(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: java.lang.Object;
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        return;
+    }
+
+    public 'void' setSetField(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: java.lang.Object;
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        return;
+    }
+
+    public 'void' setStructField(org.apache.thrift.TBase, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object value;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.TBase valueCollection;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        valueCollection := @parameter0: org.apache.thrift.TBase;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        value := @parameter2: java.lang.Object;
+
+        interfaceinvoke valueCollection.<org.apache.thrift.TBase: 'void' setFieldValue(org.apache.thrift.TFieldIdEnum,java.lang.Object)>(fieldId, value);
+
+        return;
+    }
+
+    private static java.lang.String byteBufferToString(java.nio.ByteBuffer)
+    {
+        'byte'[] bytes;
+        java.nio.charset.Charset $r1;
+        'int' pos, $i0;
+        java.lang.String $r0;
+        java.nio.ByteBuffer buffer;
+
+        buffer := @parameter0: java.nio.ByteBuffer;
+
+        bytes = virtualinvoke buffer.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        pos = virtualinvoke buffer.<java.nio.ByteBuffer: 'int' position()>();
+
+        $r0 = new java.lang.String;
+
+        $i0 = virtualinvoke buffer.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $i0 = $i0 - pos;
+
+        $r1 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke $r0.<java.lang.String: 'void' <init>('byte'[],'int','int',java.nio.charset.Charset)>(bytes, pos, $i0, $r1);
+
+        return $r0;
+    }
+
+    public volatile 'void' setStructField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0, r2;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r3;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        r2 := @parameter2: java.lang.Object;
+
+        $r3 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setStructField(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,java.lang.Object)>($r3, r1, r2);
+
+        return;
+    }
+
+    public volatile 'void' setSetField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0, r2;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r3;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        r2 := @parameter2: java.lang.Object;
+
+        $r3 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setSetField(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,java.lang.Object)>($r3, r1, r2);
+
+        return;
+    }
+
+    public volatile 'void' setMapField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0, r2;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r3;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        r2 := @parameter2: java.lang.Object;
+
+        $r3 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setMapField(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,java.lang.Object)>($r3, r1, r2);
+
+        return;
+    }
+
+    public volatile 'void' setListField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0, r2;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r3;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        r2 := @parameter2: java.lang.Object;
+
+        $r3 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setListField(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,java.lang.Object)>($r3, r1, r2);
+
+        return;
+    }
+
+    public volatile 'void' setEnumField(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.lang.Object)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0, r2;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r3;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        r2 := @parameter2: java.lang.Object;
+
+        $r3 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setEnumField(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,java.lang.Object)>($r3, r1, r2);
+
+        return;
+    }
+
+    public volatile 'void' setString(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.nio.ByteBuffer)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r3;
+        java.nio.ByteBuffer r2;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        r2 := @parameter2: java.nio.ByteBuffer;
+
+        $r3 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setString(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,java.nio.ByteBuffer)>($r3, r1, r2);
+
+        return;
+    }
+
+    public volatile 'void' setBinary(java.lang.Object, org.apache.thrift.TFieldIdEnum, java.nio.ByteBuffer)
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r3;
+        java.nio.ByteBuffer r2;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        r2 := @parameter2: java.nio.ByteBuffer;
+
+        $r3 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setBinary(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,java.nio.ByteBuffer)>($r3, r1, r2);
+
+        return;
+    }
+
+    public volatile 'void' setDouble(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'double')
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r2;
+        'double' d0;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        d0 := @parameter2: 'double';
+
+        $r2 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setDouble(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,'double')>($r2, r1, d0);
+
+        return;
+    }
+
+    public volatile 'void' setInt64(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'long')
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0;
+        'long' l0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r2;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        l0 := @parameter2: 'long';
+
+        $r2 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setInt64(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,'long')>($r2, r1, l0);
+
+        return;
+    }
+
+    public volatile 'void' setInt32(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'int')
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        'int' i0;
+        java.lang.Object r0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r2;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        i0 := @parameter2: 'int';
+
+        $r2 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setInt32(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,'int')>($r2, r1, i0);
+
+        return;
+    }
+
+    public volatile 'void' setInt16(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'short')
+    {
+        'short' s0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r2;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        s0 := @parameter2: 'short';
+
+        $r2 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setInt16(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,'short')>($r2, r1, s0);
+
+        return;
+    }
+
+    public volatile 'void' setByte(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'byte')
+    {
+        'byte' b0;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r2;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        b0 := @parameter2: 'byte';
+
+        $r2 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setByte(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,'byte')>($r2, r1, b0);
+
+        return;
+    }
+
+    public volatile 'void' setBool(java.lang.Object, org.apache.thrift.TFieldIdEnum, 'boolean')
+    {
+        org.apache.thrift.partial.ThriftStructProcessor this;
+        java.lang.Object r0;
+        org.apache.thrift.TFieldIdEnum r1;
+        org.apache.thrift.TBase $r2;
+        'boolean' z0;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        r1 := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        z0 := @parameter2: 'boolean';
+
+        $r2 = (org.apache.thrift.TBase) r0;
+
+        virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: 'void' setBool(org.apache.thrift.TBase,org.apache.thrift.TFieldIdEnum,'boolean')>($r2, r1, z0);
+
+        return;
+    }
+
+    public volatile java.lang.Object prepareStruct(java.lang.Object)
+    {
+        java.lang.Object r0;
+        org.apache.thrift.TBase $r1;
+        org.apache.thrift.partial.ThriftStructProcessor this;
+
+        this := @this: org.apache.thrift.partial.ThriftStructProcessor;
+
+        r0 := @parameter0: java.lang.Object;
+
+        $r1 = virtualinvoke this.<org.apache.thrift.partial.ThriftStructProcessor: org.apache.thrift.TBase prepareStruct(java.lang.Object)>(r0);
+
+        return $r1;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.partial.EnumCache $r0;
+
+        $r0 = new org.apache.thrift.partial.EnumCache;
+
+        specialinvoke $r0.<org.apache.thrift.partial.EnumCache: 'void' <init>()>();
+
+        <org.apache.thrift.partial.ThriftStructProcessor: org.apache.thrift.partial.EnumCache enums> = $r0;
+
+        return;
+    }
+}

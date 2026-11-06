@@ -1,0 +1,172 @@
+public abstract class org.apache.thrift.server.TServer$AbstractServerArgs extends java.lang.Object
+{
+    final org.apache.thrift.transport.TServerTransport serverTransport;
+    org.apache.thrift.TProcessorFactory processorFactory;
+    org.apache.thrift.transport.TTransportFactory inputTransportFactory;
+    org.apache.thrift.transport.TTransportFactory outputTransportFactory;
+    org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory;
+    org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory;
+
+    public 'void' <init>(org.apache.thrift.transport.TServerTransport)
+    {
+        org.apache.thrift.transport.TServerTransport transport;
+        org.apache.thrift.protocol.TBinaryProtocol$Factory $r2;
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.transport.TTransportFactory $r0;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        transport := @parameter0: org.apache.thrift.transport.TServerTransport;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = new org.apache.thrift.transport.TTransportFactory;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory inputTransportFactory> = $r0;
+
+        $r0 = new org.apache.thrift.transport.TTransportFactory;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory outputTransportFactory> = $r0;
+
+        $r2 = new org.apache.thrift.protocol.TBinaryProtocol$Factory;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TBinaryProtocol$Factory: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory> = $r2;
+
+        $r2 = new org.apache.thrift.protocol.TBinaryProtocol$Factory;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TBinaryProtocol$Factory: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory> = $r2;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TServerTransport serverTransport> = transport;
+
+        return;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs processorFactory(org.apache.thrift.TProcessorFactory)
+    {
+        org.apache.thrift.TProcessorFactory factory;
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        factory := @parameter0: org.apache.thrift.TProcessorFactory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.TProcessorFactory processorFactory> = factory;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs processor(org.apache.thrift.TProcessor)
+    {
+        org.apache.thrift.TProcessorFactory $r0;
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        $r0 = new org.apache.thrift.TProcessorFactory;
+
+        specialinvoke $r0.<org.apache.thrift.TProcessorFactory: 'void' <init>(org.apache.thrift.TProcessor)>(processor);
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.TProcessorFactory processorFactory> = $r0;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs transportFactory(org.apache.thrift.transport.TTransportFactory)
+    {
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.transport.TTransportFactory factory;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        factory := @parameter0: org.apache.thrift.transport.TTransportFactory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory inputTransportFactory> = factory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory outputTransportFactory> = factory;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs inputTransportFactory(org.apache.thrift.transport.TTransportFactory)
+    {
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.transport.TTransportFactory factory;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        factory := @parameter0: org.apache.thrift.transport.TTransportFactory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory inputTransportFactory> = factory;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs outputTransportFactory(org.apache.thrift.transport.TTransportFactory)
+    {
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.transport.TTransportFactory factory;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        factory := @parameter0: org.apache.thrift.transport.TTransportFactory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.transport.TTransportFactory outputTransportFactory> = factory;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs protocolFactory(org.apache.thrift.protocol.TProtocolFactory)
+    {
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.protocol.TProtocolFactory factory;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        factory := @parameter0: org.apache.thrift.protocol.TProtocolFactory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory> = factory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory> = factory;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs inputProtocolFactory(org.apache.thrift.protocol.TProtocolFactory)
+    {
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.protocol.TProtocolFactory factory;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        factory := @parameter0: org.apache.thrift.protocol.TProtocolFactory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory> = factory;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TServer$AbstractServerArgs outputProtocolFactory(org.apache.thrift.protocol.TProtocolFactory)
+    {
+        org.apache.thrift.server.TServer$AbstractServerArgs this;
+        org.apache.thrift.protocol.TProtocolFactory factory;
+
+        this := @this: org.apache.thrift.server.TServer$AbstractServerArgs;
+
+        factory := @parameter0: org.apache.thrift.protocol.TProtocolFactory;
+
+        this.<org.apache.thrift.server.TServer$AbstractServerArgs: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory> = factory;
+
+        return this;
+    }
+}

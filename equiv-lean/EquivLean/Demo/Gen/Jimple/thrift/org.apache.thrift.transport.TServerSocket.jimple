@@ -1,0 +1,417 @@
+public class org.apache.thrift.transport.TServerSocket extends org.apache.thrift.transport.TServerTransport
+{
+    private static final org.slf4j.Logger LOGGER;
+    private java.net.ServerSocket serverSocket_;
+    private 'int' clientTimeout_;
+    private 'int' maxMessageSize_;
+
+    public 'void' <init>(java.net.ServerSocket) throws org.apache.thrift.transport.TTransportException
+    {
+        java.net.ServerSocket serverSocket;
+        org.apache.thrift.transport.TServerSocket this;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        serverSocket := @parameter0: java.net.ServerSocket;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' <init>(java.net.ServerSocket,'int')>(serverSocket, 0);
+
+        return;
+    }
+
+    public 'void' <init>(java.net.ServerSocket, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        java.net.ServerSocket serverSocket;
+        org.apache.thrift.transport.TServerSocket this;
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs $r2;
+        'int' clientTimeout;
+        org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs $r0;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        serverSocket := @parameter0: java.net.ServerSocket;
+
+        clientTimeout := @parameter1: 'int';
+
+        $r0 = new org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: 'void' <init>()>();
+
+        $r0 = virtualinvoke $r0.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs serverSocket(java.net.ServerSocket)>(serverSocket);
+
+        $r2 = virtualinvoke $r0.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs clientTimeout('int')>(clientTimeout);
+
+        $r0 = (org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs) $r2;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' <init>(org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs)>($r0);
+
+        return;
+    }
+
+    public 'void' <init>('int') throws org.apache.thrift.transport.TTransportException
+    {
+        'int' port;
+        org.apache.thrift.transport.TServerSocket this;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        port := @parameter0: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' <init>('int','int')>(port, 0);
+
+        return;
+    }
+
+    public 'void' <init>('int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TServerSocket this;
+        'int' port, clientTimeout;
+        java.net.InetSocketAddress $r0;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        port := @parameter0: 'int';
+
+        clientTimeout := @parameter1: 'int';
+
+        $r0 = new java.net.InetSocketAddress;
+
+        specialinvoke $r0.<java.net.InetSocketAddress: 'void' <init>('int')>(port);
+
+        specialinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' <init>(java.net.InetSocketAddress,'int')>($r0, clientTimeout);
+
+        return;
+    }
+
+    public 'void' <init>(java.net.InetSocketAddress) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TServerSocket this;
+        java.net.InetSocketAddress bindAddr;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        bindAddr := @parameter0: java.net.InetSocketAddress;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' <init>(java.net.InetSocketAddress,'int')>(bindAddr, 0);
+
+        return;
+    }
+
+    public 'void' <init>(java.net.InetSocketAddress, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TServerSocket this;
+        org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs $r1;
+        'int' clientTimeout;
+        org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs $r0;
+        java.net.InetSocketAddress bindAddr;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        bindAddr := @parameter0: java.net.InetSocketAddress;
+
+        clientTimeout := @parameter1: 'int';
+
+        $r0 = new org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs bindAddr(java.net.InetSocketAddress)>(bindAddr);
+
+        $r0 = (org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs) $r1;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs clientTimeout('int')>(clientTimeout);
+
+        $r0 = (org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs) $r1;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' <init>(org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs)>($r0);
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransportException $r6;
+        org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs args;
+        java.io.IOException ioe;
+        java.net.InetSocketAddress $r5;
+        java.net.ServerSocket $r0;
+        org.apache.thrift.transport.TServerSocket this;
+        'int' $i0;
+        java.lang.StringBuilder $r7;
+        java.lang.String $r10;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        args := @parameter0: org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerTransport: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_> = null;
+
+        this.<org.apache.thrift.transport.TServerSocket: 'int' clientTimeout_> = 0;
+
+        this.<org.apache.thrift.transport.TServerSocket: 'int' maxMessageSize_> = 0;
+
+        $i0 = args.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: 'int' clientTimeout>;
+
+        this.<org.apache.thrift.transport.TServerSocket: 'int' clientTimeout_> = $i0;
+
+        $i0 = args.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: 'int' maxMessageSize>;
+
+        this.<org.apache.thrift.transport.TServerSocket: 'int' maxMessageSize_> = $i0;
+
+        $r0 = args.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: java.net.ServerSocket serverSocket>;
+
+        if $r0 == null goto label1;
+
+        $r0 = args.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: java.net.ServerSocket serverSocket>;
+
+        this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_> = $r0;
+
+        return;
+
+     label1:
+        $r0 = new java.net.ServerSocket;
+
+     label2:
+        specialinvoke $r0.<java.net.ServerSocket: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_> = $r0;
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+        virtualinvoke $r0.<java.net.ServerSocket: 'void' setReuseAddress('boolean')>(1);
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+        $r5 = args.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: java.net.InetSocketAddress bindAddr>;
+
+        $i0 = args.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: 'int' backlog>;
+
+        virtualinvoke $r0.<java.net.ServerSocket: 'void' bind(java.net.SocketAddress,'int')>($r5, $i0);
+
+     label3:
+        goto label5;
+
+     label4:
+        ioe := @caughtexception;
+
+        virtualinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' close()>();
+
+        $r6 = new org.apache.thrift.transport.TTransportException;
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Could not create ServerSocket on address ");
+
+        $r5 = args.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: java.net.InetSocketAddress bindAddr>;
+
+        $r10 = virtualinvoke $r5.<java.net.InetSocketAddress: java.lang.String toString()>();
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".");
+
+        $r10 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r6.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String,java.lang.Throwable)>($r10, ioe);
+
+        throw $r6;
+
+     label5:
+        return;
+
+        catch java.io.IOException from label2 to label3 with label4;
+    }
+
+    public 'void' listen() throws org.apache.thrift.transport.TTransportException
+    {
+        java.net.ServerSocket $r0;
+        org.apache.thrift.transport.TServerSocket this;
+        java.net.SocketException sx;
+        org.slf4j.Logger $r2;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+        if $r0 == null goto label4;
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+     label1:
+        virtualinvoke $r0.<java.net.ServerSocket: 'void' setSoTimeout('int')>(0);
+
+     label2:
+        goto label4;
+
+     label3:
+        sx := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TServerSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Could not set socket timeout.", sx);
+
+     label4:
+        return;
+
+        catch java.net.SocketException from label1 to label2 with label3;
+    }
+
+    public org.apache.thrift.transport.TSocket accept() throws org.apache.thrift.transport.TTransportException
+    {
+        java.net.ServerSocket $r0;
+        org.apache.thrift.transport.TServerSocket this;
+        java.net.Socket result;
+        org.apache.thrift.transport.TTransportException $r1;
+        'int' $i0;
+        org.apache.thrift.transport.TSocket e_2;
+        java.lang.Exception e_1;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+        if $r0 != null goto label1;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "No underlying server socket.");
+
+        throw $r1;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+        result = virtualinvoke $r0.<java.net.ServerSocket: java.net.Socket accept()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        e_1 := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.Throwable)>(e_1);
+
+        throw $r1;
+
+     label4:
+        if result != null goto label5;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("Blocking server\'s accept() may not return NULL");
+
+        throw $r1;
+
+     label5:
+        e_2 = new org.apache.thrift.transport.TSocket;
+
+        specialinvoke e_2.<org.apache.thrift.transport.TSocket: 'void' <init>(java.net.Socket)>(result);
+
+        $i0 = this.<org.apache.thrift.transport.TServerSocket: 'int' clientTimeout_>;
+
+        virtualinvoke e_2.<org.apache.thrift.transport.TSocket: 'void' setTimeout('int')>($i0);
+
+        $i0 = this.<org.apache.thrift.transport.TServerSocket: 'int' maxMessageSize_>;
+
+        virtualinvoke e_2.<org.apache.thrift.transport.TSocket: 'void' setMaxMessageSize('int')>($i0);
+
+        return e_2;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public 'void' close()
+    {
+        java.net.ServerSocket $r0;
+        org.apache.thrift.transport.TServerSocket this;
+        org.slf4j.Logger $r2;
+        java.io.IOException iox;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+        if $r0 == null goto label5;
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+     label1:
+        virtualinvoke $r0.<java.net.ServerSocket: 'void' close()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        iox := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TServerSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Could not close server socket.", iox);
+
+     label4:
+        this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_> = null;
+
+     label5:
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public 'void' interrupt()
+    {
+        org.apache.thrift.transport.TServerSocket this;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        virtualinvoke this.<org.apache.thrift.transport.TServerSocket: 'void' close()>();
+
+        return;
+    }
+
+    public java.net.ServerSocket getServerSocket()
+    {
+        java.net.ServerSocket $r0;
+        org.apache.thrift.transport.TServerSocket this;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TServerSocket: java.net.ServerSocket serverSocket_>;
+
+        return $r0;
+    }
+
+    public volatile org.apache.thrift.transport.TTransport accept() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TServerSocket this;
+        org.apache.thrift.transport.TSocket $r0;
+
+        this := @this: org.apache.thrift.transport.TServerSocket;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.TServerSocket: org.apache.thrift.transport.TSocket accept()>();
+
+        return $r0;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        org.slf4j.Logger $r2;
+
+        $r0 = class "Lorg/apache/thrift/transport/TServerSocket;";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        <org.apache.thrift.transport.TServerSocket: org.slf4j.Logger LOGGER> = $r2;
+
+        return;
+    }
+}

@@ -1,0 +1,37 @@
+# Index of `sec_ub_artifact.tar.gz` (Undefined behaviour and fuzzing harnesses)
+
+All paths inside `sec_ub_artifact.tar.gz` are under `sec_ub_artifact/` and are path-neutral
+(local checkout prefixes normalized to `<ROOT>/`; pre- and post-normalization file hashes are
+listed in `sec_ub_artifact/NORMALIZED_HASHES.tsv`, and `sec_ub_artifact/SHA256SUMS` covers every
+file in the archive).
+
+## 1. Lean proof packages (`sec_ub_artifact/packages/`, sources without `.lake` build binaries)
+
+| Archive directory | C semantics (`cirlean`) | Upstream target commit | Paper result backed |
+|---|---|---|---|
+| `packages/cjson_parse_266d1ed` | `266d1ed` | `cJSON` `6d9f244` | Parse-only `cJSON` harness theorem (`< 2^63` bytes, 15 unit theorems, 247 modules) |
+| `packages/cjson_full_r1_c4ef58d` | `c4ef58d` | `cJSON` 1.7.18 (`acc76239`) | Whole `cJSON` 1.7.18 harness theorem `R1` (`< 2^61` bytes, 32 unit theorems, 285 modules) |
+| `packages/cjson_full_r1_e6ac99a` | `e6ac99a` | `cJSON` 1.7.18 (`acc76239`) | Whole `cJSON` 1.7.18 harness theorem `R1` re-proved on the revised C semantics (285 modules) |
+| `packages/cjson_full_r1_424e821` | `424e821` | `cJSON` 1.7.18 (`acc76239`) | Whole `cJSON` 1.7.18 harness theorem `R1` re-proved on the member-strict C semantics (288 modules) |
+| `packages/cjson_full_r1_7c73739` | `7c73739` | `cJSON` 1.7.18 (`acc76239`) | Whole `cJSON` 1.7.18 harness theorem `R1` re-proved on the third revision of the C semantics (300 modules) |
+| `packages/yajl_ruby_r3_ffab71e` | `ffab71e` | `yajl-ruby` 1.4.3 (`6501652d`), OSS-Fuzz `bd2ce219` | Unmodified `yajl-ruby` harness theorem `R3` (`< 2^31` bytes, 33 unit modules in 193-module closure) |
+| `packages/cjson_full_r2_64_c4ef58d` | `c4ef58d` | `cJSON` 1.7.18 (`acc76239`) + 7-line change in `print_string_ptr` | Changed-source `cJSON` whole-harness theorem `R2-64` (`< 2^63` bytes, 32 unit theorems, 285 modules) |
+| `packages/cjson_full_r2_32_e00113f` | `e00113f` (from `c4ef58d`) | `cJSON` 1.7.18 (`acc76239`) + 7-line change in `print_string_ptr` (32-bit i686) | Changed-source 32-bit `cJSON` whole-harness theorem `R2-32` (`< 2^31` bytes, 32 unit theorems, 285 modules; includes `ilp32_e00113f.diff`) |
+| `packages/yajl_lex_number_patched_ffab71e` | `ffab71e` | `yajl-ruby` 1.4.3 (`6501652d`) + 1-line change in `yajl_lex_number` | Changed-source `yajl_lex_number` unit contract `YajlLN.ln_spec` (`< 2^32` length range, 122 modules) |
+
+## 2. Independent check records (`sec_ub_artifact/checks/`)
+
+| Archive directory | Paper claim / table backed |
+|---|---|
+| `checks/B-20261024T1432Z-v2`, `checks/Bsem-20261025T1222Z` | GCC 15.2 sanitizer runs (`tab:sanitizers`) and C semantics runs on `tiny-regex-c` `matchstar` and `cJSON` `cJSON_SetValuestring` |
+| `checks/H-20261025` | Pre-registered seed-corpus sweep across 5 C harnesses (70 seed inputs, `PREREG_H_v1` part 1) |
+| `checks/cjh-20261025T1854Z` | Parse-only `cJSON` harness check (`tab:harness` column 1, `tab:replay` row 247 = 246 + 1) |
+| `checks/fh-r1-20261026T2003Z`, `checks/fhpin-c4ef58d-20261025` | Whole `cJSON` harness check at `c4ef58d` (`tab:harness` column 2, `tab:replay` row 285 = 284 + 1) |
+| `checks/r1next-20261027T0909Z` | Whole `cJSON` harness re-check on revised C semantics `e6ac99a` (`tab:replay` row 285) |
+| `checks/r1next2-20261028T0803Z` | Whole `cJSON` harness re-check on member-strict C semantics `424e821` (`tab:replay` row 288) |
+| `checks/fhnext3-20261030T0432Z`, `checks/fhnext3v5-20261030T1146Z`, `checks/r1next3-20261030T1407Z` | Whole `cJSON` harness re-check on third revision `7c73739` (`tab:replay` row 300) |
+| `checks/yj-r3-20261026T2007Z`, `checks/yj-r3-extra-20261026T2154Z` | `yajl-ruby` harness check at `ffab71e` (`tab:harness` column 3, `tab:replay` row 193 = 192 + 1, `cirpun` and `memcpy` scans) |
+| `checks/fh-r264-20261026T2003Z` | Changed-source 64-bit `cJSON` whole-harness check `R2-64` (`tab:replay` row 285 = 284 + 1) |
+| `checks/r232-20261026T2007Z`, `checks/ilp32parent-20261028T0035Z` | Changed-source 32-bit `cJSON` whole-harness check `R2-32` (`tab:replay` row 285 = 283 + 2) and `e00113f` parent check |
+| `checks/yjpatch2-20261027T2352Z` | Changed-source `yajl_lex_number` unit theorem check (`tab:replay` row 122 = 121 + 1) |
+| `checks/ub-stride-coresnd-20261028T1846Z` | Pointer-stride (`cirpun --stride`) and core-memory soundness-gap (`G5`, `G4`, `G2`, `G3`, `U1/U2`) scans across all `sec:ub` findings and closures |

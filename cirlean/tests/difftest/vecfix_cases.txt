@@ -1,0 +1,137 @@
+# std::vector objects holding libc++'s members of an empty vector where no constructor of the model ran
+# (constant-initialized globals and statics, a member and an element of one, a class with a defaulted
+# constructor), libc++'s vector(first, last) (enable_if); std::vector<bool> (constructors, operator[] and at
+# through libc++'s reference proxy, its operator bool, operator=(bool), operator=(const __bit_reference&) and
+# flip, push_back, pop_back, assign, resize, clear, reserve, swap, copies and moves, operator==, the range
+# constructor); value-initialization of polymorphic objects (zeroed, a null vptr, before the constructor
+# stores the vptr), and a polymorphic global zeroed before its constructor runs (vecfix.cpp; the globals in
+# vecfixg.cpp, as their destructors run at every case's exit). Each case is labelled with its expected
+# outcome on the line above it: MATCH, or UB from cirrun on the u_ cases: an element of an empty vector, a
+# range whose end is before its start, std::vector<bool>'s operator[] past the end and a reference used after
+# a reallocation, a virtual call through a zeroed vptr; and on the g_ gaps, defined in C++:
+# std::vector<bool>'s iterators, front(), back() and flip() of the vector (not modelled: libc++'s code stops
+# at the model's vector value).
+# expect MATCH: size() and empty() of a constant-initialized global vector
+vecfixg e_global_untouched 0
+# expect MATCH: push_back into a constant-initialized global vector
+vecfixg e_global_push 1
+# expect MATCH: begin(), end() and range-for of a constant-initialized global vector
+vecfixg e_global_begin_end 0
+# expect MATCH: data() of a constant-initialized global vector, then push_back
+vecfixg e_global_data 2
+# expect MATCH: clear() of a constant-initialized global vector
+vecfixg e_global_clear 3
+# expect MATCH: resize() of a constant-initialized global vector
+vecfixg e_global_resize 1
+# expect MATCH: move assignment into a constant-initialized global vector
+vecfixg e_global_assign 4
+# expect MATCH: a copy of a constant-initialized global vector
+vecfixg e_global_copy_from 5
+# expect MATCH: copy assignment into a constant-initialized global vector
+vecfixg e_global_copy_to 0
+# expect MATCH: swap() of a constant-initialized global vector
+vecfixg e_global_swap 1
+# expect MATCH: a constant-initialized global vector of double
+vecfixg e_global_double 3
+# expect MATCH: an element of a constant-initialized global array of vectors
+vecfixg e_global_array 2
+# expect MATCH: a vector member of a constant-initialized global structure
+vecfixg e_global_member 1
+# expect MATCH: a constant-initialized global vector with external linkage
+vecfixg e_extern_global 3
+# expect MATCH: a constant-initialized global vector<bool>
+vecfixg e_global_bool 1
+# expect UB: operator[] of a constant-initialized global vector, which has no element
+vecfixg u_global_index_empty 0
+# expect MATCH: a polymorphic global's member that its constructor leaves to static zero-initialization
+vecfixg v_global_zero_member 2
+# expect MATCH: a static local vector
+vecfix e_static_local 1
+# expect MATCH: a vector member of a class with a defaulted constructor
+vecfix e_defaulted_ctor 2
+# expect MATCH: the same class value-initialized by new
+vecfix e_defaulted_new 3
+# expect MATCH: vector(first, last) over int pointers
+vecfix r_range_ptr 0
+# expect MATCH: vector(first, last) over const int pointers
+vecfix r_range_const_ptr 1
+# expect MATCH: vector(first, last) over vector iterators
+vecfix r_range_iter 2
+# expect MATCH: vector(first, last) of an empty range
+vecfix r_range_empty 0
+# expect MATCH: vector(first, last, alloc) over long pointers
+vecfix r_range_alloc 1
+# expect MATCH: vector(first, last) over double pointers
+vecfix r_range_double 0
+# expect UB: vector(first, last) with last before first
+vecfix u_range_reversed 0
+# expect MATCH: vector<bool>(n, x), operator[] and operator=(bool)
+vecfix b_fill_index 1
+# expect MATCH: vector<bool>(n): false elements
+vecfix b_size_ctor 0
+# expect MATCH: vector<bool> from an initializer list, const operator[]
+vecfix b_init_list 1
+# expect MATCH: an empty vector<bool>
+vecfix b_default_empty 0
+# expect MATCH: push_back past one word, pop_back
+vecfix b_push_pop 1
+# expect MATCH: const operator[] (__bit_const_reference)
+vecfix b_const_index 1
+# expect MATCH: at() in range, assigned through
+vecfix b_at 0
+# expect MATCH: at() out of range throws std::out_of_range
+vecfix b_at_out_of_range 0
+# expect MATCH: operator=(const __bit_reference&)
+vecfix b_ref_assign 1
+# expect MATCH: v[0] = v[2] = true
+vecfix b_chain_assign 0
+# expect MATCH: flip() of the reference
+vecfix b_flip 1
+# expect MATCH: a copy of the reference designates the same element
+vecfix b_proxy_copy 0
+# expect MATCH: the copy constructor makes an independent vector
+vecfix b_copy_ctor 0
+# expect MATCH: copy assignment
+vecfix b_copy_assign 1
+# expect MATCH: move construction and move assignment
+vecfix b_move 0
+# expect MATCH: assign(n, x)
+vecfix b_assign_fill 2
+# expect MATCH: resize(n, x), resize(n) growing and shrinking
+vecfix b_resize 0
+# expect MATCH: clear(), reserve(), push_back
+vecfix b_clear_reserve 1
+# expect MATCH: swap() of two vectors
+vecfix b_swap 0
+# expect MATCH: operator== of equal, shorter and different vectors
+vecfix b_eq 0
+# expect MATCH: a vector of vector<bool>
+vecfix b_vec_of_vec 1
+# expect MATCH: vector<bool>(first, last) over bool pointers
+vecfix b_range_ctor 1
+# expect MATCH: the sieve of Eratosthenes up to 100
+vecfix b_sieve 0
+# expect UB: vector<bool>'s operator[] past the end
+vecfix u_b_index_past_end 0
+# expect UB: a vector<bool> reference used after a reallocation
+vecfix u_b_stale_proxy 0
+# expect UB: range-for over a vector<bool> (gap: its iterators are not modelled)
+vecfix g_b_range_for 0
+# expect UB: front() and back() of a vector<bool> (gap: not modelled)
+vecfix g_b_front_back 0
+# expect UB: flip() of a vector<bool> (gap: not modelled)
+vecfix g_b_flip_all 0
+# expect MATCH: new Poly(): zeroed, then the constructor stores the vptr
+vecfix v_value_init_new 1
+# expect MATCH: Poly a{} and Poly() of a polymorphic class, virtual call
+vecfix v_value_init_local 2
+# expect MATCH: a value-initialized derived polymorphic object
+vecfix v_value_init_derived 1
+# expect MATCH: Poly a[3]{}: value-initialized elements
+vecfix v_value_init_array 0
+# expect MATCH: new Poly[3](): value-initialized elements
+vecfix v_value_init_array_new 0
+# expect MATCH: a polymorphic member of a value-initialized aggregate
+vecfix v_value_init_member 3
+# expect UB: a virtual call through a vptr zeroed by memset
+vecfix u_zero_vptr_call 0

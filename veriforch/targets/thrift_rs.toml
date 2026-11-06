@@ -1,0 +1,25 @@
+# Apache Thrift lib/rs (the Rust library, crate `thrift` 0.26.0) at f0eb8b8 (targets/thrift_PIN.txt): PREREG_T_v1, T1
+# coverage scan (no model calls) and T2. UNTRUSTED target: nothing of it runs outside a sandbox.
+# Built by the stock Rust adapter (`scripts/vo scan targets/thrift_rs.toml`) with its opt-in options for a crate with
+# dependencies (orch/veriforch/adapters/rust/build.py; notes/thrift/T1_rsts.md):
+# * rust_crate = "vendored": the crate copy keeps its crates.io dependencies, pinned by thrift_rs.Cargo.lock, sources
+#   from vendor_dir (made once by `tools/thrift_rsts/scan_rs.py prepare`, i.e. `cargo vendor`, which runs no build
+#   script); dep_features: the promoted #[cfg(test)] tests call uuid::Uuid::new_v4 (a dev-dependency feature);
+# * rust_sandbox = "bwrap": Charon (and with it the dependencies' build scripts) runs inside bubblewrap, no network,
+#   writable only the front-end work directory;
+# * cargo_features: the default ("server") plus "rustls" (transport/tls.rs, the TLS listener): every module of src/;
+# * charon_include: varint_rs's bodies are translated (VarintWriter::write_u32_varint etc., used by compact.rs);
+# * aeneas_prune_file: what makes Aeneas abort the whole crate, kept out of the LLBC it reads (found by
+#   tools/thrift_rsts/triage_rs.py); the affected functions are units with the gap aeneas-abort:<reason>.
+name = "thrift_rs"
+lang = "rust"
+root = "/home/user/veriforch/targets/thrift/lib/rs"
+rust_crate = "vendored"
+rust_sandbox = "bwrap"
+cargo_features = ["rustls"]
+dep_features = { uuid = ["v4"] }
+cargo_lock = "thrift_rs.Cargo.lock"
+vendor_dir = "/home/user/veriforch/scratch/thrift_rsts/rs/vendor"
+charon_include = ["varint_rs"]
+aeneas_prune_file = "thrift_rs.aeneas_prune.json"
+sources = []

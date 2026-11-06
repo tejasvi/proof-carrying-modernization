@@ -1,0 +1,187 @@
+public abstract class org.apache.thrift.transport.sasl.FrameWriter extends java.lang.Object
+{
+    protected java.nio.ByteBuffer frameBytes;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.sasl.FrameWriter this;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameWriter;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'void' withHeaderAndPayload('byte'[], 'byte'[])
+    {
+        'byte'[] header, payload;
+        'int' $i0, $i1;
+        org.apache.thrift.transport.sasl.FrameWriter this;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameWriter;
+
+        header := @parameter0: 'byte'[];
+
+        payload := @parameter1: 'byte'[];
+
+        if payload != null goto label1;
+
+        payload = newarray ('byte')[0];
+
+     label1:
+        if header != null goto label2;
+
+        virtualinvoke this.<org.apache.thrift.transport.sasl.FrameWriter: 'void' withOnlyPayload('byte'[])>(payload);
+
+        goto label3;
+
+     label2:
+        $i0 = lengthof header;
+
+        $i1 = lengthof payload;
+
+        virtualinvoke this.<org.apache.thrift.transport.sasl.FrameWriter: 'void' withHeaderAndPayload('byte'[],'int','int','byte'[],'int','int')>(header, 0, $i0, payload, 0, $i1);
+
+     label3:
+        return;
+    }
+
+    public 'void' withHeaderAndPayload('byte'[], 'int', 'int', 'byte'[], 'int', 'int')
+    {
+        'byte'[] header, payload;
+        java.lang.IllegalStateException $r0;
+        java.nio.ByteBuffer $r3;
+        org.apache.thrift.transport.sasl.FrameWriter this;
+        'int' headerOffset, headerLength, payloadOffset, payloadLength;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r6;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameWriter;
+
+        header := @parameter0: 'byte'[];
+
+        headerOffset := @parameter1: 'int';
+
+        headerLength := @parameter2: 'int';
+
+        payload := @parameter3: 'byte'[];
+
+        payloadOffset := @parameter4: 'int';
+
+        payloadLength := @parameter5: 'int';
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.sasl.FrameWriter: 'boolean' isComplete()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new java.lang.IllegalStateException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Previsous write is not yet complete, with ");
+
+        $r3 = this.<org.apache.thrift.transport.sasl.FrameWriter: java.nio.ByteBuffer frameBytes>;
+
+        headerOffset = virtualinvoke $r3.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(headerOffset);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes left.");
+
+        $r6 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>($r6);
+
+        throw $r0;
+
+     label1:
+        $r3 = virtualinvoke this.<org.apache.thrift.transport.sasl.FrameWriter: java.nio.ByteBuffer buildFrame('byte'[],'int','int','byte'[],'int','int')>(header, headerOffset, headerLength, payload, payloadOffset, payloadLength);
+
+        this.<org.apache.thrift.transport.sasl.FrameWriter: java.nio.ByteBuffer frameBytes> = $r3;
+
+        return;
+    }
+
+    public 'void' withOnlyPayload('byte'[])
+    {
+        'int' $i0;
+        'byte'[] payload;
+        org.apache.thrift.transport.sasl.FrameWriter this;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameWriter;
+
+        payload := @parameter0: 'byte'[];
+
+        $i0 = lengthof payload;
+
+        virtualinvoke this.<org.apache.thrift.transport.sasl.FrameWriter: 'void' withOnlyPayload('byte'[],'int','int')>(payload, 0, $i0);
+
+        return;
+    }
+
+    public abstract 'void' withOnlyPayload('byte'[], 'int', 'int');
+
+    protected abstract java.nio.ByteBuffer buildFrame('byte'[], 'int', 'int', 'byte'[], 'int', 'int');
+
+    public 'void' write(org.apache.thrift.transport.TNonblockingTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TNonblockingTransport transport;
+        java.nio.ByteBuffer $r0;
+        org.apache.thrift.transport.sasl.FrameWriter this;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameWriter;
+
+        transport := @parameter0: org.apache.thrift.transport.TNonblockingTransport;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameWriter: java.nio.ByteBuffer frameBytes>;
+
+        virtualinvoke transport.<org.apache.thrift.transport.TNonblockingTransport: 'int' write(java.nio.ByteBuffer)>($r0);
+
+        return;
+    }
+
+    public 'boolean' isComplete()
+    {
+        java.nio.ByteBuffer $r0;
+        org.apache.thrift.transport.sasl.FrameWriter this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameWriter;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameWriter: java.nio.ByteBuffer frameBytes>;
+
+        if $r0 == null goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.FrameWriter: java.nio.ByteBuffer frameBytes>;
+
+        $z0 = virtualinvoke $r0.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 != 0 goto label2;
+
+     label1:
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        return $z0;
+    }
+
+    public 'void' clear()
+    {
+        org.apache.thrift.transport.sasl.FrameWriter this;
+
+        this := @this: org.apache.thrift.transport.sasl.FrameWriter;
+
+        this.<org.apache.thrift.transport.sasl.FrameWriter: java.nio.ByteBuffer frameBytes> = null;
+
+        return;
+    }
+}

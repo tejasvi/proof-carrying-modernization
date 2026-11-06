@@ -1,0 +1,25 @@
+      * Class conditions in programs of native order with a declared
+      * PROGRAM COLLATING SEQUENCE (NATIVE): modelled.
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. VCSEQ.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       OBJECT-COMPUTER. X
+           PROGRAM COLLATING SEQUENCE IS SEQ1.
+       SPECIAL-NAMES.
+           ALPHABET SEQ1 IS NATIVE
+           CLASS HEXDIG IS '0' THRU '9' 'A' THRU 'F'
+           CLASS VOWEL 'AEIOU' 'aeiou'.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A1 PIC X(4).
+       PROCEDURE DIVISION.
+           MOVE '09AF' TO A1
+           IF A1 HEXDIG DISPLAY 'Q01 Y|' ELSE DISPLAY 'Q01 N|' END-IF
+           MOVE '09AG' TO A1
+           IF A1 HEXDIG DISPLAY 'Q02 Y|' ELSE DISPLAY 'Q02 N|' END-IF
+           IF A1(3:1) VOWEL DISPLAY 'Q03 Y|' ELSE DISPLAY 'Q03 N|'
+           END-IF
+           IF A1 NOT VOWEL DISPLAY 'Q04 Y|' ELSE DISPLAY 'Q04 N|'
+           END-IF
+           STOP RUN.

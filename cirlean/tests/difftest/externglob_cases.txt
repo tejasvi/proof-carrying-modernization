@@ -1,0 +1,30 @@
+# Declared-only globals (externglob.cpp): an object the module only declares has no value in the module, except the
+# modelled ones: glibc's __libc_single_threaded (1), getopt's optind and opterr (1 at the start), libm's signgam (the
+# sign lgamma stores) and the C++ standard stream objects (live objects of indeterminate value). Each case is
+# labelled with its expected outcome on the line above it: MATCH or UB. When such an object read as zero (before
+# externglob), t_single_threaded gave 2 and t_opterr 3; externglob2 made every declared-only object external:
+# t_opterr and t_optind were UB, t_optind_write too (before it the write was accepted), signgam was UB after lgamma,
+# and operator<< refused the stream objects (t_cout_print, t_cerr_print: UB "operator<<: the stream is not an
+# object").
+# expect MATCH: glibc's __libc_single_threaded, modelled as 1 (a single-threaded process)
+externglob t_single_threaded 2
+# expect MATCH: std::cout as the stream of operator<<
+externglob t_cout_print 3
+# expect MATCH: std::cerr as the stream of two operator<< calls
+externglob t_cerr_print 4
+# expect MATCH: getopt's opterr, 1 at the start
+externglob t_opterr 3
+# expect MATCH: getopt's optind, 1 at the start
+externglob t_optind 3
+# expect MATCH: a write to optind, read back
+externglob t_optind_write 4
+# expect MATCH: signgam after lgamma(-0.5): -1
+externglob t_signgam_neg 3
+# expect MATCH: signgam after lgamma(2.5): 1
+externglob t_signgam_pos 2
+# expect UB: environ, defined in glibc, read (not modelled)
+externglob u_environ 3
+# expect UB: glibc's program_invocation_name, read (not modelled)
+externglob u_progname 3
+# expect UB: a field of std::cout, of indeterminate value, read by the library's inline ios_base::width()
+externglob u_iostream_field 5

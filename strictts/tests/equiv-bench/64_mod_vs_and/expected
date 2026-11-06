@@ -1,0 +1,1 @@
+different x % 2 === 1 vs (x & 1) === 1 (negative odd numbers)

@@ -1,0 +1,110 @@
+# fmt.cpp: printf and scanf families (C11 7.21.6) against glibc; ub_* lines
+# are undefined behaviour (reasons in fmt.cpp), not expected to match
+# integer conversions: flags, zero precision, #, hh h l ll j z t, %%, * < 0
+fmt t_int 0
+fmt t_int 1
+fmt t_int 2
+fmt t_int 3
+fmt t_int 4
+fmt t_int 5
+fmt t_int 6
+fmt t_int 7
+fmt t_int 8
+fmt t_int 9
+fmt t_int 10
+fmt t_int 11
+# %c (converted to unsigned char, NUL counted), %s (precision, no terminator)
+fmt t_chr 0
+fmt t_chr 1
+fmt t_chr 2
+fmt t_chr 3
+fmt t_chr 4
+fmt t_chr 5
+fmt t_chr 6
+fmt t_chr 7
+# %p (glibc text), and the shape of %p of an object's address
+fmt t_ptr 0
+fmt t_ptr 1
+fmt t_ptr 2
+fmt t_ptr_obj 0
+# %n, also with hh h ll
+fmt t_cnt 0
+fmt t_cnt 1
+# %a %A: exact hex digits, precision rounding, flags, subnormals, inf
+fmt t_hexf 0
+fmt t_hexf 1
+fmt t_hexf 2
+fmt t_hexf 3
+fmt t_hexf 4
+fmt t_hexf 5
+fmt t_hexf 6
+# %f %e %g %F %E %G: inf and the 0 flag, 3-digit exponents, ties to even,
+# %g style after rounding, exact long expansions, -0, NaN, long double
+fmt t_ffx 0
+fmt t_ffx 1
+fmt t_ffx 2
+fmt t_ffx 3
+fmt t_ffx 4
+fmt t_ffx 5
+fmt t_ffx 6
+fmt t_ffx 7
+fmt t_ffx 8
+fmt t_ffx 9
+fmt t_ffx 10
+fmt t_ffx 11
+fmt t_ffx 12
+fmt t_ffx 13
+fmt t_ffx 14
+# snprintf: truncation, return value, untouched tail, n = 0 with null s
+fmt t_snp 0
+fmt t_snp 1
+fmt t_snp 2
+fmt t_snp 3
+fmt t_snp 4
+fmt t_snp 5
+fmt t_snp 6
+fmt t_snp 7
+fmt t_snp 8
+fmt t_snp 9
+fmt t_snp 10
+# printf/fprintf return values (empty output only)
+fmt t_prn 0
+fmt t_prn 1
+# vsprintf, vsnprintf
+fmt t_vsn 0
+fmt t_vsn 1
+# sscanf: %i %o %x %s %c %[ * width %% %n, white space, EOF, length
+# modifiers, floating items (hex, inf, nan, width)
+fmt t_scn 0
+fmt t_scn 1
+fmt t_scn 2
+fmt t_scn 3
+fmt t_scn 4
+fmt t_scn 5
+fmt t_scn 6
+fmt t_scn 7
+fmt t_scn 8
+fmt t_scn 9
+fmt t_scn 10
+fmt t_scn 11
+fmt t_scn 12
+fmt t_scn 13
+fmt t_scn 14
+fmt t_scn 15
+fmt t_scn 16
+fmt t_scn 17
+fmt t_scn 18
+fmt t_scn 19
+fmt t_scn 20
+fmt t_scn 21
+# undefined behaviour (fprintf, fscanf)
+fmt ub_fmt 0
+fmt ub_fmt 1
+fmt ub_fmt 2
+fmt ub_fmt 3
+fmt ub_fmt 4
+fmt ub_fmt 5
+fmt ub_fmt 6
+fmt ub_scn 0
+fmt ub_scn 1
+fmt ub_scn 2

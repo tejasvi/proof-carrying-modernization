@@ -1,0 +1,6 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U09 IS INITIAL.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

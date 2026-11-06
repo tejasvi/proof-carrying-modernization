@@ -1,0 +1,10 @@
+[package]
+name = "jsmn_drv"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+jsmn_rs = { path = "../jsmn_rs" }
+
+[workspace]

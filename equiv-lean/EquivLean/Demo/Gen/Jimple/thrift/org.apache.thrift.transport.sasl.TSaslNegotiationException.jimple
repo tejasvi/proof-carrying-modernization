@@ -1,0 +1,127 @@
+public class org.apache.thrift.transport.sasl.TSaslNegotiationException extends org.apache.thrift.transport.TTransportException
+{
+    private final org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType error;
+
+    public 'void' <init>(org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType, java.lang.String)
+    {
+        java.lang.String summary;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType error;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException this;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        error := @parameter0: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType;
+
+        summary := @parameter1: java.lang.String;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>(summary);
+
+        this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType error> = error;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType, java.lang.String, java.lang.Throwable)
+    {
+        java.lang.Throwable cause;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType error;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException this;
+        java.lang.String summary;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        error := @parameter0: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType;
+
+        summary := @parameter1: java.lang.String;
+
+        cause := @parameter2: java.lang.Throwable;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String,java.lang.Throwable)>(summary, cause);
+
+        this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType error> = error;
+
+        return;
+    }
+
+    public org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType getErrorType()
+    {
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r0;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException this;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        $r0 = this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType error>;
+
+        return $r0;
+    }
+
+    public java.lang.String getSummary()
+    {
+        org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType $r1;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException this;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r2;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType error>;
+
+        $r2 = virtualinvoke $r1.<org.apache.thrift.transport.sasl.TSaslNegotiationException$ErrorType: java.lang.String name()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $r2 = virtualinvoke this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: java.lang.String getMessage()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    public java.lang.String getDetails()
+    {
+        java.lang.Throwable $r0;
+        org.apache.thrift.transport.sasl.TSaslNegotiationException this;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+
+        this := @this: org.apache.thrift.transport.sasl.TSaslNegotiationException;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: java.lang.Throwable getCause()>();
+
+        if $r0 != null goto label1;
+
+        $r2 = virtualinvoke this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: java.lang.String getSummary()>();
+
+        goto label2;
+
+     label1:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: java.lang.String getSummary()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\nReason: ");
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.sasl.TSaslNegotiationException: java.lang.Throwable getCause()>();
+
+        $r2 = virtualinvoke $r0.<java.lang.Throwable: java.lang.String getMessage()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label2:
+        return $r2;
+    }
+}

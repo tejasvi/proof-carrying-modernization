@@ -1,0 +1,16 @@
+# tiny-regex-c library alone (pre-registration C, R1): re.c (re.h comes in through it) with the flags of the
+# project's Makefile at the pinned head f2632c6: -std=c99 -I. (the include path is the repository root, written
+# as include = ["."]). No project script runs. One Lean module per function, named without the revision (modular),
+# so an unchanged function's compiled proof is reused at every revision.
+name = "tiny_regex_c_lib"
+lang = "cir"
+root = "/home/user/veriforch/targets/tiny-regex-c"
+sources = ["re.c"]
+include = ["."]
+link_mode = "cir2lean"
+modular = true
+sources_present_only = true
+
+[[variants]]
+name = "lib"
+flags = ["-std=c99"]

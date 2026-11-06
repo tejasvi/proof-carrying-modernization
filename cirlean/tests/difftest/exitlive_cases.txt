@@ -1,0 +1,26 @@
+# The exit sequence (exitlive.cpp, exitlive_main.cpp, exitlive_exit.cpp), run with MODE=status: exit ends the lifetime of
+# no automatic object (C11 7.22.4.4; C++: exit destroys none), and a handler registered during the exit sequence runs
+# too (C11 7.22.4.4p3). Each case is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun
+# (a handler uses an object whose lifetime has ended).
+# expect MATCH: a handler reads an automatic object of the function that called exit (42)
+exitlive t_auto_in_handler 0
+# expect MATCH: a handler reads an automatic object of a caller three frames up (43)
+exitlive t_caller_auto_in_handler 0
+# expect MATCH: a handler writes an automatic object of the function that called exit (6)
+exitlive t_handler_writes_local 0
+# expect MATCH: a handler registered by a handler runs (5)
+exitlive t_register_during 0
+# expect MATCH: it runs before the earlier handlers still to run (231)
+exitlive t_order_during 0
+# expect UB: control, a handler reads an automatic object of a function that has returned
+exitlive t_returned_local 0
+# expect UB: control, a handler reads an automatic object of a call that returned before exit
+exitlive t_after_returned_call 0
+# expect MATCH: control, exit inside a loop and a try block (4 objects destroyed before it, none by it)
+exitlive t_in_loop_try 0
+# expect MATCH: control, exit destroys no automatic object of the calls in progress (0)
+exitlive t_no_auto_dtors 0
+# expect UB: control, a handler reads an automatic object of main after main has returned
+exitlive_main main
+# expect MATCH: exit called in main keeps main's automatic objects alive for the handlers (7)
+exitlive_exit main

@@ -1,0 +1,38 @@
+# rog's audit items in C++ (audit2x.cpp): F11 (a compare-exchange's failure order stronger than its success order,
+# allowed since C++17) and F13 (catching by pointer through qualification, void *, function pointer and
+# std::nullptr_t conversions). Each case is labelled with its expected outcome on the line above it: MATCH, or UB
+# from cirrun.
+# expect MATCH: failure order seq_cst, success relaxed (rog's F11 lx_cmpxchg_failure_stronger)
+audit2x x_cmpxchg_failure_stronger 0
+# expect MATCH: compare_exchange_weak, failure acquire, success relaxed (rog's F11)
+audit2x x_cmpxchg_weak_failure_acquire 0
+# expect MATCH: the stronger failure order on a failing compare-exchange
+audit2x x_cmpxchg_failure_stronger_fails 0
+# expect MATCH: const int * catches int * (rog's F13 hx_const_ptr)
+audit2x h_const_ptr 0
+# expect MATCH: const volatile int * catches int *
+audit2x h_volatile_const_ptr 0
+# expect MATCH: void * catches int * (rog's F13 hx_void_ptr)
+audit2x h_void_ptr 0
+# expect MATCH: const void * catches const int *
+audit2x h_const_void_of_const 0
+# expect MATCH: int * does not catch const int *: the next handler
+audit2x h_drop_const 0
+# expect MATCH: void * does not catch a function pointer
+audit2x h_void_of_fnptr 0
+# expect MATCH: double * does not catch int *: the next handler
+audit2x h_other_pointee 0
+# expect MATCH: int * catches std::nullptr_t (rog's F13 hx_nullptr_as_ptr)
+audit2x h_nullptr_as_ptr 0
+# expect MATCH: const char * catches std::nullptr_t
+audit2x h_nullptr_as_const_char_ptr 0
+# expect UB: gap, a pointer to member catching std::nullptr_t (its null value is not a pointer: not modelled)
+audit2x h_nullptr_as_member_ptr 0
+# expect MATCH: a pointer to a noexcept function caught as a pointer to function
+audit2x h_noexcept_fnptr 0
+# expect MATCH: control, the exact pointer type
+audit2x h_exact_ptr 0
+# expect UB: gap, a pointer to a derived class caught as a pointer to its base (not modelled)
+audit2x h_derived_as_base 0
+# expect UB: gap, a multi-level qualification conversion (not modelled)
+audit2x h_multilevel 0

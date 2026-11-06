@@ -1,0 +1,216 @@
+public class org.apache.thrift.server.TServlet extends jakarta.servlet.http.HttpServlet
+{
+    private final org.apache.thrift.TProcessor processor;
+    private final org.apache.thrift.protocol.TProtocolFactory inProtocolFactory;
+    private final org.apache.thrift.protocol.TProtocolFactory outProtocolFactory;
+    private final java.util.Collection customHeaders;
+
+    public 'void' <init>(org.apache.thrift.TProcessor, org.apache.thrift.protocol.TProtocolFactory, org.apache.thrift.protocol.TProtocolFactory)
+    {
+        org.apache.thrift.server.TServlet this;
+        org.apache.thrift.protocol.TProtocolFactory inProtocolFactory, outProtocolFactory;
+        org.apache.thrift.TProcessor processor;
+        java.util.ArrayList $r0;
+
+        this := @this: org.apache.thrift.server.TServlet;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        inProtocolFactory := @parameter1: org.apache.thrift.protocol.TProtocolFactory;
+
+        outProtocolFactory := @parameter2: org.apache.thrift.protocol.TProtocolFactory;
+
+        specialinvoke this.<jakarta.servlet.http.HttpServlet: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TServlet: org.apache.thrift.TProcessor processor> = processor;
+
+        this.<org.apache.thrift.server.TServlet: org.apache.thrift.protocol.TProtocolFactory inProtocolFactory> = inProtocolFactory;
+
+        this.<org.apache.thrift.server.TServlet: org.apache.thrift.protocol.TProtocolFactory outProtocolFactory> = outProtocolFactory;
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: 'void' <init>()>();
+
+        this.<org.apache.thrift.server.TServlet: java.util.Collection customHeaders> = $r0;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TProcessor, org.apache.thrift.protocol.TProtocolFactory)
+    {
+        org.apache.thrift.server.TServlet this;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.server.TServlet;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        protocolFactory := @parameter1: org.apache.thrift.protocol.TProtocolFactory;
+
+        specialinvoke this.<org.apache.thrift.server.TServlet: 'void' <init>(org.apache.thrift.TProcessor,org.apache.thrift.protocol.TProtocolFactory,org.apache.thrift.protocol.TProtocolFactory)>(processor, protocolFactory, protocolFactory);
+
+        return;
+    }
+
+    protected 'void' doPost(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse) throws jakarta.servlet.ServletException, java.io.IOException
+    {
+        org.apache.thrift.server.TServlet this;
+        jakarta.servlet.http.HttpServletRequest request;
+        jakarta.servlet.ServletException $r10;
+        jakarta.servlet.ServletOutputStream header;
+        java.lang.String $r4, $r6;
+        org.apache.thrift.transport.TIOStreamTransport transport;
+        'boolean' $z0;
+        jakarta.servlet.ServletInputStream in_1;
+        java.util.Map$Entry header#4;
+        java.util.Iterator in;
+        java.util.Collection $r0;
+        org.apache.thrift.TException in_2;
+        org.apache.thrift.protocol.TProtocolFactory $r7;
+        org.apache.thrift.protocol.TProtocol inProtocol, outProtocol;
+        java.lang.Object $r2;
+        jakarta.servlet.http.HttpServletResponse response;
+        org.apache.thrift.TProcessor $r9;
+
+        this := @this: org.apache.thrift.server.TServlet;
+
+        request := @parameter0: jakarta.servlet.http.HttpServletRequest;
+
+        response := @parameter1: jakarta.servlet.http.HttpServletResponse;
+
+     label1:
+        interfaceinvoke response.<jakarta.servlet.http.HttpServletResponse: 'void' setContentType(java.lang.String)>("application/x-thrift");
+
+        $r0 = this.<org.apache.thrift.server.TServlet: java.util.Collection customHeaders>;
+
+        if null == $r0 goto label3;
+
+        $r0 = this.<org.apache.thrift.server.TServlet: java.util.Collection customHeaders>;
+
+        in = interfaceinvoke $r0.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke in.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label3;
+
+        $r2 = interfaceinvoke in.<java.util.Iterator: java.lang.Object next()>();
+
+        header#4 = (java.util.Map$Entry) $r2;
+
+        $r2 = interfaceinvoke header#4.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r4 = (java.lang.String) $r2;
+
+        $r2 = interfaceinvoke header#4.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r6 = (java.lang.String) $r2;
+
+        interfaceinvoke response.<jakarta.servlet.http.HttpServletResponse: 'void' addHeader(java.lang.String,java.lang.String)>($r4, $r6);
+
+        goto label2;
+
+     label3:
+        in_1 = interfaceinvoke request.<jakarta.servlet.http.HttpServletRequest: jakarta.servlet.ServletInputStream getInputStream()>();
+
+        header = interfaceinvoke response.<jakarta.servlet.http.HttpServletResponse: jakarta.servlet.ServletOutputStream getOutputStream()>();
+
+        transport = new org.apache.thrift.transport.TIOStreamTransport;
+
+        specialinvoke transport.<org.apache.thrift.transport.TIOStreamTransport: 'void' <init>(java.io.InputStream,java.io.OutputStream)>(in_1, header);
+
+        $r7 = this.<org.apache.thrift.server.TServlet: org.apache.thrift.protocol.TProtocolFactory inProtocolFactory>;
+
+        inProtocol = interfaceinvoke $r7.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r7 = this.<org.apache.thrift.server.TServlet: org.apache.thrift.protocol.TProtocolFactory outProtocolFactory>;
+
+        outProtocol = interfaceinvoke $r7.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r9 = this.<org.apache.thrift.server.TServlet: org.apache.thrift.TProcessor processor>;
+
+        interfaceinvoke $r9.<org.apache.thrift.TProcessor: 'void' process(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(inProtocol, outProtocol);
+
+        virtualinvoke header.<java.io.OutputStream: 'void' flush()>();
+
+     label4:
+        goto label6;
+
+     label5:
+        in_2 := @caughtexception;
+
+        $r10 = new jakarta.servlet.ServletException;
+
+        specialinvoke $r10.<jakarta.servlet.ServletException: 'void' <init>(java.lang.Throwable)>(in_2);
+
+        throw $r10;
+
+     label6:
+        return;
+
+        catch org.apache.thrift.TException from label1 to label4 with label5;
+    }
+
+    protected 'void' doGet(jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpServletResponse) throws jakarta.servlet.ServletException, java.io.IOException
+    {
+        org.apache.thrift.server.TServlet this;
+        jakarta.servlet.http.HttpServletResponse response;
+        jakarta.servlet.http.HttpServletRequest request;
+
+        this := @this: org.apache.thrift.server.TServlet;
+
+        request := @parameter0: jakarta.servlet.http.HttpServletRequest;
+
+        response := @parameter1: jakarta.servlet.http.HttpServletResponse;
+
+        virtualinvoke this.<org.apache.thrift.server.TServlet: 'void' doPost(jakarta.servlet.http.HttpServletRequest,jakarta.servlet.http.HttpServletResponse)>(request, response);
+
+        return;
+    }
+
+    public 'void' addCustomHeader(java.lang.String, java.lang.String)
+    {
+        org.apache.thrift.server.TServlet this;
+        org.apache.thrift.server.TServlet$1 $r1;
+        java.util.Collection $r0;
+        java.lang.String key, value;
+
+        this := @this: org.apache.thrift.server.TServlet;
+
+        key := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.String;
+
+        $r0 = this.<org.apache.thrift.server.TServlet: java.util.Collection customHeaders>;
+
+        $r1 = new org.apache.thrift.server.TServlet$1;
+
+        specialinvoke $r1.<org.apache.thrift.server.TServlet$1: 'void' <init>(org.apache.thrift.server.TServlet,java.lang.String,java.lang.String)>(this, key, value);
+
+        interfaceinvoke $r0.<java.util.Collection: 'boolean' add(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public 'void' setCustomHeaders(java.util.Collection)
+    {
+        org.apache.thrift.server.TServlet this;
+        java.util.Collection headers, $r0;
+
+        this := @this: org.apache.thrift.server.TServlet;
+
+        headers := @parameter0: java.util.Collection;
+
+        $r0 = this.<org.apache.thrift.server.TServlet: java.util.Collection customHeaders>;
+
+        interfaceinvoke $r0.<java.util.Collection: 'void' clear()>();
+
+        $r0 = this.<org.apache.thrift.server.TServlet: java.util.Collection customHeaders>;
+
+        interfaceinvoke $r0.<java.util.Collection: 'boolean' addAll(java.util.Collection)>(headers);
+
+        return;
+    }
+}

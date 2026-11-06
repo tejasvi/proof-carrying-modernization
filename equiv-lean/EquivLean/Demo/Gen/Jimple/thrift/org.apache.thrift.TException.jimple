@@ -1,0 +1,67 @@
+public class org.apache.thrift.TException extends java.lang.Exception
+{
+    private static final 'long' serialVersionUID;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.TException this;
+
+        this := @this: org.apache.thrift.TException;
+
+        specialinvoke this.<java.lang.Exception: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String)
+    {
+        org.apache.thrift.TException this;
+        java.lang.String message;
+
+        this := @this: org.apache.thrift.TException;
+
+        message := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Exception: 'void' <init>(java.lang.String)>(message);
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.Throwable)
+    {
+        java.lang.Throwable cause;
+        org.apache.thrift.TException this;
+
+        this := @this: org.apache.thrift.TException;
+
+        cause := @parameter0: java.lang.Throwable;
+
+        specialinvoke this.<java.lang.Exception: 'void' <init>(java.lang.Throwable)>(cause);
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, java.lang.Throwable)
+    {
+        java.lang.Throwable cause;
+        org.apache.thrift.TException this;
+        java.lang.String message;
+
+        this := @this: org.apache.thrift.TException;
+
+        message := @parameter0: java.lang.String;
+
+        cause := @parameter1: java.lang.Throwable;
+
+        specialinvoke this.<java.lang.Exception: 'void' <init>(java.lang.String,java.lang.Throwable)>(message, cause);
+
+        return;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.TException: 'long' serialVersionUID> = 1L;
+
+        return;
+    }
+}

@@ -1,0 +1,173 @@
+public class org.apache.thrift.partial.EnumCache extends java.lang.Object
+{
+    private static final org.slf4j.Logger LOG;
+    private java.util.Map classMap;
+
+    public 'void' <init>()
+    {
+        java.util.HashMap $r0;
+        org.apache.thrift.partial.EnumCache this;
+
+        this := @this: org.apache.thrift.partial.EnumCache;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>()>();
+
+        this.<org.apache.thrift.partial.EnumCache: java.util.Map classMap> = $r0;
+
+        return;
+    }
+
+    public org.apache.thrift.TEnum get(java.lang.Class, 'int')
+    {
+        java.util.Map valueMap;
+        'int' value;
+        java.lang.Class enumClass;
+        java.lang.Object $r1;
+        org.apache.thrift.TEnum $r4;
+        org.apache.thrift.partial.EnumCache this;
+        java.lang.Integer $r2;
+
+        this := @this: org.apache.thrift.partial.EnumCache;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        value := @parameter1: 'int';
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(enumClass, "enumClass");
+
+        valueMap = this.<org.apache.thrift.partial.EnumCache: java.util.Map classMap>;
+
+        $r1 = interfaceinvoke valueMap.<java.util.Map: java.lang.Object get(java.lang.Object)>(enumClass);
+
+        valueMap = (java.util.Map) $r1;
+
+        if valueMap != null goto label1;
+
+        valueMap = specialinvoke this.<org.apache.thrift.partial.EnumCache: java.util.Map addClass(java.lang.Class)>(enumClass);
+
+        if valueMap != null goto label1;
+
+        return null;
+
+     label1:
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(value);
+
+        $r1 = interfaceinvoke valueMap.<java.util.Map: java.lang.Object get(java.lang.Object)>($r2);
+
+        $r4 = (org.apache.thrift.TEnum) $r1;
+
+        return $r4;
+    }
+
+    private java.util.Map addClass(java.lang.Class)
+    {
+        java.lang.Object[] $r1;
+        java.lang.NoSuchMethodException valuesMethod_1;
+        java.util.HashMap valueMap;
+        java.lang.Integer $r3;
+        java.util.Map $r4;
+        'int' i0, $i1, i2;
+        java.lang.reflect.Method valuesMethod;
+        java.lang.IllegalAccessException valuesMethod_2;
+        org.slf4j.Logger $r5;
+        java.lang.Class[] $r0;
+        org.apache.thrift.TEnum enumValue;
+        java.lang.reflect.InvocationTargetException valuesMethod_3;
+        java.lang.Class enumClass;
+        java.lang.Object $r2;
+        org.apache.thrift.partial.EnumCache this;
+        org.apache.thrift.TEnum[] enumValues;
+
+        this := @this: org.apache.thrift.partial.EnumCache;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        $r0 = newarray (java.lang.Class)[0];
+
+     label1:
+        valuesMethod = virtualinvoke enumClass.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("values", $r0);
+
+        $r1 = newarray (java.lang.Object)[0];
+
+        $r2 = virtualinvoke valuesMethod.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(null, $r1);
+
+        enumValues = (org.apache.thrift.TEnum[]) $r2;
+
+        valueMap = new java.util.HashMap;
+
+        specialinvoke valueMap.<java.util.HashMap: 'void' <init>()>();
+
+        i0 = lengthof enumValues;
+
+        i2 = 0;
+
+     label2:
+        if i2 >= i0 goto label3;
+
+        enumValue = enumValues[i2];
+
+        $i1 = interfaceinvoke enumValue.<org.apache.thrift.TEnum: 'int' getValue()>();
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i1);
+
+        interfaceinvoke valueMap.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, enumValue);
+
+        i2 = i2 + 1;
+
+        goto label2;
+
+     label3:
+        $r4 = this.<org.apache.thrift.partial.EnumCache: java.util.Map classMap>;
+
+        interfaceinvoke $r4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(enumClass, valueMap);
+
+     label4:
+        return valueMap;
+
+     label5:
+        valuesMethod_1 := @caughtexception;
+
+        $r5 = <org.apache.thrift.partial.EnumCache: org.slf4j.Logger LOG>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("enum class does not have values() method", valuesMethod_1);
+
+        return null;
+
+     label6:
+        valuesMethod_2 := @caughtexception;
+
+        $r5 = <org.apache.thrift.partial.EnumCache: org.slf4j.Logger LOG>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Enum.values() method should be public!", valuesMethod_2);
+
+        return null;
+
+     label7:
+        valuesMethod_3 := @caughtexception;
+
+        $r5 = <org.apache.thrift.partial.EnumCache: org.slf4j.Logger LOG>;
+
+        interfaceinvoke $r5.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Enum.values() threw exception", valuesMethod_3);
+
+        return null;
+
+        catch java.lang.NoSuchMethodException from label1 to label4 with label5;
+        catch java.lang.IllegalAccessException from label1 to label4 with label6;
+        catch java.lang.reflect.InvocationTargetException from label1 to label4 with label7;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.slf4j.Logger $r0;
+
+        $r0 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.Class)>(class "Lorg/apache/thrift/partial/EnumCache;");
+
+        <org.apache.thrift.partial.EnumCache: org.slf4j.Logger LOG> = $r0;
+
+        return;
+    }
+}

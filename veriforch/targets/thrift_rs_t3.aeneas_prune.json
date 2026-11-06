@@ -1,0 +1,79 @@
+{
+ "target": "thrift_rs",
+ "note": "Items on which Aeneas (deps/aeneas-fdebf20) aborts the whole crate, or which make its Lean output fail as a whole, kept out of the LLBC it reads by the Rust adapter (prune_llbc). dyn_trait_methods: trait methods with a dyn type in their signature are dropped (with their impl methods); dyn_fields: every type-declaration field whose type contains a dyn Trait gets the opaque type vo_dyn::DynValue; rename: generated names for clashing items (charon::rename); mixed_groups: split (Aeneas stops analysing functions at the first mixed declaration group); opaque: Charon --opaque; pruned: found by tools/thrift_rsts/triage_rs.py (none left). T3 version: missing entries are skipped (logged), the rename is matched by impl identity.",
+ "dyn_trait_methods": "prune",
+ "dyn_fields": "opaque",
+ "mixed_groups": "split",
+ "rename": [
+  {
+   "kind": "trait_impl",
+   "impl_of": [
+    "core::convert::From",
+    "thrift::errors::Error",
+    "uuid::error::Error"
+   ],
+   "rename": "CoreConvertFromUuidError",
+   "why": "Aeneas names impl From<io::Error> for Error and impl From<uuid::Error> for Error both errors.Error.Insts.CoreConvertFromError (Name clash detected); matched by identity, not span (T3: spans move between revisions)"
+  }
+ ],
+ "opaque": [
+  {
+   "pattern": "thrift::server::multiplexed::split_ident_name",
+   "file": "src/server/multiplexed.rs",
+   "line": 165,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  },
+  {
+   "pattern": "thrift::configuration::tests::test_invalid_configuration",
+   "file": "src/configuration.rs",
+   "line": 162,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  },
+  {
+   "pattern": "thrift::protocol::binary::tests::must_enforce_container_size_limit",
+   "file": "src/protocol/binary.rs",
+   "line": 1243,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  },
+  {
+   "pattern": "thrift::protocol::binary::tests::must_enforce_string_size_limit",
+   "file": "src/protocol/binary.rs",
+   "line": 1299,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  },
+  {
+   "pattern": "thrift::protocol::binary::tests::must_enforce_string_size_limit_on_non_strict_message_name",
+   "file": "src/protocol/binary.rs",
+   "line": 1326,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  },
+  {
+   "pattern": "thrift::protocol::compact::tests::must_check_container_size_overflow",
+   "file": "src/protocol/compact.rs",
+   "line": 3157,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  },
+  {
+   "pattern": "thrift::protocol::compact::tests::must_enforce_container_size_limit",
+   "file": "src/protocol/compact.rs",
+   "line": 3213,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  },
+  {
+   "pattern": "thrift::protocol::compact::tests::must_enforce_string_size_limit",
+   "file": "src/protocol/compact.rs",
+   "line": 3275,
+   "reason": "str-pattern-gat",
+   "why": "its body calls str::find / str::contains, generic over core::str::pattern::Pattern; Aeneas aborts the crate on that trait (generic associated type Searcher<'a>: 'Unimplemented', then 'Can not extract trait associated types with parameters'), so Charon keeps only the signature (--opaque)"
+  }
+ ],
+ "pruned": [],
+ "missing": "skip"
+}

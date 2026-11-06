@@ -1,0 +1,15 @@
+# es-toolkit's own unit tests as theorems: the vitest cases of src/math/*.spec.ts, stated mechanically
+# (adapters/strictts/extract_tests.js rewrites each `it(...)` into a StrictTS-subset function whose expectations
+# throw when they fail; the theorem says the function returns normally). Same sources as targets/es-toolkit.toml.
+name = "es-toolkit-tests"
+lang = "strictts"
+root = "/home/user/veriforch/targets/es-toolkit-src/repo/src/math"
+sources = ["sum.ts", "mean.ts", "sumBy.ts", "meanBy.ts", "lerp.ts", "inverseLerp.ts", "median.ts",
+           "medianBy.ts", "round.ts", "percentile.ts", "clamp.ts", "inRange.ts"]
+tests = ["sum.spec.ts", "mean.spec.ts", "sumBy.spec.ts", "meanBy.spec.ts", "lerp.spec.ts",
+         "inverseLerp.spec.ts", "median.spec.ts", "medianBy.spec.ts", "round.spec.ts",
+         "percentile.spec.ts", "clamp.spec.ts", "inRange.spec.ts"]
+
+[[variants]]
+name = "tests"
+flags = ["tests"]

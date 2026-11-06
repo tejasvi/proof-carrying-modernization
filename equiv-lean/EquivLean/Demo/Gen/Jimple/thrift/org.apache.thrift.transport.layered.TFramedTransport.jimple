@@ -1,0 +1,533 @@
+public class org.apache.thrift.transport.layered.TFramedTransport extends org.apache.thrift.transport.layered.TLayeredTransport
+{
+    private final org.apache.thrift.TByteArrayOutputStream writeBuffer_;
+    private final org.apache.thrift.transport.TMemoryInputTransport readBuffer_;
+    private static final 'byte'[] sizeFiller_;
+    private final 'byte'[] i32buf;
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport, 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.TConfiguration $r2, $r9;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        org.apache.thrift.transport.TMemoryInputTransport $r5;
+        org.apache.thrift.transport.TTransport transport;
+        'int' maxLength;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        maxLength := @parameter1: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TLayeredTransport: 'void' <init>(org.apache.thrift.transport.TTransport)>(transport);
+
+        $r0 = new org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>('int')>(1024);
+
+        this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer_> = $r0;
+
+        $r1 = newarray ('byte')[4];
+
+        this.<org.apache.thrift.transport.layered.TFramedTransport: 'byte'[] i32buf> = $r1;
+
+        $r2 = virtualinvoke transport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>($r2);
+
+        if $z0 == false goto label1;
+
+        $r9 = new org.apache.thrift.TConfiguration;
+
+        $r2 = $r9;
+
+        specialinvoke $r9.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        goto label2;
+
+     label1:
+        $r2 = virtualinvoke transport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+     label2:
+        virtualinvoke $r2.<org.apache.thrift.TConfiguration: 'void' setMaxFrameSize('int')>(maxLength);
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer_>;
+
+        $r1 = <org.apache.thrift.transport.layered.TFramedTransport: 'byte'[] sizeFiller_>;
+
+        virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' write('byte'[],'int','int')>($r1, 0, 4);
+
+        $r5 = new org.apache.thrift.transport.TMemoryInputTransport;
+
+        $r1 = newarray ('byte')[0];
+
+        specialinvoke $r5.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration,'byte'[])>($r2, $r1);
+
+        this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_> = $r5;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        'int' $i0;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TTransport transport;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        transport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $i0 = staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'int' configuredMaxFrameSize(org.apache.thrift.transport.TTransport)>(transport);
+
+        specialinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: 'void' <init>(org.apache.thrift.transport.TTransport,'int')>(transport, $i0);
+
+        return;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' open()>();
+
+        return;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        return $z0;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        return;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        'int' off, len, got;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        got = virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        if got <= 0 goto label1;
+
+        return got;
+
+     label1:
+        specialinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: 'void' readFrame()>();
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        off = virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        return off;
+    }
+
+    public 'byte'[] getBuffer()
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'byte'[] getBuffer()>();
+
+        return $r1;
+    }
+
+    public 'int' getBufferPosition()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'int' getBufferPosition()>();
+
+        return $i0;
+    }
+
+    public 'int' getBytesRemainingInBuffer()
+    {
+        'int' $i0;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'int' getBytesRemainingInBuffer()>();
+
+        return $i0;
+    }
+
+    public 'void' consumeBuffer('int')
+    {
+        'int' len;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        len := @parameter0: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' consumeBuffer('int')>(len);
+
+        return;
+    }
+
+    public 'void' clear()
+    {
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r0;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TMemoryInputTransport: 'void' clear()>();
+
+        return;
+    }
+
+    private 'void' readFrame() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buff;
+        org.apache.thrift.TConfiguration $r10;
+        org.apache.thrift.transport.TTransportException $r3;
+        'long' $l2;
+        org.apache.thrift.transport.TMemoryInputTransport $r22;
+        org.apache.thrift.transport.TTransport $r0;
+        'int' size, $i0;
+        java.lang.StringBuilder $r4;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+        java.lang.String $r8;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: 'void' resetMessageSizeAndConsumedBytes()>();
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        buff = this.<org.apache.thrift.transport.layered.TFramedTransport: 'byte'[] i32buf>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(buff, 0, 4);
+
+        buff = this.<org.apache.thrift.transport.layered.TFramedTransport: 'byte'[] i32buf>;
+
+        size = staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'int' decodeFrameSize('byte'[])>(buff);
+
+        if size >= 0 goto label1;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: 'void' close()>();
+
+        $r3 = new org.apache.thrift.transport.TTransportException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read a negative frame size (");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r8 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(5, $r8);
+
+        throw $r3;
+
+     label1:
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        $r10 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = virtualinvoke $r10.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+        if size <= $i0 goto label2;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: 'void' close()>();
+
+        $r3 = new org.apache.thrift.transport.TTransportException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Frame size (");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") larger than max length (");
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        $r10 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        size = virtualinvoke $r10.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(size);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r8 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(5, $r8);
+
+        throw $r3;
+
+     label2:
+        buff = newarray ('byte')[size];
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(buff, 0, size);
+
+        $r22 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer_>;
+
+        virtualinvoke $r22.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[])>(buff);
+
+        $l2 = ('long') size;
+
+        virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: 'void' resetMessageSizeAndConsumedBytes('long')>($l2);
+
+        return;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'int' off, len;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer_>;
+
+        virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' write('byte'[],'int','int')>(buf, off, len);
+
+        return;
+    }
+
+    public 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf, $r4;
+        org.apache.thrift.transport.TTransport $r5;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        'int' len;
+        org.apache.thrift.transport.layered.TFramedTransport this;
+
+        this := @this: org.apache.thrift.transport.layered.TFramedTransport;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer_>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer_>;
+
+        len = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'int' len()>();
+
+        len = len - 4;
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer_>;
+
+        virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' reset()>();
+
+        $r0 = this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer_>;
+
+        $r4 = <org.apache.thrift.transport.layered.TFramedTransport: 'byte'[] sizeFiller_>;
+
+        virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' write('byte'[],'int','int')>($r4, 0, 4);
+
+        staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'void' encodeFrameSize('int','byte'[])>(len, buf);
+
+        $r5 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        len = len + 4;
+
+        virtualinvoke $r5.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(buf, 0, len);
+
+        $r5 = virtualinvoke this.<org.apache.thrift.transport.layered.TFramedTransport: org.apache.thrift.transport.TTransport getInnerTransport()>();
+
+        virtualinvoke $r5.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        return;
+    }
+
+    public static 'void' encodeFrameSize('int', 'byte'[])
+    {
+        'byte'[] buf;
+        'byte' $b2;
+        'int' frameSize, $i0;
+
+        frameSize := @parameter0: 'int';
+
+        buf := @parameter1: 'byte'[];
+
+        $i0 = frameSize >> 24;
+
+        $i0 = 255 & $i0;
+
+        $b2 = ('byte') $i0;
+
+        buf[0] = $b2;
+
+        $i0 = frameSize >> 16;
+
+        $i0 = 255 & $i0;
+
+        $b2 = ('byte') $i0;
+
+        buf[1] = $b2;
+
+        $i0 = frameSize >> 8;
+
+        $i0 = 255 & $i0;
+
+        $b2 = ('byte') $i0;
+
+        buf[2] = $b2;
+
+        frameSize = 255 & frameSize;
+
+        $b2 = ('byte') frameSize;
+
+        buf[3] = $b2;
+
+        return;
+    }
+
+    public static 'int' decodeFrameSize('byte'[])
+    {
+        'byte'[] buf;
+        'short' $s1;
+        'byte' $b0;
+        'int' $i2, $i5;
+
+        buf := @parameter0: 'byte'[];
+
+        $b0 = buf[0];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i2 = ('int') $s1;
+
+        $i2 = $i2 << 24;
+
+        $b0 = buf[1];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i5 = ('int') $s1;
+
+        $i5 = $i5 << 16;
+
+        $i2 = $i2 | $i5;
+
+        $b0 = buf[2];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i5 = ('int') $s1;
+
+        $i5 = $i5 << 8;
+
+        $i2 = $i2 | $i5;
+
+        $b0 = buf[3];
+
+        $s1 = ('short') $b0;
+
+        $s1 = $s1 & 255;
+
+        $i5 = ('int') $s1;
+
+        $i2 = $i2 | $i5;
+
+        return $i2;
+    }
+
+    static 'void' <clinit>()
+    {
+        'byte'[] $r0;
+
+        $r0 = newarray ('byte')[4];
+
+        $r0[0] = 0;
+
+        $r0[1] = 0;
+
+        $r0[2] = 0;
+
+        $r0[3] = 0;
+
+        <org.apache.thrift.transport.layered.TFramedTransport: 'byte'[] sizeFiller_> = $r0;
+
+        return;
+    }
+}

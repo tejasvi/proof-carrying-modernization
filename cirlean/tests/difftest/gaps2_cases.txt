@@ -1,0 +1,41 @@
+# x86 SIMD intrinsics as the census programs use them (Regression/C/SSE packssdw-1, UnitTests/Vector/SSE sse.isamax
+# and sse.shift): PACKSSDW, PSLLW / PSRLW by an immediate count, MAXPS, MOVMSKPS; GCC's __builtin_setjmp and
+# __builtin_longjmp (gcc-c-torture built-in-setjmp, pr64242, pr84521) (gaps2.c, a C source). Each case is labelled
+# with its expected outcome on the line above it: MATCH, or UB from cirrun on the u_ cases (a __builtin_longjmp in
+# the function that calls __builtin_setjmp, which GCC's manual rules out; a buffer that holds no __builtin_setjmp)
+# and on the gaps g_movmsk_nan (the sign of a NaN element, which Float does not keep) and g_frame_address
+# (__builtin_frame_address outside __builtin_setjmp, not modelled).
+# expect MATCH: PACKSSDW, with saturation both ways
+gaps2 s_packssdw 0
+# expect MATCH: PSLLW by 1
+gaps2 s_pslli 0
+# expect MATCH: PSLLW by 16 (zeros)
+gaps2 s_pslli 15
+# expect MATCH: PSRLW by 3
+gaps2 s_psrli 0
+# expect MATCH: PSRLW by 18 (zeros)
+gaps2 s_psrli 15
+# expect MATCH: _mm_srli_epi16 and _mm_slli_epi16 of __m128i by 8
+gaps2 s_shift_m128i 0
+# expect MATCH: _mm_srli_epi16 and _mm_slli_epi16 of __m128i by 16 (zeros)
+gaps2 s_shift_m128i 8
+# expect MATCH: MAXPS: a NaN in either operand and two zeros give the second operand
+gaps2 s_maxps 0
+# expect MATCH: MOVMSKPS, -0.0 included
+gaps2 s_movmskps 0
+# expect UB: gap: MOVMSKPS of a NaN element
+gaps2 g_movmsk_nan 0
+# expect MATCH: __builtin_longjmp from a callee; a volatile local changed in between keeps its value
+gaps2 s_bsj_callee 0
+# expect MATCH: an intptr_t buffer, the __builtin_longjmp four calls down
+gaps2 s_bsj_intptr 0
+# expect MATCH: through a copy of the buffer, the original cleared
+gaps2 s_bsj_copy 0
+# expect MATCH: back to a __builtin_setjmp whose statement has ended
+gaps2 s_bsj_after 0
+# expect UB: gap: __builtin_frame_address stored and compared
+gaps2 g_frame_address 0
+# expect UB: __builtin_longjmp in the function that calls __builtin_setjmp
+gaps2 u_bsj_same_fn 0
+# expect UB: a buffer that holds no __builtin_setjmp
+gaps2 u_bsj_unset 0

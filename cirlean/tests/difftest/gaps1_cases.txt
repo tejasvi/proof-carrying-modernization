@@ -1,0 +1,48 @@
+# Inline asm with memory operands, as the census programs use it (gcc-c-torture pr65053, pr65956, pr85156, pr88904,
+# UnitTests/X86/dyn_stack_alloc_realign): an empty template or nop leaves its operands as they are ("+g"(x)
+# writes x back through its address, "+m"(x) leaves x, "=g"(x) : "0"(v) stores v), "movl %0, %1" with a register
+# input and a memory input stores the first into the second; strncpy, strcat and strrchr (gaps1.c, a C source). Each
+# case is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun on the u_ cases
+# (C11 7.24.1p1-2, 7.24.2.4, 7.24.3.1: a destination shorter than the characters written, overlapping objects)
+# and on the gap g_ptr_into_int (an empty template that gives an int the value of a pointer, whose bytes are
+# not modelled).
+# expect MATCH: "+g" of an int
+gaps1 a_plus_g_int 0
+# expect MATCH: "+g" of a pointer
+gaps1 a_plus_g_ptr 1
+# expect MATCH: "+m" of two ints
+gaps1 a_plus_m 0
+# expect MATCH: "=g" tied to an input
+gaps1 a_eq_g_tied 1
+# expect MATCH: two "+g" operands
+gaps1 a_plus_g_two 0
+# expect MATCH: nop with a register input
+gaps1 a_nop_input 2
+# expect MATCH: movl of a register input into a memory input
+gaps1 a_movl 0
+# expect UB: gap: an empty template giving an int the value of a pointer
+gaps1 g_ptr_into_int 0
+# expect MATCH: strncpy of a shorter string, padded with null characters
+gaps1 s_strncpy_pad 0
+# expect MATCH: strncpy of a longer string, cut at n, no terminator
+gaps1 s_strncpy_cut 0
+# expect MATCH: strncpy of length 0
+gaps1 s_strncpy_zero 0
+# expect MATCH: strncpy's result is its destination
+gaps1 s_strncpy_ret 0
+# expect MATCH: strcat
+gaps1 s_strcat 0
+# expect MATCH: strcat of an empty string, and its result
+gaps1 s_strcat_empty 0
+# expect MATCH: strrchr of a character and of the terminator
+gaps1 s_strrchr 0
+# expect MATCH: strrchr not found, and found at the start
+gaps1 s_strrchr_none 0
+# expect UB: strncpy into an array shorter than n
+gaps1 u_strncpy_short 0
+# expect UB: strncpy between overlapping objects
+gaps1 u_strncpy_overlap 0
+# expect UB: strcat into an array too short for the result
+gaps1 u_strcat_short 0
+# expect UB: strcat between overlapping objects
+gaps1 u_strcat_overlap 0

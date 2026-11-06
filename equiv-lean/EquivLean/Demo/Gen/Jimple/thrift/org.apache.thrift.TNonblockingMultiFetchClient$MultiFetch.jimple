@@ -1,0 +1,719 @@
+class org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch extends java.lang.Object implements java.lang.Runnable
+{
+    private java.nio.channels.Selector selector;
+    final org.apache.thrift.TNonblockingMultiFetchClient this$0;
+
+    private 'void' <init>(org.apache.thrift.TNonblockingMultiFetchClient)
+    {
+        org.apache.thrift.TNonblockingMultiFetchClient r0;
+        org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch;
+
+        r0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0> = r0;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        java.lang.Integer $r20;
+        java.nio.ByteBuffer $r9;
+        org.apache.thrift.TNonblockingMultiFetchStats $r3;
+        'byte' $b26;
+        java.nio.channels.SocketChannel s, key#44, key#50, key#56;
+        'int'[] frameSize;
+        java.lang.Thread $r25;
+        'boolean' $z0;
+        java.nio.ByteBuffer[] sendBuf, $r12;
+        org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch this;
+        java.util.Set $r29;
+        java.net.InetSocketAddress server;
+        java.lang.Exception e, ex, ioe_2, key_1, key_2, key_3;
+        java.util.List $r1;
+        java.lang.Object[] $r37;
+        java.nio.channels.Selector $r6;
+        'long' t1, ex#64, $l2;
+        'long'[] numBytesRead;
+        'int' numTotalServers, e#57, ioe, s#43;
+        org.slf4j.Logger $r7;
+        java.util.Iterator ioe#37;
+        java.nio.channels.SelectionKey key, server#42;
+        'boolean'[] hasReadFrameSize;
+        java.io.IOException ioe_1;
+        java.nio.channels.SelectableChannel $r33;
+        org.apache.thrift.TNonblockingMultiFetchClient $r0;
+        java.lang.Object $r18;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch;
+
+        t1 = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        numTotalServers = interfaceinvoke $r1.<java.util.List: 'int' size()>();
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' setNumTotalServers('int')>(numTotalServers);
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        sendBuf = newarray (java.nio.ByteBuffer)[numTotalServers];
+
+        staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] access$302(org.apache.thrift.TNonblockingMultiFetchClient,java.nio.ByteBuffer[])>($r0, sendBuf);
+
+        sendBuf = newarray (java.nio.ByteBuffer)[numTotalServers];
+
+        numBytesRead = newarray ('long')[numTotalServers];
+
+        frameSize = newarray ('int')[numTotalServers];
+
+        hasReadFrameSize = newarray ('boolean')[numTotalServers];
+
+     label01:
+        $r6 = staticinvoke <java.nio.channels.Selector: java.nio.channels.Selector open()>();
+
+     label02:
+        this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: java.nio.channels.Selector selector> = $r6;
+
+        goto label04;
+
+     label03:
+        ioe_1 := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Selector opens error", ioe_1);
+
+        return;
+
+     label04:
+        ioe = 0;
+
+     label05:
+        if ioe >= numTotalServers goto label14;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r9 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer access$500(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r9 = virtualinvoke $r9.<java.nio.ByteBuffer: java.nio.ByteBuffer duplicate()>();
+
+        sendBuf[ioe] = $r9;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r12 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] access$300(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r9 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(4);
+
+        $r12[ioe] = $r9;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' incTotalRecvBufBytes('int')>(4);
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r18 = interfaceinvoke $r1.<java.util.List: java.lang.Object get('int')>(ioe);
+
+        server = (java.net.InetSocketAddress) $r18;
+
+        s = null;
+
+        key = null;
+
+     label06:
+        s = staticinvoke <java.nio.channels.SocketChannel: java.nio.channels.SocketChannel open()>();
+
+        virtualinvoke s.<java.nio.channels.SocketChannel: java.nio.channels.SelectableChannel configureBlocking('boolean')>(0);
+
+        virtualinvoke s.<java.nio.channels.SocketChannel: 'boolean' connect(java.net.SocketAddress)>(server);
+
+        $r6 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: java.nio.channels.Selector selector>;
+
+        e#57 = virtualinvoke s.<java.nio.channels.SocketChannel: 'int' validOps()>();
+
+        key = virtualinvoke s.<java.nio.channels.SocketChannel: java.nio.channels.SelectionKey register(java.nio.channels.Selector,'int')>($r6, e#57);
+
+        $r20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(ioe);
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: java.lang.Object attach(java.lang.Object)>($r20);
+
+     label07:
+        goto label13;
+
+     label08:
+        e := @caughtexception;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' incNumConnectErrorServers()>();
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Object,java.lang.Object)>("Set up socket to server {} error", server, e);
+
+        if s == null goto label12;
+
+     label09:
+        virtualinvoke s.<java.nio.channels.SocketChannel: 'void' close()>();
+
+     label10:
+        goto label12;
+
+     label11:
+        ex := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("failed to free up socket", ex);
+
+     label12:
+        if key == null goto label13;
+
+        virtualinvoke key.<java.nio.channels.SelectionKey: 'void' cancel()>();
+
+     label13:
+        ioe = ioe + 1;
+
+        goto label05;
+
+     label14:
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        numTotalServers = virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' getNumReadCompletedServers()>();
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        e#57 = virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' getNumConnectErrorServers()>();
+
+        numTotalServers = numTotalServers + e#57;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        e#57 = virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' getNumTotalServers()>();
+
+        if numTotalServers >= e#57 goto label37;
+
+        $r25 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $z0 = virtualinvoke $r25.<java.lang.Thread: 'boolean' isInterrupted()>();
+
+        if $z0 == false goto label15;
+
+        return;
+
+     label15:
+        $r6 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: java.nio.channels.Selector selector>;
+
+        virtualinvoke $r6.<java.nio.channels.Selector: 'int' select()>();
+
+     label16:
+        goto label18;
+
+     label17:
+        ioe_2 := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Selector selects error", ioe_2);
+
+        goto label14;
+
+     label18:
+        $r6 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: java.nio.channels.Selector selector>;
+
+        $r29 = virtualinvoke $r6.<java.nio.channels.Selector: java.util.Set selectedKeys()>();
+
+        ioe#37 = interfaceinvoke $r29.<java.util.Set: java.util.Iterator iterator()>();
+
+     label19:
+        $z0 = interfaceinvoke ioe#37.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label14;
+
+        $r18 = interfaceinvoke ioe#37.<java.util.Iterator: java.lang.Object next()>();
+
+        server#42 = (java.nio.channels.SelectionKey) $r18;
+
+        interfaceinvoke ioe#37.<java.util.Iterator: 'void' remove()>();
+
+        $r18 = virtualinvoke server#42.<java.nio.channels.SelectionKey: java.lang.Object attachment()>();
+
+        $r20 = (java.lang.Integer) $r18;
+
+        s#43 = virtualinvoke $r20.<java.lang.Integer: 'int' intValue()>();
+
+        $z0 = virtualinvoke server#42.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label23;
+
+        $z0 = virtualinvoke server#42.<java.nio.channels.SelectionKey: 'boolean' isConnectable()>();
+
+        if $z0 == false goto label23;
+
+     label20:
+        $r33 = virtualinvoke server#42.<java.nio.channels.SelectionKey: java.nio.channels.SelectableChannel channel()>();
+
+        key#44 = (java.nio.channels.SocketChannel) $r33;
+
+        virtualinvoke key#44.<java.nio.channels.SocketChannel: 'boolean' finishConnect()>();
+
+     label21:
+        goto label23;
+
+     label22:
+        key_1 := @caughtexception;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' incNumConnectErrorServers()>();
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        $r37 = newarray (java.lang.Object)[3];
+
+        $r20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(s#43);
+
+        $r37[0] = $r20;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r18 = interfaceinvoke $r1.<java.util.List: java.lang.Object get('int')>(s#43);
+
+        $r37[1] = $r18;
+
+        $r37[2] = key_1;
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Object[])>("Socket {} connects to server {} error", $r37);
+
+     label23:
+        $z0 = virtualinvoke server#42.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label27;
+
+        $z0 = virtualinvoke server#42.<java.nio.channels.SelectionKey: 'boolean' isWritable()>();
+
+        if $z0 == false goto label27;
+
+        $r9 = sendBuf[s#43];
+
+        $z0 = virtualinvoke $r9.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 == false goto label27;
+
+     label24:
+        $r33 = virtualinvoke server#42.<java.nio.channels.SelectionKey: java.nio.channels.SelectableChannel channel()>();
+
+        key#50 = (java.nio.channels.SocketChannel) $r33;
+
+        $r9 = sendBuf[s#43];
+
+        virtualinvoke key#50.<java.nio.channels.SocketChannel: 'int' write(java.nio.ByteBuffer)>($r9);
+
+     label25:
+        goto label27;
+
+     label26:
+        key_2 := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        $r37 = newarray (java.lang.Object)[3];
+
+        $r20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(s#43);
+
+        $r37[0] = $r20;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r18 = interfaceinvoke $r1.<java.util.List: java.lang.Object get('int')>(s#43);
+
+        $r37[1] = $r18;
+
+        $r37[2] = key_2;
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Object[])>("Socket {} writes to server {} error", $r37);
+
+     label27:
+        $z0 = virtualinvoke server#42.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == false goto label19;
+
+        $z0 = virtualinvoke server#42.<java.nio.channels.SelectionKey: 'boolean' isReadable()>();
+
+        if $z0 == false goto label19;
+
+     label28:
+        $r33 = virtualinvoke server#42.<java.nio.channels.SelectionKey: java.nio.channels.SelectableChannel channel()>();
+
+        key#56 = (java.nio.channels.SocketChannel) $r33;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r12 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] access$300(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r9 = $r12[s#43];
+
+        e#57 = virtualinvoke key#56.<java.nio.channels.SocketChannel: 'int' read(java.nio.ByteBuffer)>($r9);
+
+        if e#57 <= 0 goto label19;
+
+        ex#64 = numBytesRead[s#43];
+
+        $l2 = ('long') e#57;
+
+        ex#64 = ex#64 + $l2;
+
+        numBytesRead[s#43] = ex#64;
+
+        $z0 = hasReadFrameSize[s#43];
+
+        if $z0 != 0 goto label34;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r12 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] access$300(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r9 = $r12[s#43];
+
+        e#57 = virtualinvoke $r9.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if e#57 != 0 goto label34;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r12 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] access$300(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r9 = $r12[s#43];
+
+        e#57 = virtualinvoke $r9.<java.nio.ByteBuffer: 'int' getInt('int')>(0);
+
+        frameSize[s#43] = e#57;
+
+        e#57 = frameSize[s#43];
+
+        if e#57 > 0 goto label30;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' incNumInvalidFrameSize()>();
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        e#57 = frameSize[s#43];
+
+        $r20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(e#57);
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r18 = interfaceinvoke $r1.<java.util.List: java.lang.Object get('int')>(s#43);
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Object,java.lang.Object)>("Read an invalid frame size {} from {}. Does the server use TFramedTransport?", $r20, $r18);
+
+        virtualinvoke key#56.<java.nio.channels.SocketChannel: 'void' close()>();
+
+     label29:
+        goto label19;
+
+     label30:
+        e#57 = frameSize[s#43];
+
+        e#57 = e#57 + 4;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        ioe = virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' getMaxResponseBytes()>();
+
+        if e#57 <= ioe goto label31;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        e#57 = frameSize[s#43];
+
+        e#57 = e#57 + 4;
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' setMaxResponseBytes('int')>(e#57);
+
+     label31:
+        e#57 = frameSize[s#43];
+
+        e#57 = e#57 + 4;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        ioe = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: 'int' access$600(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        if e#57 <= ioe goto label33;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' incNumOverflowedRecvBuf()>();
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        $r37 = newarray (java.lang.Object)[3];
+
+        e#57 = frameSize[s#43];
+
+        $r20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(e#57);
+
+        $r37[0] = $r20;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r18 = interfaceinvoke $r1.<java.util.List: java.lang.Object get('int')>(s#43);
+
+        $r37[1] = $r18;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        e#57 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: 'int' access$600(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(e#57);
+
+        $r37[2] = $r20;
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Object[])>("Read frame size {} from {}, total buffer size would exceed limit {}", $r37);
+
+        virtualinvoke key#56.<java.nio.channels.SocketChannel: 'void' close()>();
+
+     label32:
+        goto label19;
+
+     label33:
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r12 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] access$300(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        e#57 = frameSize[s#43];
+
+        e#57 = e#57 + 4;
+
+        $r9 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(e#57);
+
+        $r12[s#43] = $r9;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r12 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.nio.ByteBuffer[] access$300(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r9 = $r12[s#43];
+
+        e#57 = frameSize[s#43];
+
+        virtualinvoke $r9.<java.nio.ByteBuffer: java.nio.ByteBuffer putInt('int')>(e#57);
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        e#57 = frameSize[s#43];
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' incTotalRecvBufBytes('int')>(e#57);
+
+        hasReadFrameSize[s#43] = 1;
+
+     label34:
+        $z0 = hasReadFrameSize[s#43];
+
+        if $z0 == false goto label19;
+
+        ex#64 = numBytesRead[s#43];
+
+        e#57 = frameSize[s#43];
+
+        e#57 = e#57 + 4;
+
+        $l2 = ('long') e#57;
+
+        $b26 = ex#64 cmp $l2;
+
+        e#57 = ('int') $b26;
+
+        if e#57 < 0 goto label19;
+
+        virtualinvoke key#56.<java.nio.channels.SocketChannel: 'void' close()>();
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' incNumReadCompletedServers()>();
+
+        ex#64 = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r3 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.apache.thrift.TNonblockingMultiFetchStats access$200(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        ex#64 = ex#64 - t1;
+
+        virtualinvoke $r3.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' setReadTime('long')>(ex#64);
+
+     label35:
+        goto label19;
+
+     label36:
+        key_3 := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        $r37 = newarray (java.lang.Object)[3];
+
+        $r20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(s#43);
+
+        $r37[0] = $r20;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: org.apache.thrift.TNonblockingMultiFetchClient this$0>;
+
+        $r1 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: java.util.List access$100(org.apache.thrift.TNonblockingMultiFetchClient)>($r0);
+
+        $r18 = interfaceinvoke $r1.<java.util.List: java.lang.Object get('int')>(s#43);
+
+        $r37[1] = $r18;
+
+        $r37[2] = key_3;
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Object[])>("Socket {} reads from server {} error", $r37);
+
+        goto label19;
+
+     label37:
+        return;
+
+        catch java.io.IOException from label01 to label02 with label03;
+        catch java.lang.Exception from label06 to label07 with label08;
+        catch java.lang.Exception from label09 to label10 with label11;
+        catch java.lang.Exception from label15 to label16 with label17;
+        catch java.lang.Exception from label20 to label21 with label22;
+        catch java.lang.Exception from label24 to label25 with label26;
+        catch java.lang.Exception from label28 to label29 with label36;
+        catch java.lang.Exception from label30 to label32 with label36;
+        catch java.lang.Exception from label33 to label35 with label36;
+    }
+
+    public 'void' close()
+    {
+        org.slf4j.Logger $r6;
+        java.util.Iterator e#1;
+        java.nio.channels.SelectionKey selKey;
+        org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch this;
+        java.nio.channels.Selector $r0;
+        java.util.Set $r2;
+        java.io.IOException e;
+        java.nio.channels.SocketChannel sChannel;
+        java.nio.channels.SelectableChannel $r4;
+        java.lang.Object $r3;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: java.nio.channels.Selector selector>;
+
+     label1:
+        $z0 = virtualinvoke $r0.<java.nio.channels.Selector: 'boolean' isOpen()>();
+
+        if $z0 == false goto label6;
+
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: java.nio.channels.Selector selector>;
+
+        $r2 = virtualinvoke $r0.<java.nio.channels.Selector: java.util.Set keys()>();
+
+        e#1 = interfaceinvoke $r2.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke e#1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label3;
+
+        $r3 = interfaceinvoke e#1.<java.util.Iterator: java.lang.Object next()>();
+
+        selKey = (java.nio.channels.SelectionKey) $r3;
+
+        $r4 = virtualinvoke selKey.<java.nio.channels.SelectionKey: java.nio.channels.SelectableChannel channel()>();
+
+        sChannel = (java.nio.channels.SocketChannel) $r4;
+
+        virtualinvoke sChannel.<java.nio.channels.SocketChannel: 'void' close()>();
+
+        goto label2;
+
+     label3:
+        $r0 = this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: java.nio.channels.Selector selector>;
+
+        virtualinvoke $r0.<java.nio.channels.Selector: 'void' close()>();
+
+     label4:
+        goto label6;
+
+     label5:
+        e := @caughtexception;
+
+        $r6 = staticinvoke <org.apache.thrift.TNonblockingMultiFetchClient: org.slf4j.Logger access$400()>();
+
+        interfaceinvoke $r6.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Free resource error", e);
+
+     label6:
+        return;
+
+        catch java.io.IOException from label1 to label4 with label5;
+    }
+
+    'void' <init>(org.apache.thrift.TNonblockingMultiFetchClient, org.apache.thrift.TNonblockingMultiFetchClient$1)
+    {
+        org.apache.thrift.TNonblockingMultiFetchClient$1 x1;
+        org.apache.thrift.TNonblockingMultiFetchClient x0;
+        org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch;
+
+        x0 := @parameter0: org.apache.thrift.TNonblockingMultiFetchClient;
+
+        x1 := @parameter1: org.apache.thrift.TNonblockingMultiFetchClient$1;
+
+        specialinvoke this.<org.apache.thrift.TNonblockingMultiFetchClient$MultiFetch: 'void' <init>(org.apache.thrift.TNonblockingMultiFetchClient)>(x0);
+
+        return;
+    }
+}

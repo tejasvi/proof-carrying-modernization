@@ -1,0 +1,5 @@
+2020-02-20_dbeea0a3_last	UNKNOWN	PROVED (old-no-panic)	translated signatures differ ([(.arr .num)] .num vs [(.arr .num)] (.opt .num))	
+2021-09-13_7900d2c2_isDate	UNKNOWN	PROVED (all-worlds)	generic instances differ (T := number vs )	
+2024-03-06_b08a667d__last	UNKNOWN	PROVED (old-no-panic)	translated signatures differ ([(.arr .num)] .num vs [(.arr .num)] (.opt .num))	
+#	1	UNKNOWN -> PROVED (all-worlds)
+#	2	UNKNOWN -> PROVED (old-no-panic)

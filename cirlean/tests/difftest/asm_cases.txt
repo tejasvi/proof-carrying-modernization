@@ -1,0 +1,25 @@
+# Inline asm (asm.cpp): an empty template (or nop) without operands (clobbers only) is a compiler barrier, a
+# no-op. Each case is labelled with its expected outcome on the line above it: MATCH. Operands: asm2_cases.txt
+# and gaps1_cases.txt.
+# expect MATCH: asm volatile("" ::: "memory") in a loop
+asm t_asm_barrier 0
+# expect MATCH: asm volatile("" ::: "memory") in a loop
+asm t_asm_barrier 10
+# expect MATCH: asm("")
+asm t_asm_empty 5
+# expect MATCH: asm("")
+asm t_asm_empty -7
+# expect MATCH: two asm volatile("")
+asm t_asm_volatile 21
+# expect MATCH: "cc", "memory" and register clobbers, a barrier in a callee
+asm t_asm_clobbers 4
+# expect MATCH: "cc", "memory" and register clobbers, a barrier in a callee
+asm t_asm_clobbers -2
+# expect MATCH: an in/out operand ("+r") with an empty template (identity)
+asm t_asm_inout 5
+# expect MATCH: an input operand with an empty template (read only)
+asm t_asm_input 5
+# expect MATCH: an output tied to an input ("=r", "0") with an empty template (its value)
+asm t_asm_output 5
+# expect MATCH: the template "nop" (it changes nothing)
+asm t_asm_nop 5

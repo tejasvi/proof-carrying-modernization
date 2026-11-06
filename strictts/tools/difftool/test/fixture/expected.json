@@ -1,0 +1,14 @@
+{
+  "comment": "Stable projection of the strictts-diff/v1 result for this fixture (checked by `strictts-diff selftest`): reasonCodes lists codes that must be present.",
+  "summary": { "changed": 6, "added": 1, "removed": 1 },
+  "functions": [
+    { "key": "<file>::label", "status": "changed", "verdict": "PROVED", "statement": "all-worlds" },
+    { "key": "<file>::magnitude", "status": "changed", "verdict": "REFUTED", "leanConfirmed": true, "differs": ["outcome"] },
+    { "key": "<file>::limitOf", "status": "changed", "verdict": "REFUTED*", "leanConfirmed": false, "reasonCodes": ["node-only:driver-outside-subset"] },
+    { "key": "<file>::total", "status": "changed", "verdict": "PROVED", "statement": "allocated-arguments" },
+    { "key": "<file>::anyNegative", "status": "changed", "verdict": "UNKNOWN", "reasonCodes": ["no-counterexample", "no-proof"] },
+    { "key": "<file>::matches", "status": "changed", "verdict": "UNKNOWN", "reasonCodes": ["inputs-not-generated"] },
+    { "key": "<file>::extra", "status": "added", "verdict": null },
+    { "key": "<file>::legacy", "status": "removed", "verdict": null }
+  ]
+}

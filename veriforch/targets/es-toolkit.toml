@@ -1,0 +1,15 @@
+# es-toolkit (toss/es-toolkit @ cf6fd18, MIT): src/math, sparse clone in targets/es-toolkit-src/repo.
+# 10 files are in the StrictTS subset; clamp.ts and inRange.ts are not (overloads, loose equality),
+# so their functions are gap units. Unit tests: the *.spec.ts files next to each source (vitest).
+name = "es-toolkit"
+lang = "strictts"
+root = "/home/user/veriforch/targets/es-toolkit-src/repo/src/math"
+sources = ["sum.ts", "mean.ts", "sumBy.ts", "meanBy.ts", "lerp.ts", "inverseLerp.ts", "median.ts",
+           "medianBy.ts", "round.ts", "percentile.ts", "clamp.ts", "inRange.ts"]
+tests = ["sum.spec.ts", "mean.spec.ts", "sumBy.spec.ts", "meanBy.spec.ts", "lerp.spec.ts",
+         "inverseLerp.spec.ts", "median.spec.ts", "medianBy.spec.ts", "round.spec.ts",
+         "percentile.spec.ts", "clamp.spec.ts", "inRange.spec.ts"]
+
+[[variants]]
+name = "default"
+flags = []

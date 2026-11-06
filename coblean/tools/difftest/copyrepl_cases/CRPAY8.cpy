@@ -1,0 +1,2 @@
+       01 PAY8.
+           02 :TAG:8-GROSS-PAY PIC 9(5)V99 VALUE 5.25.

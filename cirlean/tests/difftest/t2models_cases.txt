@@ -1,0 +1,198 @@
+# t2models.c: tier 2 of the external models (sched_get_priority_max/min, pthread_setschedparam, errno,
+# GNU strerror_r, time, ctime_r): run with CASES=t2models_cases.txt. Each case is labelled with its
+# expected outcome on the line above it: MATCH, UB from cirrun where the program breaks the rule named
+# (natively it does something), or, for an environment case, what the machine decides (before the
+# change every case was UB "call to an external function without a model").
+# expect MATCH: SCHED_OTHER, SCHED_FIFO, SCHED_RR, SCHED_BATCH: 0/0, 99/1, 99/1, 0/0; errno left as it was
+t2models t_sched_prio 0
+t2models t_sched_prio 1
+t2models t_sched_prio 2
+t2models t_sched_prio 3
+# expect MATCH: SCHED_IDLE, SCHED_DEADLINE, SCHED_EXT: 0/0
+t2models t_sched_prio 5
+t2models t_sched_prio 6
+t2models t_sched_prio 7
+# expect MATCH: -1 and errno EINVAL for 4 (reserved), 8, -1 and SCHED_FIFO with SCHED_RESET_ON_FORK
+t2models t_sched_prio 4
+t2models t_sched_prio 8
+t2models t_sched_prio -1
+t2models t_sched_prio 1073741825
+# expect MATCH: priority 0 with SCHED_OTHER, SCHED_BATCH, SCHED_IDLE, and SCHED_OTHER with
+# SCHED_RESET_ON_FORK: 0, errno unchanged
+t2models t_setsched 0 0
+t2models t_setsched 3 0
+t2models t_setsched 5 0
+t2models t_setsched 1073741824 0
+# expect MATCH: EINVAL, also in errno: priority 1 with SCHED_OTHER, 0 and 100 with SCHED_FIFO, -1 with
+# SCHED_RR, SCHED_DEADLINE, policies 4, 8, -1
+t2models t_setsched 0 1
+t2models t_setsched 1 0
+t2models t_setsched 1 100
+t2models t_setsched 2 -1
+t2models t_setsched 6 0
+t2models t_setsched 4 0
+t2models t_setsched 8 0
+t2models t_setsched -1 0
+# expect MATCH (environment: Linux 6.12 or later with sched_ext, as this machine): SCHED_EXT with priority 0
+t2models t_setsched 7 0
+# expect MATCH: SCHED_FIFO with priority 50 gives 0 or EPERM
+t2models t_setsched_rt 50
+# expect MISMATCH (environment): SCHED_FIFO with priority 50 and 99: 0 under the privilege the model
+# assumes (World.rtPrivileged), EPERM natively without it
+t2models t_setsched 1 50
+t2models t_setsched 2 99
+# expect UB: an id that is no thread's (natively glibc reads through it)
+t2models ub_setsched_null_thread 0
+# expect MATCH: errno is 0 at program start, one object, the value written
+t2models t_errno 5
+# expect MATCH: glibc's messages for 0, 1, 2, 3, 22, 75 and 133 (buf unused)
+t2models t_strerror 0
+t2models t_strerror 1
+t2models t_strerror 2
+t2models t_strerror 3
+t2models t_strerror 22
+t2models t_strerror 75
+t2models t_strerror 133
+# expect MATCH: "Unknown error N" in buf for 41, 58, 134, -1 and 1000
+t2models t_strerror 41
+t2models t_strerror 58
+t2models t_strerror 134
+t2models t_strerror -1
+t2models t_strerror 1000
+# expect MATCH: a buffer of 8: "Unknown" for 1000, the whole message for 22
+t2models t_strerror_small 1000
+t2models t_strerror_small 22
+# expect MATCH: a length of 0: nothing written for 1000; the message for 22
+t2models t_strerror_zero 1000
+t2models t_strerror_zero 22
+# expect UB: a length larger than the buffer, which "Unknown error 1000" overflows
+t2models ub_strerror_overflow 1000
+# expect MATCH: the message for 22, a string of glibc's own, outlives the block of the call
+t2models t_strerror_outlives 22
+# expect MATCH: time's result equals the value it stores; a second reading is not earlier
+t2models t_time_store 4
+t2models t_time_null 4
+# expect MISMATCH (environment): the model's clock reads the Epoch (World.now), the machine's does not
+t2models t_time_epoch 4
+# expect MATCH (environment: the machine's time zone is UTC, as the model's): ctime_r's text on
+# 1970-01-01, 1970-01-02, 2000-01-01, 2000-02-29, 1969-12-31, 9999-12-31, years 0 and -1, 2024-10-04
+t2models t_ctime 0
+t2models t_ctime 1
+t2models t_ctime 10957
+t2models t_ctime 11016
+t2models t_ctime -1
+t2models t_ctime 2932896
+t2models t_ctime -719528
+t2models t_ctime -719529
+t2models t_ctime 20000
+# expect MATCH: years 10000 and about -271800: null and EOVERFLOW, buf holding the first 25 characters
+t2models t_ctime_overflow 2932897
+t2models t_ctime_overflow -100000000
+# expect MATCH: a year beyond struct tm: null and EINVAL
+t2models t_ctime_huge 0
+# expect MATCH: ctime_r of time()'s value: buf, 25 characters, '\n' at index 24
+t2models t_ctime_now 4
+# expect UB: a buffer of 10 bytes for the 26 of the text
+t2models ub_ctime_small 0
+# expect MATCH: strtod's ERANGE: overflow (1e309, 1.7976931348623159e308), not for DBL_MAX; underflow
+# (1e-400, -1e-400, 1e-310, 0x1.8p-1074 inexact, 2.2250738585072011e-308 tiny after rounding), not for
+# the exact subnormal 0x1p-1074, nor 2.2250738585072013e-308 (rounds up to DBL_MIN), inf, nan, 0e-999, 1.5
+t2models t_strtod_erange 0
+t2models t_strtod_erange 1
+t2models t_strtod_erange 2
+t2models t_strtod_erange 3
+t2models t_strtod_erange 4
+t2models t_strtod_erange 5
+t2models t_strtod_erange 6
+t2models t_strtod_erange 7
+t2models t_strtod_erange 8
+t2models t_strtod_erange 9
+t2models t_strtod_erange 10
+t2models t_strtod_erange 11
+t2models t_strtod_erange 12
+t2models t_strtod_erange 13
+# expect MATCH: strtof's ERANGE: 1e-40 (inexact subnormal), 1e-50, 3.5e38; not 3.4e38, 0x1p-149, 1e-38
+t2models t_strtof_erange 0
+t2models t_strtof_erange 1
+t2models t_strtof_erange 2
+t2models t_strtof_erange 3
+t2models t_strtof_erange 4
+t2models t_strtof_erange 5
+# expect MATCH: atof of 1e-400 and -1e-400: 0, and glibc's ERANGE (an underflow is a result)
+t2models t_atof_underflow 0
+t2models t_atof_underflow 1
+# expect UB: atof of 1e999 and -1e999, values that cannot be represented (C11 7.22.1p1; glibc gives
+# HUGE_VAL and ERANGE)
+t2models ub_atof_overflow 0
+t2models ub_atof_overflow 1
+# expect MATCH: strtol's and strtoul's ERANGE out of range, not at the bounds (-18446744073709551615 is 1)
+t2models t_strtol_erange 0
+t2models t_strtol_erange 1
+t2models t_strtol_erange 2
+t2models t_strtol_erange 3
+t2models t_strtol_erange 4
+t2models t_strtol_erange 5
+t2models t_strtol_erange 6
+t2models t_strtol_erange 7
+# expect MATCH: <math.h>'s errno: EDOM (33) for domain errors, ERANGE (34) for poles and overflows (also
+# in float), 7 left for sqrt(4), log(1), floor(-0.5)
+t2models t_libm_errno 0
+t2models t_libm_errno 1
+t2models t_libm_errno 2
+t2models t_libm_errno 3
+t2models t_libm_errno 4
+t2models t_libm_errno 5
+t2models t_libm_errno 6
+t2models t_libm_errno 7
+t2models t_libm_errno 8
+t2models t_libm_errno 9
+t2models t_libm_errno 10
+t2models t_libm_errno 11
+t2models t_libm_errno 12
+t2models t_libm_errno 13
+t2models t_libm_errno 14
+t2models t_libm_errno 15
+t2models t_libm_errno 16
+t2models t_libm_errno 17
+t2models t_libm_errno 18
+t2models t_libm_errno 19
+t2models t_libm_errno 20
+t2models t_libm_errno 21
+t2models t_libm_errno 22
+# expect UB: errno read after a possible underflow (exp(-1000)), which the model leaves indeterminate
+t2models ub_libm_errno_underflow 0
+# expect MATCH: errno after the functions Lean's Float lacks: ERANGE (34) for the overflows of hypot,
+# hypotf, expm1 and tgamma(250) and the poles of log1p(-1), tgamma(0), lgamma(0), lgamma(-2); EDOM (33)
+# for log1p(-2) and tgamma(-1); 7 left for erf(0.5), erfc(1), hypot(1, 0.5) and hypot(1e308, 1e308),
+# which is finite (1.414e308)
+t2models t_libm1_errno 0
+t2models t_libm1_errno 1
+t2models t_libm1_errno 2
+t2models t_libm1_errno 3
+t2models t_libm1_errno 4
+t2models t_libm1_errno 5
+t2models t_libm1_errno 6
+t2models t_libm1_errno 7
+t2models t_libm1_errno 8
+t2models t_libm1_errno 9
+t2models t_libm1_errno 10
+t2models t_libm1_errno 11
+t2models t_libm1_errno 12
+t2models t_libm1_errno 13
+# expect UB: errno read after erfc(30), which underflows to 0 (glibc's ERANGE), left indeterminate
+t2models ub_libm1_errno_underflow 0
+# expect MATCH: sscanf of 0.5 leaves errno
+t2models t_sscanf_errno 0
+# expect UB: errno read after sscanf of 1e400 (glibc's ERANGE), which the model leaves indeterminate
+t2models ub_sscanf_errno_overflow 0
+# expect MATCH: an encoding error (%lc of 0xE9 in the C locale) of sprintf, snprintf with sizes 8 and
+# 0, fprintf to stderr, and sprintf after "ab": -1 and errno EILSEQ (84); sprintf writes "ab"
+t2models t_lc_eilseq 0
+t2models t_lc_eilseq 1
+t2models t_lc_eilseq 2
+t2models t_lc_eilseq 3
+t2models t_lc_eilseq 4
+# expect UB: errno read after perror, which may set it to any nonzero value (C11 7.5p3; glibc leaves
+# EINVAL when stderr is not open for reading); natively the line shown is perror's message
+t2models ub_perror_errno 0
+t2models ub_perror_errno 1

@@ -1,7 +1,5 @@
-*.aux
-*.bbl
-*.blg
-*.log
-*.out
-*.pdf
-*.synctex.gz
+.lake/
+target/
+node_modules/
+__pycache__/
+*.pyc

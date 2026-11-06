@@ -1,0 +1,50 @@
+# v*printf from a va_list (C11 7.21.6.8-13), the va_list after them (7.21.6.8p2) and scanf on the empty
+# standard input (7.21.6.4p3) (vprintf.cpp): run with CASES=vprintf_cases.txt. Each case is labelled with
+# its expected outcome on the line above it: MATCH, or UB from cirrun where the program breaks the rule
+# named (natively it does something); the gaps are cirlean's.
+# expect MATCH: vsprintf with the argument types its conversions need
+vprintf t_vsprintf_ok 4
+# expect MATCH: vsprintf with a * field width, %% and a left-justified string
+vprintf t_vsprintf_star 4
+# expect MATCH: vsprintf %u with an int that fits
+vprintf t_vsprintf_u_pos 5
+# expect MATCH: vsnprintf truncates and returns the full length
+vprintf t_vsnprintf_trunc 4
+# expect MATCH: vsnprintf for the length, then va_start again after va_end, vsnprintf for the text
+vprintf t_vsnprintf_two_pass 4
+# expect MATCH: vsnprintf of a va_copy, then vsprintf of the original
+vprintf t_vcopy_ok 4
+# expect MATCH: vsprintf through a va_list parameter, after the owner's va_arg
+vprintf t_vlist_rest 4
+# expect MATCH: vprintf and vfprintf (formats that print nothing)
+vprintf t_vprintf_ok 4
+# expect MATCH: scanf %d on the empty standard input: EOF
+vprintf t_scanf_eof 4
+# expect MATCH: scanf of white space only on the empty standard input: 0
+vprintf t_scanf_space 4
+# expect UB: vsprintf %d with a long (7.21.6.1p9)
+vprintf t_ub_vsprintf_d_long 4
+# expect UB: vsprintf %ld with an int
+vprintf t_ub_vsprintf_ld_int 4
+# expect UB: vsprintf %c with a long
+vprintf t_ub_vsprintf_c_long 4
+# expect UB: vprintf %.0d with a long
+vprintf t_ub_vprintf_d_long 4
+# expect UB: vsnprintf %u with a negative int (its value does not fit unsigned int)
+vprintf t_ub_vsnprintf_u_neg 1
+# expect UB: va_arg after vsprintf on the same va_list (its value is indeterminate, 7.21.6.8p2)
+vprintf t_ub_va_arg_after_vsprintf 4
+# expect UB: a second vsprintf on the va_list without va_end and va_start between them
+vprintf t_ub_vsprintf_twice 4
+# expect UB: va_copy of the va_list after vsnprintf
+vprintf t_ub_va_copy_after_vsnprintf 4
+# expect UB: va_start again after vsprintf without va_end (7.16.1.4p3)
+vprintf t_ub_va_start_after_vsprintf 4
+# expect UB: a return without va_end after vsprintf (7.16.1.3p2)
+vprintf t_ub_vsprintf_no_va_end 4
+# expect UB: vsprintf on a va_list after its va_end (7.21.6.13p2)
+vprintf t_ub_vsprintf_after_va_end 4
+# expect MATCH (gap): the owner's vsprintf after a callee's va_arg on its va_list is not caught (7.16p3)
+vprintf t_gap_callee_then_vsprintf 4
+# expect MATCH (gap): a long read by %d through a function pointer is not caught (values only)
+vprintf t_gap_vsprintf_fnptr 4

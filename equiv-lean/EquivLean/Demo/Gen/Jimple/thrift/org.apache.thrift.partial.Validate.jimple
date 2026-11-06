@@ -1,0 +1,907 @@
+public final class org.apache.thrift.partial.Validate extends java.lang.Object
+{
+
+    private 'void' <init>()
+    {
+        org.apache.thrift.partial.Validate this;
+
+        this := @this: org.apache.thrift.partial.Validate;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static 'void' checkNotNull(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        java.lang.Object obj;
+        java.lang.String argName;
+        'boolean' $z0;
+
+        obj := @parameter0: java.lang.Object;
+
+        argName := @parameter1: java.lang.String;
+
+        if obj == null goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = argName;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' must not be null.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkPositiveInteger('long', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'byte' $b0;
+        'int' $i1;
+        'long' value;
+        java.lang.String argName;
+        'boolean' $z0;
+
+        value := @parameter0: 'long';
+
+        argName := @parameter1: java.lang.String;
+
+        $b0 = value cmp 0L;
+
+        $i1 = ('int') $b0;
+
+        if $i1 <= 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = argName;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' must be a positive integer.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkNotNegative('long', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'byte' $b0;
+        'int' $i1;
+        'long' value;
+        java.lang.String argName;
+        'boolean' $z0;
+
+        value := @parameter0: 'long';
+
+        argName := @parameter1: java.lang.String;
+
+        $b0 = value cmp 0L;
+
+        $i1 = ('int') $b0;
+
+        if $i1 < 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = argName;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' must not be negative.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkRequired('boolean', java.lang.String)
+    {
+        java.lang.String argName;
+        java.lang.Object[] $r0;
+        'boolean' isPresent;
+
+        isPresent := @parameter0: 'boolean';
+
+        argName := @parameter1: java.lang.String;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = argName;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>(isPresent, "\'%s\' is required.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkValid('boolean', java.lang.String)
+    {
+        java.lang.String argName;
+        java.lang.Object[] $r0;
+        'boolean' isValid;
+
+        isValid := @parameter0: 'boolean';
+
+        argName := @parameter1: java.lang.String;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = argName;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>(isValid, "\'%s\' is invalid.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkValid('boolean', java.lang.String, java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        java.lang.String argName, validValues;
+        'boolean' isValid;
+
+        isValid := @parameter0: 'boolean';
+
+        argName := @parameter1: java.lang.String;
+
+        validValues := @parameter2: java.lang.String;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = argName;
+
+        $r0[1] = validValues;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>(isValid, "\'%s\' is invalid. Valid values are: %s.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNotEmpty(java.lang.String, java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'int' $i0;
+        java.lang.String arg, argName;
+        'boolean' $z0;
+
+        arg := @parameter0: java.lang.String;
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(arg, argName);
+
+        $i0 = virtualinvoke arg.<java.lang.String: 'int' length()>();
+
+        if $i0 <= 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = argName;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' must not be empty.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNotEmpty(java.lang.Object[], java.lang.String)
+    {
+        'int' $i0;
+        java.lang.Object[] array;
+        java.lang.String argName;
+
+        array := @parameter0: java.lang.Object[];
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(array, argName);
+
+        $i0 = lengthof array;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotEmpty('int',java.lang.String)>($i0, argName);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNotEmpty('byte'[], java.lang.String)
+    {
+        'int' $i0;
+        'byte'[] array;
+        java.lang.String argName;
+
+        array := @parameter0: 'byte'[];
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(array, argName);
+
+        $i0 = lengthof array;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotEmpty('int',java.lang.String)>($i0, argName);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNotEmpty('short'[], java.lang.String)
+    {
+        'int' $i0;
+        'short'[] array;
+        java.lang.String argName;
+
+        array := @parameter0: 'short'[];
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(array, argName);
+
+        $i0 = lengthof array;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotEmpty('int',java.lang.String)>($i0, argName);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNotEmpty('int'[], java.lang.String)
+    {
+        'int' $i0;
+        java.lang.String argName;
+        'int'[] array;
+
+        array := @parameter0: 'int'[];
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(array, argName);
+
+        $i0 = lengthof array;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotEmpty('int',java.lang.String)>($i0, argName);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNotEmpty('long'[], java.lang.String)
+    {
+        'int' $i0;
+        'long'[] array;
+        java.lang.String argName;
+
+        array := @parameter0: 'long'[];
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(array, argName);
+
+        $i0 = lengthof array;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotEmpty('int',java.lang.String)>($i0, argName);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNotEmpty(java.lang.Iterable, java.lang.String)
+    {
+        java.util.Iterator $r0;
+        'byte' $b0;
+        java.lang.String argName;
+        java.lang.Iterable iter;
+        'boolean' $z0;
+
+        iter := @parameter0: java.lang.Iterable;
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(iter, argName);
+
+        $r0 = interfaceinvoke iter.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+        $z0 = interfaceinvoke $r0.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label1;
+
+        $b0 = 1;
+
+        goto label2;
+
+     label1:
+        $b0 = 0;
+
+     label2:
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotEmpty('int',java.lang.String)>($b0, argName);
+
+        return;
+    }
+
+    public static 'void' checkNotNullAndNumberOfElements(java.util.Collection, 'int', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        java.util.Collection collection;
+        'int' numElements, $i0;
+        java.lang.String argName;
+        java.lang.Integer $r1;
+        'boolean' $z0;
+
+        collection := @parameter0: java.util.Collection;
+
+        numElements := @parameter1: 'int';
+
+        argName := @parameter2: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(collection, argName);
+
+        $i0 = interfaceinvoke collection.<java.util.Collection: 'int' size()>();
+
+        if $i0 != numElements goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[3];
+
+        $r0[0] = argName;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(numElements);
+
+        $r0[1] = $r1;
+
+        numElements = interfaceinvoke collection.<java.util.Collection: 'int' size()>();
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(numElements);
+
+        $r0[2] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "Number of elements in \'%s\' must be exactly %s, %s given.", $r0);
+
+        return;
+    }
+
+    public static 'void' checkValuesEqual('long', java.lang.String, 'long', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'long' value1, value2;
+        'byte' $b0;
+        java.lang.Long $r1;
+        java.lang.String value1Name, value2Name;
+        'boolean' $z0;
+
+        value1 := @parameter0: 'long';
+
+        value1Name := @parameter1: java.lang.String;
+
+        value2 := @parameter2: 'long';
+
+        value2Name := @parameter3: java.lang.String;
+
+        $b0 = value1 cmp value2;
+
+        if $b0 != 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = value1Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value1);
+
+        $r0[1] = $r1;
+
+        $r0[2] = value2Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value2);
+
+        $r0[3] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' (%s) must equal \'%s\' (%s).", $r0);
+
+        return;
+    }
+
+    public static 'void' checkIntegerMultiple('long', java.lang.String, 'long', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'long' value1, value2, $l0;
+        'byte' $b1;
+        java.lang.Long $r1;
+        java.lang.String value1Name, value2Name;
+        'boolean' $z0;
+
+        value1 := @parameter0: 'long';
+
+        value1Name := @parameter1: java.lang.String;
+
+        value2 := @parameter2: 'long';
+
+        value2Name := @parameter3: java.lang.String;
+
+        $l0 = value1 % value2;
+
+        $b1 = $l0 cmp 0L;
+
+        if $b1 != 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = value1Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value1);
+
+        $r0[1] = $r1;
+
+        $r0[2] = value2Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value2);
+
+        $r0[3] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' (%s) must be an integer multiple of \'%s\' (%s).", $r0);
+
+        return;
+    }
+
+    public static 'void' checkGreater('long', java.lang.String, 'long', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'long' value1, value2;
+        'byte' $b0;
+        java.lang.Long $r1;
+        'int' $i1;
+        java.lang.String value1Name, value2Name;
+        'boolean' $z0;
+
+        value1 := @parameter0: 'long';
+
+        value1Name := @parameter1: java.lang.String;
+
+        value2 := @parameter2: 'long';
+
+        value2Name := @parameter3: java.lang.String;
+
+        $b0 = value1 cmp value2;
+
+        $i1 = ('int') $b0;
+
+        if $i1 <= 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = value1Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value1);
+
+        $r0[1] = $r1;
+
+        $r0[2] = value2Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value2);
+
+        $r0[3] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' (%s) must be greater than \'%s\' (%s).", $r0);
+
+        return;
+    }
+
+    public static 'void' checkGreaterOrEqual('long', java.lang.String, 'long', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'long' value1, value2;
+        'byte' $b0;
+        java.lang.Long $r1;
+        'int' $i1;
+        java.lang.String value1Name, value2Name;
+        'boolean' $z0;
+
+        value1 := @parameter0: 'long';
+
+        value1Name := @parameter1: java.lang.String;
+
+        value2 := @parameter2: 'long';
+
+        value2Name := @parameter3: java.lang.String;
+
+        $b0 = value1 cmp value2;
+
+        $i1 = ('int') $b0;
+
+        if $i1 < 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = value1Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value1);
+
+        $r0[1] = $r1;
+
+        $r0[2] = value2Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value2);
+
+        $r0[3] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' (%s) must be greater than or equal to \'%s\' (%s).", $r0);
+
+        return;
+    }
+
+    public static 'void' checkLessOrEqual('long', java.lang.String, 'long', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'long' value1, value2;
+        'byte' $b0;
+        java.lang.Long $r1;
+        'int' $i1;
+        java.lang.String value1Name, value2Name;
+        'boolean' $z0;
+
+        value1 := @parameter0: 'long';
+
+        value1Name := @parameter1: java.lang.String;
+
+        value2 := @parameter2: 'long';
+
+        value2Name := @parameter3: java.lang.String;
+
+        $b0 = value1 cmp value2;
+
+        $i1 = ('int') $b0;
+
+        if $i1 > 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = value1Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value1);
+
+        $r0[1] = $r1;
+
+        $r0[2] = value2Name;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value2);
+
+        $r0[3] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' (%s) must be less than or equal to \'%s\' (%s).", $r0);
+
+        return;
+    }
+
+    public static 'void' checkWithinRange('long', java.lang.String, 'long', 'long')
+    {
+        java.lang.Object[] $r0;
+        'long' value, minValueInclusive, maxValueInclusive;
+        'byte' $b0;
+        java.lang.Long $r1;
+        'int' $i2;
+        java.lang.String valueName;
+        'boolean' $z0;
+
+        value := @parameter0: 'long';
+
+        valueName := @parameter1: java.lang.String;
+
+        minValueInclusive := @parameter2: 'long';
+
+        maxValueInclusive := @parameter3: 'long';
+
+        $b0 = value cmp minValueInclusive;
+
+        $i2 = ('int') $b0;
+
+        if $i2 < 0 goto label1;
+
+        $b0 = value cmp maxValueInclusive;
+
+        $i2 = ('int') $b0;
+
+        if $i2 > 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = valueName;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(value);
+
+        $r0[1] = $r1;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(minValueInclusive);
+
+        $r0[2] = $r1;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>(maxValueInclusive);
+
+        $r0[3] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' (%s) must be within the range [%s, %s].", $r0);
+
+        return;
+    }
+
+    public static 'void' checkWithinRange('double', java.lang.String, 'double', 'double')
+    {
+        java.lang.Object[] $r0;
+        java.lang.Double $r1;
+        'byte' $b0;
+        'int' $i2;
+        java.lang.String valueName;
+        'double' value, minValueInclusive, maxValueInclusive;
+        'boolean' $z0;
+
+        value := @parameter0: 'double';
+
+        valueName := @parameter1: java.lang.String;
+
+        minValueInclusive := @parameter2: 'double';
+
+        maxValueInclusive := @parameter3: 'double';
+
+        $b0 = value cmpl minValueInclusive;
+
+        $i2 = ('int') $b0;
+
+        if $i2 < 0 goto label1;
+
+        $b0 = value cmpg maxValueInclusive;
+
+        $i2 = ('int') $b0;
+
+        if $i2 > 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = valueName;
+
+        $r1 = staticinvoke <java.lang.Double: java.lang.Double valueOf('double')>(value);
+
+        $r0[1] = $r1;
+
+        $r1 = staticinvoke <java.lang.Double: java.lang.Double valueOf('double')>(minValueInclusive);
+
+        $r0[2] = $r1;
+
+        $r1 = staticinvoke <java.lang.Double: java.lang.Double valueOf('double')>(maxValueInclusive);
+
+        $r0[3] = $r1;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' (%s) must be within the range [%s, %s].", $r0);
+
+        return;
+    }
+
+    public static 'void' checkPathExists(java.nio.file.Path, java.lang.String)
+    {
+        java.lang.Object[] $r1;
+        java.nio.file.LinkOption[] $r0;
+        java.lang.String argName;
+        java.nio.file.Path path;
+        'boolean' $z0;
+
+        path := @parameter0: java.nio.file.Path;
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(path, argName);
+
+        $r0 = newarray (java.nio.file.LinkOption)[0];
+
+        $z0 = staticinvoke <java.nio.file.Files: 'boolean' exists(java.nio.file.Path,java.nio.file.LinkOption[])>(path, $r0);
+
+        $r1 = newarray (java.lang.Object)[2];
+
+        $r1[0] = argName;
+
+        $r1[1] = path;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "Path %s (%s) does not exist.", $r1);
+
+        return;
+    }
+
+    public static 'void' checkPathExistsAsDir(java.nio.file.Path, java.lang.String)
+    {
+        java.lang.Object[] $r1;
+        java.nio.file.LinkOption[] $r0;
+        java.lang.String argName;
+        java.nio.file.Path path;
+        'boolean' $z0;
+
+        path := @parameter0: java.nio.file.Path;
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkPathExists(java.nio.file.Path,java.lang.String)>(path, argName);
+
+        $r0 = newarray (java.nio.file.LinkOption)[0];
+
+        $z0 = staticinvoke <java.nio.file.Files: 'boolean' isDirectory(java.nio.file.Path,java.nio.file.LinkOption[])>(path, $r0);
+
+        $r1 = newarray (java.lang.Object)[2];
+
+        $r1[0] = argName;
+
+        $r1[1] = path;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "Path %s (%s) must point to a directory.", $r1);
+
+        return;
+    }
+
+    public static 'void' checkPathExistsAsFile(java.nio.file.Path, java.lang.String)
+    {
+        java.lang.Object[] $r1;
+        java.nio.file.LinkOption[] $r0;
+        java.lang.String argName;
+        java.nio.file.Path path;
+        'boolean' $z0;
+
+        path := @parameter0: java.nio.file.Path;
+
+        argName := @parameter1: java.lang.String;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkPathExists(java.nio.file.Path,java.lang.String)>(path, argName);
+
+        $r0 = newarray (java.nio.file.LinkOption)[0];
+
+        $z0 = staticinvoke <java.nio.file.Files: 'boolean' isRegularFile(java.nio.file.Path,java.nio.file.LinkOption[])>(path, $r0);
+
+        $r1 = newarray (java.lang.Object)[2];
+
+        $r1[0] = argName;
+
+        $r1[1] = path;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "Path %s (%s) must point to a file.", $r1);
+
+        return;
+    }
+
+    public static transient 'void' checkArgument('boolean', java.lang.String, java.lang.Object[])
+    {
+        java.lang.String format;
+        java.lang.Object[] args;
+        'boolean' expression;
+
+        expression := @parameter0: 'boolean';
+
+        format := @parameter1: java.lang.String;
+
+        args := @parameter2: java.lang.Object[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: 'void' isTrue('boolean',java.lang.String,java.lang.Object[])>(expression, format, args);
+
+        return;
+    }
+
+    public static transient 'void' checkState('boolean', java.lang.String, java.lang.Object[])
+    {
+        java.lang.String format;
+        java.lang.Object[] args;
+        'boolean' expression;
+
+        expression := @parameter0: 'boolean';
+
+        format := @parameter1: java.lang.String;
+
+        args := @parameter2: java.lang.Object[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: 'void' validState('boolean',java.lang.String,java.lang.Object[])>(expression, format, args);
+
+        return;
+    }
+
+    private static 'void' checkNotEmpty('int', java.lang.String)
+    {
+        java.lang.Object[] $r0;
+        'int' arraySize;
+        java.lang.String argName;
+        'boolean' $z0;
+
+        arraySize := @parameter0: 'int';
+
+        argName := @parameter1: java.lang.String;
+
+        if arraySize <= 0 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = argName;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkArgument('boolean',java.lang.String,java.lang.Object[])>($z0, "\'%s\' must have at least one element.", $r0);
+
+        return;
+    }
+}

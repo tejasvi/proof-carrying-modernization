@@ -1,0 +1,10 @@
+      * EXPECT-FAULT: VALUE clause on E1 in an EXTERNAL record
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U24.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  ER EXTERNAL.
+           05  E1 PIC X(4) VALUE 'ABCD'.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

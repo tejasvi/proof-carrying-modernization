@@ -1,0 +1,29 @@
+# By-value parameters of class types that are non-trivial for calls (byval.cpp): one object, the caller's temporary,
+# which the callee uses in place and the caller destroys at the end of the full expression (C++ [expr.call]p7,
+# [class.temporary]p3; Itanium). Each case is labelled with its expected outcome on the line above it.
+# expect MATCH: fibonacci_sum's shape, a vector of vectors by value, returned from the parameter, recursion
+byval b_power 0
+# expect MATCH: fibonacci_sum's shape, more steps
+byval b_power 3
+# expect MATCH: a unique_ptr by value, used in place
+byval b_unique_ptr 0
+# expect MATCH: a unique_ptr by value, moved on by the callee
+byval b_unique_ptr_move 0
+# expect MATCH: a user RAII class by value (a copy): one construction and one destruction per parameter
+byval b_raii_copy 0
+# expect MATCH: a user RAII class by value from a temporary, moved into the callee's result
+byval b_raii_move 0
+# expect MATCH: a std::list by value, changed in place by the callee
+byval b_list 0
+# expect MATCH: strand_sort's shape, the std::list also returned by value (built in the caller's object)
+byval g_list_return 0
+# expect MATCH: control: a trivially copyable struct by value keeps the value copy
+byval c_trivial 0
+# expect MATCH: thrift's pattern, a shared_ptr by value moved into a member of an object that outlives the call
+byval b_shared_member_count 0
+# expect MATCH: thrift's pattern, both owners left allocated (no use count reaches 0)
+byval b_shared_leaked_count 0
+# expect UB: gap, thrift's pattern into a member of a local object; the last owner's release calls __release_weak()
+byval b_shared_member_scope 0
+# expect UB: gap, thrift's pattern into the callee's local; the last owner's release calls __release_weak()
+byval b_shared_local 0

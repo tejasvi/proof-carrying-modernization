@@ -1,0 +1,181 @@
+class org.apache.thrift.transport.TNonblockingSSLSocket$1 extends java.lang.Object
+{
+    static final 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus;
+    static final 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status;
+
+    static 'void' <clinit>()
+    {
+        javax.net.ssl.SSLEngineResult$HandshakeStatus $r17;
+        javax.net.ssl.SSLEngineResult$Status[] $r0;
+        java.lang.NoSuchFieldError $r4, $r7, $r10, $r13, $r18, $r21, $r24, $r27, $r30;
+        'int'[] $r1;
+        'int' $i0;
+        javax.net.ssl.SSLEngineResult$Status $r3;
+        javax.net.ssl.SSLEngineResult$HandshakeStatus[] $r14;
+
+        $r0 = staticinvoke <javax.net.ssl.SSLEngineResult$Status: javax.net.ssl.SSLEngineResult$Status[] values()>();
+
+        $i0 = lengthof $r0;
+
+        $r1 = newarray ('int')[$i0];
+
+        <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status> = $r1;
+
+     label01:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status>;
+
+        $r3 = <javax.net.ssl.SSLEngineResult$Status: javax.net.ssl.SSLEngineResult$Status OK>;
+
+        $i0 = virtualinvoke $r3.<javax.net.ssl.SSLEngineResult$Status: 'int' ordinal()>();
+
+     label02:
+        $r1[$i0] = 1;
+
+        goto label04;
+
+     label03:
+        $r4 := @caughtexception;
+
+     label04:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status>;
+
+        $r3 = <javax.net.ssl.SSLEngineResult$Status: javax.net.ssl.SSLEngineResult$Status CLOSED>;
+
+        $i0 = virtualinvoke $r3.<javax.net.ssl.SSLEngineResult$Status: 'int' ordinal()>();
+
+     label05:
+        $r1[$i0] = 2;
+
+        goto label07;
+
+     label06:
+        $r7 := @caughtexception;
+
+     label07:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status>;
+
+        $r3 = <javax.net.ssl.SSLEngineResult$Status: javax.net.ssl.SSLEngineResult$Status BUFFER_OVERFLOW>;
+
+        $i0 = virtualinvoke $r3.<javax.net.ssl.SSLEngineResult$Status: 'int' ordinal()>();
+
+     label08:
+        $r1[$i0] = 3;
+
+        goto label10;
+
+     label09:
+        $r10 := @caughtexception;
+
+     label10:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status>;
+
+        $r3 = <javax.net.ssl.SSLEngineResult$Status: javax.net.ssl.SSLEngineResult$Status BUFFER_UNDERFLOW>;
+
+        $i0 = virtualinvoke $r3.<javax.net.ssl.SSLEngineResult$Status: 'int' ordinal()>();
+
+     label11:
+        $r1[$i0] = 4;
+
+        goto label13;
+
+     label12:
+        $r13 := @caughtexception;
+
+     label13:
+        $r14 = staticinvoke <javax.net.ssl.SSLEngineResult$HandshakeStatus: javax.net.ssl.SSLEngineResult$HandshakeStatus[] values()>();
+
+        $i0 = lengthof $r14;
+
+        $r1 = newarray ('int')[$i0];
+
+        <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus> = $r1;
+
+     label14:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus>;
+
+        $r17 = <javax.net.ssl.SSLEngineResult$HandshakeStatus: javax.net.ssl.SSLEngineResult$HandshakeStatus NEED_UNWRAP>;
+
+        $i0 = virtualinvoke $r17.<javax.net.ssl.SSLEngineResult$HandshakeStatus: 'int' ordinal()>();
+
+     label15:
+        $r1[$i0] = 1;
+
+        goto label17;
+
+     label16:
+        $r18 := @caughtexception;
+
+     label17:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus>;
+
+        $r17 = <javax.net.ssl.SSLEngineResult$HandshakeStatus: javax.net.ssl.SSLEngineResult$HandshakeStatus NEED_WRAP>;
+
+        $i0 = virtualinvoke $r17.<javax.net.ssl.SSLEngineResult$HandshakeStatus: 'int' ordinal()>();
+
+     label18:
+        $r1[$i0] = 2;
+
+        goto label20;
+
+     label19:
+        $r21 := @caughtexception;
+
+     label20:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus>;
+
+        $r17 = <javax.net.ssl.SSLEngineResult$HandshakeStatus: javax.net.ssl.SSLEngineResult$HandshakeStatus NEED_TASK>;
+
+        $i0 = virtualinvoke $r17.<javax.net.ssl.SSLEngineResult$HandshakeStatus: 'int' ordinal()>();
+
+     label21:
+        $r1[$i0] = 3;
+
+        goto label23;
+
+     label22:
+        $r24 := @caughtexception;
+
+     label23:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus>;
+
+        $r17 = <javax.net.ssl.SSLEngineResult$HandshakeStatus: javax.net.ssl.SSLEngineResult$HandshakeStatus FINISHED>;
+
+        $i0 = virtualinvoke $r17.<javax.net.ssl.SSLEngineResult$HandshakeStatus: 'int' ordinal()>();
+
+     label24:
+        $r1[$i0] = 4;
+
+        goto label26;
+
+     label25:
+        $r27 := @caughtexception;
+
+     label26:
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus>;
+
+        $r17 = <javax.net.ssl.SSLEngineResult$HandshakeStatus: javax.net.ssl.SSLEngineResult$HandshakeStatus NOT_HANDSHAKING>;
+
+        $i0 = virtualinvoke $r17.<javax.net.ssl.SSLEngineResult$HandshakeStatus: 'int' ordinal()>();
+
+     label27:
+        $r1[$i0] = 5;
+
+        goto label29;
+
+     label28:
+        $r30 := @caughtexception;
+
+     label29:
+        return;
+
+        catch java.lang.NoSuchFieldError from label01 to label02 with label03;
+        catch java.lang.NoSuchFieldError from label04 to label05 with label06;
+        catch java.lang.NoSuchFieldError from label07 to label08 with label09;
+        catch java.lang.NoSuchFieldError from label10 to label11 with label12;
+        catch java.lang.NoSuchFieldError from label14 to label15 with label16;
+        catch java.lang.NoSuchFieldError from label17 to label18 with label19;
+        catch java.lang.NoSuchFieldError from label20 to label21 with label22;
+        catch java.lang.NoSuchFieldError from label23 to label24 with label25;
+        catch java.lang.NoSuchFieldError from label26 to label27 with label28;
+    }
+}

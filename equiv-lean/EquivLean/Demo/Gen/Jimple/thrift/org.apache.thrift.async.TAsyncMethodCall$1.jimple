@@ -1,0 +1,105 @@
+class org.apache.thrift.async.TAsyncMethodCall$1 extends java.lang.Object
+{
+    static final 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State;
+
+    static 'void' <clinit>()
+    {
+        org.apache.thrift.async.TAsyncMethodCall$State[] $r0;
+        java.lang.NoSuchFieldError $r4, $r7, $r10, $r13, $r16;
+        'int'[] $r1;
+        'int' $i0;
+        org.apache.thrift.async.TAsyncMethodCall$State $r3;
+
+        $r0 = staticinvoke <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State[] values()>();
+
+        $i0 = lengthof $r0;
+
+        $r1 = newarray ('int')[$i0];
+
+        <org.apache.thrift.async.TAsyncMethodCall$1: 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State> = $r1;
+
+     label01:
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$1: 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State>;
+
+        $r3 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State CONNECTING>;
+
+        $i0 = virtualinvoke $r3.<org.apache.thrift.async.TAsyncMethodCall$State: 'int' ordinal()>();
+
+     label02:
+        $r1[$i0] = 1;
+
+        goto label04;
+
+     label03:
+        $r4 := @caughtexception;
+
+     label04:
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$1: 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State>;
+
+        $r3 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State WRITING_REQUEST_SIZE>;
+
+        $i0 = virtualinvoke $r3.<org.apache.thrift.async.TAsyncMethodCall$State: 'int' ordinal()>();
+
+     label05:
+        $r1[$i0] = 2;
+
+        goto label07;
+
+     label06:
+        $r7 := @caughtexception;
+
+     label07:
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$1: 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State>;
+
+        $r3 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State WRITING_REQUEST_BODY>;
+
+        $i0 = virtualinvoke $r3.<org.apache.thrift.async.TAsyncMethodCall$State: 'int' ordinal()>();
+
+     label08:
+        $r1[$i0] = 3;
+
+        goto label10;
+
+     label09:
+        $r10 := @caughtexception;
+
+     label10:
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$1: 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State>;
+
+        $r3 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State READING_RESPONSE_SIZE>;
+
+        $i0 = virtualinvoke $r3.<org.apache.thrift.async.TAsyncMethodCall$State: 'int' ordinal()>();
+
+     label11:
+        $r1[$i0] = 4;
+
+        goto label13;
+
+     label12:
+        $r13 := @caughtexception;
+
+     label13:
+        $r1 = <org.apache.thrift.async.TAsyncMethodCall$1: 'int'[] $SwitchMap$org$apache$thrift$async$TAsyncMethodCall$State>;
+
+        $r3 = <org.apache.thrift.async.TAsyncMethodCall$State: org.apache.thrift.async.TAsyncMethodCall$State READING_RESPONSE_BODY>;
+
+        $i0 = virtualinvoke $r3.<org.apache.thrift.async.TAsyncMethodCall$State: 'int' ordinal()>();
+
+     label14:
+        $r1[$i0] = 5;
+
+        goto label16;
+
+     label15:
+        $r16 := @caughtexception;
+
+     label16:
+        return;
+
+        catch java.lang.NoSuchFieldError from label01 to label02 with label03;
+        catch java.lang.NoSuchFieldError from label04 to label05 with label06;
+        catch java.lang.NoSuchFieldError from label07 to label08 with label09;
+        catch java.lang.NoSuchFieldError from label10 to label11 with label12;
+        catch java.lang.NoSuchFieldError from label13 to label14 with label15;
+    }
+}

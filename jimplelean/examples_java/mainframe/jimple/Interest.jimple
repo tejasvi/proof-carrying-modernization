@@ -1,0 +1,191 @@
+public class Interest extends java.lang.Object
+{
+
+    public 'void' <init>()
+    {
+        Interest r0;
+
+        r0 := @this: Interest;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    static java.math.BigDecimal monthlyInterest(java.math.BigDecimal, java.math.BigDecimal)
+    {
+        java.math.BigDecimal r0, r1, $r7;
+        'int' $i0;
+        java.lang.ArithmeticException $r8;
+        java.math.RoundingMode $r4;
+
+        r0 := @parameter0: java.math.BigDecimal;
+
+        r1 := @parameter1: java.math.BigDecimal;
+
+        r0 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal multiply(java.math.BigDecimal)>(r1);
+
+        r1 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(1200L);
+
+        $r4 = <java.math.RoundingMode: java.math.RoundingMode HALF_UP>;
+
+        r0 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal divide(java.math.BigDecimal,'int',java.math.RoundingMode)>(r1, 2, $r4);
+
+        r1 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal abs()>();
+
+        $r7 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(100000L);
+
+        $i0 = virtualinvoke r1.<java.math.BigDecimal: 'int' compareTo(java.math.BigDecimal)>($r7);
+
+        if $i0 < 0 goto label1;
+
+        $r8 = new java.lang.ArithmeticException;
+
+        specialinvoke $r8.<java.lang.ArithmeticException: 'void' <init>(java.lang.String)>("SIZE ERROR");
+
+        throw $r8;
+
+     label1:
+        return r0;
+    }
+
+    static java.math.BigDecimal netAmount(java.math.BigDecimal, java.math.BigDecimal)
+    {
+        java.math.BigDecimal r0, r1, $r2;
+        java.math.RoundingMode $r6;
+
+        r0 := @parameter0: java.math.BigDecimal;
+
+        r1 := @parameter1: java.math.BigDecimal;
+
+        $r2 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(100L);
+
+        r1 = virtualinvoke $r2.<java.math.BigDecimal: java.math.BigDecimal subtract(java.math.BigDecimal)>(r1);
+
+        r0 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal multiply(java.math.BigDecimal)>(r1);
+
+        r1 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(100L);
+
+        $r6 = <java.math.RoundingMode: java.math.RoundingMode DOWN>;
+
+        r0 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal divide(java.math.BigDecimal,'int',java.math.RoundingMode)>(r1, 2, $r6);
+
+        r1 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(100000L);
+
+        r0 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal remainder(java.math.BigDecimal)>(r1);
+
+        r0 = virtualinvoke r0.<java.math.BigDecimal: java.math.BigDecimal abs()>();
+
+        return r0;
+    }
+
+    static java.math.BigDecimal lineTotal(java.math.BigDecimal[])
+    {
+        java.math.BigDecimal[] r0;
+        java.math.BigDecimal $r1, $r2, $r5;
+        'int' $i0, i2;
+        java.lang.ArithmeticException $r6;
+        java.math.RoundingMode $r3;
+
+        r0 := @parameter0: java.math.BigDecimal[];
+
+        $r2 = <java.math.BigDecimal: java.math.BigDecimal ZERO>;
+
+        i2 = 0;
+
+     label1:
+        $i0 = lengthof r0;
+
+        if i2 >= $i0 goto label3;
+
+        $r1 = r0[i2];
+
+        $r2 = virtualinvoke $r2.<java.math.BigDecimal: java.math.BigDecimal add(java.math.BigDecimal)>($r1);
+
+        $r3 = <java.math.RoundingMode: java.math.RoundingMode DOWN>;
+
+        $r2 = virtualinvoke $r2.<java.math.BigDecimal: java.math.BigDecimal setScale('int',java.math.RoundingMode)>(2, $r3);
+
+        $r1 = virtualinvoke $r2.<java.math.BigDecimal: java.math.BigDecimal abs()>();
+
+        $r5 = staticinvoke <java.math.BigDecimal: java.math.BigDecimal valueOf('long')>(10000000L);
+
+        $i0 = virtualinvoke $r1.<java.math.BigDecimal: 'int' compareTo(java.math.BigDecimal)>($r5);
+
+        if $i0 < 0 goto label2;
+
+        $r6 = new java.lang.ArithmeticException;
+
+        specialinvoke $r6.<java.lang.ArithmeticException: 'void' <init>(java.lang.String)>("SIZE ERROR");
+
+        throw $r6;
+
+     label2:
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label3:
+        return $r2;
+    }
+
+    public static 'void' main(java.lang.String[])
+    {
+        java.io.PrintStream $r1;
+        java.math.BigDecimal $r2, $r3;
+        java.math.BigDecimal[] $r10;
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        $r2 = new java.math.BigDecimal;
+
+        specialinvoke $r2.<java.math.BigDecimal: 'void' <init>(java.lang.String)>("12345.67");
+
+        $r3 = new java.math.BigDecimal;
+
+        specialinvoke $r3.<java.math.BigDecimal: 'void' <init>(java.lang.String)>("5.2500");
+
+        $r2 = staticinvoke <Interest: java.math.BigDecimal monthlyInterest(java.math.BigDecimal,java.math.BigDecimal)>($r2, $r3);
+
+        virtualinvoke $r1.<java.io.PrintStream: 'void' println(java.lang.Object)>($r2);
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        $r2 = new java.math.BigDecimal;
+
+        specialinvoke $r2.<java.math.BigDecimal: 'void' <init>(java.lang.String)>("123456.78");
+
+        $r3 = new java.math.BigDecimal;
+
+        specialinvoke $r3.<java.math.BigDecimal: 'void' <init>(java.lang.String)>("12.5");
+
+        $r2 = staticinvoke <Interest: java.math.BigDecimal netAmount(java.math.BigDecimal,java.math.BigDecimal)>($r2, $r3);
+
+        virtualinvoke $r1.<java.io.PrintStream: 'void' println(java.lang.Object)>($r2);
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        $r10 = newarray (java.math.BigDecimal)[2];
+
+        $r2 = new java.math.BigDecimal;
+
+        specialinvoke $r2.<java.math.BigDecimal: 'void' <init>(java.lang.String)>("1.255");
+
+        $r10[0] = $r2;
+
+        $r2 = new java.math.BigDecimal;
+
+        specialinvoke $r2.<java.math.BigDecimal: 'void' <init>(java.lang.String)>("-0.5");
+
+        $r10[1] = $r2;
+
+        $r2 = staticinvoke <Interest: java.math.BigDecimal lineTotal(java.math.BigDecimal[])>($r10);
+
+        virtualinvoke $r1.<java.io.PrintStream: 'void' println(java.lang.Object)>($r2);
+
+        return;
+    }
+}

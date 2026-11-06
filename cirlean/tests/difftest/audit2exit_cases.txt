@@ -1,0 +1,14 @@
+# rog's audit item M14 (audit2exit.cpp), run with MODE=status: a static object's destructor ends its lifetime. Each case
+# is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun.
+# expect UB: a handler registered before a static object's construction reads it after its destructor (rog's M14)
+audit2exit e_handler_reads_destroyed 0
+# expect MATCH: control, the object constructed before the registration (5)
+audit2exit e_handler_reads_live 0
+# expect UB: a handler registered before a static object's construction writes it after its destructor
+audit2exit e_handler_writes_destroyed 0
+# expect UB: a static object's destructor reads one constructed after it (destroyed first)
+audit2exit e_dtor_reads_destroyed 0
+# expect MATCH: control, a static object's destructor reads one constructed before it (8)
+audit2exit e_dtor_reads_live 0
+# expect MATCH: a handler registered in the program reads a namespace-scope object before its destructor (11)
+audit2exit e_handler_reads_global 0

@@ -1,0 +1,2 @@
+/home/user/cirlean_work/corpus/cir/test_pointer.c.cir: 5 funcs (3 with body, 0 modelled), 0 records, 7 globals, 38 ops
+  unknown ops: cir.goto×1, cir.label×1

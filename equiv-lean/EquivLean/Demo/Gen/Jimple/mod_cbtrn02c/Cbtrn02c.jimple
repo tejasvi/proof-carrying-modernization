@@ -1,0 +1,1809 @@
+public final class Cbtrn02c extends java.lang.Object
+{
+    private static final 'long' MOD9;
+    private static final 'long' MOD11;
+    private static final 'long' MOD12;
+    private static final java.lang.String CP037;
+
+    public 'void' <init>()
+    {
+        Cbtrn02c r0;
+
+        r0 := @this: Cbtrn02c;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static Cbtrn02c$Result run(Cbtrn02c$DalytranRecord[], Cbtrn02c$CardXrefRecord[], Cbtrn02c$AccountRecord[], Cbtrn02c$TranCatBalRecord[], java.lang.String)
+    {
+        Cbtrn02c$CardXrefRecord[] r1;
+        'byte' $b7;
+        Cbtrn02c$TranCatBalRecord[] r3;
+        'boolean' z0, z1;
+        java.util.List $r6;
+        Cbtrn02c$CardXrefRecord $r14;
+        Cbtrn02c$AccountRecord[] r2, r7;
+        'long' $l4, $l6;
+        java.util.ArrayList $r10, $r13;
+        Cbtrn02c$AccountRecord $r8;
+        'int' $i0, $i3;
+        java.lang.String r4, $r15, $r16, $r20, $r21, $r22, $r23, $r24, $r36, $r37, $r38, $r39;
+        Cbtrn02c$TranRecord $r28;
+        Cbtrn02c$TranCatBalRecord $r11;
+        Cbtrn02c$DalytranRecord r40;
+        Cbtrn02c$Result $r5;
+        Cbtrn02c$DalytranRecord[] r0;
+
+        r0 := @parameter0: Cbtrn02c$DalytranRecord[];
+
+        r1 := @parameter1: Cbtrn02c$CardXrefRecord[];
+
+        r2 := @parameter2: Cbtrn02c$AccountRecord[];
+
+        r3 := @parameter3: Cbtrn02c$TranCatBalRecord[];
+
+        r4 := @parameter4: java.lang.String;
+
+        $r5 = new Cbtrn02c$Result;
+
+        specialinvoke $r5.<Cbtrn02c$Result: 'void' <init>()>();
+
+        $r6 = $r5.<Cbtrn02c$Result: java.util.List displays>;
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>("START OF EXECUTION OF PROGRAM CBTRN02C");
+
+        $i0 = lengthof r2;
+
+        r7 = newarray (Cbtrn02c$AccountRecord)[$i0];
+
+        $i3 = 0;
+
+     label1:
+        $i0 = lengthof r2;
+
+        if $i3 >= $i0 goto label2;
+
+        $r8 = r2[$i3];
+
+        $r8 = staticinvoke <Cbtrn02c: Cbtrn02c$AccountRecord copyAccount(Cbtrn02c$AccountRecord)>($r8);
+
+        r7[$i3] = $r8;
+
+        $i3 = $i3 + 1;
+
+        goto label1;
+
+     label2:
+        $r10 = new java.util.ArrayList;
+
+        specialinvoke $r10.<java.util.ArrayList: 'void' <init>()>();
+
+        $i3 = 0;
+
+     label3:
+        $i0 = lengthof r3;
+
+        if $i3 >= $i0 goto label4;
+
+        $r11 = r3[$i3];
+
+        $r11 = staticinvoke <Cbtrn02c: Cbtrn02c$TranCatBalRecord copyTcat(Cbtrn02c$TranCatBalRecord)>($r11);
+
+        interfaceinvoke $r10.<java.util.List: 'boolean' add(java.lang.Object)>($r11);
+
+        $i3 = $i3 + 1;
+
+        goto label3;
+
+     label4:
+        $r13 = new java.util.ArrayList;
+
+        specialinvoke $r13.<java.util.ArrayList: 'void' <init>()>();
+
+        $r14 = new Cbtrn02c$CardXrefRecord;
+
+        $r15 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(16);
+
+        $r16 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(14);
+
+        specialinvoke $r14.<Cbtrn02c$CardXrefRecord: 'void' <init>(java.lang.String,'long','long',java.lang.String)>($r15, 0L, 0L, $r16);
+
+        $r8 = new Cbtrn02c$AccountRecord;
+
+        $r15 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(1);
+
+        $r16 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(10);
+
+        $r20 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(10);
+
+        $r21 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(10);
+
+        $r22 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(10);
+
+        $r23 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(10);
+
+        $r24 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(178);
+
+        specialinvoke $r8.<Cbtrn02c$AccountRecord: 'void' <init>('long',java.lang.String,'long','long','long',java.lang.String,java.lang.String,java.lang.String,'long','long',java.lang.String,java.lang.String,java.lang.String)>(0L, $r15, 0L, 0L, 0L, $r16, $r20, $r21, 0L, 0L, $r22, $r23, $r24);
+
+        $r11 = new Cbtrn02c$TranCatBalRecord;
+
+        $r15 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(2);
+
+        $r16 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(22);
+
+        specialinvoke $r11.<Cbtrn02c$TranCatBalRecord: 'void' <init>('long',java.lang.String,'long','long',java.lang.String)>(0L, $r15, 0L, 0L, $r16);
+
+        $r28 = new Cbtrn02c$TranRecord;
+
+        $r15 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(16);
+
+        $r16 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(2);
+
+        $r20 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(10);
+
+        $r21 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(100);
+
+        $r22 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(50);
+
+        $r23 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(50);
+
+        $r24 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(10);
+
+        $r36 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(16);
+
+        $r37 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(26);
+
+        $r38 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(26);
+
+        $r39 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(20);
+
+        specialinvoke $r28.<Cbtrn02c$TranRecord: 'void' <init>(java.lang.String,java.lang.String,'long',java.lang.String,java.lang.String,'long','long',java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r15, $r16, 0L, $r20, $r21, 0L, 0L, $r22, $r23, $r24, $r36, $r37, $r38, $r39);
+
+        $l4 = 0L;
+
+        $l6 = 0L;
+
+        $i0 = 0;
+
+        z1 = 0;
+
+     label5:
+        if z1 != 0 goto label8;
+
+        $i3 = lengthof r0;
+
+        if $i0 < $i3 goto label6;
+
+        z1 = 1;
+
+        goto label5;
+
+     label6:
+        r40 = r0[$i0];
+
+        $i0 = $i0 + 1;
+
+        $l4 = $l4 + 1L;
+
+        $l4 = $l4 % 1000000000L;
+
+        $i3 = staticinvoke <Cbtrn02c: 'int' validateTran(Cbtrn02c$DalytranRecord,Cbtrn02c$CardXrefRecord[],Cbtrn02c$AccountRecord[],Cbtrn02c$CardXrefRecord,Cbtrn02c$AccountRecord)>(r40, r1, r7, $r14, $r8);
+
+        if $i3 != 0 goto label7;
+
+        z0 = staticinvoke <Cbtrn02c: 'boolean' postTransaction(Cbtrn02c$Result,Cbtrn02c$DalytranRecord,java.lang.String,Cbtrn02c$CardXrefRecord,Cbtrn02c$AccountRecord,Cbtrn02c$TranCatBalRecord,Cbtrn02c$TranRecord,Cbtrn02c$AccountRecord[],java.util.List,java.util.List)>($r5, r40, r4, $r14, $r8, $r11, $r28, r7, $r10, $r13);
+
+        if z0 == false goto label5;
+
+        return $r5;
+
+     label7:
+        $l6 = $l6 + 1L;
+
+        $l6 = $l6 % 1000000000L;
+
+        staticinvoke <Cbtrn02c: 'void' writeReject(Cbtrn02c$Result,Cbtrn02c$DalytranRecord,'int')>($r5, r40, $i3);
+
+        goto label5;
+
+     label8:
+        $r6 = $r5.<Cbtrn02c$Result: java.util.List displays>;
+
+        r4 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>($l4, 9);
+
+        r4 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String)>(r4) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("TRANSACTIONS PROCESSED :\u0001");
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>(r4);
+
+        $r6 = $r5.<Cbtrn02c$Result: java.util.List displays>;
+
+        r4 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>($l6, 9);
+
+        r4 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String)>(r4) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("TRANSACTIONS REJECTED  :\u0001");
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>(r4);
+
+        $b7 = $l6 cmp 0L;
+
+        $i0 = ('int') $b7;
+
+        if $i0 <= 0 goto label9;
+
+        $r5.<Cbtrn02c$Result: 'int' returnCode> = 4;
+
+     label9:
+        $r6 = $r5.<Cbtrn02c$Result: java.util.List displays>;
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>("END OF EXECUTION OF PROGRAM CBTRN02C");
+
+        return $r5;
+    }
+
+    private static 'int' validateTran(Cbtrn02c$DalytranRecord, Cbtrn02c$CardXrefRecord[], Cbtrn02c$AccountRecord[], Cbtrn02c$CardXrefRecord, Cbtrn02c$AccountRecord)
+    {
+        Cbtrn02c$AccountRecord[] r2;
+        Cbtrn02c$CardXrefRecord[] r1;
+        Cbtrn02c$DalytranRecord r0;
+        'long' $l1, $l4;
+        Cbtrn02c$AccountRecord r4, $r7;
+        'byte' $b10, b12;
+        Cbtrn02c$CardXrefRecord r3, $r6;
+        'int' i0;
+        java.lang.String $r5, $r9;
+
+        r0 := @parameter0: Cbtrn02c$DalytranRecord;
+
+        r1 := @parameter1: Cbtrn02c$CardXrefRecord[];
+
+        r2 := @parameter2: Cbtrn02c$AccountRecord[];
+
+        r3 := @parameter3: Cbtrn02c$CardXrefRecord;
+
+        r4 := @parameter4: Cbtrn02c$AccountRecord;
+
+        $r5 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranCardNum>;
+
+        i0 = staticinvoke <Cbtrn02c: 'int' findXref(Cbtrn02c$CardXrefRecord[],java.lang.String)>(r1, $r5);
+
+        if i0 >= 0 goto label1;
+
+        return 100;
+
+     label1:
+        $r6 = r1[i0];
+
+        staticinvoke <Cbtrn02c: 'void' assignXref(Cbtrn02c$CardXrefRecord,Cbtrn02c$CardXrefRecord)>(r3, $r6);
+
+        $l1 = r3.<Cbtrn02c$CardXrefRecord: 'long' xrefAcctId>;
+
+        i0 = staticinvoke <Cbtrn02c: 'int' findAccount(Cbtrn02c$AccountRecord[],'long')>(r2, $l1);
+
+        if i0 >= 0 goto label2;
+
+        return 101;
+
+     label2:
+        $r7 = r2[i0];
+
+        staticinvoke <Cbtrn02c: 'void' assignAccount(Cbtrn02c$AccountRecord,Cbtrn02c$AccountRecord)>(r4, $r7);
+
+        b12 = 0;
+
+        $l1 = r4.<Cbtrn02c$AccountRecord: 'long' acctCurrCycCredit>;
+
+        $l4 = r4.<Cbtrn02c$AccountRecord: 'long' acctCurrCycDebit>;
+
+        $l1 = $l1 - $l4;
+
+        $l4 = r0.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        $l1 = $l1 + $l4;
+
+        $l1 = $l1 % 100000000000L;
+
+        $l4 = r4.<Cbtrn02c$AccountRecord: 'long' acctCreditLimit>;
+
+        $b10 = $l4 cmp $l1;
+
+        i0 = ('int') $b10;
+
+        if i0 >= 0 goto label3;
+
+        b12 = 102;
+
+     label3:
+        $r5 = r4.<Cbtrn02c$AccountRecord: java.lang.String acctExpiraionDate>;
+
+        $r9 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranOrigTs>;
+
+        $r9 = virtualinvoke $r9.<java.lang.String: java.lang.String substring('int','int')>(0, 10);
+
+        i0 = staticinvoke <Cbtrn02c: 'int' compareEbcdic(java.lang.String,java.lang.String)>($r5, $r9);
+
+        if i0 >= 0 goto label4;
+
+        b12 = 103;
+
+     label4:
+        return b12;
+    }
+
+    private static java.lang.String reasonDesc('int')
+    {
+        'int' i0;
+
+        i0 := @parameter0: 'int';
+
+        tableswitch(i0)
+        {
+            case 100: goto label1;
+            case 101: goto label2;
+            case 102: goto label3;
+            case 103: goto label4;
+            default: goto label5;
+        };
+
+     label1:
+        return "INVALID CARD NUMBER FOUND";
+
+     label2:
+        return "ACCOUNT RECORD NOT FOUND";
+
+     label3:
+        return "OVERLIMIT TRANSACTION";
+
+     label4:
+        return "TRANSACTION RECEIVED AFTER ACCT EXPIRATION";
+
+     label5:
+        return "";
+    }
+
+    private static 'boolean' postTransaction(Cbtrn02c$Result, Cbtrn02c$DalytranRecord, java.lang.String, Cbtrn02c$CardXrefRecord, Cbtrn02c$AccountRecord, Cbtrn02c$TranCatBalRecord, Cbtrn02c$TranRecord, Cbtrn02c$AccountRecord[], java.util.List, java.util.List)
+    {
+        Cbtrn02c$AccountRecord[] r7;
+        Cbtrn02c$TranCatBalRecord r5;
+        Cbtrn02c$DalytranRecord r1;
+        'long' $l0;
+        Cbtrn02c$Result r0;
+        Cbtrn02c$AccountRecord r4;
+        java.util.List r8, r9;
+        Cbtrn02c$CardXrefRecord r3;
+        java.lang.String r2, $r10;
+        Cbtrn02c$TranRecord r6;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbtrn02c$Result;
+
+        r1 := @parameter1: Cbtrn02c$DalytranRecord;
+
+        r2 := @parameter2: java.lang.String;
+
+        r3 := @parameter3: Cbtrn02c$CardXrefRecord;
+
+        r4 := @parameter4: Cbtrn02c$AccountRecord;
+
+        r5 := @parameter5: Cbtrn02c$TranCatBalRecord;
+
+        r6 := @parameter6: Cbtrn02c$TranRecord;
+
+        r7 := @parameter7: Cbtrn02c$AccountRecord[];
+
+        r8 := @parameter8: java.util.List;
+
+        r9 := @parameter9: java.util.List;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranId>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranId> = $r10;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranTypeCd>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranTypeCd> = $r10;
+
+        $l0 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranCatCd>;
+
+        r6.<Cbtrn02c$TranRecord: 'long' tranCatCd> = $l0;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranSource>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranSource> = $r10;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranDesc>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranDesc> = $r10;
+
+        $l0 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        r6.<Cbtrn02c$TranRecord: 'long' tranAmt> = $l0;
+
+        $l0 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranMerchantId>;
+
+        r6.<Cbtrn02c$TranRecord: 'long' tranMerchantId> = $l0;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantName>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranMerchantName> = $r10;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantCity>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranMerchantCity> = $r10;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantZip>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranMerchantZip> = $r10;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranCardNum>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranCardNum> = $r10;
+
+        $r10 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranOrigTs>;
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranOrigTs> = $r10;
+
+        r2 = staticinvoke <Cbtrn02c: java.lang.String db2Timestamp(java.lang.String)>(r2);
+
+        r6.<Cbtrn02c$TranRecord: java.lang.String tranProcTs> = r2;
+
+        $z0 = staticinvoke <Cbtrn02c: 'boolean' updateTcatbal(Cbtrn02c$Result,Cbtrn02c$DalytranRecord,Cbtrn02c$CardXrefRecord,Cbtrn02c$TranCatBalRecord,java.util.List)>(r0, r1, r3, r5, r8);
+
+        if $z0 == false goto label1;
+
+        return 1;
+
+     label1:
+        staticinvoke <Cbtrn02c: 'void' updateAccount(Cbtrn02c$Result,Cbtrn02c$DalytranRecord,Cbtrn02c$AccountRecord,Cbtrn02c$AccountRecord[])>(r0, r1, r4, r7);
+
+        $z0 = staticinvoke <Cbtrn02c: 'boolean' writeTransaction(Cbtrn02c$Result,Cbtrn02c$TranRecord,java.util.List)>(r0, r6, r9);
+
+        return $z0;
+    }
+
+    private static 'boolean' updateTcatbal(Cbtrn02c$Result, Cbtrn02c$DalytranRecord, Cbtrn02c$CardXrefRecord, Cbtrn02c$TranCatBalRecord, java.util.List)
+    {
+        Cbtrn02c$TranCatBalRecord r3, $r11;
+        Cbtrn02c$DalytranRecord r1;
+        'long' l0, l1;
+        Cbtrn02c$Result r0;
+        java.util.List r4, $r6;
+        Cbtrn02c$CardXrefRecord r2;
+        'int' i2;
+        java.lang.Object $r10;
+        java.lang.String r5, $r7, $r8;
+        'boolean' z0;
+
+        r0 := @parameter0: Cbtrn02c$Result;
+
+        r1 := @parameter1: Cbtrn02c$DalytranRecord;
+
+        r2 := @parameter2: Cbtrn02c$CardXrefRecord;
+
+        r3 := @parameter3: Cbtrn02c$TranCatBalRecord;
+
+        r4 := @parameter4: java.util.List;
+
+        l0 = r2.<Cbtrn02c$CardXrefRecord: 'long' xrefAcctId>;
+
+        r5 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranTypeCd>;
+
+        l1 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranCatCd>;
+
+        z0 = 0;
+
+        i2 = staticinvoke <Cbtrn02c: 'int' findTcatbal(java.util.List,'long',java.lang.String,'long')>(r4, l0, r5, l1);
+
+        if i2 >= 0 goto label1;
+
+        $r6 = r0.<Cbtrn02c$Result: java.util.List displays>;
+
+        $r7 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>(l0, 11);
+
+        $r8 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>(l1, 4);
+
+        r5 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String,java.lang.String,java.lang.String)>($r7, r5, $r8) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("TCATBAL record not found for key : \u0001\u0001\u0001.. Creating.");
+
+        interfaceinvoke $r6.<java.util.List: 'boolean' add(java.lang.Object)>(r5);
+
+        z0 = 1;
+
+        goto label2;
+
+     label1:
+        $r10 = interfaceinvoke r4.<java.util.List: java.lang.Object get('int')>(i2);
+
+        $r11 = (Cbtrn02c$TranCatBalRecord) $r10;
+
+        staticinvoke <Cbtrn02c: 'void' assignTcat(Cbtrn02c$TranCatBalRecord,Cbtrn02c$TranCatBalRecord)>(r3, $r11);
+
+     label2:
+        if z0 == false goto label4;
+
+        r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId> = 0L;
+
+        r5 = staticinvoke <Cbtrn02c: java.lang.String spaces('int')>(2);
+
+        r3.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd> = r5;
+
+        r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd> = 0L;
+
+        r3.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal> = 0L;
+
+        l0 = r2.<Cbtrn02c$CardXrefRecord: 'long' xrefAcctId>;
+
+        r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId> = l0;
+
+        r5 = r1.<Cbtrn02c$DalytranRecord: java.lang.String dalytranTypeCd>;
+
+        r3.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd> = r5;
+
+        l0 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranCatCd>;
+
+        r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd> = l0;
+
+        l0 = r3.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal>;
+
+        l1 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        l0 = l0 + l1;
+
+        l0 = l0 % 100000000000L;
+
+        r3.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal> = l0;
+
+        l0 = r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId>;
+
+        r5 = r3.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd>;
+
+        l1 = r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd>;
+
+        i2 = staticinvoke <Cbtrn02c: 'int' findTcatbal(java.util.List,'long',java.lang.String,'long')>(r4, l0, r5, l1);
+
+        if i2 < 0 goto label3;
+
+        staticinvoke <Cbtrn02c: 'void' abend(Cbtrn02c$Result,java.lang.String,java.lang.String)>(r0, "ERROR WRITING TRANSACTION BALANCE FILE", "22");
+
+        return 1;
+
+     label3:
+        $r11 = staticinvoke <Cbtrn02c: Cbtrn02c$TranCatBalRecord copyTcat(Cbtrn02c$TranCatBalRecord)>(r3);
+
+        interfaceinvoke r4.<java.util.List: 'boolean' add(java.lang.Object)>($r11);
+
+        r4 = r0.<Cbtrn02c$Result: java.util.List tcatbalFileWrites>;
+
+        r3 = staticinvoke <Cbtrn02c: Cbtrn02c$TranCatBalRecord copyTcat(Cbtrn02c$TranCatBalRecord)>(r3);
+
+        interfaceinvoke r4.<java.util.List: 'boolean' add(java.lang.Object)>(r3);
+
+        goto label6;
+
+     label4:
+        l0 = r3.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal>;
+
+        l1 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        l0 = l0 + l1;
+
+        l0 = l0 % 100000000000L;
+
+        r3.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal> = l0;
+
+        l0 = r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId>;
+
+        r5 = r3.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd>;
+
+        l1 = r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd>;
+
+        i2 = staticinvoke <Cbtrn02c: 'int' findTcatbal(java.util.List,'long',java.lang.String,'long')>(r4, l0, r5, l1);
+
+        if i2 >= 0 goto label5;
+
+        staticinvoke <Cbtrn02c: 'void' abend(Cbtrn02c$Result,java.lang.String,java.lang.String)>(r0, "ERROR REWRITING TRANSACTION BALANCE FILE", "23");
+
+        return 1;
+
+     label5:
+        $r11 = staticinvoke <Cbtrn02c: Cbtrn02c$TranCatBalRecord copyTcat(Cbtrn02c$TranCatBalRecord)>(r3);
+
+        interfaceinvoke r4.<java.util.List: java.lang.Object set('int',java.lang.Object)>(i2, $r11);
+
+        r4 = r0.<Cbtrn02c$Result: java.util.List tcatbalFileRewrites>;
+
+        r3 = staticinvoke <Cbtrn02c: Cbtrn02c$TranCatBalRecord copyTcat(Cbtrn02c$TranCatBalRecord)>(r3);
+
+        interfaceinvoke r4.<java.util.List: 'boolean' add(java.lang.Object)>(r3);
+
+     label6:
+        return 0;
+    }
+
+    private static 'void' updateAccount(Cbtrn02c$Result, Cbtrn02c$DalytranRecord, Cbtrn02c$AccountRecord, Cbtrn02c$AccountRecord[])
+    {
+        Cbtrn02c$AccountRecord[] r3;
+        Cbtrn02c$DalytranRecord r1;
+        'long' $l0, $l1;
+        Cbtrn02c$Result r0;
+        Cbtrn02c$AccountRecord r2, $r4;
+        java.util.List $r5;
+        'byte' $b5;
+        'int' $i15;
+
+        r0 := @parameter0: Cbtrn02c$Result;
+
+        r1 := @parameter1: Cbtrn02c$DalytranRecord;
+
+        r2 := @parameter2: Cbtrn02c$AccountRecord;
+
+        r3 := @parameter3: Cbtrn02c$AccountRecord[];
+
+        $l0 = r2.<Cbtrn02c$AccountRecord: 'long' acctCurrBal>;
+
+        $l1 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        $l0 = $l0 + $l1;
+
+        $l0 = $l0 % 1000000000000L;
+
+        r2.<Cbtrn02c$AccountRecord: 'long' acctCurrBal> = $l0;
+
+        $l0 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        $b5 = $l0 cmp 0L;
+
+        $i15 = ('int') $b5;
+
+        if $i15 < 0 goto label1;
+
+        $l0 = r2.<Cbtrn02c$AccountRecord: 'long' acctCurrCycCredit>;
+
+        $l1 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        $l0 = $l0 + $l1;
+
+        $l0 = $l0 % 1000000000000L;
+
+        r2.<Cbtrn02c$AccountRecord: 'long' acctCurrCycCredit> = $l0;
+
+        goto label2;
+
+     label1:
+        $l0 = r2.<Cbtrn02c$AccountRecord: 'long' acctCurrCycDebit>;
+
+        $l1 = r1.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        $l0 = $l0 + $l1;
+
+        $l0 = $l0 % 1000000000000L;
+
+        r2.<Cbtrn02c$AccountRecord: 'long' acctCurrCycDebit> = $l0;
+
+     label2:
+        $l0 = r2.<Cbtrn02c$AccountRecord: 'long' acctId>;
+
+        $i15 = staticinvoke <Cbtrn02c: 'int' findAccount(Cbtrn02c$AccountRecord[],'long')>(r3, $l0);
+
+        if $i15 < 0 goto label3;
+
+        $r4 = staticinvoke <Cbtrn02c: Cbtrn02c$AccountRecord copyAccount(Cbtrn02c$AccountRecord)>(r2);
+
+        r3[$i15] = $r4;
+
+        $r5 = r0.<Cbtrn02c$Result: java.util.List accountFileRewrites>;
+
+        r2 = staticinvoke <Cbtrn02c: Cbtrn02c$AccountRecord copyAccount(Cbtrn02c$AccountRecord)>(r2);
+
+        interfaceinvoke $r5.<java.util.List: 'boolean' add(java.lang.Object)>(r2);
+
+     label3:
+        return;
+    }
+
+    private static 'boolean' writeTransaction(Cbtrn02c$Result, Cbtrn02c$TranRecord, java.util.List)
+    {
+        java.util.List r2;
+        'int' i0;
+        Cbtrn02c$TranRecord r1;
+        java.lang.String $r3;
+        Cbtrn02c$Result r0;
+
+        r0 := @parameter0: Cbtrn02c$Result;
+
+        r1 := @parameter1: Cbtrn02c$TranRecord;
+
+        r2 := @parameter2: java.util.List;
+
+        $r3 = r1.<Cbtrn02c$TranRecord: java.lang.String tranId>;
+
+        i0 = staticinvoke <Cbtrn02c: 'int' findKey(java.util.List,java.lang.String)>(r2, $r3);
+
+        if i0 < 0 goto label1;
+
+        staticinvoke <Cbtrn02c: 'void' abend(Cbtrn02c$Result,java.lang.String,java.lang.String)>(r0, "ERROR WRITING TO TRANSACTION FILE", "22");
+
+        return 1;
+
+     label1:
+        $r3 = r1.<Cbtrn02c$TranRecord: java.lang.String tranId>;
+
+        interfaceinvoke r2.<java.util.List: 'boolean' add(java.lang.Object)>($r3);
+
+        r2 = r0.<Cbtrn02c$Result: java.util.List transactFileWrites>;
+
+        r1 = staticinvoke <Cbtrn02c: Cbtrn02c$TranRecord copyTran(Cbtrn02c$TranRecord)>(r1);
+
+        interfaceinvoke r2.<java.util.List: 'boolean' add(java.lang.Object)>(r1);
+
+        return 0;
+    }
+
+    private static 'void' writeReject(Cbtrn02c$Result, Cbtrn02c$DalytranRecord, 'int')
+    {
+        Cbtrn02c$RejectRecord $r8;
+        Cbtrn02c$DalytranRecord r1;
+        'long' $l1;
+        Cbtrn02c$Result r0;
+        java.util.List $r7;
+        'int' i0;
+        java.lang.String r2, $r3, $r4;
+
+        r0 := @parameter0: Cbtrn02c$Result;
+
+        r1 := @parameter1: Cbtrn02c$DalytranRecord;
+
+        i0 := @parameter2: 'int';
+
+        r2 = staticinvoke <Cbtrn02c: java.lang.String dalytranText(Cbtrn02c$DalytranRecord)>(r1);
+
+        $l1 = ('long') i0;
+
+        $r3 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>($l1, 4);
+
+        $r4 = staticinvoke <Cbtrn02c: java.lang.String reasonDesc('int')>(i0);
+
+        $r4 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r4, 76);
+
+        $r3 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String,java.lang.String)>($r3, $r4) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("\u0001\u0001");
+
+        $r7 = r0.<Cbtrn02c$Result: java.util.List dalyrejsFileWrites>;
+
+        $r8 = new Cbtrn02c$RejectRecord;
+
+        specialinvoke $r8.<Cbtrn02c$RejectRecord: 'void' <init>(java.lang.String,java.lang.String)>(r2, $r3);
+
+        interfaceinvoke $r7.<java.util.List: 'boolean' add(java.lang.Object)>($r8);
+
+        return;
+    }
+
+    private static 'void' abend(Cbtrn02c$Result, java.lang.String, java.lang.String)
+    {
+        java.util.List $r3;
+        java.lang.String r1, r2;
+        Cbtrn02c$Result r0;
+
+        r0 := @parameter0: Cbtrn02c$Result;
+
+        r1 := @parameter1: java.lang.String;
+
+        r2 := @parameter2: java.lang.String;
+
+        $r3 = r0.<Cbtrn02c$Result: java.util.List displays>;
+
+        interfaceinvoke $r3.<java.util.List: 'boolean' add(java.lang.Object)>(r1);
+
+        staticinvoke <Cbtrn02c: 'void' displayIoStatus(Cbtrn02c$Result,java.lang.String)>(r0, r2);
+
+        $r3 = r0.<Cbtrn02c$Result: java.util.List displays>;
+
+        interfaceinvoke $r3.<java.util.List: 'boolean' add(java.lang.Object)>("ABENDING PROGRAM");
+
+        r0.<Cbtrn02c$Result: 'boolean' abended> = 1;
+
+        return;
+    }
+
+    private static 'void' displayIoStatus(Cbtrn02c$Result, java.lang.String)
+    {
+        'char' c0, c1;
+        'long' $l3;
+        Cbtrn02c$Result r0;
+        java.util.List $r2;
+        'int' $i2;
+        java.lang.String r1;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbtrn02c$Result;
+
+        r1 := @parameter1: java.lang.String;
+
+        c0 = virtualinvoke r1.<java.lang.String: 'char' charAt('int')>(0);
+
+        c1 = virtualinvoke r1.<java.lang.String: 'char' charAt('int')>(1);
+
+        $z0 = staticinvoke <Cbtrn02c: 'boolean' isDigit('char')>(c0);
+
+        if $z0 == false goto label1;
+
+        $z0 = staticinvoke <Cbtrn02c: 'boolean' isDigit('char')>(c1);
+
+        if $z0 == false goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        if $z0 == false goto label3;
+
+        $i2 = ('int') c0;
+
+        if $i2 != 57 goto label4;
+
+     label3:
+        $i2 = staticinvoke <Cbtrn02c: 'int' ebcdic('char')>(c1);
+
+        $l3 = ('long') $i2;
+
+        $r2 = r0.<Cbtrn02c$Result: java.util.List displays>;
+
+        r1 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>($l3, 3);
+
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (char,java.lang.String)>(c0, r1) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("FILE STATUS IS: NNNN\u0001\u0001");
+
+        interfaceinvoke $r2.<java.util.List: 'boolean' add(java.lang.Object)>(r1);
+
+        goto label5;
+
+     label4:
+        $r2 = r0.<Cbtrn02c$Result: java.util.List displays>;
+
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (char,char)>(c0, c1) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("FILE STATUS IS: NNNN00\u0001\u0001");
+
+        interfaceinvoke $r2.<java.util.List: 'boolean' add(java.lang.Object)>(r1);
+
+     label5:
+        return;
+    }
+
+    private static 'int' findXref(Cbtrn02c$CardXrefRecord[], java.lang.String)
+    {
+        Cbtrn02c$CardXrefRecord[] r0;
+        Cbtrn02c$CardXrefRecord $r2;
+        'int' $i0, i1;
+        java.lang.String r1, $r3;
+        'boolean' $z0;
+
+        r0 := @parameter0: Cbtrn02c$CardXrefRecord[];
+
+        r1 := @parameter1: java.lang.String;
+
+        i1 = 0;
+
+     label1:
+        $i0 = lengthof r0;
+
+        if i1 >= $i0 goto label3;
+
+        $r2 = r0[i1];
+
+        $r3 = $r2.<Cbtrn02c$CardXrefRecord: java.lang.String xrefCardNum>;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: 'boolean' equals(java.lang.Object)>(r1);
+
+        if $z0 == false goto label2;
+
+        return i1;
+
+     label2:
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label3:
+        $i0 = ('int') -1;
+
+        return $i0;
+    }
+
+    private static 'int' findAccount(Cbtrn02c$AccountRecord[], 'long')
+    {
+        Cbtrn02c$AccountRecord $r1;
+        Cbtrn02c$AccountRecord[] r0;
+        'byte' $b3;
+        'int' $i1, i4;
+        'long' l0, $l2;
+
+        r0 := @parameter0: Cbtrn02c$AccountRecord[];
+
+        l0 := @parameter1: 'long';
+
+        i4 = 0;
+
+     label1:
+        $i1 = lengthof r0;
+
+        if i4 >= $i1 goto label3;
+
+        $r1 = r0[i4];
+
+        $l2 = $r1.<Cbtrn02c$AccountRecord: 'long' acctId>;
+
+        $b3 = $l2 cmp l0;
+
+        if $b3 != 0 goto label2;
+
+        return i4;
+
+     label2:
+        i4 = i4 + 1;
+
+        goto label1;
+
+     label3:
+        $i1 = ('int') -1;
+
+        return $i1;
+    }
+
+    private static 'int' findTcatbal(java.util.List, 'long', java.lang.String, 'long')
+    {
+        Cbtrn02c$TranCatBalRecord r3;
+        'long' l0, l1, $l3;
+        java.util.List r0;
+        'byte' $b4;
+        'int' $i2, i7;
+        java.lang.Object $r2;
+        java.lang.String r1, $r4;
+        'boolean' $z0;
+
+        r0 := @parameter0: java.util.List;
+
+        l0 := @parameter1: 'long';
+
+        r1 := @parameter2: java.lang.String;
+
+        l1 := @parameter3: 'long';
+
+        i7 = 0;
+
+     label1:
+        $i2 = interfaceinvoke r0.<java.util.List: 'int' size()>();
+
+        if i7 >= $i2 goto label3;
+
+        $r2 = interfaceinvoke r0.<java.util.List: java.lang.Object get('int')>(i7);
+
+        r3 = (Cbtrn02c$TranCatBalRecord) $r2;
+
+        $l3 = r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId>;
+
+        $b4 = $l3 cmp l0;
+
+        if $b4 != 0 goto label2;
+
+        $r4 = r3.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd>;
+
+        $z0 = virtualinvoke $r4.<java.lang.String: 'boolean' equals(java.lang.Object)>(r1);
+
+        if $z0 == false goto label2;
+
+        $l3 = r3.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd>;
+
+        $b4 = $l3 cmp l1;
+
+        if $b4 != 0 goto label2;
+
+        return i7;
+
+     label2:
+        i7 = i7 + 1;
+
+        goto label1;
+
+     label3:
+        $i2 = ('int') -1;
+
+        return $i2;
+    }
+
+    private static 'int' findKey(java.util.List, java.lang.String)
+    {
+        java.util.List r0;
+        'int' $i0, i1;
+        java.lang.Object $r2;
+        java.lang.String r1, $r3;
+        'boolean' $z0;
+
+        r0 := @parameter0: java.util.List;
+
+        r1 := @parameter1: java.lang.String;
+
+        i1 = 0;
+
+     label1:
+        $i0 = interfaceinvoke r0.<java.util.List: 'int' size()>();
+
+        if i1 >= $i0 goto label3;
+
+        $r2 = interfaceinvoke r0.<java.util.List: java.lang.Object get('int')>(i1);
+
+        $r3 = (java.lang.String) $r2;
+
+        $z0 = virtualinvoke $r3.<java.lang.String: 'boolean' equals(java.lang.Object)>(r1);
+
+        if $z0 == false goto label2;
+
+        return i1;
+
+     label2:
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label3:
+        $i0 = ('int') -1;
+
+        return $i0;
+    }
+
+    private static 'void' assignXref(Cbtrn02c$CardXrefRecord, Cbtrn02c$CardXrefRecord)
+    {
+        Cbtrn02c$CardXrefRecord r0, r1;
+        'long' $l0;
+        java.lang.String $r2;
+
+        r0 := @parameter0: Cbtrn02c$CardXrefRecord;
+
+        r1 := @parameter1: Cbtrn02c$CardXrefRecord;
+
+        $r2 = r1.<Cbtrn02c$CardXrefRecord: java.lang.String xrefCardNum>;
+
+        r0.<Cbtrn02c$CardXrefRecord: java.lang.String xrefCardNum> = $r2;
+
+        $l0 = r1.<Cbtrn02c$CardXrefRecord: 'long' xrefCustId>;
+
+        r0.<Cbtrn02c$CardXrefRecord: 'long' xrefCustId> = $l0;
+
+        $l0 = r1.<Cbtrn02c$CardXrefRecord: 'long' xrefAcctId>;
+
+        r0.<Cbtrn02c$CardXrefRecord: 'long' xrefAcctId> = $l0;
+
+        $r2 = r1.<Cbtrn02c$CardXrefRecord: java.lang.String filler1>;
+
+        r0.<Cbtrn02c$CardXrefRecord: java.lang.String filler1> = $r2;
+
+        return;
+    }
+
+    private static 'void' assignAccount(Cbtrn02c$AccountRecord, Cbtrn02c$AccountRecord)
+    {
+        Cbtrn02c$AccountRecord r0, r1;
+        'long' $l0;
+        java.lang.String $r2;
+
+        r0 := @parameter0: Cbtrn02c$AccountRecord;
+
+        r1 := @parameter1: Cbtrn02c$AccountRecord;
+
+        $l0 = r1.<Cbtrn02c$AccountRecord: 'long' acctId>;
+
+        r0.<Cbtrn02c$AccountRecord: 'long' acctId> = $l0;
+
+        $r2 = r1.<Cbtrn02c$AccountRecord: java.lang.String acctActiveStatus>;
+
+        r0.<Cbtrn02c$AccountRecord: java.lang.String acctActiveStatus> = $r2;
+
+        $l0 = r1.<Cbtrn02c$AccountRecord: 'long' acctCurrBal>;
+
+        r0.<Cbtrn02c$AccountRecord: 'long' acctCurrBal> = $l0;
+
+        $l0 = r1.<Cbtrn02c$AccountRecord: 'long' acctCreditLimit>;
+
+        r0.<Cbtrn02c$AccountRecord: 'long' acctCreditLimit> = $l0;
+
+        $l0 = r1.<Cbtrn02c$AccountRecord: 'long' acctCashCreditLimit>;
+
+        r0.<Cbtrn02c$AccountRecord: 'long' acctCashCreditLimit> = $l0;
+
+        $r2 = r1.<Cbtrn02c$AccountRecord: java.lang.String acctOpenDate>;
+
+        r0.<Cbtrn02c$AccountRecord: java.lang.String acctOpenDate> = $r2;
+
+        $r2 = r1.<Cbtrn02c$AccountRecord: java.lang.String acctExpiraionDate>;
+
+        r0.<Cbtrn02c$AccountRecord: java.lang.String acctExpiraionDate> = $r2;
+
+        $r2 = r1.<Cbtrn02c$AccountRecord: java.lang.String acctReissueDate>;
+
+        r0.<Cbtrn02c$AccountRecord: java.lang.String acctReissueDate> = $r2;
+
+        $l0 = r1.<Cbtrn02c$AccountRecord: 'long' acctCurrCycCredit>;
+
+        r0.<Cbtrn02c$AccountRecord: 'long' acctCurrCycCredit> = $l0;
+
+        $l0 = r1.<Cbtrn02c$AccountRecord: 'long' acctCurrCycDebit>;
+
+        r0.<Cbtrn02c$AccountRecord: 'long' acctCurrCycDebit> = $l0;
+
+        $r2 = r1.<Cbtrn02c$AccountRecord: java.lang.String acctAddrZip>;
+
+        r0.<Cbtrn02c$AccountRecord: java.lang.String acctAddrZip> = $r2;
+
+        $r2 = r1.<Cbtrn02c$AccountRecord: java.lang.String acctGroupId>;
+
+        r0.<Cbtrn02c$AccountRecord: java.lang.String acctGroupId> = $r2;
+
+        $r2 = r1.<Cbtrn02c$AccountRecord: java.lang.String filler1>;
+
+        r0.<Cbtrn02c$AccountRecord: java.lang.String filler1> = $r2;
+
+        return;
+    }
+
+    private static Cbtrn02c$AccountRecord copyAccount(Cbtrn02c$AccountRecord)
+    {
+        'long' $l0, $l1, $l2, $l3, $l4, $l5;
+        Cbtrn02c$AccountRecord r0, $r1;
+        java.lang.String $r2, $r3, $r4, $r5, $r6, $r7, $r8;
+
+        r0 := @parameter0: Cbtrn02c$AccountRecord;
+
+        $r1 = new Cbtrn02c$AccountRecord;
+
+        $l0 = r0.<Cbtrn02c$AccountRecord: 'long' acctId>;
+
+        $r2 = r0.<Cbtrn02c$AccountRecord: java.lang.String acctActiveStatus>;
+
+        $l1 = r0.<Cbtrn02c$AccountRecord: 'long' acctCurrBal>;
+
+        $l2 = r0.<Cbtrn02c$AccountRecord: 'long' acctCreditLimit>;
+
+        $l3 = r0.<Cbtrn02c$AccountRecord: 'long' acctCashCreditLimit>;
+
+        $r3 = r0.<Cbtrn02c$AccountRecord: java.lang.String acctOpenDate>;
+
+        $r4 = r0.<Cbtrn02c$AccountRecord: java.lang.String acctExpiraionDate>;
+
+        $r5 = r0.<Cbtrn02c$AccountRecord: java.lang.String acctReissueDate>;
+
+        $l4 = r0.<Cbtrn02c$AccountRecord: 'long' acctCurrCycCredit>;
+
+        $l5 = r0.<Cbtrn02c$AccountRecord: 'long' acctCurrCycDebit>;
+
+        $r6 = r0.<Cbtrn02c$AccountRecord: java.lang.String acctAddrZip>;
+
+        $r7 = r0.<Cbtrn02c$AccountRecord: java.lang.String acctGroupId>;
+
+        $r8 = r0.<Cbtrn02c$AccountRecord: java.lang.String filler1>;
+
+        specialinvoke $r1.<Cbtrn02c$AccountRecord: 'void' <init>('long',java.lang.String,'long','long','long',java.lang.String,java.lang.String,java.lang.String,'long','long',java.lang.String,java.lang.String,java.lang.String)>($l0, $r2, $l1, $l2, $l3, $r3, $r4, $r5, $l4, $l5, $r6, $r7, $r8);
+
+        return $r1;
+    }
+
+    private static 'void' assignTcat(Cbtrn02c$TranCatBalRecord, Cbtrn02c$TranCatBalRecord)
+    {
+        Cbtrn02c$TranCatBalRecord r0, r1;
+        'long' $l0;
+        java.lang.String $r2;
+
+        r0 := @parameter0: Cbtrn02c$TranCatBalRecord;
+
+        r1 := @parameter1: Cbtrn02c$TranCatBalRecord;
+
+        $l0 = r1.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId>;
+
+        r0.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId> = $l0;
+
+        $r2 = r1.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd>;
+
+        r0.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd> = $r2;
+
+        $l0 = r1.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd>;
+
+        r0.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd> = $l0;
+
+        $l0 = r1.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal>;
+
+        r0.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal> = $l0;
+
+        $r2 = r1.<Cbtrn02c$TranCatBalRecord: java.lang.String filler1>;
+
+        r0.<Cbtrn02c$TranCatBalRecord: java.lang.String filler1> = $r2;
+
+        return;
+    }
+
+    private static Cbtrn02c$TranCatBalRecord copyTcat(Cbtrn02c$TranCatBalRecord)
+    {
+        Cbtrn02c$TranCatBalRecord r0, $r1;
+        'long' $l0, $l1, $l2;
+        java.lang.String $r2, $r3;
+
+        r0 := @parameter0: Cbtrn02c$TranCatBalRecord;
+
+        $r1 = new Cbtrn02c$TranCatBalRecord;
+
+        $l0 = r0.<Cbtrn02c$TranCatBalRecord: 'long' trancatAcctId>;
+
+        $r2 = r0.<Cbtrn02c$TranCatBalRecord: java.lang.String trancatTypeCd>;
+
+        $l1 = r0.<Cbtrn02c$TranCatBalRecord: 'long' trancatCd>;
+
+        $l2 = r0.<Cbtrn02c$TranCatBalRecord: 'long' tranCatBal>;
+
+        $r3 = r0.<Cbtrn02c$TranCatBalRecord: java.lang.String filler1>;
+
+        specialinvoke $r1.<Cbtrn02c$TranCatBalRecord: 'void' <init>('long',java.lang.String,'long','long',java.lang.String)>($l0, $r2, $l1, $l2, $r3);
+
+        return $r1;
+    }
+
+    private static Cbtrn02c$TranRecord copyTran(Cbtrn02c$TranRecord)
+    {
+        'long' $l0, $l1, $l2;
+        Cbtrn02c$TranRecord r0, $r1;
+        java.lang.String $r2, $r3, $r4, $r5, $r6, $r7, $r8, $r9, $r10, $r11, $r12;
+
+        r0 := @parameter0: Cbtrn02c$TranRecord;
+
+        $r1 = new Cbtrn02c$TranRecord;
+
+        $r2 = r0.<Cbtrn02c$TranRecord: java.lang.String tranId>;
+
+        $r3 = r0.<Cbtrn02c$TranRecord: java.lang.String tranTypeCd>;
+
+        $l0 = r0.<Cbtrn02c$TranRecord: 'long' tranCatCd>;
+
+        $r4 = r0.<Cbtrn02c$TranRecord: java.lang.String tranSource>;
+
+        $r5 = r0.<Cbtrn02c$TranRecord: java.lang.String tranDesc>;
+
+        $l1 = r0.<Cbtrn02c$TranRecord: 'long' tranAmt>;
+
+        $l2 = r0.<Cbtrn02c$TranRecord: 'long' tranMerchantId>;
+
+        $r6 = r0.<Cbtrn02c$TranRecord: java.lang.String tranMerchantName>;
+
+        $r7 = r0.<Cbtrn02c$TranRecord: java.lang.String tranMerchantCity>;
+
+        $r8 = r0.<Cbtrn02c$TranRecord: java.lang.String tranMerchantZip>;
+
+        $r9 = r0.<Cbtrn02c$TranRecord: java.lang.String tranCardNum>;
+
+        $r10 = r0.<Cbtrn02c$TranRecord: java.lang.String tranOrigTs>;
+
+        $r11 = r0.<Cbtrn02c$TranRecord: java.lang.String tranProcTs>;
+
+        $r12 = r0.<Cbtrn02c$TranRecord: java.lang.String filler1>;
+
+        specialinvoke $r1.<Cbtrn02c$TranRecord: 'void' <init>(java.lang.String,java.lang.String,'long',java.lang.String,java.lang.String,'long','long',java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r2, $r3, $l0, $r4, $r5, $l1, $l2, $r6, $r7, $r8, $r9, $r10, $r11, $r12);
+
+        return $r1;
+    }
+
+    private static java.lang.String db2Timestamp(java.lang.String)
+    {
+        java.lang.StringBuilder $r1;
+        java.lang.String r0, $r2;
+
+        r0 := @parameter0: java.lang.String;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(0, 4);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(45);
+
+        $r2 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(4, 6);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(45);
+
+        $r2 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(6, 8);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(45);
+
+        $r2 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(8, 10);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(46);
+
+        $r2 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(10, 12);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(46);
+
+        $r2 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(12, 14);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(46);
+
+        r0 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(14, 16);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r0);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("0000");
+
+        r0 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return r0;
+    }
+
+    private static java.lang.String dalytranText(Cbtrn02c$DalytranRecord)
+    {
+        Cbtrn02c$DalytranRecord r0;
+        java.lang.StringBuilder $r1;
+        'long' $l0;
+        java.lang.String $r2;
+
+        r0 := @parameter0: Cbtrn02c$DalytranRecord;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranId>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 16);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranTypeCd>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 2);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $l0 = r0.<Cbtrn02c$DalytranRecord: 'long' dalytranCatCd>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>($l0, 4);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranSource>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 10);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranDesc>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 100);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $l0 = r0.<Cbtrn02c$DalytranRecord: 'long' dalytranAmt>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String zonedSigned('long','int')>($l0, 11);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $l0 = r0.<Cbtrn02c$DalytranRecord: 'long' dalytranMerchantId>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>($l0, 9);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantName>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 50);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantCity>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 50);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranMerchantZip>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 10);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranCardNum>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 16);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranOrigTs>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 26);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String dalytranProcTs>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 26);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = r0.<Cbtrn02c$DalytranRecord: java.lang.String filler1>;
+
+        $r2 = staticinvoke <Cbtrn02c: java.lang.String fit(java.lang.String,'int')>($r2, 20);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    private static java.lang.String spaces('int')
+    {
+        'int' i0, i1;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r1;
+
+        i0 := @parameter0: 'int';
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        i1 = 0;
+
+     label1:
+        if i1 >= i0 goto label2;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(32);
+
+        i1 = i1 + 1;
+
+        goto label1;
+
+     label2:
+        $r1 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r1;
+    }
+
+    private static java.lang.String fit(java.lang.String, 'int')
+    {
+        'int' i0, $i1, i3;
+        java.lang.StringBuilder $r1;
+        'char' $c2;
+        java.lang.String r0;
+
+        r0 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: 'int';
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        i3 = 0;
+
+     label1:
+        if i3 >= i0 goto label4;
+
+        if r0 == null goto label2;
+
+        $i1 = virtualinvoke r0.<java.lang.String: 'int' length()>();
+
+        if i3 >= $i1 goto label2;
+
+        $c2 = virtualinvoke r0.<java.lang.String: 'char' charAt('int')>(i3);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>($c2);
+
+        goto label3;
+
+     label2:
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(32);
+
+     label3:
+        i3 = i3 + 1;
+
+        goto label1;
+
+     label4:
+        r0 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return r0;
+    }
+
+    private static java.lang.String padNum('long', 'int')
+    {
+        'long' l0, $l3;
+        'char' $c6;
+        'byte' $b2;
+        'int' i1, $i5, i10;
+        java.lang.StringBuilder $r0, $r1;
+        java.lang.String $r2;
+
+        l0 := @parameter0: 'long';
+
+        i1 := @parameter1: 'int';
+
+        $b2 = l0 cmp 0L;
+
+        $i5 = ('int') $b2;
+
+        if $i5 >= 0 goto label1;
+
+        l0 = neg l0;
+
+     label1:
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        i10 = 0;
+
+     label2:
+        if i10 >= i1 goto label3;
+
+        $l3 = l0 % 10L;
+
+        $l3 = 48L + $l3;
+
+        $i5 = ('int') $l3;
+
+        $c6 = ('char') $i5;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>($c6);
+
+        l0 = l0 / 10L;
+
+        i10 = i10 + 1;
+
+        goto label2;
+
+     label3:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        i1 = i1 - 1;
+
+     label4:
+        if i1 < 0 goto label5;
+
+        $c6 = virtualinvoke $r0.<java.lang.StringBuilder: 'char' charAt('int')>(i1);
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>($c6);
+
+        $i5 = ('int') -1;
+
+        i1 = i1 + $i5;
+
+        goto label4;
+
+     label5:
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r2;
+    }
+
+    private static java.lang.String zonedSigned('long', 'int')
+    {
+        'long' l0;
+        'char' $c3;
+        'byte' $b5;
+        'int' i1, $i2, $i9;
+        java.lang.StringBuilder $r3;
+        java.lang.String r0, $r1;
+
+        l0 := @parameter0: 'long';
+
+        i1 := @parameter1: 'int';
+
+        r0 = staticinvoke <Cbtrn02c: java.lang.String padNum('long','int')>(l0, i1);
+
+        $i2 = i1 - 1;
+
+        $c3 = virtualinvoke r0.<java.lang.String: 'char' charAt('int')>($i2);
+
+        $i2 = ('int') $c3;
+
+        $i2 = $i2 - 48;
+
+        $b5 = l0 cmp 0L;
+
+        $i9 = ('int') $b5;
+
+        if $i9 >= 0 goto label1;
+
+        $r1 = "}JKLMNOPQR";
+
+        $c3 = virtualinvoke $r1.<java.lang.String: 'char' charAt('int')>($i2);
+
+        goto label2;
+
+     label1:
+        $r1 = "{ABCDEFGHI";
+
+        $c3 = virtualinvoke $r1.<java.lang.String: 'char' charAt('int')>($i2);
+
+     label2:
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        i1 = i1 - 1;
+
+        r0 = virtualinvoke r0.<java.lang.String: java.lang.String substring('int','int')>(0, i1);
+
+        virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r0);
+
+        virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>($c3);
+
+        r0 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return r0;
+    }
+
+    private static 'boolean' isDigit('char')
+    {
+        'int' $i1;
+        'char' c0;
+        'boolean' $z0;
+
+        c0 := @parameter0: 'char';
+
+        $i1 = ('int') c0;
+
+        if $i1 < 48 goto label1;
+
+        $i1 = ('int') c0;
+
+        if $i1 > 57 goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    private static 'int' compareEbcdic(java.lang.String, java.lang.String)
+    {
+        'char' $c8, $c9;
+        'int' $i0, $i1, $i2, $i5;
+        java.lang.String r0, r1;
+
+        r0 := @parameter0: java.lang.String;
+
+        r1 := @parameter1: java.lang.String;
+
+        $i0 = virtualinvoke r0.<java.lang.String: 'int' length()>();
+
+        $i1 = virtualinvoke r1.<java.lang.String: 'int' length()>();
+
+        if $i0 <= $i1 goto label01;
+
+        $i0 = virtualinvoke r0.<java.lang.String: 'int' length()>();
+
+        goto label02;
+
+     label01:
+        $i0 = virtualinvoke r1.<java.lang.String: 'int' length()>();
+
+     label02:
+        $i1 = 0;
+
+     label03:
+        if $i1 >= $i0 goto label10;
+
+        $i2 = virtualinvoke r0.<java.lang.String: 'int' length()>();
+
+        if $i1 >= $i2 goto label04;
+
+        $c8 = virtualinvoke r0.<java.lang.String: 'char' charAt('int')>($i1);
+
+        goto label05;
+
+     label04:
+        $c8 = 32;
+
+     label05:
+        $i2 = virtualinvoke r1.<java.lang.String: 'int' length()>();
+
+        if $i1 >= $i2 goto label06;
+
+        $c9 = virtualinvoke r1.<java.lang.String: 'char' charAt('int')>($i1);
+
+        goto label07;
+
+     label06:
+        $c9 = 32;
+
+     label07:
+        $i2 = staticinvoke <Cbtrn02c: 'int' ebcdic('char')>($c8);
+
+        $i5 = staticinvoke <Cbtrn02c: 'int' ebcdic('char')>($c9);
+
+        if $i2 >= $i5 goto label08;
+
+        $i0 = ('int') -1;
+
+        return $i0;
+
+     label08:
+        if $i2 <= $i5 goto label09;
+
+        return 1;
+
+     label09:
+        $i1 = $i1 + 1;
+
+        goto label03;
+
+     label10:
+        return 0;
+    }
+
+    private static 'int' ebcdic('char')
+    {
+        'int' i2, $i3, $i4;
+        'char' c0, $c1;
+        java.lang.String $r0;
+
+        c0 := @parameter0: 'char';
+
+        i2 = 0;
+
+     label1:
+        if i2 >= 256 goto label3;
+
+        $r0 = "\u0000\u0001\u0002\u0003\u009c\t\u0086\u007f\u0097\u008d\u008e\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u009d\u0085\u0008\u0087\u0018\u0019\u0092\u008f\u001c\u001d\u001e\u001f\u0080\u0081\u0082\u0083\u0084\n\u0017\u001b\u0088\u0089\u008a\u008b\u008c\u0005\u0006\u0007\u0090\u0091\u0016\u0093\u0094\u0095\u0096\u0004\u0098\u0099\u009a\u009b\u0014\u0015\u009e\u001a \u00a0\u00e2\u00e4\u00e0\u00e1\u00e3\u00e5\u00e7\u00f1\u00a2.<(+|&\u00e9\u00ea\u00eb\u00e8\u00ed\u00ee\u00ef\u00ec\u00df!$*);\u00ac-/\u00c2\u00c4\u00c0\u00c1\u00c3\u00c5\u00c7\u00d1\u00a6,%_>?\u00f8\u00c9\u00ca\u00cb\u00c8\u00cd\u00ce\u00cf\u00cc`:#@\'=\"\u00d8abcdefghi\u00ab\u00bb\u00f0\u00fd\u00fe\u00b1\u00b0jklmnopqr\u00aa\u00ba\u00e6\u00b8\u00c6\u00a4\u00b5~stuvwxyz\u00a1\u00bf\u00d0\u00dd\u00de\u00ae^\u00a3\u00a5\u00b7\u00a9\u00a7\u00b6\u00bc\u00bd\u00be[]\u00af\u00a8\u00b4\u00d7{ABCDEFGHI\u00ad\u00f4\u00f6\u00f2\u00f3\u00f5}JKLMNOPQR\u00b9\u00fb\u00fc\u00f9\u00fa\u00ff\\\u00f7STUVWXYZ\u00b2\u00d4\u00d6\u00d2\u00d3\u00d50123456789\u00b3\u00db\u00dc\u00d9\u00da\u009f";
+
+        $c1 = virtualinvoke $r0.<java.lang.String: 'char' charAt('int')>(i2);
+
+        $i3 = ('int') $c1;
+
+        $i4 = ('int') c0;
+
+        if $i3 != $i4 goto label2;
+
+        return i2;
+
+     label2:
+        i2 = i2 + 1;
+
+        goto label1;
+
+     label3:
+        i2 = ('int') c0;
+
+        return i2;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <Cbtrn02c: java.lang.String CP037> = "\u0000\u0001\u0002\u0003\u009c\t\u0086\u007f\u0097\u008d\u008e\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u009d\u0085\u0008\u0087\u0018\u0019\u0092\u008f\u001c\u001d\u001e\u001f\u0080\u0081\u0082\u0083\u0084\n\u0017\u001b\u0088\u0089\u008a\u008b\u008c\u0005\u0006\u0007\u0090\u0091\u0016\u0093\u0094\u0095\u0096\u0004\u0098\u0099\u009a\u009b\u0014\u0015\u009e\u001a \u00a0\u00e2\u00e4\u00e0\u00e1\u00e3\u00e5\u00e7\u00f1\u00a2.<(+|&\u00e9\u00ea\u00eb\u00e8\u00ed\u00ee\u00ef\u00ec\u00df!$*);\u00ac-/\u00c2\u00c4\u00c0\u00c1\u00c3\u00c5\u00c7\u00d1\u00a6,%_>?\u00f8\u00c9\u00ca\u00cb\u00c8\u00cd\u00ce\u00cf\u00cc`:#@\'=\"\u00d8abcdefghi\u00ab\u00bb\u00f0\u00fd\u00fe\u00b1\u00b0jklmnopqr\u00aa\u00ba\u00e6\u00b8\u00c6\u00a4\u00b5~stuvwxyz\u00a1\u00bf\u00d0\u00dd\u00de\u00ae^\u00a3\u00a5\u00b7\u00a9\u00a7\u00b6\u00bc\u00bd\u00be[]\u00af\u00a8\u00b4\u00d7{ABCDEFGHI\u00ad\u00f4\u00f6\u00f2\u00f3\u00f5}JKLMNOPQR\u00b9\u00fb\u00fc\u00f9\u00fa\u00ff\\\u00f7STUVWXYZ\u00b2\u00d4\u00d6\u00d2\u00d3\u00d50123456789\u00b3\u00db\u00dc\u00d9\u00da\u009f";
+
+        <Cbtrn02c: 'long' MOD12> = 1000000000000L;
+
+        <Cbtrn02c: 'long' MOD11> = 100000000000L;
+
+        <Cbtrn02c: 'long' MOD9> = 1000000000L;
+
+        return;
+    }
+}

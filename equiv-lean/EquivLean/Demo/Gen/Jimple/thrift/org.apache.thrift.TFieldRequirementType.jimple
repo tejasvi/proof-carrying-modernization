@@ -1,0 +1,28 @@
+public final class org.apache.thrift.TFieldRequirementType extends java.lang.Object
+{
+    public static final 'byte' REQUIRED;
+    public static final 'byte' OPTIONAL;
+    public static final 'byte' DEFAULT;
+
+    private 'void' <init>()
+    {
+        org.apache.thrift.TFieldRequirementType this;
+
+        this := @this: org.apache.thrift.TFieldRequirementType;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.TFieldRequirementType: 'byte' DEFAULT> = 3;
+
+        <org.apache.thrift.TFieldRequirementType: 'byte' OPTIONAL> = 2;
+
+        <org.apache.thrift.TFieldRequirementType: 'byte' REQUIRED> = 1;
+
+        return;
+    }
+}

@@ -1,0 +1,106 @@
+public class org.apache.thrift.TByteArrayOutputStream extends java.io.ByteArrayOutputStream
+{
+    private final 'int' initialSize;
+
+    public 'void' <init>('int')
+    {
+        'int' size;
+        org.apache.thrift.TByteArrayOutputStream this;
+
+        this := @this: org.apache.thrift.TByteArrayOutputStream;
+
+        size := @parameter0: 'int';
+
+        specialinvoke this.<java.io.ByteArrayOutputStream: 'void' <init>('int')>(size);
+
+        this.<org.apache.thrift.TByteArrayOutputStream: 'int' initialSize> = size;
+
+        return;
+    }
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.TByteArrayOutputStream this;
+
+        this := @this: org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke this.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>('int')>(32);
+
+        return;
+    }
+
+    public 'byte'[] get()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.TByteArrayOutputStream this;
+
+        this := @this: org.apache.thrift.TByteArrayOutputStream;
+
+        $r0 = this.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] buf>;
+
+        return $r0;
+    }
+
+    public 'void' reset()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.TByteArrayOutputStream this;
+        'int' $i0, $i1;
+
+        this := @this: org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke this.<java.io.ByteArrayOutputStream: 'void' reset()>();
+
+        $r0 = this.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] buf>;
+
+        $i0 = lengthof $r0;
+
+        $i1 = this.<org.apache.thrift.TByteArrayOutputStream: 'int' initialSize>;
+
+        if $i0 <= $i1 goto label1;
+
+        $i0 = this.<org.apache.thrift.TByteArrayOutputStream: 'int' initialSize>;
+
+        $r0 = newarray ('byte')[$i0];
+
+        this.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] buf> = $r0;
+
+     label1:
+        return;
+    }
+
+    public 'int' len()
+    {
+        'int' $i0;
+        org.apache.thrift.TByteArrayOutputStream this;
+
+        this := @this: org.apache.thrift.TByteArrayOutputStream;
+
+        $i0 = this.<org.apache.thrift.TByteArrayOutputStream: 'int' count>;
+
+        return $i0;
+    }
+
+    public java.lang.String toString(java.nio.charset.Charset)
+    {
+        'byte'[] $r1;
+        java.nio.charset.Charset charset;
+        org.apache.thrift.TByteArrayOutputStream this;
+        'int' $i0;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.TByteArrayOutputStream;
+
+        charset := @parameter0: java.nio.charset.Charset;
+
+        $r0 = new java.lang.String;
+
+        $r1 = this.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] buf>;
+
+        $i0 = this.<org.apache.thrift.TByteArrayOutputStream: 'int' count>;
+
+        specialinvoke $r0.<java.lang.String: 'void' <init>('byte'[],'int','int',java.nio.charset.Charset)>($r1, 0, $i0, charset);
+
+        return $r0;
+    }
+}

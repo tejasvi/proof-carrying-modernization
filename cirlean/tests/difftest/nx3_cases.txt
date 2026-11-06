@@ -1,0 +1,58 @@
+# rog's NX3 (nx3.cpp): an object's lifetime ends when its destructor call starts (C++ [basic.life]p1, p7, p8). Each case
+# is labelled with its expected outcome on the line above it: MATCH, or UB from cirrun.
+# expect UB: a by-value parameter read through its address after the caller's full expression (rog's x_byval_param_after)
+nx3 x_byval_param_after 0
+# expect MATCH: control, read within the full expression (Itanium: the parameter lives to its end) (5)
+nx3 x_byval_param_in_full_expr 0
+# expect UB: a temporary bound to a reference parameter read after its full expression (rog's z_temp_after_full_expr)
+nx3 x_temp_after_full_expr 0
+# expect MATCH: control, the temporary read within its full expression (5)
+nx3 x_temp_in_full_expr 0
+# expect MATCH: control, a temporary bound to a local reference lives with it (5)
+nx3 x_temp_extended 0
+# expect UB: a member read after an explicit destructor call (rog's z_after_explicit_dtor)
+nx3 x_after_explicit_dtor 0
+# expect MATCH: the storage reused by a placement new after an explicit destructor call, read, destroyed at scope end (7)
+nx3 x_reuse_after_explicit_dtor 0
+# expect MATCH: control, read before the explicit destructor call (5)
+nx3 x_read_before_explicit_dtor 0
+# expect UB: a member object read after its explicit destructor call
+nx3 x_member_after_dtor 0
+# expect MATCH: another member read after one member's destructor (3)
+nx3 x_other_member_after_dtor 0
+# expect UB: an array element read after its explicit destructor call
+nx3 x_element_after_dtor 0
+# expect MATCH: another element read after one element's destructor (1)
+nx3 x_other_element_after_dtor 0
+# expect UB: a heap object read after its explicit destructor call
+nx3 x_heap_after_dtor 0
+# expect MATCH: a heap object's storage reused by a placement new, then deleted (9)
+nx3 x_heap_reuse 0
+# expect UB: a base class member of a derived object read after the derived destructor
+nx3 x_derived_base_member_after_dtor 0
+# expect MATCH: a derived object's storage reused (12)
+nx3 x_derived_reuse 0
+# expect MATCH: gap, a second destructor call on a destroyed object is not detected when it only writes (4)
+nx3 x_double_dtor_writes 0
+# expect UB: a second destructor call on a destroyed object that reads it
+nx3 x_double_dtor_reads 0
+# expect MATCH: a const object's destructor at the end of its scope (no modification of a const object) (5)
+nx3 x_const_local 0
+# expect MATCH: the destructors of a const array's elements at the end of its scope (2)
+nx3 x_const_array 0
+# expect MATCH: a static const object, destroyed in the exit sequence (5)
+nx3 x_static_const 0
+# expect UB: a const object read after an explicit destructor call (its read-only block ends too)
+nx3 x_const_after_dtor 0
+# expect UB: a derived member read after a virtual destructor called through a pointer to the base
+nx3 x_virtual_dtor_then_read 0
+# expect MATCH: delete through a pointer to the base (the deleting destructor, D0) (6)
+nx3 x_delete_through_base 0
+# expect UB: a member read after the destructor of a class with virtual bases (D1, and the bases' VTT-taking D2)
+nx3 x_vbase_dtor_then_read 0
+# expect MATCH: the storage of an object with virtual bases reused (10)
+nx3 x_vbase_reuse 0
+# expect MATCH: gap, an assigned initializer_list's backing array read after the assignment (rog's L2; ClangIR marks no end) (4)
+nx3 x_initlist_assigned 0
+# expect MATCH: control, the backing array of the list's own initialization (2)
+nx3 x_initlist_in_scope 0

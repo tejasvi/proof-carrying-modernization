@@ -1,0 +1,29 @@
+public class org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs extends org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs
+{
+    java.net.ServerSocket serverSocket;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs this;
+
+        this := @this: org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs;
+
+        specialinvoke this.<org.apache.thrift.transport.TServerTransport$AbstractServerTransportArgs: 'void' <init>()>();
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs serverSocket(java.net.ServerSocket)
+    {
+        java.net.ServerSocket serverSocket;
+        org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs this;
+
+        this := @this: org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs;
+
+        serverSocket := @parameter0: java.net.ServerSocket;
+
+        this.<org.apache.thrift.transport.TServerSocket$ServerSocketTransportArgs: java.net.ServerSocket serverSocket> = serverSocket;
+
+        return this;
+    }
+}

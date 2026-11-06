@@ -1,0 +1,98 @@
+[
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/_ossfuzz/bzip2_compress_target.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/_ossfuzz/bzip2_compress_target.c",
+   "-o",
+   "bzip2_compress_target.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/blocksort.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/blocksort.c",
+   "-o",
+   "blocksort.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/bzlib.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/bzlib.c",
+   "-o",
+   "bzlib.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/compress.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/compress.c",
+   "-o",
+   "compress.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/crctable.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/crctable.c",
+   "-o",
+   "crctable.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/decompress.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/decompress.c",
+   "-o",
+   "decompress.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/huffman.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/huffman.c",
+   "-o",
+   "huffman.c.o"
+  ]
+ },
+ {
+  "directory": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+  "file": "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/randtable.c",
+  "arguments": [
+   "cc",
+   "-I/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe",
+   "-c",
+   "/home/user/veriforch/targets/theorem_src/bzip2@f5dfc96063fe/randtable.c",
+   "-o",
+   "randtable.c.o"
+  ]
+ }
+]

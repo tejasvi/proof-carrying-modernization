@@ -1,0 +1,18 @@
+# Prereg D (frozen v2 + the evidence-owner session's answer to the unit-identity question, DEVIATIONS): es-toolkit v1.52.0 (toss/es-toolkit
+# @ 32f4c8f, MIT), checkout in targets/prereg/es-toolkit (no build script of the project runs). Extraction = StrictTS's
+# own coverage mode (`--coverage --strict --emit-lean`, StrictTS's tools/public/coverage.sh command and its
+# tools/public/tsconfig/es-toolkit.json), at the D pin (deps/strictts-ae0eee4), STRICT subset (the frozen rows are
+# es-toolkit.strict.json at a15926a; checked-dynamic mode is not part of D). Units = the coverage rows (file, line,
+# name, kind); covered rows the emitted module lacks (generics, left-out functions) = "blocked: not emitted".
+name = "prereg_d_estoolkit"
+lang = "strictts"
+root = "/home/user/veriforch/targets/prereg/es-toolkit"
+extraction = "coverage"
+coverage_project = "es-toolkit"
+strict = true
+translate_timeout = 1800
+sources = []
+
+[[variants]]
+name = "src"
+flags = []

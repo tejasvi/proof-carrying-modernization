@@ -1,0 +1,42 @@
+# std::sort of arithmetic types (sort.cpp): libc++'s library instantiations std::__sort<__less<T, T>&, T*>,
+# modelled as an ascending sort. Each case is labelled with its expected outcome on the line above it: MATCH,
+# or UB from cirrun (before the change every case through the library sort was UB "call to an external
+# function without a model").
+# expect MATCH: nine ints with duplicates and negatives
+sort t_sort_int 2
+sort t_sort_int -9
+# expect MATCH: only two distinct values
+sort t_sort_dups 7
+sort t_sort_dups 2
+# expect MATCH: empty ranges (nothing changes)
+sort t_sort_empty 5
+# expect MATCH: one element
+sort t_sort_one 4
+# expect MATCH: a range inside the array
+sort t_sort_sub 9
+# expect MATCH: a heap array through unique_ptr<int[]>, ascending, then descending with std::greater
+sort t_sort_heap 3
+sort t_sort_heap 60
+# expect MATCH: the storage of a std::vector<int> (data() to data() + size())
+sort t_sort_vector 1
+# expect MATCH: a std::vector<int> through its iterators (libc++ unwraps them, end() included, with
+# std::__to_address)
+sort t_sort_vector_iters 1
+# expect MATCH: unsigned char, short, unsigned, long long and unsigned long long ranges
+sort t_sort_types 5
+# expect MATCH: std::less<int>() and std::less<>()
+sort t_sort_less 2
+# expect MATCH: std::greater<int>() (libc++'s inline introsort, not the library)
+sort t_sort_greater 3
+# expect MATCH: doubles and floats
+sort t_sort_double 1
+sort t_sort_float -4
+# expect MATCH: zeros of one sign only (-0.0, or +0.0)
+sort t_sort_negzero 3
+sort t_sort_poszero 3
+# expect UB: -0.0 and +0.0 in one range (their relative order is libc++'s introsort's: not modelled)
+sort u_sort_zeros 2
+# expect UB: a NaN in the range (no strict weak order)
+sort u_sort_nan 2
+# expect UB: an indeterminate element
+sort u_sort_uninit 3

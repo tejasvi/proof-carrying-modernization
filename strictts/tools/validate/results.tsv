@@ -1,0 +1,513 @@
+suite	file	line	function	mode	status	inputs_compared	agree	designed_panics	mismatching_inputs	not_compared	reason
+es-toolkit strict	projects/es-toolkit/src/promise/semaphore.ts	47	Semaphore.constructor	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/promise/semaphore.ts	68	Semaphore.acquire	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/function/asyncNoop.ts	10	asyncNoop	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/function/noop.ts	10	noop	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/function/retry.ts	45	DEFAULT_SHOULD_RETRY	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/math/sum.ts	14	sum	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/math/mean.ts	16	mean	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/math/median.ts	23	median	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/math/percentile.ts	26	percentile	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/math/round.ts	18	round	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/promise/mutex.ts	54	Mutex.acquire	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/deburr.ts	52	deburr	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/dedent.ts	69	dedentImpl	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/escape.ts	22	escape	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/escapeRegExp.ts	12	escapeRegExp	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/lowerFirst.ts	12	lowerFirst	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/pad.ts	17	pad	strict	match	41	41	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/reverseString.ts	14	reverseString	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/unescape.ts	22	unescape	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/string/upperFirst.ts	12	upperFirst	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/string/template.ts	25	escapeString	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/util/now.ts	16	now	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/util/stubFalse.ts	19	stubFalse	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/util/stubString.ts	10	stubString	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/util/stubTrue.ts	19	stubTrue	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/util/uniqueId.ts	26	uniqueId	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/_internal/bigIntRangeLength.ts	12	bigIntRangeLength	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/bigint/max.ts	18	max	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/bigint/median.ts	19	median	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/bigint/min.ts	15	min	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/bigint/percentile.ts	20	percentile	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/bigint/sum.ts	15	sum	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/doubled.ts	1	doubled	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubA.ts	1	stubA	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubB.ts	1	stubB	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubC.ts	1	stubC	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubFour.ts	1	stubFour	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubNaN.ts	1	stubNaN	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubNull.ts	1	stubNull	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubOne.ts	1	stubOne	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubThree.ts	1	stubThree	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubTwo.ts	1	stubTwo	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/compat/_internal/stubZero.ts	1	stubZero	strict	match	1	1	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/fp/math/add.ts	14	add	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/fp/math/multiply.ts	14	multiply	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/_internal/wrapAnsi.ts	15	wrapAnsi	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/ansi256.ts	16	ansi256	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/_internal/wrapAnsiBg.ts	23	wrapAnsiBg	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgAnsi256.ts	16	bgAnsi256	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgBlack.ts	14	bgBlack	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgBlackBright.ts	14	bgBlackBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgBlue.ts	14	bgBlue	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgBlueBright.ts	14	bgBlueBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgCyan.ts	14	bgCyan	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgCyanBright.ts	14	bgCyanBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgGreen.ts	14	bgGreen	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgGreenBright.ts	14	bgGreenBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/_internal/parseHex.ts	20	parseHex	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgHex.ts	17	bgHex	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgMagenta.ts	14	bgMagenta	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgMagentaBright.ts	14	bgMagentaBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgRed.ts	14	bgRed	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgRedBright.ts	14	bgRedBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgRgb.ts	18	bgRgb	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgWhite.ts	14	bgWhite	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgWhiteBright.ts	14	bgWhiteBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgYellow.ts	14	bgYellow	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bgYellowBright.ts	14	bgYellowBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/black.ts	14	black	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/blackBright.ts	14	blackBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/blue.ts	14	blue	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/blueBright.ts	14	blueBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/bold.ts	14	bold	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/cyan.ts	14	cyan	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/cyanBright.ts	14	cyanBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/dim.ts	14	dim	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/green.ts	14	green	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/greenBright.ts	14	greenBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/hex.ts	17	hex	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/hidden.ts	14	hidden	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/inverse.ts	14	inverse	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/italic.ts	14	italic	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/magenta.ts	14	magenta	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/magentaBright.ts	14	magentaBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/red.ts	14	red	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/redBright.ts	14	redBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/reset.ts	14	reset	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/rgb.ts	18	rgb	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/strikethrough.ts	14	strikethrough	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/underline.ts	14	underline	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/white.ts	14	white	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/whiteBright.ts	14	whiteBright	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/yellow.ts	14	yellow	strict	match	48	48	0	0	0	
+es-toolkit strict	projects/es-toolkit/src/server/colors/yellowBright.ts	14	yellowBright	strict	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/promise/semaphore.ts	47	Semaphore.constructor	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/promise/semaphore.ts	68	Semaphore.acquire	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/function/asyncNoop.ts	10	asyncNoop	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/function/noop.ts	10	noop	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/function/retry.ts	45	DEFAULT_SHOULD_RETRY	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/math/sum.ts	14	sum	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/math/mean.ts	16	mean	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/math/median.ts	23	median	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/math/percentile.ts	26	percentile	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/math/round.ts	18	round	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/promise/mutex.ts	54	Mutex.acquire	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/deburr.ts	52	deburr	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/dedent.ts	69	dedentImpl	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/escape.ts	22	escape	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/escapeRegExp.ts	12	escapeRegExp	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/lowerFirst.ts	12	lowerFirst	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/pad.ts	17	pad	dyn	match	41	41	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/reverseString.ts	14	reverseString	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/unescape.ts	22	unescape	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/upperFirst.ts	12	upperFirst	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/string/template.ts	25	escapeString	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/now.ts	16	now	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/stubFalse.ts	19	stubFalse	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/stubString.ts	10	stubString	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/stubTrue.ts	19	stubTrue	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/uniqueId.ts	26	uniqueId	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/_internal/bigIntRangeLength.ts	12	bigIntRangeLength	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/bigint/max.ts	18	max	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/bigint/median.ts	19	median	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/bigint/min.ts	15	min	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/bigint/percentile.ts	20	percentile	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/bigint/sum.ts	15	sum	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/doubled.ts	1	doubled	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubA.ts	1	stubA	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubB.ts	1	stubB	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubC.ts	1	stubC	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubFour.ts	1	stubFour	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubNaN.ts	1	stubNaN	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubNull.ts	1	stubNull	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubOne.ts	1	stubOne	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubThree.ts	1	stubThree	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubTwo.ts	1	stubTwo	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/stubZero.ts	1	stubZero	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/fp/math/add.ts	14	add	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/fp/math/multiply.ts	14	multiply	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/_internal/wrapAnsi.ts	15	wrapAnsi	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/ansi256.ts	16	ansi256	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/_internal/wrapAnsiBg.ts	23	wrapAnsiBg	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgAnsi256.ts	16	bgAnsi256	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgBlack.ts	14	bgBlack	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgBlackBright.ts	14	bgBlackBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgBlue.ts	14	bgBlue	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgBlueBright.ts	14	bgBlueBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgCyan.ts	14	bgCyan	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgCyanBright.ts	14	bgCyanBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgGreen.ts	14	bgGreen	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgGreenBright.ts	14	bgGreenBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/_internal/parseHex.ts	20	parseHex	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgHex.ts	17	bgHex	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgMagenta.ts	14	bgMagenta	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgMagentaBright.ts	14	bgMagentaBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgRed.ts	14	bgRed	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgRedBright.ts	14	bgRedBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgRgb.ts	18	bgRgb	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgWhite.ts	14	bgWhite	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgWhiteBright.ts	14	bgWhiteBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgYellow.ts	14	bgYellow	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bgYellowBright.ts	14	bgYellowBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/black.ts	14	black	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/blackBright.ts	14	blackBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/blue.ts	14	blue	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/blueBright.ts	14	blueBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/bold.ts	14	bold	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/cyan.ts	14	cyan	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/cyanBright.ts	14	cyanBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/dim.ts	14	dim	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/green.ts	14	green	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/greenBright.ts	14	greenBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/hex.ts	17	hex	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/hidden.ts	14	hidden	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/inverse.ts	14	inverse	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/italic.ts	14	italic	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/magenta.ts	14	magenta	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/magentaBright.ts	14	magentaBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/red.ts	14	red	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/redBright.ts	14	redBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/reset.ts	14	reset	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/rgb.ts	18	rgb	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/strikethrough.ts	14	strikethrough	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/underline.ts	14	underline	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/white.ts	14	white	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/whiteBright.ts	14	whiteBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/yellow.ts	14	yellow	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/colors/yellowBright.ts	14	yellowBright	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/_internal/compareValues.ts	2	nullishRank	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isTypedArray.ts	16	isTypedArray	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isArray.ts	66	isArray	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isArrayBuffer.ts	19	isArrayBuffer	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isBoolean.ts	23	isBoolean	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isDate.ts	14	isDate	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/eq.ts	14	eq	dyn	MISMATCH	48	47	0	1	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isError.ts	14	isError	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isFunction.ts	14	isFunction	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isJSON.ts	29	isJSON	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isLength.ts	22	isLength	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isNull.ts	21	isNull	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isNumber.ts	25	isNumber	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isString.ts	19	isString	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isUndefined.ts	21	isUndefined	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isWeakMap.ts	21	isWeakMap	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/predicate/isWeakSet.ts	21	isWeakSet	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/trimEnd.ts	17	trimEnd	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/trimStart.ts	17	trimStart	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/string/trim.ts	16	trim	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/util/invariant.ts	65	invariant	dyn	skipped	0	0	0	0	0	inputs not generated (Error)
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isObject.ts	25	isObject	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isObjectLike.ts	25	isObjectLike	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/function/identity.ts	43	identity	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/_internal/compareValues.ts	1	getPriority	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isTypedArray.ts	18	isTypedArray	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/toolkit.ts	10	toolkit	dyn	skipped	0	0	0	0	0	no input finishes quickly under Node (harness: Error: module not found: ./array/each.ts from compat/compat.ts)
+es-toolkit dyn	projects/es-toolkit/src/compat/function/noop.ts	11	noop	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isFunction.ts	14	isFunction	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isLength.ts	22	isLength	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isNull.ts	12	isNull	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isUndefined.ts	23	isUndefined	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isArrayBuffer.ts	21	isArrayBuffer	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isDate.ts	16	isDate	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isFinite.ts	25	isFinite	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isInteger.ts	15	isInteger	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isSafeInteger.ts	19	isSafeInteger	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isWeakMap.ts	23	isWeakMap	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/predicate/isWeakSet.ts	23	isWeakSet	dyn	match	48	48	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/stubArray.ts	10	stubArray	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/compat/util/stubObject.ts	8	stubObject	dyn	match	1	1	0	0	0	
+es-toolkit dyn	projects/es-toolkit/src/server/exec.ts	115	streamToString	dyn	skipped	0	0	0	0	0	driver outside the subset: exec.ts:1:26 [ts2307] Cannot find module 'node:stream' or its corresponding type declarations.
+es-toolkit generic@number	projects/es-toolkit/src/math/median.ts	23	median	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/string/lowerFirst.ts	12	lowerFirst	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/string/upperFirst.ts	12	upperFirst	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/bigint/median.ts	19	median	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/predicate/isTypedArray.ts	16	isTypedArray	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/compat/predicate/isArray.ts	66	isArray	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/compat/util/eq.ts	14	eq	dyn	MISMATCH	48	47	0	1	0	
+es-toolkit generic@number	projects/es-toolkit/src/predicate/isLength.ts	22	isLength	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/predicate/isNull.ts	21	isNull	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/predicate/isUndefined.ts	21	isUndefined	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/compat/predicate/isObject.ts	25	isObject	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/compat/predicate/isObjectLike.ts	25	isObjectLike	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	projects/es-toolkit/src/compat/function/identity.ts	43	identity	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_chunkBy.ts	4	mono_chunkBy	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_chunkBy_2.ts	4	mono_chunkBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_countBy_2.ts	4	mono_countBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_countBy_3.ts	4	mono_countBy_3	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_difference.ts	4	mono_difference	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_differenceWith.ts	4	mono_differenceWith	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_drop.ts	4	mono_drop	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_dropRight.ts	4	mono_dropRight	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_dropRightWhile.ts	4	mono_dropRightWhile	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_dropRightWhile_2.ts	4	mono_dropRightWhile_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_dropRight_2.ts	4	mono_dropRight_2	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_dropWhile.ts	4	mono_dropWhile	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_every.ts	4	mono_every	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_every_2.ts	4	mono_every_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_filter_2.ts	4	mono_filter_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_filter_3.ts	4	mono_filter_3	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_findIndex.ts	4	mono_findIndex	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_findKey.ts	4	mono_findKey	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_findLastIndex.ts	4	mono_findLastIndex	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_findValue.ts	4	mono_findValue	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_find_2.ts	4	mono_find_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_forEach_2.ts	4	mono_forEach_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_forEach_3.ts	4	mono_forEach_3	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_hasValue.ts	4	mono_hasValue	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_identity.ts	4	mono_identity	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_intersection.ts	4	mono_intersection	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_intersectionWith.ts	4	mono_intersectionWith	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_isSubset.ts	4	mono_isSubset	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_isSubsetWith.ts	4	mono_isSubsetWith	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_isSubsetWith_2.ts	4	mono_isSubsetWith_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_isSubset_2.ts	4	mono_isSubset_2	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_keyBy_2.ts	4	mono_keyBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_keyBy_3.ts	4	mono_keyBy_3	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_length.ts	4	mono_length	dyn	match	1	1	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_mapKeys.ts	4	mono_mapKeys	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_mapValues.ts	4	mono_mapValues	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_map_2.ts	4	mono_map_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_maxBy_2.ts	4	mono_maxBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_meanBy.ts	4	mono_meanBy	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_medianBy.ts	4	mono_medianBy	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_medianBy_2.ts	4	mono_medianBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_minBy_2.ts	4	mono_minBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_reverse.ts	4	mono_reverse	dyn	match	1	1	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_sample.ts	4	mono_sample	dyn	match	48	47	1	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_sample_2.ts	4	mono_sample_2	dyn	match	1	1	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_shuffle.ts	4	mono_shuffle	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_shuffle_2.ts	4	mono_shuffle_2	dyn	match	1	1	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_some.ts	4	mono_some	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_some_2.ts	4	mono_some_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_sumBy.ts	4	mono_sumBy	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_sumBy_2.ts	4	mono_sumBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_take.ts	4	mono_take	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_takeRight.ts	4	mono_takeRight	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_takeRightWhile.ts	4	mono_takeRightWhile	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_takeRightWhile_2.ts	4	mono_takeRightWhile_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_takeRight_2.ts	4	mono_takeRight_2	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_takeWhile.ts	4	mono_takeWhile	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_union.ts	4	mono_union	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_unionBy.ts	4	mono_unionBy	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_unionBy_2.ts	4	mono_unionBy_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_unionWith.ts	4	mono_unionWith	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_unionWith_2.ts	4	mono_unionWith_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_union_2.ts	4	mono_union_2	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_uniq.ts	4	mono_uniq	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_uniqBy.ts	4	mono_uniqBy	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_uniqWith.ts	4	mono_uniqWith	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_xor.ts	4	mono_xor	dyn	match	48	48	0	0	0	
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_xorWith.ts	4	mono_xorWith	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_xorWith_2.ts	4	mono_xorWith_2	dyn	skipped	0	0	0	0	0	inputs not generated (function-typed value)
+es-toolkit generic@number	public/mono/es-toolkit-dyn/mono_xor_2.ts	4	mono_xor_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	projects/es-toolkit/src/math/median.ts	23	median	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	projects/es-toolkit/src/bigint/median.ts	19	median	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_chunkBy.ts	4	cb_chunkBy	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_chunkBy_2.ts	4	cb_chunkBy_2	dyn	match	1	1	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_countBy_2.ts	4	cb_countBy_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_countBy_3.ts	4	cb_countBy_3	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_differenceWith.ts	4	cb_differenceWith	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_dropRightWhile.ts	4	cb_dropRightWhile	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_dropRightWhile_2.ts	4	cb_dropRightWhile_2	dyn	match	1	1	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_dropWhile.ts	4	cb_dropWhile	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_every.ts	4	cb_every	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_every_2.ts	4	cb_every_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_filter_2.ts	4	cb_filter_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_filter_3.ts	4	cb_filter_3	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_findIndex.ts	4	cb_findIndex	dyn	match	1	1	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_findKey.ts	4	cb_findKey	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_findLastIndex.ts	4	cb_findLastIndex	dyn	match	1	1	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_findValue.ts	4	cb_findValue	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_find_2.ts	4	cb_find_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_forEach_2.ts	4	cb_forEach_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_forEach_3.ts	4	cb_forEach_3	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_intersectionWith.ts	4	cb_intersectionWith	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_isSubsetWith.ts	4	cb_isSubsetWith	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_isSubsetWith_2.ts	4	cb_isSubsetWith_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_keyBy_2.ts	4	cb_keyBy_2	dyn	match	47	47	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_keyBy_3.ts	4	cb_keyBy_3	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_mapKeys.ts	4	cb_mapKeys	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_mapValues.ts	4	cb_mapValues	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_map_2.ts	4	cb_map_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_maxBy_2.ts	4	cb_maxBy_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_meanBy.ts	4	cb_meanBy	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_medianBy.ts	4	cb_medianBy	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_medianBy_2.ts	4	cb_medianBy_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_minBy_2.ts	4	cb_minBy_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_some.ts	4	cb_some	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_some_2.ts	4	cb_some_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_sumBy.ts	4	cb_sumBy	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_sumBy_2.ts	4	cb_sumBy_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_takeRightWhile.ts	4	cb_takeRightWhile	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_takeRightWhile_2.ts	4	cb_takeRightWhile_2	dyn	match	1	1	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_takeWhile.ts	4	cb_takeWhile	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_unionBy.ts	4	cb_unionBy	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_unionBy_2.ts	4	cb_unionBy_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_unionWith.ts	4	cb_unionWith	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_unionWith_2.ts	4	cb_unionWith_2	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_uniqBy.ts	4	cb_uniqBy	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_uniqWith.ts	4	cb_uniqWith	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_xorWith.ts	4	cb_xorWith	dyn	match	48	48	0	0	0	
+es-toolkit fixed callbacks	public/mono/es-toolkit-cb-dyn/cb_xorWith_2.ts	4	cb_xorWith_2	dyn	match	47	47	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/backtracking/all_combinations_of_size_k.ts	12	generateCombinations	strict	match	27	27	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/backtracking/generateparentheses.ts	8	generateParentheses	strict	match	30	30	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/bit_manipulation/add_binary.ts	8	addBinary	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/bit_manipulation/is_power_of_2.ts	25	isPowerOfTwo	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/bit_manipulation/is_power_of_4.ts	15	isPowerOfFour	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/bit_manipulation/log_two.ts	8	logTwo	strict	match	32	32	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/ciphers/xor_cipher.ts	12	XORCipher	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/data_structures/tries/tries.ts	30	Trie.insertNode	strict	skipped	0	0	0	0	0	private method (not callable from a driver)
+TheAlgorithms strict	projects/thealgorithms-ts/data_structures/tries/tries.ts	49	Trie.find	strict	match	17	1	16	0	31	
+TheAlgorithms strict	projects/thealgorithms-ts/data_structures/tries/tries.ts	73	Trie.searchNode	strict	skipped	0	0	0	0	0	private method (not callable from a driver)
+TheAlgorithms strict	projects/thealgorithms-ts/graph/bipartite_graph.ts	1	dfs	strict	match	16	0	16	0	32	
+TheAlgorithms strict	projects/thealgorithms-ts/graph/kosajaru.ts	2	getNodePriorities	strict	match	17	1	16	0	28	
+TheAlgorithms strict	projects/thealgorithms-ts/graph/kosajaru.ts	37	gatherScc	strict	match	17	1	16	0	27	
+TheAlgorithms strict	projects/thealgorithms-ts/graph/prim.ts	67	Edge.constructor	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/absolute_value.ts	12	absoluteValue	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/aliquot_sum.ts	15	aliquotSum	strict	match	41	41	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/armstrong_number.ts	16	armstrongNumber	strict	match	47	47	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/factorial.ts	10	factorial	strict	match	38	38	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/binomial_coefficient.ts	14	binomialCoefficient	strict	match	41	41	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/calculate_mean.ts	11	calculateMean	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/calculate_median.ts	11	calculateMedian	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/degrees_to_radians.ts	9	degreesToRadians	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/double_factorial_iterative.ts	19	DoubleFactorialIterative	strict	match	39	39	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/factors.ts	11	findFactors	strict	match	45	45	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/fibonacci.ts	53	nthFibonacciRecursively	strict	match	31	31	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/fibonacci.ts	79	nthFibonacciUsingFormula	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/find_min.ts	12	findMin	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/greatest_common_factor.ts	12	binaryGCF	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/greatest_common_factor.ts	23	greatestCommonFactor	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/hamming_distance.ts	15	hammingDistance	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/is_divisible.ts	11	isDivisible	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/is_even.ts	10	isEven	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/is_odd.ts	10	isOdd	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/is_palindrome.ts	9	isPalindrome	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/is_square_free.ts	11	isSquareFree	strict	match	46	46	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/juggler_sequence.ts	16	jugglerSequence	strict	match	44	44	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/lowest_common_multiple.ts	16	naiveLCM	strict	match	39	39	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/lowest_common_multiple.ts	42	binaryLCM	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/lowest_common_multiple.ts	46	lowestCommonMultiple	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/number_of_digits.ts	12	numberOfDigits	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/pascals_triangle.ts	17	pascalsTriangle	strict	match	27	13	14	0	5	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/perfect_cube.ts	7	perfectCube	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/perfect_number.ts	11	isPerfectNumber	strict	match	43	43	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/perfect_square.ts	9	perfectSquare	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/primes.ts	70	isPrime	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/pronic_number.ts	16	pronicNumber	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/radians_to_degrees.ts	9	radiansToDegrees	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/sieve_of_eratosthenes.ts	11	sieveOfEratosthenes	strict	match	33	33	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/signum.ts	16	signum	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/maths/square_root.ts	12	squareRoot	strict	match	37	37	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/other/is_sorted_array.ts	9	isSortedArray	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/other/parse_nested_brackets.ts	19	parseNestedBrackets	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/other/shuffle_array.ts	1	shuffleArray	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/search/binary_search.ts	17	binarySearchIterative	strict	match	42	28	14	0	4	
+TheAlgorithms strict	projects/thealgorithms-ts/search/binary_search.ts	43	binarySearchRecursive	strict	match	41	26	15	0	6	
+TheAlgorithms strict	projects/thealgorithms-ts/search/exponential_search.ts	21	exponentialSearch	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/search/fibonacci_search.ts	16	fibonacciSearch	strict	match	31	16	15	0	17	
+TheAlgorithms strict	projects/thealgorithms-ts/search/interpolation_search.ts	12	interpolationSearch	strict	match	32	18	14	0	16	
+TheAlgorithms strict	projects/thealgorithms-ts/search/sentinel_search.ts	25	sentinelSearch	strict	match	47	47	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/bogo_sort.ts	24	bogoSort	strict	match	16	16	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/bubble_sort.ts	20	bubbleSort	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/cycle_sort.ts	42	CountSmallerItems	strict	match	46	38	8	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/gnome_sort.ts	10	gnomeSort	strict	match	45	45	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/heap_sort.ts	15	HeapSort	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/heap_sort.ts	27	buildMaxHeap	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/heap_sort.ts	36	heapify	strict	match	43	30	13	0	4	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/heap_sort.ts	56	swap	strict	match	18	2	16	0	27	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/insertion_sort.ts	10	insertionSort	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/quick_sort.ts	8	partition	strict	match	19	3	16	0	22	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/quick_sort.ts	39	choosePivot	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/quick_sort.ts	61	QuickSort	strict	match	44	35	9	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/quick_select.ts	13	QuickSelect	strict	match	44	42	2	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/sorts/selection_sort.ts	20	selectionSort	strict	match	48	48	0	0	0	
+TheAlgorithms strict	projects/thealgorithms-ts/data_structures/tries/tries.ts	4	TrieNode.constructor	strict	skipped	0	0	0	0	0	no function unit at this declaration
+TheAlgorithms dyn	projects/thealgorithms-ts/backtracking/all_combinations_of_size_k.ts	12	generateCombinations	dyn	match	27	27	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/backtracking/generateparentheses.ts	8	generateParentheses	dyn	match	30	30	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/bit_manipulation/add_binary.ts	8	addBinary	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/bit_manipulation/is_power_of_2.ts	25	isPowerOfTwo	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/bit_manipulation/is_power_of_4.ts	15	isPowerOfFour	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/bit_manipulation/log_two.ts	8	logTwo	dyn	match	32	32	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/ciphers/xor_cipher.ts	12	XORCipher	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/data_structures/tries/tries.ts	30	Trie.insertNode	dyn	skipped	0	0	0	0	0	private method (not callable from a driver)
+TheAlgorithms dyn	projects/thealgorithms-ts/data_structures/tries/tries.ts	49	Trie.find	dyn	match	17	1	16	0	31	
+TheAlgorithms dyn	projects/thealgorithms-ts/data_structures/tries/tries.ts	73	Trie.searchNode	dyn	skipped	0	0	0	0	0	private method (not callable from a driver)
+TheAlgorithms dyn	projects/thealgorithms-ts/graph/bipartite_graph.ts	1	dfs	dyn	match	16	0	16	0	32	
+TheAlgorithms dyn	projects/thealgorithms-ts/graph/kosajaru.ts	2	getNodePriorities	dyn	match	17	1	16	0	28	
+TheAlgorithms dyn	projects/thealgorithms-ts/graph/kosajaru.ts	37	gatherScc	dyn	match	17	1	16	0	27	
+TheAlgorithms dyn	projects/thealgorithms-ts/graph/prim.ts	67	Edge.constructor	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/absolute_value.ts	12	absoluteValue	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/aliquot_sum.ts	15	aliquotSum	dyn	match	41	41	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/armstrong_number.ts	16	armstrongNumber	dyn	match	47	47	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/factorial.ts	10	factorial	dyn	match	38	38	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/binomial_coefficient.ts	14	binomialCoefficient	dyn	match	41	41	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/calculate_mean.ts	11	calculateMean	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/calculate_median.ts	11	calculateMedian	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/degrees_to_radians.ts	9	degreesToRadians	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/double_factorial_iterative.ts	19	DoubleFactorialIterative	dyn	match	39	39	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/factors.ts	11	findFactors	dyn	match	45	45	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/fibonacci.ts	53	nthFibonacciRecursively	dyn	match	31	31	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/fibonacci.ts	79	nthFibonacciUsingFormula	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/find_min.ts	12	findMin	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/greatest_common_factor.ts	12	binaryGCF	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/greatest_common_factor.ts	23	greatestCommonFactor	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/hamming_distance.ts	15	hammingDistance	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/is_divisible.ts	11	isDivisible	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/is_even.ts	10	isEven	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/is_odd.ts	10	isOdd	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/is_palindrome.ts	9	isPalindrome	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/is_square_free.ts	11	isSquareFree	dyn	match	46	46	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/juggler_sequence.ts	16	jugglerSequence	dyn	match	44	44	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/lowest_common_multiple.ts	16	naiveLCM	dyn	match	39	39	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/lowest_common_multiple.ts	42	binaryLCM	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/lowest_common_multiple.ts	46	lowestCommonMultiple	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/number_of_digits.ts	12	numberOfDigits	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/pascals_triangle.ts	17	pascalsTriangle	dyn	match	27	13	14	0	5	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/perfect_cube.ts	7	perfectCube	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/perfect_number.ts	11	isPerfectNumber	dyn	match	43	43	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/perfect_square.ts	9	perfectSquare	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/primes.ts	70	isPrime	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/pronic_number.ts	16	pronicNumber	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/radians_to_degrees.ts	9	radiansToDegrees	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/sieve_of_eratosthenes.ts	11	sieveOfEratosthenes	dyn	match	33	33	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/signum.ts	16	signum	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/maths/square_root.ts	12	squareRoot	dyn	match	37	37	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/other/is_sorted_array.ts	9	isSortedArray	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/other/parse_nested_brackets.ts	19	parseNestedBrackets	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/other/shuffle_array.ts	1	shuffleArray	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/search/binary_search.ts	17	binarySearchIterative	dyn	match	42	28	14	0	4	
+TheAlgorithms dyn	projects/thealgorithms-ts/search/binary_search.ts	43	binarySearchRecursive	dyn	match	41	26	15	0	6	
+TheAlgorithms dyn	projects/thealgorithms-ts/search/exponential_search.ts	21	exponentialSearch	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/search/fibonacci_search.ts	16	fibonacciSearch	dyn	match	31	16	15	0	17	
+TheAlgorithms dyn	projects/thealgorithms-ts/search/interpolation_search.ts	12	interpolationSearch	dyn	match	32	18	14	0	16	
+TheAlgorithms dyn	projects/thealgorithms-ts/search/sentinel_search.ts	25	sentinelSearch	dyn	match	47	47	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/bogo_sort.ts	24	bogoSort	dyn	match	16	16	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/bubble_sort.ts	20	bubbleSort	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/cycle_sort.ts	42	CountSmallerItems	dyn	match	46	38	8	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/gnome_sort.ts	10	gnomeSort	dyn	match	45	45	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/heap_sort.ts	15	HeapSort	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/heap_sort.ts	27	buildMaxHeap	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/heap_sort.ts	36	heapify	dyn	match	43	30	13	0	4	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/heap_sort.ts	56	swap	dyn	match	18	2	16	0	27	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/insertion_sort.ts	10	insertionSort	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/quick_sort.ts	8	partition	dyn	match	19	3	16	0	22	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/quick_sort.ts	39	choosePivot	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/quick_sort.ts	61	QuickSort	dyn	match	44	35	9	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/quick_select.ts	13	QuickSelect	dyn	match	44	42	2	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/sorts/selection_sort.ts	20	selectionSort	dyn	match	48	48	0	0	0	
+TheAlgorithms dyn	projects/thealgorithms-ts/data_structures/tries/tries.ts	4	TrieNode.constructor	dyn	skipped	0	0	0	0	0	no function unit at this declaration
+TheAlgorithms dyn	projects/thealgorithms-ts/search/linear_search.ts	13	linearSearch	dyn	match	48	48	0	0	0	
+TheAlgorithms generic@number	public/mono/thealgorithms-ts-dyn/mono_treeSort.ts	4	mono_treeSort	dyn	match	48	48	0	0	0	

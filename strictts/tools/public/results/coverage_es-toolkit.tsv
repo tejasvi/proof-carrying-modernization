@@ -1,0 +1,1589 @@
+mode	file	line	name	kind	loc	status	rules
+strict	src/array/at.ts	16	at	function	13	blocked	unsupported-builtin:1
+strict	src/array/cartesianProduct.ts	83	cartesianProduct	function	26	blocked	unsupported-builtin:2
+strict	src/array/chunk.ts	24	chunk	function	13	blocked	unsupported-builtin:1
+strict	src/array/chunkBy.ts	29	chunkBy	function	14	blocked	any-type:7,no-any:2
+strict	src/array/combinations.ts	32	combinations	function	35	blocked	any-type:7,unsupported-builtin:2
+strict	src/array/compact.ts	14	compact	function	10	blocked	as-downcast:1,unsupported-type:4
+strict	src/array/countBy.ts	34	countBy	function	12	blocked	as-downcast:1,no-object-type:4,unsupported-type:1
+strict	src/array/difference.ts	23	difference	function	4	covered	
+strict	src/array/differenceBy.ts	33	differenceBy	function	10	blocked	any-type:5,no-any:1
+strict	src/array/differenceWith.ts	29	differenceWith	function	11	covered	
+strict	src/array/drop.ts	17	drop	function	4	covered	
+strict	src/array/dropRight.ts	17	dropRight	function	7	covered	
+strict	src/array/dropRightWhile.ts	19	dropRightWhile	function	11	covered	
+strict	src/array/dropWhile.ts	19	dropWhile	function	10	covered	
+strict	src/array/fill.ts	115	fill	function	9	covered	
+strict	src/promise/semaphore.ts	47	Semaphore.constructor	constructor	4	covered	
+strict	src/promise/semaphore.ts	68	Semaphore.acquire	method	9	covered	
+strict	src/promise/semaphore.ts	94	Semaphore.release	method	10	blocked	no-loose-eq:2
+strict	src/promise/limitAsync.ts	34	limitAsync	function	11	blocked	as-downcast:1,no-any:2
+strict	src/array/filterAsync.ts	36	filterAsync	function	11	blocked	no-loose-eq:2
+strict	src/array/flatten.ts	17	flatten	function	16	blocked	as-downcast:1,unsupported-type:4
+strict	src/array/flatMap.ts	23	flatMap	function	10	blocked	as-downcast:1,unsupported-type:1
+strict	src/array/flatMapAsync.ts	39	flatMapAsync	function	11	blocked	no-loose-eq:2
+strict	src/array/flattenDeep.ts	26	flattenDeep	function	3	blocked	as-downcast:1,unsupported-type:1
+strict	src/array/flatMapDeep.ts	16	flatMapDeep	function	6	blocked	unsupported-type:1
+strict	src/array/forEachAsync.ts	36	forEachAsync	function	10	blocked	no-loose-eq:2
+strict	src/array/forEachRight.ts	73	forEachRight	function	6	blocked	as-downcast:1
+strict	src/array/groupBy.ts	39	groupBy	function	15	blocked	as-downcast:1,no-object-type:6,no-symbol:1
+strict	src/array/head.ts	50	head	function	3	covered	
+strict	src/array/initial.ts	70	initial	function	3	covered	
+strict	src/array/intersection.ts	19	intersection	function	4	covered	
+strict	src/array/intersectionBy.ts	34	intersectionBy	function	17	blocked	any-type:9,no-any:1
+strict	src/array/intersectionWith.ts	35	intersectionWith	function	11	covered	
+strict	src/array/isSubset.ts	27	isSubset	function	3	covered	
+strict	src/array/isSubsetWith.ts	33	isSubsetWith	function	7	covered	
+strict	src/array/keyBy.ts	34	keyBy	function	12	blocked	as-downcast:1,no-object-type:4
+strict	src/array/last.ts	71	last	function	3	covered	
+strict	src/array/mapAsync.ts	35	mapAsync	function	10	blocked	no-loose-eq:2
+strict	src/array/maxBy.ts	74	maxBy	function	22	covered	
+strict	src/array/minBy.ts	74	minBy	function	22	covered	
+strict	src/_internal/compareValues.ts	2	nullishRank	function	9	blocked	any-type:3,no-any:1
+strict	src/_internal/compareValues.ts	12	compareAscending	function	22	blocked	any-type:8,no-any:2
+strict	src/_internal/compareValues.ts	37	compareValues	function	4	blocked	any-type:6,no-any:2
+strict	src/array/orderBy.ts	37	orderBy	function	21	blocked	any-type:11,no-any:1,no-object-type:1
+strict	src/array/partition.ts	56	partition	function	16	blocked	any-type:2,no-any:1
+strict	src/array/pull.ts	17	pull	function	17	blocked	any-type:4,no-any:1,no-delete:1
+strict	src/array/pullAt.ts	19	pullAt	function	8	covered	
+strict	src/array/reduceAsync.ts	79	reduceAsync	function	16	blocked	any-type:1,no-any:1,no-loose-eq:2
+strict	src/array/remove.ts	17	remove	function	19	blocked	any-type:2,no-delete:1
+strict	src/array/sample.ts	15	sample	function	4	covered	
+strict	src/math/random.ts	44	random	function	10	blocked	no-loose-eq:2
+strict	src/math/randomInt.ts	43	randomInt	function	3	covered	
+strict	src/array/sampleSize.ts	21	sampleSize	function	16	blocked	any-type:7
+strict	src/array/shuffle.ts	15	shuffle	function	11	covered	
+strict	src/array/sortBy.ts	35	sortBy	function	6	blocked	any-type:2,no-any:1,no-object-type:1
+strict	src/array/tail.ts	94	tail	function	3	covered	
+strict	src/array/take.ts	23	take	function	3	covered	
+strict	src/array/takeRight.ts	22	takeRight	function	6	covered	
+strict	src/array/takeRightWhile.ts	23	takeRightWhile	function	11	covered	
+strict	src/array/takeWhile.ts	24	takeWhile	function	14	covered	
+strict	src/array/toFilled.ts	106	toFilled	function	10	blocked	unsupported-conversion:1
+strict	src/array/uniq.ts	16	uniq	function	3	covered	
+strict	src/array/union.ts	20	union	function	3	covered	
+strict	src/array/uniqBy.ts	29	uniqBy	function	11	covered	
+strict	src/array/unionBy.ts	25	unionBy	function	3	covered	
+strict	src/array/uniqWith.ts	16	uniqWith	function	11	covered	
+strict	src/array/unionWith.ts	23	unionWith	function	7	covered	
+strict	src/array/unzip.ts	17	unzip	function	18	blocked	any-type:1,as-downcast:1,index-signature:5,no-any:1,unsupported-type:6
+strict	src/array/unzipWith.ts	15	unzipWith	function	12	blocked	any-type:4,fn-type-rest:2,unsupported-builtin:1
+strict	src/array/windowed.ts	49	windowed	function	19	covered	
+strict	src/array/without.ts	23	without	function	3	covered	
+strict	src/array/xor.ts	22	xor	function	3	covered	
+strict	src/array/xorBy.ts	24	xorBy	function	5	covered	
+strict	src/array/xorWith.ts	23	xorWith	function	9	covered	
+strict	src/array/zip.ts	134	zip	function	20	blocked	any-type:5,unsupported-builtin:2
+strict	src/array/zipObject.ts	31	zipObject	function	7	blocked	as-downcast:1,no-object-type:4
+strict	src/array/zipWith.ts	108	zipWith	function	11	blocked	any-type:5,fn-type-rest:3,no-any:2,unsupported-builtin:2
+strict	src/error/AbortError.ts	8	AbortError.constructor	constructor	3	blocked	no-extends:2
+strict	src/error/TimeoutError.ts	8	TimeoutError.constructor	constructor	3	blocked	no-extends:2
+strict	src/function/after.ts	30	after	function	15	blocked	fn-type-rest:2,no-any:2
+strict	src/function/ary.ts	19	ary	function	5	blocked	fn-type-rest:2,no-any:4
+strict	src/function/asyncNoop.ts	10	asyncNoop	function	1	covered	
+strict	src/function/before.ts	30	before	function	15	blocked	fn-type-rest:2,no-any:2
+strict	src/function/curry.ts	159	curry	function	8	blocked	any-type:1,fn-type-rest:5,no-any:5
+strict	src/function/curry.ts	169	makeCurry	function	10	blocked	any-type:3,no-any:3,unsupported:1,unsupported-type:3
+strict	src/function/curryRight.ts	168	curryRight	function	8	blocked	any-type:1,fn-type-rest:5,no-any:5
+strict	src/function/curryRight.ts	178	makeCurryRight	function	10	blocked	any-type:3,no-any:3,unsupported:1,unsupported-type:3
+strict	src/function/debounce.ts	77	debounce	function	65	blocked	any-type:2,extern-callback:1,extern-effect:2,no-any:3,no-loose-eq:7,unsupported:1,unsupported-conversion:1,unsupported-type:10
+strict	src/function/flow.ts	161	flow	function	9	blocked	fn-type-rest:3,no-any:6
+strict	src/function/flowRight.ts	177	flowRight	function	3	blocked	fn-type-rest:3,no-any:4
+strict	src/function/identity.ts	20	identity	function	3	covered	
+strict	src/function/memoize.ts	74	memoize	function	20	blocked	any-type:4,as-downcast:1,no-any:8,unsupported-type:5
+strict	src/function/negate.ts	14	negate	function	3	blocked	as-downcast:1,no-any:2
+strict	src/function/noop.ts	10	noop	function	1	covered	
+strict	src/function/once.ts	34	once	function	11	blocked	as-downcast:1,no-any:2,unsupported-type:1
+strict	src/function/partial.ts	777	partial	function	6	blocked	any-type:2,fn-type-rest:1,no-any:4,no-symbol:2
+strict	src/function/partial.ts	784	partialImpl	function	18	blocked	any-type:1,fn-type-rest:1,internal:2,no-any:7,no-prototype:4,unsupported-type:4
+strict	src/function/partialRight.ts	793	partialRight	function	6	blocked	any-type:2,fn-type-rest:1,no-any:4,no-symbol:2
+strict	src/function/partialRight.ts	800	partialRightImpl	function	20	blocked	any-type:1,fn-type-rest:1,internal:2,no-any:7,no-prototype:4,unsupported-type:4
+strict	src/function/rest.ts	31	rest	function	13	blocked	fn-type-rest:2,internal:1,no-any:5
+strict	src/promise/delay.ts	39	delay	function	19	blocked	extern-callback:2,extern-effect:1
+strict	src/function/retry.ts	45	DEFAULT_SHOULD_RETRY	arrow	1	covered	
+strict	src/function/retry.ts	117	retry	function	37	blocked	any-type:13,no-any:2,no-object-type:1,throw-non-error:2
+strict	src/function/spread.ts	17	spread	function	5	blocked	no-any:3,unsupported-type:2
+strict	src/function/throttle.ts	51	throttle	function	31	blocked	fn-type-rest:1,no-any:3,no-loose-eq:1,unsupported-type:9
+strict	src/function/unary.ts	17	unary	function	3	blocked	fn-type-rest:1,no-any:3
+strict	src/math/clamp.ts	50	clamp	function	6	blocked	no-loose-eq:2
+strict	src/math/inRange.ts	42	inRange	function	10	blocked	no-loose-eq:2
+strict	src/math/sum.ts	14	sum	function	7	covered	
+strict	src/math/mean.ts	16	mean	function	3	covered	
+strict	src/math/sumBy.ts	17	sumBy	function	7	covered	
+strict	src/math/meanBy.ts	18	meanBy	function	3	covered	
+strict	src/math/median.ts	23	median	function	12	covered	
+strict	src/math/medianBy.ts	23	medianBy	function	4	covered	
+strict	src/math/percentile.ts	26	percentile	function	25	covered	
+strict	src/math/range.ts	57	range	function	15	blocked	no-loose-eq:2,unsupported-builtin:1
+strict	src/math/rangeRight.ts	57	rangeRight	function	15	blocked	any-type:3,no-loose-eq:2
+strict	src/math/round.ts	18	round	function	7	covered	
+strict	src/predicate/isPrimitive.ts	22	isPrimitive	function	3	blocked	any-type:1,no-any:1,no-loose-eq:2,no-object-type:2,no-symbol:1
+strict	src/predicate/isTypedArray.ts	16	isTypedArray	function	16	blocked	any-type:2,instanceof:1,no-any:1
+strict	src/object/clone.ts	32	clone	function	49	blocked	any-type:13,as-downcast:1,extern-effect:3,instanceof:8,no-loose-eq:2,no-prototype:3,no-regexp:1,unsupported:1,unsupported-builtin:1,unsupported-type:14
+strict	src/compat/_internal/getSymbols.ts	1	getSymbols	function	5	blocked	any-type:2,no-any:1,no-prototype:1,no-symbol:2
+strict	src/compat/_internal/getTag.ts	8	getTag	function	6	blocked	no-loose-eq:2,no-prototype:1,unsupported-builtin:1
+strict	src/predicate/isBuffer.ts	21	isBuffer	function	5	blocked	any-type:2,internal:2,no-any:1
+strict	src/object/cloneDeepWith.ts	73	cloneDeepWith	function	6	blocked	any-type:3,no-any:4
+strict	src/object/cloneDeepWith.ts	80	cloneDeepWithImpl	function	136	blocked	any-op:1,any-type:102,as-downcast:13,external-call:1,index-signature:2,no-any:9,no-prototype:3,no-regexp:7,no-symbol:1,unsupported:5,unsupported-builtin:1,unsupported-type:2
+strict	src/object/cloneDeepWith.ts	260	copyProperties	function	16	blocked	any-type:9,no-any:8,no-loose-eq:2,no-symbol:9
+strict	src/object/cloneDeepWith.ts	279	isCloneableObject	function	31	blocked	no-object-type:3
+strict	src/object/cloneDeep.ts	49	cloneDeep	function	3	blocked	any-type:1
+strict	src/object/deepFreeze.ts	17	deepFreeze	function	14	blocked	as-downcast:1,extern-effect:1,unsupported-type:9
+strict	src/object/findKey.ts	19	findKey	function	7	blocked	no-any:2,unsupported-type:6
+strict	src/predicate/isPlainObject.ts	43	isPlainObject	function	15	blocked	any-type:2,no-any:2,no-object-type:7,no-prototype:4,unsupported-builtin:2
+strict	src/object/flattenObject.ts	51	flattenObject	function	6	blocked	any-type:1,no-any:1,no-object-type:3
+strict	src/object/flattenObject.ts	58	flattenObjectImpl	function	24	blocked	any-type:9,extern-effect:2,index-signature:1,no-any:3,no-object-type:4,unsupported-builtin:1
+strict	src/object/invert.ts	19	invert	function	10	blocked	as-downcast:2,no-object-type:6,unsupported-type:2
+strict	src/object/mapKeys.ts	18	mapKeys	function	13	blocked	as-downcast:1,computed-key:1,no-any:1,no-object-type:4,unsupported-type:9
+strict	src/object/mapKeysAsync.ts	25	mapKeysAsync	function	18	blocked	as-downcast:1,no-any:1,no-object-type:3,unsupported-type:6
+strict	src/object/mapValues.ts	19	mapValues	function	13	blocked	as-downcast:2,computed-key:1,no-object-type:5,unsupported-type:3
+strict	src/object/mapValuesAsync.ts	26	mapValuesAsync	function	17	blocked	as-downcast:2,no-object-type:5,unsupported-type:3
+strict	src/_internal/isMergeableValue.ts	13	isMergeableValue	function	3	blocked	any-type:2,no-any:1,unsupported-builtin:1
+strict	src/_internal/isUnsafeProperty.ts	14	isUnsafeProperty	function	3	blocked	no-symbol:2
+strict	src/object/merge.ts	51	merge	function	21	blocked	any-type:11,index-signature:11,no-any:3,no-object-type:1,no-symbol:12,unsupported-builtin:1
+strict	src/object/mergeWith.ts	53	mergeWith	function	28	blocked	any-type:4,computed-key:7,no-any:8,no-symbol:1,unsupported-builtin:1,unsupported-type:13
+strict	src/object/omit.ts	18	omit	function	8	blocked	no-any:1,no-delete:1,no-object-type:2,unsupported:1
+strict	src/object/omitBy.ts	22	omitBy	function	16	blocked	as-downcast:1,computed-key:1,no-any:1,no-object-type:1,unsupported-type:11
+strict	src/object/pick.ts	18	pick	function	10	blocked	as-downcast:1,computed-key:1,no-any:1,no-object-type:4,no-symbol:1
+strict	src/object/pickBy.ts	22	pickBy	function	16	blocked	as-downcast:1,computed-key:1,no-any:1,no-object-type:1,unsupported-type:11
+strict	src/object/sortKeys.ts	19	sortKeys	function	9	blocked	any-type:3,as-downcast:1,computed-key:1,no-any:2,unsupported-conversion:1
+strict	src/compat/predicate/isArray.ts	66	isArray	function	3	blocked	any-type:1,no-any:2,unsupported-builtin:1
+strict	src/string/capitalize.ts	13	capitalize	function	3	blocked	as-downcast:1,unsupported-type:1
+strict	src/string/words.ts	38	words	function	3	blocked	unsupported-builtin:1
+strict	src/string/camelCase.ts	20	camelCase	function	8	covered	
+strict	src/object/toCamelCaseKeys.ts	52	toCamelCaseKeys	function	17	blocked	any-type:1,as-downcast:4,unsupported-type:9
+strict	src/compat/predicate/isPlainObject.ts	23	isPlainObject	function	29	blocked	any-op:1,any-type:14,no-any:1,no-loose-eq:4,no-prototype:5,no-symbol:2,unsupported-builtin:3
+strict	src/string/constantCase.ts	18	constantCase	function	4	covered	
+strict	src/object/toConstantCaseKeys.ts	52	toConstantCaseKeys	function	17	blocked	any-type:1,as-downcast:5,no-any:3,unsupported-type:8
+strict	src/string/kebabCase.ts	18	kebabCase	function	4	covered	
+strict	src/object/toKebabCaseKeys.ts	52	toKebabCaseKeys	function	17	blocked	any-type:1,as-downcast:5,no-any:3,unsupported-type:8
+strict	src/object/toMerged.ts	49	toMerged	function	14	blocked	any-type:1,no-any:2,unsupported-type:1
+strict	src/string/pascalCase.ts	18	pascalCase	function	4	covered	
+strict	src/object/toPascalCaseKeys.ts	52	toPascalCaseKeys	function	17	blocked	any-type:1,as-downcast:5,no-any:3,unsupported-type:8
+strict	src/string/snakeCase.ts	18	snakeCase	function	4	covered	
+strict	src/object/toSnakeCaseKeys.ts	52	toSnakeCaseKeys	function	17	blocked	any-type:1,as-downcast:5,no-any:3,unsupported-type:8
+strict	src/predicate/isArrayBuffer.ts	19	isArrayBuffer	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isBlob.ts	17	isBlob	function	7	blocked	any-type:2,no-any:1,unsupported-type:1
+strict	src/predicate/isBoolean.ts	23	isBoolean	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isBrowser.ts	21	isBrowser	function	3	blocked	any-type:2,no-loose-eq:2
+strict	src/predicate/isDate.ts	14	isDate	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isEmptyObject.ts	15	isEmptyObject	function	3	blocked	any-type:2,index-signature:1,no-any:1,no-never-value:1
+strict	src/compat/util/eq.ts	14	eq	function	3	blocked	any-type:6,no-any:2
+strict	src/predicate/isEqualWith.ts	70	isEqualWith	function	14	blocked	any-type:6,no-any:8
+strict	src/predicate/isEqualWith.ts	85	isEqualWithImpl	function	42	blocked	any-type:20,no-any:12,no-symbol:2,unsupported:3
+strict	src/predicate/isEqualWith.ts	131	areObjectsEqual	function	160	blocked	any-op:6,any-type:98,no-any:10,no-loose-eq:4,no-symbol:13
+strict	src/predicate/isEqual.ts	18	isEqual	function	3	blocked	any-type:4,no-any:2
+strict	src/predicate/isError.ts	14	isError	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isFile.ts	21	isFile	function	7	blocked	any-type:2,instanceof:1,no-any:1,unsupported-type:1
+strict	src/predicate/isFunction.ts	14	isFunction	function	3	blocked	any-type:2,no-any:3
+strict	src/predicate/isIterable.ts	23	isIterable	function	3	blocked	any-type:2,no-any:3,no-loose-eq:2,no-symbol:2,unsupported-builtin:1
+strict	src/predicate/isJSON.ts	29	isJSON	function	11	blocked	any-type:3,no-any:1
+strict	src/predicate/isJSONValue.ts	31	isJSONValue	function	15	blocked	any-type:1,no-any:3,no-object-type:3,unsupported:1
+strict	src/predicate/isJSONValue.ts	61	isJSONArray	function	6	blocked	any-type:3,no-any:2,unsupported-builtin:1
+strict	src/predicate/isJSONValue.ts	82	isJSONObject	function	17	blocked	any-type:4,index-signature:2,no-any:2,no-reflect:1,no-symbol:6
+strict	src/predicate/isLength.ts	22	isLength	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isMap.ts	19	isMap	function	3	blocked	any-type:2,no-any:3
+strict	src/predicate/isNil.ts	20	isNil	function	3	blocked	any-type:1,no-any:1,no-loose-eq:2
+strict	src/predicate/isNode.ts	23	isNode	function	3	blocked	any-type:2,no-loose-eq:2
+strict	src/predicate/isNotNil.ts	17	isNotNil	function	3	blocked	no-loose-eq:2
+strict	src/predicate/isNull.ts	21	isNull	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isNumber.ts	25	isNumber	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isPromise.ts	18	isPromise	function	3	blocked	any-type:2,no-any:2
+strict	src/predicate/isRegExp.ts	14	isRegExp	function	3	blocked	any-type:2,no-any:1,no-regexp:1
+strict	src/predicate/isSet.ts	19	isSet	function	3	blocked	any-type:2,no-any:2
+strict	src/predicate/isString.ts	19	isString	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isSymbol.ts	24	isSymbol	function	3	blocked	any-type:2,no-any:1,no-symbol:1
+strict	src/predicate/isUndefined.ts	21	isUndefined	function	3	blocked	any-type:2,no-any:1
+strict	src/predicate/isWeakMap.ts	21	isWeakMap	function	3	blocked	any-type:2,no-any:2
+strict	src/predicate/isWeakSet.ts	21	isWeakSet	function	3	blocked	any-type:2,no-any:1
+strict	src/promise/allKeyed.ts	28	allKeyed	function	11	blocked	as-downcast:1,no-any:1,unsupported-type:11
+strict	src/promise/mutex.ts	37	Mutex.get isLocked	accessor	3	covered	
+strict	src/promise/mutex.ts	54	Mutex.acquire	method	3	covered	
+strict	src/promise/mutex.ts	70	Mutex.release	method	3	covered	
+strict	src/promise/timeout.ts	39	timeout	function	17	blocked	extern-callback:2,extern-effect:1,no-never-value:2
+strict	src/promise/withTimeout.ts	45	withTimeout	function	7	blocked	unsupported-conversion:1
+strict	src/string/deburr.ts	52	deburr	function	16	blocked	unsupported-builtin:1
+strict	src/string/dedent.ts	37	dedent	function	22	blocked	any-type:4,fn-type-rest:2,no-any:5,unsupported:1
+strict	src/string/dedent.ts	61	dedentTemplateStringsArray	function	6	blocked	any-type:1,no-any:1,unsupported-builtin:1
+strict	src/string/dedent.ts	69	dedentImpl	function	35	covered	
+strict	src/string/escape.ts	22	escape	function	3	blocked	extern-callback:1
+strict	src/string/escapeRegExp.ts	12	escapeRegExp	function	3	covered	
+strict	src/string/lowerCase.ts	17	lowerCase	function	4	covered	
+strict	src/string/lowerFirst.ts	12	lowerFirst	function	3	covered	
+strict	src/string/pad.ts	17	pad	function	3	covered	
+strict	src/string/reverseString.ts	14	reverseString	function	3	covered	
+strict	src/string/startCase.ts	16	startCase	function	12	covered	
+strict	src/string/trimEnd.ts	17	trimEnd	function	23	blocked	unsupported:1
+strict	src/string/trimStart.ts	17	trimStart	function	23	blocked	unsupported:1
+strict	src/string/trim.ts	16	trim	function	6	covered	
+strict	src/string/unescape.ts	22	unescape	function	3	blocked	extern-callback:1
+strict	src/string/upperCase.ts	17	upperCase	function	11	covered	
+strict	src/string/upperFirst.ts	12	upperFirst	function	3	covered	
+strict	src/util/attempt.ts	40	attempt	function	7	blocked	as-downcast:1,no-any:1
+strict	src/util/attemptAsync.ts	33	attemptAsync	function	8	blocked	as-downcast:1,no-any:1
+strict	src/util/defer.ts	24	defer	function	7	blocked	ext-literal:1,no-symbol:1
+strict	src/util/deferAsync.ts	27	deferAsync	function	7	blocked	ext-literal:1,no-symbol:1,unsupported-generic:1
+strict	src/util/invariant.ts	65	invariant	function	9	blocked	any-type:2,no-any:1
+strict	src/compat/array/castArray.ts	28	castArray	function	6	blocked	as-downcast:1,no-arguments:1,unsupported-builtin:1,unsupported-type:1
+strict	src/compat/_internal/toArray.ts	1	toArray	function	3	blocked	any-type:1,unsupported-builtin:2
+strict	src/compat/predicate/isArrayLike.ts	41	isArrayLike	function	3	blocked	any-type:2,no-any:2,no-loose-eq:2
+strict	src/compat/array/chunk.ts	27	chunk	function	14	covered	
+strict	src/compat/array/compact.ts	17	compact	function	6	blocked	unsupported-builtin:1
+strict	src/compat/array/concat.ts	30	concat	function	3	blocked	as-downcast:1
+strict	src/compat/_internal/isDeepKey.ts	29	isDeepKey	function	17	blocked	no-symbol:1,unsupported:1
+strict	src/compat/_internal/toKey.ts	8	toKey	function	9	blocked	any-type:5,no-any:1,no-symbol:3
+strict	src/compat/predicate/isSymbol.ts	15	isSymbol	function	3	blocked	any-type:3,no-any:1,no-symbol:2
+strict	src/compat/util/toString.ts	19	toString	function	6	blocked	any-type:2,no-any:1,no-loose-eq:2
+strict	src/compat/util/toString.ts	27	baseToString	function	19	blocked	any-type:6,no-any:1,no-symbol:1,unsupported-builtin:1
+strict	src/compat/util/toPath.ts	21	toPath	function	96	blocked	any-op:1,any-type:26,as-downcast:1,no-any:2,unsupported-builtin:1
+strict	src/compat/object/get.ts	455	get	function	50	blocked	any-type:27,no-any:3,no-loose-eq:2,no-symbol:5,unsupported:1,unsupported-builtin:1
+strict	src/compat/object/get.ts	518	getWithPath	function	19	blocked	any-type:12,no-any:3,no-loose-eq:2,no-symbol:5
+strict	src/compat/object/property.ts	24	property	function	5	blocked	no-symbol:2
+strict	src/compat/predicate/isObject.ts	25	isObject	function	3	blocked	any-type:4,no-any:1,no-object-type:1
+strict	src/compat/predicate/isMatchWith.ts	104	isMatchWith	function	29	blocked	any-type:4,no-any:4,no-object-type:10
+strict	src/compat/predicate/isMatchWith.ts	137	isMatchWithInternal	function	42	blocked	any-type:22,no-any:10,no-object-type:1,unsupported:1
+strict	src/compat/predicate/isMatchWith.ts	186	isObjectMatch	function	70	blocked	any-type:35,no-any:11,no-in:1,no-loose-eq:4,no-symbol:1,unsupported-builtin:1
+strict	src/compat/predicate/isMatchWith.ts	274	isMapMatch	function	28	blocked	any-type:7,no-any:11
+strict	src/compat/predicate/isMatchWith.ts	308	isArrayMatch	function	45	blocked	any-type:12,no-any:10,unsupported-builtin:1
+strict	src/compat/predicate/isMatchWith.ts	364	isSetMatch	function	21	blocked	any-type:10,no-any:10
+strict	src/compat/predicate/isMatch.ts	31	isMatch	function	3	blocked	no-object-type:6
+strict	src/compat/predicate/matches.ts	59	matches	function	6	blocked	any-type:1,no-any:1,no-object-type:2
+strict	src/compat/object/cloneDeepWith.ts	83	cloneDeepWith	function	44	blocked	any-type:3,no-any:3,no-prototype:1,no-symbol:2
+strict	src/compat/object/cloneDeep.ts	49	cloneDeep	function	3	covered	
+strict	src/compat/_internal/isIndex.ts	3	isIndex	function	13	blocked	no-symbol:1,unsupported:1
+strict	src/compat/predicate/isArguments.ts	23	isArguments	function	3	blocked	any-type:4,no-any:1
+strict	src/compat/object/has.ts	88	has	function	27	blocked	any-type:13,no-any:1,no-in:1,no-loose-eq:2,no-symbol:8,unsupported-builtin:2
+strict	src/compat/predicate/matchesProperty.ts	69	matchesProperty	function	25	blocked	any-type:1,no-any:1,no-object-type:1,no-symbol:2,unsupported:1
+strict	src/compat/util/iteratee.ts	69	iteratee	function	21	blocked	any-type:4,fn-type-rest:1,no-any:5,no-loose-eq:2,no-object-type:2,no-symbol:3,unsupported:1,unsupported-builtin:1,unsupported-generic:1
+strict	src/compat/array/countBy.ts	28	countBy	function	14	blocked	any-type:13,no-any:4,no-loose-eq:2,no-prototype:1
+strict	src/compat/_internal/normalizeZero.ts	8	normalizeZero	function	3	blocked	as-downcast:1,unsupported:1
+strict	src/compat/predicate/isObjectLike.ts	25	isObjectLike	function	3	blocked	any-type:3,no-any:1
+strict	src/compat/predicate/isArrayLikeObject.ts	23	isArrayLikeObject	function	3	blocked	any-type:3,no-any:1
+strict	src/compat/array/difference.ts	30	difference	function	14	blocked	any-type:2,unsupported-builtin:2,unsupported-generic:1
+strict	src/compat/array/last.ts	27	last	function	6	covered	
+strict	src/compat/_internal/flattenArrayLike.ts	3	flattenArrayLike	function	13	covered	
+strict	src/compat/array/differenceBy.ts	167	differenceBy	function	11	blocked	any-type:6,no-any:1,unsupported-builtin:2,unsupported-generic:2
+strict	src/compat/array/differenceWith.ts	142	differenceWith	function	14	blocked	any-type:5,as-downcast:1,no-any:3,unsupported-builtin:2,unsupported-generic:1
+strict	src/compat/util/toNumber.ts	19	toNumber	function	6	blocked	any-type:3,no-any:1
+strict	src/compat/util/toFinite.ts	17	toFinite	function	11	blocked	any-type:9,no-any:1
+strict	src/compat/util/toInteger.ts	20	toInteger	function	5	blocked	any-type:2,no-any:1
+strict	src/compat/array/drop.ts	24	drop	function	7	blocked	any-type:2,no-any:1
+strict	src/compat/array/dropRight.ts	41	dropRight	function	7	blocked	any-type:2,no-any:1
+strict	src/compat/array/dropRightWhile.ts	62	dropRightWhile	function	6	blocked	no-symbol:2
+strict	src/compat/array/dropRightWhile.ts	70	dropRightWhileImpl	function	21	blocked	any-type:3,no-object-type:1,no-symbol:7,unsupported:1,unsupported-builtin:1
+strict	src/compat/array/dropWhile.ts	33	dropWhile	function	6	blocked	no-symbol:2
+strict	src/compat/array/dropWhile.ts	41	dropWhileImpl	function	21	blocked	any-type:3,no-object-type:1,no-symbol:7,unsupported:1,unsupported-builtin:1
+strict	src/compat/array/forEach.ts	147	forEach	function	18	blocked	any-type:12,no-any:9,no-symbol:5
+strict	src/compat/array/forEachRight.ts	147	forEachRight	function	18	blocked	any-type:12,no-any:9,no-symbol:5
+strict	src/compat/_internal/isIterateeCall.ts	6	isIterateeCall	function	12	blocked	any-type:8,no-any:4,no-in:1,no-object-type:2
+strict	src/compat/predicate/isString.ts	19	isString	function	3	blocked	any-type:3,no-any:1
+strict	src/compat/array/fill.ts	96	fill	function	27	blocked	any-type:1,no-any:1,unsupported:1,unsupported-type:1
+strict	src/compat/array/filter.ts	116	filter	function	31	blocked	any-type:8,as-downcast:2,no-any:5,no-symbol:2,unsupported-builtin:1,unsupported-type:4
+strict	src/compat/array/find.ts	108	find	function	32	blocked	any-type:2,as-downcast:1,fn-type-rest:2,no-any:5,no-symbol:8,unsupported-type:1
+strict	src/compat/function/identity.ts	43	identity	function	3	blocked	any-type:3,no-any:2
+strict	src/compat/array/findIndex.ts	21	findIndex	function	17	blocked	fn-type-rest:2,no-symbol:2,unsupported-builtin:1
+strict	src/compat/array/findLast.ts	119	findLast	function	33	blocked	any-type:5,as-downcast:2,fn-type-rest:3,no-any:5,no-symbol:2,unsupported-builtin:2,unsupported-type:3
+strict	src/compat/array/findLastIndex.ts	57	findLastIndex	function	35	blocked	any-type:3,no-any:3,no-object-type:1,no-symbol:3,unsupported:1,unsupported-builtin:1,unsupported-type:4
+strict	src/compat/array/head.ts	52	head	function	6	covered	
+strict	src/compat/array/flattenDepth.ts	23	flattenDepth	function	19	blocked	as-downcast:1,index-signature:2
+strict	src/compat/array/flattenDepth.ts	46	isFlattenable	function	3	blocked	any-type:5,no-any:2,no-symbol:1,unsupported-builtin:1
+strict	src/compat/array/map.ts	130	map	function	17	blocked	any-type:12,fn-type-rest:2,no-any:10,no-object-type:1,no-symbol:7
+strict	src/compat/array/flatMapDepth.ts	121	flatMapDepth	function	22	blocked	any-type:3,fn-type-rest:2,no-any:1,no-loose-eq:2,no-object-type:6
+strict	src/compat/array/flatMap.ts	114	flatMap	function	3	blocked	any-type:2,no-any:2,no-object-type:3
+strict	src/compat/array/flatMapDeep.ts	111	flatMapDeep	function	16	blocked	any-type:2,no-any:2,no-object-type:5
+strict	src/compat/array/flatten.ts	15	flatten	function	3	blocked	as-downcast:1
+strict	src/compat/array/flattenDeep.ts	15	flattenDeep	function	5	blocked	any-type:1,index-signature:1,no-any:2,no-never-value:1,unsupported-type:1
+strict	src/compat/array/groupBy.ts	77	groupBy	function	15	blocked	as-downcast:1,fn-type-rest:2,no-any:4,no-loose-eq:2,no-object-type:1,no-symbol:2
+strict	src/compat/array/includes.ts	47	includes	function	49	blocked	any-type:18,as-downcast:1,no-any:6,no-loose-eq:2,no-reflect:1,no-regexp:1,unsupported-builtin:1
+strict	src/compat/array/indexOf.ts	21	indexOf	function	21	blocked	unsupported-builtin:1
+strict	src/compat/array/initial.ts	17	initial	function	6	blocked	unsupported-builtin:1
+strict	src/compat/array/intersection.ts	23	intersection	function	17	covered	
+strict	src/compat/array/intersectionBy.ts	127	intersectionBy	function	24	blocked	any-type:20,no-any:3
+strict	src/compat/array/intersectionWith.ts	109	intersectionWith	function	22	blocked	any-type:8,no-any:1,no-loose-eq:4,unsupported-generic:1
+strict	src/compat/array/invokeMap.ts	51	invokeMap	function	26	blocked	any-op:1,any-type:3,fn-type-rest:3,no-any:2,no-loose-eq:2,unsupported-builtin:1,unsupported-type:4
+strict	src/compat/array/join.ts	15	join	function	6	blocked	any-type:1,no-any:1
+strict	src/compat/array/reduce.ts	129	reduce	function	31	blocked	any-type:20,no-any:14,no-arguments:1
+strict	src/compat/array/keyBy.ts	78	keyBy	function	18	blocked	any-type:5,fn-type-rest:2,no-any:3,no-symbol:2
+strict	src/compat/array/lastIndexOf.ts	29	lastIndexOf	function	30	covered	
+strict	src/compat/array/nth.ts	15	nth	function	10	covered	
+strict	src/compat/_internal/compareValues.ts	1	getPriority	function	15	blocked	any-type:3,no-any:1,no-object-type:3
+strict	src/compat/_internal/compareValues.ts	21	compareValues	arrow	17	blocked	mixed-compare:2
+strict	src/compat/_internal/isKey.ts	21	isKey	function	12	blocked	any-type:4,as-downcast:1,no-any:2,no-loose-eq:4,no-object-type:3,unsupported-builtin:1
+strict	src/compat/array/orderBy.ts	140	orderBy	function	78	blocked	any-op:1,any-type:17,no-any:8,no-in:1,no-loose-eq:8,no-object-type:4,no-symbol:2,unsupported-builtin:3
+strict	src/compat/array/partition.ts	84	partition	function	21	blocked	any-type:5,no-any:2,no-symbol:2
+strict	src/compat/array/pull.ts	57	pull	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/array/pullAll.ts	60	pullAll	function	6	blocked	unsupported:1,unsupported-builtin:1
+strict	src/compat/array/pullAllBy.ts	121	pullAllBy	function	19	blocked	any-type:18,no-any:4,no-delete:1
+strict	src/compat/_internal/copyArray.ts	9	copyArray	function	10	blocked	no-loose-eq:2,unsupported-builtin:1
+strict	src/compat/array/pullAllWith.ts	123	pullAllWith	function	33	blocked	any-type:3,no-any:4,no-delete:1,no-in:2,no-loose-eq:6,unsupported:2,unsupported-builtin:2
+strict	src/compat/object/at.ts	55	at	function	21	blocked	any-type:4,no-any:2,no-symbol:15
+strict	src/compat/object/unset.ts	24	unset	function	49	blocked	any-type:1,no-any:1,no-delete:2,no-loose-eq:2,no-symbol:1,switch-fallthrough:1
+strict	src/compat/object/unset.ts	81	unsetWithPath	function	16	blocked	any-type:4,no-any:1,no-delete:1,no-symbol:5
+strict	src/compat/array/pullAt.ts	73	pullAt	function	26	blocked	any-type:1,as-downcast:1,no-any:4,no-delete:1,no-prototype:1,unsupported-builtin:3,unsupported-conversion:1
+strict	src/compat/array/reduceRight.ts	170	reduceRight	function	35	blocked	any-type:20,no-any:14,no-arguments:1
+strict	src/compat/function/negate.ts	31	negate	function	8	blocked	as-downcast:1,no-any:3
+strict	src/compat/array/reject.ts	81	reject	function	6	blocked	any-type:2,no-any:5,no-symbol:2
+strict	src/compat/array/remove.ts	58	remove	function	10	blocked	as-downcast:1,no-any:2,no-object-type:1,no-symbol:1
+strict	src/compat/array/reverse.ts	39	reverse	function	6	blocked	no-loose-eq:2,no-prototype:1,unsupported-builtin:1
+strict	src/compat/array/sample.ts	54	sample	function	9	blocked	no-loose-eq:2
+strict	src/compat/math/clamp.ts	46	clamp	function	15	blocked	any-type:1,no-any:1
+strict	src/compat/predicate/isMap.ts	21	isMap	function	3	blocked	any-type:2,no-any:3
+strict	src/compat/predicate/isSet.ts	21	isSet	function	3	blocked	any-type:2,no-any:2
+strict	src/compat/util/toArray.ts	54	toArray	function	15	blocked	any-type:4,no-any:2,no-loose-eq:2,no-object-type:6
+strict	src/compat/array/sampleSize.ts	52	sampleSize	function	16	blocked	any-type:2,index-signature:3,no-any:1,no-object-type:1,unsupported-type:4
+strict	src/compat/_internal/isPrototype.ts	1	isPrototype	function	5	blocked	any-type:3,no-object-type:5,no-prototype:2
+strict	src/compat/predicate/isTypedArray.ts	18	isTypedArray	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/util/times.ts	37	times	function	11	blocked	any-type:3
+strict	src/compat/object/keys.ts	26	keys	function	10	blocked	any-type:5,no-any:1
+strict	src/compat/object/keys.ts	40	arrayLikeKeys	function	20	blocked	no-any:1,unsupported-builtin:1
+strict	src/compat/object/values.ts	50	values	function	13	blocked	any-type:8,no-any:2,no-loose-eq:2
+strict	src/compat/predicate/isNil.ts	20	isNil	function	3	blocked	any-type:1,no-any:1,no-loose-eq:2
+strict	src/compat/array/shuffle.ts	39	shuffle	function	15	blocked	as-downcast:1,unsupported-builtin:1,unsupported-type:2
+strict	src/compat/_internal/unicodeSize.ts	35	unicodeSize	function	8	blocked	no-regexp:3
+strict	src/compat/array/size.ts	48	size	function	15	blocked	any-type:9,no-any:1,no-regexp:2
+strict	src/compat/array/slice.ts	20	slice	function	31	blocked	any-type:3
+strict	src/compat/array/some.ts	79	some	function	78	blocked	any-type:28,as-downcast:1,no-any:6,no-loose-eq:2,no-object-type:2,no-symbol:4,unsupported:1,unsupported-builtin:5,unsupported-generic:1,unsupported-type:10
+strict	src/compat/array/sortBy.ts	80	sortBy	function	10	blocked	any-type:9,no-any:2,no-object-type:4
+strict	src/compat/predicate/isNumber.ts	22	isNumber	function	3	blocked	any-type:4,no-any:1
+strict	src/compat/predicate/isNaN.ts	15	isNaN	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/array/sortedIndexBy.ts	53	sortedIndexBy	function	46	blocked	any-type:14,fn-type-rest:3,no-symbol:2
+strict	src/compat/array/sortedIndex.ts	53	sortedIndex	function	20	blocked	any-type:1,no-any:1,unsupported-type:3
+strict	src/compat/array/sortedIndexOf.ts	35	sortedIndexOf	function	10	covered	
+strict	src/compat/array/sortedLastIndexBy.ts	45	sortedLastIndexBy	function	9	blocked	no-symbol:2
+strict	src/compat/array/sortedLastIndex.ts	23	sortedLastIndex	function	20	blocked	any-type:1,no-any:1,unsupported-type:2
+strict	src/compat/array/sortedLastIndexOf.ts	36	sortedLastIndexOf	function	10	covered	
+strict	src/compat/array/tail.ts	55	tail	function	6	covered	
+strict	src/compat/array/take.ts	55	take	function	7	blocked	any-type:2,no-any:1
+strict	src/compat/array/takeRight.ts	54	takeRight	function	7	blocked	any-type:2,no-any:1
+strict	src/compat/array/takeRightWhile.ts	86	takeRightWhile	function	15	blocked	no-any:2,no-symbol:2
+strict	src/compat/array/takeWhile.ts	86	takeWhile	function	15	blocked	no-any:2,no-symbol:2
+strict	src/compat/array/union.ts	61	union	function	5	blocked	any-type:3,as-downcast:1,no-any:1,unsupported-type:2
+strict	src/compat/array/unionBy.ts	151	unionBy	function	8	blocked	as-downcast:1,no-loose-eq:2,no-symbol:5,unsupported-generic:1
+strict	src/compat/array/unionWith.ts	97	unionWith	function	8	blocked	as-downcast:1,no-loose-eq:2
+strict	src/compat/array/uniq.ts	19	uniq	function	6	blocked	unsupported-builtin:1
+strict	src/compat/array/uniqBy.ts	22	uniqBy	function	9	blocked	no-any:2,no-symbol:2,unsupported-builtin:1,unsupported-generic:1
+strict	src/compat/array/uniqWith.ts	30	uniqWith	function	12	blocked	unsupported-builtin:2
+strict	src/compat/array/unzip.ts	21	unzip	function	8	blocked	as-downcast:2,unsupported-builtin:1
+strict	src/compat/array/unzipWith.ts	54	unzipWith	function	18	blocked	any-type:5,fn-type-rest:3,no-any:4,unsupported-builtin:1
+strict	src/compat/array/without.ts	24	without	function	14	covered	
+strict	src/compat/array/xor.ts	24	xor	function	24	blocked	any-type:1
+strict	src/compat/array/xorBy.ts	92	xorBy	function	12	blocked	any-type:4,as-downcast:3,no-any:2,no-loose-eq:2,no-symbol:6,unsupported-generic:3
+strict	src/compat/array/xorWith.ts	89	xorWith	function	17	blocked	as-downcast:2
+strict	src/compat/array/zip.ts	228	zip	function	7	blocked	no-any:1,unsupported-builtin:1
+strict	src/compat/_internal/assignValue.ts	3	assignValue	arrow	6	blocked	any-type:11,no-any:2,no-in:1,no-symbol:5
+strict	src/compat/array/zipObject.ts	62	zipObject	function	9	blocked	as-downcast:1,no-object-type:4,no-symbol:1,unsupported:4
+strict	src/_internal/isUnsafeToWriteProperty.ts	17	isUnsafeToWriteProperty	function	3	blocked	no-symbol:4
+strict	src/compat/object/updateWith.ts	75	updateWith	function	44	blocked	any-type:16,no-any:6,no-loose-eq:4,no-object-type:1,no-symbol:13,unsupported-builtin:1
+strict	src/compat/object/set.ts	89	set	function	8	blocked	any-type:2,no-any:1,no-object-type:1,no-symbol:2
+strict	src/compat/array/zipObjectDeep.ts	39	zipObjectDeep	function	17	blocked	any-type:3,no-any:1,no-loose-eq:2,no-object-type:7,no-symbol:6,unsupported:1
+strict	src/compat/array/zipWith.ts	138	zipWith	function	15	blocked	as-downcast:2,fn-type-rest:7,no-loose-eq:2
+strict	src/compat/function/after.ts	24	after	function	11	blocked	as-downcast:1,no-any:3
+strict	src/compat/function/ary.ts	45	ary	function	13	blocked	any-type:2,fn-type-rest:1,internal:2,no-any:4
+strict	src/compat/function/attempt.ts	31	attempt	function	7	blocked	any-type:1,fn-type-rest:2,no-any:3,unsupported-conversion:1
+strict	src/compat/function/before.ts	26	before	function	17	blocked	as-downcast:1,no-any:4,unsupported-type:1
+strict	src/compat/function/bind.ts	26	bind	function	26	blocked	any-type:2,fn-type-rest:5,no-any:9
+strict	src/compat/function/bindKey.ts	79	bindKey	function	30	blocked	any-type:2,fn-type-rest:2,no-any:9,no-never-value:1,unsupported-type:1
+strict	src/compat/function/curry.ts	207	curry	function	25	blocked	any-type:3,fn-type-rest:3,no-any:8,no-symbol:3,unsupported-type:4
+strict	src/compat/function/curry.ts	236	makeCurry	function	21	blocked	any-type:1,fn-type-rest:1,no-any:7,no-symbol:3,no-this:1,unsupported-type:2
+strict	src/compat/function/curry.ts	258	composeArgs	function	16	blocked	any-type:17,no-any:3,unsupported:1
+strict	src/compat/function/curryRight.ts	134	curryRight	function	25	blocked	any-type:3,fn-type-rest:3,no-any:8,no-symbol:3,unsupported-type:4
+strict	src/compat/function/curryRight.ts	163	makeCurryRight	function	21	blocked	any-type:1,fn-type-rest:1,no-any:7,no-symbol:3,no-this:1,unsupported-type:2
+strict	src/compat/function/curryRight.ts	185	composeArgs	function	22	blocked	any-type:21,no-any:4,unsupported:1
+strict	src/compat/function/debounce.ts	161	debounce	function	52	blocked	any-type:4,fn-type-rest:1,no-any:4,no-loose-eq:1,unsupported-builtin:1,unsupported-type:12
+strict	src/compat/function/defer.ts	27	defer	function	6	blocked	no-any:2,unsupported-builtin:1,unsupported-type:1
+strict	src/compat/function/delay.ts	29	delay	function	6	blocked	any-type:1,fn-type-rest:2,no-any:3,unsupported-builtin:1
+strict	src/compat/function/flip.ts	35	flip	function	5	blocked	fn-type-rest:2,no-any:3
+strict	src/compat/function/flow.ts	181	flow	function	7	blocked	fn-type-rest:7,no-any:4
+strict	src/compat/function/flowRight.ts	171	flowRight	function	7	blocked	fn-type-rest:7,no-any:4
+strict	src/compat/function/memoize.ts	122	memoize	function	21	blocked	as-downcast:1,fn-type-rest:2,no-any:4,no-loose-eq:2,unsupported-type:6
+strict	src/compat/function/nthArg.ts	39	nthArg	function	5	blocked	fn-type-rest:2,no-any:3
+strict	src/compat/function/once.ts	3	once	function	3	blocked	no-any:2
+strict	src/compat/function/overArgs.ts	50	overArgs	function	18	blocked	fn-type-rest:7,no-any:8
+strict	src/compat/toolkit.ts	10	toolkit	arrow	3	blocked	any-type:3,no-any:1
+strict	src/compat/function/partial.ts	338	partial	function	6	blocked	any-type:2,fn-type-rest:1,no-any:4,unsupported:1
+strict	src/compat/function/partialRight.ts	773	partialRight	function	6	blocked	any-type:2,fn-type-rest:1,no-any:4,unsupported:1
+strict	src/compat/function/rearg.ts	18	rearg	function	10	blocked	fn-type-rest:3,no-any:7
+strict	src/compat/function/rest.ts	32	rest	function	7	blocked	any-type:1,fn-type-rest:5,no-any:5
+strict	src/compat/function/spread.ts	45	spread	function	14	blocked	any-type:1,fn-type-rest:3,no-any:5
+strict	src/compat/function/throttle.ts	120	throttle	function	12	blocked	no-any:2,unsupported-type:1
+strict	src/compat/function/unary.ts	17	unary	function	3	blocked	fn-type-rest:2,no-any:1
+strict	src/compat/function/wrap.ts	28	wrap	function	6	blocked	fn-type-rest:3,no-any:6
+strict	src/compat/math/add.ts	19	add	function	16	blocked	any-type:2,no-any:2
+strict	src/compat/_internal/decimalAdjust.ts	1	decimalAdjust	function	21	blocked	as-downcast:1,unsupported:2,unsupported-builtin:5
+strict	src/compat/math/ceil.ts	15	ceil	function	3	covered	
+strict	src/compat/math/divide.ts	19	divide	function	16	blocked	any-type:2,no-any:2
+strict	src/compat/math/floor.ts	15	floor	function	3	covered	
+strict	src/compat/math/inRange.ts	21	inRange	function	11	covered	
+strict	src/compat/math/max.ts	8	max	function	16	blocked	mixed-compare:1,no-loose-eq:2
+strict	src/compat/math/maxBy.ts	34	maxBy	function	24	blocked	any-type:7,as-downcast:1,fn-type-rest:2,no-any:1,no-loose-eq:4,no-symbol:2
+strict	src/compat/math/sumBy.ts	21	sumBy	function	20	blocked	any-type:2,no-any:1,no-loose-eq:2
+strict	src/compat/math/sum.ts	19	sum	function	3	blocked	no-any:1
+strict	src/compat/math/mean.ts	16	mean	function	4	blocked	no-any:1
+strict	src/compat/math/meanBy.ts	32	meanBy	function	7	blocked	no-loose-eq:2,no-symbol:2
+strict	src/compat/math/min.ts	8	min	function	16	blocked	mixed-compare:1,no-loose-eq:2
+strict	src/compat/math/minBy.ts	34	minBy	function	24	blocked	any-type:7,as-downcast:1,fn-type-rest:2,no-any:1,no-loose-eq:4,no-symbol:2
+strict	src/compat/math/multiply.ts	20	multiply	function	16	blocked	any-type:2,no-any:2
+strict	src/compat/math/parseInt.ts	39	parseInt	function	6	blocked	any-type:2,no-any:1
+strict	src/compat/math/random.ts	66	random	function	65	blocked	any-type:1,no-any:1,no-loose-eq:1,switch-fallthrough:1
+strict	src/compat/math/range.ts	53	range	function	21	blocked	any-type:11,no-any:1,no-symbol:4
+strict	src/compat/math/rangeRight.ts	52	rangeRight	function	21	blocked	any-type:3,no-object-type:7
+strict	src/compat/math/round.ts	15	round	function	3	covered	
+strict	src/compat/math/subtract.ts	18	subtract	function	16	blocked	any-type:2,no-any:2
+strict	src/compat/function/noop.ts	11	noop	function	1	blocked	any-type:1,no-any:1
+strict	src/compat/object/assign.ts	134	assign	function	6	blocked	any-type:7,no-any:3
+strict	src/compat/object/assign.ts	142	assignImpl	function	9	blocked	any-type:9,no-any:3,no-in:1
+strict	src/compat/object/keysIn.ts	30	keysIn	function	20	blocked	any-type:7,no-any:1,no-loose-eq:2,unsupported:1
+strict	src/compat/object/keysIn.ts	55	keysInImpl	function	7	blocked	no-for-in:1,no-object-type:2
+strict	src/compat/object/keysIn.ts	65	prototypeKeysIn	function	4	blocked	no-object-type:3
+strict	src/compat/object/keysIn.ts	71	arrayLikeKeysIn	function	20	blocked	no-any:1,unsupported-builtin:1
+strict	src/compat/object/assignIn.ts	135	assignIn	function	6	blocked	any-type:7,no-any:3
+strict	src/compat/object/assignIn.ts	143	assignInImpl	function	9	blocked	any-type:9,no-any:3,no-in:1
+strict	src/compat/object/assignInWith.ts	174	assignInWith	function	12	blocked	any-type:13,no-any:3
+strict	src/compat/object/assignInWith.ts	190	assignInWithImpl	function	16	blocked	any-type:16,no-any:8,no-in:1
+strict	src/compat/object/assignWith.ts	174	assignWith	function	12	blocked	any-type:13,no-any:3
+strict	src/compat/object/assignWith.ts	190	assignWithImpl	function	16	blocked	any-type:16,no-any:8,no-in:1
+strict	src/compat/object/clone.ts	58	clone	function	87	blocked	any-type:55,as-downcast:1,no-any:32,no-prototype:1,no-regexp:4,no-symbol:3,unsupported-builtin:4,unsupported-conversion:1,unsupported-type:3
+strict	src/compat/object/clone.ts	175	isCloneableObject	function	31	blocked	any-type:2,no-any:1
+strict	src/compat/object/clone.ts	207	copyOwnProperties	function	7	blocked	any-type:2,no-any:2,no-for-in:1
+strict	src/compat/object/clone.ts	215	copySymbolProperties	function	9	blocked	any-type:6,no-any:2,no-prototype:1,no-symbol:7,unsupported-builtin:1
+strict	src/compat/object/clone.ts	225	cloneStringObjectProperties	function	8	blocked	any-op:1,any-type:3,no-any:2,no-for-in:1
+strict	src/compat/object/clone.ts	235	copyPrototype	function	9	blocked	any-type:8,extern-effect:1,no-any:2,no-prototype:2
+strict	src/compat/object/cloneWith.ts	107	cloneWith	function	10	blocked	any-type:10,no-any:3
+strict	src/compat/object/create.ts	18	create	function	12	blocked	any-type:3,computed-key:1,no-any:1,no-loose-eq:2,no-object-type:2,no-prototype:1,unsupported-type:4
+strict	src/compat/object/defaults.ts	142	defaults	function	27	blocked	any-type:5,as-downcast:2,computed-key:1,no-any:2,no-object-type:6,no-prototype:1,no-symbol:1,unsupported-builtin:1,unsupported-type:6
+strict	src/compat/object/defaultsDeep.ts	23	defaultsDeep	function	10	blocked	any-type:10,no-any:3,no-loose-eq:2
+strict	src/compat/object/defaultsDeep.ts	36	defaultsDeepRecursive	function	15	blocked	any-type:2,no-any:4,no-for-in:1
+strict	src/compat/object/defaultsDeep.ts	55	handleMissingProperty	function	12	blocked	any-type:8,no-any:4,no-object-type:5
+strict	src/compat/object/defaultsDeep.ts	70	handleExistingProperty	function	11	blocked	any-type:12,no-any:4,unsupported-builtin:2
+strict	src/compat/object/defaultsDeep.ts	83	mergeArrays	function	11	blocked	any-type:11,no-any:4
+strict	src/compat/_internal/mapToEntries.ts	1	mapToEntries	function	9	blocked	any-type:10,no-any:2,unsupported-type:2
+strict	src/compat/_internal/setToEntries.ts	1	setToEntries	function	9	blocked	as-downcast:1,unsupported-builtin:2,unsupported-type:1
+strict	src/compat/object/toPairs.ts	49	toPairs	function	21	blocked	any-type:7,as-downcast:1,no-any:2,no-loose-eq:2,no-object-type:6
+strict	src/compat/object/toPairsIn.ts	47	toPairsIn	function	21	blocked	any-type:7,as-downcast:1,no-any:2,no-loose-eq:2,no-object-type:6
+strict	src/compat/object/findKey.ts	19	findKey	function	7	blocked	as-downcast:1,fn-type-rest:1,no-symbol:2
+strict	src/compat/object/findLastKey.ts	18	findLastKey	function	8	blocked	any-type:1,fn-type-rest:1,no-symbol:2,unsupported-type:1
+strict	src/compat/object/forIn.ts	91	forIn	function	15	blocked	no-any:1,no-for-in:1,no-loose-eq:2,unsupported-type:1
+strict	src/compat/object/forInRight.ts	91	forInRight	function	20	blocked	any-type:2,no-any:1,no-for-in:1,no-loose-eq:2,unsupported-type:2
+strict	src/compat/object/forOwn.ts	86	forOwn	function	17	blocked	any-type:2,no-any:1,no-loose-eq:2,unsupported-type:2
+strict	src/compat/object/forOwnRight.ts	86	forOwnRight	function	17	blocked	any-type:2,no-any:1,no-loose-eq:2,unsupported-type:2
+strict	src/compat/object/fromPairs.ts	46	fromPairs	function	13	blocked	any-type:9,no-any:3,no-object-type:2
+strict	src/compat/object/functions.ts	43	functions	function	6	blocked	any-type:3,no-any:1,no-loose-eq:2,no-symbol:1
+strict	src/compat/object/functionsIn.ts	21	functionsIn	function	12	blocked	any-type:1,no-any:1,no-for-in:1,no-loose-eq:2
+strict	src/compat/object/hasIn.ts	46	hasIn	function	30	blocked	any-type:6,as-downcast:2,no-in:2,no-loose-eq:4,no-symbol:5,unsupported-builtin:2,unsupported-type:3
+strict	src/compat/object/invert.ts	33	invert	function	3	blocked	no-object-type:3
+strict	src/compat/object/invertBy.ts	68	invertBy	function	25	blocked	any-type:5,as-downcast:1,fn-type-rest:2,no-any:1,no-loose-eq:2,no-object-type:1,no-symbol:2,unsupported-builtin:1
+strict	src/compat/object/mapKeys.ts	56	mapKeys	function	6	blocked	any-type:3,no-any:3,no-loose-eq:2,no-object-type:1,no-symbol:2
+strict	src/compat/object/mapValues.ts	170	mapValues	function	6	blocked	any-type:3,no-any:3,no-loose-eq:2,no-object-type:1,no-symbol:2
+strict	src/compat/object/mergeWith.ts	210	mergeWith	function	17	blocked	any-type:17,no-any:10,no-symbol:1
+strict	src/compat/object/mergeWith.ts	232	mergeWithDeep	function	93	blocked	any-type:72,as-downcast:1,index-signature:2,no-any:13,no-in:1,no-loose-eq:6,no-object-type:1,no-reflect:1,no-symbol:21,unsupported-builtin:4
+strict	src/compat/object/merge.ts	128	merge	function	3	blocked	any-type:5,no-any:3
+strict	src/compat/_internal/getSymbolsIn.ts	3	getSymbolsIn	function	8	blocked	any-type:4,no-any:1,no-prototype:1,no-symbol:4
+strict	src/compat/object/omit.ts	80	omit	function	31	blocked	any-type:1,no-loose-eq:2,no-object-type:8,no-symbol:11,unsupported:1,unsupported-builtin:1
+strict	src/compat/object/omit.ts	119	cloneInOmit	function	7	blocked	no-object-type:2,no-symbol:3
+strict	src/compat/object/omit.ts	129	shallowCloneInOmit	function	9	blocked	as-downcast:1,computed-key:1,no-object-type:6,unsupported-type:5
+strict	src/compat/object/omit.ts	141	deepCloneInOmit	function	14	blocked	any-type:1,as-downcast:1,computed-key:1,no-object-type:6,unsupported-type:5
+strict	src/compat/object/omitBy.ts	78	omitBy	function	19	blocked	as-downcast:3,fn-type-rest:2,index-signature:1,no-loose-eq:2,no-object-type:8,no-symbol:2,unsupported-type:4
+strict	src/compat/object/pick.ts	67	pick	function	44	blocked	any-type:18,as-downcast:1,no-any:2,no-object-type:4,no-symbol:6,unsupported:1,unsupported-builtin:1
+strict	src/compat/object/pickBy.ts	125	pickBy	function	19	blocked	as-downcast:2,fn-type-rest:2,index-signature:1,no-loose-eq:2,no-object-type:8,no-symbol:2,unsupported-type:5
+strict	src/compat/object/propertyOf.ts	28	propertyOf	function	5	blocked	no-any:1,no-symbol:2
+strict	src/compat/object/result.ts	39	result	function	16	blocked	any-op:1,any-type:7,as-downcast:1,fn-type-rest:2,no-any:3,no-loose-eq:1,no-symbol:4,unsupported-builtin:1
+strict	src/compat/object/setWith.ts	86	setWith	function	14	blocked	any-type:7,no-any:5,no-object-type:1,no-symbol:2
+strict	src/compat/object/toDefaulted.ts	167	toDefaulted	function	4	blocked	no-object-type:4
+strict	src/compat/predicate/isBuffer.ts	21	isBuffer	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/object/transform.ts	122	transform	function	22	blocked	any-type:2,as-downcast:4,no-any:4,no-loose-eq:4,no-prototype:2,unsupported:1,unsupported-builtin:1,unsupported-type:3
+strict	src/compat/object/update.ts	13	update	function	3	blocked	any-type:3,no-any:3,no-object-type:3,no-symbol:2
+strict	src/compat/object/valuesIn.ts	44	valuesIn	function	9	blocked	any-type:8,no-any:3
+strict	src/compat/predicate/isFunction.ts	14	isFunction	function	3	blocked	any-type:2,no-any:3
+strict	src/compat/predicate/isLength.ts	22	isLength	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isNative.ts	32	isNative	function	9	blocked	any-type:3,no-any:4,no-loose-eq:2,no-regexp:2
+strict	src/compat/predicate/isNull.ts	12	isNull	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isUndefined.ts	23	isUndefined	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/conformsTo.ts	30	conformsTo	function	21	blocked	any-type:1,as-downcast:1,computed-key:1,no-any:1,no-in:1,no-loose-eq:4,no-object-type:3,unsupported-type:11
+strict	src/compat/predicate/conforms.ts	24	conforms	function	6	blocked	no-object-type:3
+strict	src/compat/predicate/isArrayBuffer.ts	21	isArrayBuffer	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isBoolean.ts	23	isBoolean	function	3	blocked	any-type:3,no-any:1
+strict	src/compat/predicate/isDate.ts	16	isDate	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isElement.ts	14	isElement	function	3	blocked	any-type:4,no-any:2
+strict	src/compat/predicate/isEmpty.ts	41	isEmpty	function	29	blocked	any-type:3,no-any:2,no-loose-eq:2,no-object-type:7
+strict	src/compat/predicate/isEqualWith.ts	40	isEqualWith	function	27	blocked	any-type:6,fn-type-rest:1,no-any:2
+strict	src/compat/predicate/isError.ts	16	isError	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isFinite.ts	25	isFinite	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isInteger.ts	15	isInteger	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isRegExp.ts	16	isRegExp	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isSafeInteger.ts	19	isSafeInteger	function	3	blocked	any-type:2,no-any:1
+strict	src/compat/predicate/isWeakMap.ts	23	isWeakMap	function	3	blocked	any-type:2,no-any:2,no-object-type:1
+strict	src/compat/predicate/isWeakSet.ts	23	isWeakSet	function	3	blocked	any-type:2,no-any:1,no-object-type:1
+strict	src/compat/string/capitalize.ts	15	capitalize	function	3	blocked	as-downcast:1,unsupported-type:1
+strict	src/compat/util/bindAll.ts	33	bindAll	function	34	blocked	any-type:9,as-downcast:1,computed-key:2,no-any:2,no-in:2,no-loose-eq:2,unsupported-type:3
+strict	src/compat/string/deburr.ts	23	deburr	function	3	covered	
+strict	src/compat/string/words.ts	24	getUnicodeWordPattern	function	19	blocked	no-loose-eq:2,no-regexp:4
+strict	src/compat/string/words.ts	90	words	function	11	blocked	no-object-type:3,no-regexp:3,unsupported-builtin:1
+strict	src/compat/_internal/normalizeForCase.ts	3	normalizeForCase	function	8	blocked	any-type:3,no-any:1
+strict	src/compat/string/camelCase.ts	22	camelCase	function	8	covered	
+strict	src/compat/string/endsWith.ts	18	endsWith	function	9	blocked	no-loose-eq:6
+strict	src/compat/string/escape.ts	17	escape	function	3	covered	
+strict	src/compat/string/escapeRegExp.ts	15	escapeRegExp	function	3	covered	
+strict	src/compat/string/kebabCase.ts	19	kebabCase	function	5	covered	
+strict	src/compat/string/lowerCase.ts	19	lowerCase	function	5	covered	
+strict	src/compat/string/lowerFirst.ts	15	lowerFirst	function	3	blocked	as-downcast:1
+strict	src/compat/_internal/createPadding.ts	3	stringSize	function	3	blocked	no-regexp:2
+strict	src/compat/_internal/createPadding.ts	7	createPadding	function	8	blocked	no-regexp:2
+strict	src/compat/string/pad.ts	39	pad	function	11	blocked	any-type:6,no-any:3
+strict	src/compat/string/padEnd.ts	23	padEnd	function	9	covered	
+strict	src/compat/string/padStart.ts	22	padStart	function	9	covered	
+strict	src/compat/string/repeat.ts	36	repeat	function	11	blocked	any-type:12,no-any:3
+strict	src/compat/string/replace.ts	22	replace	function	10	blocked	fn-type-rest:1,no-any:2,no-arguments:1,no-regexp:4
+strict	src/compat/string/snakeCase.ts	19	snakeCase	function	5	covered	
+strict	src/compat/string/split.ts	39	split	function	3	blocked	any-type:4,no-any:3
+strict	src/compat/string/startCase.ts	18	startCase	function	16	covered	
+strict	src/compat/string/startsWith.ts	18	startsWith	function	9	blocked	no-loose-eq:6
+strict	src/compat/string/template.ts	25	escapeString	function	3	covered	
+strict	src/compat/string/template.ts	123	template	function	57	blocked	any-type:7,extern-callback:1,index-signature:3,no-eval:1,no-object-type:4,no-regexp:24,unsupported:2,unsupported-builtin:1,unsupported-type:1
+strict	src/compat/string/toLower.ts	20	toLower	function	3	blocked	as-downcast:1
+strict	src/compat/string/toUpper.ts	20	toUpper	function	3	blocked	as-downcast:1
+strict	src/compat/string/trim.ts	31	trim	function	23	blocked	any-op:3,any-type:8,no-any:4,no-loose-eq:6,unsupported:1,unsupported-builtin:1
+strict	src/compat/string/trimEnd.ts	48	trimEnd	function	9	blocked	no-loose-eq:6,no-object-type:2,unsupported-builtin:1
+strict	src/compat/string/trimStart.ts	48	trimStart	function	9	blocked	no-loose-eq:6,no-object-type:2,unsupported-builtin:1
+strict	src/compat/string/truncate.ts	38	truncate	function	42	blocked	no-in:1,no-loose-eq:2,no-regexp:18
+strict	src/compat/string/truncate.ts	92	parseLength	function	9	blocked	no-loose-eq:2
+strict	src/compat/string/unescape.ts	17	unescape	function	3	covered	
+strict	src/compat/string/upperCase.ts	19	upperCase	function	5	covered	
+strict	src/compat/string/upperFirst.ts	15	upperFirst	function	3	blocked	as-downcast:1
+strict	src/compat/util/cond.ts	62	cond	function	21	blocked	any-type:5,fn-type-rest:2,no-any:11
+strict	src/compat/util/constant.ts	24	constant	function	3	covered	
+strict	src/compat/util/defaultTo.ts	38	defaultTo	function	6	blocked	no-loose-eq:2
+strict	src/compat/util/gt.ts	15	gt	function	6	blocked	any-type:6,no-any:2
+strict	src/compat/util/gte.ts	15	gte	function	6	blocked	any-type:6,no-any:2
+strict	src/compat/util/invoke.ts	26	invoke	function	27	blocked	any-type:17,no-any:3,no-loose-eq:2,no-symbol:3,unsupported:1,unsupported-builtin:1
+strict	src/compat/util/invoke.ts	56	invokeImpl	function	15	blocked	any-type:9,no-any:2,no-loose-eq:2,no-symbol:9
+strict	src/compat/util/lt.ts	15	lt	function	6	blocked	any-type:6,no-any:2
+strict	src/compat/util/lte.ts	15	lte	function	6	blocked	any-type:6,no-any:2
+strict	src/compat/util/method.ts	22	method	function	5	blocked	any-type:3,no-any:4,no-symbol:1
+strict	src/compat/util/methodOf.ts	22	methodOf	function	5	blocked	any-type:1,no-any:2,no-object-type:2,no-symbol:2
+strict	src/compat/util/now.ts	16	now	function	3	covered	
+strict	src/compat/util/over.ts	29	over	function	11	blocked	fn-type-rest:8,no-any:5,unsupported-builtin:1
+strict	src/compat/util/overEvery.ts	119	overEvery	function	21	blocked	fn-type-rest:3,no-any:1
+strict	src/compat/util/overSome.ts	123	overSome	function	21	blocked	fn-type-rest:3,no-any:1
+strict	src/compat/util/stubArray.ts	10	stubArray	function	3	blocked	any-type:1,no-any:1
+strict	src/compat/util/stubFalse.ts	19	stubFalse	function	3	covered	
+strict	src/compat/util/stubObject.ts	8	stubObject	function	3	blocked	any-type:1,no-any:1,no-object-type:1
+strict	src/compat/util/stubString.ts	10	stubString	function	3	covered	
+strict	src/compat/util/stubTrue.ts	19	stubTrue	function	3	covered	
+strict	src/compat/util/toLength.ts	21	toLength	function	6	blocked	any-type:2,no-any:1,no-loose-eq:2
+strict	src/compat/util/toPlainObject.ts	16	toPlainObject	function	19	blocked	any-type:9,extern-effect:1,no-any:4,no-object-type:1,no-prototype:1
+strict	src/compat/util/toSafeInteger.ts	22	toSafeInteger	function	6	blocked	any-type:2,no-any:1,no-loose-eq:2
+strict	src/compat/util/uniqueId.ts	26	uniqueId	function	4	covered	
+strict	src/compat/array/every.ts	90	every	function	30	blocked	any-type:14,fn-type-rest:3,no-any:6,no-object-type:1,no-symbol:3
+strict	src/_internal/bigIntRangeLength.ts	12	bigIntRangeLength	function	7	covered	
+strict	src/bigint/clamp.ts	45	clamp	function	7	blocked	no-loose-eq:2
+strict	src/bigint/inRange.ts	46	inRange	function	10	blocked	no-loose-eq:2
+strict	src/bigint/max.ts	18	max	function	12	covered	
+strict	src/bigint/maxBy.ts	18	maxBy	function	16	covered	
+strict	src/bigint/median.ts	19	median	function	11	covered	
+strict	src/bigint/medianBy.ts	20	medianBy	function	3	covered	
+strict	src/bigint/min.ts	15	min	function	12	covered	
+strict	src/bigint/minBy.ts	18	minBy	function	16	covered	
+strict	src/bigint/percentile.ts	20	percentile	function	20	covered	
+strict	src/bigint/range.ts	57	range	function	15	blocked	no-loose-eq:2,unsupported-builtin:1
+strict	src/bigint/rangeRight.ts	56	rangeRight	function	15	blocked	no-loose-eq:2,unsupported-builtin:1
+strict	src/bigint/sum.ts	15	sum	function	7	covered	
+strict	src/bigint/sumBy.ts	17	sumBy	function	7	covered	
+strict	src/compat/_internal/toArgs.ts	10	toArgs	function	7	blocked	any-type:1,fn-type-rest:1,no-any:2,no-arguments:1,unsupported-syntax:1
+strict	src/compat/_internal/doubled.ts	1	doubled	function	3	covered	
+strict	src/compat/_internal/isEven.ts	1	isEven	function	4	blocked	any-type:1,no-any:1,no-loose-eq:2
+strict	src/compat/_internal/stubA.ts	1	stubA	function	3	covered	
+strict	src/compat/_internal/stubB.ts	1	stubB	function	3	covered	
+strict	src/compat/_internal/stubC.ts	1	stubC	function	3	covered	
+strict	src/compat/_internal/stubFour.ts	1	stubFour	arrow	3	covered	
+strict	src/compat/_internal/stubNaN.ts	1	stubNaN	function	3	covered	
+strict	src/compat/_internal/stubNull.ts	1	stubNull	arrow	3	covered	
+strict	src/compat/_internal/stubOne.ts	1	stubOne	arrow	3	covered	
+strict	src/compat/_internal/stubThree.ts	1	stubThree	arrow	3	covered	
+strict	src/compat/_internal/stubTwo.ts	1	stubTwo	arrow	3	covered	
+strict	src/compat/_internal/stubZero.ts	1	stubZero	arrow	3	covered	
+strict	src/fp/_internal/lazy.ts	62	combineEagerAndLazyFunctions	function	7	blocked	any-type:1,extern-effect:1,no-any:2
+strict	src/fp/_internal/lazy.ts	90	createLazyFunction	function	23	blocked	any-type:1
+strict	src/fp/pipe.ts	418	pipe	function	18	blocked	any-type:8,index-signature:8,no-any:4,unsupported:1,unsupported-builtin:1
+strict	src/fp/pipe.ts	446	chunkFunctions	function	18	blocked	index-signature:11,no-loose-eq:2,unsupported-type:6
+strict	src/fp/pipe.ts	480	lazyPipe	function	27	blocked	any-type:9,no-any:4,no-symbol:1,unsupported-builtin:1,unsupported-type:7
+strict	src/fp/pipe.ts	516	isIterable	function	3	blocked	any-type:2,no-any:2,no-in:1,no-object-type:2,no-symbol:1,unsupported-builtin:1
+strict	src/fp/flow.ts	380	flow	function	20	blocked	any-type:2,fn-type-rest:3,no-any:11
+strict	src/fp/flowAsync.ts	370	flowAsync	function	12	blocked	fn-type-rest:3,no-any:7
+strict	src/fp/array/at.ts	19	at	function	5	covered	
+strict	src/fp/array/cartesianProduct.ts	68	cartesianProduct	function	5	blocked	any-type:3,no-any:4
+strict	src/fp/array/chunk.ts	18	chunk	function	5	covered	
+strict	src/fp/array/chunkBy.ts	19	chunkBy	function	5	blocked	any-type:2,no-any:1
+strict	src/fp/array/combinations.ts	20	combinations	function	5	covered	
+strict	src/fp/array/compact.ts	23	compact	function	11	blocked	any-type:2,unsupported-type:4
+strict	src/fp/array/countBy.ts	20	countBy	function	7	blocked	no-object-type:2
+strict	src/fp/array/difference.ts	21	difference	function	12	blocked	any-type:2
+strict	src/fp/array/differenceBy.ts	22	differenceBy	function	15	blocked	any-type:8,no-any:1
+strict	src/fp/array/differenceWith.ts	22	differenceWith	function	14	blocked	any-type:2
+strict	src/fp/array/drop.ts	20	drop	function	12	blocked	any-type:2
+strict	src/fp/array/dropRight.ts	19	dropRight	function	5	covered	
+strict	src/fp/array/dropRightWhile.ts	19	dropRightWhile	function	7	covered	
+strict	src/fp/array/dropWhile.ts	20	dropWhile	function	17	covered	
+strict	src/fp/array/filter.ts	48	filter	function	11	blocked	any-type:2
+strict	src/fp/array/find.ts	42	find	function	7	covered	
+strict	src/fp/array/findIndex.ts	17	findIndex	function	7	covered	
+strict	src/fp/array/findLast.ts	42	findLast	function	13	covered	
+strict	src/fp/array/findLastIndex.ts	17	findLastIndex	function	12	covered	
+strict	src/fp/array/flatMap.ts	28	flatMap	function	12	blocked	any-type:2
+strict	src/fp/array/flatMapDeep.ts	22	flatMapDeep	function	11	blocked	any-type:2,unsupported-type:4
+strict	src/fp/array/flatMapDeep.ts	36	emitDeep	function	9	blocked	unsupported-builtin:1,unsupported-type:5
+strict	src/fp/array/flatten.ts	21	flatten	function	10	blocked	any-type:2,as-downcast:1,unsupported-type:4
+strict	src/fp/array/flatten.ts	35	emitFlattened	function	14	blocked	unsupported-builtin:1,unsupported-type:5
+strict	src/fp/array/flattenDeep.ts	19	flattenDeep	function	9	blocked	any-type:2,unsupported-type:4
+strict	src/fp/array/flattenDeep.ts	31	emitDeep	function	9	blocked	unsupported-builtin:1,unsupported-type:5
+strict	src/fp/array/forEach.ts	21	forEach	function	11	blocked	any-type:2
+strict	src/fp/array/groupBy.ts	20	groupBy	function	7	blocked	no-object-type:2
+strict	src/fp/array/head.ts	36	head	function	5	covered	
+strict	src/fp/array/initial.ts	18	initial	function	5	covered	
+strict	src/fp/array/intersection.ts	21	intersection	function	12	blocked	any-type:2
+strict	src/fp/array/intersectionBy.ts	22	intersectionBy	function	15	blocked	any-type:8,no-any:1
+strict	src/fp/array/intersectionWith.ts	22	intersectionWith	function	14	blocked	any-type:2
+strict	src/fp/array/isSubset.ts	19	isSubset	function	5	covered	
+strict	src/fp/array/isSubsetWith.ts	20	isSubsetWith	function	8	covered	
+strict	src/fp/array/join.ts	17	join	function	5	blocked	unsupported-conversion:1
+strict	src/fp/array/keyBy.ts	20	keyBy	function	7	blocked	no-object-type:2
+strict	src/fp/array/last.ts	36	last	function	5	covered	
+strict	src/fp/array/length.ts	15	length	function	5	covered	
+strict	src/fp/array/map.ts	26	map	function	9	blocked	any-type:2
+strict	src/fp/array/maxBy.ts	42	maxBy	function	7	covered	
+strict	src/fp/array/minBy.ts	42	minBy	function	7	covered	
+strict	src/fp/array/orderBy.ts	20	orderBy	function	8	blocked	any-type:2,no-any:1,no-object-type:1
+strict	src/fp/array/partition.ts	44	partition	function	7	covered	
+strict	src/fp/array/reverse.ts	16	reverse	function	5	covered	
+strict	src/fp/array/sample.ts	17	sample	function	5	covered	
+strict	src/fp/array/sampleSize.ts	19	sampleSize	function	5	covered	
+strict	src/fp/array/shuffle.ts	18	shuffle	function	5	covered	
+strict	src/fp/array/sortBy.ts	25	sortBy	function	7	blocked	any-type:2,no-any:1,no-object-type:1
+strict	src/fp/array/tail.ts	18	tail	function	5	covered	
+strict	src/fp/array/take.ts	26	take	function	20	blocked	any-type:2
+strict	src/fp/array/takeRight.ts	19	takeRight	function	5	covered	
+strict	src/fp/array/takeRightWhile.ts	19	takeRightWhile	function	7	covered	
+strict	src/fp/array/takeWhile.ts	21	takeWhile	function	12	blocked	any-type:2
+strict	src/fp/array/toFilled.ts	22	toFilled	function	11	blocked	no-loose-eq:4
+strict	src/fp/array/union.ts	19	union	function	5	covered	
+strict	src/fp/array/unionBy.ts	21	unionBy	function	5	covered	
+strict	src/fp/array/unionWith.ts	20	unionWith	function	8	covered	
+strict	src/fp/array/uniq.ts	21	uniq	function	16	covered	
+strict	src/fp/array/uniqBy.ts	21	uniqBy	function	18	covered	
+strict	src/fp/array/uniqWith.ts	20	uniqWith	function	16	covered	
+strict	src/fp/array/unzip.ts	23	unzip	function	5	blocked	no-any:1,unsupported-type:2
+strict	src/fp/array/unzipWith.ts	20	unzipWith	function	5	blocked	fn-type-rest:2
+strict	src/fp/array/windowed.ts	25	windowed	function	31	covered	
+strict	src/fp/array/without.ts	19	without	function	12	blocked	any-type:2
+strict	src/fp/array/xor.ts	19	xor	function	5	covered	
+strict	src/fp/array/xorBy.ts	21	xorBy	function	5	covered	
+strict	src/fp/array/xorWith.ts	20	xorWith	function	8	covered	
+strict	src/fp/array/zip.ts	65	zip	function	5	blocked	any-type:3,no-any:4
+strict	src/fp/array/zipObject.ts	20	zipObject	function	5	blocked	no-object-type:2
+strict	src/fp/array/zipWith.ts	69	zipWith	function	5	blocked	any-type:3,no-any:7
+strict	src/fp/math/add.ts	14	add	function	5	covered	
+strict	src/fp/math/multiply.ts	14	multiply	function	5	covered	
+strict	src/fp/object/omit.ts	17	omit	function	5	blocked	no-any:1,no-object-type:2
+strict	src/fp/object/pick.ts	18	pick	function	5	blocked	no-any:1,no-object-type:2
+strict	src/iterator/_internal/iterator.ts	39	iterator	function	37	blocked	any-type:1,ext-literal:1,no-prototype:2,unsupported-generic:4
+strict	src/iterator/cartesianProduct.ts	33	cartesianProduct	function	73	blocked	any-type:2,index-signature:1,no-any:5,unsupported:1
+strict	src/fp/iterator/cartesianProduct.ts	22	cartesianProduct	function	5	blocked	unsupported-type:3
+strict	src/iterator/chunk.ts	20	chunk	function	22	blocked	unsupported-type:3
+strict	src/fp/iterator/chunk.ts	18	chunk	function	5	blocked	unsupported-type:2
+strict	src/iterator/count.ts	15	count	function	9	blocked	unsupported-type:3
+strict	src/fp/iterator/count.ts	19	count	function	5	blocked	unsupported-type:2
+strict	src/fp/iterator/drop.ts	17	drop	function	5	blocked	unsupported-type:2
+strict	src/iterator/dropWhile.ts	19	dropWhile	function	28	blocked	unsupported-type:4
+strict	src/fp/iterator/dropWhile.ts	17	dropWhile	function	7	blocked	unsupported-type:2
+strict	src/fp/iterator/every.ts	17	every	function	5	blocked	any-type:1,no-any:1,unsupported-type:2
+strict	src/fp/iterator/filter.ts	41	filter	function	7	blocked	any-type:1,no-any:1,unsupported-type:2
+strict	src/fp/iterator/find.ts	17	find	function	5	blocked	any-type:1,no-any:1,unsupported-type:2
+strict	src/fp/iterator/flatMap.ts	17	flatMap	function	7	blocked	no-any:2,unsupported-type:3
+strict	src/fp/iterator/forEach.ts	19	forEach	function	5	blocked	unsupported-type:2
+strict	src/iterator/head.ts	18	head	function	8	blocked	unsupported-type:3
+strict	src/fp/iterator/head.ts	18	head	function	5	blocked	unsupported-type:2
+strict	src/fp/iterator/map.ts	17	map	function	7	blocked	unsupported-type:2
+strict	src/iterator/partition.ts	15	partition	function	22	blocked	any-type:1,unsupported-type:4
+strict	src/fp/iterator/partition.ts	21	partition	function	5	blocked	unsupported-type:2
+strict	src/fp/iterator/reduce.ts	21	reduce	function	8	blocked	unsupported-type:2
+strict	src/iterator/scan.ts	22	scan	function	24	blocked	unsupported-type:3
+strict	src/fp/iterator/scan.ts	20	scan	function	8	blocked	unsupported-type:2
+strict	src/fp/iterator/some.ts	17	some	function	5	blocked	any-type:1,no-any:1,unsupported-type:2
+strict	src/fp/iterator/take.ts	18	take	function	5	blocked	unsupported-type:2
+strict	src/iterator/takeWhile.ts	19	takeWhile	function	16	blocked	unsupported-type:3
+strict	src/fp/iterator/takeWhile.ts	18	takeWhile	function	7	blocked	unsupported-type:2
+strict	src/fp/iterator/toArray.ts	18	toArray	function	5	blocked	unsupported-type:2
+strict	src/iterator/uniqBy.ts	21	uniqBy	function	18	blocked	unsupported-type:4
+strict	src/fp/iterator/uniqBy.ts	19	uniqBy	function	5	blocked	unsupported-type:2
+strict	src/iterator/zip.ts	23	zip	function	25	blocked	index-signature:1,no-any:1,unsupported:1
+strict	src/fp/iterator/zip.ts	19	zip	function	5	blocked	unsupported-type:3
+strict	src/iterator/iterate.ts	19	iterate	function	12	covered	
+strict	src/iterator/range.ts	45	range	function	19	blocked	no-loose-eq:2
+strict	src/map/countBy.ts	33	countBy	function	11	covered	
+strict	src/map/every.ts	26	every	function	8	covered	
+strict	src/map/filter.ts	27	filter	function	9	covered	
+strict	src/map/findKey.ts	23	findKey	function	10	covered	
+strict	src/map/findValue.ts	23	findValue	function	13	covered	
+strict	src/map/forEach.ts	26	forEach	function	5	covered	
+strict	src/map/hasValue.ts	28	hasValue	function	8	covered	
+strict	src/map/keyBy.ts	29	keyBy	function	11	covered	
+strict	src/map/mapKeys.ts	28	mapKeys	function	8	covered	
+strict	src/map/mapValues.ts	28	mapValues	function	8	covered	
+strict	src/map/reduce.ts	33	reduce	function	18	blocked	any-type:1,no-any:1,no-loose-eq:4
+strict	src/map/some.ts	26	some	function	8	covered	
+strict	src/server/exec.ts	55	exec	function	37	blocked	extern-callback:2,no-loose-eq:4,throw-non-error:1,unsupported:1,unsupported-builtin:1
+strict	src/server/exec.ts	109	ExecError.constructor	constructor	4	blocked	no-extends:2
+strict	src/server/exec.ts	115	streamToString	function	3	blocked	any-type:1
+strict	src/server/exec.ts	119	handleStdin	function	8	blocked	no-loose-eq:2
+strict	src/server/exec.ts	129	parseAbortSignal	function	16	blocked	no-loose-eq:6
+strict	src/server/colors/_internal/wrapAnsi.ts	15	wrapAnsi	function	6	covered	
+strict	src/server/colors/ansi256.ts	16	ansi256	function	3	covered	
+strict	src/server/colors/_internal/wrapAnsiBg.ts	23	wrapAnsiBg	function	9	blocked	extern-callback:1
+strict	src/server/colors/bgAnsi256.ts	16	bgAnsi256	function	3	covered	
+strict	src/server/colors/bgBlack.ts	14	bgBlack	function	3	covered	
+strict	src/server/colors/bgBlackBright.ts	14	bgBlackBright	function	3	covered	
+strict	src/server/colors/bgBlue.ts	14	bgBlue	function	3	covered	
+strict	src/server/colors/bgBlueBright.ts	14	bgBlueBright	function	3	covered	
+strict	src/server/colors/bgCyan.ts	14	bgCyan	function	3	covered	
+strict	src/server/colors/bgCyanBright.ts	14	bgCyanBright	function	3	covered	
+strict	src/server/colors/bgGreen.ts	14	bgGreen	function	3	covered	
+strict	src/server/colors/bgGreenBright.ts	14	bgGreenBright	function	3	covered	
+strict	src/server/colors/_internal/parseHex.ts	20	parseHex	function	13	covered	
+strict	src/server/colors/bgHex.ts	17	bgHex	function	4	covered	
+strict	src/server/colors/bgMagenta.ts	14	bgMagenta	function	3	covered	
+strict	src/server/colors/bgMagentaBright.ts	14	bgMagentaBright	function	3	covered	
+strict	src/server/colors/bgRed.ts	14	bgRed	function	3	covered	
+strict	src/server/colors/bgRedBright.ts	14	bgRedBright	function	3	covered	
+strict	src/server/colors/bgRgb.ts	18	bgRgb	function	3	covered	
+strict	src/server/colors/bgWhite.ts	14	bgWhite	function	3	covered	
+strict	src/server/colors/bgWhiteBright.ts	14	bgWhiteBright	function	3	covered	
+strict	src/server/colors/bgYellow.ts	14	bgYellow	function	3	covered	
+strict	src/server/colors/bgYellowBright.ts	14	bgYellowBright	function	3	covered	
+strict	src/server/colors/black.ts	14	black	function	3	covered	
+strict	src/server/colors/blackBright.ts	14	blackBright	function	3	covered	
+strict	src/server/colors/blue.ts	14	blue	function	3	covered	
+strict	src/server/colors/blueBright.ts	14	blueBright	function	3	covered	
+strict	src/server/colors/bold.ts	14	bold	function	3	covered	
+strict	src/server/colors/cyan.ts	14	cyan	function	3	covered	
+strict	src/server/colors/cyanBright.ts	14	cyanBright	function	3	covered	
+strict	src/server/colors/dim.ts	14	dim	function	3	covered	
+strict	src/server/colors/green.ts	14	green	function	3	covered	
+strict	src/server/colors/greenBright.ts	14	greenBright	function	3	covered	
+strict	src/server/colors/hex.ts	17	hex	function	4	covered	
+strict	src/server/colors/hidden.ts	14	hidden	function	3	covered	
+strict	src/server/colors/inverse.ts	14	inverse	function	3	covered	
+strict	src/server/colors/italic.ts	14	italic	function	3	covered	
+strict	src/server/colors/magenta.ts	14	magenta	function	3	covered	
+strict	src/server/colors/magentaBright.ts	14	magentaBright	function	3	covered	
+strict	src/server/colors/red.ts	14	red	function	3	covered	
+strict	src/server/colors/redBright.ts	14	redBright	function	3	covered	
+strict	src/server/colors/reset.ts	14	reset	function	3	covered	
+strict	src/server/colors/rgb.ts	18	rgb	function	3	covered	
+strict	src/server/colors/strikethrough.ts	14	strikethrough	function	3	covered	
+strict	src/server/colors/underline.ts	14	underline	function	3	covered	
+strict	src/server/colors/white.ts	14	white	function	3	covered	
+strict	src/server/colors/whiteBright.ts	14	whiteBright	function	3	covered	
+strict	src/server/colors/yellow.ts	14	yellow	function	3	covered	
+strict	src/server/colors/yellowBright.ts	14	yellowBright	function	3	covered	
+strict	src/set/countBy.ts	24	countBy	function	8	covered	
+strict	src/set/every.ts	21	every	function	8	covered	
+strict	src/set/filter.ts	18	filter	function	9	covered	
+strict	src/set/find.ts	22	find	function	8	covered	
+strict	src/set/forEach.ts	22	forEach	function	5	covered	
+strict	src/set/keyBy.ts	28	keyBy	function	8	covered	
+strict	src/set/map.ts	19	map	function	8	covered	
+strict	src/set/reduce.ts	26	reduce	function	18	blocked	any-type:1,no-any:1,no-loose-eq:4
+strict	src/set/some.ts	21	some	function	8	covered	
+dyn	src/array/at.ts	16	at	function	13	blocked	unsupported-builtin:1
+dyn	src/array/cartesianProduct.ts	83	cartesianProduct	function	26	blocked	unsupported-builtin:2
+dyn	src/array/chunk.ts	24	chunk	function	13	blocked	unsupported-builtin:1
+dyn	src/array/chunkBy.ts	29	chunkBy	function	14	covered	
+dyn	src/array/combinations.ts	32	combinations	function	35	blocked	any-op:1,unsupported:1,unsupported-builtin:2
+dyn	src/array/compact.ts	14	compact	function	10	blocked	as-downcast:1,unsupported-type:4
+dyn	src/array/countBy.ts	34	countBy	function	12	blocked	as-downcast:1,no-object-type:4,unsupported-type:1
+dyn	src/array/difference.ts	23	difference	function	4	covered	
+dyn	src/array/differenceBy.ts	33	differenceBy	function	10	blocked	map-key:3
+dyn	src/array/differenceWith.ts	29	differenceWith	function	11	covered	
+dyn	src/array/drop.ts	17	drop	function	4	covered	
+dyn	src/array/dropRight.ts	17	dropRight	function	7	covered	
+dyn	src/array/dropRightWhile.ts	19	dropRightWhile	function	11	covered	
+dyn	src/array/dropWhile.ts	19	dropWhile	function	10	covered	
+dyn	src/array/fill.ts	115	fill	function	9	covered	
+dyn	src/promise/semaphore.ts	47	Semaphore.constructor	constructor	4	covered	
+dyn	src/promise/semaphore.ts	68	Semaphore.acquire	method	9	covered	
+dyn	src/promise/semaphore.ts	94	Semaphore.release	method	10	blocked	no-loose-eq:2
+dyn	src/promise/limitAsync.ts	34	limitAsync	function	11	blocked	as-downcast:1
+dyn	src/array/filterAsync.ts	36	filterAsync	function	11	blocked	no-loose-eq:2
+dyn	src/array/flatten.ts	17	flatten	function	16	blocked	as-downcast:1,unsupported-type:4
+dyn	src/array/flatMap.ts	23	flatMap	function	10	blocked	as-downcast:1,unsupported-type:1
+dyn	src/array/flatMapAsync.ts	39	flatMapAsync	function	11	blocked	no-loose-eq:2
+dyn	src/array/flattenDeep.ts	26	flattenDeep	function	3	blocked	as-downcast:1,unsupported-type:1
+dyn	src/array/flatMapDeep.ts	16	flatMapDeep	function	6	blocked	unsupported-type:1
+dyn	src/array/forEachAsync.ts	36	forEachAsync	function	10	blocked	no-loose-eq:2
+dyn	src/array/forEachRight.ts	73	forEachRight	function	6	blocked	as-downcast:1
+dyn	src/array/groupBy.ts	39	groupBy	function	15	blocked	as-downcast:1,no-object-type:6,no-symbol:1
+dyn	src/array/head.ts	50	head	function	3	covered	
+dyn	src/array/initial.ts	70	initial	function	3	covered	
+dyn	src/array/intersection.ts	19	intersection	function	4	covered	
+dyn	src/array/intersectionBy.ts	34	intersectionBy	function	17	blocked	map-key:4
+dyn	src/array/intersectionWith.ts	35	intersectionWith	function	11	covered	
+dyn	src/array/isSubset.ts	27	isSubset	function	3	covered	
+dyn	src/array/isSubsetWith.ts	33	isSubsetWith	function	7	covered	
+dyn	src/array/keyBy.ts	34	keyBy	function	12	blocked	as-downcast:1,no-object-type:4
+dyn	src/array/last.ts	71	last	function	3	covered	
+dyn	src/array/mapAsync.ts	35	mapAsync	function	10	blocked	no-loose-eq:2
+dyn	src/array/maxBy.ts	74	maxBy	function	22	covered	
+dyn	src/array/minBy.ts	74	minBy	function	22	covered	
+dyn	src/_internal/compareValues.ts	2	nullishRank	function	9	covered	
+dyn	src/_internal/compareValues.ts	12	compareAscending	function	22	blocked	any-op:2
+dyn	src/_internal/compareValues.ts	37	compareValues	function	4	covered	
+dyn	src/array/orderBy.ts	37	orderBy	function	21	blocked	computed-key:2,no-object-type:1,unsupported-type:5
+dyn	src/array/partition.ts	56	partition	function	16	covered	
+dyn	src/array/pull.ts	17	pull	function	17	blocked	map-key:3,no-delete:1
+dyn	src/array/pullAt.ts	19	pullAt	function	8	covered	
+dyn	src/array/reduceAsync.ts	79	reduceAsync	function	16	blocked	no-loose-eq:2
+dyn	src/array/remove.ts	17	remove	function	19	blocked	no-delete:1,unsupported-conversion:1
+dyn	src/array/sample.ts	15	sample	function	4	covered	
+dyn	src/math/random.ts	44	random	function	10	blocked	no-loose-eq:2
+dyn	src/math/randomInt.ts	43	randomInt	function	3	covered	
+dyn	src/array/sampleSize.ts	21	sampleSize	function	16	blocked	map-key:4,unsupported-builtin:1,unsupported-conversion:1
+dyn	src/array/shuffle.ts	15	shuffle	function	11	covered	
+dyn	src/array/sortBy.ts	35	sortBy	function	6	blocked	no-object-type:1,unsupported-type:2
+dyn	src/array/tail.ts	94	tail	function	3	covered	
+dyn	src/array/take.ts	23	take	function	3	covered	
+dyn	src/array/takeRight.ts	22	takeRight	function	6	covered	
+dyn	src/array/takeRightWhile.ts	23	takeRightWhile	function	11	covered	
+dyn	src/array/takeWhile.ts	24	takeWhile	function	14	covered	
+dyn	src/array/toFilled.ts	106	toFilled	function	10	blocked	unsupported-conversion:1
+dyn	src/array/uniq.ts	16	uniq	function	3	covered	
+dyn	src/array/union.ts	20	union	function	3	covered	
+dyn	src/array/uniqBy.ts	29	uniqBy	function	11	covered	
+dyn	src/array/unionBy.ts	25	unionBy	function	3	covered	
+dyn	src/array/uniqWith.ts	16	uniqWith	function	11	covered	
+dyn	src/array/unionWith.ts	23	unionWith	function	7	covered	
+dyn	src/array/unzip.ts	17	unzip	function	18	blocked	as-downcast:1,index-signature:5,unsupported-builtin:1,unsupported-type:6
+dyn	src/array/unzipWith.ts	15	unzipWith	function	12	blocked	fn-type-rest:2,unsupported-builtin:3
+dyn	src/array/windowed.ts	49	windowed	function	19	covered	
+dyn	src/array/without.ts	23	without	function	3	covered	
+dyn	src/array/xor.ts	22	xor	function	3	covered	
+dyn	src/array/xorBy.ts	24	xorBy	function	5	covered	
+dyn	src/array/xorWith.ts	23	xorWith	function	9	covered	
+dyn	src/array/zip.ts	134	zip	function	20	blocked	unsupported-builtin:2,unsupported-conversion:1
+dyn	src/array/zipObject.ts	31	zipObject	function	7	blocked	as-downcast:1,no-object-type:4
+dyn	src/array/zipWith.ts	108	zipWith	function	11	blocked	fn-type-rest:3,unsupported-builtin:2
+dyn	src/error/AbortError.ts	8	AbortError.constructor	constructor	3	blocked	no-extends:2
+dyn	src/error/TimeoutError.ts	8	TimeoutError.constructor	constructor	3	blocked	no-extends:2
+dyn	src/function/after.ts	30	after	function	15	blocked	fn-type-rest:2
+dyn	src/function/ary.ts	19	ary	function	5	blocked	fn-type-rest:2
+dyn	src/function/asyncNoop.ts	10	asyncNoop	function	1	covered	
+dyn	src/function/before.ts	30	before	function	15	blocked	fn-type-rest:2
+dyn	src/function/curry.ts	159	curry	function	8	blocked	fn-type-rest:7
+dyn	src/function/curry.ts	169	makeCurry	function	10	blocked	unsupported:1,unsupported-type:3
+dyn	src/function/curryRight.ts	168	curryRight	function	8	blocked	fn-type-rest:7
+dyn	src/function/curryRight.ts	178	makeCurryRight	function	10	blocked	unsupported:1,unsupported-type:3
+dyn	src/function/debounce.ts	77	debounce	function	65	blocked	extern-callback:1,extern-effect:2,no-loose-eq:7,unsupported:1,unsupported-conversion:1,unsupported-type:10
+dyn	src/function/flow.ts	161	flow	function	9	blocked	fn-type-rest:3
+dyn	src/function/flowRight.ts	177	flowRight	function	3	blocked	fn-type-rest:3
+dyn	src/function/identity.ts	20	identity	function	3	covered	
+dyn	src/function/memoize.ts	74	memoize	function	20	blocked	as-downcast:1,unsupported-type:9
+dyn	src/function/negate.ts	14	negate	function	3	blocked	as-downcast:1
+dyn	src/function/noop.ts	10	noop	function	1	covered	
+dyn	src/function/once.ts	34	once	function	11	blocked	as-downcast:1,unsupported-type:1
+dyn	src/function/partial.ts	777	partial	function	6	blocked	fn-type-rest:1,no-symbol:2
+dyn	src/function/partial.ts	784	partialImpl	function	18	blocked	fn-type-rest:1,internal:2,no-prototype:4,unsupported-type:4
+dyn	src/function/partialRight.ts	793	partialRight	function	6	blocked	fn-type-rest:1,no-symbol:2
+dyn	src/function/partialRight.ts	800	partialRightImpl	function	20	blocked	fn-type-rest:1,internal:2,no-prototype:4,unsupported-type:4
+dyn	src/function/rest.ts	31	rest	function	13	blocked	fn-type-rest:2,internal:1
+dyn	src/promise/delay.ts	39	delay	function	19	blocked	extern-callback:2,extern-effect:1
+dyn	src/function/retry.ts	45	DEFAULT_SHOULD_RETRY	arrow	1	covered	
+dyn	src/function/retry.ts	117	retry	function	37	blocked	no-object-type:1,throw-non-error:1
+dyn	src/function/spread.ts	17	spread	function	5	blocked	unsupported-type:2
+dyn	src/function/throttle.ts	51	throttle	function	31	blocked	fn-type-rest:1,no-loose-eq:1,unsupported-type:9
+dyn	src/function/unary.ts	17	unary	function	3	blocked	fn-type-rest:1
+dyn	src/math/clamp.ts	50	clamp	function	6	blocked	no-loose-eq:2
+dyn	src/math/inRange.ts	42	inRange	function	10	blocked	no-loose-eq:2
+dyn	src/math/sum.ts	14	sum	function	7	covered	
+dyn	src/math/mean.ts	16	mean	function	3	covered	
+dyn	src/math/sumBy.ts	17	sumBy	function	7	covered	
+dyn	src/math/meanBy.ts	18	meanBy	function	3	covered	
+dyn	src/math/median.ts	23	median	function	12	covered	
+dyn	src/math/medianBy.ts	23	medianBy	function	4	covered	
+dyn	src/math/percentile.ts	26	percentile	function	25	covered	
+dyn	src/math/range.ts	57	range	function	15	blocked	no-loose-eq:2,unsupported-builtin:1
+dyn	src/math/rangeRight.ts	57	rangeRight	function	15	blocked	no-loose-eq:2,unsupported-builtin:1,unsupported-conversion:1
+dyn	src/math/round.ts	18	round	function	7	covered	
+dyn	src/predicate/isPrimitive.ts	22	isPrimitive	function	3	blocked	no-loose-eq:2,no-symbol:1
+dyn	src/predicate/isTypedArray.ts	16	isTypedArray	function	16	blocked	instanceof:1
+dyn	src/object/clone.ts	32	clone	function	49	blocked	any-op:2,as-downcast:1,extern-effect:3,instanceof:8,no-loose-eq:2,no-prototype:3,no-regexp:1,unsupported:1,unsupported-type:14
+dyn	src/compat/_internal/getSymbols.ts	1	getSymbols	function	5	blocked	no-prototype:1,no-symbol:3
+dyn	src/compat/_internal/getTag.ts	8	getTag	function	6	blocked	no-loose-eq:2,no-prototype:1,unsupported-builtin:1
+dyn	src/predicate/isBuffer.ts	21	isBuffer	function	5	blocked	internal:2
+dyn	src/object/cloneDeepWith.ts	73	cloneDeepWith	function	6	blocked	map-key:1,no-symbol:2
+dyn	src/object/cloneDeepWith.ts	80	cloneDeepWithImpl	function	136	blocked	any-op:6,as-downcast:13,external-call:1,instanceof:12,map-key:32,no-prototype:3,no-regexp:5,no-symbol:13,unsupported:5,unsupported-builtin:1,unsupported-type:2
+dyn	src/object/cloneDeepWith.ts	260	copyProperties	function	16	blocked	any-op:1,map-key:1,no-loose-eq:2,no-symbol:7
+dyn	src/object/cloneDeepWith.ts	279	isCloneableObject	function	31	blocked	no-object-type:3
+dyn	src/object/cloneDeep.ts	49	cloneDeep	function	3	blocked	map-key:1
+dyn	src/object/deepFreeze.ts	17	deepFreeze	function	14	blocked	as-downcast:1,extern-effect:1,unsupported-type:9
+dyn	src/object/findKey.ts	19	findKey	function	7	blocked	unsupported-type:6
+dyn	src/predicate/isPlainObject.ts	43	isPlainObject	function	15	blocked	no-object-type:5,no-prototype:4,unsupported-builtin:2
+dyn	src/object/flattenObject.ts	51	flattenObject	function	6	blocked	no-object-type:3
+dyn	src/object/flattenObject.ts	58	flattenObjectImpl	function	24	blocked	extern-effect:2,no-object-type:4
+dyn	src/object/invert.ts	19	invert	function	10	blocked	as-downcast:2,no-object-type:6,unsupported-type:2
+dyn	src/object/mapKeys.ts	18	mapKeys	function	13	blocked	as-downcast:1,computed-key:1,no-object-type:4,unsupported-type:9
+dyn	src/object/mapKeysAsync.ts	25	mapKeysAsync	function	18	blocked	as-downcast:1,no-object-type:3,unsupported-type:6
+dyn	src/object/mapValues.ts	19	mapValues	function	13	blocked	as-downcast:2,computed-key:1,no-object-type:5,unsupported-type:3
+dyn	src/object/mapValuesAsync.ts	26	mapValuesAsync	function	17	blocked	as-downcast:2,no-object-type:5,unsupported-type:3
+dyn	src/_internal/isMergeableValue.ts	13	isMergeableValue	function	3	covered	
+dyn	src/_internal/isUnsafeProperty.ts	14	isUnsafeProperty	function	3	blocked	no-symbol:2
+dyn	src/object/merge.ts	51	merge	function	21	blocked	index-signature:10,no-object-type:1,no-symbol:12
+dyn	src/object/mergeWith.ts	53	mergeWith	function	28	blocked	as-downcast:1,computed-key:7,no-symbol:1,unsupported-type:16
+dyn	src/object/omit.ts	18	omit	function	8	blocked	no-object-type:2,unsupported:1
+dyn	src/object/omitBy.ts	22	omitBy	function	16	blocked	as-downcast:1,no-object-type:1,unsupported-type:12
+dyn	src/object/pick.ts	18	pick	function	10	blocked	as-downcast:1,no-object-type:4,no-symbol:1,unsupported:1
+dyn	src/object/pickBy.ts	22	pickBy	function	16	blocked	as-downcast:1,no-object-type:1,unsupported-type:12
+dyn	src/object/sortKeys.ts	19	sortKeys	function	9	blocked	as-downcast:1,unsupported-conversion:1
+dyn	src/compat/predicate/isArray.ts	66	isArray	function	3	covered	
+dyn	src/string/capitalize.ts	13	capitalize	function	3	blocked	as-downcast:1,unsupported-type:1
+dyn	src/string/words.ts	38	words	function	3	blocked	unsupported-builtin:1
+dyn	src/string/camelCase.ts	20	camelCase	function	8	covered	
+dyn	src/object/toCamelCaseKeys.ts	52	toCamelCaseKeys	function	17	blocked	as-downcast:4,unsupported-type:9
+dyn	src/compat/predicate/isPlainObject.ts	23	isPlainObject	function	29	blocked	any-op:1,no-loose-eq:4,no-prototype:5,no-symbol:2,unsupported-builtin:3
+dyn	src/string/constantCase.ts	18	constantCase	function	4	covered	
+dyn	src/object/toConstantCaseKeys.ts	52	toConstantCaseKeys	function	17	blocked	as-downcast:5,unsupported-type:8
+dyn	src/string/kebabCase.ts	18	kebabCase	function	4	covered	
+dyn	src/object/toKebabCaseKeys.ts	52	toKebabCaseKeys	function	17	blocked	as-downcast:5,unsupported-type:8
+dyn	src/object/toMerged.ts	49	toMerged	function	14	blocked	later-declared:3,no-object-type:1,unsupported-type:1
+dyn	src/string/pascalCase.ts	18	pascalCase	function	4	covered	
+dyn	src/object/toPascalCaseKeys.ts	52	toPascalCaseKeys	function	17	blocked	as-downcast:5,unsupported-type:8
+dyn	src/string/snakeCase.ts	18	snakeCase	function	4	covered	
+dyn	src/object/toSnakeCaseKeys.ts	52	toSnakeCaseKeys	function	17	blocked	as-downcast:5,unsupported-type:8
+dyn	src/predicate/isArrayBuffer.ts	19	isArrayBuffer	function	3	blocked	instanceof:1
+dyn	src/predicate/isBlob.ts	17	isBlob	function	7	blocked	instanceof:1,unsupported-type:1
+dyn	src/predicate/isBoolean.ts	23	isBoolean	function	3	covered	
+dyn	src/predicate/isBrowser.ts	21	isBrowser	function	3	blocked	no-loose-eq:2
+dyn	src/predicate/isDate.ts	14	isDate	function	3	blocked	instanceof:1
+dyn	src/predicate/isEmptyObject.ts	15	isEmptyObject	function	3	blocked	no-never-value:1
+dyn	src/compat/util/eq.ts	14	eq	function	3	covered	
+dyn	src/predicate/isEqualWith.ts	70	isEqualWith	function	14	blocked	no-symbol:2
+dyn	src/predicate/isEqualWith.ts	85	isEqualWithImpl	function	42	blocked	map-key:3,no-symbol:5
+dyn	src/predicate/isEqualWith.ts	131	areObjectsEqual	function	160	blocked	any-op:10,map-key:15,no-loose-eq:4,no-symbol:21,unsupported-builtin:2
+dyn	src/predicate/isEqual.ts	18	isEqual	function	3	covered	
+dyn	src/predicate/isError.ts	14	isError	function	3	covered	
+dyn	src/predicate/isFile.ts	21	isFile	function	7	blocked	instanceof:1,unsupported-type:1
+dyn	src/predicate/isFunction.ts	14	isFunction	function	3	covered	
+dyn	src/predicate/isIterable.ts	23	isIterable	function	3	blocked	computed-key:1,no-loose-eq:2,no-symbol:2
+dyn	src/predicate/isJSON.ts	29	isJSON	function	11	covered	
+dyn	src/predicate/isJSONValue.ts	31	isJSONValue	function	15	covered	
+dyn	src/predicate/isJSONValue.ts	61	isJSONArray	function	6	covered	
+dyn	src/predicate/isJSONValue.ts	82	isJSONObject	function	17	blocked	no-reflect:1,no-symbol:7
+dyn	src/predicate/isLength.ts	22	isLength	function	3	covered	
+dyn	src/predicate/isMap.ts	19	isMap	function	3	blocked	instanceof:1
+dyn	src/predicate/isNil.ts	20	isNil	function	3	blocked	no-loose-eq:2
+dyn	src/predicate/isNode.ts	23	isNode	function	3	blocked	no-loose-eq:2
+dyn	src/predicate/isNotNil.ts	17	isNotNil	function	3	blocked	no-loose-eq:2
+dyn	src/predicate/isNull.ts	21	isNull	function	3	covered	
+dyn	src/predicate/isNumber.ts	25	isNumber	function	3	covered	
+dyn	src/predicate/isPromise.ts	18	isPromise	function	3	blocked	instanceof:1
+dyn	src/predicate/isRegExp.ts	14	isRegExp	function	3	blocked	instanceof:1,no-regexp:1
+dyn	src/predicate/isSet.ts	19	isSet	function	3	blocked	instanceof:1
+dyn	src/predicate/isString.ts	19	isString	function	3	covered	
+dyn	src/predicate/isSymbol.ts	24	isSymbol	function	3	blocked	no-symbol:1
+dyn	src/predicate/isUndefined.ts	21	isUndefined	function	3	covered	
+dyn	src/predicate/isWeakMap.ts	21	isWeakMap	function	3	blocked	instanceof:1
+dyn	src/predicate/isWeakSet.ts	21	isWeakSet	function	3	blocked	instanceof:1
+dyn	src/promise/allKeyed.ts	28	allKeyed	function	11	blocked	as-downcast:1,unsupported-type:11
+dyn	src/promise/mutex.ts	37	Mutex.get isLocked	accessor	3	covered	
+dyn	src/promise/mutex.ts	54	Mutex.acquire	method	3	covered	
+dyn	src/promise/mutex.ts	70	Mutex.release	method	3	covered	
+dyn	src/promise/timeout.ts	39	timeout	function	17	blocked	extern-callback:2,extern-effect:1,no-never-value:2
+dyn	src/promise/withTimeout.ts	45	withTimeout	function	7	blocked	unsupported-conversion:1
+dyn	src/string/deburr.ts	52	deburr	function	16	blocked	unsupported-builtin:1
+dyn	src/string/dedent.ts	37	dedent	function	22	blocked	fn-type-rest:3
+dyn	src/string/dedent.ts	61	dedentTemplateStringsArray	function	6	blocked	extern-effect:1,unsupported-builtin:1
+dyn	src/string/dedent.ts	69	dedentImpl	function	35	covered	
+dyn	src/string/escape.ts	22	escape	function	3	blocked	extern-callback:1
+dyn	src/string/escapeRegExp.ts	12	escapeRegExp	function	3	covered	
+dyn	src/string/lowerCase.ts	17	lowerCase	function	4	covered	
+dyn	src/string/lowerFirst.ts	12	lowerFirst	function	3	covered	
+dyn	src/string/pad.ts	17	pad	function	3	covered	
+dyn	src/string/reverseString.ts	14	reverseString	function	3	covered	
+dyn	src/string/startCase.ts	16	startCase	function	12	covered	
+dyn	src/string/trimEnd.ts	17	trimEnd	function	23	covered	
+dyn	src/string/trimStart.ts	17	trimStart	function	23	covered	
+dyn	src/string/trim.ts	16	trim	function	6	covered	
+dyn	src/string/unescape.ts	22	unescape	function	3	blocked	extern-callback:1
+dyn	src/string/upperCase.ts	17	upperCase	function	11	covered	
+dyn	src/string/upperFirst.ts	12	upperFirst	function	3	covered	
+dyn	src/util/attempt.ts	40	attempt	function	7	blocked	as-downcast:1
+dyn	src/util/attemptAsync.ts	33	attemptAsync	function	8	blocked	as-downcast:1
+dyn	src/util/defer.ts	24	defer	function	7	blocked	ext-literal:1,no-symbol:1
+dyn	src/util/deferAsync.ts	27	deferAsync	function	7	blocked	ext-literal:1,no-symbol:1,unsupported-generic:1
+dyn	src/util/invariant.ts	65	invariant	function	9	covered	
+dyn	src/compat/array/castArray.ts	28	castArray	function	6	blocked	as-downcast:1,no-arguments:1,unsupported-type:1
+dyn	src/compat/_internal/toArray.ts	1	toArray	function	3	blocked	unsupported-builtin:1,unsupported-conversion:1
+dyn	src/compat/predicate/isArrayLike.ts	41	isArrayLike	function	3	blocked	no-loose-eq:2
+dyn	src/compat/array/chunk.ts	27	chunk	function	14	covered	
+dyn	src/compat/array/compact.ts	17	compact	function	6	blocked	unsupported-builtin:1
+dyn	src/compat/array/concat.ts	30	concat	function	3	blocked	as-downcast:1
+dyn	src/compat/_internal/isDeepKey.ts	29	isDeepKey	function	17	blocked	no-symbol:2
+dyn	src/compat/_internal/toKey.ts	8	toKey	function	9	blocked	no-object-type:1,no-symbol:2
+dyn	src/compat/predicate/isSymbol.ts	15	isSymbol	function	3	blocked	instanceof:1,no-symbol:2
+dyn	src/compat/util/toString.ts	19	toString	function	6	blocked	no-loose-eq:2
+dyn	src/compat/util/toString.ts	27	baseToString	function	19	covered	
+dyn	src/compat/util/toPath.ts	21	toPath	function	96	blocked	any-op:3,as-downcast:1
+dyn	src/compat/object/get.ts	455	get	function	50	blocked	no-loose-eq:2,no-symbol:7
+dyn	src/compat/object/get.ts	518	getWithPath	function	19	blocked	no-loose-eq:2,no-symbol:5
+dyn	src/compat/object/property.ts	24	property	function	5	blocked	no-symbol:2
+dyn	src/compat/predicate/isObject.ts	25	isObject	function	3	blocked	no-object-type:1
+dyn	src/compat/predicate/isMatchWith.ts	104	isMatchWith	function	29	blocked	map-key:1,no-object-type:10,no-symbol:3
+dyn	src/compat/predicate/isMatchWith.ts	137	isMatchWithInternal	function	42	blocked	map-key:3,no-symbol:3,unsupported:1
+dyn	src/compat/predicate/isMatchWith.ts	186	isObjectMatch	function	70	blocked	instanceof:2,map-key:8,no-in:1,no-loose-eq:4,no-symbol:5
+dyn	src/compat/predicate/isMatchWith.ts	274	isMapMatch	function	28	blocked	instanceof:1,map-key:4,no-symbol:1
+dyn	src/compat/predicate/isMatchWith.ts	308	isArrayMatch	function	45	blocked	map-key:1,no-symbol:2
+dyn	src/compat/predicate/isMatchWith.ts	364	isSetMatch	function	21	blocked	any-op:1,instanceof:1,map-key:5,no-symbol:2
+dyn	src/compat/predicate/isMatch.ts	31	isMatch	function	3	blocked	no-object-type:6
+dyn	src/compat/predicate/matches.ts	59	matches	function	6	blocked	as-downcast:1,no-object-type:3
+dyn	src/compat/object/cloneDeepWith.ts	83	cloneDeepWith	function	44	blocked	no-prototype:1,no-symbol:3
+dyn	src/compat/object/cloneDeep.ts	49	cloneDeep	function	3	covered	
+dyn	src/compat/_internal/isIndex.ts	3	isIndex	function	13	blocked	no-symbol:2
+dyn	src/compat/predicate/isArguments.ts	23	isArguments	function	3	covered	
+dyn	src/compat/object/has.ts	88	has	function	27	blocked	no-in:1,no-loose-eq:2,no-symbol:9
+dyn	src/compat/predicate/matchesProperty.ts	69	matchesProperty	function	25	blocked	as-downcast:3,no-object-type:1,no-symbol:3
+dyn	src/compat/util/iteratee.ts	69	iteratee	function	21	blocked	fn-type-rest:1,no-loose-eq:2,no-object-type:4,no-symbol:4,unsupported-generic:1
+dyn	src/compat/array/countBy.ts	28	countBy	function	14	blocked	no-loose-eq:2,no-prototype:1,unsupported:1,unsupported-builtin:1
+dyn	src/compat/_internal/normalizeZero.ts	8	normalizeZero	function	3	blocked	as-downcast:1,unsupported:1
+dyn	src/compat/predicate/isObjectLike.ts	25	isObjectLike	function	3	covered	
+dyn	src/compat/predicate/isArrayLikeObject.ts	23	isArrayLikeObject	function	3	covered	
+dyn	src/compat/array/difference.ts	30	difference	function	14	blocked	unsupported-builtin:2,unsupported-conversion:1,unsupported-generic:1
+dyn	src/compat/array/last.ts	27	last	function	6	covered	
+dyn	src/compat/_internal/flattenArrayLike.ts	3	flattenArrayLike	function	13	covered	
+dyn	src/compat/array/differenceBy.ts	167	differenceBy	function	11	blocked	unsupported-builtin:2,unsupported-generic:2
+dyn	src/compat/array/differenceWith.ts	142	differenceWith	function	14	blocked	as-downcast:1,unsupported-builtin:2,unsupported-generic:1
+dyn	src/compat/util/toNumber.ts	19	toNumber	function	6	covered	
+dyn	src/compat/util/toFinite.ts	17	toFinite	function	11	blocked	any-op:1
+dyn	src/compat/util/toInteger.ts	20	toInteger	function	5	covered	
+dyn	src/compat/array/drop.ts	24	drop	function	7	covered	
+dyn	src/compat/array/dropRight.ts	41	dropRight	function	7	covered	
+dyn	src/compat/array/dropRightWhile.ts	62	dropRightWhile	function	6	blocked	no-symbol:2
+dyn	src/compat/array/dropRightWhile.ts	70	dropRightWhileImpl	function	21	blocked	no-object-type:1,no-symbol:9
+dyn	src/compat/array/dropWhile.ts	33	dropWhile	function	6	blocked	no-symbol:2
+dyn	src/compat/array/dropWhile.ts	41	dropWhileImpl	function	21	blocked	no-object-type:1,no-symbol:9
+dyn	src/compat/array/forEach.ts	147	forEach	function	18	blocked	no-symbol:6,unsupported-generic:1
+dyn	src/compat/array/forEachRight.ts	147	forEachRight	function	18	blocked	no-symbol:6,unsupported-generic:1
+dyn	src/compat/_internal/isIterateeCall.ts	6	isIterateeCall	function	12	blocked	unsupported:1
+dyn	src/compat/predicate/isString.ts	19	isString	function	3	blocked	instanceof:1
+dyn	src/compat/array/fill.ts	96	fill	function	27	blocked	unsupported:1,unsupported-type:1
+dyn	src/compat/array/filter.ts	116	filter	function	31	blocked	as-downcast:3,no-symbol:2,unsupported-conversion:3,unsupported-type:4
+dyn	src/compat/array/find.ts	108	find	function	32	blocked	as-downcast:1,fn-type-rest:2,no-symbol:8,unsupported-type:1
+dyn	src/compat/function/identity.ts	43	identity	function	3	covered	
+dyn	src/compat/array/findIndex.ts	21	findIndex	function	17	blocked	fn-type-rest:2,no-symbol:2,unsupported-builtin:1
+dyn	src/compat/array/findLast.ts	119	findLast	function	33	blocked	as-downcast:2,fn-type-rest:3,no-symbol:2,unsupported-conversion:2,unsupported-type:3
+dyn	src/compat/array/findLastIndex.ts	57	findLastIndex	function	35	blocked	no-object-type:2,no-symbol:4,unsupported-type:4
+dyn	src/compat/array/head.ts	52	head	function	6	covered	
+dyn	src/compat/array/flattenDepth.ts	23	flattenDepth	function	19	blocked	as-downcast:1,index-signature:2
+dyn	src/compat/array/flattenDepth.ts	46	isFlattenable	function	3	blocked	no-symbol:1,unsupported-builtin:1
+dyn	src/compat/array/map.ts	130	map	function	17	blocked	fn-type-rest:2,no-object-type:1,no-symbol:7,unsupported-builtin:1
+dyn	src/compat/array/flatMapDepth.ts	121	flatMapDepth	function	22	blocked	fn-type-rest:2,no-loose-eq:2,no-object-type:6,unsupported-conversion:1
+dyn	src/compat/array/flatMap.ts	114	flatMap	function	3	blocked	no-object-type:3
+dyn	src/compat/array/flatMapDeep.ts	111	flatMapDeep	function	16	blocked	no-object-type:6
+dyn	src/compat/array/flatten.ts	15	flatten	function	3	blocked	as-downcast:1
+dyn	src/compat/array/flattenDeep.ts	15	flattenDeep	function	5	blocked	index-signature:2,no-never-value:1,unsupported-type:1
+dyn	src/compat/array/groupBy.ts	77	groupBy	function	15	blocked	as-downcast:1,fn-type-rest:2,no-loose-eq:2,no-object-type:1,no-symbol:2
+dyn	src/compat/array/includes.ts	47	includes	function	49	blocked	as-downcast:1,instanceof:1,no-loose-eq:2,no-reflect:1,no-regexp:1,unsupported-builtin:1
+dyn	src/compat/array/indexOf.ts	21	indexOf	function	21	blocked	unsupported-builtin:1
+dyn	src/compat/array/initial.ts	17	initial	function	6	blocked	unsupported-builtin:1
+dyn	src/compat/array/intersection.ts	23	intersection	function	17	covered	
+dyn	src/compat/array/intersectionBy.ts	127	intersectionBy	function	24	blocked	any-op:1,unsupported-generic:1
+dyn	src/compat/array/intersectionWith.ts	109	intersectionWith	function	22	blocked	no-loose-eq:4,unsupported-generic:1
+dyn	src/compat/array/invokeMap.ts	51	invokeMap	function	26	blocked	any-op:1,fn-type-rest:3,no-loose-eq:2,unsupported-builtin:1,unsupported-type:4
+dyn	src/compat/array/join.ts	15	join	function	6	blocked	unsupported-builtin:1
+dyn	src/compat/array/reduce.ts	129	reduce	function	31	blocked	no-arguments:1,unsupported:2,unsupported-conversion:2,unsupported-generic:1
+dyn	src/compat/array/keyBy.ts	78	keyBy	function	18	blocked	fn-type-rest:2,no-symbol:2,unsupported:1
+dyn	src/compat/array/lastIndexOf.ts	29	lastIndexOf	function	30	covered	
+dyn	src/compat/array/nth.ts	15	nth	function	10	covered	
+dyn	src/compat/_internal/compareValues.ts	1	getPriority	function	15	covered	
+dyn	src/compat/_internal/compareValues.ts	21	compareValues	arrow	17	blocked	mixed-compare:2
+dyn	src/compat/_internal/isKey.ts	21	isKey	function	12	blocked	as-downcast:1,no-loose-eq:4,no-object-type:3
+dyn	src/compat/array/orderBy.ts	140	orderBy	function	78	blocked	any-op:3,internal:1,no-in:1,no-loose-eq:10,no-object-type:4,no-symbol:2,unsupported:3,unsupported-builtin:1
+dyn	src/compat/array/partition.ts	84	partition	function	21	blocked	no-symbol:2,unsupported:1
+dyn	src/compat/array/pull.ts	57	pull	function	3	covered	
+dyn	src/compat/array/pullAll.ts	60	pullAll	function	6	blocked	unsupported:1,unsupported-builtin:1
+dyn	src/compat/array/pullAllBy.ts	121	pullAllBy	function	19	blocked	any-op:4,map-key:3,no-delete:1
+dyn	src/compat/_internal/copyArray.ts	9	copyArray	function	10	blocked	no-loose-eq:2,unsupported-builtin:1
+dyn	src/compat/array/pullAllWith.ts	123	pullAllWith	function	33	blocked	any-op:2,no-delete:1,no-in:2,no-loose-eq:6,unsupported:1,unsupported-builtin:1
+dyn	src/compat/object/at.ts	55	at	function	21	blocked	no-symbol:15
+dyn	src/compat/object/unset.ts	24	unset	function	49	blocked	no-delete:2,no-loose-eq:2,no-symbol:1,switch-fallthrough:1
+dyn	src/compat/object/unset.ts	81	unsetWithPath	function	16	blocked	no-delete:1,no-symbol:8
+dyn	src/compat/array/pullAt.ts	73	pullAt	function	26	blocked	any-op:1,as-downcast:1,no-delete:1,no-prototype:1,unsupported-builtin:3,unsupported-conversion:1
+dyn	src/compat/array/reduceRight.ts	170	reduceRight	function	35	blocked	no-arguments:1,unsupported:2,unsupported-conversion:3,unsupported-generic:1
+dyn	src/compat/function/negate.ts	31	negate	function	8	blocked	as-downcast:1
+dyn	src/compat/array/reject.ts	81	reject	function	6	blocked	no-symbol:2
+dyn	src/compat/array/remove.ts	58	remove	function	10	blocked	as-downcast:1,no-object-type:1,no-symbol:1
+dyn	src/compat/array/reverse.ts	39	reverse	function	6	blocked	no-loose-eq:2,no-prototype:1,unsupported-builtin:1
+dyn	src/compat/array/sample.ts	54	sample	function	9	blocked	no-loose-eq:2
+dyn	src/compat/math/clamp.ts	46	clamp	function	15	covered	
+dyn	src/compat/predicate/isMap.ts	21	isMap	function	3	covered	
+dyn	src/compat/predicate/isSet.ts	21	isSet	function	3	covered	
+dyn	src/compat/util/toArray.ts	54	toArray	function	15	blocked	map-key:1,no-loose-eq:2,no-object-type:5,unsupported-builtin:1
+dyn	src/compat/array/sampleSize.ts	52	sampleSize	function	16	blocked	index-signature:3,no-object-type:1,unsupported-type:4
+dyn	src/compat/_internal/isPrototype.ts	1	isPrototype	function	5	blocked	no-object-type:7,no-prototype:2,unsupported-builtin:1
+dyn	src/compat/predicate/isTypedArray.ts	18	isTypedArray	function	3	covered	
+dyn	src/compat/util/times.ts	37	times	function	11	blocked	unsupported-builtin:1,unsupported-conversion:1
+dyn	src/compat/object/keys.ts	26	keys	function	10	covered	
+dyn	src/compat/object/keys.ts	40	arrayLikeKeys	function	20	covered	
+dyn	src/compat/object/values.ts	50	values	function	13	blocked	no-loose-eq:2,unsupported-builtin:1
+dyn	src/compat/predicate/isNil.ts	20	isNil	function	3	blocked	no-loose-eq:2
+dyn	src/compat/array/shuffle.ts	39	shuffle	function	15	blocked	as-downcast:1,unsupported-builtin:1,unsupported-type:2
+dyn	src/compat/_internal/unicodeSize.ts	35	unicodeSize	function	8	blocked	no-regexp:3
+dyn	src/compat/array/size.ts	48	size	function	15	blocked	instanceof:2,no-regexp:2
+dyn	src/compat/array/slice.ts	20	slice	function	31	blocked	unsupported-builtin:1,unsupported-conversion:1
+dyn	src/compat/array/some.ts	79	some	function	78	blocked	as-downcast:3,no-loose-eq:2,no-object-type:3,no-symbol:5,unsupported-conversion:10,unsupported-generic:1,unsupported-type:10
+dyn	src/compat/array/sortBy.ts	80	sortBy	function	10	blocked	no-object-type:4
+dyn	src/compat/predicate/isNumber.ts	22	isNumber	function	3	covered	
+dyn	src/compat/predicate/isNaN.ts	15	isNaN	function	3	covered	
+dyn	src/compat/array/sortedIndexBy.ts	53	sortedIndexBy	function	46	blocked	any-op:2,fn-type-rest:3,no-symbol:2
+dyn	src/compat/array/sortedIndex.ts	53	sortedIndex	function	20	blocked	unsupported-type:3
+dyn	src/compat/array/sortedIndexOf.ts	35	sortedIndexOf	function	10	covered	
+dyn	src/compat/array/sortedLastIndexBy.ts	45	sortedLastIndexBy	function	9	blocked	no-symbol:2
+dyn	src/compat/array/sortedLastIndex.ts	23	sortedLastIndex	function	20	blocked	unsupported-type:2
+dyn	src/compat/array/sortedLastIndexOf.ts	36	sortedLastIndexOf	function	10	covered	
+dyn	src/compat/array/tail.ts	55	tail	function	6	covered	
+dyn	src/compat/array/take.ts	55	take	function	7	covered	
+dyn	src/compat/array/takeRight.ts	54	takeRight	function	7	covered	
+dyn	src/compat/array/takeRightWhile.ts	86	takeRightWhile	function	15	blocked	no-symbol:2
+dyn	src/compat/array/takeWhile.ts	86	takeWhile	function	15	blocked	no-symbol:2
+dyn	src/compat/array/union.ts	61	union	function	5	blocked	as-downcast:1,unsupported-builtin:1,unsupported-type:3
+dyn	src/compat/array/unionBy.ts	151	unionBy	function	8	blocked	as-downcast:1,no-loose-eq:2,no-symbol:5,unsupported-generic:1
+dyn	src/compat/array/unionWith.ts	97	unionWith	function	8	blocked	as-downcast:1,no-loose-eq:2
+dyn	src/compat/array/uniq.ts	19	uniq	function	6	blocked	unsupported-builtin:1
+dyn	src/compat/array/uniqBy.ts	22	uniqBy	function	9	blocked	no-symbol:2,unsupported-builtin:1,unsupported-generic:1
+dyn	src/compat/array/uniqWith.ts	30	uniqWith	function	12	blocked	unsupported-builtin:2
+dyn	src/compat/array/unzip.ts	21	unzip	function	8	blocked	as-downcast:2,unsupported-builtin:1
+dyn	src/compat/array/unzipWith.ts	54	unzipWith	function	18	blocked	fn-type-rest:3,unsupported-builtin:2,unsupported-conversion:1
+dyn	src/compat/array/without.ts	24	without	function	14	covered	
+dyn	src/compat/array/xor.ts	24	xor	function	24	blocked	map-key:1
+dyn	src/compat/array/xorBy.ts	92	xorBy	function	12	blocked	as-downcast:3,no-loose-eq:2,no-symbol:6,unsupported-generic:3
+dyn	src/compat/array/xorWith.ts	89	xorWith	function	17	blocked	as-downcast:2
+dyn	src/compat/array/zip.ts	228	zip	function	7	blocked	unsupported-builtin:1
+dyn	src/compat/_internal/assignValue.ts	3	assignValue	arrow	6	blocked	any-op:1,no-in:1,no-symbol:4
+dyn	src/compat/array/zipObject.ts	62	zipObject	function	9	blocked	as-downcast:1,no-object-type:4,no-symbol:1,unsupported:4
+dyn	src/_internal/isUnsafeToWriteProperty.ts	17	isUnsafeToWriteProperty	function	3	blocked	no-symbol:4
+dyn	src/compat/object/updateWith.ts	75	updateWith	function	44	blocked	as-downcast:1,no-loose-eq:4,no-object-type:2,no-symbol:15
+dyn	src/compat/object/set.ts	89	set	function	8	blocked	no-object-type:1,no-symbol:2
+dyn	src/compat/array/zipObjectDeep.ts	39	zipObjectDeep	function	17	blocked	no-loose-eq:2,no-object-type:7,no-symbol:6,unsupported:1,unsupported-builtin:1
+dyn	src/compat/array/zipWith.ts	138	zipWith	function	15	blocked	as-downcast:2,fn-type-rest:7,no-loose-eq:2
+dyn	src/compat/function/after.ts	24	after	function	11	blocked	as-downcast:1
+dyn	src/compat/function/ary.ts	45	ary	function	13	blocked	fn-type-rest:1,internal:2
+dyn	src/compat/function/attempt.ts	31	attempt	function	7	blocked	fn-type-rest:2,unsupported-conversion:1
+dyn	src/compat/function/before.ts	26	before	function	17	blocked	as-downcast:1,unsupported-type:1
+dyn	src/compat/function/bind.ts	26	bind	function	26	blocked	fn-type-rest:5
+dyn	src/compat/function/bindKey.ts	79	bindKey	function	30	blocked	fn-type-rest:3,no-never-value:1,unsupported-type:1
+dyn	src/compat/function/curry.ts	207	curry	function	25	blocked	fn-type-rest:3,no-symbol:3,unsupported-type:4
+dyn	src/compat/function/curry.ts	236	makeCurry	function	21	blocked	fn-type-rest:1,no-symbol:3,no-this:1,unsupported-type:2
+dyn	src/compat/function/curry.ts	258	composeArgs	function	16	blocked	unsupported:1
+dyn	src/compat/function/curryRight.ts	134	curryRight	function	25	blocked	fn-type-rest:3,no-symbol:3,unsupported-type:4
+dyn	src/compat/function/curryRight.ts	163	makeCurryRight	function	21	blocked	fn-type-rest:1,no-symbol:3,no-this:1,unsupported-type:2
+dyn	src/compat/function/curryRight.ts	185	composeArgs	function	22	blocked	unsupported:2
+dyn	src/compat/function/debounce.ts	161	debounce	function	52	blocked	fn-type-rest:1,no-loose-eq:1,unsupported-builtin:1,unsupported-type:12
+dyn	src/compat/function/defer.ts	27	defer	function	6	blocked	unsupported-builtin:1,unsupported-type:1
+dyn	src/compat/function/delay.ts	29	delay	function	6	blocked	fn-type-rest:2,unsupported-builtin:1
+dyn	src/compat/function/flip.ts	35	flip	function	5	blocked	fn-type-rest:2
+dyn	src/compat/function/flow.ts	181	flow	function	7	blocked	fn-type-rest:7
+dyn	src/compat/function/flowRight.ts	171	flowRight	function	7	blocked	fn-type-rest:7
+dyn	src/compat/function/memoize.ts	122	memoize	function	21	blocked	as-downcast:1,fn-type-rest:2,no-loose-eq:2,unsupported-type:6
+dyn	src/compat/function/nthArg.ts	39	nthArg	function	5	blocked	fn-type-rest:2
+dyn	src/compat/function/once.ts	3	once	function	3	covered	
+dyn	src/compat/function/overArgs.ts	50	overArgs	function	18	blocked	fn-type-rest:7
+dyn	src/compat/toolkit.ts	10	toolkit	arrow	3	covered	
+dyn	src/compat/function/partial.ts	338	partial	function	6	blocked	fn-type-rest:1,unsupported:1
+dyn	src/compat/function/partialRight.ts	773	partialRight	function	6	blocked	fn-type-rest:1,unsupported:1
+dyn	src/compat/function/rearg.ts	18	rearg	function	10	blocked	fn-type-rest:3
+dyn	src/compat/function/rest.ts	32	rest	function	7	blocked	fn-type-rest:5
+dyn	src/compat/function/spread.ts	45	spread	function	14	blocked	fn-type-rest:3
+dyn	src/compat/function/throttle.ts	120	throttle	function	12	blocked	unsupported-type:1
+dyn	src/compat/function/unary.ts	17	unary	function	3	blocked	fn-type-rest:2
+dyn	src/compat/function/wrap.ts	28	wrap	function	6	blocked	fn-type-rest:3
+dyn	src/compat/math/add.ts	19	add	function	16	covered	
+dyn	src/compat/_internal/decimalAdjust.ts	1	decimalAdjust	function	21	blocked	as-downcast:1,unsupported:2,unsupported-builtin:5
+dyn	src/compat/math/ceil.ts	15	ceil	function	3	covered	
+dyn	src/compat/math/divide.ts	19	divide	function	16	covered	
+dyn	src/compat/math/floor.ts	15	floor	function	3	covered	
+dyn	src/compat/math/inRange.ts	21	inRange	function	11	covered	
+dyn	src/compat/math/max.ts	8	max	function	16	blocked	mixed-compare:1,no-loose-eq:2
+dyn	src/compat/math/maxBy.ts	34	maxBy	function	24	blocked	as-downcast:1,fn-type-rest:2,no-loose-eq:4,no-symbol:2
+dyn	src/compat/math/sumBy.ts	21	sumBy	function	20	blocked	any-op:1,no-loose-eq:2
+dyn	src/compat/math/sum.ts	19	sum	function	3	covered	
+dyn	src/compat/math/mean.ts	16	mean	function	4	covered	
+dyn	src/compat/math/meanBy.ts	32	meanBy	function	7	blocked	no-loose-eq:2,no-symbol:2
+dyn	src/compat/math/min.ts	8	min	function	16	blocked	mixed-compare:1,no-loose-eq:2
+dyn	src/compat/math/minBy.ts	34	minBy	function	24	blocked	as-downcast:1,fn-type-rest:2,no-loose-eq:4,no-symbol:2
+dyn	src/compat/math/multiply.ts	20	multiply	function	16	covered	
+dyn	src/compat/math/parseInt.ts	39	parseInt	function	6	covered	
+dyn	src/compat/math/random.ts	66	random	function	65	blocked	no-loose-eq:1,switch-fallthrough:1
+dyn	src/compat/math/range.ts	53	range	function	21	blocked	any-op:1,no-symbol:4,unsupported-builtin:1,unsupported-conversion:1
+dyn	src/compat/math/rangeRight.ts	52	rangeRight	function	21	blocked	no-object-type:7,unsupported-builtin:1,unsupported-conversion:1
+dyn	src/compat/math/round.ts	15	round	function	3	covered	
+dyn	src/compat/math/subtract.ts	18	subtract	function	16	covered	
+dyn	src/compat/function/noop.ts	11	noop	function	1	covered	
+dyn	src/compat/object/assign.ts	134	assign	function	6	covered	
+dyn	src/compat/object/assign.ts	142	assignImpl	function	9	blocked	any-op:1,no-in:1
+dyn	src/compat/object/keysIn.ts	30	keysIn	function	20	blocked	no-loose-eq:2
+dyn	src/compat/object/keysIn.ts	55	keysInImpl	function	7	blocked	no-for-in:1,no-object-type:2
+dyn	src/compat/object/keysIn.ts	65	prototypeKeysIn	function	4	blocked	no-object-type:3
+dyn	src/compat/object/keysIn.ts	71	arrayLikeKeysIn	function	20	covered	
+dyn	src/compat/object/assignIn.ts	135	assignIn	function	6	covered	
+dyn	src/compat/object/assignIn.ts	143	assignInImpl	function	9	blocked	any-op:1,no-in:1
+dyn	src/compat/object/assignInWith.ts	174	assignInWith	function	12	covered	
+dyn	src/compat/object/assignInWith.ts	190	assignInWithImpl	function	16	blocked	any-op:1,no-in:1
+dyn	src/compat/object/assignWith.ts	174	assignWith	function	12	covered	
+dyn	src/compat/object/assignWith.ts	190	assignWithImpl	function	16	blocked	any-op:1,no-in:1
+dyn	src/compat/object/clone.ts	58	clone	function	87	blocked	any-op:6,as-downcast:1,map-key:14,no-object-type:3,no-prototype:1,no-regexp:5,no-symbol:3,unsupported-builtin:4,unsupported-conversion:1,unsupported-type:4
+dyn	src/compat/object/clone.ts	175	isCloneableObject	function	31	covered	
+dyn	src/compat/object/clone.ts	207	copyOwnProperties	function	7	blocked	no-for-in:1
+dyn	src/compat/object/clone.ts	215	copySymbolProperties	function	9	blocked	any-op:1,no-prototype:1,no-symbol:6,unsupported-builtin:1
+dyn	src/compat/object/clone.ts	225	cloneStringObjectProperties	function	8	blocked	any-op:1,no-for-in:1
+dyn	src/compat/object/clone.ts	235	copyPrototype	function	9	blocked	extern-effect:1,no-prototype:2
+dyn	src/compat/object/cloneWith.ts	107	cloneWith	function	10	blocked	any-op:1
+dyn	src/compat/object/create.ts	18	create	function	12	blocked	computed-key:1,no-loose-eq:2,no-object-type:3,no-prototype:1,unsupported-type:4
+dyn	src/compat/object/defaults.ts	142	defaults	function	27	blocked	any-op:1,as-downcast:2,no-object-type:6,no-prototype:1,no-symbol:1,unsupported-builtin:1,unsupported-type:5
+dyn	src/compat/object/defaultsDeep.ts	23	defaultsDeep	function	10	blocked	no-loose-eq:2
+dyn	src/compat/object/defaultsDeep.ts	36	defaultsDeepRecursive	function	15	blocked	no-for-in:1
+dyn	src/compat/object/defaultsDeep.ts	55	handleMissingProperty	function	12	blocked	no-object-type:5
+dyn	src/compat/object/defaultsDeep.ts	70	handleExistingProperty	function	11	covered	
+dyn	src/compat/object/defaultsDeep.ts	83	mergeArrays	function	11	covered	
+dyn	src/compat/_internal/mapToEntries.ts	1	mapToEntries	function	9	blocked	map-key:3,unsupported-builtin:1,unsupported-type:4
+dyn	src/compat/_internal/setToEntries.ts	1	setToEntries	function	9	blocked	as-downcast:1,unsupported-builtin:2,unsupported-type:1
+dyn	src/compat/object/toPairs.ts	49	toPairs	function	21	blocked	as-downcast:1,map-key:2,no-loose-eq:2,no-object-type:6,unsupported-builtin:1,unsupported-conversion:1
+dyn	src/compat/object/toPairsIn.ts	47	toPairsIn	function	21	blocked	as-downcast:1,map-key:2,no-loose-eq:2,no-object-type:6,unsupported-builtin:1,unsupported-conversion:1
+dyn	src/compat/object/findKey.ts	19	findKey	function	7	blocked	as-downcast:1,fn-type-rest:1,no-symbol:2
+dyn	src/compat/object/findLastKey.ts	18	findLastKey	function	8	blocked	fn-type-rest:2,no-symbol:2,unsupported-type:1
+dyn	src/compat/object/forIn.ts	91	forIn	function	15	blocked	no-for-in:1,no-loose-eq:2,unsupported-type:1
+dyn	src/compat/object/forInRight.ts	91	forInRight	function	20	blocked	no-for-in:1,no-loose-eq:2,unsupported-type:2
+dyn	src/compat/object/forOwn.ts	86	forOwn	function	17	blocked	no-loose-eq:2,unsupported-type:2
+dyn	src/compat/object/forOwnRight.ts	86	forOwnRight	function	17	blocked	no-loose-eq:2,unsupported-type:2
+dyn	src/compat/object/fromPairs.ts	46	fromPairs	function	13	blocked	no-symbol:1
+dyn	src/compat/object/functions.ts	43	functions	function	6	blocked	no-loose-eq:2,no-symbol:1
+dyn	src/compat/object/functionsIn.ts	21	functionsIn	function	12	blocked	no-for-in:1,no-loose-eq:2
+dyn	src/compat/object/hasIn.ts	46	hasIn	function	30	blocked	as-downcast:2,no-in:2,no-loose-eq:4,no-symbol:6,unsupported-type:3
+dyn	src/compat/object/invert.ts	33	invert	function	3	blocked	no-object-type:3
+dyn	src/compat/object/invertBy.ts	68	invertBy	function	25	blocked	as-downcast:1,fn-type-rest:2,no-loose-eq:2,no-object-type:1,no-symbol:2,unsupported:3
+dyn	src/compat/object/mapKeys.ts	56	mapKeys	function	6	blocked	no-loose-eq:2,no-symbol:2
+dyn	src/compat/object/mapValues.ts	170	mapValues	function	6	blocked	no-loose-eq:2,no-symbol:2
+dyn	src/compat/object/mergeWith.ts	210	mergeWith	function	17	blocked	map-key:1,no-symbol:4
+dyn	src/compat/object/mergeWith.ts	232	mergeWithDeep	function	93	blocked	any-op:11,as-downcast:1,index-signature:2,map-key:4,no-in:1,no-loose-eq:6,no-reflect:1,no-symbol:15
+dyn	src/compat/object/merge.ts	128	merge	function	3	covered	
+dyn	src/compat/_internal/getSymbolsIn.ts	3	getSymbolsIn	function	8	blocked	no-prototype:1,no-symbol:4
+dyn	src/compat/object/omit.ts	80	omit	function	31	blocked	no-loose-eq:2,no-object-type:8,no-symbol:13
+dyn	src/compat/object/omit.ts	119	cloneInOmit	function	7	blocked	no-object-type:2,no-symbol:3
+dyn	src/compat/object/omit.ts	129	shallowCloneInOmit	function	9	blocked	as-downcast:1,computed-key:1,no-object-type:6,unsupported-type:5
+dyn	src/compat/object/omit.ts	141	deepCloneInOmit	function	14	blocked	as-downcast:1,computed-key:1,no-object-type:6,unsupported-type:5
+dyn	src/compat/object/omitBy.ts	78	omitBy	function	19	blocked	as-downcast:3,fn-type-rest:2,index-signature:1,no-loose-eq:2,no-object-type:8,no-symbol:2,unsupported-type:4
+dyn	src/compat/object/pick.ts	67	pick	function	44	blocked	any-op:1,as-downcast:1,no-object-type:4,no-symbol:9
+dyn	src/compat/object/pickBy.ts	125	pickBy	function	19	blocked	as-downcast:2,fn-type-rest:2,index-signature:1,no-loose-eq:2,no-object-type:8,no-symbol:2,unsupported-type:5
+dyn	src/compat/object/propertyOf.ts	28	propertyOf	function	5	blocked	no-symbol:2
+dyn	src/compat/object/result.ts	39	result	function	16	blocked	any-op:2,as-downcast:1,fn-type-rest:2,no-loose-eq:2,no-symbol:7
+dyn	src/compat/object/setWith.ts	86	setWith	function	14	blocked	no-object-type:1,no-symbol:2
+dyn	src/compat/object/toDefaulted.ts	167	toDefaulted	function	4	blocked	no-object-type:4
+dyn	src/compat/predicate/isBuffer.ts	21	isBuffer	function	3	covered	
+dyn	src/compat/object/transform.ts	122	transform	function	22	blocked	as-downcast:4,no-loose-eq:4,no-prototype:2,unsupported:1,unsupported-type:3
+dyn	src/compat/object/update.ts	13	update	function	3	blocked	no-object-type:3,no-symbol:2
+dyn	src/compat/object/valuesIn.ts	44	valuesIn	function	9	blocked	unsupported-builtin:1
+dyn	src/compat/predicate/isFunction.ts	14	isFunction	function	3	covered	
+dyn	src/compat/predicate/isLength.ts	22	isLength	function	3	covered	
+dyn	src/compat/predicate/isNative.ts	32	isNative	function	9	blocked	no-loose-eq:2,no-regexp:2
+dyn	src/compat/predicate/isNull.ts	12	isNull	function	3	covered	
+dyn	src/compat/predicate/isUndefined.ts	23	isUndefined	function	3	covered	
+dyn	src/compat/predicate/conformsTo.ts	30	conformsTo	function	21	blocked	as-downcast:1,computed-key:1,no-in:1,no-loose-eq:4,no-object-type:3,unsupported-type:11
+dyn	src/compat/predicate/conforms.ts	24	conforms	function	6	blocked	no-object-type:3
+dyn	src/compat/predicate/isArrayBuffer.ts	21	isArrayBuffer	function	3	covered	
+dyn	src/compat/predicate/isBoolean.ts	23	isBoolean	function	3	blocked	instanceof:1
+dyn	src/compat/predicate/isDate.ts	16	isDate	function	3	covered	
+dyn	src/compat/predicate/isElement.ts	14	isElement	function	3	covered	
+dyn	src/compat/predicate/isEmpty.ts	41	isEmpty	function	29	blocked	map-key:1,no-loose-eq:2,no-object-type:7
+dyn	src/compat/predicate/isEqualWith.ts	40	isEqualWith	function	27	blocked	fn-type-rest:1,no-symbol:2
+dyn	src/compat/predicate/isError.ts	16	isError	function	3	covered	
+dyn	src/compat/predicate/isFinite.ts	25	isFinite	function	3	covered	
+dyn	src/compat/predicate/isInteger.ts	15	isInteger	function	3	covered	
+dyn	src/compat/predicate/isRegExp.ts	16	isRegExp	function	3	covered	
+dyn	src/compat/predicate/isSafeInteger.ts	19	isSafeInteger	function	3	covered	
+dyn	src/compat/predicate/isWeakMap.ts	23	isWeakMap	function	3	blocked	no-object-type:1
+dyn	src/compat/predicate/isWeakSet.ts	23	isWeakSet	function	3	blocked	no-object-type:1
+dyn	src/compat/string/capitalize.ts	15	capitalize	function	3	blocked	as-downcast:1,unsupported-type:1
+dyn	src/compat/util/bindAll.ts	33	bindAll	function	34	blocked	as-downcast:1,computed-key:2,no-in:2,no-loose-eq:2,unsupported-builtin:2,unsupported-type:3
+dyn	src/compat/string/deburr.ts	23	deburr	function	3	covered	
+dyn	src/compat/string/words.ts	24	getUnicodeWordPattern	function	19	blocked	no-loose-eq:2,no-regexp:4
+dyn	src/compat/string/words.ts	90	words	function	11	blocked	no-object-type:3,no-regexp:3,unsupported-builtin:1
+dyn	src/compat/_internal/normalizeForCase.ts	3	normalizeForCase	function	8	covered	
+dyn	src/compat/string/camelCase.ts	22	camelCase	function	8	covered	
+dyn	src/compat/string/endsWith.ts	18	endsWith	function	9	blocked	no-loose-eq:6
+dyn	src/compat/string/escape.ts	17	escape	function	3	covered	
+dyn	src/compat/string/escapeRegExp.ts	15	escapeRegExp	function	3	covered	
+dyn	src/compat/string/kebabCase.ts	19	kebabCase	function	5	covered	
+dyn	src/compat/string/lowerCase.ts	19	lowerCase	function	5	covered	
+dyn	src/compat/string/lowerFirst.ts	15	lowerFirst	function	3	blocked	as-downcast:1
+dyn	src/compat/_internal/createPadding.ts	3	stringSize	function	3	blocked	no-regexp:2
+dyn	src/compat/_internal/createPadding.ts	7	createPadding	function	8	blocked	no-regexp:2
+dyn	src/compat/string/pad.ts	39	pad	function	11	covered	
+dyn	src/compat/string/padEnd.ts	23	padEnd	function	9	covered	
+dyn	src/compat/string/padStart.ts	22	padStart	function	9	covered	
+dyn	src/compat/string/repeat.ts	36	repeat	function	11	blocked	any-op:2
+dyn	src/compat/string/replace.ts	22	replace	function	10	blocked	fn-type-rest:2,no-arguments:1,no-regexp:5
+dyn	src/compat/string/snakeCase.ts	19	snakeCase	function	5	covered	
+dyn	src/compat/string/split.ts	39	split	function	3	blocked	unsupported-builtin:1
+dyn	src/compat/string/startCase.ts	18	startCase	function	16	covered	
+dyn	src/compat/string/startsWith.ts	18	startsWith	function	9	blocked	no-loose-eq:6
+dyn	src/compat/string/template.ts	25	escapeString	function	3	covered	
+dyn	src/compat/string/template.ts	123	template	function	57	blocked	any-op:1,extern-callback:1,extern-spread:1,index-signature:3,no-eval:1,no-object-type:4,no-regexp:25,unsupported:2,unsupported-builtin:1,unsupported-syntax:1,unsupported-type:1
+dyn	src/compat/string/toLower.ts	20	toLower	function	3	blocked	as-downcast:1
+dyn	src/compat/string/toUpper.ts	20	toUpper	function	3	blocked	as-downcast:1
+dyn	src/compat/string/trim.ts	31	trim	function	23	blocked	any-op:4,no-loose-eq:6
+dyn	src/compat/string/trimEnd.ts	48	trimEnd	function	9	blocked	no-loose-eq:6,no-object-type:2,unsupported-builtin:1
+dyn	src/compat/string/trimStart.ts	48	trimStart	function	9	blocked	no-loose-eq:6,no-object-type:2,unsupported-builtin:1
+dyn	src/compat/string/truncate.ts	38	truncate	function	42	blocked	no-in:1,no-loose-eq:2,no-regexp:18
+dyn	src/compat/string/truncate.ts	92	parseLength	function	9	blocked	no-loose-eq:2
+dyn	src/compat/string/unescape.ts	17	unescape	function	3	covered	
+dyn	src/compat/string/upperCase.ts	19	upperCase	function	5	covered	
+dyn	src/compat/string/upperFirst.ts	15	upperFirst	function	3	blocked	as-downcast:1
+dyn	src/compat/util/cond.ts	62	cond	function	21	blocked	fn-type-rest:4
+dyn	src/compat/util/constant.ts	24	constant	function	3	covered	
+dyn	src/compat/util/defaultTo.ts	38	defaultTo	function	6	blocked	no-loose-eq:2
+dyn	src/compat/util/gt.ts	15	gt	function	6	covered	
+dyn	src/compat/util/gte.ts	15	gte	function	6	covered	
+dyn	src/compat/util/invoke.ts	26	invoke	function	27	blocked	no-loose-eq:2,no-symbol:5,unsupported:1,unsupported-builtin:1
+dyn	src/compat/util/invoke.ts	56	invokeImpl	function	15	blocked	any-op:1,no-loose-eq:2,no-symbol:9
+dyn	src/compat/util/lt.ts	15	lt	function	6	covered	
+dyn	src/compat/util/lte.ts	15	lte	function	6	covered	
+dyn	src/compat/util/method.ts	22	method	function	5	blocked	no-symbol:2
+dyn	src/compat/util/methodOf.ts	22	methodOf	function	5	blocked	no-object-type:2,no-symbol:2
+dyn	src/compat/util/now.ts	16	now	function	3	covered	
+dyn	src/compat/util/over.ts	29	over	function	11	blocked	fn-type-rest:9
+dyn	src/compat/util/overEvery.ts	119	overEvery	function	21	blocked	fn-type-rest:3
+dyn	src/compat/util/overSome.ts	123	overSome	function	21	blocked	fn-type-rest:3
+dyn	src/compat/util/stubArray.ts	10	stubArray	function	3	covered	
+dyn	src/compat/util/stubFalse.ts	19	stubFalse	function	3	covered	
+dyn	src/compat/util/stubObject.ts	8	stubObject	function	3	blocked	no-object-type:1
+dyn	src/compat/util/stubString.ts	10	stubString	function	3	covered	
+dyn	src/compat/util/stubTrue.ts	19	stubTrue	function	3	covered	
+dyn	src/compat/util/toLength.ts	21	toLength	function	6	blocked	no-loose-eq:2
+dyn	src/compat/util/toPlainObject.ts	16	toPlainObject	function	19	blocked	extern-effect:1,no-prototype:1
+dyn	src/compat/util/toSafeInteger.ts	22	toSafeInteger	function	6	blocked	no-loose-eq:2
+dyn	src/compat/util/uniqueId.ts	26	uniqueId	function	4	covered	
+dyn	src/compat/array/every.ts	90	every	function	30	blocked	fn-type-rest:3,no-object-type:1,no-symbol:3,unsupported:1,unsupported-conversion:1
+dyn	src/_internal/bigIntRangeLength.ts	12	bigIntRangeLength	function	7	covered	
+dyn	src/bigint/clamp.ts	45	clamp	function	7	blocked	no-loose-eq:2
+dyn	src/bigint/inRange.ts	46	inRange	function	10	blocked	no-loose-eq:2
+dyn	src/bigint/max.ts	18	max	function	12	covered	
+dyn	src/bigint/maxBy.ts	18	maxBy	function	16	covered	
+dyn	src/bigint/median.ts	19	median	function	11	covered	
+dyn	src/bigint/medianBy.ts	20	medianBy	function	3	covered	
+dyn	src/bigint/min.ts	15	min	function	12	covered	
+dyn	src/bigint/minBy.ts	18	minBy	function	16	covered	
+dyn	src/bigint/percentile.ts	20	percentile	function	20	covered	
+dyn	src/bigint/range.ts	57	range	function	15	blocked	no-loose-eq:2,unsupported-builtin:1
+dyn	src/bigint/rangeRight.ts	56	rangeRight	function	15	blocked	no-loose-eq:2,unsupported-builtin:1
+dyn	src/bigint/sum.ts	15	sum	function	7	covered	
+dyn	src/bigint/sumBy.ts	17	sumBy	function	7	covered	
+dyn	src/compat/_internal/toArgs.ts	10	toArgs	function	7	blocked	fn-type-rest:1,no-arguments:1,unsupported-syntax:1
+dyn	src/compat/_internal/doubled.ts	1	doubled	function	3	covered	
+dyn	src/compat/_internal/isEven.ts	1	isEven	function	4	blocked	no-loose-eq:2
+dyn	src/compat/_internal/stubA.ts	1	stubA	function	3	covered	
+dyn	src/compat/_internal/stubB.ts	1	stubB	function	3	covered	
+dyn	src/compat/_internal/stubC.ts	1	stubC	function	3	covered	
+dyn	src/compat/_internal/stubFour.ts	1	stubFour	arrow	3	covered	
+dyn	src/compat/_internal/stubNaN.ts	1	stubNaN	function	3	covered	
+dyn	src/compat/_internal/stubNull.ts	1	stubNull	arrow	3	covered	
+dyn	src/compat/_internal/stubOne.ts	1	stubOne	arrow	3	covered	
+dyn	src/compat/_internal/stubThree.ts	1	stubThree	arrow	3	covered	
+dyn	src/compat/_internal/stubTwo.ts	1	stubTwo	arrow	3	covered	
+dyn	src/compat/_internal/stubZero.ts	1	stubZero	arrow	3	covered	
+dyn	src/fp/_internal/lazy.ts	62	combineEagerAndLazyFunctions	function	7	blocked	extern-effect:1
+dyn	src/fp/_internal/lazy.ts	90	createLazyFunction	function	23	covered	
+dyn	src/fp/pipe.ts	418	pipe	function	18	blocked	index-signature:8,unsupported:1
+dyn	src/fp/pipe.ts	446	chunkFunctions	function	18	blocked	index-signature:11,no-loose-eq:2,unsupported-type:6
+dyn	src/fp/pipe.ts	480	lazyPipe	function	27	blocked	no-symbol:1,unsupported-conversion:2,unsupported-type:7
+dyn	src/fp/pipe.ts	516	isIterable	function	3	blocked	no-symbol:1,unsupported-builtin:1
+dyn	src/fp/flow.ts	380	flow	function	20	blocked	fn-type-rest:5
+dyn	src/fp/flowAsync.ts	370	flowAsync	function	12	blocked	fn-type-rest:3
+dyn	src/fp/array/at.ts	19	at	function	5	covered	
+dyn	src/fp/array/cartesianProduct.ts	68	cartesianProduct	function	5	covered	
+dyn	src/fp/array/chunk.ts	18	chunk	function	5	covered	
+dyn	src/fp/array/chunkBy.ts	19	chunkBy	function	5	covered	
+dyn	src/fp/array/combinations.ts	20	combinations	function	5	covered	
+dyn	src/fp/array/compact.ts	23	compact	function	11	blocked	unsupported-type:4
+dyn	src/fp/array/countBy.ts	20	countBy	function	7	blocked	no-object-type:2
+dyn	src/fp/array/difference.ts	21	difference	function	12	covered	
+dyn	src/fp/array/differenceBy.ts	22	differenceBy	function	15	blocked	map-key:3
+dyn	src/fp/array/differenceWith.ts	22	differenceWith	function	14	covered	
+dyn	src/fp/array/drop.ts	20	drop	function	12	covered	
+dyn	src/fp/array/dropRight.ts	19	dropRight	function	5	covered	
+dyn	src/fp/array/dropRightWhile.ts	19	dropRightWhile	function	7	covered	
+dyn	src/fp/array/dropWhile.ts	20	dropWhile	function	17	covered	
+dyn	src/fp/array/filter.ts	48	filter	function	11	covered	
+dyn	src/fp/array/find.ts	42	find	function	7	covered	
+dyn	src/fp/array/findIndex.ts	17	findIndex	function	7	covered	
+dyn	src/fp/array/findLast.ts	42	findLast	function	13	covered	
+dyn	src/fp/array/findLastIndex.ts	17	findLastIndex	function	12	covered	
+dyn	src/fp/array/flatMap.ts	28	flatMap	function	12	covered	
+dyn	src/fp/array/flatMapDeep.ts	22	flatMapDeep	function	11	blocked	unsupported-type:4
+dyn	src/fp/array/flatMapDeep.ts	36	emitDeep	function	9	blocked	unsupported-type:5
+dyn	src/fp/array/flatten.ts	21	flatten	function	10	blocked	as-downcast:1,unsupported-type:4
+dyn	src/fp/array/flatten.ts	35	emitFlattened	function	14	blocked	unsupported-type:5
+dyn	src/fp/array/flattenDeep.ts	19	flattenDeep	function	9	blocked	unsupported-type:4
+dyn	src/fp/array/flattenDeep.ts	31	emitDeep	function	9	blocked	unsupported-type:5
+dyn	src/fp/array/forEach.ts	21	forEach	function	11	covered	
+dyn	src/fp/array/groupBy.ts	20	groupBy	function	7	blocked	no-object-type:2
+dyn	src/fp/array/head.ts	36	head	function	5	covered	
+dyn	src/fp/array/initial.ts	18	initial	function	5	covered	
+dyn	src/fp/array/intersection.ts	21	intersection	function	12	covered	
+dyn	src/fp/array/intersectionBy.ts	22	intersectionBy	function	15	blocked	map-key:3
+dyn	src/fp/array/intersectionWith.ts	22	intersectionWith	function	14	covered	
+dyn	src/fp/array/isSubset.ts	19	isSubset	function	5	covered	
+dyn	src/fp/array/isSubsetWith.ts	20	isSubsetWith	function	8	covered	
+dyn	src/fp/array/join.ts	17	join	function	5	blocked	unsupported-conversion:1
+dyn	src/fp/array/keyBy.ts	20	keyBy	function	7	blocked	no-object-type:2
+dyn	src/fp/array/last.ts	36	last	function	5	covered	
+dyn	src/fp/array/length.ts	15	length	function	5	covered	
+dyn	src/fp/array/map.ts	26	map	function	9	covered	
+dyn	src/fp/array/maxBy.ts	42	maxBy	function	7	covered	
+dyn	src/fp/array/minBy.ts	42	minBy	function	7	covered	
+dyn	src/fp/array/orderBy.ts	20	orderBy	function	8	blocked	no-object-type:1,unsupported-type:2
+dyn	src/fp/array/partition.ts	44	partition	function	7	covered	
+dyn	src/fp/array/reverse.ts	16	reverse	function	5	covered	
+dyn	src/fp/array/sample.ts	17	sample	function	5	covered	
+dyn	src/fp/array/sampleSize.ts	19	sampleSize	function	5	covered	
+dyn	src/fp/array/shuffle.ts	18	shuffle	function	5	covered	
+dyn	src/fp/array/sortBy.ts	25	sortBy	function	7	blocked	no-object-type:1,unsupported-type:2
+dyn	src/fp/array/tail.ts	18	tail	function	5	covered	
+dyn	src/fp/array/take.ts	26	take	function	20	covered	
+dyn	src/fp/array/takeRight.ts	19	takeRight	function	5	covered	
+dyn	src/fp/array/takeRightWhile.ts	19	takeRightWhile	function	7	covered	
+dyn	src/fp/array/takeWhile.ts	21	takeWhile	function	12	covered	
+dyn	src/fp/array/toFilled.ts	22	toFilled	function	11	blocked	no-loose-eq:4
+dyn	src/fp/array/union.ts	19	union	function	5	covered	
+dyn	src/fp/array/unionBy.ts	21	unionBy	function	5	covered	
+dyn	src/fp/array/unionWith.ts	20	unionWith	function	8	covered	
+dyn	src/fp/array/uniq.ts	21	uniq	function	16	covered	
+dyn	src/fp/array/uniqBy.ts	21	uniqBy	function	18	covered	
+dyn	src/fp/array/uniqWith.ts	20	uniqWith	function	16	covered	
+dyn	src/fp/array/unzip.ts	23	unzip	function	5	blocked	unsupported-type:2
+dyn	src/fp/array/unzipWith.ts	20	unzipWith	function	5	blocked	fn-type-rest:2
+dyn	src/fp/array/windowed.ts	25	windowed	function	31	covered	
+dyn	src/fp/array/without.ts	19	without	function	12	covered	
+dyn	src/fp/array/xor.ts	19	xor	function	5	covered	
+dyn	src/fp/array/xorBy.ts	21	xorBy	function	5	covered	
+dyn	src/fp/array/xorWith.ts	20	xorWith	function	8	covered	
+dyn	src/fp/array/zip.ts	65	zip	function	5	covered	
+dyn	src/fp/array/zipObject.ts	20	zipObject	function	5	blocked	no-object-type:2
+dyn	src/fp/array/zipWith.ts	69	zipWith	function	5	blocked	as-downcast:1,unsupported-syntax:1
+dyn	src/fp/math/add.ts	14	add	function	5	covered	
+dyn	src/fp/math/multiply.ts	14	multiply	function	5	covered	
+dyn	src/fp/object/omit.ts	17	omit	function	5	blocked	no-object-type:2
+dyn	src/fp/object/pick.ts	18	pick	function	5	blocked	no-object-type:2
+dyn	src/iterator/_internal/iterator.ts	39	iterator	function	37	blocked	ext-literal:1,no-prototype:2,unsupported-generic:4
+dyn	src/iterator/cartesianProduct.ts	33	cartesianProduct	function	73	blocked	index-signature:1,unsupported:1
+dyn	src/fp/iterator/cartesianProduct.ts	22	cartesianProduct	function	5	blocked	unsupported-type:3
+dyn	src/iterator/chunk.ts	20	chunk	function	22	blocked	unsupported-type:3
+dyn	src/fp/iterator/chunk.ts	18	chunk	function	5	blocked	unsupported-type:2
+dyn	src/iterator/count.ts	15	count	function	9	blocked	unsupported-type:3
+dyn	src/fp/iterator/count.ts	19	count	function	5	blocked	unsupported-type:2
+dyn	src/fp/iterator/drop.ts	17	drop	function	5	blocked	unsupported-type:2
+dyn	src/iterator/dropWhile.ts	19	dropWhile	function	28	blocked	unsupported-type:4
+dyn	src/fp/iterator/dropWhile.ts	17	dropWhile	function	7	blocked	unsupported-type:2
+dyn	src/fp/iterator/every.ts	17	every	function	5	blocked	unsupported-type:2
+dyn	src/fp/iterator/filter.ts	41	filter	function	7	blocked	unsupported-type:2
+dyn	src/fp/iterator/find.ts	17	find	function	5	blocked	unsupported-type:2
+dyn	src/fp/iterator/flatMap.ts	17	flatMap	function	7	blocked	unsupported-type:3
+dyn	src/fp/iterator/forEach.ts	19	forEach	function	5	blocked	unsupported-type:2
+dyn	src/iterator/head.ts	18	head	function	8	blocked	unsupported-type:3
+dyn	src/fp/iterator/head.ts	18	head	function	5	blocked	unsupported-type:2
+dyn	src/fp/iterator/map.ts	17	map	function	7	blocked	unsupported-type:2
+dyn	src/iterator/partition.ts	15	partition	function	22	blocked	unsupported-type:4
+dyn	src/fp/iterator/partition.ts	21	partition	function	5	blocked	unsupported-type:2
+dyn	src/fp/iterator/reduce.ts	21	reduce	function	8	blocked	unsupported-type:2
+dyn	src/iterator/scan.ts	22	scan	function	24	blocked	unsupported-type:3
+dyn	src/fp/iterator/scan.ts	20	scan	function	8	blocked	unsupported-type:2
+dyn	src/fp/iterator/some.ts	17	some	function	5	blocked	unsupported-type:2
+dyn	src/fp/iterator/take.ts	18	take	function	5	blocked	unsupported-type:2
+dyn	src/iterator/takeWhile.ts	19	takeWhile	function	16	blocked	unsupported-type:3
+dyn	src/fp/iterator/takeWhile.ts	18	takeWhile	function	7	blocked	unsupported-type:2
+dyn	src/fp/iterator/toArray.ts	18	toArray	function	5	blocked	unsupported-type:2
+dyn	src/iterator/uniqBy.ts	21	uniqBy	function	18	blocked	unsupported-type:4
+dyn	src/fp/iterator/uniqBy.ts	19	uniqBy	function	5	blocked	unsupported-type:2
+dyn	src/iterator/zip.ts	23	zip	function	25	blocked	index-signature:1,unsupported:1
+dyn	src/fp/iterator/zip.ts	19	zip	function	5	blocked	unsupported-type:3
+dyn	src/iterator/iterate.ts	19	iterate	function	12	covered	
+dyn	src/iterator/range.ts	45	range	function	19	blocked	no-loose-eq:2
+dyn	src/map/countBy.ts	33	countBy	function	11	covered	
+dyn	src/map/every.ts	26	every	function	8	covered	
+dyn	src/map/filter.ts	27	filter	function	9	covered	
+dyn	src/map/findKey.ts	23	findKey	function	10	covered	
+dyn	src/map/findValue.ts	23	findValue	function	13	covered	
+dyn	src/map/forEach.ts	26	forEach	function	5	covered	
+dyn	src/map/hasValue.ts	28	hasValue	function	8	covered	
+dyn	src/map/keyBy.ts	29	keyBy	function	11	covered	
+dyn	src/map/mapKeys.ts	28	mapKeys	function	8	covered	
+dyn	src/map/mapValues.ts	28	mapValues	function	8	covered	
+dyn	src/map/reduce.ts	33	reduce	function	18	blocked	no-loose-eq:4
+dyn	src/map/some.ts	26	some	function	8	covered	
+dyn	src/server/exec.ts	55	exec	function	37	blocked	extern-callback:2,no-loose-eq:4,throw-non-error:1,unsupported:1,unsupported-builtin:1
+dyn	src/server/exec.ts	109	ExecError.constructor	constructor	4	blocked	no-extends:2
+dyn	src/server/exec.ts	115	streamToString	function	3	covered	
+dyn	src/server/exec.ts	119	handleStdin	function	8	blocked	no-loose-eq:2
+dyn	src/server/exec.ts	129	parseAbortSignal	function	16	blocked	no-loose-eq:6
+dyn	src/server/colors/_internal/wrapAnsi.ts	15	wrapAnsi	function	6	covered	
+dyn	src/server/colors/ansi256.ts	16	ansi256	function	3	covered	
+dyn	src/server/colors/_internal/wrapAnsiBg.ts	23	wrapAnsiBg	function	9	blocked	extern-callback:1
+dyn	src/server/colors/bgAnsi256.ts	16	bgAnsi256	function	3	covered	
+dyn	src/server/colors/bgBlack.ts	14	bgBlack	function	3	covered	
+dyn	src/server/colors/bgBlackBright.ts	14	bgBlackBright	function	3	covered	
+dyn	src/server/colors/bgBlue.ts	14	bgBlue	function	3	covered	
+dyn	src/server/colors/bgBlueBright.ts	14	bgBlueBright	function	3	covered	
+dyn	src/server/colors/bgCyan.ts	14	bgCyan	function	3	covered	
+dyn	src/server/colors/bgCyanBright.ts	14	bgCyanBright	function	3	covered	
+dyn	src/server/colors/bgGreen.ts	14	bgGreen	function	3	covered	
+dyn	src/server/colors/bgGreenBright.ts	14	bgGreenBright	function	3	covered	
+dyn	src/server/colors/_internal/parseHex.ts	20	parseHex	function	13	covered	
+dyn	src/server/colors/bgHex.ts	17	bgHex	function	4	covered	
+dyn	src/server/colors/bgMagenta.ts	14	bgMagenta	function	3	covered	
+dyn	src/server/colors/bgMagentaBright.ts	14	bgMagentaBright	function	3	covered	
+dyn	src/server/colors/bgRed.ts	14	bgRed	function	3	covered	
+dyn	src/server/colors/bgRedBright.ts	14	bgRedBright	function	3	covered	
+dyn	src/server/colors/bgRgb.ts	18	bgRgb	function	3	covered	
+dyn	src/server/colors/bgWhite.ts	14	bgWhite	function	3	covered	
+dyn	src/server/colors/bgWhiteBright.ts	14	bgWhiteBright	function	3	covered	
+dyn	src/server/colors/bgYellow.ts	14	bgYellow	function	3	covered	
+dyn	src/server/colors/bgYellowBright.ts	14	bgYellowBright	function	3	covered	
+dyn	src/server/colors/black.ts	14	black	function	3	covered	
+dyn	src/server/colors/blackBright.ts	14	blackBright	function	3	covered	
+dyn	src/server/colors/blue.ts	14	blue	function	3	covered	
+dyn	src/server/colors/blueBright.ts	14	blueBright	function	3	covered	
+dyn	src/server/colors/bold.ts	14	bold	function	3	covered	
+dyn	src/server/colors/cyan.ts	14	cyan	function	3	covered	
+dyn	src/server/colors/cyanBright.ts	14	cyanBright	function	3	covered	
+dyn	src/server/colors/dim.ts	14	dim	function	3	covered	
+dyn	src/server/colors/green.ts	14	green	function	3	covered	
+dyn	src/server/colors/greenBright.ts	14	greenBright	function	3	covered	
+dyn	src/server/colors/hex.ts	17	hex	function	4	covered	
+dyn	src/server/colors/hidden.ts	14	hidden	function	3	covered	
+dyn	src/server/colors/inverse.ts	14	inverse	function	3	covered	
+dyn	src/server/colors/italic.ts	14	italic	function	3	covered	
+dyn	src/server/colors/magenta.ts	14	magenta	function	3	covered	
+dyn	src/server/colors/magentaBright.ts	14	magentaBright	function	3	covered	
+dyn	src/server/colors/red.ts	14	red	function	3	covered	
+dyn	src/server/colors/redBright.ts	14	redBright	function	3	covered	
+dyn	src/server/colors/reset.ts	14	reset	function	3	covered	
+dyn	src/server/colors/rgb.ts	18	rgb	function	3	covered	
+dyn	src/server/colors/strikethrough.ts	14	strikethrough	function	3	covered	
+dyn	src/server/colors/underline.ts	14	underline	function	3	covered	
+dyn	src/server/colors/white.ts	14	white	function	3	covered	
+dyn	src/server/colors/whiteBright.ts	14	whiteBright	function	3	covered	
+dyn	src/server/colors/yellow.ts	14	yellow	function	3	covered	
+dyn	src/server/colors/yellowBright.ts	14	yellowBright	function	3	covered	
+dyn	src/set/countBy.ts	24	countBy	function	8	covered	
+dyn	src/set/every.ts	21	every	function	8	covered	
+dyn	src/set/filter.ts	18	filter	function	9	covered	
+dyn	src/set/find.ts	22	find	function	8	covered	
+dyn	src/set/forEach.ts	22	forEach	function	5	covered	
+dyn	src/set/keyBy.ts	28	keyBy	function	8	covered	
+dyn	src/set/map.ts	19	map	function	8	covered	
+dyn	src/set/reduce.ts	26	reduce	function	18	blocked	no-loose-eq:4
+dyn	src/set/some.ts	21	some	function	8	covered	

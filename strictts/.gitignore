@@ -1,0 +1,11 @@
+.lake/
+scratch/
+logs/
+frontend/node_modules/
+tests/difftest/out/js/
+tests/difftest/out/_batch_*
+
+# another-project/second-project-derived material: kept locally, never tracked (purge from history before any public release)
+examples/Real/
+tests/history/
+tests/difftest/out/*.funs.json

@@ -1,0 +1,430 @@
+class org.apache.thrift.async.TAsyncClientManager$SelectThread extends java.lang.Thread
+{
+    private final java.nio.channels.Selector selector;
+    private volatile 'boolean' running;
+    private final java.util.TreeSet timeoutWatchSet;
+    final org.apache.thrift.async.TAsyncClientManager this$0;
+
+    public 'void' <init>(org.apache.thrift.async.TAsyncClientManager) throws java.io.IOException
+    {
+        org.apache.thrift.async.TAsyncClientManager r0;
+        'long' $l0;
+        java.util.TreeSet $r1;
+        java.nio.channels.spi.AbstractSelector $r4;
+        java.nio.channels.spi.SelectorProvider $r3;
+        org.apache.thrift.async.TAsyncClientManager$TAsyncMethodCallTimeoutComparator $r2;
+        java.lang.StringBuilder $r5;
+        java.lang.String $r8;
+        org.apache.thrift.async.TAsyncClientManager$SelectThread this;
+
+        this := @this: org.apache.thrift.async.TAsyncClientManager$SelectThread;
+
+        r0 := @parameter0: org.apache.thrift.async.TAsyncClientManager;
+
+        this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: org.apache.thrift.async.TAsyncClientManager this$0> = r0;
+
+        specialinvoke this.<java.lang.Thread: 'void' <init>()>();
+
+        $r1 = new java.util.TreeSet;
+
+        $r2 = new org.apache.thrift.async.TAsyncClientManager$TAsyncMethodCallTimeoutComparator;
+
+        specialinvoke $r2.<org.apache.thrift.async.TAsyncClientManager$TAsyncMethodCallTimeoutComparator: 'void' <init>(org.apache.thrift.async.TAsyncClientManager$1)>(null);
+
+        specialinvoke $r1.<java.util.TreeSet: 'void' <init>(java.util.Comparator)>($r2);
+
+        this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.util.TreeSet timeoutWatchSet> = $r1;
+
+        $r3 = staticinvoke <java.nio.channels.spi.SelectorProvider: java.nio.channels.spi.SelectorProvider provider()>();
+
+        $r4 = virtualinvoke $r3.<java.nio.channels.spi.SelectorProvider: java.nio.channels.spi.AbstractSelector openSelector()>();
+
+        this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector> = $r4;
+
+        this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'boolean' running> = 1;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("TAsyncClientManager#SelectorThread ");
+
+        $l0 = virtualinvoke this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'long' getId()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>($l0);
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'void' setName(java.lang.String)>($r8);
+
+        virtualinvoke this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'void' setDaemon('boolean')>(1);
+
+        return;
+    }
+
+    public java.nio.channels.Selector getSelector()
+    {
+        org.apache.thrift.async.TAsyncClientManager$SelectThread this;
+        java.nio.channels.Selector $r0;
+
+        this := @this: org.apache.thrift.async.TAsyncClientManager$SelectThread;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+        return $r0;
+    }
+
+    public 'void' finish()
+    {
+        org.apache.thrift.async.TAsyncClientManager$SelectThread this;
+        java.nio.channels.Selector $r0;
+
+        this := @this: org.apache.thrift.async.TAsyncClientManager$SelectThread;
+
+        this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'boolean' running> = 0;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+        virtualinvoke $r0.<java.nio.channels.Selector: java.nio.channels.Selector wakeup()>();
+
+        return;
+    }
+
+    public 'void' run()
+    {
+        org.slf4j.Logger $r7;
+        java.nio.channels.Selector $r1;
+        org.apache.thrift.async.TAsyncMethodCall $r4;
+        'long' selectTime, nextTimeout;
+        java.io.IOException nextTimeout_1, nextTimeout_3;
+        java.util.TreeSet $r0;
+        java.lang.Exception nextTimeout_2;
+        'byte' $b2;
+        'int' $i0;
+        java.lang.Object $r3;
+        org.apache.thrift.async.TAsyncClientManager$SelectThread this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncClientManager$SelectThread;
+
+     label01:
+        $z0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'boolean' running>;
+
+        if $z0 == false goto label11;
+
+     label02:
+        $r0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.util.TreeSet timeoutWatchSet>;
+
+     label03:
+        $i0 = virtualinvoke $r0.<java.util.TreeSet: 'int' size()>();
+
+        if $i0 != 0 goto label04;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+        virtualinvoke $r1.<java.nio.channels.Selector: 'int' select()>();
+
+        goto label08;
+
+     label04:
+        $r0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.util.TreeSet timeoutWatchSet>;
+
+        $r3 = virtualinvoke $r0.<java.util.TreeSet: java.lang.Object first()>();
+
+        $r4 = (org.apache.thrift.async.TAsyncMethodCall) $r3;
+
+        nextTimeout = virtualinvoke $r4.<org.apache.thrift.async.TAsyncMethodCall: 'long' getTimeoutTimestamp()>();
+
+        selectTime = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+        selectTime = nextTimeout - selectTime;
+
+        $b2 = selectTime cmp 0L;
+
+        $i0 = ('int') $b2;
+
+        if $i0 <= 0 goto label05;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+        virtualinvoke $r1.<java.nio.channels.Selector: 'int' select('long')>(selectTime);
+
+        goto label08;
+
+     label05:
+        $r1 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+        virtualinvoke $r1.<java.nio.channels.Selector: 'int' selectNow()>();
+
+     label06:
+        goto label08;
+
+     label07:
+        nextTimeout_1 := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.async.TAsyncClientManager: org.slf4j.Logger access$100()>();
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Caught IOException in TAsyncClientManager!", nextTimeout_1);
+
+     label08:
+        specialinvoke this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'void' transitionMethods()>();
+
+        specialinvoke this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'void' timeoutMethods()>();
+
+        specialinvoke this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: 'void' startPendingMethods()>();
+
+     label09:
+        goto label01;
+
+     label10:
+        nextTimeout_2 := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.async.TAsyncClientManager: org.slf4j.Logger access$100()>();
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Ignoring uncaught exception in SelectThread", nextTimeout_2);
+
+        goto label01;
+
+     label11:
+        $r1 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+     label12:
+        virtualinvoke $r1.<java.nio.channels.Selector: 'void' close()>();
+
+     label13:
+        goto label15;
+
+     label14:
+        nextTimeout_3 := @caughtexception;
+
+        $r7 = staticinvoke <org.apache.thrift.async.TAsyncClientManager: org.slf4j.Logger access$100()>();
+
+        interfaceinvoke $r7.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Could not close selector. This may result in leaked resources!", nextTimeout_3);
+
+     label15:
+        return;
+
+        catch java.io.IOException from label03 to label06 with label07;
+        catch java.lang.Exception from label02 to label09 with label10;
+        catch java.io.IOException from label12 to label13 with label14;
+    }
+
+    private 'void' transitionMethods()
+    {
+        org.slf4j.Logger $r6;
+        java.util.Iterator keys#1;
+        java.nio.channels.SelectionKey key;
+        java.nio.channels.Selector $r0;
+        org.apache.thrift.async.TAsyncMethodCall methodCall;
+        org.apache.thrift.async.TAsyncClient $r4;
+        java.util.Set $r1;
+        java.util.TreeSet $r5;
+        java.nio.channels.ClosedSelectorException keys;
+        java.lang.Object $r2;
+        org.apache.thrift.async.TAsyncClientManager$SelectThread this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncClientManager$SelectThread;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+     label1:
+        $r1 = virtualinvoke $r0.<java.nio.channels.Selector: java.util.Set selectedKeys()>();
+
+        keys#1 = interfaceinvoke $r1.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke keys#1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label6;
+
+        $r2 = interfaceinvoke keys#1.<java.util.Iterator: java.lang.Object next()>();
+
+        key = (java.nio.channels.SelectionKey) $r2;
+
+        interfaceinvoke keys#1.<java.util.Iterator: 'void' remove()>();
+
+        $z0 = virtualinvoke key.<java.nio.channels.SelectionKey: 'boolean' isValid()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = virtualinvoke key.<java.nio.channels.SelectionKey: java.lang.Object attachment()>();
+
+        methodCall = (org.apache.thrift.async.TAsyncMethodCall) $r2;
+
+        virtualinvoke methodCall.<org.apache.thrift.async.TAsyncMethodCall: 'void' transition(java.nio.channels.SelectionKey)>(key);
+
+        $z0 = virtualinvoke methodCall.<org.apache.thrift.async.TAsyncMethodCall: 'boolean' isFinished()>();
+
+        if $z0 != 0 goto label3;
+
+        $r4 = virtualinvoke methodCall.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncClient getClient()>();
+
+        $z0 = virtualinvoke $r4.<org.apache.thrift.async.TAsyncClient: 'boolean' hasError()>();
+
+        if $z0 == false goto label2;
+
+     label3:
+        $r5 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.util.TreeSet timeoutWatchSet>;
+
+        virtualinvoke $r5.<java.util.TreeSet: 'boolean' remove(java.lang.Object)>(methodCall);
+
+     label4:
+        goto label2;
+
+     label5:
+        keys := @caughtexception;
+
+        $r6 = staticinvoke <org.apache.thrift.async.TAsyncClientManager: org.slf4j.Logger access$100()>();
+
+        interfaceinvoke $r6.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("Caught ClosedSelectorException in TAsyncClientManager!", keys);
+
+     label6:
+        return;
+
+        catch java.nio.channels.ClosedSelectorException from label1 to label4 with label5;
+    }
+
+    private 'void' timeoutMethods()
+    {
+        java.util.Iterator iterator;
+        org.apache.thrift.async.TAsyncMethodCall methodCall;
+        java.util.concurrent.TimeoutException $r2;
+        'long' currentTime, $l0;
+        java.util.TreeSet $r0;
+        'byte' $b1;
+        'int' $i4;
+        java.lang.Object $r1;
+        java.lang.StringBuilder $r3;
+        java.lang.Class $r5;
+        java.lang.String $r10;
+        org.apache.thrift.async.TAsyncClientManager$SelectThread this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.async.TAsyncClientManager$SelectThread;
+
+        $r0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.util.TreeSet timeoutWatchSet>;
+
+        iterator = virtualinvoke $r0.<java.util.TreeSet: java.util.Iterator iterator()>();
+
+        currentTime = staticinvoke <java.lang.System: 'long' currentTimeMillis()>();
+
+     label1:
+        $z0 = interfaceinvoke iterator.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r1 = interfaceinvoke iterator.<java.util.Iterator: java.lang.Object next()>();
+
+        methodCall = (org.apache.thrift.async.TAsyncMethodCall) $r1;
+
+        $l0 = virtualinvoke methodCall.<org.apache.thrift.async.TAsyncMethodCall: 'long' getTimeoutTimestamp()>();
+
+        $b1 = currentTime cmp $l0;
+
+        $i4 = ('int') $b1;
+
+        if $i4 < 0 goto label2;
+
+        interfaceinvoke iterator.<java.util.Iterator: 'void' remove()>();
+
+        $r2 = new java.util.concurrent.TimeoutException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Operation ");
+
+        $r5 = virtualinvoke methodCall.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" timed out after ");
+
+        $l0 = virtualinvoke methodCall.<org.apache.thrift.async.TAsyncMethodCall: 'long' getStartTime()>();
+
+        $l0 = currentTime - $l0;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append('long')>($l0);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ms.");
+
+        $r10 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<java.util.concurrent.TimeoutException: 'void' <init>(java.lang.String)>($r10);
+
+        virtualinvoke methodCall.<org.apache.thrift.async.TAsyncMethodCall: 'void' onError(java.lang.Exception)>($r2);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private 'void' startPendingMethods()
+    {
+        org.slf4j.Logger $r2;
+        org.apache.thrift.async.TAsyncClientManager $r3;
+        java.nio.channels.Selector $r0;
+        org.apache.thrift.async.TAsyncMethodCall $r6;
+        org.apache.thrift.async.TAsyncClient client#11;
+        java.util.TreeSet $r1;
+        java.lang.Exception client;
+        java.lang.Object $r5;
+        org.apache.thrift.async.TAsyncClientManager$SelectThread this;
+        'boolean' $z0;
+        java.util.concurrent.ConcurrentLinkedQueue $r4;
+
+        this := @this: org.apache.thrift.async.TAsyncClientManager$SelectThread;
+
+     label1:
+        $r3 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: org.apache.thrift.async.TAsyncClientManager this$0>;
+
+        $r4 = staticinvoke <org.apache.thrift.async.TAsyncClientManager: java.util.concurrent.ConcurrentLinkedQueue access$200(org.apache.thrift.async.TAsyncClientManager)>($r3);
+
+        $r5 = virtualinvoke $r4.<java.util.concurrent.ConcurrentLinkedQueue: java.lang.Object poll()>();
+
+        $r6 = (org.apache.thrift.async.TAsyncMethodCall) $r5;
+
+        if $r6 == null goto label5;
+
+     label2:
+        $r0 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.nio.channels.Selector selector>;
+
+        virtualinvoke $r6.<org.apache.thrift.async.TAsyncMethodCall: 'void' start(java.nio.channels.Selector)>($r0);
+
+        client#11 = virtualinvoke $r6.<org.apache.thrift.async.TAsyncMethodCall: org.apache.thrift.async.TAsyncClient getClient()>();
+
+        $z0 = virtualinvoke client#11.<org.apache.thrift.async.TAsyncClient: 'boolean' hasTimeout()>();
+
+        if $z0 == false goto label1;
+
+        $z0 = virtualinvoke client#11.<org.apache.thrift.async.TAsyncClient: 'boolean' hasError()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = this.<org.apache.thrift.async.TAsyncClientManager$SelectThread: java.util.TreeSet timeoutWatchSet>;
+
+        virtualinvoke $r1.<java.util.TreeSet: 'boolean' add(java.lang.Object)>($r6);
+
+     label3:
+        goto label1;
+
+     label4:
+        client := @caughtexception;
+
+        $r2 = staticinvoke <org.apache.thrift.async.TAsyncClientManager: org.slf4j.Logger access$100()>();
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Caught exception in TAsyncClientManager!", client);
+
+        virtualinvoke $r6.<org.apache.thrift.async.TAsyncMethodCall: 'void' onError(java.lang.Exception)>(client);
+
+        goto label1;
+
+     label5:
+        return;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+    }
+}

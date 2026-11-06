@@ -1,0 +1,12 @@
+# Apache Thrift @ f0eb8b84eb56 (targets/thrift_PIN.txt; UNTRUSTED tree, no build script of it runs), T1 coverage scan
+# (no model calls), C++ component "compiler": the TUs of compiler/cpp/src that compiler/cpp/CMakeLists.txt compiles
+# with every generator option at its default (ON). Not here: the bison/flex outputs thrifty.cc and thriftl.cc (no
+# bison/flex on the VM; generating them was not attempted) and logging.cc (compiled only by compiler/cpp/tests).
+# Build inputs: thrift_cpp_compiler.compile_commands.json (scratch/thrift_cxx/tools/mk_compdb.py),
+# thrift_cpp_config/thrift/config.h. -w: warnings off; loc_from_definition: the D2 fix (build.py).
+name = "thrift_cpp_compiler"
+lang = "cir"
+root = "/home/user/veriforch/targets/thrift/compiler/cpp/src"
+compile_commands = "/home/user/veriforch/targets/thrift_cpp_compiler.compile_commands.json"
+cflags = ["-w"]
+loc_from_definition = true

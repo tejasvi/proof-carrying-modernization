@@ -1,0 +1,12 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. N05.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  G SIGN LEADING SEPARATE.
+           05 S1 PIC S9(3) VALUE -12.
+           05 U1 PIC 9(3) VALUE 5.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           DISPLAY S1 ' ' U1.
+           STOP RUN.

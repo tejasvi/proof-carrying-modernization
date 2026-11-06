@@ -1,0 +1,8 @@
+# Scratch Java repo for bottom-up linking (veriforch fork w-javalink): MathUtil (max, min, clamp), Stats.spread
+# (calls MathUtil), Picks.max3 (independent). Per-class modules + BodyVC + link step.
+name = "jdemo"
+lang = "jimple"
+root = "/home/user/veriforch/scratch/javalink/jdemo"
+sources = ["src/demo/MathUtil.java", "src/demo/Stats.java", "src/demo/Picks.java"]
+release = 8
+modular = true

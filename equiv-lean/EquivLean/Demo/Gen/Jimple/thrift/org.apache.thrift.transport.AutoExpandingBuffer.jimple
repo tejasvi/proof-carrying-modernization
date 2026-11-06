@@ -1,0 +1,67 @@
+public class org.apache.thrift.transport.AutoExpandingBuffer extends java.lang.Object
+{
+    private 'byte'[] array;
+
+    public 'void' <init>('int')
+    {
+        'int' initialCapacity;
+        'byte'[] $r0;
+        org.apache.thrift.transport.AutoExpandingBuffer this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBuffer;
+
+        initialCapacity := @parameter0: 'int';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        $r0 = newarray ('byte')[initialCapacity];
+
+        this.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array> = $r0;
+
+        return;
+    }
+
+    public 'void' resizeIfNecessary('int')
+    {
+        'byte'[] $r0;
+        'int' size, currentCapacity, $i0, growCapacity, newCapacity;
+        org.apache.thrift.transport.AutoExpandingBuffer this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBuffer;
+
+        size := @parameter0: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array>;
+
+        currentCapacity = lengthof $r0;
+
+        if currentCapacity >= size goto label1;
+
+        $i0 = currentCapacity >> 1;
+
+        growCapacity = currentCapacity + $i0;
+
+        newCapacity = staticinvoke <java.lang.Math: 'int' max('int','int')>(growCapacity, size);
+
+        $r0 = this.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array>;
+
+        $r0 = staticinvoke <java.util.Arrays: 'byte'[] copyOf('byte'[],'int')>($r0, newCapacity);
+
+        this.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array> = $r0;
+
+     label1:
+        return;
+    }
+
+    public 'byte'[] array()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.AutoExpandingBuffer this;
+
+        this := @this: org.apache.thrift.transport.AutoExpandingBuffer;
+
+        $r0 = this.<org.apache.thrift.transport.AutoExpandingBuffer: 'byte'[] array>;
+
+        return $r0;
+    }
+}

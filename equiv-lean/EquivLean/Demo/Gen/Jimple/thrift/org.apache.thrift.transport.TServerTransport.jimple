@@ -1,0 +1,29 @@
+public abstract class org.apache.thrift.transport.TServerTransport extends java.lang.Object implements java.io.Closeable
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TServerTransport this;
+
+        this := @this: org.apache.thrift.transport.TServerTransport;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    public abstract 'void' listen() throws org.apache.thrift.transport.TTransportException;
+
+    public abstract org.apache.thrift.transport.TTransport accept() throws org.apache.thrift.transport.TTransportException;
+
+    public abstract 'void' close();
+
+    public 'void' interrupt()
+    {
+        org.apache.thrift.transport.TServerTransport this;
+
+        this := @this: org.apache.thrift.transport.TServerTransport;
+
+        return;
+    }
+}

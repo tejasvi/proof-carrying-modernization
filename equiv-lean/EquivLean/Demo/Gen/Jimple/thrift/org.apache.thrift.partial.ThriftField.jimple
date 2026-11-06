@@ -1,0 +1,480 @@
+public class org.apache.thrift.partial.ThriftField extends java.lang.Object
+{
+    public final java.lang.String name;
+    public final java.util.List fields;
+    private 'int' hashcode;
+
+    'void' <init>(java.lang.String, java.util.List)
+    {
+        org.apache.thrift.partial.ThriftField this;
+        java.util.List fields;
+        java.lang.String name;
+
+        this := @this: org.apache.thrift.partial.ThriftField;
+
+        name := @parameter0: java.lang.String;
+
+        fields := @parameter1: java.util.List;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.partial.ThriftField: 'int' hashcode> = 0;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNullAndNotEmpty(java.lang.String,java.lang.String)>(name, "name");
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(fields, "fields");
+
+        this.<org.apache.thrift.partial.ThriftField: java.lang.String name> = name;
+
+        fields = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>(fields);
+
+        this.<org.apache.thrift.partial.ThriftField: java.util.List fields> = fields;
+
+        return;
+    }
+
+    'void' <init>(java.lang.String)
+    {
+        org.apache.thrift.partial.ThriftField this;
+        java.util.List $r0;
+        java.lang.String name;
+
+        this := @this: org.apache.thrift.partial.ThriftField;
+
+        name := @parameter0: java.lang.String;
+
+        $r0 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        specialinvoke this.<org.apache.thrift.partial.ThriftField: 'void' <init>(java.lang.String,java.util.List)>(name, $r0);
+
+        return;
+    }
+
+    'void' <init>(java.lang.String, java.util.List, 'boolean')
+    {
+        java.util.List fields;
+        org.apache.thrift.partial.ThriftField this;
+        java.lang.String name;
+        'boolean' allowFieldAdds;
+
+        this := @this: org.apache.thrift.partial.ThriftField;
+
+        name := @parameter0: java.lang.String;
+
+        fields := @parameter1: java.util.List;
+
+        allowFieldAdds := @parameter2: 'boolean';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.partial.ThriftField: 'int' hashcode> = 0;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNullAndNotEmpty(java.lang.String,java.lang.String)>(name, "name");
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNull(java.lang.Object,java.lang.String)>(fields, "fields");
+
+        this.<org.apache.thrift.partial.ThriftField: java.lang.String name> = name;
+
+        this.<org.apache.thrift.partial.ThriftField: java.util.List fields> = fields;
+
+        return;
+    }
+
+    public 'int' hashCode()
+    {
+        java.util.Iterator r3;
+        java.util.List $r2;
+        'int' $i0, hc;
+        org.apache.thrift.partial.ThriftField this, subField;
+        java.lang.Object $r4;
+        java.lang.String $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.ThriftField;
+
+        $i0 = this.<org.apache.thrift.partial.ThriftField: 'int' hashcode>;
+
+        if $i0 != 0 goto label3;
+
+        $r0 = this.<org.apache.thrift.partial.ThriftField: java.lang.String name>;
+
+        $r0 = virtualinvoke $r0.<java.lang.String: java.lang.String toLowerCase()>();
+
+        hc = virtualinvoke $r0.<java.lang.String: 'int' hashCode()>();
+
+        $r2 = this.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        r3 = interfaceinvoke $r2.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r3.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r4 = interfaceinvoke r3.<java.util.Iterator: java.lang.Object next()>();
+
+        subField = (org.apache.thrift.partial.ThriftField) $r4;
+
+        $i0 = virtualinvoke subField.<org.apache.thrift.partial.ThriftField: 'int' hashCode()>();
+
+        hc = hc ^ $i0;
+
+        goto label1;
+
+     label2:
+        this.<org.apache.thrift.partial.ThriftField: 'int' hashcode> = hc;
+
+     label3:
+        $i0 = this.<org.apache.thrift.partial.ThriftField: 'int' hashcode>;
+
+        return $i0;
+    }
+
+    public 'boolean' equals(java.lang.Object)
+    {
+        java.util.List $r2;
+        'int' $i0, i;
+        org.apache.thrift.partial.ThriftField this, other, $r7;
+        java.lang.Object o;
+        java.lang.String $r0, $r1;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.ThriftField;
+
+        o := @parameter0: java.lang.Object;
+
+        if o != null goto label1;
+
+        return 0;
+
+     label1:
+        $z0 = o instanceof org.apache.thrift.partial.ThriftField;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        other = (org.apache.thrift.partial.ThriftField) o;
+
+        $r0 = this.<org.apache.thrift.partial.ThriftField: java.lang.String name>;
+
+        $r1 = other.<org.apache.thrift.partial.ThriftField: java.lang.String name>;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: 'boolean' equalsIgnoreCase(java.lang.String)>($r1);
+
+        if $z0 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        $r2 = this.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        $i0 = interfaceinvoke $r2.<java.util.List: 'int' size()>();
+
+        $r2 = other.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        i = interfaceinvoke $r2.<java.util.List: 'int' size()>();
+
+        if $i0 == i goto label4;
+
+        return 0;
+
+     label4:
+        i = 0;
+
+     label5:
+        $r2 = this.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        $i0 = interfaceinvoke $r2.<java.util.List: 'int' size()>();
+
+        if i >= $i0 goto label7;
+
+        $r2 = this.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        o = interfaceinvoke $r2.<java.util.List: java.lang.Object get('int')>(i);
+
+        $r7 = (org.apache.thrift.partial.ThriftField) o;
+
+        $r2 = other.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        o = interfaceinvoke $r2.<java.util.List: java.lang.Object get('int')>(i);
+
+        $z0 = virtualinvoke $r7.<org.apache.thrift.partial.ThriftField: 'boolean' equals(java.lang.Object)>(o);
+
+        if $z0 != 0 goto label6;
+
+        return 0;
+
+     label6:
+        i = i + 1;
+
+        goto label5;
+
+     label7:
+        return 1;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.thrift.partial.ThriftField this;
+        java.util.List $r0;
+        java.lang.String $r1;
+
+        this := @this: org.apache.thrift.partial.ThriftField;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.partial.ThriftField: java.util.List getFieldNames()>();
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String join(java.lang.CharSequence,java.lang.Iterable)>(", ", $r0);
+
+        return $r1;
+    }
+
+    public java.util.List getFieldNames()
+    {
+        java.util.Iterator r3, r6;
+        java.util.ArrayList fieldsList;
+        java.util.List $r0;
+        'int' $i0;
+        org.apache.thrift.partial.ThriftField this, f;
+        java.lang.Object $r4;
+        java.lang.StringBuilder $r8;
+        java.lang.String subF, $r9;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.partial.ThriftField;
+
+        fieldsList = new java.util.ArrayList;
+
+        specialinvoke fieldsList.<java.util.ArrayList: 'void' <init>()>();
+
+        $r0 = this.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        $i0 = interfaceinvoke $r0.<java.util.List: 'int' size()>();
+
+        if $i0 != 0 goto label1;
+
+        subF = this.<org.apache.thrift.partial.ThriftField: java.lang.String name>;
+
+        interfaceinvoke fieldsList.<java.util.List: 'boolean' add(java.lang.Object)>(subF);
+
+        goto label4;
+
+     label1:
+        $r0 = this.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        r3 = interfaceinvoke $r0.<java.util.List: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke r3.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label4;
+
+        $r4 = interfaceinvoke r3.<java.util.Iterator: java.lang.Object next()>();
+
+        f = (org.apache.thrift.partial.ThriftField) $r4;
+
+        $r0 = virtualinvoke f.<org.apache.thrift.partial.ThriftField: java.util.List getFieldNames()>();
+
+        r6 = interfaceinvoke $r0.<java.util.List: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke r6.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r4 = interfaceinvoke r6.<java.util.Iterator: java.lang.Object next()>();
+
+        subF = (java.lang.String) $r4;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r9 = this.<org.apache.thrift.partial.ThriftField: java.lang.String name>;
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".");
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(subF);
+
+        subF = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke fieldsList.<java.util.List: 'boolean' add(java.lang.Object)>(subF);
+
+        goto label3;
+
+     label4:
+        return fieldsList;
+    }
+
+    public static java.util.List fromNames(java.util.Collection)
+    {
+        java.util.Iterator r1;
+        java.util.Collection fieldNames;
+        java.lang.String[] tokens;
+        java.util.ArrayList fieldNamesList, fields;
+        java.util.List tfields;
+        'int' i0, i1;
+        java.lang.Object $r2;
+        org.apache.thrift.partial.ThriftField field, field#3;
+        java.lang.String fieldName, token;
+        java.util.Comparator $r0;
+        'boolean' $z0;
+
+        fieldNames := @parameter0: java.util.Collection;
+
+        staticinvoke <org.apache.thrift.partial.Validate: 'void' checkNotNullAndNotEmpty(java.lang.Iterable,java.lang.String)>(fieldNames, "fieldNames");
+
+        fieldNamesList = new java.util.ArrayList;
+
+        specialinvoke fieldNamesList.<java.util.ArrayList: 'void' <init>(java.util.Collection)>(fieldNames);
+
+        $r0 = <java.lang.String: java.util.Comparator CASE_INSENSITIVE_ORDER>;
+
+        staticinvoke <java.util.Collections: 'void' sort(java.util.List,java.util.Comparator)>(fieldNamesList, $r0);
+
+        fields = new java.util.ArrayList;
+
+        specialinvoke fields.<java.util.ArrayList: 'void' <init>()>();
+
+        r1 = interfaceinvoke fieldNamesList.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label4;
+
+        $r2 = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        fieldName = (java.lang.String) $r2;
+
+        tfields = fields;
+
+        tokens = virtualinvoke fieldName.<java.lang.String: java.lang.String[] split(java.lang.String)>("\\.");
+
+        i0 = lengthof tokens;
+
+        i1 = 0;
+
+     label2:
+        if i1 >= i0 goto label1;
+
+        token = tokens[i1];
+
+        field#3 = staticinvoke <org.apache.thrift.partial.ThriftField: org.apache.thrift.partial.ThriftField findField(java.lang.String,java.util.List)>(token, tfields);
+
+        if field#3 != null goto label3;
+
+        field = new org.apache.thrift.partial.ThriftField;
+
+        fieldNamesList = new java.util.ArrayList;
+
+        specialinvoke fieldNamesList.<java.util.ArrayList: 'void' <init>()>();
+
+        specialinvoke field.<org.apache.thrift.partial.ThriftField: 'void' <init>(java.lang.String,java.util.List,'boolean')>(token, fieldNamesList, 1);
+
+        field#3 = field;
+
+        interfaceinvoke tfields.<java.util.List: 'boolean' add(java.lang.Object)>(field);
+
+     label3:
+        tfields = field#3.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        i1 = i1 + 1;
+
+        goto label2;
+
+     label4:
+        tfields = staticinvoke <org.apache.thrift.partial.ThriftField: java.util.List makeReadOnly(java.util.List)>(fields);
+
+        return tfields;
+    }
+
+    private static org.apache.thrift.partial.ThriftField findField(java.lang.String, java.util.List)
+    {
+        java.util.List fields;
+        java.util.Iterator r0;
+        java.lang.Object $r1;
+        org.apache.thrift.partial.ThriftField field;
+        java.lang.String name, $r2;
+        'boolean' $z0;
+
+        name := @parameter0: java.lang.String;
+
+        fields := @parameter1: java.util.List;
+
+        r0 = interfaceinvoke fields.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r0.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r1 = interfaceinvoke r0.<java.util.Iterator: java.lang.Object next()>();
+
+        field = (org.apache.thrift.partial.ThriftField) $r1;
+
+        $r2 = field.<org.apache.thrift.partial.ThriftField: java.lang.String name>;
+
+        $z0 = virtualinvoke $r2.<java.lang.String: 'boolean' equalsIgnoreCase(java.lang.String)>(name);
+
+        if $z0 == false goto label1;
+
+        return field;
+
+     label2:
+        return null;
+    }
+
+    private static java.util.List makeReadOnly(java.util.List)
+    {
+        java.util.Iterator r0;
+        java.util.ArrayList result;
+        java.util.List fields;
+        'int' $i0;
+        java.lang.Object $r1;
+        org.apache.thrift.partial.ThriftField field, copy;
+        java.lang.String $r2;
+        'boolean' $z0;
+
+        fields := @parameter0: java.util.List;
+
+        result = new java.util.ArrayList;
+
+        $i0 = interfaceinvoke fields.<java.util.List: 'int' size()>();
+
+        specialinvoke result.<java.util.ArrayList: 'void' <init>('int')>($i0);
+
+        r0 = interfaceinvoke fields.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r0.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r1 = interfaceinvoke r0.<java.util.Iterator: java.lang.Object next()>();
+
+        field = (org.apache.thrift.partial.ThriftField) $r1;
+
+        copy = new org.apache.thrift.partial.ThriftField;
+
+        $r2 = field.<org.apache.thrift.partial.ThriftField: java.lang.String name>;
+
+        fields = field.<org.apache.thrift.partial.ThriftField: java.util.List fields>;
+
+        fields = staticinvoke <org.apache.thrift.partial.ThriftField: java.util.List makeReadOnly(java.util.List)>(fields);
+
+        specialinvoke copy.<org.apache.thrift.partial.ThriftField: 'void' <init>(java.lang.String,java.util.List)>($r2, fields);
+
+        interfaceinvoke result.<java.util.List: 'boolean' add(java.lang.Object)>(copy);
+
+        goto label1;
+
+     label2:
+        fields = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>(result);
+
+        return fields;
+    }
+}

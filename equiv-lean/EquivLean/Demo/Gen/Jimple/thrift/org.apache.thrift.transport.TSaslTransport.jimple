@@ -1,0 +1,1203 @@
+abstract class org.apache.thrift.transport.TSaslTransport extends org.apache.thrift.transport.TEndpointTransport
+{
+    private static final org.slf4j.Logger LOGGER;
+    protected static final 'int' DEFAULT_MAX_LENGTH;
+    protected static final 'int' MECHANISM_NAME_BYTES;
+    protected static final 'int' STATUS_BYTES;
+    protected static final 'int' PAYLOAD_LENGTH_BYTES;
+    protected org.apache.thrift.transport.TTransport underlyingTransport;
+    private org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl;
+    private 'boolean' shouldWrap;
+    private org.apache.thrift.transport.TMemoryInputTransport readBuffer;
+    private final org.apache.thrift.TByteArrayOutputStream writeBuffer;
+    private final 'byte'[] messageHeader;
+
+    protected 'void' <init>(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.TConfiguration $r0, $r6;
+        org.apache.thrift.TByteArrayOutputStream $r1;
+        org.apache.thrift.transport.TSaslTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r3;
+        org.apache.thrift.transport.TTransport underlyingTransport;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        underlyingTransport := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = virtualinvoke underlyingTransport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>($r0);
+
+        if $z0 == false goto label1;
+
+        $r6 = new org.apache.thrift.TConfiguration;
+
+        $r0 = $r6;
+
+        specialinvoke $r6.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        goto label2;
+
+     label1:
+        $r0 = virtualinvoke underlyingTransport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+     label2:
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TSaslTransport: 'boolean' shouldWrap> = 0;
+
+        $r1 = new org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke $r1.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>('int')>(1024);
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer> = $r1;
+
+        $r2 = newarray ('byte')[5];
+
+        this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader> = $r2;
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport> = underlyingTransport;
+
+        $r3 = new org.apache.thrift.transport.TMemoryInputTransport;
+
+        $r0 = virtualinvoke underlyingTransport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        specialinvoke $r3.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer> = $r3;
+
+        return;
+    }
+
+    protected 'void' <init>(javax.security.sasl.SaslClient, org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.TConfiguration $r0, $r7;
+        org.apache.thrift.TByteArrayOutputStream $r1;
+        org.apache.thrift.transport.TSaslTransport this;
+        org.apache.thrift.transport.TMemoryInputTransport $r4;
+        javax.security.sasl.SaslClient saslClient;
+        org.apache.thrift.transport.TTransport underlyingTransport;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r3;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        saslClient := @parameter0: javax.security.sasl.SaslClient;
+
+        underlyingTransport := @parameter1: org.apache.thrift.transport.TTransport;
+
+        $r0 = virtualinvoke underlyingTransport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $z0 = staticinvoke <java.util.Objects: 'boolean' isNull(java.lang.Object)>($r0);
+
+        if $z0 == false goto label1;
+
+        $r7 = new org.apache.thrift.TConfiguration;
+
+        $r0 = $r7;
+
+        specialinvoke $r7.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        goto label2;
+
+     label1:
+        $r0 = virtualinvoke underlyingTransport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+     label2:
+        specialinvoke this.<org.apache.thrift.transport.TEndpointTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TSaslTransport: 'boolean' shouldWrap> = 0;
+
+        $r1 = new org.apache.thrift.TByteArrayOutputStream;
+
+        specialinvoke $r1.<org.apache.thrift.TByteArrayOutputStream: 'void' <init>('int')>(1024);
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer> = $r1;
+
+        $r2 = newarray ('byte')[5];
+
+        this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader> = $r2;
+
+        $r3 = new org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        specialinvoke $r3.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'void' <init>(javax.security.sasl.SaslClient)>(saslClient);
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl> = $r3;
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport> = underlyingTransport;
+
+        $r4 = new org.apache.thrift.transport.TMemoryInputTransport;
+
+        $r0 = virtualinvoke underlyingTransport.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        specialinvoke $r4.<org.apache.thrift.transport.TMemoryInputTransport: 'void' <init>(org.apache.thrift.TConfiguration)>($r0);
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer> = $r4;
+
+        return;
+    }
+
+    protected 'void' setSaslServer(javax.security.sasl.SaslServer)
+    {
+        org.apache.thrift.transport.TSaslTransport this;
+        javax.security.sasl.SaslServer saslServer;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        saslServer := @parameter0: javax.security.sasl.SaslServer;
+
+        $r0 = new org.apache.thrift.transport.TSaslTransport$SaslParticipant;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'void' <init>(javax.security.sasl.SaslServer)>(saslServer);
+
+        this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl> = $r0;
+
+        return;
+    }
+
+    protected 'void' sendSaslMessage(org.apache.thrift.transport.sasl.NegotiationStatus, 'byte'[]) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r0, payload;
+        org.slf4j.Logger $r2;
+        java.lang.Object[] $r3;
+        org.apache.thrift.transport.TSaslTransport$SaslRole $r4;
+        org.apache.thrift.transport.TSaslTransport this;
+        java.lang.Integer $r5;
+        org.apache.thrift.transport.sasl.NegotiationStatus status;
+        'byte' $b0;
+        org.apache.thrift.transport.TTransport $r6;
+        'int' $i1;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        status := @parameter0: org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        payload := @parameter1: 'byte'[];
+
+        if payload != null goto label1;
+
+        payload = newarray ('byte')[0];
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader>;
+
+        $b0 = virtualinvoke status.<org.apache.thrift.transport.sasl.NegotiationStatus: 'byte' getValue()>();
+
+        $r0[0] = $b0;
+
+        $i1 = lengthof payload;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader>;
+
+        staticinvoke <org.apache.thrift.EncodingUtils: 'void' encodeBigEndian('int','byte'[],'int')>($i1, $r0, 1);
+
+        $r2 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r3 = newarray (java.lang.Object)[3];
+
+        $r4 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        $r3[0] = $r4;
+
+        $r3[1] = status;
+
+        $i1 = lengthof payload;
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i1);
+
+        $r3[2] = $r5;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object[])>("{}: Writing message with status {} and payload length {}", $r3);
+
+        $r6 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader>;
+
+        virtualinvoke $r6.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r0);
+
+        $r6 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r6.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(payload);
+
+        $r6 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r6.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        return;
+    }
+
+    protected org.apache.thrift.transport.TSaslTransport$SaslResponse receiveSaslMessage() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] payload, $r2;
+        java.lang.Object[] $r28;
+        org.apache.thrift.transport.TTransportException $r9;
+        java.lang.Integer $r30;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' statusByte;
+        java.nio.charset.Charset $r21;
+        'int' payloadBytes, $i1;
+        java.lang.String remoteMessage;
+        org.slf4j.Logger $r27;
+        org.apache.thrift.TConfiguration $r11;
+        org.apache.thrift.transport.TSaslTransport$SaslRole $r29;
+        org.apache.thrift.transport.TSaslTransport this;
+        org.apache.thrift.transport.sasl.NegotiationStatus status, $r19;
+        java.lang.StringBuilder $r5;
+        org.apache.thrift.transport.TSaslTransport$SaslResponse $r31;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        payload = this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader>;
+
+        $r2 = this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader>;
+
+        payloadBytes = lengthof $r2;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(payload, 0, payloadBytes);
+
+        payload = this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader>;
+
+        statusByte = payload[0];
+
+        status = staticinvoke <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus byValue('byte')>(statusByte);
+
+        if status != null goto label1;
+
+        status = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus ERROR>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid status ");
+
+        payloadBytes = ('int') statusByte;
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(payloadBytes);
+
+        remoteMessage = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r9 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransportException sendAndThrowMessage(org.apache.thrift.transport.sasl.NegotiationStatus,java.lang.String)>(status, remoteMessage);
+
+        throw $r9;
+
+     label1:
+        payload = this.<org.apache.thrift.transport.TSaslTransport: 'byte'[] messageHeader>;
+
+        payloadBytes = staticinvoke <org.apache.thrift.EncodingUtils: 'int' decodeBigEndian('byte'[],'int')>(payload, 1);
+
+        if payloadBytes < 0 goto label2;
+
+        $r11 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i1 = virtualinvoke $r11.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+        if payloadBytes <= $i1 goto label3;
+
+     label2:
+        status = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus ERROR>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid payload header length: ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(payloadBytes);
+
+        remoteMessage = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r9 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransportException sendAndThrowMessage(org.apache.thrift.transport.sasl.NegotiationStatus,java.lang.String)>(status, remoteMessage);
+
+        throw $r9;
+
+     label3:
+        payload = newarray ('byte')[payloadBytes];
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        payloadBytes = lengthof payload;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(payload, 0, payloadBytes);
+
+        $r19 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus BAD>;
+
+        if status == $r19 goto label4;
+
+        $r19 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus ERROR>;
+
+        if status != $r19 goto label5;
+
+     label4:
+        remoteMessage = new java.lang.String;
+
+        $r21 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke remoteMessage.<java.lang.String: 'void' <init>('byte'[],java.nio.charset.Charset)>(payload, $r21);
+
+        $r9 = new org.apache.thrift.transport.TTransportException;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Peer indicated failure: ");
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(remoteMessage);
+
+        remoteMessage = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>(remoteMessage);
+
+        throw $r9;
+
+     label5:
+        $r27 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r28 = newarray (java.lang.Object)[3];
+
+        $r29 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        $r28[0] = $r29;
+
+        $r28[1] = status;
+
+        payloadBytes = lengthof payload;
+
+        $r30 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(payloadBytes);
+
+        $r28[2] = $r30;
+
+        interfaceinvoke $r27.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object[])>("{}: Received message with status {} and payload length {}", $r28);
+
+        $r31 = new org.apache.thrift.transport.TSaslTransport$SaslResponse;
+
+        specialinvoke $r31.<org.apache.thrift.transport.TSaslTransport$SaslResponse: 'void' <init>(org.apache.thrift.transport.sasl.NegotiationStatus,'byte'[])>(status, payload);
+
+        return $r31;
+    }
+
+    protected org.apache.thrift.transport.TTransportException sendAndThrowMessage(org.apache.thrift.transport.sasl.NegotiationStatus, java.lang.String) throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] $r1;
+        org.slf4j.Logger $r2;
+        org.apache.thrift.transport.TTransportException $r8;
+        org.apache.thrift.transport.TSaslTransport this;
+        java.lang.Exception e;
+        org.apache.thrift.transport.sasl.NegotiationStatus status;
+        java.nio.charset.Charset $r0;
+        java.lang.StringBuilder $r3;
+        java.lang.String message;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        status := @parameter0: org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        message := @parameter1: java.lang.String;
+
+        $r0 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+     label1:
+        $r1 = virtualinvoke message.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r0);
+
+        virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' sendSaslMessage(org.apache.thrift.transport.sasl.NegotiationStatus,'byte'[])>(status, $r1);
+
+     label2:
+        goto label4;
+
+     label3:
+        e := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Could not send failure response", e);
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(message);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\nAlso, could not send response: ");
+
+        message = virtualinvoke e.<java.lang.Exception: java.lang.String toString()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(message);
+
+        message = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label4:
+        $r8 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r8.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>(message);
+
+        throw $r8;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    protected abstract 'void' handleSaslStartMessage() throws org.apache.thrift.transport.TTransportException, javax.security.sasl.SaslException;
+
+    protected abstract org.apache.thrift.transport.TSaslTransport$SaslRole getRole();
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        java.lang.Throwable $r47;
+        'byte'[] challenge;
+        org.apache.thrift.transport.TTransportException message_3;
+        javax.security.sasl.SaslException message_2;
+        org.apache.thrift.transport.TTransport $r4;
+        'int' $i0;
+        java.lang.String message;
+        'boolean' $z0, readSaslHeader;
+        org.slf4j.Logger $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslRole $r7, $r23;
+        org.apache.thrift.transport.TSaslTransport this;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r1;
+        org.apache.thrift.transport.sasl.NegotiationStatus $r8, $r9;
+        java.lang.StringBuilder $r13;
+        java.lang.Object $r52;
+        org.apache.thrift.transport.TSaslTransport$SaslResponse message_1, message#2;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        readSaslHeader = 0;
+
+        $r0 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("opening transport {}", this);
+
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        if $r1 == null goto label01;
+
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        $z0 = virtualinvoke $r1.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'boolean' isComplete()>();
+
+        if $z0 == false goto label01;
+
+        message_3 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke message_3.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("SASL transport already open");
+
+        throw message_3;
+
+     label01:
+        $r4 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        $z0 = virtualinvoke $r4.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label02;
+
+        $r4 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r4.<org.apache.thrift.transport.TTransport: 'void' open()>();
+
+     label02:
+        virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' handleSaslStartMessage()>();
+
+        readSaslHeader = 1;
+
+        $r0 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r7 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("{}: Start message handled", $r7);
+
+        message#2 = null;
+
+     label03:
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        $z0 = virtualinvoke $r1.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'boolean' isComplete()>();
+
+        if $z0 != 0 goto label08;
+
+        message#2 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslResponse receiveSaslMessage()>();
+
+        $r8 = message#2.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status>;
+
+        $r9 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE>;
+
+        if $r8 == $r9 goto label04;
+
+        $r8 = message#2.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status>;
+
+        $r9 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus OK>;
+
+        if $r8 == $r9 goto label04;
+
+        message_3 = new org.apache.thrift.transport.TTransportException;
+
+        $r13 = new java.lang.StringBuilder;
+
+        specialinvoke $r13.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Expected COMPLETE or OK, got ");
+
+        $r8 = message#2.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status>;
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r8);
+
+        message = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke message_3.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>(message);
+
+        throw message_3;
+
+     label04:
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        challenge = message#2.<org.apache.thrift.transport.TSaslTransport$SaslResponse: 'byte'[] payload>;
+
+        challenge = virtualinvoke $r1.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'byte'[] evaluateChallengeOrResponse('byte'[])>(challenge);
+
+        $r8 = message#2.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status>;
+
+        $r9 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE>;
+
+        if $r8 != $r9 goto label05;
+
+        $r7 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        $r23 = <org.apache.thrift.transport.TSaslTransport$SaslRole: org.apache.thrift.transport.TSaslTransport$SaslRole CLIENT>;
+
+        if $r7 != $r23 goto label05;
+
+        $r0 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r7 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("{}: All done!", $r7);
+
+        goto label03;
+
+     label05:
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        $z0 = virtualinvoke $r1.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'boolean' isComplete()>();
+
+        if $z0 == false goto label06;
+
+        $r8 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE>;
+
+        goto label07;
+
+     label06:
+        $r8 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus OK>;
+
+     label07:
+        virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' sendSaslMessage(org.apache.thrift.transport.sasl.NegotiationStatus,'byte'[])>($r8, challenge);
+
+        goto label03;
+
+     label08:
+        $r0 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r7 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("{}: Main negotiation loop complete", $r7);
+
+        $r7 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        $r23 = <org.apache.thrift.transport.TSaslTransport$SaslRole: org.apache.thrift.transport.TSaslTransport$SaslRole CLIENT>;
+
+        if $r7 != $r23 goto label16;
+
+        if message#2 == null goto label09;
+
+        $r8 = message#2.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status>;
+
+        $r9 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus OK>;
+
+        if $r8 != $r9 goto label16;
+
+     label09:
+        $r0 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r7 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("{}: SASL Client receiving last message", $r7);
+
+        message_1 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslResponse receiveSaslMessage()>();
+
+        $r8 = message_1.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status>;
+
+        $r9 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus COMPLETE>;
+
+        if $r8 == $r9 goto label16;
+
+        message_3 = new org.apache.thrift.transport.TTransportException;
+
+        $r13 = new java.lang.StringBuilder;
+
+        specialinvoke $r13.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Expected SASL COMPLETE, but got ");
+
+        $r8 = message_1.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status>;
+
+        $r13 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r8);
+
+        message = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke message_3.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>(message);
+
+        throw message_3;
+
+     label10:
+        message_2 := @caughtexception;
+
+     label11:
+        $r0 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' error(java.lang.String,java.lang.Throwable)>("SASL negotiation failure", message_2);
+
+        $r8 = <org.apache.thrift.transport.sasl.NegotiationStatus: org.apache.thrift.transport.sasl.NegotiationStatus BAD>;
+
+        message = virtualinvoke message_2.<javax.security.sasl.SaslException: java.lang.String getMessage()>();
+
+        message_3 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransportException sendAndThrowMessage(org.apache.thrift.transport.sasl.NegotiationStatus,java.lang.String)>($r8, message);
+
+        throw message_3;
+
+     label12:
+        $r47 := @caughtexception;
+
+     label13:
+        $r4 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r4.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        throw $r47;
+
+     label14:
+        message_3 := @caughtexception;
+
+        if readSaslHeader != 0 goto label15;
+
+        $i0 = virtualinvoke message_3.<org.apache.thrift.transport.TTransportException: 'int' getType()>();
+
+        if $i0 != 4 goto label15;
+
+        $r4 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r4.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        $r0 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r0.<org.slf4j.Logger: 'void' debug(java.lang.String)>("No data or no sasl data in the stream during negotiation");
+
+     label15:
+        throw message_3;
+
+     label16:
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        $r52 = virtualinvoke $r1.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: java.lang.Object getNegotiatedProperty(java.lang.String)>("javax.security.sasl.qop");
+
+        message = (java.lang.String) $r52;
+
+        if message == null goto label17;
+
+        readSaslHeader = virtualinvoke message.<java.lang.String: 'boolean' equalsIgnoreCase(java.lang.String)>("auth");
+
+        if readSaslHeader != 0 goto label17;
+
+        this.<org.apache.thrift.transport.TSaslTransport: 'boolean' shouldWrap> = 1;
+
+     label17:
+        return;
+
+        catch javax.security.sasl.SaslException from label02 to label10 with label10;
+        catch java.lang.Throwable from label11 to label13 with label12;
+        catch org.apache.thrift.transport.TTransportException from label02 to label10 with label14;
+    }
+
+    public javax.security.sasl.SaslClient getSaslClient()
+    {
+        org.apache.thrift.transport.TSaslTransport this;
+        javax.security.sasl.SaslClient $r1;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        $r1 = $r0.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslClient saslClient>;
+
+        return $r1;
+    }
+
+    public org.apache.thrift.transport.TTransport getUnderlyingTransport()
+    {
+        org.apache.thrift.transport.TSaslTransport this;
+        org.apache.thrift.transport.TTransport $r0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        return $r0;
+    }
+
+    public javax.security.sasl.SaslServer getSaslServer()
+    {
+        org.apache.thrift.transport.TSaslTransport this;
+        javax.security.sasl.SaslServer $r1;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        $r1 = $r0.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: javax.security.sasl.SaslServer saslServer>;
+
+        return $r1;
+    }
+
+    protected 'int' readLength() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] lenBuf;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.transport.TSaslTransport this;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        lenBuf = newarray ('byte')[4];
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        $i0 = lengthof lenBuf;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(lenBuf, 0, $i0);
+
+        $i0 = staticinvoke <org.apache.thrift.EncodingUtils: 'int' decodeBigEndian('byte'[])>(lenBuf);
+
+        return $i0;
+    }
+
+    protected 'void' writeLength('int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] lenBuf;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.transport.TSaslTransport this;
+        'int' length;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        length := @parameter0: 'int';
+
+        lenBuf = newarray ('byte')[4];
+
+        staticinvoke <org.apache.thrift.transport.layered.TFramedTransport: 'void' encodeFrameSize('int','byte'[])>(length, lenBuf);
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(lenBuf);
+
+        return;
+    }
+
+    public 'void' close()
+    {
+        org.slf4j.Logger $r2;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r1;
+        org.apache.thrift.transport.TSaslTransport this;
+        javax.security.sasl.SaslException e;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' close()>();
+
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+     label1:
+        virtualinvoke $r1.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'void' dispose()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        e := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Failed to dispose sasl participant.", e);
+
+     label4:
+        return;
+
+        catch javax.security.sasl.SaslException from label1 to label2 with label3;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r1;
+        org.apache.thrift.transport.TSaslTransport this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'boolean' isOpen()>();
+
+        if $z0 == false goto label1;
+
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        if $r1 == null goto label1;
+
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        $z0 = virtualinvoke $r1.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'boolean' isComplete()>();
+
+        if $z0 == false goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.slf4j.Logger $r3;
+        org.apache.thrift.transport.TTransportException e_2;
+        org.apache.thrift.transport.TSaslTransport this;
+        javax.security.sasl.SaslException e_1;
+        org.apache.thrift.transport.TMemoryInputTransport $r1;
+        'int' off, len, got;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label1;
+
+        e_2 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke e_2.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("SASL authentication not complete");
+
+        throw e_2;
+
+     label1:
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer>;
+
+        got = virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        if got <= 0 goto label2;
+
+        return got;
+
+     label2:
+        specialinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' readFrame()>();
+
+     label3:
+        goto label7;
+
+     label4:
+        e_1 := @caughtexception;
+
+        e_2 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke e_2.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.Throwable)>(e_1);
+
+        throw e_2;
+
+     label5:
+        e_2 := @caughtexception;
+
+        off = virtualinvoke e_2.<org.apache.thrift.transport.TTransportException: 'int' getType()>();
+
+        if off != 4 goto label6;
+
+        $r3 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' debug(java.lang.String)>("No data or no sasl data in the stream during negotiation");
+
+     label6:
+        throw e_2;
+
+     label7:
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer>;
+
+        off = virtualinvoke $r1.<org.apache.thrift.transport.TMemoryInputTransport: 'int' read('byte'[],'int','int')>(buf, off, len);
+
+        return off;
+
+        catch javax.security.sasl.SaslException from label2 to label3 with label4;
+        catch org.apache.thrift.transport.TTransportException from label2 to label3 with label5;
+    }
+
+    private 'void' readFrame() throws org.apache.thrift.transport.TTransportException, javax.security.sasl.SaslException
+    {
+        'byte'[] buff;
+        org.slf4j.Logger $r15;
+        org.apache.thrift.TConfiguration $r6;
+        org.apache.thrift.transport.TTransportException $r0;
+        org.apache.thrift.transport.TSaslTransport$SaslRole $r16;
+        org.apache.thrift.transport.TSaslTransport this;
+        java.lang.Integer $r17;
+        org.apache.thrift.transport.TMemoryInputTransport $r22;
+        org.apache.thrift.transport.TTransport $r18;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r19;
+        'int' dataLength, maxFrameSize;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r5;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        dataLength = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: 'int' readLength()>();
+
+        if dataLength >= 0 goto label1;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Read a negative frame size (");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(dataLength);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>($r5);
+
+        throw $r0;
+
+     label1:
+        $r6 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        maxFrameSize = virtualinvoke $r6.<org.apache.thrift.TConfiguration: 'int' getMaxFrameSize()>();
+
+        if dataLength <= maxFrameSize goto label2;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Frame size (");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(dataLength);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") larger than max length (");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(maxFrameSize);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")!");
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(5, $r5);
+
+        throw $r0;
+
+     label2:
+        buff = newarray ('byte')[dataLength];
+
+        $r15 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r16 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslRole getRole()>();
+
+        $r17 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(dataLength);
+
+        interfaceinvoke $r15.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object,java.lang.Object)>("{}: reading data length: {}", $r16, $r17);
+
+        $r18 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r18.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>(buff, 0, dataLength);
+
+        $z0 = this.<org.apache.thrift.transport.TSaslTransport: 'boolean' shouldWrap>;
+
+        if $z0 == false goto label3;
+
+        $r19 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+        dataLength = lengthof buff;
+
+        buff = virtualinvoke $r19.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'byte'[] unwrap('byte'[],'int','int')>(buff, 0, dataLength);
+
+        $r15 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        dataLength = lengthof buff;
+
+        $r17 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(dataLength);
+
+        interfaceinvoke $r15.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("data length after unwrap: {}", $r17);
+
+     label3:
+        $r22 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TMemoryInputTransport readBuffer>;
+
+        virtualinvoke $r22.<org.apache.thrift.transport.TMemoryInputTransport: 'void' reset('byte'[])>(buff);
+
+        return;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.TByteArrayOutputStream $r1;
+        org.apache.thrift.transport.TTransportException $r0;
+        org.apache.thrift.transport.TSaslTransport this;
+        'int' off, len;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: 'boolean' isOpen()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.String)>("SASL authentication not complete");
+
+        throw $r0;
+
+     label1:
+        $r1 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer>;
+
+        virtualinvoke $r1.<org.apache.thrift.TByteArrayOutputStream: 'void' write('byte'[],'int','int')>(buf, off, len);
+
+        return;
+    }
+
+    public 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.slf4j.Logger $r3;
+        org.apache.thrift.TByteArrayOutputStream $r0;
+        org.apache.thrift.transport.TTransportException $r6;
+        org.apache.thrift.transport.TSaslTransport this;
+        javax.security.sasl.SaslException e;
+        java.lang.Integer $r4;
+        org.apache.thrift.transport.TSaslTransport$SaslParticipant $r5;
+        org.apache.thrift.transport.TTransport $r9;
+        'int' dataLength;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport;
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer>;
+
+        buf = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'byte'[] get()>();
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer>;
+
+        dataLength = virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'int' len()>();
+
+        $r0 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.TByteArrayOutputStream writeBuffer>;
+
+        virtualinvoke $r0.<org.apache.thrift.TByteArrayOutputStream: 'void' reset()>();
+
+        $z0 = this.<org.apache.thrift.transport.TSaslTransport: 'boolean' shouldWrap>;
+
+        if $z0 == false goto label5;
+
+        $r3 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(dataLength);
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("data length before wrap: {}", $r4);
+
+        $r5 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TSaslTransport$SaslParticipant sasl>;
+
+     label1:
+        buf = virtualinvoke $r5.<org.apache.thrift.transport.TSaslTransport$SaslParticipant: 'byte'[] wrap('byte'[],'int','int')>(buf, 0, dataLength);
+
+     label2:
+        goto label4;
+
+     label3:
+        e := @caughtexception;
+
+        $r6 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r6.<org.apache.thrift.transport.TTransportException: 'void' <init>(java.lang.Throwable)>(e);
+
+        throw $r6;
+
+     label4:
+        dataLength = lengthof buf;
+
+     label5:
+        $r3 = <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER>;
+
+        $r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>(dataLength);
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' debug(java.lang.String,java.lang.Object)>("writing data length: {}", $r4);
+
+        virtualinvoke this.<org.apache.thrift.transport.TSaslTransport: 'void' writeLength('int')>(dataLength);
+
+        $r9 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r9.<org.apache.thrift.transport.TTransport: 'void' write('byte'[],'int','int')>(buf, 0, dataLength);
+
+        $r9 = this.<org.apache.thrift.transport.TSaslTransport: org.apache.thrift.transport.TTransport underlyingTransport>;
+
+        virtualinvoke $r9.<org.apache.thrift.transport.TTransport: 'void' flush()>();
+
+        return;
+
+        catch javax.security.sasl.SaslException from label1 to label2 with label3;
+    }
+
+    static 'void' <clinit>()
+    {
+        org.slf4j.Logger $r0;
+
+        <org.apache.thrift.transport.TSaslTransport: 'int' PAYLOAD_LENGTH_BYTES> = 4;
+
+        <org.apache.thrift.transport.TSaslTransport: 'int' STATUS_BYTES> = 1;
+
+        <org.apache.thrift.transport.TSaslTransport: 'int' MECHANISM_NAME_BYTES> = 1;
+
+        <org.apache.thrift.transport.TSaslTransport: 'int' DEFAULT_MAX_LENGTH> = 2147483647;
+
+        $r0 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.Class)>(class "Lorg/apache/thrift/transport/TSaslTransport;");
+
+        <org.apache.thrift.transport.TSaslTransport: org.slf4j.Logger LOGGER> = $r0;
+
+        return;
+    }
+}

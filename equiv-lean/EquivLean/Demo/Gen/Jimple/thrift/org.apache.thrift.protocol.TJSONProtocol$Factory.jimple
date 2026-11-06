@@ -1,0 +1,55 @@
+public class org.apache.thrift.protocol.TJSONProtocol$Factory extends java.lang.Object implements org.apache.thrift.protocol.TProtocolFactory
+{
+    protected 'boolean' fieldNamesAsString_;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TJSONProtocol$Factory this;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$Factory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$Factory: 'boolean' fieldNamesAsString_> = 0;
+
+        return;
+    }
+
+    public 'void' <init>('boolean')
+    {
+        org.apache.thrift.protocol.TJSONProtocol$Factory this;
+        'boolean' fieldNamesAsString;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$Factory;
+
+        fieldNamesAsString := @parameter0: 'boolean';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$Factory: 'boolean' fieldNamesAsString_> = 0;
+
+        this.<org.apache.thrift.protocol.TJSONProtocol$Factory: 'boolean' fieldNamesAsString_> = fieldNamesAsString;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.protocol.TJSONProtocol$Factory this;
+        org.apache.thrift.protocol.TJSONProtocol $r0;
+        org.apache.thrift.transport.TTransport trans;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TJSONProtocol$Factory;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = new org.apache.thrift.protocol.TJSONProtocol;
+
+        $z0 = this.<org.apache.thrift.protocol.TJSONProtocol$Factory: 'boolean' fieldNamesAsString_>;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TJSONProtocol: 'void' <init>(org.apache.thrift.transport.TTransport,'boolean')>(trans, $z0);
+
+        return $r0;
+    }
+}

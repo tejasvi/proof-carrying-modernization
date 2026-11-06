@@ -1,0 +1,21 @@
+      * EXPECT-FAULT: VSAM extended FILE STATUS of F1
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U11.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT F1 ASSIGN TO 'U11.DAT'
+               FILE STATUS IS ST1 ST2.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  F1.
+       01  R1 PIC X(10).
+       WORKING-STORAGE SECTION.
+       01  ST1 PIC XX.
+       01  ST2.
+           05 ST2-RC PIC 9(4) COMP.
+           05 ST2-FN PIC 9(4) COMP.
+           05 ST2-FB PIC 9(4) COMP.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

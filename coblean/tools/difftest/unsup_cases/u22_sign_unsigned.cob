@@ -1,0 +1,9 @@
+      * EXPECT-FAULT: SIGN clause on N, which is not a signed DISPLAY
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. U22.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  N PIC 9(4) SIGN LEADING SEPARATE.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

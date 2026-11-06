@@ -1,0 +1,774 @@
+public class org.apache.thrift.transport.TNonblockingSSLSocket extends org.apache.thrift.transport.TNonblockingSocket implements org.apache.thrift.transport.SocketAddressProvider
+{
+    private static final org.slf4j.Logger LOGGER;
+    private final javax.net.ssl.SSLEngine sslEngine_;
+    private final java.nio.ByteBuffer appUnwrap;
+    private final java.nio.ByteBuffer netUnwrap;
+    private final java.nio.ByteBuffer netWrap;
+    private 'boolean' isHandshakeCompleted;
+    private java.nio.channels.SelectionKey selectionKey;
+    private final java.util.concurrent.ExecutorService executorService;
+
+    protected 'void' <init>(java.lang.String, 'int', 'int', javax.net.ssl.SSLContext) throws java.io.IOException, org.apache.thrift.transport.TTransportException
+    {
+        javax.net.ssl.SSLContext sslContext;
+        javax.net.ssl.SSLParameters sslParams;
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.nio.ByteBuffer $r9;
+        javax.net.ssl.SSLEngine $r1;
+        javax.net.ssl.SSLSession $r6;
+        'int' port, timeout, appBufferSize, netBufferSize;
+        java.lang.String host;
+        java.util.concurrent.ExecutorService $r0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        host := @parameter0: java.lang.String;
+
+        port := @parameter1: 'int';
+
+        timeout := @parameter2: 'int';
+
+        sslContext := @parameter3: javax.net.ssl.SSLContext;
+
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'void' <init>(java.lang.String,'int','int')>(host, port, timeout);
+
+        $r0 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.util.concurrent.ExecutorService executorService> = $r0;
+
+        $r1 = virtualinvoke sslContext.<javax.net.ssl.SSLContext: javax.net.ssl.SSLEngine createSSLEngine(java.lang.String,'int')>(host, port);
+
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_> = $r1;
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        virtualinvoke $r1.<javax.net.ssl.SSLEngine: 'void' setUseClientMode('boolean')>(1);
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        sslParams = virtualinvoke $r1.<javax.net.ssl.SSLEngine: javax.net.ssl.SSLParameters getSSLParameters()>();
+
+        virtualinvoke sslParams.<javax.net.ssl.SSLParameters: 'void' setEndpointIdentificationAlgorithm(java.lang.String)>("HTTPS");
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        virtualinvoke $r1.<javax.net.ssl.SSLEngine: 'void' setSSLParameters(javax.net.ssl.SSLParameters)>(sslParams);
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        $r6 = virtualinvoke $r1.<javax.net.ssl.SSLEngine: javax.net.ssl.SSLSession getSession()>();
+
+        appBufferSize = interfaceinvoke $r6.<javax.net.ssl.SSLSession: 'int' getApplicationBufferSize()>();
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        $r6 = virtualinvoke $r1.<javax.net.ssl.SSLEngine: javax.net.ssl.SSLSession getSession()>();
+
+        netBufferSize = interfaceinvoke $r6.<javax.net.ssl.SSLSession: 'int' getPacketBufferSize()>();
+
+        $r9 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(appBufferSize);
+
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap> = $r9;
+
+        $r9 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(netBufferSize);
+
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netUnwrap> = $r9;
+
+        $r9 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer allocate('int')>(netBufferSize);
+
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netWrap> = $r9;
+
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'boolean' isHandshakeCompleted> = 0;
+
+        return;
+    }
+
+    public java.nio.channels.SelectionKey registerSelector(java.nio.channels.Selector, 'int') throws java.io.IOException
+    {
+        java.nio.channels.SelectionKey $r0;
+        java.nio.channels.Selector selector;
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        'int' interests;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        selector := @parameter0: java.nio.channels.Selector;
+
+        interests := @parameter1: 'int';
+
+        $r0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SelectionKey registerSelector(java.nio.channels.Selector,'int')>(selector, interests);
+
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.channels.SelectionKey selectionKey> = $r0;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.channels.SelectionKey selectionKey>;
+
+        return $r0;
+    }
+
+    public 'boolean' isOpen()
+    {
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'boolean' isOpen()>();
+
+        if $z0 == false goto label1;
+
+        $z0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'boolean' isHandshakeCompleted>;
+
+        if $z0 == false goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.lang.RuntimeException $r0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        $r0 = new java.lang.RuntimeException;
+
+        specialinvoke $r0.<java.lang.RuntimeException: 'void' <init>(java.lang.String)>("open() is not implemented for TNonblockingSSLSocket");
+
+        throw $r0;
+    }
+
+    public synchronized 'int' read(java.nio.ByteBuffer) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransportException $r13;
+        java.nio.channels.SelectionKey $r19;
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.io.IOException iox;
+        java.nio.ByteBuffer buffer, $r0, $r16;
+        'int' numBytes, iox#8, $i1, $i7;
+        java.lang.StringBuilder $r8;
+        java.lang.String $r12;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        buffer := @parameter0: java.nio.ByteBuffer;
+
+        numBytes = virtualinvoke buffer.<java.nio.ByteBuffer: 'int' remaining()>();
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        iox#8 = virtualinvoke $r0.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        $i1 = virtualinvoke $r0.<java.nio.ByteBuffer: 'int' capacity()>();
+
+        if iox#8 == $i1 goto label2;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        iox#8 = virtualinvoke $r0.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        $i1 = virtualinvoke buffer.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        if iox#8 >= $i1 goto label5;
+
+     label2:
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        iox#8 = virtualinvoke $r0.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        $i1 = virtualinvoke $r0.<java.nio.ByteBuffer: 'int' capacity()>();
+
+        if iox#8 >= $i1 goto label3;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        $z0 = virtualinvoke $r0.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 == false goto label3;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        virtualinvoke buffer.<java.nio.ByteBuffer: java.nio.ByteBuffer put(java.nio.ByteBuffer)>($r0);
+
+     label3:
+        iox#8 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'int' doUnwrap()>();
+
+        $i1 = ('int') -1;
+
+        if iox#8 != $i1 goto label1;
+
+        iox = new java.io.IOException;
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unable to read ");
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(numBytes);
+
+        $r8 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes");
+
+        $r12 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke iox.<java.io.IOException: 'void' <init>(java.lang.String)>($r12);
+
+        throw iox;
+
+     label4:
+        iox := @caughtexception;
+
+        $r13 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r13.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(0, iox);
+
+        throw $r13;
+
+     label5:
+        $z0 = virtualinvoke buffer.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 == false goto label6;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        iox#8 = virtualinvoke $r0.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        $r16 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        $i1 = virtualinvoke $r16.<java.nio.ByteBuffer: 'int' position()>();
+
+        $i7 = virtualinvoke buffer.<java.nio.ByteBuffer: 'int' remaining()>();
+
+        $i1 = $i1 + $i7;
+
+        virtualinvoke $r0.<java.nio.ByteBuffer: java.nio.Buffer limit('int')>($i1);
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        virtualinvoke buffer.<java.nio.ByteBuffer: java.nio.ByteBuffer put(java.nio.ByteBuffer)>($r0);
+
+        buffer = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        virtualinvoke buffer.<java.nio.ByteBuffer: java.nio.Buffer limit('int')>(iox#8);
+
+     label6:
+        $r19 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.channels.SelectionKey selectionKey>;
+
+        virtualinvoke $r19.<java.nio.channels.SelectionKey: java.nio.channels.SelectionKey interestOps('int')>(4);
+
+        return numBytes;
+
+        catch java.io.IOException from label3 to label4 with label4;
+    }
+
+    public synchronized 'int' write(java.nio.ByteBuffer) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TTransportException $r6;
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.io.IOException iox;
+        java.nio.ByteBuffer buffer;
+        'int' numBytes, $i0, $i2;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r5;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        buffer := @parameter0: java.nio.ByteBuffer;
+
+        numBytes = virtualinvoke buffer.<java.nio.ByteBuffer: 'int' remaining()>();
+
+     label1:
+        $z0 = virtualinvoke buffer.<java.nio.ByteBuffer: 'boolean' hasRemaining()>();
+
+        if $z0 == false goto label4;
+
+     label2:
+        $i0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'int' doWrap(java.nio.ByteBuffer)>(buffer);
+
+        $i2 = ('int') -1;
+
+        if $i0 != $i2 goto label1;
+
+        iox = new java.io.IOException;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unable to write ");
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(numBytes);
+
+        $r1 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" bytes");
+
+        $r5 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke iox.<java.io.IOException: 'void' <init>(java.lang.String)>($r5);
+
+        throw iox;
+
+     label3:
+        iox := @caughtexception;
+
+        $r6 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r6.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(0, iox);
+
+        throw $r6;
+
+     label4:
+        return numBytes;
+
+        catch java.io.IOException from label2 to label3 with label3;
+    }
+
+    public 'void' close()
+    {
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.util.concurrent.ExecutorService $r0;
+        javax.net.ssl.SSLEngine $r1;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.util.concurrent.ExecutorService executorService>;
+
+        interfaceinvoke $r0.<java.util.concurrent.ExecutorService: 'void' shutdown()>();
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        virtualinvoke $r1.<javax.net.ssl.SSLEngine: 'void' closeOutbound()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'void' close()>();
+
+        return;
+    }
+
+    public 'boolean' startConnect() throws java.io.IOException
+    {
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        'boolean' $z0;
+        javax.net.ssl.SSLEngine $r0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        $z0 = virtualinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'boolean' isOpen()>();
+
+        if $z0 == false goto label1;
+
+        return 1;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        virtualinvoke $r0.<javax.net.ssl.SSLEngine: 'void' beginHandshake()>();
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'boolean' startConnect()>();
+
+        if $z0 == false goto label2;
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'boolean' doHandShake()>();
+
+        if $z0 == false goto label2;
+
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        return $z0;
+    }
+
+    public 'boolean' finishConnect() throws java.io.IOException
+    {
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'boolean' finishConnect()>();
+
+        if $z0 == false goto label1;
+
+        $z0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'boolean' doHandShake()>();
+
+        if $z0 == false goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    private synchronized 'boolean' doHandShake() throws java.io.IOException
+    {
+        'byte'[] $r3;
+        org.slf4j.Logger $r2;
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        javax.net.ssl.SSLEngineResult$HandshakeStatus hs;
+        java.nio.ByteBuffer $r4;
+        javax.net.ssl.SSLEngine $r0;
+        'int'[] $r1;
+        'int' $i0, $i5;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        hs = virtualinvoke $r0.<javax.net.ssl.SSLEngine: javax.net.ssl.SSLEngineResult$HandshakeStatus getHandshakeStatus()>();
+
+        $r1 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus>;
+
+        $i0 = virtualinvoke hs.<javax.net.ssl.SSLEngineResult$HandshakeStatus: 'int' ordinal()>();
+
+        $i0 = $r1[$i0];
+
+        tableswitch($i0)
+        {
+            case 1: goto label2;
+            case 2: goto label3;
+            case 3: goto label4;
+            case 4: goto label5;
+            case 5: goto label5;
+            default: goto label6;
+        };
+
+     label2:
+        $i0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'int' doUnwrap()>();
+
+        $i5 = ('int') -1;
+
+        if $i0 != $i5 goto label1;
+
+        $r2 = <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' error(java.lang.String)>("Unexpected. Handshake failed abruptly during unwrap");
+
+        return 0;
+
+     label3:
+        $r3 = newarray ('byte')[0];
+
+        $r4 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[])>($r3);
+
+        $i0 = specialinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'int' doWrap(java.nio.ByteBuffer)>($r4);
+
+        $i5 = ('int') -1;
+
+        if $i0 != $i5 goto label1;
+
+        $r2 = <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' error(java.lang.String)>("Unexpected. Handshake failed abruptly during wrap");
+
+        return 0;
+
+     label4:
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'void' doTask()>();
+
+        goto label1;
+
+     label5:
+        this.<org.apache.thrift.transport.TNonblockingSSLSocket: 'boolean' isHandshakeCompleted> = 1;
+
+        return 1;
+
+     label6:
+        $r2 = <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' error(java.lang.String)>("Unknown handshake status. Handshake failed");
+
+        return 0;
+    }
+
+    private 'void' doTask()
+    {
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.lang.Runnable runnable;
+        java.util.concurrent.ExecutorService $r1;
+        javax.net.ssl.SSLEngine $r0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+     label1:
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        runnable = virtualinvoke $r0.<javax.net.ssl.SSLEngine: java.lang.Runnable getDelegatedTask()>();
+
+        if runnable == null goto label2;
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.util.concurrent.ExecutorService executorService>;
+
+        interfaceinvoke $r1.<java.util.concurrent.ExecutorService: java.util.concurrent.Future submit(java.lang.Runnable)>(runnable);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private 'int' doUnwrap() throws java.io.IOException
+    {
+        java.lang.IllegalStateException $r15;
+        org.slf4j.Logger $r3;
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.nio.ByteBuffer $r1, $r7;
+        javax.net.ssl.SSLEngine $r5;
+        javax.net.ssl.SSLEngineResult unwrapResult;
+        javax.net.ssl.SSLException ex;
+        java.nio.channels.SocketChannel $r0;
+        'int'[] $r11;
+        'int' num, $i0;
+        java.lang.String $r10;
+        javax.net.ssl.SSLEngineResult$Status $r12;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.channels.SocketChannel getSocketChannel()>();
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netUnwrap>;
+
+        num = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'int' read(java.nio.ByteBuffer)>($r1);
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netUnwrap>;
+
+        virtualinvoke $r1.<java.nio.ByteBuffer: java.nio.Buffer flip()>();
+
+        if num >= 0 goto label1;
+
+        $r3 = <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' error(java.lang.String)>("Failed during read operation. Probably server is down");
+
+        num = ('int') -1;
+
+        return num;
+
+     label1:
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+     label2:
+        virtualinvoke $r1.<java.nio.ByteBuffer: java.nio.Buffer clear()>();
+
+        $r5 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netUnwrap>;
+
+        $r7 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        unwrapResult = virtualinvoke $r5.<javax.net.ssl.SSLEngine: javax.net.ssl.SSLEngineResult unwrap(java.nio.ByteBuffer,java.nio.ByteBuffer)>($r1, $r7);
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netUnwrap>;
+
+        virtualinvoke $r1.<java.nio.ByteBuffer: java.nio.ByteBuffer compact()>();
+
+     label3:
+        goto label5;
+
+     label4:
+        ex := @caughtexception;
+
+        $r3 = <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER>;
+
+        $r10 = virtualinvoke ex.<javax.net.ssl.SSLException: java.lang.String getMessage()>();
+
+        interfaceinvoke $r3.<org.slf4j.Logger: 'void' error(java.lang.String)>($r10);
+
+        throw ex;
+
+     label5:
+        $r11 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status>;
+
+        $r12 = virtualinvoke unwrapResult.<javax.net.ssl.SSLEngineResult: javax.net.ssl.SSLEngineResult$Status getStatus()>();
+
+        $i0 = virtualinvoke $r12.<javax.net.ssl.SSLEngineResult$Status: 'int' ordinal()>();
+
+        $i0 = $r11[$i0];
+
+        tableswitch($i0)
+        {
+            case 1: goto label6;
+            case 2: goto label7;
+            case 3: goto label8;
+            case 4: goto label9;
+            default: goto label9;
+        };
+
+     label6:
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        $i0 = virtualinvoke $r1.<java.nio.ByteBuffer: 'int' position()>();
+
+        if $i0 <= 0 goto label9;
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer appUnwrap>;
+
+        virtualinvoke $r1.<java.nio.ByteBuffer: java.nio.Buffer flip()>();
+
+        goto label9;
+
+     label7:
+        num = ('int') -1;
+
+        return num;
+
+     label8:
+        $r15 = new java.lang.IllegalStateException;
+
+        specialinvoke $r15.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>("Failed to unwrap");
+
+        throw $r15;
+
+     label9:
+        return num;
+
+        catch javax.net.ssl.SSLException from label2 to label3 with label4;
+    }
+
+    private 'int' doWrap(java.nio.ByteBuffer) throws java.io.IOException
+    {
+        java.lang.IllegalStateException $r11;
+        org.slf4j.Logger $r2;
+        org.apache.thrift.transport.TNonblockingSSLSocket this;
+        java.nio.ByteBuffer appWrap, $r1;
+        javax.net.ssl.SSLEngine $r0;
+        javax.net.ssl.SSLEngineResult wrapResult;
+        javax.net.ssl.SSLException exc;
+        java.nio.channels.SocketChannel $r8;
+        'int'[] $r4;
+        'int' $i0, num;
+        java.lang.String $r3;
+        javax.net.ssl.SSLEngineResult$Status $r5;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSSLSocket;
+
+        appWrap := @parameter0: java.nio.ByteBuffer;
+
+        num = 0;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: javax.net.ssl.SSLEngine sslEngine_>;
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netWrap>;
+
+     label1:
+        wrapResult = virtualinvoke $r0.<javax.net.ssl.SSLEngine: javax.net.ssl.SSLEngineResult wrap(java.nio.ByteBuffer,java.nio.ByteBuffer)>(appWrap, $r1);
+
+     label2:
+        goto label4;
+
+     label3:
+        exc := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER>;
+
+        $r3 = virtualinvoke exc.<javax.net.ssl.SSLException: java.lang.String getMessage()>();
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' error(java.lang.String)>($r3);
+
+        throw exc;
+
+     label4:
+        $r4 = <org.apache.thrift.transport.TNonblockingSSLSocket$1: 'int'[] $SwitchMap$javax$net$ssl$SSLEngineResult$Status>;
+
+        $r5 = virtualinvoke wrapResult.<javax.net.ssl.SSLEngineResult: javax.net.ssl.SSLEngineResult$Status getStatus()>();
+
+        $i0 = virtualinvoke $r5.<javax.net.ssl.SSLEngineResult$Status: 'int' ordinal()>();
+
+        $i0 = $r4[$i0];
+
+        tableswitch($i0)
+        {
+            case 1: goto label5;
+            case 2: goto label7;
+            case 3: goto label6;
+            case 4: goto label8;
+            default: goto label8;
+        };
+
+     label5:
+        appWrap = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netWrap>;
+
+        $i0 = virtualinvoke appWrap.<java.nio.ByteBuffer: 'int' position()>();
+
+        if $i0 <= 0 goto label8;
+
+        appWrap = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netWrap>;
+
+        virtualinvoke appWrap.<java.nio.ByteBuffer: java.nio.Buffer flip()>();
+
+        $r8 = virtualinvoke this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.channels.SocketChannel getSocketChannel()>();
+
+        appWrap = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netWrap>;
+
+        num = virtualinvoke $r8.<java.nio.channels.SocketChannel: 'int' write(java.nio.ByteBuffer)>(appWrap);
+
+        appWrap = this.<org.apache.thrift.transport.TNonblockingSSLSocket: java.nio.ByteBuffer netWrap>;
+
+        virtualinvoke appWrap.<java.nio.ByteBuffer: java.nio.Buffer clear()>();
+
+        goto label8;
+
+     label6:
+        $r11 = new java.lang.IllegalStateException;
+
+        specialinvoke $r11.<java.lang.IllegalStateException: 'void' <init>(java.lang.String)>("Failed to wrap");
+
+        throw $r11;
+
+     label7:
+        $r2 = <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' error(java.lang.String)>("SSL session is closed");
+
+        num = ('int') -1;
+
+        return num;
+
+     label8:
+        return num;
+
+        catch javax.net.ssl.SSLException from label1 to label2 with label3;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        org.slf4j.Logger $r2;
+
+        $r0 = class "Lorg/apache/thrift/transport/TNonblockingSSLSocket;";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        <org.apache.thrift.transport.TNonblockingSSLSocket: org.slf4j.Logger LOGGER> = $r2;
+
+        return;
+    }
+}

@@ -1,0 +1,32 @@
+# TheAlgorithms/Rust (https://github.com/TheAlgorithms/Rust), validation target of the Rust adapter (adapters/rust):
+# the self-contained integer modules of src/math (no `use`, no floats, no iterator chains), at the pinned head
+# fed66cb (2026-10-09). The repository's crate has dependencies (nalgebra, ndarray, rand), so it is never built:
+# veriforch builds a crate of the listed module files (rust_crate = "files"), with their #[cfg(test)] tests
+# promoted. No script of the repository runs. For CI on older revisions, files absent there are skipped.
+name = "thealgorithms_rust"
+lang = "rust"
+root = "/home/user/veriforch/targets/thealgorithms_rust_src/Rust"
+rust_crate = "files"
+crate_name = "talgo"
+edition = "2021"
+sources_present_only = true
+sources = [
+  "src/math/amicable_numbers.rs",
+  "src/math/binary_exponentiation.rs",
+  "src/math/catalan_numbers.rs",
+  "src/math/doomsday.rs",
+  "src/math/extended_euclidean_algorithm.rs",
+  "src/math/fast_power.rs",
+  "src/math/gcd_of_n_numbers.rs",
+  "src/math/lcm_of_n_numbers.rs",
+  "src/math/lucas_series.rs",
+  "src/math/mersenne_primes.rs",
+  "src/math/modular_exponential.rs",
+  "src/math/pascal_triangle.rs",
+  "src/math/perfect_cube.rs",
+  "src/math/perfect_numbers.rs",
+  "src/math/prime_factors.rs",
+  "src/math/square_pyramidal_numbers.rs",
+  "src/math/sum_of_digits.rs",
+  "src/math/sylvester_sequence.rs",
+]

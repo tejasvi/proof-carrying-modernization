@@ -1,0 +1,35 @@
+class org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol extends org.apache.thrift.protocol.TProtocolDecorator
+{
+    org.apache.thrift.protocol.TMessage messageBegin;
+
+    public 'void' <init>(org.apache.thrift.protocol.TProtocol, org.apache.thrift.protocol.TMessage)
+    {
+        org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol this;
+        org.apache.thrift.protocol.TMessage messageBegin;
+        org.apache.thrift.protocol.TProtocol protocol;
+
+        this := @this: org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol;
+
+        protocol := @parameter0: org.apache.thrift.protocol.TProtocol;
+
+        messageBegin := @parameter1: org.apache.thrift.protocol.TMessage;
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocolDecorator: 'void' <init>(org.apache.thrift.protocol.TProtocol)>(protocol);
+
+        this.<org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol: org.apache.thrift.protocol.TMessage messageBegin> = messageBegin;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TMessage readMessageBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol this;
+        org.apache.thrift.protocol.TMessage $r0;
+
+        this := @this: org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol;
+
+        $r0 = this.<org.apache.thrift.TMultiplexedProcessor$StoredMessageProtocol: org.apache.thrift.protocol.TMessage messageBegin>;
+
+        return $r0;
+    }
+}

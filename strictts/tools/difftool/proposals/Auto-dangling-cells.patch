@@ -1,0 +1,84 @@
+--- a/StrictTS/Proof/Auto.lean
++++ b/StrictTS/Proof/Auto.lean
+@@ -5,6 +5,11 @@
+ without any invariant: unfold the calls of top-level functions in the goal (each function at
+ most once, so recursion cannot loop), execute symbolically (`ts_sym`), summarize every `for … of`
+ loop and every array callback (`ts_summarize`, `ts_callbacks`), and finish with `simp`.
++An array, map or set argument whose cell no hypothesis fixes is split first (`ts_cells`): present
++(the summaries need its contents) or dangling, where both sides panic at their first read of the
++cell (`evalForOf_dangling`, `evalBuiltin_arrReduce_dangling`, …: `simp` lemmas of
++`StrictTS.Proof.LibLemmas`, imported with `StrictTS`), so that statements for every world need no
++`w.heap.get? … = some …` hypothesis.
+ 
+ Async goals (the microtask loop `drain`, the event loop, a whole run, promise cells) finish with
+ `ts_drain` instead, which runs every queued job; the given lemmas (e.g. the oracle's answers to
+@@ -15,6 +20,7 @@
+ import StrictTS.Proof.Summarize
+ import StrictTS.Proof.Contract
+ import StrictTS.Proof.AsyncRace
++import StrictTS.Proof.Literals
+ 
+ namespace StrictTS
+ open Lean Elab Tactic Meta
+@@ -123,17 +129,16 @@
+       rest := rest ++ (← getGoals)
+     setGoals rest
+ 
+-/-- The recipe of `ts_auto` with the extra simp lemmas `lemmas`. -/
+-def runTsAuto (lemmas : Array (TSyntax `Lean.Parser.Tactic.simpLemma)) : TacticM Unit := do
+-  -- 0. contract statements are definitions: expose the runs
+-  try evalTactic (← `(tactic| simp only [JS.Returns, JS.NoFault, JS.NoPanic])) catch _ => pure ()
+-  -- 1. unfold the calls of the functions under proof (and of callees exposed by them)
+-  let mut done : Array Name := #[]
+-  for _ in [0:16] do
+-    if (← getGoals).isEmpty then return
+-    match ← unfoldOneCall done with
+-    | some r => done := done.push r
+-    | none => break
++/-- Does a hypothesis say that a heap cell is missing (`w.heap.get? (k, a) = none`)? -/
++def hasDanglingCell : TacticM Bool := withMainContext do
++  for d in ← getLCtx do
++    if d.isImplementationDetail then continue
++    if let some (_, lhs, rhs) := (← instantiateMVars d.type).eq? then
++      if lhs.isAppOf ``Std.ExtDHashMap.get? && rhs.isAppOf ``Option.none then return true
++  return false
++
++/-- Steps 2 and 3 of `ts_auto` on the main goal. -/
++def finishTsAuto (lemmas : Array (TSyntax `Lean.Parser.Tactic.simpLemma)) : TacticM Unit := do
+   -- 2. summarize loops and callbacks until none is left
+   for _ in [0:16] do
+     if (← getGoals).isEmpty then return
+@@ -156,6 +161,33 @@
+       try evalTactic (← `(tactic| all_goals (split <;> simp_all [ts_sym, $lemmas,*])))
+       catch _ => return
+ 
++/-- The recipe of `ts_auto` with the extra simp lemmas `lemmas`. -/
++def runTsAuto (lemmas : Array (TSyntax `Lean.Parser.Tactic.simpLemma)) : TacticM Unit := do
++  -- 0. contract statements are definitions: expose the runs
++  try evalTactic (← `(tactic| simp only [JS.Returns, JS.NoFault, JS.NoPanic])) catch _ => pure ()
++  -- 1. unfold the calls of the functions under proof (and of callees exposed by them)
++  let mut done : Array Name := #[]
++  for _ in [0:16] do
++    if (← getGoals).isEmpty then return
++    match ← unfoldOneCall done with
++    | some r => done := done.push r
++    | none => break
++  if (← getGoals).isEmpty then return
++  -- 1b. split the argument cells that no hypothesis fixes: present or dangling
++  try evalTactic (← `(tactic| ts_cells)) catch _ => pure ()
++  let mut rest : List MVarId := []
++  for g in ← getGoals do
++    setGoals [g]
++    if ← hasDanglingCell then
++      -- a missing cell: both sides panic at their first read of it (no summaries: they would
++      -- leave unprovable `w.heap.get? … = some …` goals)
++      let ls := lemmas ++ (← heapHyps)
++      evalTactic (← `(tactic| simp [ts_sym, $ls,*]))
++    else
++      finishTsAuto lemmas
++    rest := rest ++ (← getGoals)
++  setGoals rest
++
+ /-- `ts_auto [lemmas]`: the automatic proof attempt (see the module comment). -/
+ syntax (name := tsAuto) "ts_auto" (" [" Lean.Parser.Tactic.simpLemma,* "]")? : tactic
+ 

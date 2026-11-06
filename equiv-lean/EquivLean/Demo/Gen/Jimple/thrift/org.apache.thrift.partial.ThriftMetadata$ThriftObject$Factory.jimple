@@ -1,0 +1,113 @@
+class org.apache.thrift.partial.ThriftMetadata$ThriftObject$Factory extends java.lang.Object
+{
+
+    private 'void' <init>()
+    {
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject$Factory this;
+
+        this := @this: org.apache.thrift.partial.ThriftMetadata$ThriftObject$Factory;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    static org.apache.thrift.partial.ThriftMetadata$ThriftObject createNew(org.apache.thrift.partial.ThriftMetadata$ThriftObject, org.apache.thrift.TFieldIdEnum, org.apache.thrift.meta_data.FieldMetaData, java.util.List)
+    {
+        java.lang.UnsupportedOperationException $r7;
+        org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive $r6;
+        org.apache.thrift.partial.ThriftMetadata$ThriftObject parent;
+        java.util.List fields;
+        org.apache.thrift.partial.ThriftMetadata$ThriftStructBase $r1;
+        'byte' fieldType;
+        org.apache.thrift.partial.ThriftMetadata$ThriftMap $r3;
+        'int' $i0;
+        org.apache.thrift.TFieldIdEnum fieldId;
+        org.apache.thrift.partial.ThriftMetadata$ThriftList $r2;
+        org.apache.thrift.partial.ThriftMetadata$ThriftEnum $r5;
+        org.apache.thrift.meta_data.FieldMetaData data;
+        org.apache.thrift.meta_data.FieldValueMetaData $r0;
+        org.apache.thrift.partial.ThriftMetadata$ThriftSet $r4;
+
+        parent := @parameter0: org.apache.thrift.partial.ThriftMetadata$ThriftObject;
+
+        fieldId := @parameter1: org.apache.thrift.TFieldIdEnum;
+
+        data := @parameter2: org.apache.thrift.meta_data.FieldMetaData;
+
+        fields := @parameter3: java.util.List;
+
+        $r0 = data.<org.apache.thrift.meta_data.FieldMetaData: org.apache.thrift.meta_data.FieldValueMetaData valueMetaData>;
+
+        fieldType = $r0.<org.apache.thrift.meta_data.FieldValueMetaData: 'byte' type>;
+
+        $i0 = ('int') fieldType;
+
+        tableswitch($i0)
+        {
+            case -1: goto label5;
+            case 0: goto label7;
+            case 1: goto label7;
+            case 2: goto label6;
+            case 3: goto label6;
+            case 4: goto label6;
+            case 5: goto label7;
+            case 6: goto label6;
+            case 7: goto label7;
+            case 8: goto label6;
+            case 9: goto label7;
+            case 10: goto label6;
+            case 11: goto label6;
+            case 12: goto label1;
+            case 13: goto label3;
+            case 14: goto label4;
+            case 15: goto label2;
+            default: goto label7;
+        };
+
+     label1:
+        $r1 = staticinvoke <org.apache.thrift.partial.ThriftMetadata$ThriftStructBase: org.apache.thrift.partial.ThriftMetadata$ThriftStructBase create(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData,java.lang.Iterable)>(parent, fieldId, data, fields);
+
+        return $r1;
+
+     label2:
+        $r2 = new org.apache.thrift.partial.ThriftMetadata$ThriftList;
+
+        specialinvoke $r2.<org.apache.thrift.partial.ThriftMetadata$ThriftList: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData,java.util.List)>(parent, fieldId, data, fields);
+
+        return $r2;
+
+     label3:
+        $r3 = new org.apache.thrift.partial.ThriftMetadata$ThriftMap;
+
+        specialinvoke $r3.<org.apache.thrift.partial.ThriftMetadata$ThriftMap: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData,java.util.List)>(parent, fieldId, data, fields);
+
+        return $r3;
+
+     label4:
+        $r4 = new org.apache.thrift.partial.ThriftMetadata$ThriftSet;
+
+        specialinvoke $r4.<org.apache.thrift.partial.ThriftMetadata$ThriftSet: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData,java.util.List)>(parent, fieldId, data, fields);
+
+        return $r4;
+
+     label5:
+        $r5 = new org.apache.thrift.partial.ThriftMetadata$ThriftEnum;
+
+        specialinvoke $r5.<org.apache.thrift.partial.ThriftMetadata$ThriftEnum: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData)>(parent, fieldId, data);
+
+        return $r5;
+
+     label6:
+        $r6 = new org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive;
+
+        specialinvoke $r6.<org.apache.thrift.partial.ThriftMetadata$ThriftPrimitive: 'void' <init>(org.apache.thrift.partial.ThriftMetadata$ThriftObject,org.apache.thrift.TFieldIdEnum,org.apache.thrift.meta_data.FieldMetaData)>(parent, fieldId, data);
+
+        return $r6;
+
+     label7:
+        $r7 = staticinvoke <org.apache.thrift.partial.ThriftMetadata: java.lang.UnsupportedOperationException unsupportedFieldTypeException('byte')>(fieldType);
+
+        throw $r7;
+    }
+}

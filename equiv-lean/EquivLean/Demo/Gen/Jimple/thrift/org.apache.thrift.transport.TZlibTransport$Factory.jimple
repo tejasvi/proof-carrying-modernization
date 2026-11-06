@@ -1,0 +1,31 @@
+public class org.apache.thrift.transport.TZlibTransport$Factory extends org.apache.thrift.transport.TTransportFactory
+{
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.transport.TZlibTransport$Factory this;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport$Factory;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport) throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TZlibTransport $r0;
+        org.apache.thrift.transport.TZlibTransport$Factory this;
+        org.apache.thrift.transport.TTransport base;
+
+        this := @this: org.apache.thrift.transport.TZlibTransport$Factory;
+
+        base := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = new org.apache.thrift.transport.TZlibTransport;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TZlibTransport: 'void' <init>(org.apache.thrift.transport.TTransport)>(base);
+
+        return $r0;
+    }
+}

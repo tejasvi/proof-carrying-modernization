@@ -1,0 +1,1802 @@
+{
+ "name": "CBACT03C",
+ "config": {
+  "charset": "ebcdic",
+  "zonedSign": "ebcdic",
+  "trunc": "std",
+  "numprocPfd": false,
+  "binaryLE": false,
+  "comp5LE": false,
+  "binary1Byte": false,
+  "sizeErrorTruncates": true
+ },
+ "dialect": {
+  "divExtraForRounded": true
+ },
+ "data": [
+  {
+   "id": 1,
+   "level": 1,
+   "name": "FD-XREFFILE-REC",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 2,
+     "level": 5,
+     "name": "FD-XREF-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 3,
+     "level": 5,
+     "name": "FD-XREF-DATA",
+     "pic": {
+      "alnum": {
+       "len": 34
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "level": 1,
+   "name": "CARD-XREF-RECORD",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 5,
+     "level": 5,
+     "name": "XREF-CARD-NUM",
+     "pic": {
+      "alnum": {
+       "len": 16
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 6,
+     "level": 5,
+     "name": "XREF-CUST-ID",
+     "pic": {
+      "num": {
+       "digits": 9,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 7,
+     "level": 5,
+     "name": "XREF-ACCT-ID",
+     "pic": {
+      "num": {
+       "digits": 11,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 8,
+     "level": 5,
+     "name": "FILLER",
+     "pic": {
+      "alnum": {
+       "len": 14
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "level": 1,
+   "name": "XREFFILE-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 10,
+     "level": 5,
+     "name": "XREFFILE-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 11,
+     "level": 5,
+     "name": "XREFFILE-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "level": 1,
+   "name": "IO-STATUS",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 13,
+     "level": 5,
+     "name": "IO-STAT1",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 14,
+     "level": 5,
+     "name": "IO-STAT2",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "level": 1,
+   "name": "TWO-BYTES-BINARY",
+   "pic": {
+    "num": {
+     "digits": 4,
+     "scale": 0,
+     "signed": false
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 16,
+   "level": 1,
+   "name": "TWO-BYTES-ALPHA",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": 15,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 17,
+     "level": 5,
+     "name": "TWO-BYTES-LEFT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 18,
+     "level": 5,
+     "name": "TWO-BYTES-RIGHT",
+     "pic": {
+      "alnum": {
+       "len": 1
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": null,
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "level": 1,
+   "name": "IO-STATUS-04",
+   "pic": null,
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": [
+    {
+     "id": 20,
+     "level": 5,
+     "name": "IO-STATUS-0401",
+     "pic": {
+      "num": {
+       "digits": 1,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    },
+    {
+     "id": 21,
+     "level": 5,
+     "name": "IO-STATUS-0403",
+     "pic": {
+      "num": {
+       "digits": 3,
+       "scale": 0,
+       "signed": false
+      }
+     },
+     "usage": "display",
+     "occurs": 1,
+     "redefines": null,
+     "value": {
+      "num": {
+       "v": 0,
+       "scale": 0
+      }
+     },
+     "just": false,
+     "signSep": false,
+     "signLead": false,
+     "bwz": false,
+     "sync": false,
+     "conds": [],
+     "children": []
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "level": 1,
+   "name": "APPL-RESULT",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [
+    [
+     23,
+     [
+      "APPL-AOK",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 0,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ],
+    [
+     24,
+     [
+      "APPL-EOF",
+      [
+       {
+        "lo": {
+         "num": {
+          "v": 16,
+          "scale": 0
+         }
+        },
+        "hi": null
+       }
+      ]
+     ]
+    ]
+   ],
+   "children": []
+  },
+  {
+   "id": 25,
+   "level": 1,
+   "name": "END-OF-FILE",
+   "pic": {
+    "alnum": {
+     "len": 1
+    }
+   },
+   "usage": "display",
+   "occurs": 1,
+   "redefines": null,
+   "value": {
+    "alnum": {
+     "bs": [
+      213
+     ]
+    }
+   },
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 26,
+   "level": 1,
+   "name": "ABCODE",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  },
+  {
+   "id": 27,
+   "level": 1,
+   "name": "TIMING",
+   "pic": {
+    "num": {
+     "digits": 9,
+     "scale": 0,
+     "signed": true
+    }
+   },
+   "usage": "binary",
+   "occurs": 1,
+   "redefines": null,
+   "value": null,
+   "just": false,
+   "signSep": false,
+   "signLead": false,
+   "bwz": false,
+   "sync": false,
+   "conds": [],
+   "children": []
+  }
+ ],
+ "paras": [
+  {
+   "name": "",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "START OF EXECUTION OF PROGRAM CBACT03C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "0000-XREFFILE-OPEN",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "performInline": {
+       "body": [
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": "=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 25,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "lit": {
+              "l": {
+               "str": {
+                "s": "N"
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           {
+            "perform": {
+             "first": "1000-XREFFILE-GET-NEXT",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "ite": {
+             "c": {
+              "rel": {
+               "op": "=",
+               "a": {
+                "ref": {
+                 "r": {
+                  "item": 25,
+                  "subs": [],
+                  "refStart": null,
+                  "refLen": null
+                 }
+                }
+               },
+               "b": {
+                "lit": {
+                 "l": {
+                  "str": {
+                   "s": "N"
+                  }
+                 }
+                }
+               }
+              }
+             },
+             "t": [
+              {
+               "display": {
+                "ops": [
+                 {
+                  "ref": {
+                   "r": {
+                    "item": 4,
+                    "subs": [],
+                    "refStart": null,
+                    "refLen": null
+                   }
+                  }
+                 }
+                ]
+               }
+              }
+             ],
+             "e": []
+            }
+           }
+          ],
+          "e": []
+         }
+        }
+       ],
+       "loop": {
+        "until": {
+         "testAfter": false,
+         "c": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 25,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "Y"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    ],
+    [
+     {
+      "perform": {
+       "first": "9000-XREFFILE-CLOSE",
+       "last": null,
+       "loop": "once"
+      }
+     }
+    ],
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "END OF EXECUTION OF PROGRAM CBACT03C"
+           }
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    [
+     "goback"
+    ]
+   ]
+  },
+  {
+   "name": "1000-XREFFILE-GET-NEXT",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "fread": {
+       "file": 1,
+       "key": null,
+       "into": {
+        "item": 4,
+        "subs": [],
+        "refStart": null,
+        "refLen": null
+       },
+       "trap": false,
+       "exc": [],
+       "noExc": []
+      }
+     }
+    ],
+    [
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 9,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 22,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 4,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "rel": {
+            "op": "=",
+            "a": {
+             "ref": {
+              "r": {
+               "item": 9,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             }
+            },
+            "b": {
+             "lit": {
+              "l": {
+               "str": {
+                "s": "10"
+               }
+              }
+             }
+            }
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 16,
+                 "scale": 0,
+                 "digits": 2
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 22,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "num": {
+                 "v": 12,
+                 "scale": 0,
+                 "digits": 2
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 22,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 23,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "ite": {
+          "c": {
+           "cond88": {
+            "id": 24,
+            "subs": []
+           }
+          },
+          "t": [
+           {
+            "move": {
+             "src": {
+              "lit": {
+               "l": {
+                "str": {
+                 "s": "Y"
+                }
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 25,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           }
+          ],
+          "e": [
+           {
+            "display": {
+             "ops": [
+              {
+               "lit": {
+                "l": {
+                 "str": {
+                  "s": "ERROR READING XREFFILE"
+                 }
+                }
+               }
+              }
+             ]
+            }
+           },
+           {
+            "move": {
+             "src": {
+              "ref": {
+               "r": {
+                "item": 9,
+                "subs": [],
+                "refStart": null,
+                "refLen": null
+               }
+              }
+             },
+             "dsts": [
+              {
+               "item": 12,
+               "subs": [],
+               "refStart": null,
+               "refLen": null
+              }
+             ]
+            }
+           },
+           {
+            "perform": {
+             "first": "9910-DISPLAY-IO-STATUS",
+             "last": null,
+             "loop": "once"
+            }
+           },
+           {
+            "perform": {
+             "first": "9999-ABEND-PROGRAM",
+             "last": null,
+             "loop": "once"
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "0000-XREFFILE-OPEN",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 8,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 22,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     }
+    ],
+    [
+     {
+      "fopen": {
+       "file": 1,
+       "mode": "INPUT"
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 9,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 22,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 12,
+              "scale": 0,
+              "digits": 2
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 22,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 23,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR OPENING XREFFILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 9,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 12,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9000-XREFFILE-CLOSE",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "add": {
+       "ops": [
+        {
+         "lit": {
+          "v": 8,
+          "scale": 0
+         }
+        },
+        {
+         "lit": {
+          "v": 0,
+          "scale": 0
+         }
+        }
+       ],
+       "rcv": [
+        {
+         "ref": {
+          "item": 22,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         },
+         "rounded": null
+        }
+       ],
+       "giving": true,
+       "onSize": null,
+       "notOnSize": []
+      }
+     }
+    ],
+    [
+     {
+      "fclose": {
+       "file": 1
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "rel": {
+         "op": "=",
+         "a": {
+          "ref": {
+           "r": {
+            "item": 9,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          }
+         },
+         "b": {
+          "lit": {
+           "l": {
+            "str": {
+             "s": "00"
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "subtract": {
+          "ops": [
+           {
+            "ref": {
+             "r": {
+              "item": 22,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 22,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": null,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ],
+       "e": [
+        {
+         "add": {
+          "ops": [
+           {
+            "lit": {
+             "v": 12,
+             "scale": 0
+            }
+           },
+           {
+            "lit": {
+             "v": 0,
+             "scale": 0
+            }
+           }
+          ],
+          "rcv": [
+           {
+            "ref": {
+             "item": 22,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            },
+            "rounded": null
+           }
+          ],
+          "giving": true,
+          "onSize": null,
+          "notOnSize": []
+         }
+        }
+       ]
+      }
+     },
+     {
+      "ite": {
+       "c": {
+        "cond88": {
+         "id": 23,
+         "subs": []
+        }
+       },
+       "t": [
+        "cont"
+       ],
+       "e": [
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "ERROR CLOSING XREFFILE"
+              }
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 9,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 12,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "perform": {
+          "first": "9910-DISPLAY-IO-STATUS",
+          "last": null,
+          "loop": "once"
+         }
+        },
+        {
+         "perform": {
+          "first": "9999-ABEND-PROGRAM",
+          "last": null,
+          "loop": "once"
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  },
+  {
+   "name": "9999-ABEND-PROGRAM",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "display": {
+       "ops": [
+        {
+         "lit": {
+          "l": {
+           "str": {
+            "s": "ABENDING PROGRAM"
+           }
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 0,
+           "scale": 0,
+           "digits": 1
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 27,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "move": {
+       "src": {
+        "lit": {
+         "l": {
+          "num": {
+           "v": 999,
+           "scale": 0,
+           "digits": 3
+          }
+         }
+        }
+       },
+       "dsts": [
+        {
+         "item": 26,
+         "subs": [],
+         "refStart": null,
+         "refLen": null
+        }
+       ]
+      }
+     },
+     {
+      "abend": {
+       "code": {
+        "ref": {
+         "r": {
+          "item": 26,
+          "subs": [],
+          "refStart": null,
+          "refLen": null
+         }
+        }
+       }
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "name": "9910-DISPLAY-IO-STATUS",
+   "sect": null,
+   "sentences": [
+    [
+     {
+      "ite": {
+       "c": {
+        "or": {
+         "a": {
+          "not": {
+           "c": {
+            "cls": {
+             "test": "NUMERIC",
+             "r": {
+              "item": 12,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          }
+         },
+         "b": {
+          "rel": {
+           "op": "=",
+           "a": {
+            "ref": {
+             "r": {
+              "item": 13,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           },
+           "b": {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "9"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "t": [
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 13,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 19,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 1
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 1
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "num": {
+              "v": 0,
+              "scale": 0,
+              "digits": 1
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 15,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 14,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 18,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 15,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 21,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 19,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "e": [
+        {
+         "move": {
+          "src": {
+           "lit": {
+            "l": {
+             "str": {
+              "s": "0000"
+             }
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 19,
+            "subs": [],
+            "refStart": null,
+            "refLen": null
+           }
+          ]
+         }
+        },
+        {
+         "move": {
+          "src": {
+           "ref": {
+            "r": {
+             "item": 12,
+             "subs": [],
+             "refStart": null,
+             "refLen": null
+            }
+           }
+          },
+          "dsts": [
+           {
+            "item": 19,
+            "subs": [],
+            "refStart": {
+             "lit": {
+              "n": 3
+             }
+            },
+            "refLen": {
+             "lit": {
+              "n": 2
+             }
+            }
+           }
+          ]
+         }
+        },
+        {
+         "display": {
+          "ops": [
+           {
+            "lit": {
+             "l": {
+              "str": {
+               "s": "FILE STATUS IS: NNNN"
+              }
+             }
+            }
+           },
+           {
+            "ref": {
+             "r": {
+              "item": 19,
+              "subs": [],
+              "refStart": null,
+              "refLen": null
+             }
+            }
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     "cont"
+    ]
+   ]
+  }
+ ],
+ "isMain": true,
+ "using": [],
+ "files": [
+  {
+   "id": 1,
+   "org": "indexed",
+   "access": "sequential",
+   "record": 1,
+   "key": 2,
+   "alt": [],
+   "status": 9,
+   "minLen": null,
+   "maxLen": null,
+   "dependsOn": null
+  }
+ ]
+}

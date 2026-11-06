@@ -1,0 +1,197 @@
+class org.apache.thrift.protocol.ShortStack extends java.lang.Object
+{
+    private 'short'[] vector;
+    private 'int' top;
+
+    public 'void' <init>('int')
+    {
+        'int' initialCapacity;
+        org.apache.thrift.protocol.ShortStack this;
+        'short'[] $r0;
+
+        this := @this: org.apache.thrift.protocol.ShortStack;
+
+        initialCapacity := @parameter0: 'int';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.ShortStack: 'int' top> = 0;
+
+        $r0 = newarray ('short')[initialCapacity];
+
+        this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector> = $r0;
+
+        return;
+    }
+
+    public 'short' pop()
+    {
+        'short' $s2;
+        'int' $i0;
+        org.apache.thrift.protocol.ShortStack this;
+        'short'[] $r0;
+
+        this := @this: org.apache.thrift.protocol.ShortStack;
+
+        $r0 = this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector>;
+
+        $i0 = this.<org.apache.thrift.protocol.ShortStack: 'int' top>;
+
+        $i0 = $i0 - 1;
+
+        this.<org.apache.thrift.protocol.ShortStack: 'int' top> = $i0;
+
+        $s2 = $r0[$i0];
+
+        return $s2;
+    }
+
+    public 'void' push('short')
+    {
+        'short' pushed;
+        'int' $i0, $i1;
+        org.apache.thrift.protocol.ShortStack this;
+        'short'[] $r0;
+
+        this := @this: org.apache.thrift.protocol.ShortStack;
+
+        pushed := @parameter0: 'short';
+
+        $r0 = this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector>;
+
+        $i0 = lengthof $r0;
+
+        $i1 = this.<org.apache.thrift.protocol.ShortStack: 'int' top>;
+
+        if $i0 != $i1 goto label1;
+
+        specialinvoke this.<org.apache.thrift.protocol.ShortStack: 'void' grow()>();
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector>;
+
+        $i0 = this.<org.apache.thrift.protocol.ShortStack: 'int' top>;
+
+        $i1 = $i0 + 1;
+
+        this.<org.apache.thrift.protocol.ShortStack: 'int' top> = $i1;
+
+        $r0[$i0] = pushed;
+
+        return;
+    }
+
+    private 'void' grow()
+    {
+        'int' $i0;
+        org.apache.thrift.protocol.ShortStack this;
+        'short'[] $r0, $r1;
+
+        this := @this: org.apache.thrift.protocol.ShortStack;
+
+        $r0 = this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector>;
+
+        $r1 = this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector>;
+
+        $i0 = lengthof $r1;
+
+        $i0 = $i0 << 1;
+
+        $r0 = staticinvoke <java.util.Arrays: 'short'[] copyOf('short'[],'int')>($r0, $i0);
+
+        this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector> = $r0;
+
+        return;
+    }
+
+    public 'void' clear()
+    {
+        org.apache.thrift.protocol.ShortStack this;
+
+        this := @this: org.apache.thrift.protocol.ShortStack;
+
+        this.<org.apache.thrift.protocol.ShortStack: 'int' top> = 0;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        'short' value;
+        'int' $i0, i;
+        org.apache.thrift.protocol.ShortStack this;
+        java.lang.StringBuilder sb, $r2;
+        'short'[] $r0;
+        java.lang.String $r4;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.ShortStack;
+
+        sb = new java.lang.StringBuilder;
+
+        specialinvoke sb.<java.lang.StringBuilder: 'void' <init>()>();
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<ShortStack vector:[");
+
+        i = 0;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector>;
+
+        $i0 = lengthof $r0;
+
+        if i >= $i0 goto label7;
+
+        $i0 = this.<org.apache.thrift.protocol.ShortStack: 'int' top>;
+
+        $i0 = $i0 - 1;
+
+        if i != $i0 goto label2;
+
+        $z0 = 1;
+
+        goto label3;
+
+     label2:
+        $z0 = 0;
+
+     label3:
+        $r0 = this.<org.apache.thrift.protocol.ShortStack: 'short'[] vector>;
+
+        value = $r0[i];
+
+        if i == false goto label4;
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(32);
+
+     label4:
+        if $z0 == false goto label5;
+
+        $r2 = virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">>");
+
+        $i0 = ('int') value;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<<");
+
+        goto label6;
+
+     label5:
+        $i0 = ('int') value;
+
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+     label6:
+        i = i + 1;
+
+        goto label1;
+
+     label7:
+        virtualinvoke sb.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]>");
+
+        $r4 = virtualinvoke sb.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+    }
+}

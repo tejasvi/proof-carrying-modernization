@@ -1,0 +1,83 @@
+public class org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext extends org.apache.thrift.protocol.TSimpleJSONProtocol$Context
+{
+    protected 'boolean' first_;
+    protected 'boolean' colon_;
+    final org.apache.thrift.protocol.TSimpleJSONProtocol this$0;
+
+    protected 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext this;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this$0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext;
+
+        this$0 := @parameter0: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: org.apache.thrift.protocol.TSimpleJSONProtocol this$0> = this$0;
+
+        specialinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' first_> = 1;
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' colon_> = 1;
+
+        return;
+    }
+
+    protected 'void' write() throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext;
+
+        $z0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' first_>;
+
+        if $z0 == false goto label1;
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' first_> = 0;
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' colon_> = 1;
+
+        goto label6;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: org.apache.thrift.protocol.TSimpleJSONProtocol this$0>;
+
+        $r1 = $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $z0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' colon_>;
+
+        if $z0 == false goto label2;
+
+        $r2 = staticinvoke <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] access$100()>();
+
+        goto label3;
+
+     label2:
+        $r2 = staticinvoke <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] access$000()>();
+
+     label3:
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $z0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' colon_>;
+
+        if $z0 != 0 goto label4;
+
+        $z0 = 1;
+
+        goto label5;
+
+     label4:
+        $z0 = 0;
+
+     label5:
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'boolean' colon_> = $z0;
+
+     label6:
+        return;
+    }
+}

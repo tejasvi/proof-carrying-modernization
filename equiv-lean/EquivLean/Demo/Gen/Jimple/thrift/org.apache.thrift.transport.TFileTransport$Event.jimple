@@ -1,0 +1,129 @@
+public class org.apache.thrift.transport.TFileTransport$Event extends java.lang.Object
+{
+    private 'byte'[] buf_;
+    private 'int' nread_;
+    private 'int' navailable_;
+
+    public 'void' <init>('byte'[])
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TFileTransport$Event this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$Event;
+
+        buf := @parameter0: 'byte'[];
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TFileTransport$Event: 'byte'[] buf_> = buf;
+
+        this.<org.apache.thrift.transport.TFileTransport$Event: 'int' navailable_> = 0;
+
+        this.<org.apache.thrift.transport.TFileTransport$Event: 'int' nread_> = 0;
+
+        return;
+    }
+
+    public 'byte'[] getBuf()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.TFileTransport$Event this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$Event;
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport$Event: 'byte'[] buf_>;
+
+        return $r0;
+    }
+
+    public 'int' getSize()
+    {
+        'int' $i0;
+        'byte'[] $r0;
+        org.apache.thrift.transport.TFileTransport$Event this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$Event;
+
+        $r0 = this.<org.apache.thrift.transport.TFileTransport$Event: 'byte'[] buf_>;
+
+        $i0 = lengthof $r0;
+
+        return $i0;
+    }
+
+    public 'void' setAvailable('int')
+    {
+        'int' sz;
+        org.apache.thrift.transport.TFileTransport$Event this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$Event;
+
+        sz := @parameter0: 'int';
+
+        this.<org.apache.thrift.transport.TFileTransport$Event: 'int' nread_> = 0;
+
+        this.<org.apache.thrift.transport.TFileTransport$Event: 'int' navailable_> = sz;
+
+        return;
+    }
+
+    public 'int' getRemaining()
+    {
+        'int' $i0, $i1;
+        org.apache.thrift.transport.TFileTransport$Event this;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$Event;
+
+        $i0 = this.<org.apache.thrift.transport.TFileTransport$Event: 'int' navailable_>;
+
+        $i1 = this.<org.apache.thrift.transport.TFileTransport$Event: 'int' nread_>;
+
+        $i0 = $i0 - $i1;
+
+        return $i0;
+    }
+
+    public 'int' emit('byte'[], 'int', 'int')
+    {
+        'byte'[] buf, $r0;
+        org.apache.thrift.transport.TFileTransport$Event this;
+        'int' offset, $i0, ndesired;
+
+        this := @this: org.apache.thrift.transport.TFileTransport$Event;
+
+        buf := @parameter0: 'byte'[];
+
+        offset := @parameter1: 'int';
+
+        ndesired := @parameter2: 'int';
+
+        if ndesired == false goto label1;
+
+        $i0 = virtualinvoke this.<org.apache.thrift.transport.TFileTransport$Event: 'int' getRemaining()>();
+
+        if ndesired <= $i0 goto label2;
+
+     label1:
+        ndesired = virtualinvoke this.<org.apache.thrift.transport.TFileTransport$Event: 'int' getRemaining()>();
+
+     label2:
+        if ndesired > 0 goto label3;
+
+        return ndesired;
+
+     label3:
+        $r0 = this.<org.apache.thrift.transport.TFileTransport$Event: 'byte'[] buf_>;
+
+        $i0 = this.<org.apache.thrift.transport.TFileTransport$Event: 'int' nread_>;
+
+        staticinvoke <java.lang.System: 'void' arraycopy(java.lang.Object,'int',java.lang.Object,'int','int')>($r0, $i0, buf, offset, ndesired);
+
+        offset = this.<org.apache.thrift.transport.TFileTransport$Event: 'int' nread_>;
+
+        offset = offset + ndesired;
+
+        this.<org.apache.thrift.transport.TFileTransport$Event: 'int' nread_> = offset;
+
+        return ndesired;
+    }
+}

@@ -1,0 +1,32 @@
+public class org.apache.thrift.protocol.TSimpleJSONProtocol$Context extends java.lang.Object
+{
+
+    protected 'void' <init>()
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$Context;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        return;
+    }
+
+    protected 'void' write() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$Context;
+
+        return;
+    }
+
+    protected 'boolean' isMapKey()
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol$Context;
+
+        return 0;
+    }
+}

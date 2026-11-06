@@ -1,0 +1,103 @@
+public class org.apache.thrift.server.TThreadPoolServer$Args extends org.apache.thrift.server.TServer$AbstractServerArgs
+{
+    public 'int' minWorkerThreads;
+    public 'int' maxWorkerThreads;
+    public java.util.concurrent.ExecutorService executorService;
+    public 'int' stopTimeoutVal;
+    public java.util.concurrent.TimeUnit stopTimeoutUnit;
+
+    public 'void' <init>(org.apache.thrift.transport.TServerTransport)
+    {
+        org.apache.thrift.transport.TServerTransport transport;
+        java.util.concurrent.TimeUnit $r0;
+        org.apache.thrift.server.TThreadPoolServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$Args;
+
+        transport := @parameter0: org.apache.thrift.transport.TServerTransport;
+
+        specialinvoke this.<org.apache.thrift.server.TServer$AbstractServerArgs: 'void' <init>(org.apache.thrift.transport.TServerTransport)>(transport);
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: 'int' minWorkerThreads> = 5;
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: 'int' maxWorkerThreads> = 2147483647;
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: 'int' stopTimeoutVal> = 60;
+
+        $r0 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: java.util.concurrent.TimeUnit stopTimeoutUnit> = $r0;
+
+        return;
+    }
+
+    public org.apache.thrift.server.TThreadPoolServer$Args minWorkerThreads('int')
+    {
+        'int' n;
+        org.apache.thrift.server.TThreadPoolServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$Args;
+
+        n := @parameter0: 'int';
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: 'int' minWorkerThreads> = n;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TThreadPoolServer$Args maxWorkerThreads('int')
+    {
+        'int' n;
+        org.apache.thrift.server.TThreadPoolServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$Args;
+
+        n := @parameter0: 'int';
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: 'int' maxWorkerThreads> = n;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TThreadPoolServer$Args stopTimeoutVal('int')
+    {
+        'int' n;
+        org.apache.thrift.server.TThreadPoolServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$Args;
+
+        n := @parameter0: 'int';
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: 'int' stopTimeoutVal> = n;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TThreadPoolServer$Args stopTimeoutUnit(java.util.concurrent.TimeUnit)
+    {
+        java.util.concurrent.TimeUnit tu;
+        org.apache.thrift.server.TThreadPoolServer$Args this;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$Args;
+
+        tu := @parameter0: java.util.concurrent.TimeUnit;
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: java.util.concurrent.TimeUnit stopTimeoutUnit> = tu;
+
+        return this;
+    }
+
+    public org.apache.thrift.server.TThreadPoolServer$Args executorService(java.util.concurrent.ExecutorService)
+    {
+        org.apache.thrift.server.TThreadPoolServer$Args this;
+        java.util.concurrent.ExecutorService executorService;
+
+        this := @this: org.apache.thrift.server.TThreadPoolServer$Args;
+
+        executorService := @parameter0: java.util.concurrent.ExecutorService;
+
+        this.<org.apache.thrift.server.TThreadPoolServer$Args: java.util.concurrent.ExecutorService executorService> = executorService;
+
+        return this;
+    }
+}

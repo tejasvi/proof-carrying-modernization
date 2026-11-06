@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. P3B.
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           CURRENCY SIGN IS "W".
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 E6 PIC WZZ9.
+       01 E8 PIC W9.99.
+       01 E9 PIC W**9.
+       PROCEDURE DIVISION.
+           MOVE 0 TO E6 DISPLAY "C07 [" E6 "]"
+           MOVE 5 TO E6 DISPLAY "C08 [" E6 "]"
+           MOVE 1.5 TO E8 DISPLAY "C09 [" E8 "]"
+           MOVE 5 TO E9 DISPLAY "C10 [" E9 "]"
+           STOP RUN.

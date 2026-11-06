@@ -1,0 +1,12 @@
+{
+  "repo": "es-toolkit",
+  "commit": "576b136a1b79b61135ec8f5b75be550337f08ad4",
+  "parent": "a707c06f7febdcaa3b68a937c37d85595bf94d1f",
+  "date": "2024-06-14",
+  "subject": "perf(intersection): Optimize `intersection` (#47)",
+  "file": "src/array/intersection.ts",
+  "entry": "src/array/intersection.ts",
+  "function": "intersection",
+  "inSubset": true,
+  "rules": []
+}

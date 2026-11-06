@@ -1,0 +1,31 @@
+# Const class objects under construction and destruction (constlife.cpp): their constructors and destructors
+# write them (C++ [class.ctor], [class.dtor]), and an explicit destructor call ends a read-only object's
+# lifetime too ([basic.life]p1, p7). Each case is labelled with its expected outcome on the line above it.
+# expect MATCH: a const local whose constructor body writes its members and whose destructor nulls a pointer member (66)
+constlife c_local 0
+# expect MATCH: a const local whose constructor writes it through a member function (6)
+constlife c_ctor_member_call 0
+# expect MATCH: the elements of a const array, constructed and destroyed (10)
+constlife c_array 0
+# expect MATCH: a temporary bound to a reference to const, destroyed with the reference (8)
+constlife c_const_ref_temp 0
+# expect MATCH: a const object of a derived class, written by the derived and base destructors (25)
+constlife c_derived 0
+# expect MATCH: a mutable member of a const object modified (2)
+constlife c_mutable 0
+# expect MATCH: a static const local, constructed at its first pass (1)
+constlife c_static_local 0
+# expect MATCH: a static const local's destructor writes through its pointer member in the exit sequence (1)
+constlife exit_static_local
+# expect MATCH: a namespace-scope const object, initialized dynamically (15)
+constlife c_global 0
+# expect MATCH: a constant-initialized const object with a destructor (not read-only: its destructor runs) (42)
+constlife c_global_constant_init 0
+# expect MATCH: its destructor in the exit sequence (42)
+constlife exit_global_constant_init
+# expect UB: a constexpr object (a read-only global) read after an explicit destructor call
+constlife c_constexpr_read_after_dtor 0
+# expect UB: an explicit destructor call writing a constexpr object (natively in .rodata: a crash); undefined at the end of the program, whose destructor call finds no object ([basic.life]p9), cirrun reports the write
+constlife c_constexpr_dtor_writes 0
+# expect MATCH: gap, a const local's storage reused by a placement new after its destructor ([basic.life]p10) (2)
+constlife c_reuse_const 0

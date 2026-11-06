@@ -1,0 +1,28 @@
+class Derived extends Base
+{
+
+    'void' <init>()
+    {
+        Derived r0;
+
+        r0 := @this: Derived;
+
+        specialinvoke r0.<Base: 'void' <init>()>();
+
+        return;
+    }
+
+    'int' f('int')
+    {
+        'int' i0;
+        Derived r0;
+
+        r0 := @this: Derived;
+
+        i0 := @parameter0: 'int';
+
+        i0 = i0 * 2;
+
+        return i0;
+    }
+}

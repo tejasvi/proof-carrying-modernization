@@ -1,0 +1,50 @@
+public class org.apache.thrift.TProcessorFactory extends java.lang.Object
+{
+    private final org.apache.thrift.TProcessor processor_;
+
+    public 'void' <init>(org.apache.thrift.TProcessor)
+    {
+        org.apache.thrift.TProcessorFactory this;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.TProcessorFactory;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.TProcessorFactory: org.apache.thrift.TProcessor processor_> = processor;
+
+        return;
+    }
+
+    public org.apache.thrift.TProcessor getProcessor(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.TProcessorFactory this;
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.TProcessor $r0;
+
+        this := @this: org.apache.thrift.TProcessorFactory;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.TProcessorFactory: org.apache.thrift.TProcessor processor_>;
+
+        return $r0;
+    }
+
+    public 'boolean' isAsyncProcessor()
+    {
+        org.apache.thrift.TProcessorFactory this;
+        org.apache.thrift.TProcessor $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.TProcessorFactory;
+
+        $r0 = this.<org.apache.thrift.TProcessorFactory: org.apache.thrift.TProcessor processor_>;
+
+        $z0 = $r0 instanceof org.apache.thrift.TAsyncProcessor;
+
+        return $z0;
+    }
+}

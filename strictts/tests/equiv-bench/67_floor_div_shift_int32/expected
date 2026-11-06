@@ -1,0 +1,1 @@
+equivalent Math.floor(y / 2) vs y >> 1 for y = x | 0 with y >= 0 (int32 normalization removes -0)

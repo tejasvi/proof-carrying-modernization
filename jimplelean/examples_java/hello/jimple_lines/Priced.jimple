@@ -1,0 +1,6 @@
+interface  Priced extends java.lang.Object
+{
+/*Hello.java*/
+
+    public abstract java.math.BigDecimal price();
+}

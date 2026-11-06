@@ -1,0 +1,127 @@
+      * ABSENT: 1,2,3,4,5,6,7,8
+      * Absent OPTIONAL files opened in each mode: agrees with GnuCOBOL.
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. VOPT1.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT OPTIONAL XA ASSIGN TO "pa.dat"
+               ORGANIZATION IS SEQUENTIAL FILE STATUS IS TA.
+           SELECT OPTIONAL XB ASSIGN TO "pb.dat"
+               ORGANIZATION IS SEQUENTIAL FILE STATUS IS TB.
+           SELECT OPTIONAL XC ASSIGN TO "pc.dat"
+               ORGANIZATION IS SEQUENTIAL FILE STATUS IS TC.
+           SELECT OPTIONAL XD ASSIGN TO "pd.dat"
+               ORGANIZATION IS SEQUENTIAL FILE STATUS IS TD.
+           SELECT OPTIONAL XE ASSIGN TO "pe.dat"
+               ORGANIZATION IS INDEXED ACCESS MODE IS DYNAMIC
+               RECORD KEY IS KE FILE STATUS IS TE.
+           SELECT OPTIONAL XF ASSIGN TO "pf.dat"
+               ORGANIZATION IS INDEXED ACCESS MODE IS RANDOM
+               RECORD KEY IS KF FILE STATUS IS TF.
+           SELECT OPTIONAL XG ASSIGN TO "pg.dat"
+               ORGANIZATION IS INDEXED ACCESS MODE IS SEQUENTIAL
+               RECORD KEY IS KG FILE STATUS IS TG.
+           SELECT OPTIONAL XH ASSIGN TO "ph.dat"
+               ORGANIZATION IS INDEXED ACCESS MODE IS DYNAMIC
+               RECORD KEY IS KH FILE STATUS IS TH.
+       DATA DIVISION.
+       FILE SECTION.
+       FD XA.
+       01 QA PIC X(8).
+       FD XB.
+       01 QB PIC X(8).
+       FD XC.
+       01 QC PIC X(8).
+       FD XD.
+       01 QD PIC X(8).
+       FD XE.
+       01 QE.
+          05 KE PIC X(3).
+          05 VE PIC X(5).
+       FD XF.
+       01 QF.
+          05 KF PIC X(3).
+          05 VF PIC X(5).
+       FD XG.
+       01 QG.
+          05 KG PIC X(3).
+          05 VG PIC X(5).
+       FD XH.
+       01 QH.
+          05 KH PIC X(3).
+          05 VH PIC X(5).
+       WORKING-STORAGE SECTION.
+       01 TA PIC XX VALUE "..".
+       01 TB PIC XX VALUE "..".
+       01 TC PIC XX VALUE "..".
+       01 TD PIC XX VALUE "..".
+       01 TE PIC XX VALUE "..".
+       01 TF PIC XX VALUE "..".
+       01 TG PIC XX VALUE "..".
+       01 TH PIC XX VALUE "..".
+       PROCEDURE DIVISION.
+       M0.
+           MOVE "AAAAAAAA" TO QA
+           OPEN INPUT XA DISPLAY "A1 OPEN INPUT " TA
+           READ XA DISPLAY "A2 READ " TA " [" QA "]"
+           READ XA DISPLAY "A3 READ " TA
+           WRITE QA DISPLAY "A4 WRITE " TA
+           CLOSE XA DISPLAY "A5 CLOSE " TA
+           OPEN INPUT XA DISPLAY "A6 OPEN INPUT " TA
+           READ XA AT END DISPLAY "A7 AT END" END-READ
+           DISPLAY "A7 READ " TA
+           CLOSE XA DISPLAY "A8 CLOSE " TA
+           CLOSE XA DISPLAY "A9 CLOSE " TA
+           OPEN EXTEND XB DISPLAY "B1 OPEN EXTEND " TB
+           MOVE "BBBBBBB1" TO QB
+           WRITE QB DISPLAY "B2 WRITE " TB
+           CLOSE XB DISPLAY "B3 CLOSE " TB
+           OPEN INPUT XB DISPLAY "B4 OPEN INPUT " TB
+           READ XB DISPLAY "B5 READ " TB " [" QB "]"
+           READ XB DISPLAY "B6 READ " TB
+           CLOSE XB DISPLAY "B7 CLOSE " TB
+           OPEN EXTEND XB DISPLAY "B8 OPEN EXTEND " TB
+           CLOSE XB
+           OPEN I-O XC DISPLAY "C1 OPEN I-O " TC
+           READ XC DISPLAY "C2 READ " TC
+           MOVE "CCCCCCCC" TO QC
+           WRITE QC DISPLAY "C3 WRITE " TC
+           REWRITE QC DISPLAY "C4 REWRITE " TC
+           CLOSE XC DISPLAY "C5 CLOSE " TC
+           OPEN INPUT XC DISPLAY "C6 OPEN INPUT " TC
+           CLOSE XC
+           OPEN OUTPUT XD DISPLAY "D1 OPEN OUTPUT " TD
+           CLOSE XD DISPLAY "D2 CLOSE " TD
+           OPEN INPUT XD DISPLAY "D3 OPEN INPUT " TD
+           CLOSE XD
+           OPEN INPUT XE DISPLAY "E1 OPEN INPUT " TE
+           READ XE NEXT DISPLAY "E2 READ NEXT " TE
+           MOVE "K01" TO KE
+           START XE KEY = KE DISPLAY "E3 START " TE
+           READ XE DISPLAY "E4 READ KEY " TE
+           MOVE "K01" TO KE
+           WRITE QE DISPLAY "E5 WRITE " TE
+           DELETE XE DISPLAY "E6 DELETE " TE
+           CLOSE XE DISPLAY "E7 CLOSE " TE
+           OPEN I-O XE DISPLAY "E8 OPEN I-O " TE
+           CLOSE XE
+           OPEN I-O XF DISPLAY "F1 OPEN I-O " TF
+           MOVE "K05" TO KF MOVE "FFFFF" TO VF
+           WRITE QF DISPLAY "F2 WRITE " TF
+           MOVE "K05" TO KF
+           READ XF DISPLAY "F3 READ " TF " [" QF "]"
+           CLOSE XF DISPLAY "F4 CLOSE " TF
+           OPEN INPUT XF DISPLAY "F5 OPEN INPUT " TF
+           CLOSE XF
+           OPEN EXTEND XG DISPLAY "G1 OPEN EXTEND " TG
+           MOVE "K02" TO KG MOVE "GGGGG" TO VG
+           WRITE QG DISPLAY "G2 WRITE " TG
+           CLOSE XG DISPLAY "G3 CLOSE " TG
+           OPEN INPUT XG DISPLAY "G4 OPEN INPUT " TG
+           CLOSE XG
+           OPEN OUTPUT XH DISPLAY "H1 OPEN OUTPUT " TH
+           CLOSE XH
+           OPEN INPUT XH DISPLAY "H2 OPEN INPUT " TH
+           CLOSE XH
+           STOP RUN.

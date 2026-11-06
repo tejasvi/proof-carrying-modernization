@@ -1,0 +1,73 @@
+# Scalar accesses at the paths of aggregates (aggpath.cpp): a scalar access through a pointer to a structure,
+# array or union reaches the scalar the object starts with (C11 6.7.2.1p15, p16); a character access one of its
+# bytes (6.5p7), another type is undefined; an access of another record type is undefined (6.5p7). A pointer to
+# an array object used as a pointer to its element type points to element 0; a lone object is an array of one
+# (6.5.6p7). Each case is labelled with its expected outcome (C's) on the line above it: MATCH, or UB from cirrun.
+# expect MATCH: byte store through the struct's address, its first member read (was 7: the struct collapsed)
+aggpath r_bytestore_struct 0
+# expect MATCH: byte store through the struct's address, its second member untouched (was UB: collapsed)
+aggpath r_bytestore_struct_b 0
+# expect MATCH: byte store through the array's address, its first element read (was 7)
+aggpath r_bytestore_array 0
+# expect MATCH: byte store through a struct-typed member's address (was 7)
+aggpath r_bytestore_nested 0
+# expect MATCH: byte store through a heap struct's address (was 7)
+aggpath x_heap_bytestore 0
+# expect MATCH: byte store through the union's address, read through it (was 7)
+aggpath y_union_root_collapse 0
+# expect MATCH: byte store through the union's address, read as its member (was UB: collapsed)
+aggpath u_bytestore_union 0
+# expect MATCH: byte store through a row's address (was 7)
+aggpath y_row_bytestore 0
+# expect MATCH: int store through the struct's address, its second member untouched (was UB: collapsed)
+aggpath r_intstore_struct_b 0
+# expect MATCH: int store through a row's address, the row's second element untouched (was UB: collapsed)
+aggpath y_row_intstore_then_elem 0
+# expect MATCH: atomic fetch_add through the struct's address (was UB)
+aggpath x_atomic_fetch_root 0
+# expect MATCH: atomic exchange through the struct's address (was UB)
+aggpath x_atomic_xchg_root 0
+# expect UB: long long store and load over two int members (6.5p7; was defined)
+aggpath r_llstore_struct 0
+# expect UB: long long store and load over two int elements (6.5p7; was defined)
+aggpath r_llstore_array 0
+# expect UB: atomic long long store and load over two int members (6.5p7; was defined)
+aggpath r_atomic_llstore_struct 0
+# expect UB: float read of a struct whose first member is an int (6.5p7)
+aggpath a_float_of_struct 0
+# expect UB: struct copy through another struct type (6.5p7; was defined)
+aggpath r_copy_incompat 0
+# expect MATCH: struct copy through a pointer to an object that starts with a member of the type
+aggpath a_copy_initial_member 0
+# expect MATCH: struct store through a pointer to an object that starts with a member of the type
+aggpath a_store_initial_member 0
+# expect MATCH: whole-struct copy of the same type
+aggpath a_copy_same 0
+# expect MATCH: char-wise copy of a struct into another of the same type
+aggpath a_bytecopy_struct 4
+# expect MATCH: a pointer to an array object used as a pointer to its element type (element 0)
+aggpath e_array_object_stride 3
+# expect MATCH: std::initializer_list<int>: begin()[1], begin() + 2, end() - begin()
+aggpath e_init_list_ints 4
+# expect MATCH: std::initializer_list of structs: struct copies through begin()
+aggpath e_init_list_structs 2
+# expect MATCH: struct copy through a pointer to an array object of structs (element 0)
+aggpath e_array_object_record_load 5
+# expect MATCH: the end of an array reached from the array object and from its elements, compared with !=
+aggpath e_array_object_end 4
+# expect MATCH: range-for over an initializer_list of structs
+aggpath e_init_list_iterate 1
+# expect MATCH: a vector of pairs built from an initializer_list
+aggpath e_vector_of_pairs 2
+# expect MATCH: one past a lone heap int, difference and comparison
+aggpath l_heap_one_past 7
+# expect MATCH: a walk over a lone heap struct up to one past it
+aggpath l_heap_struct_one_past 3
+# expect MATCH: a walk over a one-word member up to one past it
+aggpath l_one_word_walk 2
+# expect MATCH: std::bitset<32> (one word)
+aggpath l_bitset 9
+# expect MATCH: one-element heap allocation (libc++ growth shape): p + 1, ++q and char-built one-past compare equal, subtract to 1
+aggpath l_one_elem_new 5
+# expect MATCH: one-pointer heap allocation (std::deque map shape): p + 1 and ++q compare equal, subtract to 1
+aggpath l_one_elem_ptrs 5

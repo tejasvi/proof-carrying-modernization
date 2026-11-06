@@ -1,0 +1,16 @@
+# jsmn library alone (pre-registration C, R1 and R5): jsmn.h, the library's only source file at the pinned head
+# 25647e6 (header-only), compiled as one translation unit with jsmn's default build (no -D flags). No project script
+# runs. One Lean module per function, named without the revision (modular). Before jsmn became header-only
+# (2019-04) jsmn.h holds only declarations, so those revisions have no functions (observation recorded in the
+# pre-registration).
+name = "jsmn_lib"
+lang = "cir"
+root = "/home/user/veriforch/targets/jsmn"
+sources = ["jsmn.h"]
+link_mode = "cir2lean"
+modular = true
+sources_present_only = true
+
+[[variants]]
+name = "lib"
+flags = []

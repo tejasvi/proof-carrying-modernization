@@ -1,0 +1,568 @@
+public class org.apache.thrift.transport.TNonblockingSocket extends org.apache.thrift.transport.TNonblockingTransport implements org.apache.thrift.transport.SocketAddressProvider
+{
+    private static final org.slf4j.Logger LOGGER;
+    private final java.net.SocketAddress socketAddress_;
+    private final java.nio.channels.SocketChannel socketChannel_;
+
+    public 'void' <init>(java.lang.String, 'int') throws java.io.IOException, org.apache.thrift.transport.TTransportException
+    {
+        'int' port;
+        java.lang.String host;
+        org.apache.thrift.transport.TNonblockingSocket this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        host := @parameter0: java.lang.String;
+
+        port := @parameter1: 'int';
+
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'void' <init>(java.lang.String,'int','int')>(host, port, 0);
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, 'int', 'int') throws java.io.IOException, org.apache.thrift.transport.TTransportException
+    {
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        'int' port, timeout;
+        java.lang.String host;
+        java.net.InetSocketAddress $r1;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        host := @parameter0: java.lang.String;
+
+        port := @parameter1: 'int';
+
+        timeout := @parameter2: 'int';
+
+        $r0 = staticinvoke <java.nio.channels.SocketChannel: java.nio.channels.SocketChannel open()>();
+
+        $r1 = new java.net.InetSocketAddress;
+
+        specialinvoke $r1.<java.net.InetSocketAddress: 'void' <init>(java.lang.String,'int')>(host, port);
+
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'void' <init>(java.nio.channels.SocketChannel,'int',java.net.SocketAddress)>($r0, timeout, $r1);
+
+        return;
+    }
+
+    public 'void' <init>(java.nio.channels.SocketChannel) throws java.io.IOException, org.apache.thrift.transport.TTransportException
+    {
+        java.nio.channels.SocketChannel socketChannel;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        java.io.IOException $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        socketChannel := @parameter0: java.nio.channels.SocketChannel;
+
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'void' <init>(java.nio.channels.SocketChannel,'int',java.net.SocketAddress)>(socketChannel, 0, null);
+
+        $z0 = virtualinvoke socketChannel.<java.nio.channels.SocketChannel: 'boolean' isConnected()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = new java.io.IOException;
+
+        specialinvoke $r0.<java.io.IOException: 'void' <init>(java.lang.String)>("Socket must already be connected");
+
+        throw $r0;
+
+     label1:
+        return;
+    }
+
+    private 'void' <init>(java.nio.channels.SocketChannel, 'int', java.net.SocketAddress) throws java.io.IOException, org.apache.thrift.transport.TTransportException
+    {
+        java.nio.channels.SocketChannel socketChannel;
+        java.net.SocketAddress socketAddress;
+        org.apache.thrift.TConfiguration $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        'int' timeout;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        socketChannel := @parameter0: java.nio.channels.SocketChannel;
+
+        timeout := @parameter1: 'int';
+
+        socketAddress := @parameter2: java.net.SocketAddress;
+
+        $r0 = new org.apache.thrift.TConfiguration;
+
+        specialinvoke $r0.<org.apache.thrift.TConfiguration: 'void' <init>()>();
+
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'void' <init>(org.apache.thrift.TConfiguration,java.nio.channels.SocketChannel,'int',java.net.SocketAddress)>($r0, socketChannel, timeout, socketAddress);
+
+        return;
+    }
+
+    private 'void' <init>(org.apache.thrift.TConfiguration, java.nio.channels.SocketChannel, 'int', java.net.SocketAddress) throws java.io.IOException, org.apache.thrift.transport.TTransportException
+    {
+        java.net.Socket socket;
+        org.apache.thrift.TConfiguration config;
+        java.nio.channels.SocketChannel socketChannel;
+        java.net.SocketAddress socketAddress;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        'int' timeout;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        config := @parameter0: org.apache.thrift.TConfiguration;
+
+        socketChannel := @parameter1: java.nio.channels.SocketChannel;
+
+        timeout := @parameter2: 'int';
+
+        socketAddress := @parameter3: java.net.SocketAddress;
+
+        specialinvoke this.<org.apache.thrift.transport.TNonblockingTransport: 'void' <init>(org.apache.thrift.TConfiguration)>(config);
+
+        this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_> = socketChannel;
+
+        this.<org.apache.thrift.transport.TNonblockingSocket: java.net.SocketAddress socketAddress_> = socketAddress;
+
+        virtualinvoke socketChannel.<java.nio.channels.SocketChannel: java.nio.channels.SelectableChannel configureBlocking('boolean')>(0);
+
+        socket = virtualinvoke socketChannel.<java.nio.channels.SocketChannel: java.net.Socket socket()>();
+
+        virtualinvoke socket.<java.net.Socket: 'void' setSoLinger('boolean','int')>(0, 0);
+
+        virtualinvoke socket.<java.net.Socket: 'void' setTcpNoDelay('boolean')>(1);
+
+        virtualinvoke socket.<java.net.Socket: 'void' setKeepAlive('boolean')>(1);
+
+        virtualinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'void' setTimeout('int')>(timeout);
+
+        return;
+    }
+
+    public java.nio.channels.SelectionKey registerSelector(java.nio.channels.Selector, 'int') throws java.io.IOException
+    {
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        java.nio.channels.SelectionKey $r1;
+        java.nio.channels.Selector selector;
+        'int' interests;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        selector := @parameter0: java.nio.channels.Selector;
+
+        interests := @parameter1: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $r1 = virtualinvoke $r0.<java.nio.channels.SocketChannel: java.nio.channels.SelectionKey register(java.nio.channels.Selector,'int')>(selector, interests);
+
+        return $r1;
+    }
+
+    public 'void' setTimeout('int')
+    {
+        java.net.Socket $r1;
+        java.net.SocketException sx;
+        org.slf4j.Logger $r2;
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        'int' timeout;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        timeout := @parameter0: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+     label1:
+        $r1 = virtualinvoke $r0.<java.nio.channels.SocketChannel: java.net.Socket socket()>();
+
+        virtualinvoke $r1.<java.net.Socket: 'void' setSoTimeout('int')>(timeout);
+
+     label2:
+        goto label4;
+
+     label3:
+        sx := @caughtexception;
+
+        $r2 = <org.apache.thrift.transport.TNonblockingSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r2.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Could not set socket timeout.", sx);
+
+     label4:
+        return;
+
+        catch java.net.SocketException from label1 to label2 with label3;
+    }
+
+    public java.nio.channels.SocketChannel getSocketChannel()
+    {
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        return $r0;
+    }
+
+    public 'boolean' isOpen()
+    {
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $z0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'boolean' isOpen()>();
+
+        if $z0 == false goto label1;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $z0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'boolean' isConnected()>();
+
+        if $z0 == false goto label1;
+
+        $z0 = 1;
+
+        goto label2;
+
+     label1:
+        $z0 = 0;
+
+     label2:
+        return $z0;
+    }
+
+    public 'void' open() throws org.apache.thrift.transport.TTransportException
+    {
+        java.lang.RuntimeException $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = new java.lang.RuntimeException;
+
+        specialinvoke $r0.<java.lang.RuntimeException: 'void' <init>(java.lang.String)>("open() is not implemented for TNonblockingSocket");
+
+        throw $r0;
+    }
+
+    public 'int' read(java.nio.ByteBuffer) throws org.apache.thrift.transport.TTransportException
+    {
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        org.apache.thrift.transport.TTransportException $r1;
+        'int' $i0;
+        java.io.IOException iox;
+        java.nio.ByteBuffer buffer;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        buffer := @parameter0: java.nio.ByteBuffer;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+     label1:
+        $i0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'int' read(java.nio.ByteBuffer)>(buffer);
+
+     label2:
+        return $i0;
+
+     label3:
+        iox := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(0, iox);
+
+        throw $r1;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public 'int' read('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        org.apache.thrift.transport.TTransportException $r1;
+        java.nio.ByteBuffer $r2;
+        java.nio.channels.SocketChannel $r0;
+        'int' off, len, $i0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $i0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'int' validOps()>();
+
+        $i0 = $i0 & 1;
+
+        if $i0 == 1 goto label1;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Cannot read from write-only socket channel");
+
+        throw $r1;
+
+     label1:
+        $r2 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>(buf, off, len);
+
+        off = virtualinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'int' read(java.nio.ByteBuffer)>($r2);
+
+        return off;
+    }
+
+    public 'int' write(java.nio.ByteBuffer) throws org.apache.thrift.transport.TTransportException
+    {
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        org.apache.thrift.transport.TTransportException $r1;
+        'int' $i0;
+        java.io.IOException iox;
+        java.nio.ByteBuffer buffer;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        buffer := @parameter0: java.nio.ByteBuffer;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+     label1:
+        $i0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'int' write(java.nio.ByteBuffer)>(buffer);
+
+     label2:
+        return $i0;
+
+     label3:
+        iox := @caughtexception;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.Throwable)>(0, iox);
+
+        throw $r1;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public 'void' write('byte'[], 'int', 'int') throws org.apache.thrift.transport.TTransportException
+    {
+        'byte'[] buf;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        org.apache.thrift.transport.TTransportException $r1;
+        java.nio.ByteBuffer $r2;
+        java.nio.channels.SocketChannel $r0;
+        'int' off, len, $i0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        buf := @parameter0: 'byte'[];
+
+        off := @parameter1: 'int';
+
+        len := @parameter2: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $i0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'int' validOps()>();
+
+        $i0 = $i0 & 4;
+
+        if $i0 == 4 goto label1;
+
+        $r1 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r1.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(1, "Cannot write to write-only socket channel");
+
+        throw $r1;
+
+     label1:
+        $r2 = staticinvoke <java.nio.ByteBuffer: java.nio.ByteBuffer wrap('byte'[],'int','int')>(buf, off, len);
+
+        virtualinvoke this.<org.apache.thrift.transport.TNonblockingSocket: 'int' write(java.nio.ByteBuffer)>($r2);
+
+        return;
+    }
+
+    public 'void' flush() throws org.apache.thrift.transport.TTransportException
+    {
+        org.apache.thrift.transport.TNonblockingSocket this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        return;
+    }
+
+    public 'void' close()
+    {
+        org.slf4j.Logger $r1;
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        java.io.IOException iox;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+     label1:
+        virtualinvoke $r0.<java.nio.channels.SocketChannel: 'void' close()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        iox := @caughtexception;
+
+        $r1 = <org.apache.thrift.transport.TNonblockingSocket: org.slf4j.Logger LOGGER>;
+
+        interfaceinvoke $r1.<org.slf4j.Logger: 'void' warn(java.lang.String,java.lang.Throwable)>("Could not close socket.", iox);
+
+     label4:
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public 'boolean' startConnect() throws java.io.IOException
+    {
+        java.nio.channels.SocketChannel $r0;
+        java.net.SocketAddress $r1;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $r1 = this.<org.apache.thrift.transport.TNonblockingSocket: java.net.SocketAddress socketAddress_>;
+
+        $z0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'boolean' connect(java.net.SocketAddress)>($r1);
+
+        return $z0;
+    }
+
+    public 'boolean' finishConnect() throws java.io.IOException
+    {
+        java.nio.channels.SocketChannel $r0;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $z0 = virtualinvoke $r0.<java.nio.channels.SocketChannel: 'boolean' finishConnect()>();
+
+        return $z0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.net.InetAddress $r9;
+        java.net.Socket $r3;
+        java.nio.channels.SocketChannel $r2;
+        java.net.SocketAddress $r4;
+        org.apache.thrift.transport.TNonblockingSocket this;
+        java.lang.StringBuilder $r0;
+        java.lang.String $r12;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[remote: ");
+
+        $r2 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $r3 = virtualinvoke $r2.<java.nio.channels.SocketChannel: java.net.Socket socket()>();
+
+        $r4 = virtualinvoke $r3.<java.net.Socket: java.net.SocketAddress getRemoteSocketAddress()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r4);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", local: ");
+
+        $r2 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $r3 = virtualinvoke $r2.<java.nio.channels.SocketChannel: java.net.Socket socket()>();
+
+        $r9 = virtualinvoke $r3.<java.net.Socket: java.net.InetAddress getLocalAddress()>();
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r9);
+
+        $r0 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $r12 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r12;
+    }
+
+    public java.net.SocketAddress getRemoteSocketAddress()
+    {
+        java.net.Socket $r1;
+        java.nio.channels.SocketChannel $r0;
+        java.net.SocketAddress $r2;
+        org.apache.thrift.transport.TNonblockingSocket this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $r1 = virtualinvoke $r0.<java.nio.channels.SocketChannel: java.net.Socket socket()>();
+
+        $r2 = virtualinvoke $r1.<java.net.Socket: java.net.SocketAddress getRemoteSocketAddress()>();
+
+        return $r2;
+    }
+
+    public java.net.SocketAddress getLocalSocketAddress()
+    {
+        java.net.Socket $r1;
+        java.nio.channels.SocketChannel $r0;
+        java.net.SocketAddress $r2;
+        org.apache.thrift.transport.TNonblockingSocket this;
+
+        this := @this: org.apache.thrift.transport.TNonblockingSocket;
+
+        $r0 = this.<org.apache.thrift.transport.TNonblockingSocket: java.nio.channels.SocketChannel socketChannel_>;
+
+        $r1 = virtualinvoke $r0.<java.nio.channels.SocketChannel: java.net.Socket socket()>();
+
+        $r2 = virtualinvoke $r1.<java.net.Socket: java.net.SocketAddress getLocalSocketAddress()>();
+
+        return $r2;
+    }
+
+    static 'void' <clinit>()
+    {
+        java.lang.Class $r0;
+        java.lang.String $r1;
+        org.slf4j.Logger $r2;
+
+        $r0 = class "Lorg/apache/thrift/transport/TNonblockingSocket;";
+
+        $r1 = virtualinvoke $r0.<java.lang.Class: java.lang.String getName()>();
+
+        $r2 = staticinvoke <org.slf4j.LoggerFactory: org.slf4j.Logger getLogger(java.lang.String)>($r1);
+
+        <org.apache.thrift.transport.TNonblockingSocket: org.slf4j.Logger LOGGER> = $r2;
+
+        return;
+    }
+}

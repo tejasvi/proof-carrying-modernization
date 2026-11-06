@@ -1,0 +1,1379 @@
+public abstract class org.apache.thrift.protocol.TProtocol extends java.lang.Object implements org.apache.thrift.protocol.TWriteProtocol, org.apache.thrift.protocol.TReadProtocol
+{
+    protected org.apache.thrift.transport.TTransport trans_;
+    private 'int' recursionDepth_;
+    static final 'int' MAX_SKIPPED_BYTES;
+    protected 'byte'[] skippedBytes;
+
+    private 'void' <init>()
+    {
+        'byte'[] $r0;
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_> = 0;
+
+        $r0 = newarray ('byte')[256];
+
+        this.<org.apache.thrift.protocol.TProtocol: 'byte'[] skippedBytes> = $r0;
+
+        return;
+    }
+
+    protected 'void' <init>(org.apache.thrift.transport.TTransport)
+    {
+        'byte'[] $r0;
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_> = 0;
+
+        $r0 = newarray ('byte')[256];
+
+        this.<org.apache.thrift.protocol.TProtocol: 'byte'[] skippedBytes> = $r0;
+
+        this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport trans_> = trans;
+
+        return;
+    }
+
+    public 'void' incrementRecursionDepth() throws org.apache.thrift.protocol.TProtocolException
+    {
+        org.apache.thrift.TConfiguration $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' limit, $i0;
+        java.lang.StringBuilder $r3;
+        org.apache.thrift.protocol.TProtocolException $r2;
+        java.lang.String $r8;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        limit = virtualinvoke $r1.<org.apache.thrift.TConfiguration: 'int' getRecursionLimit()>();
+
+        $i0 = this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_>;
+
+        if $i0 < limit goto label1;
+
+        $r2 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Recursion depth ");
+
+        $i0 = this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_>;
+
+        $i0 = $i0 + 1;
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>($i0);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" exceeds limit ");
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(limit);
+
+        $r8 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(6, $r8);
+
+        throw $r2;
+
+     label1:
+        limit = this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_>;
+
+        limit = limit + 1;
+
+        this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_> = limit;
+
+        return;
+    }
+
+    public 'void' decrementRecursionDepth()
+    {
+        'int' $i0;
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        $i0 = this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_>;
+
+        $i0 = $i0 - 1;
+
+        this.<org.apache.thrift.protocol.TProtocol: 'int' recursionDepth_> = $i0;
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getTransport()
+    {
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        return $r0;
+    }
+
+    protected 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TMap) throws org.apache.thrift.TException
+    {
+        'long' elemSize, $l6;
+        'byte' $b0;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' $i1, $i3;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        map := @parameter0: org.apache.thrift.protocol.TMap;
+
+        $b0 = map.<org.apache.thrift.protocol.TMap: 'byte' keyType>;
+
+        $i1 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'int' getMinSerializedSize('byte')>($b0);
+
+        $b0 = map.<org.apache.thrift.protocol.TMap: 'byte' valueType>;
+
+        $i3 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'int' getMinSerializedSize('byte')>($b0);
+
+        $i1 = $i1 + $i3;
+
+        elemSize = ('long') $i1;
+
+        $r0 = this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $i1 = map.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        $l6 = ('long') $i1;
+
+        elemSize = $l6 * elemSize;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' checkReadBytesAvailable('long')>(elemSize);
+
+        return;
+    }
+
+    protected 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TList) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' $b1;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' $i0;
+        'long' size, $l3;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        list := @parameter0: org.apache.thrift.protocol.TList;
+
+        $i0 = virtualinvoke list.<org.apache.thrift.protocol.TList: 'int' getSize()>();
+
+        size = ('long') $i0;
+
+        $r0 = this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $b1 = list.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        $i0 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'int' getMinSerializedSize('byte')>($b1);
+
+        $l3 = ('long') $i0;
+
+        size = size * $l3;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' checkReadBytesAvailable('long')>(size);
+
+        return;
+    }
+
+    protected 'void' checkReadBytesAvailable(org.apache.thrift.protocol.TSet) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' $b1;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TSet set;
+        'int' $i0;
+        'long' size, $l3;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        set := @parameter0: org.apache.thrift.protocol.TSet;
+
+        $i0 = virtualinvoke set.<org.apache.thrift.protocol.TSet: 'int' getSize()>();
+
+        size = ('long') $i0;
+
+        $r0 = this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $b1 = set.<org.apache.thrift.protocol.TSet: 'byte' elemType>;
+
+        $i0 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'int' getMinSerializedSize('byte')>($b1);
+
+        $l3 = ('long') $i0;
+
+        size = size * $l3;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' checkReadBytesAvailable('long')>(size);
+
+        return;
+    }
+
+    public abstract 'int' getMinSerializedSize('byte') throws org.apache.thrift.TException;
+
+    public final 'void' writeSet('byte', java.util.Set, org.apache.thrift.protocol.TProtocol$WriteCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$WriteCallback callback;
+        java.util.Iterator r1;
+        org.apache.thrift.protocol.TSet $r0;
+        java.util.Set set;
+        'byte' elementType;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' $i0;
+        java.lang.Object t;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        elementType := @parameter0: 'byte';
+
+        set := @parameter1: java.util.Set;
+
+        callback := @parameter2: org.apache.thrift.protocol.TProtocol$WriteCallback;
+
+        $r0 = new org.apache.thrift.protocol.TSet;
+
+        $i0 = interfaceinvoke set.<java.util.Set: 'int' size()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TSet: 'void' <init>('byte','int')>(elementType, $i0);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeSetBegin(org.apache.thrift.protocol.TSet)>($r0);
+
+        r1 = interfaceinvoke set.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        t = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$WriteCallback: 'void' call(java.lang.Object)>(t);
+
+        goto label1;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeSetEnd()>();
+
+        return;
+    }
+
+    public final 'void' writeList('byte', java.util.List, org.apache.thrift.protocol.TProtocol$WriteCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$WriteCallback callback;
+        java.util.Iterator r1;
+        org.apache.thrift.protocol.TList $r0;
+        java.util.List list;
+        'byte' elementType;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' $i0;
+        java.lang.Object t;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        elementType := @parameter0: 'byte';
+
+        list := @parameter1: java.util.List;
+
+        callback := @parameter2: org.apache.thrift.protocol.TProtocol$WriteCallback;
+
+        $r0 = new org.apache.thrift.protocol.TList;
+
+        $i0 = interfaceinvoke list.<java.util.List: 'int' size()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TList: 'void' <init>('byte','int')>(elementType, $i0);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeListBegin(org.apache.thrift.protocol.TList)>($r0);
+
+        r1 = interfaceinvoke list.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r1.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        t = interfaceinvoke r1.<java.util.Iterator: java.lang.Object next()>();
+
+        interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$WriteCallback: 'void' call(java.lang.Object)>(t);
+
+        goto label1;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeListEnd()>();
+
+        return;
+    }
+
+    public final 'void' writeMap('byte', 'byte', java.util.Map, org.apache.thrift.protocol.TProtocol$WriteCallback) throws org.apache.thrift.TException
+    {
+        java.util.Map$Entry entry;
+        org.apache.thrift.protocol.TProtocol$WriteCallback callback;
+        java.util.Iterator r2;
+        java.util.Set $r1;
+        'byte' keyType, valueType;
+        org.apache.thrift.protocol.TProtocol this;
+        java.util.Map map;
+        'int' $i0;
+        java.lang.Object $r3;
+        org.apache.thrift.protocol.TMap $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        keyType := @parameter0: 'byte';
+
+        valueType := @parameter1: 'byte';
+
+        map := @parameter2: java.util.Map;
+
+        callback := @parameter3: org.apache.thrift.protocol.TProtocol$WriteCallback;
+
+        $r0 = new org.apache.thrift.protocol.TMap;
+
+        $i0 = interfaceinvoke map.<java.util.Map: 'int' size()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TMap: 'void' <init>('byte','byte','int')>(keyType, valueType, $i0);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeMapBegin(org.apache.thrift.protocol.TMap)>($r0);
+
+        $r1 = interfaceinvoke map.<java.util.Map: java.util.Set entrySet()>();
+
+        r2 = interfaceinvoke $r1.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r2.<java.util.Iterator: 'boolean' hasNext()>();
+
+        if $z0 == false goto label2;
+
+        $r3 = interfaceinvoke r2.<java.util.Iterator: java.lang.Object next()>();
+
+        entry = (java.util.Map$Entry) $r3;
+
+        interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$WriteCallback: 'void' call(java.lang.Object)>(entry);
+
+        goto label1;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeMapEnd()>();
+
+        return;
+    }
+
+    public final 'void' writeField(org.apache.thrift.protocol.TField, org.apache.thrift.protocol.TProtocol$WriteCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TField field;
+        org.apache.thrift.protocol.TProtocol$WriteCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        field := @parameter0: org.apache.thrift.protocol.TField;
+
+        callback := @parameter1: org.apache.thrift.protocol.TProtocol$WriteCallback;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeFieldBegin(org.apache.thrift.protocol.TField)>(field);
+
+        interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$WriteCallback: 'void' call(java.lang.Object)>(null);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeFieldEnd()>();
+
+        return;
+    }
+
+    public final 'void' writeStruct(org.apache.thrift.protocol.TStruct, org.apache.thrift.protocol.TProtocol$WriteCallback) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r0;
+        org.apache.thrift.protocol.TProtocol$WriteCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TStruct struct;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        struct := @parameter0: org.apache.thrift.protocol.TStruct;
+
+        callback := @parameter1: org.apache.thrift.protocol.TProtocol$WriteCallback;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' incrementRecursionDepth()>();
+
+     label1:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeStructBegin(org.apache.thrift.protocol.TStruct)>(struct);
+
+        interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$WriteCallback: 'void' call(java.lang.Object)>(null);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeStructEnd()>();
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        goto label4;
+
+     label3:
+        $r0 := @caughtexception;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        throw $r0;
+
+     label4:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public final 'void' writeMessage(org.apache.thrift.protocol.TMessage, org.apache.thrift.protocol.TProtocol$WriteCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TMessage message;
+        org.apache.thrift.protocol.TProtocol$WriteCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        message := @parameter0: org.apache.thrift.protocol.TMessage;
+
+        callback := @parameter1: org.apache.thrift.protocol.TProtocol$WriteCallback;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage)>(message);
+
+        interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$WriteCallback: 'void' call(java.lang.Object)>(null);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' writeMessageEnd()>();
+
+        return;
+    }
+
+    public final java.lang.Object readMessage(org.apache.thrift.protocol.TProtocol$ReadCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TMessage tMessage;
+        org.apache.thrift.protocol.TProtocol$ReadCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        java.lang.Object t;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCallback;
+
+        tMessage = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMessage readMessageBegin()>();
+
+        t = interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCallback: java.lang.Object accept(java.lang.Object)>(tMessage);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readMessageEnd()>();
+
+        return t;
+    }
+
+    public final java.lang.Object readStruct(org.apache.thrift.protocol.TProtocol$ReadCallback) throws org.apache.thrift.TException
+    {
+        java.lang.Throwable $r0;
+        org.apache.thrift.protocol.TProtocol$ReadCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        java.lang.Object t;
+        org.apache.thrift.protocol.TStruct tStruct;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCallback;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' incrementRecursionDepth()>();
+
+     label1:
+        tStruct = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TStruct readStructBegin()>();
+
+        t = interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCallback: java.lang.Object accept(java.lang.Object)>(tStruct);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readStructEnd()>();
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        return t;
+
+     label3:
+        $r0 := @caughtexception;
+
+     label4:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' decrementRecursionDepth()>();
+
+        throw $r0;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public final 'boolean' readField(org.apache.thrift.protocol.TProtocol$ReadCallback) throws java.lang.Exception
+    {
+        org.apache.thrift.protocol.TProtocol$ReadCallback callback;
+        'byte' $b0;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TField tField;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCallback;
+
+        tField = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TField readFieldBegin()>();
+
+        $b0 = tField.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        if $b0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCallback: java.lang.Object accept(java.lang.Object)>(tField);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readFieldEnd()>();
+
+        return 0;
+    }
+
+    public final java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        java.util.Map t;
+        java.lang.Object $r0;
+        org.apache.thrift.protocol.TMap tMap;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCallback;
+
+        tMap = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMap readMapBegin()>();
+
+        $r0 = interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCallback: java.lang.Object accept(java.lang.Object)>(tMap);
+
+        t = (java.util.Map) $r0;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readMapEnd()>();
+
+        return t;
+    }
+
+    public final java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback $r0, $r1;
+        java.util.Map $r2;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback;
+
+        staticinvoke <java.util.Objects: java.lang.Object requireNonNull(java.lang.Object)>(callback);
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$getKey__1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback bootstrap$(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback)>(callback);
+
+        staticinvoke <java.util.Objects: java.lang.Object requireNonNull(java.lang.Object)>(callback);
+
+        $r1 = staticinvoke <org.apache.thrift.protocol.TProtocol$getValue__2: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback bootstrap$(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback)>(callback);
+
+        $r2 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback)>($r0, $r1);
+
+        return $r2;
+    }
+
+    public final java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback keyCallback, valueCallback;
+        java.util.Map $r1;
+        java.util.function.IntFunction $r0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        keyCallback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        valueCallback := @parameter1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$lambda_readMap_0__3: java.util.function.IntFunction bootstrap$()>();
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,java.util.function.IntFunction)>(keyCallback, valueCallback, $r0);
+
+        return $r1;
+    }
+
+    public final java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback, java.util.function.IntFunction) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback $r0, $r1;
+        java.util.Map $r2;
+        java.util.function.IntFunction mapCreator;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback;
+
+        mapCreator := @parameter1: java.util.function.IntFunction;
+
+        staticinvoke <java.util.Objects: java.lang.Object requireNonNull(java.lang.Object)>(callback);
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$getKey__4: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback bootstrap$(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback)>(callback);
+
+        staticinvoke <java.util.Objects: java.lang.Object requireNonNull(java.lang.Object)>(callback);
+
+        $r1 = staticinvoke <org.apache.thrift.protocol.TProtocol$getValue__5: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback bootstrap$(org.apache.thrift.protocol.TProtocol$ReadMapEntryCallback)>(callback);
+
+        $r2 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,java.util.function.IntFunction)>($r0, $r1, mapCreator);
+
+        return $r2;
+    }
+
+    public final java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, java.util.function.IntFunction) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadCallback $r0;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback keyCallback, valueCallback;
+        java.util.Map $r1;
+        java.util.function.IntFunction mapCreator;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        keyCallback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        valueCallback := @parameter1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        mapCreator := @parameter2: java.util.function.IntFunction;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$lambda_readMap_1__6: org.apache.thrift.protocol.TProtocol$ReadCallback bootstrap$(java.util.function.IntFunction,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback)>(mapCreator, keyCallback, valueCallback);
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.Map readMap(org.apache.thrift.protocol.TProtocol$ReadCallback)>($r0);
+
+        return $r1;
+    }
+
+    public final java.util.List readList(org.apache.thrift.protocol.TProtocol$ReadCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList tList;
+        java.util.List t;
+        org.apache.thrift.protocol.TProtocol$ReadCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        java.lang.Object $r0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCallback;
+
+        tList = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TList readListBegin()>();
+
+        $r0 = interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCallback: java.lang.Object accept(java.lang.Object)>(tList);
+
+        t = (java.util.List) $r0;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readListEnd()>();
+
+        return t;
+    }
+
+    public final java.util.List readList(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback) throws org.apache.thrift.TException
+    {
+        java.util.List $r1;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback callback;
+        java.util.function.IntFunction $r0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$lambda_readList_2__7: java.util.function.IntFunction bootstrap$()>();
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.List readList(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,java.util.function.IntFunction)>(callback, $r0);
+
+        return $r1;
+    }
+
+    public final java.util.List readList(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, java.util.function.IntFunction) throws org.apache.thrift.TException
+    {
+        java.util.List $r1;
+        org.apache.thrift.protocol.TProtocol$ReadCallback $r0;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback callback;
+        java.util.function.IntFunction listCreator;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        listCreator := @parameter1: java.util.function.IntFunction;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$lambda_readList_3__8: org.apache.thrift.protocol.TProtocol$ReadCallback bootstrap$(java.util.function.IntFunction,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback)>(listCreator, callback);
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.List readList(org.apache.thrift.protocol.TProtocol$ReadCallback)>($r0);
+
+        return $r1;
+    }
+
+    public final java.util.Set readSet(org.apache.thrift.protocol.TProtocol$ReadCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadCallback callback;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TSet tSet;
+        java.util.Set t;
+        java.lang.Object $r0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCallback;
+
+        tSet = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TSet readSetBegin()>();
+
+        $r0 = interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCallback: java.lang.Object accept(java.lang.Object)>(tSet);
+
+        t = (java.util.Set) $r0;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readSetEnd()>();
+
+        return t;
+    }
+
+    public final java.util.Set readSet(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback callback;
+        java.util.Set $r1;
+        java.util.function.IntFunction $r0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$lambda_readSet_4__9: java.util.function.IntFunction bootstrap$()>();
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.Set readSet(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback,java.util.function.IntFunction)>(callback, $r0);
+
+        return $r1;
+    }
+
+    public final java.util.Set readSet(org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, java.util.function.IntFunction) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadCallback $r0;
+        org.apache.thrift.protocol.TProtocol this;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback callback;
+        java.util.Set $r1;
+        java.util.function.IntFunction setCreator;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        callback := @parameter0: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        setCreator := @parameter1: java.util.function.IntFunction;
+
+        $r0 = staticinvoke <org.apache.thrift.protocol.TProtocol$lambda_readSet_5__10: org.apache.thrift.protocol.TProtocol$ReadCallback bootstrap$(java.util.function.IntFunction,org.apache.thrift.protocol.TProtocol$ReadCollectionCallback)>(setCreator, callback);
+
+        $r1 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.util.Set readSet(org.apache.thrift.protocol.TProtocol$ReadCallback)>($r0);
+
+        return $r1;
+    }
+
+    public 'void' reset()
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        return;
+    }
+
+    public java.lang.Class getScheme()
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        return class "Lorg/apache/thrift/scheme/StandardScheme;";
+    }
+
+    public 'int' readFieldBeginData() throws org.apache.thrift.TException
+    {
+        'short' $s1;
+        'byte' $b0;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' $i2;
+        org.apache.thrift.protocol.TField tfield;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        tfield = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TField readFieldBegin()>();
+
+        $b0 = tfield.<org.apache.thrift.protocol.TField: 'byte' type>;
+
+        $s1 = tfield.<org.apache.thrift.protocol.TField: 'short' id>;
+
+        $i2 = staticinvoke <org.apache.thrift.partial.TFieldData: 'int' encode('byte','short')>($b0, $s1);
+
+        return $i2;
+    }
+
+    public 'void' skip('byte') throws org.apache.thrift.TException
+    {
+        'byte' fieldType;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.TConfiguration $r1;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        fieldType := @parameter0: 'byte';
+
+        $r0 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        $r1 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $i0 = virtualinvoke $r1.<org.apache.thrift.TConfiguration: 'int' getRecursionLimit()>();
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skip('byte','int')>(fieldType, $i0);
+
+        return;
+    }
+
+    public 'void' skip('byte', 'int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSet tfieldType_2;
+        org.apache.thrift.protocol.TList i;
+        'byte' fieldType, tfieldType_1;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' maxDepth, tfieldData, $i1, tfieldType#4, i#6, i#8;
+        java.lang.StringBuilder $r2;
+        org.apache.thrift.protocol.TProtocolException $r0;
+        java.lang.String $r5;
+        org.apache.thrift.protocol.TMap tfieldData#3;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        fieldType := @parameter0: 'byte';
+
+        maxDepth := @parameter1: 'int';
+
+        if maxDepth > 0 goto label01;
+
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(6, "Maximum skip depth exceeded");
+
+        throw $r0;
+
+     label01:
+        tfieldData = ('int') fieldType;
+
+        tableswitch(tfieldData)
+        {
+            case 2: goto label02;
+            case 3: goto label03;
+            case 4: goto label07;
+            case 5: goto label21;
+            case 6: goto label04;
+            case 7: goto label21;
+            case 8: goto label05;
+            case 9: goto label21;
+            case 10: goto label06;
+            case 11: goto label08;
+            case 12: goto label09;
+            case 13: goto label12;
+            case 14: goto label15;
+            case 15: goto label18;
+            default: goto label21;
+        };
+
+     label02:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipBool()>();
+
+        goto label22;
+
+     label03:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipByte()>();
+
+        goto label22;
+
+     label04:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipI16()>();
+
+        goto label22;
+
+     label05:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipI32()>();
+
+        goto label22;
+
+     label06:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipI64()>();
+
+        goto label22;
+
+     label07:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipDouble()>();
+
+        goto label22;
+
+     label08:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipBinary()>();
+
+        goto label22;
+
+     label09:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TStruct readStructBegin()>();
+
+     label10:
+        tfieldData = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'int' readFieldBeginData()>();
+
+        tfieldType_1 = staticinvoke <org.apache.thrift.partial.TFieldData: 'byte' getType('int')>(tfieldData);
+
+        if tfieldType_1 == 0 goto label11;
+
+        tfieldData = maxDepth - 1;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skip('byte','int')>(tfieldType_1, tfieldData);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readFieldEnd()>();
+
+        goto label10;
+
+     label11:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readStructEnd()>();
+
+        goto label22;
+
+     label12:
+        tfieldData#3 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TMap readMapBegin()>();
+
+        tfieldType#4 = 0;
+
+     label13:
+        $i1 = tfieldData#3.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        if tfieldType#4 >= $i1 goto label14;
+
+        fieldType = tfieldData#3.<org.apache.thrift.protocol.TMap: 'byte' keyType>;
+
+        $i1 = maxDepth - 1;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skip('byte','int')>(fieldType, $i1);
+
+        fieldType = tfieldData#3.<org.apache.thrift.protocol.TMap: 'byte' valueType>;
+
+        $i1 = maxDepth - 1;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skip('byte','int')>(fieldType, $i1);
+
+        tfieldType#4 = tfieldType#4 + 1;
+
+        goto label13;
+
+     label14:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readMapEnd()>();
+
+        goto label22;
+
+     label15:
+        tfieldType_2 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TSet readSetBegin()>();
+
+        i#6 = 0;
+
+     label16:
+        $i1 = tfieldType_2.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        if i#6 >= $i1 goto label17;
+
+        fieldType = tfieldType_2.<org.apache.thrift.protocol.TSet: 'byte' elemType>;
+
+        $i1 = maxDepth - 1;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skip('byte','int')>(fieldType, $i1);
+
+        i#6 = i#6 + 1;
+
+        goto label16;
+
+     label17:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readSetEnd()>();
+
+        goto label22;
+
+     label18:
+        i = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.protocol.TList readListBegin()>();
+
+        i#8 = 0;
+
+     label19:
+        $i1 = i.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        if i#8 >= $i1 goto label20;
+
+        fieldType = i.<org.apache.thrift.protocol.TList: 'byte' elemType>;
+
+        $i1 = maxDepth - 1;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skip('byte','int')>(fieldType, $i1);
+
+        i#8 = i#8 + 1;
+
+        goto label19;
+
+     label20:
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' readListEnd()>();
+
+        goto label22;
+
+     label21:
+        $r0 = new org.apache.thrift.protocol.TProtocolException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unrecognized type ");
+
+        maxDepth = ('int') fieldType;
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(maxDepth);
+
+        $r5 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TProtocolException: 'void' <init>('int',java.lang.String)>(1, $r5);
+
+        throw $r0;
+
+     label22:
+        return;
+    }
+
+    protected 'void' skipBool() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'boolean' readBool()>();
+
+        return;
+    }
+
+    protected 'void' skipByte() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'byte' readByte()>();
+
+        return;
+    }
+
+    protected 'void' skipI16() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'short' readI16()>();
+
+        return;
+    }
+
+    protected 'void' skipI32() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'int' readI32()>();
+
+        return;
+    }
+
+    protected 'void' skipI64() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'long' readI64()>();
+
+        return;
+    }
+
+    protected 'void' skipDouble() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'double' readDouble()>();
+
+        return;
+    }
+
+    protected 'void' skipBinary() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: java.nio.ByteBuffer readBinary()>();
+
+        return;
+    }
+
+    protected 'void' skipBytes('int') throws org.apache.thrift.TException
+    {
+        'byte'[] $r3;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TProtocol this;
+        'int' numBytes, $i0, remaining#1;
+
+        this := @this: org.apache.thrift.protocol.TProtocol;
+
+        numBytes := @parameter0: 'int';
+
+        if numBytes > 256 goto label2;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' getBytesRemainingInBuffer()>();
+
+        if $i0 < numBytes goto label1;
+
+        $r0 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' consumeBuffer('int')>(numBytes);
+
+        goto label4;
+
+     label1:
+        $r0 = virtualinvoke this.<org.apache.thrift.protocol.TProtocol: org.apache.thrift.transport.TTransport getTransport()>();
+
+        $r3 = this.<org.apache.thrift.protocol.TProtocol: 'byte'[] skippedBytes>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'int' readAll('byte'[],'int','int')>($r3, 0, numBytes);
+
+        goto label4;
+
+     label2:
+        remaining#1 = numBytes;
+
+     label3:
+        if remaining#1 <= 0 goto label4;
+
+        $i0 = staticinvoke <java.lang.Math: 'int' min('int','int')>(remaining#1, 256);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' skipBytes('int')>($i0);
+
+        $i0 = ('int') -256;
+
+        remaining#1 = remaining#1 + $i0;
+
+        goto label3;
+
+     label4:
+        return;
+    }
+
+    public static java.util.Set lambda$readSet$5(java.util.function.IntFunction, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TSet) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback callback;
+        org.apache.thrift.protocol.TSet tSet;
+        'int' $i0, i;
+        java.util.Set set;
+        java.lang.Object $r0;
+        java.util.function.IntFunction setCreator;
+
+        setCreator := @parameter0: java.util.function.IntFunction;
+
+        callback := @parameter1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        tSet := @parameter2: org.apache.thrift.protocol.TSet;
+
+        $i0 = tSet.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        $r0 = interfaceinvoke setCreator.<java.util.function.IntFunction: java.lang.Object apply('int')>($i0);
+
+        set = (java.util.Set) $r0;
+
+        i = 0;
+
+     label1:
+        $i0 = tSet.<org.apache.thrift.protocol.TSet: 'int' size>;
+
+        if i >= $i0 goto label2;
+
+        $r0 = interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCollectionCallback: java.lang.Object call()>();
+
+        interfaceinvoke set.<java.util.Set: 'boolean' add(java.lang.Object)>($r0);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return set;
+    }
+
+    public static java.util.Set lambda$readSet$4('int')
+    {
+        'int' size;
+        java.util.HashSet $r0;
+
+        size := @parameter0: 'int';
+
+        $r0 = new java.util.HashSet;
+
+        size = 2 * size;
+
+        size = staticinvoke <org.apache.thrift.TBaseHelper: 'int' preallocSize('int')>(size);
+
+        specialinvoke $r0.<java.util.HashSet: 'void' <init>('int')>(size);
+
+        return $r0;
+    }
+
+    public static java.util.List lambda$readList$3(java.util.function.IntFunction, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TList) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList tList;
+        java.util.List list;
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback callback;
+        'int' $i0, i;
+        java.lang.Object $r0;
+        java.util.function.IntFunction listCreator;
+
+        listCreator := @parameter0: java.util.function.IntFunction;
+
+        callback := @parameter1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        tList := @parameter2: org.apache.thrift.protocol.TList;
+
+        $i0 = tList.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        $r0 = interfaceinvoke listCreator.<java.util.function.IntFunction: java.lang.Object apply('int')>($i0);
+
+        list = (java.util.List) $r0;
+
+        i = 0;
+
+     label1:
+        $i0 = tList.<org.apache.thrift.protocol.TList: 'int' size>;
+
+        if i >= $i0 goto label2;
+
+        $r0 = interfaceinvoke callback.<org.apache.thrift.protocol.TProtocol$ReadCollectionCallback: java.lang.Object call()>();
+
+        interfaceinvoke list.<java.util.List: 'boolean' add(java.lang.Object)>($r0);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return list;
+    }
+
+    public static java.util.List lambda$readList$2('int')
+    {
+        'int' size;
+        java.util.ArrayList $r0;
+
+        size := @parameter0: 'int';
+
+        $r0 = new java.util.ArrayList;
+
+        size = staticinvoke <org.apache.thrift.TBaseHelper: 'int' preallocSize('int')>(size);
+
+        specialinvoke $r0.<java.util.ArrayList: 'void' <init>('int')>(size);
+
+        return $r0;
+    }
+
+    public static java.util.Map lambda$readMap$1(java.util.function.IntFunction, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TProtocol$ReadCollectionCallback, org.apache.thrift.protocol.TMap) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TProtocol$ReadCollectionCallback keyCallback, valueCallback;
+        java.util.Map map;
+        'int' $i0, i;
+        java.lang.Object $r0, $r2;
+        org.apache.thrift.protocol.TMap tMap;
+        java.util.function.IntFunction mapCreator;
+
+        mapCreator := @parameter0: java.util.function.IntFunction;
+
+        keyCallback := @parameter1: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        valueCallback := @parameter2: org.apache.thrift.protocol.TProtocol$ReadCollectionCallback;
+
+        tMap := @parameter3: org.apache.thrift.protocol.TMap;
+
+        $i0 = tMap.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        $r0 = interfaceinvoke mapCreator.<java.util.function.IntFunction: java.lang.Object apply('int')>($i0);
+
+        map = (java.util.Map) $r0;
+
+        i = 0;
+
+     label1:
+        $i0 = tMap.<org.apache.thrift.protocol.TMap: 'int' size>;
+
+        if i >= $i0 goto label2;
+
+        $r0 = interfaceinvoke keyCallback.<org.apache.thrift.protocol.TProtocol$ReadCollectionCallback: java.lang.Object call()>();
+
+        $r2 = interfaceinvoke valueCallback.<org.apache.thrift.protocol.TProtocol$ReadCollectionCallback: java.lang.Object call()>();
+
+        interfaceinvoke map.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r0, $r2);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return map;
+    }
+
+    public static java.util.Map lambda$readMap$0('int')
+    {
+        'int' size;
+        java.util.HashMap $r0;
+
+        size := @parameter0: 'int';
+
+        $r0 = new java.util.HashMap;
+
+        size = 2 * size;
+
+        size = staticinvoke <org.apache.thrift.TBaseHelper: 'int' preallocSize('int')>(size);
+
+        specialinvoke $r0.<java.util.HashMap: 'void' <init>('int')>(size);
+
+        return $r0;
+    }
+
+    public static 'void' <clinit>()
+    {
+        <org.apache.thrift.protocol.TProtocol: 'int' MAX_SKIPPED_BYTES> = 256;
+
+        return;
+    }
+}

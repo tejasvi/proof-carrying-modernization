@@ -1,0 +1,37 @@
+public final class Cbact01c$ArrArrayRec extends java.lang.Object
+{
+    public 'long' arrAcctId;
+    public 'long'[] arrAcctCurrBal;
+    public 'long'[] arrAcctCurrCycDebit;
+    public java.lang.String arrFiller;
+
+    public 'void' <init>('long', 'long'[], 'long'[], java.lang.String)
+    {
+        'long'[] r1, r2;
+        'long' l0;
+        java.lang.String r3;
+        Cbact01c$ArrArrayRec r0;
+
+        r0 := @this: Cbact01c$ArrArrayRec;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: 'long'[];
+
+        r2 := @parameter2: 'long'[];
+
+        r3 := @parameter3: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbact01c$ArrArrayRec: 'long' arrAcctId> = l0;
+
+        r0.<Cbact01c$ArrArrayRec: 'long'[] arrAcctCurrBal> = r1;
+
+        r0.<Cbact01c$ArrArrayRec: 'long'[] arrAcctCurrCycDebit> = r2;
+
+        r0.<Cbact01c$ArrArrayRec: java.lang.String arrFiller> = r3;
+
+        return;
+    }
+}

@@ -1,0 +1,71 @@
+public final class Cbact01c$OutAcctRec extends java.lang.Object
+{
+    public 'long' outAcctId;
+    public java.lang.String outAcctActiveStatus;
+    public 'long' outAcctCurrBal;
+    public 'long' outAcctCreditLimit;
+    public 'long' outAcctCashCreditLimit;
+    public java.lang.String outAcctOpenDate;
+    public java.lang.String outAcctExpiraionDate;
+    public java.lang.String outAcctReissueDate;
+    public 'long' outAcctCurrCycCredit;
+    public 'long' outAcctCurrCycDebit;
+    public java.lang.String outAcctGroupId;
+
+    public 'void' <init>('long', java.lang.String, 'long', 'long', 'long', java.lang.String, java.lang.String, java.lang.String, 'long', 'long', java.lang.String)
+    {
+        'long' l0, l1, l2, l3, l4, l5;
+        Cbact01c$OutAcctRec r0;
+        java.lang.String r1, r2, r3, r4, r5;
+
+        r0 := @this: Cbact01c$OutAcctRec;
+
+        l0 := @parameter0: 'long';
+
+        r1 := @parameter1: java.lang.String;
+
+        l1 := @parameter2: 'long';
+
+        l2 := @parameter3: 'long';
+
+        l3 := @parameter4: 'long';
+
+        r2 := @parameter5: java.lang.String;
+
+        r3 := @parameter6: java.lang.String;
+
+        r4 := @parameter7: java.lang.String;
+
+        l4 := @parameter8: 'long';
+
+        l5 := @parameter9: 'long';
+
+        r5 := @parameter10: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: 'void' <init>()>();
+
+        r0.<Cbact01c$OutAcctRec: 'long' outAcctId> = l0;
+
+        r0.<Cbact01c$OutAcctRec: java.lang.String outAcctActiveStatus> = r1;
+
+        r0.<Cbact01c$OutAcctRec: 'long' outAcctCurrBal> = l1;
+
+        r0.<Cbact01c$OutAcctRec: 'long' outAcctCreditLimit> = l2;
+
+        r0.<Cbact01c$OutAcctRec: 'long' outAcctCashCreditLimit> = l3;
+
+        r0.<Cbact01c$OutAcctRec: java.lang.String outAcctOpenDate> = r2;
+
+        r0.<Cbact01c$OutAcctRec: java.lang.String outAcctExpiraionDate> = r3;
+
+        r0.<Cbact01c$OutAcctRec: java.lang.String outAcctReissueDate> = r4;
+
+        r0.<Cbact01c$OutAcctRec: 'long' outAcctCurrCycCredit> = l4;
+
+        r0.<Cbact01c$OutAcctRec: 'long' outAcctCurrCycDebit> = l5;
+
+        r0.<Cbact01c$OutAcctRec: java.lang.String outAcctGroupId> = r5;
+
+        return;
+    }
+}

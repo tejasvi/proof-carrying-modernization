@@ -1,0 +1,121 @@
+PRERUN_LIST_live_v1 - helper ibmvar, IBM-variant repeat on the merge-3 snapshot coblean-20261027T2008Z (for the NEXT revision)
+written 2026-10-27T20:21:07Z (date -u) by bin/gen_prerun_live_v1.sh (every hash from sha256sum); no tester run has started. All files below are
+read-only; full sha256 list: prerun/SHA256_prerun_live.txt.
+
+1. TREE: ~/coblean_runs/ibmvar/live/tree = cp -a of ~/coblean_snapshots/coblean-20261027T2008Z (599613000 bytes; only the 4
+   relative symlinks in third_party/gnucobol). lrun.sh lake build --no-build Cobol cobolrun: up to date (89 jobs). cobolrun sha256
+   1a0a80d132d4b7ab48eb2b99944ed40a908e012d581a6bf2fb70db5c9205fb92 (= the snapshot's).
+2. SHADOW ROOT ~/coblean_runs/ibmvar/live/shadow (the root the testers see), built by bin/mk_shadow_v1.sh 36d95bdc:
+   tools/difftest = byte-identical cp -a of the tree's tools/difftest (sha256 list equal to the snapshot's, no symlink inside);
+   SHADOW_MANIFEST.sha256 448d01a90bf77a435be731b311c9cfa4e85cd4811d7ed51a64166b373f517ca9 (454 files);
+   scripts/cobc.sh = bin/cobc_wrap_v1.sh e4a59284536e2eba87a656c7354864a94a2b06b954923810b10d9bb01c3b4b60;
+   tools/cobolfe/cobolfe.py = bin/fe_wrap_v1.py 67a7c31bce45c8a4252da6f8fa67bc45a978c9f7989aa5ed4a6279d0115edefa;
+   .lake/build/bin/cobolrun = shim c96c5afa5020eed1c53de82aa81cdd3fdbf6333c70e4339cffe8bb60a448bca1 -> bin/cobolrun_wrap_v1.py
+   e7ed24f6912d20ac0a3bc89754c68f756df09cb66ce4c5114f9966db2eedf2f8 (+ bin/layout_v1.py 1b43a87332c7376bb8ecf146bf96b5a4362ed6ac30dee3d88c2faccc1c1eb61f);
+   third_party -> symlink to the tree's third_party.
+   Launcher bin/launch_v1.py 03393f4f9dda9c5eace1b79db82f6241a9d30c651cec5f3969fed868a0d96ae4 runs each tester unchanged (runpy):
+   os.remove / os.unlink / shutil.rmtree park the file or tree into runs/NAME/parked (listed in parked.tsv) instead of deleting.
+   Lane bin/lane_live_v1.sh e82219ee7508a71d5f5598f8fd015c5a86ec4a718f453eaa24f5860f4c0da6e7 (per job: load < 450 and MemAvailable >= 150 GB,
+   COBOLFE and COB_SWITCH_n unset, g.sh ibmvar_live_NAME CAP python3 -I -B launch_v1.py TESTER ARGS).
+3. TESTERS (36 files incl. the shared modules ext_common.py, cov/cov_common.py, inspecttest.py, difftest.py,
+   initrepltest.py; unchanged, sha256 = the snapshot's, checked file by file):
+   313f13ea945f5d30aef5641e411a95e1d0a6d4990fc6b55f0643f496fd5586a8  tools/difftest/aetest.py
+   129c37976dd23bd8f3cc48f47738e7d063a3cc1ba17ef95b77a9435c2c703b6b  tools/difftest/aftertest.py
+   4fd71ad3bb845267bba3ad9258d05a898e2fbc7e77002840fceb336f48f15fb6  tools/difftest/c5_check.py
+   df19306429309e0bea0e63592feae6f62b361181297febf4a16955a8972360c9  tools/difftest/colltest.py
+   384195d2d5e9540ee25e766562dc7db7f29efc5c1d8009befb820bae2de48b51  tools/difftest/cov/cov_common.py
+   a0563154b1452b9fe133fd9cb3c640451857d33e26da7204fd9da106f3a70037  tools/difftest/cov/cov_f1inp.py
+   a7e6716b68e8689e48340309a24967bf7d5547ca2853ff80a4fedfe67ca9d247  tools/difftest/cov/cov_f1multi.py
+   c26768a158322b158e47647e4cdaa16637799fe6bc9e827a0dd476c567b5b509  tools/difftest/cov/cov_f2vary.py
+   e718aa6be1d7a231ea5878863f0554955b6fac3f085b8600d698383017f4c727  tools/difftest/cov/cov_f3prohib.py
+   cbb6c51fddd9650f4fc2c3d8f871590518338637e8d298238ab62bdfc7ef976c  tools/difftest/cov/cov_f3round.py
+   160459d00bc4f36676dd75bb756fbc0c020141b0f5a0ba486a0126078c47136a  tools/difftest/cov/cov_f4disp.py
+   eef21afad8285b660e180c8ff3b23ce6642fbd5f6f89659e9ae25226e2a0ae29  tools/difftest/cov/cov_f5str.py
+   83099771d0879b627e221497d0ae1e87af0634b0f052ada1b999ba358189cb8d  tools/difftest/cov/cov_f6mpos.py
+   8916bf7e9f550fa5e32b93dec1010cecd29ed6a80ecd1ade58b42c0f5eb9ed69  tools/difftest/ctrltest.py
+   908c55c0afdf81ad6dfa65c6bae78cc836024579663f0a55da263aa10782704d  tools/difftest/decltest.py
+   84b3bc8fb1da561a3866b933e346c5897c0da36f05d0b09eb6e403eab06b15ea  tools/difftest/difftest.py
+   d3de5c65f1f1077eb4f2e81b46de36675addeb5c1e1bde72b4e61dafe1ef6d73  tools/difftest/ext_common.py
+   f1479003036499a41eddbcd0e38008cd3a98b4d54d6268f753ba148260212680  tools/difftest/filetest.py
+   0deccbc35ac85925f5a37eefb4697e76878209a50c9823a9ac03e54d6c18753d  tools/difftest/filetest2_pos.py
+   4f2fdada199e1d4be9f5f5d8cfe1099e69725a4ad8ea2695229c2b28e0752a38  tools/difftest/fntest_alnum.py
+   ad658ac4c1e7d51a7c8d07ecdffd7904f25ea42e5331202eeb0b763abefe81f0  tools/difftest/fntest_date.py
+   4ccf3d7fc02bbdf5a9699a82a6b98fa54cf7d434fbe7c22c9a4767ee0b137d83  tools/difftest/fntest_num.py
+   be3f6d50d0bea11f639de28ae1128302aef5db7adea3186b712094141d782b77  tools/difftest/indextest.py
+   1ccb13db4294f2d5bdd1054a58871cb6ba15bff0b1af11573a339f61b3fae413  tools/difftest/initptrtest.py
+   4e465db438f6e79ccb864bf30774c2af1c66e1b5eb8ec771d7f86d39b0887fc9  tools/difftest/initrepltest.py
+   55ce687dba9ff6a40c26af49eff50248420b303d14aace2d2e6da270d40f8d08  tools/difftest/inittest.py
+   1dae744b2cdec2eca06d604ff01bf673f6e362f89f0f515c60921a304e7cf0a7  tools/difftest/inspecttest.py
+   2deced359500448db60f9cc6c5af8922d09916ddf67ed88a65c5812c29c907e3  tools/difftest/inspecttest_signed.py
+   b78218256f0360de34f64664c9bad83389b1be6ba2ad65172c8840ecb56380ab  tools/difftest/odotest.py
+   0c00e0e16d95cbd3dd9f933dd8e396add531774eec0e60811051b8db6a1ea780  tools/difftest/opttest.py
+   f354861527249bd3de04777a93952c4b5f4b28d509bc44cd3ddf7a95df882e07  tools/difftest/pos_check.py
+   f17eed372264f0741bbb6900e24b83f4da3c8490b6d8b7bb03f65682664dd1b9  tools/difftest/reckeytest.py
+   20e1e27970c397d250e15c760f166ddbee2ab76091c9f54fe5d0ecf2d1f2ce4f  tools/difftest/rmexprtest.py
+   dfb968d6fd4436021cec73bdab7574a8c3d0765ce03251cc9a5e25d43e15f42d  tools/difftest/stringtest.py
+   4b9bb54944f7842376ac4dd9b03bd70e7fb6458ed94e9eb58faaf7aa12faedac  tools/difftest/swtest.py
+   f1e52c03afd34aa382997b69aa99dcb2054ceeebc0fb387fe7ea8cb8b1df0e94  tools/difftest/unstringtest.py
+4. SEEDS AND COUNTS: seeds 1 and 2, --n 60, each tester's own defaults otherwise (k, exclusion sets, colltest --native share),
+   --show 1000 where the tester has --show:
+   job list A (bin/jobs_live_A_v1.txt cfc493c6aa6cc02ae7fdf900f6803bed41d0e6b2ee278dad9d831d7ce6d4d1c2):
+     difftest --frontend (STD), difftest --frontend --trunc bin, ctrltest --frontend, filetest, reckeytest, initrepltest,
+     initptrtest, inittest, colltest, odotest, opttest, decltest;
+   job list B (bin/jobs_live_B_v1.txt 054bc2a0bd62df815ca8f7fa4216b9812d9ea0c3615b0cb9e6bd64af2fbf9be1):
+     inspecttest, stringtest, unstringtest, indextest, aetest, aftertest, rmexprtest, swtest, inspecttest_signed,
+     filetest2_pos, fntest_alnum, fntest_num, fntest_date, cov_f1inp, cov_f1multi, cov_f2vary, cov_f3prohib, cov_f3round,
+     cov_f4disp --part lit, cov_f4disp --part items, cov_f5str; and once each (fixed cases): c5_check, pos_check, cov_f6mpos.
+   = 66 seeded runs (3960 programs) + 3 case checkers. difftest and ctrltest run with --frontend so that the front end's IBM IR
+   is compared too (their primary path is their own generated IR, which the cobolrun wrapper runs in the IBM configuration).
+   Not run: the shell case checkers (switch_checks.sh, initptr_checks.sh, initrepl_checks.sh, unsup_check.sh, link_check.sh)
+   and the testers' --run reproducer modes (coll_cases, odo_cases, opt_cases).
+5. GNUCOBOL FLAGS: each tester's own cobc flags, unchanged, followed (cobc wrapper) by
+   -fsign=EBCDIC -fdefault-colseq=EBCDIC -febcdic-table=/home/user/coblean_runs/ibmvar/table/cp037_v1.ttbl
+   (flags after the source act: probe2). With -o EXE the program is built as EXE.gnu and EXE is a launcher that runs it
+   (timeout 30 s) and keeps stdout / stderr / exit status (EXE.gnu.out, .err, .rc), passing them through unchanged.
+6. TABLE: cp037_v1.ttbl sha256 a99f6bfb000f60d865d087662e9c2aeae2b7ec64639f6fd9966e509d6ff9066e (the 2306Z run's table).
+7. FRONT END (wrapper): every call runs the tree's front end with --profile ibm (--profile gnucobol mapped). swtest translation:
+   the IBM profile ignores COB_SWITCH_n, so each COB_SWITCH_n=ON/OFF (n 0-7) in the environment becomes --switch UPSI-n=ON/OFF
+   placed before the tester's own --switch options (later options win, as the option beats the environment in the GnuCOBOL
+   profile); n > 7 refused.
+8. COBOLRUN (wrapper): an IR in the GnuCOBOL configuration (the testers' generated IRs: difftest, ctrltest, cov_f1inp) gets the
+   IBM configuration (charset ebcdic, zonedSign ebcdic, comp5LE false, the rest kept) and its alphanumeric VALUE / level-88
+   bytes re-encoded ASCII -> EBCDIC; a front-end IR runs as it is. opttest / cov_f1inp translation: --inputs records
+   ASCII -> EBCDIC with the file's record layout (from its declaration, or for an undeclared input stream from its READ / WRITE
+   record item): character bytes by the table, COMP-3 / COMP kept, COMP-5 reversed; --absent passed through; --mem refused.
+   Output: mem translated with the program's layout (bin/layout_v1.py = Cobol/Layout.lean; its size must equal cobolrun's
+   storage size, else exit 97), DISPLAY events by the table, WRITE / REWRITE records and DELETE keys with their layouts.
+   Every call archived (args, IR run, raw and translated output).
+9. FLAG CLASSES (bin/scan_live_v1.py 5eb0fc51b71cc6ee04290163edb3f86fea0cfc0d56a095101f55efedd2a903af, counted apart with verdicts,
+   never dropped): hv, hex, ordchar, alpha-thru, alpha-ordinal, alpha-native (from the source; alpha-* = the ALPHABET that is
+   the PROGRAM COLLATING SEQUENCE has a THRU range / numeric ordinals / IS NATIVE; also a CLASS THRU range, SYMBOLIC
+   CHARACTERS); rawview (IR + layout: a byte view of COMP-3 / COMP / COMP-5 / index storage that is displayed, moved into a
+   character position, inspected / strung / unstrung or compared); plus dispsign, dispbin (expected 0).
+   SECOND VERDICT for every flagged program whose tester status is not an agreement: GnuCOBOL's kept output (EXE.gnu.out) vs
+   coblean's kept raw output (archive), extracted as the tester does (DISPLAY lines; or the dumped record: difftest / ctrltest
+   first record, filetest / reckeytest / initrepltest / initptrtest by sentinel), each byte accepted if equal after the
+   translation OR equal raw (untranslated): this absorbs the HIGH-VALUE byte image (0xFF), hex bytes and raw COMP bytes;
+   semantic differences (alpha-*, ordchar) stay mismatches.
+10. CONTROLS (real runs through the same wrappers; each must fail):
+   CTL-A-live: difftest --frontend STD seed 1 with the FE wrapper running a planted front end (plant_fe/cobolfe, one line:
+   zonedSign "ebcdic" -> "asciiOverpunch"; prerun/diff_plant_fe_live.txt 369add75f5c2a4691b63f380dcb936622b05196d98216b167a394cf77fbce5ce;
+   lane bin/lane_ctl_v1.sh c2d6532bd2d4e39d2653ab2577e0f5c3738b373e042f8af9d945b4a393d03be6, jobs_ctlA_v1.txt 0de2b92551c6eef52cb98ecfe7eb57544dfb4ebe4ccf16b2299b487bdbcf2fa3):
+   expected frontend-mismatch in every program with an embedded-sign zoned field.
+   CTL-W-live: inspecttest seed 1 with both wrappers on the planted table prerun/plant_AB_v1.ttbl
+   6c0ed4258d7928de3491ffdf054d6126d930a5fce15041eab393e0acbaded397 (cp037_v1 with EBCDIC A/B exchanged; jobs_ctlW_v1.txt
+   e3ed3cd873549cbdec5cbc4bf9393a48965f3111bec1038bd61dc3defa62009b): expected mismatch in every program (its alphabet is 'AB X').
+11. EXPECTED (probes, reading): hv in difftest, aetest, initrepltest, colltest; rawview in inittest, initrepltest; hex, ordchar,
+   alpha-* only in colltest; colltest programs with STANDARD-1/2 -> fe-unsupported (front end: "PROGRAM COLLATING SEQUENCE
+   STANDARD-1 with EBCDIC data") = declined; difftest's ok-negzero classifier assumes ASCII-MF signs, so negative-zero cases may
+   report as mismatch (read and reclassified, listed); GnuCOBOL cannot check EBCDIC record-key order (BDB native order).
+12. PREPARATORY (each 0.000 core-h, guard logs ibmvar_live_*): b1 build check; vlay1 (layout_v1 vs the sealed 2306Z artifacts:
+   1024 IRs, every size equal; 582 record dumps replayed with the live translation, equal exactly for every 2306Z ok, 0 failures);
+   probe1 (colltest questions through the shadow: GnuCOBOL NATIVE = ASCII order vs coblean EBCDIC; STANDARD-1/2 unsupported in
+   coblean's IBM profile; numeric alphabet = ASCII ordinals in GnuCOBOL vs EBCDIC in coblean; 'A' THRU 'Z' native ranges differ
+   ('}' inside the EBCDIC range); a literal alphabet agrees except the HIGH-VALUE byte; -febcdic-symbolic-characters changes
+   nothing for SYMBOLIC CHARACTERS, which the front end does not support); probe2 (-fsign=EBCDIC acts when appended after the
+   source); probe3 (wrapper: input streams, --inputs + --absent, WRITE records field-aware = expected GnuCOBOL bytes); tscan1
+   (scanner on known programs, 0 failures); ptab1 (planted table built).
+13. JOBS: lanes A and B in parallel (<= 2 jobs), then CTL-A-live and CTL-W-live; caps 0.15 / 0.2 core-h; estimate 0.2-0.5
+   core-h. Deliverable: sealed dir ~/coblean_runs/ibmvar/live/sealed_<UTC>/ (read-only, SHA256SUMS) with per-tester / per-seed
+   agree / declined / mismatch / flagged counts, flagged classes with first and second verdicts, mismatch classes with texts,
+   controls, deviations.

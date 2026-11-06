@@ -1,0 +1,8 @@
+# outputs derived from the (private) projects: reports, tables and emitted modules stay local
+*.json
+tables.*.txt
+lean/
+!smoke/tsconfig.json
+!generics/tsconfig.json
+tables*.txt
+combined-summary.txt

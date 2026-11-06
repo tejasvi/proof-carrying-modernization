@@ -1,0 +1,358 @@
+public class org.apache.thrift.TNonblockingMultiFetchStats extends java.lang.Object
+{
+    private 'int' numTotalServers;
+    private 'int' numReadCompletedServers;
+    private 'int' numConnectErrorServers;
+    private 'int' totalRecvBufBytes;
+    private 'int' maxResponseBytes;
+    private 'int' numOverflowedRecvBuf;
+    private 'int' numInvalidFrameSize;
+    private 'long' readTime;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        virtualinvoke this.<org.apache.thrift.TNonblockingMultiFetchStats: 'void' clear()>();
+
+        return;
+    }
+
+    public 'void' clear()
+    {
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numTotalServers> = 0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numReadCompletedServers> = 0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numConnectErrorServers> = 0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' totalRecvBufBytes> = 0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' maxResponseBytes> = 0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numOverflowedRecvBuf> = 0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numInvalidFrameSize> = 0;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'long' readTime> = 0L;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.Object[] $r0;
+        java.lang.Double $r5;
+        'long' $l12;
+        java.lang.Integer $r1;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+        java.lang.Long $r9;
+        'int' $i0, $i4;
+        java.lang.String stats;
+        'double' $d0;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $r0 = newarray (java.lang.Object)[9];
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numTotalServers>;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[0] = $r1;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numReadCompletedServers>;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[1] = $r1;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numConnectErrorServers>;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[2] = $r1;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numTotalServers>;
+
+        $i4 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numReadCompletedServers>;
+
+        $i0 = $i0 - $i4;
+
+        $i4 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numConnectErrorServers>;
+
+        $i0 = $i0 - $i4;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[3] = $r1;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' totalRecvBufBytes>;
+
+        $d0 = ('double') $i0;
+
+        $d0 = $d0 / 1024.0;
+
+        $d0 = $d0 / 1024.0;
+
+        $r5 = staticinvoke <java.lang.Double: java.lang.Double valueOf('double')>($d0);
+
+        $r0[4] = $r5;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' maxResponseBytes>;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[5] = $r1;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numOverflowedRecvBuf>;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[6] = $r1;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numInvalidFrameSize>;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf('int')>($i0);
+
+        $r0[7] = $r1;
+
+        $l12 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'long' readTime>;
+
+        $r9 = staticinvoke <java.lang.Long: java.lang.Long valueOf('long')>($l12);
+
+        $r0[8] = $r9;
+
+        stats = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("numTotalServers=%d, numReadCompletedServers=%d, numConnectErrorServers=%d, numUnresponsiveServers=%d, totalRecvBufBytes=%fM, maxResponseBytes=%d, numOverflowedRecvBuf=%d, numInvalidFrameSize=%d, readTime=%dms", $r0);
+
+        return stats;
+    }
+
+    public 'void' setNumTotalServers('int')
+    {
+        'int' val;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        val := @parameter0: 'int';
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numTotalServers> = val;
+
+        return;
+    }
+
+    public 'void' setMaxResponseBytes('int')
+    {
+        'int' val;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        val := @parameter0: 'int';
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' maxResponseBytes> = val;
+
+        return;
+    }
+
+    public 'void' setReadTime('long')
+    {
+        'long' val;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        val := @parameter0: 'long';
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'long' readTime> = val;
+
+        return;
+    }
+
+    public 'void' incNumReadCompletedServers()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numReadCompletedServers>;
+
+        $i0 = $i0 + 1;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numReadCompletedServers> = $i0;
+
+        return;
+    }
+
+    public 'void' incNumConnectErrorServers()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numConnectErrorServers>;
+
+        $i0 = $i0 + 1;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numConnectErrorServers> = $i0;
+
+        return;
+    }
+
+    public 'void' incNumOverflowedRecvBuf()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numOverflowedRecvBuf>;
+
+        $i0 = $i0 + 1;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numOverflowedRecvBuf> = $i0;
+
+        return;
+    }
+
+    public 'void' incTotalRecvBufBytes('int')
+    {
+        'int' val, $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        val := @parameter0: 'int';
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' totalRecvBufBytes>;
+
+        val = $i0 + val;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' totalRecvBufBytes> = val;
+
+        return;
+    }
+
+    public 'void' incNumInvalidFrameSize()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numInvalidFrameSize>;
+
+        $i0 = $i0 + 1;
+
+        this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numInvalidFrameSize> = $i0;
+
+        return;
+    }
+
+    public 'int' getMaxResponseBytes()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' maxResponseBytes>;
+
+        return $i0;
+    }
+
+    public 'int' getNumReadCompletedServers()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numReadCompletedServers>;
+
+        return $i0;
+    }
+
+    public 'int' getNumConnectErrorServers()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numConnectErrorServers>;
+
+        return $i0;
+    }
+
+    public 'int' getNumTotalServers()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numTotalServers>;
+
+        return $i0;
+    }
+
+    public 'int' getNumOverflowedRecvBuf()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numOverflowedRecvBuf>;
+
+        return $i0;
+    }
+
+    public 'int' getTotalRecvBufBytes()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' totalRecvBufBytes>;
+
+        return $i0;
+    }
+
+    public 'int' getNumInvalidFrameSize()
+    {
+        'int' $i0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $i0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'int' numInvalidFrameSize>;
+
+        return $i0;
+    }
+
+    public 'long' getReadTime()
+    {
+        'long' $l0;
+        org.apache.thrift.TNonblockingMultiFetchStats this;
+
+        this := @this: org.apache.thrift.TNonblockingMultiFetchStats;
+
+        $l0 = this.<org.apache.thrift.TNonblockingMultiFetchStats: 'long' readTime>;
+
+        return $l0;
+    }
+}

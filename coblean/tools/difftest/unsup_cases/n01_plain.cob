@@ -1,0 +1,6 @@
+      * EXPECT-RUN
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. N01.
+       PROCEDURE DIVISION.
+           DISPLAY 'START'.
+           STOP RUN.

@@ -1,0 +1,17 @@
+# Aliases after rog's second audit (audital.c): run with CASES=audital_cases.txt. Each case is labelled with its
+# expected outcome on the line above it: MATCH, or UB from cirrun where the program breaks the rule named
+# (natively it does something). rog's finding in brackets.
+# expect UB: a call through an alias declared with another type than its target (6.5.2.2p9) [M17]
+audital q_alias_other_type 0
+# expect MATCH: a variable alias names its target's object: 55 [W1]
+audital q_variable_alias 0
+# expect MATCH: written through the alias, the target read: 7 [W1]
+audital q_variable_alias_write 0
+# expect MATCH: the target written, the alias read: 8 [W1]
+audital q_variable_alias_read 0
+# expect MATCH: the alias and its target have one address
+audital t_variable_alias_address 4
+# expect MATCH: an alias of an alias of an array, written through an element
+audital t_array_alias_of_alias 4
+# expect MATCH: a function alias with its target's prototype runs the target
+audital t_alias_same_type 4

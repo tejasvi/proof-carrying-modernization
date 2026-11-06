@@ -1,0 +1,15 @@
+# PREREG D2 (frozen v1, ~/fv_paper/prereg/PREREG_D2_v1.md): the same target as D's targets/prereg_lang3.toml, renamed so D2 has its own
+# vo run directory (runs/prereg_d2_lang3); bridge pins are given at launch (scripts/prereg_d2.py) and recorded at start.
+# Prereg D (frozen v2): Apache commons-lang3 3.14.0, the published binary jar from Maven Central (sha256 pinned in
+# ~/fv_paper/prereg/D/lang3_jar.sha256). Jar input: Soot converts the jar's classes; nothing is compiled from source.
+name = "prereg_d2_lang3"
+lang = "jimple"
+root = "/home/user/veriforch/targets/prereg/lang3"
+sources = []
+jar = "commons-lang3-3.14.0.jar"
+jar_sha256 = "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+modular = true
+
+[[variants]]
+name = "jar"
+flags = []

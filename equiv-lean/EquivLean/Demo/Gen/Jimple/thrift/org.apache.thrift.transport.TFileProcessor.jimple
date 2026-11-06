@@ -1,0 +1,234 @@
+public class org.apache.thrift.transport.TFileProcessor extends java.lang.Object
+{
+    private org.apache.thrift.TProcessor processor_;
+    private org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_;
+    private org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_;
+    private org.apache.thrift.transport.TFileTransport inputTransport_;
+    private org.apache.thrift.transport.TTransport outputTransport_;
+
+    public 'void' <init>(org.apache.thrift.TProcessor, org.apache.thrift.protocol.TProtocolFactory, org.apache.thrift.transport.TFileTransport, org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.transport.TFileTransport inputTransport;
+        org.apache.thrift.transport.TTransport outputTransport;
+        org.apache.thrift.protocol.TProtocolFactory protocolFactory;
+        org.apache.thrift.transport.TFileProcessor this;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.transport.TFileProcessor;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        protocolFactory := @parameter1: org.apache.thrift.protocol.TProtocolFactory;
+
+        inputTransport := @parameter2: org.apache.thrift.transport.TFileTransport;
+
+        outputTransport := @parameter3: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.TProcessor processor_> = processor;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_> = protocolFactory;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_> = protocolFactory;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_> = inputTransport;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TTransport outputTransport_> = outputTransport;
+
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.TProcessor, org.apache.thrift.protocol.TProtocolFactory, org.apache.thrift.protocol.TProtocolFactory, org.apache.thrift.transport.TFileTransport, org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.transport.TFileTransport inputTransport;
+        org.apache.thrift.transport.TTransport outputTransport;
+        org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory, outputProtocolFactory;
+        org.apache.thrift.transport.TFileProcessor this;
+        org.apache.thrift.TProcessor processor;
+
+        this := @this: org.apache.thrift.transport.TFileProcessor;
+
+        processor := @parameter0: org.apache.thrift.TProcessor;
+
+        inputProtocolFactory := @parameter1: org.apache.thrift.protocol.TProtocolFactory;
+
+        outputProtocolFactory := @parameter2: org.apache.thrift.protocol.TProtocolFactory;
+
+        inputTransport := @parameter3: org.apache.thrift.transport.TFileTransport;
+
+        outputTransport := @parameter4: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.TProcessor processor_> = processor;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_> = inputProtocolFactory;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_> = outputProtocolFactory;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_> = inputTransport;
+
+        this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TTransport outputTransport_> = outputTransport;
+
+        return;
+    }
+
+    private 'void' processUntil('int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.transport.TFileTransport $r1;
+        org.apache.thrift.transport.TTransportException newChunk;
+        org.apache.thrift.protocol.TProtocolFactory $r0;
+        org.apache.thrift.transport.TTransport $r3;
+        org.apache.thrift.protocol.TProtocol ip, op;
+        'int' lastChunk, curChunk, newChunk#2;
+        org.apache.thrift.transport.TFileProcessor this;
+        org.apache.thrift.TProcessor $r5;
+
+        this := @this: org.apache.thrift.transport.TFileProcessor;
+
+        lastChunk := @parameter0: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.protocol.TProtocolFactory inputProtocolFactory_>;
+
+        $r1 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_>;
+
+        ip = interfaceinvoke $r0.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>($r1);
+
+        $r0 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.protocol.TProtocolFactory outputProtocolFactory_>;
+
+        $r3 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TTransport outputTransport_>;
+
+        op = interfaceinvoke $r0.<org.apache.thrift.protocol.TProtocolFactory: org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)>($r3);
+
+        $r1 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_>;
+
+        curChunk = virtualinvoke $r1.<org.apache.thrift.transport.TFileTransport: 'int' getCurChunk()>();
+
+     label1:
+        if lastChunk < curChunk goto label6;
+
+        $r5 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.TProcessor processor_>;
+
+     label2:
+        interfaceinvoke $r5.<org.apache.thrift.TProcessor: 'void' process(org.apache.thrift.protocol.TProtocol,org.apache.thrift.protocol.TProtocol)>(ip, op);
+
+        $r1 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_>;
+
+        newChunk#2 = virtualinvoke $r1.<org.apache.thrift.transport.TFileTransport: 'int' getCurChunk()>();
+
+     label3:
+        curChunk = newChunk#2;
+
+        goto label1;
+
+     label4:
+        newChunk := @caughtexception;
+
+        lastChunk = virtualinvoke newChunk.<org.apache.thrift.transport.TTransportException: 'int' getType()>();
+
+        if lastChunk == 4 goto label5;
+
+        throw newChunk;
+
+     label5:
+        return;
+
+     label6:
+        return;
+
+        catch org.apache.thrift.transport.TTransportException from label2 to label3 with label4;
+    }
+
+    public 'void' processChunk('int', 'int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.transport.TFileTransport $r0;
+        org.apache.thrift.TException $r1;
+        'int' numChunks, startChunkNum, endChunkNum;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r7;
+        org.apache.thrift.transport.TFileProcessor this;
+
+        this := @this: org.apache.thrift.transport.TFileProcessor;
+
+        startChunkNum := @parameter0: 'int';
+
+        endChunkNum := @parameter1: 'int';
+
+        $r0 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_>;
+
+        numChunks = virtualinvoke $r0.<org.apache.thrift.transport.TFileTransport: 'int' getNumChunks()>();
+
+        if endChunkNum >= 0 goto label1;
+
+        endChunkNum = endChunkNum + numChunks;
+
+     label1:
+        if startChunkNum >= 0 goto label2;
+
+        startChunkNum = startChunkNum + numChunks;
+
+     label2:
+        if endChunkNum >= startChunkNum goto label3;
+
+        $r1 = new org.apache.thrift.TException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("endChunkNum ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(endChunkNum);
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is less than ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append('int')>(startChunkNum);
+
+        $r7 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>($r7);
+
+        throw $r1;
+
+     label3:
+        $r0 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TFileTransport: 'void' seekToChunk('int')>(startChunkNum);
+
+        specialinvoke this.<org.apache.thrift.transport.TFileProcessor: 'void' processUntil('int')>(endChunkNum);
+
+        return;
+    }
+
+    public 'void' processChunk('int') throws org.apache.thrift.TException
+    {
+        'int' chunkNum;
+        org.apache.thrift.transport.TFileProcessor this;
+
+        this := @this: org.apache.thrift.transport.TFileProcessor;
+
+        chunkNum := @parameter0: 'int';
+
+        virtualinvoke this.<org.apache.thrift.transport.TFileProcessor: 'void' processChunk('int','int')>(chunkNum, chunkNum);
+
+        return;
+    }
+
+    public 'void' processChunk() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.transport.TFileTransport $r0;
+        'int' $i0;
+        org.apache.thrift.transport.TFileProcessor this;
+
+        this := @this: org.apache.thrift.transport.TFileProcessor;
+
+        $r0 = this.<org.apache.thrift.transport.TFileProcessor: org.apache.thrift.transport.TFileTransport inputTransport_>;
+
+        $i0 = virtualinvoke $r0.<org.apache.thrift.transport.TFileTransport: 'int' getCurChunk()>();
+
+        virtualinvoke this.<org.apache.thrift.transport.TFileProcessor: 'void' processChunk('int')>($i0);
+
+        return;
+    }
+}

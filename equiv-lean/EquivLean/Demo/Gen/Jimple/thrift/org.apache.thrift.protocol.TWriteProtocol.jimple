@@ -1,0 +1,47 @@
+public interface  org.apache.thrift.protocol.TWriteProtocol extends java.lang.Object
+{
+
+    public abstract 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeMessageEnd() throws org.apache.thrift.TException;
+
+    public abstract 'void' writeStructBegin(org.apache.thrift.protocol.TStruct) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeStructEnd() throws org.apache.thrift.TException;
+
+    public abstract 'void' writeFieldBegin(org.apache.thrift.protocol.TField) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeFieldEnd() throws org.apache.thrift.TException;
+
+    public abstract 'void' writeFieldStop() throws org.apache.thrift.TException;
+
+    public abstract 'void' writeMapBegin(org.apache.thrift.protocol.TMap) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeMapEnd() throws org.apache.thrift.TException;
+
+    public abstract 'void' writeListBegin(org.apache.thrift.protocol.TList) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeListEnd() throws org.apache.thrift.TException;
+
+    public abstract 'void' writeSetBegin(org.apache.thrift.protocol.TSet) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeSetEnd() throws org.apache.thrift.TException;
+
+    public abstract 'void' writeBool('boolean') throws org.apache.thrift.TException;
+
+    public abstract 'void' writeByte('byte') throws org.apache.thrift.TException;
+
+    public abstract 'void' writeI16('short') throws org.apache.thrift.TException;
+
+    public abstract 'void' writeI32('int') throws org.apache.thrift.TException;
+
+    public abstract 'void' writeI64('long') throws org.apache.thrift.TException;
+
+    public abstract 'void' writeUuid(java.util.UUID) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeDouble('double') throws org.apache.thrift.TException;
+
+    public abstract 'void' writeString(java.lang.String) throws org.apache.thrift.TException;
+
+    public abstract 'void' writeBinary(java.nio.ByteBuffer) throws org.apache.thrift.TException;
+}

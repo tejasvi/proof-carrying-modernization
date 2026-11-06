@@ -1,0 +1,63 @@
+# Containers of containers from initializer lists, C++ null pointer arithmetic and std::vector::emplace_back
+# (contb.cpp, contbc.c). An initializer_list's begin points to the first element of its backing array (the frontend
+# stores &arr[0] where CIR stores the array's address); the modelled std::vector / std::string members also take
+# the element at the address of an array of containers or of a byte view of one. In C++ a null pointer plus or
+# minus 0 is null and two null pointers differ by 0; in C both are undefined (contbc.c). emplace_back of one
+# element is push_back's path and returns a reference to it. Each case is labelled with its expected outcome on the
+# line above it: MATCH, or UB from cirrun: null + 1 in C++ and the C cases (undefined), and two gaps, both defined
+# in C++: g_emplace_convert and g_emplace_none (emplace_back with other arguments than one element). g_one_vec_list
+# (a step past a one-element buffer, a lone heap object) was a third gap until bytes phase 1b closed it in next3.
+# expect MATCH: a vector of vectors from a list of lists, v[0]
+contb c_vec_of_vecs 0
+# expect MATCH: a vector of vectors from a list of lists, v[1]
+contb c_vec_of_vecs 1
+# expect MATCH: a vector of vectors from a list of lists, v[2]
+contb c_vec_of_vecs 2
+# expect MATCH: a vector of strings from a list of strings
+contb c_vec_of_strings 0
+# expect MATCH: a vector of strings from a list of strings, v[1]
+contb c_vec_of_strings 1
+# expect MATCH: a copy of a vector of vectors made from a list
+contb c_copy_vec_of_vecs 0
+# expect MATCH: a range-for over a list of strings (size, operator[], c_str)
+contb c_list_of_strings 0
+# expect MATCH: a range-for over a list of vectors and their elements
+contb c_list_of_vecs 0
+# expect MATCH: a range-for over an initializer_list of ints, its size and begin()[2]
+contb c_initlist_loop 0
+# expect MATCH: a vector of pairs from a list
+contb c_pair_list 0
+# expect MATCH: a vector of pairs from a list, v[1]
+contb c_pair_list 1
+# expect MATCH: a vector of structs of longs from a list
+contb c_record_list 0
+# expect MATCH: a vector of structs of longs from a list, v[1]
+contb c_record_list 1
+# expect MATCH: C++, the difference of two null pointers is 0
+contb n_null_diff 0
+# expect MATCH: C++, a null pointer plus 0 is null
+contb n_null_plus 0
+# expect UB: C++, a null pointer plus 1 ([expr.add]p4)
+contb n_null_plus 1
+# expect MATCH: C++, a null pointer minus 0 is null
+contb n_null_minus_zero 0
+# expect MATCH: C++, the size of an empty vector of strings (end - begin, both null)
+contb n_empty_vec_of_strings 0
+# expect UB: C, the difference of two null pointers (C11 6.5.6p9)
+contbc nc_null_diff 0
+# expect UB: C, a null pointer plus 0 (C11 6.5.6p8)
+contbc nc_null_plus_zero 0
+# expect MATCH: emplace_back of rvalues, the returned reference written through
+contb e_emplace_back 0
+# expect MATCH: emplace_back of lvalues
+contb e_emplace_lvalue 0
+# expect UB: gap, emplace_back of an int into a vector of long (a conversion: not modelled)
+contb g_emplace_convert 0
+# expect UB: gap, emplace_back with no argument (not modelled)
+contb g_emplace_none 0
+# expect MATCH: a list of one vector (libc++ steps one past a one-element buffer; closed by bytes phase 1b)
+contb g_one_vec_list 0
+# expect MATCH: a list of structs with string members (member accesses through the list's begin)
+contb c_struct_list 0
+# expect MATCH: a vector of vectors of strings (the inner vectors' members read through the list's begin)
+contb c_nested_strings 0

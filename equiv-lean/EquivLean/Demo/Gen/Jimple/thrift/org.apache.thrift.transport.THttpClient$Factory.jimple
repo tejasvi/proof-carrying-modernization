@@ -1,0 +1,98 @@
+public class org.apache.thrift.transport.THttpClient$Factory extends org.apache.thrift.transport.TTransportFactory
+{
+    private final java.lang.String url;
+    private final org.apache.hc.client5.http.classic.HttpClient client;
+
+    public 'void' <init>(java.lang.String)
+    {
+        java.lang.String url;
+        org.apache.thrift.transport.THttpClient$Factory this;
+
+        this := @this: org.apache.thrift.transport.THttpClient$Factory;
+
+        url := @parameter0: java.lang.String;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.THttpClient$Factory: java.lang.String url> = url;
+
+        this.<org.apache.thrift.transport.THttpClient$Factory: org.apache.hc.client5.http.classic.HttpClient client> = null;
+
+        return;
+    }
+
+    public 'void' <init>(java.lang.String, org.apache.hc.client5.http.classic.HttpClient)
+    {
+        org.apache.hc.client5.http.classic.HttpClient client;
+        java.lang.String url;
+        org.apache.thrift.transport.THttpClient$Factory this;
+
+        this := @this: org.apache.thrift.transport.THttpClient$Factory;
+
+        url := @parameter0: java.lang.String;
+
+        client := @parameter1: org.apache.hc.client5.http.classic.HttpClient;
+
+        specialinvoke this.<org.apache.thrift.transport.TTransportFactory: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.THttpClient$Factory: java.lang.String url> = url;
+
+        this.<org.apache.thrift.transport.THttpClient$Factory: org.apache.hc.client5.http.classic.HttpClient client> = client;
+
+        return;
+    }
+
+    public org.apache.thrift.transport.TTransport getTransport(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.TConfiguration $r2;
+        org.apache.thrift.transport.TTransportException $r8;
+        org.apache.hc.client5.http.classic.HttpClient $r0;
+        java.lang.String $r3;
+        org.apache.thrift.transport.THttpClient$Factory this;
+        org.apache.thrift.transport.THttpClient $r1;
+
+        this := @this: org.apache.thrift.transport.THttpClient$Factory;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = this.<org.apache.thrift.transport.THttpClient$Factory: org.apache.hc.client5.http.classic.HttpClient client>;
+
+        if null == $r0 goto label3;
+
+        $r1 = new org.apache.thrift.transport.THttpClient;
+
+     label1:
+        $r2 = virtualinvoke trans.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $r3 = this.<org.apache.thrift.transport.THttpClient$Factory: java.lang.String url>;
+
+        $r0 = this.<org.apache.thrift.transport.THttpClient$Factory: org.apache.hc.client5.http.classic.HttpClient client>;
+
+        specialinvoke $r1.<org.apache.thrift.transport.THttpClient: 'void' <init>(org.apache.thrift.TConfiguration,java.lang.String,org.apache.hc.client5.http.classic.HttpClient)>($r2, $r3, $r0);
+
+     label2:
+        return $r1;
+
+     label3:
+        $r1 = new org.apache.thrift.transport.THttpClient;
+
+     label4:
+        $r2 = virtualinvoke trans.<org.apache.thrift.transport.TTransport: org.apache.thrift.TConfiguration getConfiguration()>();
+
+        $r3 = this.<org.apache.thrift.transport.THttpClient$Factory: java.lang.String url>;
+
+        specialinvoke $r1.<org.apache.thrift.transport.THttpClient: 'void' <init>(org.apache.thrift.TConfiguration,java.lang.String)>($r2, $r3);
+
+     label5:
+        return $r1;
+
+     label6:
+        $r8 := @caughtexception;
+
+        return null;
+
+        catch org.apache.thrift.transport.TTransportException from label1 to label2 with label6;
+        catch org.apache.thrift.transport.TTransportException from label4 to label5 with label6;
+    }
+}

@@ -1,0 +1,26 @@
+public class org.apache.thrift.transport.TSaslTransport$SaslResponse extends java.lang.Object
+{
+    public org.apache.thrift.transport.sasl.NegotiationStatus status;
+    public 'byte'[] payload;
+
+    public 'void' <init>(org.apache.thrift.transport.sasl.NegotiationStatus, 'byte'[])
+    {
+        'byte'[] payload;
+        org.apache.thrift.transport.sasl.NegotiationStatus status;
+        org.apache.thrift.transport.TSaslTransport$SaslResponse this;
+
+        this := @this: org.apache.thrift.transport.TSaslTransport$SaslResponse;
+
+        status := @parameter0: org.apache.thrift.transport.sasl.NegotiationStatus;
+
+        payload := @parameter1: 'byte'[];
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.transport.TSaslTransport$SaslResponse: org.apache.thrift.transport.sasl.NegotiationStatus status> = status;
+
+        this.<org.apache.thrift.transport.TSaslTransport$SaslResponse: 'byte'[] payload> = payload;
+
+        return;
+    }
+}

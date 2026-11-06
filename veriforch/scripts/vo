@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# veriforch CLI: scripts/vo <command> ... (Python orchestrator; heavy steps call run1.sh themselves)
+# the tree this script belongs to (the live tree, or a frozen copy made by scripts/freeze_copy.sh)
+export VO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PYTHONPATH="$VO_ROOT/orch${PYTHONPATH:+:$PYTHONPATH}"
+export TMPDIR="$VO_ROOT/scratch/tmp" OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+# patch certificates and CI verdicts use equiv-lean: build the compared versions with the cirlean it is built
+# against. The pins live in scripts/cert_pin.env (or the file named by VO_CERT_PIN_ENV); C targets only read them.
+if { [ "${1:-}" = "patch" ] || [ "${1:-}" = "ci" ]; } && [ -z "${VO_CIRLEAN_DIR:-}" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "${VO_CERT_PIN_ENV:-$VO_ROOT/scripts/cert_pin.env}"
+  set +a
+fi
+exec nice -n 10 "$VO_ROOT/.venv/bin/python" -B -m veriforch "$@"

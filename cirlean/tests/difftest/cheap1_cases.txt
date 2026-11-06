@@ -1,0 +1,40 @@
+# The cheap census batch (cheap1.c, a C source; cheap1eh.cpp), run with MODE=status. Each case is labelled with its
+# expected outcome on the line above it: MATCH, or UB from cirrun.
+# expect MATCH: signbit of -0.0, 0.0, -1.5, 2.0, -inf, -0.0f, -3.0L (117)
+cheap1 t_signbit 0
+# expect MATCH: the fcNegative and fcPositive classes, no NaN
+cheap1 t_fpclass_sign 0
+# expect MATCH: rint and nearbyint half to even, the sign of a zero result
+cheap1 t_rint 0
+# expect MATCH: lrint, llrint, lrintf half to even
+cheap1 t_lrint 0
+# expect UB: lrint of a value out of the range of long (unspecified, C11 7.12.9.5)
+cheap1 t_lrint_range 0
+# expect MATCH: perror writes to stderr only
+cheap1 t_perror 0
+# expect MATCH: perror of a null pointer
+cheap1 t_perror_null 0
+# expect MATCH: signal returns SIG_DFL, then the previous handler; SIG_IGN and SIG_DFL (15)
+cheap1 t_signal_prev 0
+# expect MATCH: SIG_ERR for SIGKILL, SIGSTOP, 0 and 65 (15)
+cheap1 t_signal_err 0
+# expect MATCH: memchr found, not found, n = 0, c converted to unsigned char
+cheap1 t_memchr 0
+# expect MATCH: memchr stops at the first match although n exceeds the array (6)
+cheap1 t_memchr_stop 0
+# expect UB: control, memchr reads past the array without a match
+cheap1 t_memchr_past 0
+# expect UB: control, memchr of a null pointer with n = 0 (C11 7.24.1p2)
+cheap1 t_memchr_null 0
+# expect MATCH: posix_memalign, the storage typed by its first use (111)
+cheap1 t_pma 0
+# expect MATCH: posix_memalign with an alignment that is no power of two, or below sizeof(void *): EINVAL, p kept (45)
+cheap1 t_pma_einval 0
+# expect MATCH: catch by pointer, the thrown pointer's type exactly (7)
+cheap1eh t_catch_ptr 0
+# expect MATCH: catch by pointer of a null pointer (5)
+cheap1eh t_catch_ptr_null 0
+# expect MATCH: catch by pointer of a heap object, deleted in the handler (9)
+cheap1eh t_catch_ptr_heap 0
+# expect UB: gap, a derived pointer caught as a base pointer (matching through a hierarchy is not modelled)
+cheap1eh t_catch_ptr_base 0

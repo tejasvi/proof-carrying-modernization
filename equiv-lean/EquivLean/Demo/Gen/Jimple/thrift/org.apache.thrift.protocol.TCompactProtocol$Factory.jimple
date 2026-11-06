@@ -1,0 +1,72 @@
+public class org.apache.thrift.protocol.TCompactProtocol$Factory extends java.lang.Object implements org.apache.thrift.protocol.TProtocolFactory
+{
+    private final 'long' stringLengthLimit_;
+    private final 'long' containerLengthLimit_;
+
+    public 'void' <init>()
+    {
+        org.apache.thrift.protocol.TCompactProtocol$Factory this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol$Factory;
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'void' <init>('long','long')>(-1L, -1L);
+
+        return;
+    }
+
+    public 'void' <init>('long')
+    {
+        'long' stringLengthLimit;
+        org.apache.thrift.protocol.TCompactProtocol$Factory this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol$Factory;
+
+        stringLengthLimit := @parameter0: 'long';
+
+        specialinvoke this.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'void' <init>('long','long')>(stringLengthLimit, -1L);
+
+        return;
+    }
+
+    public 'void' <init>('long', 'long')
+    {
+        'long' stringLengthLimit, containerLengthLimit;
+        org.apache.thrift.protocol.TCompactProtocol$Factory this;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol$Factory;
+
+        stringLengthLimit := @parameter0: 'long';
+
+        containerLengthLimit := @parameter1: 'long';
+
+        specialinvoke this.<java.lang.Object: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'long' containerLengthLimit_> = containerLengthLimit;
+
+        this.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'long' stringLengthLimit_> = stringLengthLimit;
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TProtocol getProtocol(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.protocol.TCompactProtocol$Factory this;
+        org.apache.thrift.transport.TTransport trans;
+        'long' $l0, $l1;
+        org.apache.thrift.protocol.TCompactProtocol $r0;
+
+        this := @this: org.apache.thrift.protocol.TCompactProtocol$Factory;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        $r0 = new org.apache.thrift.protocol.TCompactProtocol;
+
+        $l0 = this.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'long' stringLengthLimit_>;
+
+        $l1 = this.<org.apache.thrift.protocol.TCompactProtocol$Factory: 'long' containerLengthLimit_>;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TCompactProtocol: 'void' <init>(org.apache.thrift.transport.TTransport,'long','long')>(trans, $l0, $l1);
+
+        return $r0;
+    }
+}

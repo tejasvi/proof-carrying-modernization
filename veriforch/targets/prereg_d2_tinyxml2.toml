@@ -1,0 +1,18 @@
+# PREREG D2 (frozen v1, ~/fv_paper/prereg/PREREG_D2_v1.md): the same target as D's targets/prereg_tinyxml2.toml, renamed so D2 has its own
+# vo run directory (runs/prereg_d2_tinyxml2); bridge pins are given at launch (scripts/prereg_d2.py) and recorded at start.
+# Prereg D (frozen v2): tinyxml2 10.0.0 (321ea883b719), the frozen source tree of the prereg package (archive sha256 in
+# ~/fv_paper/prereg/D/downloads.sha256): tinyxml2.cpp (with tinyxml2.h), -std=c++17, through ClangIR. No project
+# build script runs.
+name = "prereg_d2_tinyxml2"
+lang = "cir"
+root = "/home/user/fv_paper/prereg/D/src_tinyxml2/tinyxml2-10.0.0"
+sources = ["tinyxml2.cpp"]
+cxxflags = ["-std=c++17", "-femit-all-decls"]
+# D2 fix for the not-emitted family (recorded, the evidence-owner session 10-25; general, no unit names): -femit-all-decls makes clang emit
+# the inline methods of tinyxml2.h that are never used inside tinyxml2.cpp; loc_from_definition gives out-of-line
+# members the line of their definition (the inline loc literal of cir.func) instead of their in-class declaration.
+loc_from_definition = true
+
+[[variants]]
+name = "lib"
+flags = []

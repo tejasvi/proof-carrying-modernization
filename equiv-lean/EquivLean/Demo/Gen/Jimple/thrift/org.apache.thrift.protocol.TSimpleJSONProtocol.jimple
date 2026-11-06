@@ -1,0 +1,1313 @@
+public class org.apache.thrift.protocol.TSimpleJSONProtocol extends org.apache.thrift.protocol.TProtocol
+{
+    private static final 'byte'[] COMMA;
+    private static final 'byte'[] COLON;
+    private static final 'byte'[] LBRACE;
+    private static final 'byte'[] RBRACE;
+    private static final 'byte'[] LBRACKET;
+    private static final 'byte'[] RBRACKET;
+    private static final 'char' QUOTE;
+    private static final java.lang.String LIST;
+    private static final java.lang.String SET;
+    private static final java.lang.String MAP;
+    protected final org.apache.thrift.protocol.TSimpleJSONProtocol$Context BASE_CONTEXT;
+    protected java.util.Stack writeContextStack_;
+    protected org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_;
+
+    protected 'void' pushWriteContext(org.apache.thrift.protocol.TSimpleJSONProtocol$Context)
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context c, $r1;
+        java.util.Stack $r0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        c := @parameter0: org.apache.thrift.protocol.TSimpleJSONProtocol$Context;
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: java.util.Stack writeContextStack_>;
+
+        $r1 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<java.util.Stack: java.lang.Object push(java.lang.Object)>($r1);
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_> = c;
+
+        return;
+    }
+
+    protected 'void' popWriteContext()
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        java.lang.Object $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r2;
+        java.util.Stack $r0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: java.util.Stack writeContextStack_>;
+
+        $r1 = virtualinvoke $r0.<java.util.Stack: java.lang.Object pop()>();
+
+        $r2 = (org.apache.thrift.protocol.TSimpleJSONProtocol$Context) $r1;
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_> = $r2;
+
+        return;
+    }
+
+    protected 'void' resetWriteContext()
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        java.util.Stack $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: java.util.Stack writeContextStack_>;
+
+        $z0 = virtualinvoke $r0.<java.util.Stack: 'boolean' isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' popWriteContext()>();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    protected 'void' assertContextIsNotMapKey(java.lang.String) throws org.apache.thrift.protocol.TSimpleJSONProtocol$CollectionMapKeyException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol$CollectionMapKeyException $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        java.lang.StringBuilder $r2;
+        java.lang.String invalidKeyType;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        invalidKeyType := @parameter0: java.lang.String;
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'boolean' isMapKey()>();
+
+        if $z0 == false goto label1;
+
+        $r1 = new org.apache.thrift.protocol.TSimpleJSONProtocol$CollectionMapKeyException;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: 'void' <init>()>();
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cannot serialize a map with keys that are of type ");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(invalidKeyType);
+
+        invalidKeyType = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r1.<org.apache.thrift.protocol.TSimpleJSONProtocol$CollectionMapKeyException: 'void' <init>(java.lang.String)>(invalidKeyType);
+
+        throw $r1;
+
+     label1:
+        return;
+    }
+
+    public 'void' <init>(org.apache.thrift.transport.TTransport)
+    {
+        org.apache.thrift.transport.TTransport trans;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        java.util.Stack $r1;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        trans := @parameter0: org.apache.thrift.transport.TTransport;
+
+        specialinvoke this.<org.apache.thrift.protocol.TProtocol: 'void' <init>(org.apache.thrift.transport.TTransport)>(trans);
+
+        $r0 = new org.apache.thrift.protocol.TSimpleJSONProtocol$Context;
+
+        specialinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context BASE_CONTEXT> = $r0;
+
+        $r1 = new java.util.Stack;
+
+        specialinvoke $r1.<java.util.Stack: 'void' <init>()>();
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol: java.util.Stack writeContextStack_> = $r1;
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context BASE_CONTEXT>;
+
+        this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_> = $r0;
+
+        return;
+    }
+
+    public 'void' writeMessageBegin(org.apache.thrift.protocol.TMessage) throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.protocol.TMessage message;
+        org.apache.thrift.transport.TTransport $r0;
+        'byte' $b0;
+        'int' $i1;
+        java.lang.String $r3;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext $r2;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        message := @parameter0: org.apache.thrift.protocol.TMessage;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' resetWriteContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] LBRACKET>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        $r2 = new org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext;
+
+        specialinvoke $r2.<org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext: 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)>(this);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' pushWriteContext(org.apache.thrift.protocol.TSimpleJSONProtocol$Context)>($r2);
+
+        $r3 = message.<org.apache.thrift.protocol.TMessage: java.lang.String name>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeString(java.lang.String)>($r3);
+
+        $b0 = message.<org.apache.thrift.protocol.TMessage: 'byte' type>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeByte('byte')>($b0);
+
+        $i1 = message.<org.apache.thrift.protocol.TMessage: 'int' seqid>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeI32('int')>($i1);
+
+        return;
+    }
+
+    public 'void' writeMessageEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' popWriteContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] RBRACKET>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        return;
+    }
+
+    public 'void' writeStructBegin(org.apache.thrift.protocol.TStruct) throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext $r3;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        org.apache.thrift.protocol.TStruct struct;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        struct := @parameter0: org.apache.thrift.protocol.TStruct;
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] LBRACE>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r3 = new org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TSimpleJSONProtocol$StructContext: 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)>(this);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' pushWriteContext(org.apache.thrift.protocol.TSimpleJSONProtocol$Context)>($r3);
+
+        return;
+    }
+
+    public 'void' writeStructEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' popWriteContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] RBRACE>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        return;
+    }
+
+    public 'void' writeFieldBegin(org.apache.thrift.protocol.TField) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TField field;
+        java.lang.String $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        field := @parameter0: org.apache.thrift.protocol.TField;
+
+        $r0 = field.<org.apache.thrift.protocol.TField: java.lang.String name>;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeString(java.lang.String)>($r0);
+
+        return;
+    }
+
+    public 'void' writeFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        return;
+    }
+
+    public 'void' writeFieldStop() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        return;
+    }
+
+    public 'void' writeMapBegin(org.apache.thrift.protocol.TMap) throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext $r3;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        org.apache.thrift.protocol.TMap map;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        map := @parameter0: org.apache.thrift.protocol.TMap;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' assertContextIsNotMapKey(java.lang.String)>("map");
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] LBRACE>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r3 = new org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TSimpleJSONProtocol$MapContext: 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)>(this);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' pushWriteContext(org.apache.thrift.protocol.TSimpleJSONProtocol$Context)>($r3);
+
+        return;
+    }
+
+    public 'void' writeMapEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' popWriteContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] RBRACE>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        return;
+    }
+
+    public 'void' writeListBegin(org.apache.thrift.protocol.TList) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TList list;
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext $r3;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        list := @parameter0: org.apache.thrift.protocol.TList;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' assertContextIsNotMapKey(java.lang.String)>("list");
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] LBRACKET>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r3 = new org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext: 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)>(this);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' pushWriteContext(org.apache.thrift.protocol.TSimpleJSONProtocol$Context)>($r3);
+
+        return;
+    }
+
+    public 'void' writeListEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' popWriteContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] RBRACKET>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        return;
+    }
+
+    public 'void' writeSetBegin(org.apache.thrift.protocol.TSet) throws org.apache.thrift.TException
+    {
+        'byte'[] $r2;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.protocol.TSet set;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext $r3;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        set := @parameter0: org.apache.thrift.protocol.TSet;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' assertContextIsNotMapKey(java.lang.String)>("set");
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        $r1 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r2 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] LBRACKET>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r2);
+
+        $r3 = new org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext;
+
+        specialinvoke $r3.<org.apache.thrift.protocol.TSimpleJSONProtocol$ListContext: 'void' <init>(org.apache.thrift.protocol.TSimpleJSONProtocol)>(this);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' pushWriteContext(org.apache.thrift.protocol.TSimpleJSONProtocol$Context)>($r3);
+
+        return;
+    }
+
+    public 'void' writeSetEnd() throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.transport.TTransport $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' popWriteContext()>();
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        $r1 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] RBRACKET>;
+
+        virtualinvoke $r0.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>($r1);
+
+        return;
+    }
+
+    public 'void' writeBool('boolean') throws org.apache.thrift.TException
+    {
+        'byte' $b0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        'boolean' b;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        b := @parameter0: 'boolean';
+
+        if b == false goto label1;
+
+        $b0 = 1;
+
+        goto label2;
+
+     label1:
+        $b0 = 0;
+
+     label2:
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeByte('byte')>($b0);
+
+        return;
+    }
+
+    public 'void' writeByte('byte') throws org.apache.thrift.TException
+    {
+        'int' $i0;
+        'byte' b;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        b := @parameter0: 'byte';
+
+        $i0 = ('int') b;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeI32('int')>($i0);
+
+        return;
+    }
+
+    public 'void' writeI16('short') throws org.apache.thrift.TException
+    {
+        'int' $i0;
+        'short' i16;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        i16 := @parameter0: 'short';
+
+        $i0 = ('int') i16;
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeI32('int')>($i0);
+
+        return;
+    }
+
+    public 'void' writeI32('int') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        'int' i32;
+        java.lang.String $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        i32 := @parameter0: 'int';
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'boolean' isMapKey()>();
+
+        if $z0 == false goto label1;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.String toString('int')>(i32);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeString(java.lang.String)>($r1);
+
+        goto label2;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.String toString('int')>(i32);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' _writeStringData(java.lang.String)>($r1);
+
+     label2:
+        return;
+    }
+
+    public 'void' _writeStringData(java.lang.String) throws org.apache.thrift.TException
+    {
+        'byte'[] b;
+        java.nio.charset.Charset $r0;
+        org.apache.thrift.transport.TTransport $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        java.lang.String s;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        s := @parameter0: java.lang.String;
+
+        $r0 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        b = virtualinvoke s.<java.lang.String: 'byte'[] getBytes(java.nio.charset.Charset)>($r0);
+
+        $r1 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.transport.TTransport trans_>;
+
+        virtualinvoke $r1.<org.apache.thrift.transport.TTransport: 'void' write('byte'[])>(b);
+
+        return;
+    }
+
+    public 'void' writeI64('long') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        'long' i64;
+        java.lang.String $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        i64 := @parameter0: 'long';
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'boolean' isMapKey()>();
+
+        if $z0 == false goto label1;
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.String toString('long')>(i64);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeString(java.lang.String)>($r1);
+
+        goto label2;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.String toString('long')>(i64);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' _writeStringData(java.lang.String)>($r1);
+
+     label2:
+        return;
+    }
+
+    public 'void' writeUuid(java.util.UUID) throws org.apache.thrift.TException
+    {
+        java.util.UUID uuid;
+        java.lang.String $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        uuid := @parameter0: java.util.UUID;
+
+        $r0 = virtualinvoke uuid.<java.util.UUID: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeString(java.lang.String)>($r0);
+
+        return;
+    }
+
+    public 'void' writeDouble('double') throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        java.lang.String $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        'double' dub;
+        'boolean' $z0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        dub := @parameter0: 'double';
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        $z0 = virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'boolean' isMapKey()>();
+
+        if $z0 == false goto label1;
+
+        $r1 = staticinvoke <java.lang.Double: java.lang.String toString('double')>(dub);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeString(java.lang.String)>($r1);
+
+        goto label2;
+
+     label1:
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        $r1 = staticinvoke <java.lang.Double: java.lang.String toString('double')>(dub);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' _writeStringData(java.lang.String)>($r1);
+
+     label2:
+        return;
+    }
+
+    public 'void' writeString(java.lang.String) throws org.apache.thrift.TException
+    {
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        'char' c;
+        org.apache.thrift.protocol.TSimpleJSONProtocol$Context $r0;
+        'int' length, i, $i1, j;
+        java.lang.StringBuilder escape;
+        java.lang.String str, hex;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        str := @parameter0: java.lang.String;
+
+        $r0 = this.<org.apache.thrift.protocol.TSimpleJSONProtocol: org.apache.thrift.protocol.TSimpleJSONProtocol$Context writeContext_>;
+
+        virtualinvoke $r0.<org.apache.thrift.protocol.TSimpleJSONProtocol$Context: 'void' write()>();
+
+        length = virtualinvoke str.<java.lang.String: 'int' length()>();
+
+        escape = new java.lang.StringBuilder;
+
+        i = length + 16;
+
+        specialinvoke escape.<java.lang.StringBuilder: 'void' <init>('int')>(i);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(34);
+
+        i = 0;
+
+     label01:
+        if i >= length goto label13;
+
+        c = virtualinvoke str.<java.lang.String: 'char' charAt('int')>(i);
+
+        j = ('int') c;
+
+        lookupswitch(j)
+        {
+            case 8: goto label03;
+            case 9: goto label07;
+            case 10: goto label05;
+            case 12: goto label04;
+            case 13: goto label06;
+            case 34: goto label02;
+            case 92: goto label02;
+            default: goto label08;
+        };
+
+     label02:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(92);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(c);
+
+        goto label12;
+
+     label03:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(92);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(98);
+
+        goto label12;
+
+     label04:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(92);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(102);
+
+        goto label12;
+
+     label05:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(92);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(110);
+
+        goto label12;
+
+     label06:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(92);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(114);
+
+        goto label12;
+
+     label07:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(92);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(116);
+
+        goto label12;
+
+     label08:
+        j = ('int') c;
+
+        if j >= 32 goto label11;
+
+        j = ('int') c;
+
+        hex = staticinvoke <java.lang.Integer: java.lang.String toHexString('int')>(j);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(92);
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(117);
+
+        j = 4;
+
+     label09:
+        $i1 = virtualinvoke hex.<java.lang.String: 'int' length()>();
+
+        if j <= $i1 goto label10;
+
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(48);
+
+        $i1 = ('int') -1;
+
+        j = j + $i1;
+
+        goto label09;
+
+     label10:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(hex);
+
+        goto label12;
+
+     label11:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(c);
+
+     label12:
+        i = i + 1;
+
+        goto label01;
+
+     label13:
+        virtualinvoke escape.<java.lang.StringBuilder: java.lang.StringBuilder append('char')>(34);
+
+        str = virtualinvoke escape.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' _writeStringData(java.lang.String)>(str);
+
+        return;
+    }
+
+    public 'void' writeBinary(java.nio.ByteBuffer) throws org.apache.thrift.TException
+    {
+        'byte'[] $r1;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        java.nio.ByteBuffer bin;
+        java.nio.charset.Charset $r2;
+        'int' $i0, $i1, $i4;
+        java.lang.String $r0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        bin := @parameter0: java.nio.ByteBuffer;
+
+        $r0 = new java.lang.String;
+
+        $r1 = virtualinvoke bin.<java.nio.ByteBuffer: 'byte'[] array()>();
+
+        $i0 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' position()>();
+
+        $i1 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' arrayOffset()>();
+
+        $i0 = $i0 + $i1;
+
+        $i1 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' limit()>();
+
+        $i4 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' position()>();
+
+        $i1 = $i1 - $i4;
+
+        $i4 = virtualinvoke bin.<java.nio.ByteBuffer: 'int' arrayOffset()>();
+
+        $i1 = $i1 - $i4;
+
+        $r2 = <java.nio.charset.StandardCharsets: java.nio.charset.Charset UTF_8>;
+
+        specialinvoke $r0.<java.lang.String: 'void' <init>('byte'[],'int','int',java.nio.charset.Charset)>($r1, $i0, $i1, $r2);
+
+        virtualinvoke this.<org.apache.thrift.protocol.TSimpleJSONProtocol: 'void' writeString(java.lang.String)>($r0);
+
+        return;
+    }
+
+    public org.apache.thrift.protocol.TMessage readMessageBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'void' readMessageEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public org.apache.thrift.protocol.TStruct readStructBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'void' readStructEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public org.apache.thrift.protocol.TField readFieldBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'void' readFieldEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public org.apache.thrift.protocol.TMap readMapBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'void' readMapEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public org.apache.thrift.protocol.TList readListBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'void' readListEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public org.apache.thrift.protocol.TSet readSetBegin() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'void' readSetEnd() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'boolean' readBool() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'byte' readByte() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'short' readI16() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'int' readI32() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'long' readI64() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public java.util.UUID readUuid() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'double' readDouble() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public java.lang.String readString() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public java.lang.String readStringBody('int') throws org.apache.thrift.TException
+    {
+        'int' size;
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        size := @parameter0: 'int';
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public java.nio.ByteBuffer readBinary() throws org.apache.thrift.TException
+    {
+        org.apache.thrift.TException $r0;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        $r0 = new org.apache.thrift.TException;
+
+        specialinvoke $r0.<org.apache.thrift.TException: 'void' <init>(java.lang.String)>("Not implemented");
+
+        throw $r0;
+    }
+
+    public 'int' getMinSerializedSize('byte') throws org.apache.thrift.TException
+    {
+        'byte' type;
+        org.apache.thrift.protocol.TSimpleJSONProtocol this;
+        org.apache.thrift.transport.TTransportException $r0;
+        'int' $i0;
+
+        this := @this: org.apache.thrift.protocol.TSimpleJSONProtocol;
+
+        type := @parameter0: 'byte';
+
+        $i0 = ('int') type;
+
+        tableswitch($i0)
+        {
+            case 0: goto label01;
+            case 1: goto label02;
+            case 2: goto label03;
+            case 3: goto label04;
+            case 4: goto label05;
+            case 5: goto label14;
+            case 6: goto label06;
+            case 7: goto label14;
+            case 8: goto label07;
+            case 9: goto label14;
+            case 10: goto label08;
+            case 11: goto label09;
+            case 12: goto label10;
+            case 13: goto label11;
+            case 14: goto label12;
+            case 15: goto label13;
+            default: goto label14;
+        };
+
+     label01:
+        return 1;
+
+     label02:
+        return 1;
+
+     label03:
+        return 1;
+
+     label04:
+        return 1;
+
+     label05:
+        return 1;
+
+     label06:
+        return 1;
+
+     label07:
+        return 1;
+
+     label08:
+        return 1;
+
+     label09:
+        return 2;
+
+     label10:
+        return 2;
+
+     label11:
+        return 2;
+
+     label12:
+        return 2;
+
+     label13:
+        return 2;
+
+     label14:
+        $r0 = new org.apache.thrift.transport.TTransportException;
+
+        specialinvoke $r0.<org.apache.thrift.transport.TTransportException: 'void' <init>('int',java.lang.String)>(0, "unrecognized type code");
+
+        throw $r0;
+    }
+
+    static 'byte'[] access$000()
+    {
+        'byte'[] $r0;
+
+        $r0 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] COMMA>;
+
+        return $r0;
+    }
+
+    static 'byte'[] access$100()
+    {
+        'byte'[] $r0;
+
+        $r0 = <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] COLON>;
+
+        return $r0;
+    }
+
+    static 'void' <clinit>()
+    {
+        'byte'[] $r0;
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: java.lang.String MAP> = "map";
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: java.lang.String SET> = "set";
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: java.lang.String LIST> = "list";
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: 'char' QUOTE> = 34;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 44;
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] COMMA> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 58;
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] COLON> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 123;
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] LBRACE> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 125;
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] RBRACE> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 91;
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] LBRACKET> = $r0;
+
+        $r0 = newarray ('byte')[1];
+
+        $r0[0] = 93;
+
+        <org.apache.thrift.protocol.TSimpleJSONProtocol: 'byte'[] RBRACKET> = $r0;
+
+        return;
+    }
+}

@@ -1,0 +1,218 @@
+\section{Certified Migration of the Batch Layer}
+\label{sec:migration}
+
+CardDemo has 44 COBOL programs. By a source-text rule (no CICS, DB2 or IMS calls), 14 of them are batch programs,
+and our front end covers 10 of these. Of the other four, CBEXPORT and CBIMPORT declare
+their record key outside the file's record, which our front end does not accept and IBM's manual does not allow. COBSWAIT, which reads from
+\code{SYSIN}, and CSUTLDTC are covered only by later snapshots (Section~\ref{sec:cbstm03}). The study takes the eight that run on their own.
+Table~\ref{tab:programs} lists them; together they have \aCobolLines{} non-comment lines of COBOL, not counting
+copybooks. The remaining two, CBSTM03A and CBSTM03B, form a pair: CBSTM03A reads its four input files only through calls to the subroutine
+CBSTM03B and writes its two report files itself. We left this pair out of the translation study, and
+Section~\ref{sec:cbstm03} reports the theorems proved about it later.
+
+\begin{table}
+\caption{The eight programs, the part of each statement that is not generated, and the proved translations. ``v$k$'' is the
+attempt within its run that produced the proved translation; ``g2'' marks the second Java style guide. Each proved
+translation is the final version of the run of its guide with input-generator seed 1. All other
+hypotheses are generated: field validity, the clock form, and the record bounds $\aRustBound$ (Rust) and $\aJavaBound$
+(Java).}
+\label{tab:programs}
+\footnotesize
+\begin{tabular}{@{}lp{0.27\linewidth}rp{0.27\linewidth}ll@{}}
+\toprule
+Program & What it does & Lines & Domain (not generated) & Rust & Java \\
+\midrule
+CBACT01C & copies accounts to three files & 358 & none$^{a}$ & v3 & v1 g2 \\
+CBACT02C & lists the card file & 129 & none & v1 & v1 \\
+CBACT03C & lists the card cross-references & 130 & none & v2 & v1 \\
+CBACT04C & computes monthly interest & 552 & $<$ 999,999 balances, grouped by account & v3$^{b}$ & v1 \\
+CBCUS01C & lists the customer file & 130 & none & v1 & v1 \\
+CBTRN01C & checks transactions against cards and accounts & 415 & none & v1 & v1 \\
+CBTRN02C & posts the daily transactions & 619 & $< 10^9$ transactions$^{c}$ & v2 & v2 g2 \\
+CBTRN03C & prints the transaction report & 545 & $< 10^7$ transactions, a date parameter & v1 & v2 g2 \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize $^{a}$CBACT01C calls the assembler routine COBDATFT, whose COBOL-side meaning is a model written directly from its source
+(Section~\ref{sec:trust}). $^{b}$The first attempt of this run failed because the runner's resource cap killed the
+extraction, not because of the model's output. $^{c}$Implied by the record bound; it is the hypothesis of the
+COBOL-side theorem, whose transaction and reject counters have nine digits.
+\end{table}
+
+\subsection{Translation protocol}
+\label{sec:protocol}
+
+Each program is translated in a loop with a fixed protocol. Every attempt is one model call. The first attempt sends
+the COBOL source, its copybooks and a style guide for the target language. The guide is the same for every program.
+It fixes the shape of the result: one entry point that takes the records of each input file and returns the
+displayed lines, the records written and rewritten, and an abend flag. It restates IBM Enterprise COBOL's file-status
+rules, gives a naming rule for record fields, and restricts the code to the subset accepted by the verifiers (for
+Rust, loops over indices and no iterator adapters, closures or strings). It also asks the model to reproduce the
+program's quirks and defects. Each later attempt sends back the current translation with either the compiler's
+message or up to three counterexamples. A counterexample is a generated input on which the translation's output
+differs from that of the COBOL program under our semantics, sent together with both outputs. Nothing else goes back, neither
+hints about causes nor edits by a person. A version passes when it agrees with the COBOL run on 60 fresh cases and on every earlier
+counterexample. It must then agree on 300 further fresh cases. A run ends when a version passes this final check,
+after 10 attempts, or when it has spent \$15. Each guided translation runs both natively and inside the verifier: Java on
+the JVM and in JimpleLean's interpreter, Rust natively and through its Aeneas extraction evaluated in Lean.
+
+A plain arm asks only for an idiomatic Java or Rust translation, with the input and output contract needed to run
+it. Its translations use real file I/O, which is outside the languages of the verifiers. They run natively and serve only to measure errors. For three Java programs we proved translations made with a second version of the Java guide.
+It adds four rules on structure: each search over a file's records in its own helper method, no large constant
+tables, little state carried across the main loop, and output text built with a \texttt{StringBuilder}. The
+translations from the first guide passed testing as well, but their proofs were not completed.
+
+Every proved source equals, byte for byte, the final version of its run in the translation records. The Java bytecode and the Jimple imported by the proofs regenerate identically from these sources. All \aStatements{}
+generated statements regenerate identically as well: one per program and language, and a second,
+restricted one for CBACT04C and CBTRN02C. Three of the four restricted statements are proved. For the Java
+translation of CBTRN02C, only the full-domain statement was proved.
+
+\subsection{Results}
+
+All \aTheorems{} theorems are proved, use only Lean's standard axioms and pass the kernel replay and the mutation test
+(Section~\ref{sec:trust}). Each Rust proof also shows that the translation returns normally on every input
+of its domain.
+
+The need for full-domain statements arose on the COBOL side. Proving the COBOL programs on all admissible inputs brought up three
+paths that are easy to leave out: CBACT04C's \texttt{DEFAULT} retry, which CardDemo's own data always takes; the \texttt{NEXT SENTENCE} in CBTRN03C, which ends the report at the first transaction
+dated outside the requested range; and the abend of CBTRN02C on a repeated transaction id. The statements in
+Table~\ref{tab:programs} cover all three, and Section~\ref{sec:trust} shows two Rust mutants that the full-domain statements reject and the restricted ones
+accept.
+
+The translations keep the defects of the original programs, as the theorems require. CBACT04C never adds the last account's interest to its balance (reported as CardDemo
+issue~\#64~\cite{carddemo64}). At end of file, CBTRN03C adds the last
+transaction's amount to the totals a second time (described in CardDemo pull request~\#32~\cite{carddemo32}). CBACT01C sets the cycle debit of its output record only when the
+account's own debit is zero. An account with a debit therefore inherits the value written for the previous one.
+
+\paragraph{Termination of the Java translations.} The Java theorems above state partial correctness. The termination
+version of JimpleLean adds a calculus that uses loop variants. Its soundness theorem
+(\code{TermVC.mterm}) derives the semantic termination predicate \code{MTerm} from the conditions of the calculus,
+under the contracts of the callees. \code{MTerm} holds when every execution terminates, whatever the nondeterministic choices. With
+this calculus, on the termination version, all eight Java translations are also proved totally correct. For every input admitted by the migration theorem, one theorem per program states \code{MTerm} for the Java program, and a total-correctness version of the migration
+theorem, proved from that theorem, states that an execution exists and that every execution ends normally with the outputs related to the COBOL run by the migration theorem. So no Java run diverges, and every run matches the COBOL outcome. These
+theorems belong to a separate commit that uses the termination version of the Java semantics. The migration theorems also check
+in that commit, and the results above refer to the earlier version.
+
+\subsection{How the model went wrong}
+
+Table~\ref{tab:errors} summarizes the \aaRuns{} counted runs: 8 programs, two languages, the plain arm and the first
+guide with seeds 1 to 3, and the second Java guide with seed 1. The plain arm does not apply to CBACT01C, whose
+output record has a packed field outside the contract of that arm. One guided Rust run of CBACT04C is left out, because the runner's resource cap killed its first attempt
+(Table~\ref{tab:programs}, note b). That run produced the proved translation, so 15 of the 16 proved translations
+come from the counted runs. Every run ended with a
+passing version. The first version that ran differed from the COBOL program
+on some generated case in \aaFirstDiff{} runs (\aaFirstDiffPct\%, 95\% interval [26, 45]). The rate was
+\aaPlainDiff{}/\aaPlainN{} with the plain prompt and \aaGuideDiff{}/\aaGuideN{} with the first guide. With the guide,
+\aaBuildFail{} of the 23 first Rust versions did not build, because Charon or Aeneas rejected a construct. Counting
+first attempts instead of first running versions, \aaNotPass{} of the 92 did not pass: the \aaBuildFail{} that did not
+build and 31 that differed. The two arms differ in more than the guide, since the translations of the plain arm read
+and write real files instead of using the interface of the verifier. The differing first versions also cluster by
+program: none for CBACT01C, CBCUS01C and CBTRN01C, but 11 of the 13 runs of CBTRN03C and 8 of the 13 of CBTRN02C had one.
+The study was not pre-registered, and its intervals treat the runs as independent and are therefore too narrow.
+
+\begin{table}
+\caption{Translation errors over \aaRuns{} runs. ``Differed'': the first version that ran differed from the COBOL
+program on a generated case. Collating sequence: causes marked fixed whose kind is the collating sequence, labelled after the runs from a fixed
+list of 15 kinds. Intervals are Wilson intervals over runs treated as independent.}
+\label{tab:errors}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Arm, language & Runs & Differed & First version did not build & Collating sequence \\
+\midrule
+plain, Java & 21 & 7 & 0 & 6 \\
+plain, Rust & 21 & 13 & 0 & 11 \\
+guide 1, Java & 24 & 6 & 0 & 8 \\
+guide 1, Rust & 23 & 4 & 12 & 4 \\
+guide 2, Java & 3 & 2 & 0 & 2 \\
+\midrule
+all & 92 & 32 (35\%, [26, 45]) & 12 & 31 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The causes were labelled after the runs, from a fixed list of 15 kinds. For each run whose repairs fixed behaviour, further model calls named the causes that each diff fixed: one call per
+run in 30 of the 32 runs, 37 calls in all. These calls saw the COBOL program and, for the repairs, the version before
+each, the diff and the counterexamples. Each repair that only fixed a build failure, in the 12 guided Rust runs whose first version did
+not build, was labelled from its build error, without a model call. The repair loop never saw these labels.
+Of the 50 causes marked fixed in the 52 repairs, \aaCollating{} are the collating sequence: the model had compared or
+sorted alphanumeric fields in Unicode order where the mainframe uses EBCDIC. Next come constructs outside
+the verifier's language (\aaVerifLang{}, all guided Rust) and uninitialized storage (\aaUninit{} causes in 4 repairs). No repair was
+labelled rounding, truncation, sign, file status or control flow.
+
+Three findings concern the checking itself. First, for every guided translation, the native run and the verifier's execution agreed on all cases of all attempts, so any discrepancy was also visible on the formal semantics. The translations of
+the plain arm ran only natively. Second, take the 10 first versions from seed 1 (plain arm and first guide) that failed on generated inputs. The
+records of the translation runs, which we did not re-run, show that none of them differs from the original when run on
+CardDemo's own sample data. Third, no proof found a behavioural difference that testing had missed (0 of 16). Instead, the proofs found two things that tests cannot reach. The statements needed
+bounds on the number of records, so that collection sizes fit a 32-bit \texttt{usize} in Rust and \texttt{int}
+indices in Java. And some statements had to be corrected, for example to model the JVM's class initialization for a
+translation that reads a static table, or to pad a \texttt{READ INTO} a record shorter than the file's. In all, the
+generator and the domains of the eight programs changed in 26 commits after their first versions (CBTRN03C's first
+domain counts as its first version). The sessions that wrote the generator and the domains classified each change against the earlier
+statement of the same program, in a list that accompanies the paper: 9 made statements
+weaker (the record bounds, premises that the translation's classes are initialized, and the domains of the restricted
+statements), 6 made them stronger, mostly by widening a domain to every admissible input, and 11 were neutral (first
+statements of further programs and of Rust, new features, representation changes, a superseded change, and fixes of
+statements that were ill-formed before any proof). The same list also covers CBSTM03B.
+
+\subsection{The pair CBSTM03A and CBSTM03B}
+\label{sec:cbstm03}
+
+The pair CBSTM03A and CBSTM03B, which the translation study left out, is covered by later theorems on the migration version of the COBOL semantics. COBOL-side theorems give a call of CBSTM03B, and a run of CBSTM03A with
+CBSTM03B linked, by functional models of their outputs. They assume, among other premises, record lengths and keys of the expected forms, a
+fixed model of the z/OS address space that CBSTM03A inspects, and successful opens. For the pair, they also assume a
+nonempty transaction file sorted by card, with at most 50 card groups of at most 10 records each, whose customers and accounts are all found. This assumption makes the pair's main theorem restricted in the sense of Section~\ref{sec:example}, and
+two more theorems give the abend when a customer or account is missing. Run under GnuCOBOL without the walk through
+the address space, the pair writes the same 1,212 account-statement records and 6,082 HTML records as our semantics.
+
+Both programs then went through the translation protocol (Section~\ref{sec:protocol}), in runs that are not part of the statistics
+above. Theorems with mostly generated statements relate the first-guide translations of CBSTM03B to the COBOL call, by
+an equivalence for Rust and by a refinement with partial correctness for Java. Further theorems relate the Rust and the first-guide Java translations of CBSTM03A to the linked pair on every
+input in a stated domain, including the runs that abend; the Java one states partial correctness. Their relation leaves out the 11 lines displayed by the walk through the address space, and their domain, the address-space model, the
+patterns of those lines and the map from files to record layouts are written directly. The theorems of this subsection are \emph{exploratory}: they lie outside the planned studies and the pre-registrations
+(Appendix~\ref{app:prereg}); those for CBSTM03A are proved on later versions of our packages
+(Appendix~\ref{app:pins}).
+Composite theorems, for CBSTM03B's Java translation and for these two translations of CBSTM03A, add the safety of the COBOL
+run and the normal termination of the translation. Two exploratory theorems on later snapshots of coblean cover CSUTLDTC and COBSWAIT on the COBOL side. They leave the external routines called by these programs arbitrary, and they
+allow faults named in the theorems. With them, 12 of CardDemo's 14 batch programs have a theorem on the COBOL side. The
+technical report~\cite{fvtechreport} states every hypothesis of these theorems.
+
+\subsection{Cost and effort}
+\label{sec:effort}
+
+The model calls of all translation runs, in every arm and seed, and of the labelling of root causes cost
+\$\aTranslUsd{} over \aTranslCalls{} calls; the runs that produced the 16 proved translations cost between \$0.08 and
+\$1.30 each (Table~\ref{tab:effort}). The proofs cost far more. By the usage records of the sessions that did it, the proof work cost about \$\eAllInUsd{} in model usage from its
+start until shortly before its proofs were frozen. This figure includes the shared bridges and the COBOL side but not
+the earlier development of the semantics and the bridges. The Lean builds and checks logged in two of the three proof
+sessions took at least \eCoreHMeasured{} core-hours, part of them for the tiny-regex-c port
+(Section~\ref{sec:c2rust}). A clean build of all migration proofs,
+with the libraries of the semantics already built, takes \eCleanCoreH{} core-hours on one core. The program-specific
+modules have \eProofLines{} lines of Lean, 1,233 of them generated statements, against \aCobolLines{} lines of COBOL. No person wrote any of these Lean lines.
+
+\begin{table}
+\caption{Size of the proofs and cost of the translations, per program. Lean lines are non-blank, non-comment lines of
+the program-specific modules in the import closure of each theorem; shared lines (model, glue, domain) serve both
+languages. A module that several programs' theorems import counts in each of their rows and once in the last row. Translation cost: model calls of the run that produced the proved translation.}
+\label{tab:effort}
+\footnotesize
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+ & COBOL & \multicolumn{4}{c}{Lean lines} & \multicolumn{2}{c}{Translation \$} \\
+\cmidrule(lr){3-6}\cmidrule(l){7-8}
+Program & lines & Rust & Java & shared & statements & Rust & Java \\
+\midrule
+CBACT01C & 358 & 1,286 & 2,296 & 1,149 & 98 & 0.69 & 0.32 \\
+CBACT02C & 129 & 226 & 600 & 745 & 70 & 0.08 & 0.09 \\
+CBACT03C & 130 & 241 & 1,008 & 188 & 71 & 0.16 & 0.10 \\
+CBACT04C & 552 & 4,224 & 9,519 & 2,336 & 306 & 1.30 & 0.45 \\
+CBCUS01C & 130 & 225 & 893 & 188 & 70 & 0.10 & 0.11 \\
+CBTRN01C & 415 & 729 & 2,298 & 261 & 145 & 0.23 & 0.21 \\
+CBTRN02C & 619 & 3,880 & 10,364 & 2,907 & 326 & 0.95 & 1.10 \\
+CBTRN03C & 545 & 2,768 & 7,030 & 1,720 & 147 & 0.52 & 1.00 \\
+\midrule
+all, each module once & 2,878 & 13,579 & 33,222 & 6,379 & 1,233 & 4.03 & 3.38 \\
+\bottomrule
+\end{tabular}
+\end{table}

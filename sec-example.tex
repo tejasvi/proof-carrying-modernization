@@ -1,0 +1,80 @@
+\section{A Running Example}
+\label{sec:example}
+
+CBACT04C is the monthly interest calculator of CardDemo, 552 non-comment lines of COBOL. It reads a file of balances, one record
+per account and transaction category, sorted by account. For each new account it reads the account record and the
+card cross-reference record. For each balance it looks up an interest rate in the disclosure-group file, keyed by the
+account's group, the transaction type and the category. When that key is missing, the program displays two lines and
+retries with the group \texttt{DEFAULT}. It then computes the monthly interest as balance times rate divided by 1200 (Section~\ref{sec:limits} discusses how
+our semantics places this quotient), adds it to a running total and writes an interest transaction. When the account number changes, it adds the total to
+the account's balance, zeroes the cycle credit and debit, and rewrites the account record. A missing account, a missing
+cross-reference record or a missing \texttt{DEFAULT} rate ends the run with an abend.
+
+CardDemo's sample data never finds a rate on the first try. All 50
+accounts in the sample account file have a blank group, and the disclosure-group file holds only the groups
+\texttt{A000000000}, \texttt{DEFAULT} and \texttt{ZEROAPR}. So every sample run takes the \texttt{DEFAULT} path. The program also has a defect. The call that rewrites the last account sits in a branch that the loop never reaches,
+so the last account's interest is written as a transaction but never added to its balance. This defect was reported upstream as CardDemo
+issue~\#64~\cite{carddemo64}. A faithful translation has to keep it. The theorems below say that the
+proved translations do.
+
+\begin{figure}
+\begin{lstlisting}[language=lean,basicstyle=\footnotesize\ttfamily]
+theorem rust : ∀ (tcat xref acct disc : List (List FVal)) (link : List FVal)
+    (clk : List UInt8),
+  (∀ v ∈ tcat, TranCatBalRecord.Valid v) → ... → (∀ v ∈ disc, DisGroupRecord.Valid v) →
+  ExternalParms.Valid link → CurrentDate clk →
+  Domain tcat xref acct disc link →                          -- written directly
+  tcat.length + xref.length + acct.length + disc.length < 2 ^ 28 →
+  ∀ n, tcat.length + xref.length + acct.length + disc.length < n →
+  ∀ s1 s2 s3 s4 q rclk, TcatbalFileOf s1 tcat → ... → DiscgrpFileOf s4 disc →
+    ExternalParms.vals q = link → rclk.val.map (·.val) = rustLine clk →
+  Equiv Rel (cbact04c_t.run s1 s2 s3 s4 q rclk)                       -- the Rust translation
+            (Cobol.run CardDemo.Cbact04c { clock := fun _ => clk } (n + 60)
+               (CardDemo.Cbact04c.initState
+                  (Mem.write initMem 1727 (ExternalParms.encode link))
+                  [(1, tcat.map TranCatBalRecord.encode), ...]))   -- the COBOL program
+\end{lstlisting}
+\caption{The statement for CBACT04C and its Rust translation, abridged. Everything except \texttt{Domain} is generated from the COBOL program and the translation's interface
+(Section~\ref{sec:stack}).}
+\label{fig:stmt}
+\end{figure}
+
+Figure~\ref{fig:stmt} shows the statement for the Rust translation, slightly abridged. The inputs are the records of
+the four input files, as lists of field values, the linkage record that carries the run date, and the clock. The first
+hypotheses say that each field fits its declared picture. They are generated from the record layouts of the COBOL
+program, as is the hypothesis that the clock has the form of \texttt{FUNCTION CURRENT-DATE}. The clock is one value. Every read of it in the COBOL run returns \texttt{clk}, and the Rust translation receives the same value,
+converted by \texttt{rustLine}, as \texttt{rclk}. The hypothesis
+\texttt{Domain} is the only one that is not generated. It asks for fewer than 999,999 balance records, with the records of
+each account next to each other, as in a file read in key order. It assumes nothing about lookups. The bound of
+$\aRustBound$ records in all keeps the output vectors within the range of a 32-bit \texttt{usize}, and Aeneas
+(Section~\ref{sec:stack}) allows \texttt{usize} to be that narrow. The fuel $n + 60$
+bounds how deeply the paragraph transitions, \texttt{PERFORM} entries and loop iterations of the COBOL run may nest, and it is
+enough for the run to finish. The remaining hypotheses tie the Rust arguments to the same records: each input slice holds structs whose fields decode to the given values. Every \code{OPEN} of the COBOL run succeeds, an assumption discussed in Section~\ref{sec:trust}.
+
+The conclusion is an equivalence up to the relation \texttt{Rel}, both defined in Section~\ref{sec:stack}. The COBOL run finishes within the fuel, without
+undefined behaviour and without leaving the modelled fragment, exactly when the Rust run terminates. The Rust run then returns normally, without a panic, and the
+two outcomes agree on the displayed lines, as the bytes of their EBCDIC text, on the transaction records written, on
+the account records rewritten and on whether the run abends. The COBOL side is our semantics of the unmodified program. An equivalence alone would also hold between two programs that both fail, but the proof rules
+this out along the way: its main lemma states that the Rust translation returns normally on every input of the domain,
+with outputs given by a Lean model of the program. A \emph{composite theorem}, with exactly the hypotheses of
+Figure~\ref{fig:stmt}, states in one conclusion that the COBOL run is safe, that the Rust run returns normally and that the two are
+equivalent.
+
+The Java statement has the same hypotheses, except that the bound is $\aJavaBound$ records, a margin below the $2^{31}$
+elements at which the \texttt{int} size of a Java collection wraps, and except that it also assumes that the classes
+of the translation are initialized. Its conclusion is the one-way refinement with
+partial correctness described in Section~\ref{sec:intro}. Its composite theorem, with the same hypotheses, adds that
+the COBOL run is safe, that no Java run diverges and that every Java run meets its postcondition. This composite theorem is stated on a later version of the Java
+semantics, the termination version (Section~\ref{sec:stack}). We call a translation
+\emph{certified} when its migration theorem and its composite theorem are proved; all 16 translations are certified.
+
+Why insist on every admissible input? An earlier pair of statements for CBACT04C assumed instead that each keyed read finds its record. We call statements
+over a narrower domain than all admissible inputs \emph{restricted}, and those over all admissible inputs
+\emph{full-domain}.
+The restricted statements are proved as well, but CardDemo's own data lies outside them, because on the sample data
+the first disclosure-group read always misses. The mutation test (Section~\ref{sec:trust}) shows the difference. One
+mutant of the Rust translation drops the \texttt{DEFAULT} retry and abends at once when the account's group has no
+rate. Take an account whose group has no rate for a category while \texttt{DEFAULT} has one. The original writes an
+interest transaction and ends normally, whereas the mutant abends. The proof of the full-domain theorem fails on this
+mutant. The proof of the restricted theorem still checks against it, since the restricted domain never reaches the
+retry. The Java translation's full-domain theorem rejects the corresponding Java mutant as well.

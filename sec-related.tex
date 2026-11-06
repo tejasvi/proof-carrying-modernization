@@ -1,0 +1,60 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{LLM translation with formal checks.} Several systems check LLM translations formally. Heimdall~\cite{heimdall}
+migrates eBPF programs from C to Rust and checks, with symbolic execution of both binaries and Z3, that they are
+equivalent on all inputs that satisfy a safety condition, for 109 of 115 programs. VERT~\cite{vert} checks LLM
+translations to Rust against an oracle derived from WebAssembly, with property tests or bounded model checking.
+LLMLift~\cite{llmlift} has the model write a program in a domain-specific language together with invariants and a proof
+that an SMT solver checks. Browne et al.~\cite{browne} prove in Lean that LLM-generated GPU kernels match a
+specification under assumptions they state, and Lazaropoulos and Paraskevopoulou~\cite{equivm} have LLM agents write Lean
+refinement proofs for EVM bytecode over a semantics that passes the Ethereum conformance tests. IRONPROOF~\cite{ironproof}
+checks COBOL-to-Python translations with Z3 against its own representation of the COBOL program, and reports that
+proofs of that kind can disagree with GnuCOBOL. Equivalence modulo an explicit set of behaviours, as in our domains,
+appears in Heimdall and in Partial Contracts~\cite{partialcontracts}. Our setting differs in the programs and in the checker. Our programs are whole unmodified COBOL programs with loops,
+files, packed decimals and \code{REDEFINES}, translated into two languages, and our proofs are kernel-checked over a
+COBOL semantics that is tested against GnuCOBOL. Testing a semantics
+against GnuCOBOL, another implementation or a conformance suite is itself common
+practice~\cite{ironproof,cobolequiv,equivm}.
+
+\paragraph{COBOL migration and CardDemo.} Industrial COBOL-to-Java migration is validated by testing. Ferenczi et
+al.~\cite{amexwitness} certify repeatable entry-replay witnesses for COBOL-to-Java migration and report that none of the
+45 seeded precision or rounding mutants was killed, although the witnesses reached 35 of them, which shows how hard such
+errors are to catch by tests. A Python model of COBOL numerics
+has been compared with GnuCOBOL~\cite{cobolequiv}, and a formal description of COBOL's control constructs dates from
+1993~\cite{baumann}. CardDemo has been analysed before. Range assertions were checked on four of its
+programs~\cite{carddemo54}, and its defects are reported in issue~\#64~\cite{carddemo64} and pull
+request~\#32~\cite{carddemo32}, which also describes the \code{NEXT SENTENCE} and end-of-file behaviour of CBTRN03C.
+We do not claim to have found these defects. Our contribution for these programs is the theorems.
+
+\paragraph{Errors in LLM translations.} Pan et al.~\cite{pan2024lost} classify 1,748 bugs in LLM translations between
+five languages, Eniser et al.~\cite{eniser2024} measure translation to Rust on real projects with differential fuzzing,
+Chang et al.~\cite{chang2025} study vulnerabilities that translation introduces, and Du et al.~\cite{du2026} study
+hallucinations in code translation. Our measurement is narrower in scope. It gives rates and kinds of errors for one batch layer, where
+each behavioural error comes with an input on which the translation and the original disagree, and 16 translations,
+one per program and language, carry a proof.
+
+\paragraph{Semantics in proof assistants.} For ClangIR, circe~\cite{circe} translates a list of program shapes into
+Lean through a verified emitter, and VeIR~\cite{veircir} has an integer-only \code{cir} dialect. Java bytecode is
+verified through Soot's Jimple in ByteBack~\cite{bytebackfm}, and K-Java~\cite{kjava} tested an executable Java
+semantics against the JDK on far more programs than we did. Tarski and Thales~\cite{thales} give JavaScript a Lean
+semantics, and LemmaScript~\cite{lemmascript} translates annotated TypeScript to Dafny or Lean. Aeneas~\cite{aeneas}
+and Charon~\cite{charon} give us Rust. We found no mechanized COBOL semantics in a proof assistant before ours.
+
+\paragraph{Relational verification.} Language-parametric equivalence is not new. Keq~\cite{keq} and Ciob\^ac\u{a} et
+al.~\cite{ciobaca} relate programs across two semantics, and SAW~\cite{saw} has proved C and Java code equivalent
+since 2013. Lock-step loop rules are standard~\cite{refinemonadic,l4v,compcert,sewell}, as is regression
+verification of changes within one language~\cite{godlinstrichman,reve,symdiff}. Alive2~\cite{alive2} lets a target
+differ from its source only where the source has undefined behaviour, which is the shape of our \code{EquivOn}
+verdicts.
+
+\paragraph{Other uses of verification.} That compiled code need not show source-level undefined behaviour is well
+known~\cite{wang2012ub,stack2013}, and kcc~\cite{kcc} detects examples of all 77 categories of core-language undefined
+behaviour in C11. Proofs about OSS-Fuzz harness binaries~\cite{theoremossverify} rule out the errors that the sanitizer
+builds detect, and their authors state that errors the sanitizers cannot detect are not excluded;
+Section~\ref{sec:ub} shows two such cases in the projects' own tests. Code-level proofs have run in continuous
+integration at AWS~\cite{s2n2018,chong2020}, DiffKemp~\cite{diffkemp} checks semantic equivalence between versions of
+large C projects, Sarker et al.~\cite{sarker2026} quantify the impact of CVE patches symbolically, and verification
+results have been cached across runs~\cite{leinowustholz,infer}. We found no evaluation of verification tools on random
+samples of functions with confidence intervals or a pre-registration, in recent papers on LLM-based verification and in
+the literature they cite; one evaluation samples 70 lemmas at random for an ablation~\cite{autorocq}.

@@ -1,0 +1,61 @@
+\section{Limitations}
+\label{sec:limits}
+
+\paragraph{What the migration theorems cover.} The theorems are about records in memory,
+so they say nothing about opening real data sets, record locking or the job control that runs the programs. The bounds
+($\aRustBound$ and $\aJavaBound$ records, and the domains of Table~\ref{tab:programs}) are part of every statement. The total-correctness theorems for Java are proved on the termination version of JimpleLean, and those of CBSTM03A on a
+later version (Appendix~\ref{app:pins}). The eight programs are small batch programs, 129 to 619
+lines each, and the online programs of CardDemo, which use CICS, are out of scope.
+
+\paragraph{Trusted front ends and translations.} A theorem is about the terms that a front end and a generator
+produced. None of the front ends is verified, and Aeneas's translation of Rust is trusted. The differential tests
+exercise each pipeline end to end, but a front-end error that the tests miss would make a theorem concern a different
+program.
+
+\paragraph{Validation by testing.} Agreement with a reference implementation supports, but does not prove, that a
+semantics matches its language. GnuCOBOL is the only COBOL implementation we could run. Where GnuCOBOL deviates from IBM's documented behaviour, the semantics follows the IBM manuals, and the generators of
+the differential tests leave out the classes of programs in which the two differ. Each tester also compares only part of a program's state: the arithmetic tester keeps one flag for the
+outcomes of conditions and size errors, the file tester compares only the failing statement of a program that stops at
+an abend, the \code{UNSTRING} tester compares only receivers, delimiters and counts, and the string testers start their
+counters at zero. A
+later version of the testers without these limits finds one more difference, in a class where GnuCOBOL departs from
+IBM and the semantics follows IBM.
+
+The COBOL tests of Table~\ref{tab:fidelity} use GnuCOBOL's conventions for characters and signs, not the IBM variant used in the theorems. The exploratory run in the IBM variant tests the construct classes used in the theorem programs, with the exceptions below. Apart from CBSTM03A with CBSTM03B, it does not run the programs themselves. Both statements and the list that follows come from the coverage list of the COBOL maintainer session. The run leaves untested the clock in CBACT04C and CBTRN02C, the \code{INITIALIZE} statements of three programs, CBACT01C's
+assembler call and variable-length file, the exact edited pictures of CBTRN03C and the walk of CBSTM03A through the
+address space. Two gaps remain in every version of the testers. GnuCOBOL's indexed files keep record keys in native
+byte order under every flag set we tried, so the order of keys is not tested. And seven \code{DISPLAY} operands of the
+theorem programs, five in CBACT01C and two in CBTRN03C, are signed zoned-decimal items, and the semantics prints their stored bytes with the sign overpunched on the last
+digit, as IBM Enterprise COBOL does under its default option
+\code{DISPSIGN(COMPAT)}. GnuCOBOL prints a separate sign under every option we tried, the IBM-variant run included, so
+no differential test checks these outputs, only the stored bytes; a build with \code{DISPSIGN(SEP)} would print them
+differently.
+
+\paragraph{Known defects of the COBOL and Java semantics.} At the version used for our theorems, the NIST suite and the
+differential tests found front-end bugs and defects of the COBOL semantics. The COBOL maintainer session reported more,
+some of them after our checks, among them departures from IBM's rules for the digits that intermediate results carry.
+Of the ten programs covered by this version, only CBACT04C reaches one of these defects. One of its statements
+divides under a rule for the places of a quotient that differs from IBM's, and the stored value is the same under both
+rules for every input, provided that IBM truncates the extra places of the intermediate result. We base the claim that only CBACT04C reaches one of these defects on our own scans, except for six defects and
+departures reported after our checks. For those six, the claim rests on the maintainer session's report, and our scan
+of the divisions supports that report for one of them. The technical
+report~\cite{fvtechreport} describes each defect, its exposure and the later snapshots of coblean. In our exploratory re-checks,
+these snapshots fix each defect or stop with a fault where it would apply, with two exceptions. They keep the rule for quotients in
+the form of CBACT04C's computation, and they fix the read position only for files declared with dynamic access. A later Java tester found a wrong
+library model of \code{Double.compare} for NaN, which no Java theorem that we report calls.
+
+\paragraph{The C semantics.} The C and C++ results of Section~\ref{sec:further} rest on a C semantics with known
+defects. At the versions behind them, memory holds typed elements, not bytes, so a load or store of a scalar of another
+width than the element it reaches, such as a word read from a character array, reads or writes one element where C
+reads or writes bytes; we call this the one-element meaning. Type punning through a union, some pointer arithmetic, the copying of objects of classes with non-trivial copy or
+move constructors or destructors when they are passed or returned by value, and reads of globals that a unit only
+declares are not modelled as the languages define them either; the C library models have gaps, and the semantics
+defines several operations that C leaves undefined. Those results hold only for code without such accesses and
+operations. The technical report lists these and the other defects, what scans of the ClangIR on the paths related by the results find, and where the scans cannot decide; a later version of the semantics fixes the defects on our tests, up to gaps that it labels.
+
+\paragraph{The model and the protocol.} The translations were produced by one commercial LLM, accessed through its API with
+fixed settings (Appendix~\ref{app:llm}). Its output is not deterministic, and a newer model may err differently. We ran three seeds of the input generator per arm (one for the second Java guide), each with its own translation run. We report every run, and the statistics leave out only one of these runs, because the runner's resource cap killed its first
+attempt. The error rates are computed over 92 runs on eight programs, and no interval in this paper accounts for the clustering of units or of runs by program, or for run-to-run
+variation. Most root causes were labelled by a model and the others from their build errors, from a fixed list, and we did not check the labels against a second labeller. The style guides are the same for every
+program and restate IBM's file-status rules, which a plain prompt leaves to the model. The second Java guide was added
+after the proofs of three first-guide translations stalled, but it constrains only the structure of the code.

@@ -1,0 +1,130 @@
+\section{The Verification Stack}
+\label{sec:stack}
+
+The stack has three layers: semantics for each language, a relational layer that states and proves that two programs
+behave the same, and an orchestrator that applies both to whole repositories. Each semantics runs on the unmodified
+output of a front end, so a theorem is about the code as the front end sees it rather than about a hand transcription of it. We call
+the versions of our semantics used for the migration theorems (Appendix~\ref{app:pins}) the \emph{migration versions}.
+
+\subsection{Semantics on front-end output}
+
+\paragraph{COBOL\@.} Our COBOL semantics is called coblean. A front end reads the COBOL source with its copybooks, expands \code{COPY \dots{} REPLACING}, resolves
+names and writes a JSON representation. Everything else is computed in Lean from that file: data layout, offsets,
+encodings, \code{REDEFINES} overlays, level-88 values and the intermediate-scale rules of arithmetic. Working storage
+is a byte array in which a field is a range of bytes with a format. The codecs cover \code{DISPLAY} in EBCDIC or ASCII,
+packed decimal, binary under the truncation options and native binary. Arithmetic is exact, with COBOL's rounding modes
+and size errors, and \code{MOVE} implements padding, justification and numeric editing. Control flow covers every form
+of \code{PERFORM}, including \code{THRU} with IBM's return-slot semantics, \code{GO TO} and sections. Files are
+sequential or indexed with IBM's file-status codes, and an unhandled I/O error abends. A run is deterministic and has
+a fuel bound. Running out of fuel, leaving the modelled fragment and behaviour that COBOL leaves undefined (an
+overlapping \code{MOVE}, a subscript out of range) are not outcomes but going wrong. Abends, including
+\code{CALL 'CEE3ABD'}, are outcomes, since a rewrite has to reproduce them. For proofs, the main tactic executes a program
+symbolically, merges the two branches of an \code{IF} into one state with conditional fields, and tracks value
+intervals so that truncation tests disappear when a value fits. A loop over a file is replaced by its result, by
+induction over the records with an invariant.
+
+\paragraph{Java.} JimpleLean gives a semantics to Jimple, the typed three-address code that Soot~\cite{soot} produces
+from Java bytecode. A command parses Soot's output at elaboration time and defines the program as a Lean term. The
+state holds a heap, static fields, class-initialization states and monitors. Method selection follows the JVM
+specification, exceptions raised by the JVM are objects dispatched through the trap table, and class initialization is
+lazy, in the order of the Java Language Specification. Library types are Lean types: a \code{String} is a list of
+UTF-16 code units and a \code{List} is a Lean list. Where the JDK leaves behaviour unspecified, the semantics is
+nondeterministic, and anything outside the models goes wrong. Because the semantics is big-step, it cannot
+observe divergence, so its verification conditions state partial correctness. The condition generator is proved
+sound against the semantics. A later version of JimpleLean, which we call the \emph{termination} version, adds a termination calculus, also proved sound (Section~\ref{sec:migration}).
+
+\paragraph{Rust.} We do not define a Rust semantics. Instead, Charon and Aeneas~\cite{aeneas} translate a Rust crate into a pure
+Lean model in which a function returns a result, a panic or divergence. Integer overflow, out-of-bounds indexing and
+\code{Vec} capacity are checked in the model and panic as in a debug build, and we trust this translation.
+
+\paragraph{C and C++.} cirlean works on ClangIR~\cite{clangir}, the MLIR dialect that Clang emits before lowering, in
+which loops, scopes and cleanups are still explicit. Memory consists of blocks of structured values, and a pointer is a
+block with a path of member and element steps. Undefined behaviour is detected and counts as going wrong: signed overflow, out-of-range access,
+use after free, reads of indeterminate values, writes to read-only blocks and accesses through stale container
+pointers. Library models cover \code{std::vector}, \code{std::string} and parts of the C library. A symbolic executor
+with invariant-based loop rules proves the judgement \code{Returns}, which states total correctness. Every function can
+live in its own Lean module, and a proof then depends only on its function and the contracts of its callees.
+
+\paragraph{TypeScript.} StrictTS defines a statically typed subset of TypeScript and emits Lean through the TypeScript
+compiler API. Its representation is intrinsically typed, and evaluation therefore has no type errors. Numbers are IEEE
+doubles, strings are UTF-16 code units, and promises, \code{async} functions and the event loop are part of the
+semantics.
+
+\subsection{Relating programs}
+
+A Lean type class gives each semantics two predicates: \code{Runs c o}, running \code{c} can end with the observable
+outcome \code{o}, and \code{Safe c}, running \code{c} cannot go wrong. Simulation and equivalence are defined once for
+any two such semantics:
+\begin{lstlisting}
+def Sim (R : OT → OS → Prop) (t : T) (s : S) : Prop :=
+  Safe s → Safe t ∧ ∀ ot, Runs t ot → ∃ os, Runs s os ∧ R ot os
+def Equiv (R : OT → OS → Prop) (t : T) (s : S) : Prop :=
+  Sim R t s ∧ Sim (fun os ot => R ot os) s t
+def EquivOn (Bad : X → Prop) (R : OT → OS → Prop) (f : X → T) (g : X → S) : Prop :=
+  ∀ x, ¬ Bad x → Equiv R (f x) (g x)
+\end{lstlisting}
+Each instance fixes what going wrong means. For COBOL it is running out of fuel, an unsupported statement or an
+undefined result. For Rust it is divergence, since a panic is an observable outcome. For C++ it is undefined behaviour
+or divergence. At the migration version, a Java target gives only partial correctness, as divergence is invisible to its big-step semantics. The termination
+version adds total correctness (Section~\ref{sec:migration}).
+\code{EquivOn} excludes a set of inputs \code{Bad}. Its contrapositive says that the two programs can differ only on
+\code{Bad}, which is the shape of a bug fix when \code{Bad} is the set of inputs on which the old version went wrong.
+
+\paragraph{Generated statements.} For the migration study, a generator writes each statement from four inputs: the
+translation's interface (which parameter holds which COBOL file, record or linkage item); the representation of the
+COBOL program, from which it derives the record layouts and the validity predicate of each field; the form of the
+COBOL-side theorem (its fuel); and the initial storage of the program. It emits the statement of
+Figure~\ref{fig:stmt}: one quantified list of field values per input file; validity hypotheses; the record bound; the
+optional domain (not generated); the relations between the arguments of the translation and the COBOL records; and the
+conclusion with the outcome relation. This relation, \code{Rel}, compares the displayed lines as EBCDIC text, the records written
+and rewritten per file, decoded by the layouts of the COBOL program, and the abend flag, plus the return code where
+the program sets one. The parts of the trusted statement that are not generated are the domains of Table~\ref{tab:programs} and
+one model: CBACT01C calls COBDATFT, an assembler routine of 84 lines, and the routine's meaning on the COBOL side is
+a Lean model written from its source. The model leaves out the error path of the routine, on which the call is unsupported; a run
+that reaches it therefore goes wrong rather than producing an outcome.
+
+\paragraph{How a migration proof goes.} A proof has three parts. The first is a theorem of coblean that gives the
+outputs of the COBOL run as a function of the input records, for every input of the domain. Its proof executes the
+program symbolically with the tactic described above: an \code{IF} becomes one state with conditional fields, value intervals remove the truncation tests where a value fits, and each loop over a file is replaced by its result through an induction over
+the records with an invariant. The second part relates these outputs to the translation. For Rust, loop invariants over
+the Aeneas extraction show that the extracted function returns the same outputs and never panics on the domain; for
+Java, verification conditions at the statement indices of the Jimple method body show the same for every terminating
+run. Glue lemmas relate the encodings on the way: zoned decimal against \code{i64}, EBCDIC text against Latin-1 bytes,
+and records against structs or classes. The proofs for five of the eight programs also pass through a field-value model
+of the program in Lean, shared by both languages. The third part instantiates \code{Equiv} for Rust and \code{Sim} for Java with the outcome relation of the statement,
+and closes the statement from the first two parts. For CBACT04C in Rust, for example, a glue theorem derived from
+coblean's all-input theorem states that the COBOL run ends with \code{GOBACK} or with abend 999 and that its displayed
+lines, written transactions, rewritten accounts and abend flag are those of a Lean model of the program. A
+specification proved over the Aeneas extraction states that the Rust run returns the same outputs of that model and
+never panics. A final theorem derives the generated statement from these two facts and from a lemma that relates the
+Latin-1 bytes of the Rust output to the EBCDIC text; since both runs are deterministic, both directions of \code{Equiv} reduce to equal outputs. The Lean model of
+the program and the glue lemmas are proved rather than trusted, because the generated statements do not mention them; an error in them can make a
+proof fail but cannot make a theorem wrong. The theorems are named \code{EquivLean.Modernize.\textit{Prog}.Rust.rust} and
+\code{EquivLean.Modernize.\textit{Prog}.Java.java} in the artifact, those over all admissible inputs of CBACT04C and
+CBTRN02C under \code{Cbact04c.Every} and \code{Cbtrn02c.Any}, and Table~\ref{tab:effort} gives the size of each proof.
+
+\subsection{The orchestrator}
+
+For the studies of Section~\ref{sec:further}, an orchestrator, veriforch, applies the semantics to whole repositories.
+It extracts the call graph, gives each function its own Lean module and works from the leaves upwards. A function
+that uses a construct outside its semantics is recorded as blocked, with the reason. Statements come in two kinds.
+Mechanical statements are produced without a model, for example a test run from the module's initial memory or the
+statement that a Java method throws only what it declares. Model-stated statements, such as contracts, are
+kernel-checked as well but reported separately. An LLM proposes contracts, invariants and proof scripts, and a
+candidate counts only if Lean checks it and the claimed theorem uses only the standard axioms. A function that cannot
+be proved does not block its callers: its contract becomes a hypothesis of each caller, and the caller's result is then
+reported as conditional. Proofs are cached under a key of the function body, the callee contracts and the library
+version, so an unchanged function is not re-proved.
+
+For a change, the same machinery gives each changed function one of four verdicts: \code{equivalent}, that is,
+\code{Equiv} over the well-typed inputs of the function;
+\code{changed\_only\_where\_old\_unsafe}, that is, \code{EquivOn} with \code{Bad} the inputs on which the old version is
+unsafe; \code{behaviour\_changed}, with a distinguishing input found by running both versions on the semantics; and
+\code{unknown}. The first two are kernel-checked theorems.
+
+\paragraph{Who did the work.} Our proofs, our own tools (the semantics, front ends and orchestrator) and the runs come
+from LLM agents, each working in its own session under the author's direction. Each of our four semantics has a
+maintainer session, and these sessions can start helper agents for larger proofs. The session that runs the
+orchestrator starts further agents that write contracts and proofs directly in Lean where the orchestrator's own model
+calls fall short. Coordinating sessions assign the work and collect the results. The costs we report are taken from the usage records of these sessions and, for the orchestrator's own model calls, from its
+usage logs and unit records.

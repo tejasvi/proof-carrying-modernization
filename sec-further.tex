@@ -1,0 +1,28 @@
+\section{Further Uses of the Stack}
+\label{sec:further}
+
+The semantics and the orchestrator also apply to code that was not translated from COBOL. The technical report~\cite{fvtechreport} gives these studies in full and names the pre-registrations behind them; their C and C++ results depend on a C semantics with known defects (Section~\ref{sec:limits}).
+\label{sec:c2rust}
+The method also applies to small pieces of C code. Theorems with statements written by LLM agents relate safe Rust ports of tiny-regex-c, jsmn and zlib's Adler-32
+checksum to the ClangIR of the unmodified C code (for zlib, compiled with the flags named in the technical report).
+They state that the Rust code returns normally with the same results (for jsmn, the return value and the tokens that
+it counts) on bounded inputs on which the C run terminates without undefined behaviour in our C semantics, under
+further premises. A model translated tiny-regex-c in the same kind of loop as the COBOL programs, and agents wrote the other
+two ports directly.
+\label{sec:fixes}
+\label{sec:refactor}
+\label{sec:sample}
+Elsewhere the results are weaker. Under a pre-registration, no commit among 63 security fixes of cJSON and
+tiny-regex-c received a kernel-checked verdict. On a TypeScript library, a semantic diff tool proves 46 of 415 changed
+functions equivalent, many of them only in restricted forms such as at one type instance, and shows 86 to differ, 76 of
+them on calls that are well-typed under the declared types. This study was designed after a first look at 31 pairs, which stay in the counts, and
+was not pre-registered. On pre-registered random
+samples of functions from four code bases, the stack proves at most 29\% of the functions in any run, mostly against
+statements that the model wrote and no person has reviewed.
+\label{sec:thrift}
+On Apache Thrift, the strongest result concerns the wire formats: under contracts for the transport, theorems with statements written by agents show eight departures of the C++, Java and Rust libraries from a Lean specification of the binary
+and compact encodings, each confirmed on the real libraries, and in seven of them the libraries also differ from each
+other. Java, for example, rejects an empty list of UUIDs, and on the real library it cannot read back any list, set or map of
+UUIDs that it wrote itself.
+
+\input{sec-ub-para}

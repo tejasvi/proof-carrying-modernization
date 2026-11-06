@@ -1,0 +1,10 @@
+Large language models translate legacy code quickly, but a translation can differ from the original on inputs that no
+test exercises. We show that LLM translations of whole, unmodified COBOL programs into Rust and Java can be proved in
+Lean~4 to behave like our semantics of the originals on every admissible input: a bounded number of well-formed
+records, among other premises. The COBOL semantics is executable; it computes record layouts, decimal arithmetic and
+file handling from our front end's output for the unmodified source. For the eight standalone batch programs of AWS
+CardDemo covered by that front end, all \aTheorems{} translations are proved, as equivalences for Rust and as
+refinements with partial correctness for Java. The statements are generated from the programs except for a few small
+parts, LLM agents write the proofs, and Lean's kernel checks them. Before any proof, \aaFirstDiffPct\% of the first
+running translations differed from our semantics of the original on a generated input, and no proof found a difference
+that this testing had missed.

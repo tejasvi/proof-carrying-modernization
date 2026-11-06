@@ -1,0 +1,14 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+Kernel-checked proofs that LLM translations of whole COBOL batch programs behave like our semantics of the originals on
+every admissible input are within reach. Every standalone batch program of CardDemo that our front end covered at the version of the study now has a Rust and a
+Java translation with such a theorem. The theorems are relative to our semantics of the original. For Java they state
+partial correctness, and on a later version of our Java semantics the Java translations are also proved totally
+correct. The proofs did not
+replace testing, which found every behavioural error of the translations that we know of. Instead, they turned translations that passed the tests into translations
+with a guarantee over all admissible inputs, and the proof work, not the translation, dominated the cost. The main limitation is the trusted base. The theorems trust the front ends, our statement generator, our semantics of
+COBOL and Java and Aeneas's translation of Rust. The COBOL semantics is tested against GnuCOBOL and, in the IBM conventions used in the theorems, only in an exploratory run with listed gaps. It is not tested against
+IBM's compiler. Covering the remaining batch
+programs of CardDemo would widen the study, and testing the semantics against an IBM compiler would narrow its main
+limitation.
